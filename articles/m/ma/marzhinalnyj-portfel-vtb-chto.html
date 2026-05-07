@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Маржинальный портфель ВТБ: что это и как работает — Банки Инфо</title>
+    <meta name="description" content="Полный разбор маржинального портфеля ВТБ. Что это такое, как формируются требования к обеспечению и как избежать принудительного закрытия позиций.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/m/ma/marzhinalnyj-portfel-vtb-chto.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Маржинальный портфель ВТБ: что это и как работает">
+    <meta property="og:description" content="Полный разбор маржинального портфеля ВТБ. Что это такое, как формируются требования к обеспечению и как избежать принудительного закрытия позиций.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Маржинальный портфель ВТБ: что это и как работает</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Маржинальный портфель ВТБ: что это, риски и требования к обеспечению</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#базовая-механика-и-принципы-формирования-портфеля">Базовая механика и принципы формирования портфеля</a></li><li><a href="#требования-к-обеспечению-и-уровень-риска">Требования к обеспечению и уровень риска</a></li><li><a href="#типы-инструментов-в-маржинальной-торговле">Типы инструментов в маржинальной торговле</a></li><li><a href="#процессы-маржинал-колла-и-ликвидации">Процессы Маржинал-колла и Ликвидации</a></li><li><a href="#стоимость-финансирования-и-комиссии">Стоимость финансирования и комиссии</a></li><li><a href="#стратегии-управления-рисками-и-оптимизация">Стратегии управления рисками и оптимизация</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Торговля с плечом открывает перед инвестором возможности для получения значительно более высокой доходности, чем при использовании исключительно собственных средств. В брокерской инфраструктуре ВТБ для реализации таких стратегий используется специальный механизм, который в терминале «ВТБ Мои Инвестиции» и «ВТБ Инвестиции» обозначается как <strong>маржинальный портфель</strong>. Понимание принципов его работы является фундаментальным навыком для любого трейдера, планирующего совершать сделки с кредитным плечом или продавать активы без покрытия (шортить).</p>
+
+<p>Суть инструмента заключается в том, что брокер предоставляет клиенту возможность торговать на заемные деньги под залог имеющихся на счете активов. Однако доступ к этому функционалу не является автоматическим для всех инструментов и требует четкого контроля за уровнем риска. <em>Маржинальный портфель</em> — это не отдельный счет, а логическая группа позиций, требующая поддержания определенного уровня собственного капитала (обеспечения) относительно общей стоимости обязательств.</p>
+
+<p>Главная особенность работы с данным инструментом в ВТБ — жесткая привязка к показателю <strong>уровня риска</strong>. Пока этот показатель находится в зеленой зоне, инвестор может свободно управлять позициями, но его снижение до критических значений запускает автоматические процессы по ограничению торговли или принудительному закрытию сделок. Ниже мы подробно разберем механику формирования требований, типы инструментов и стратегии управления рисками.</p>
+
+<h2 id="базовая-механика-и-принципы-формирования-портфеля">Базовая механика и принципы формирования портфеля</h2>
+
+<p>Фундаментальным отличием маржинального портфеля от обычного (cash) является наличие кредитного плеча. Когда вы покупаете акции на все свои деньги, вы владеете 100% актива. Если же вы используете заемные средства брокера, вы вносите лишь часть стоимости — <strong>маржу</strong> или <strong>собственные средства</strong>. Остальную сумму брокер фактически кредитует под залог купленных бумаг или свободных денег на счете.</p>
+
+<p>В терминалах ВТБ, таких как <em>ВТБ Мои Инвестиции</em>, переключение между режимами торговли происходит автоматически при выставлении заявки, превышающей объем собственных средств. Система сама определит, что для совершения операции требуется заемное плечо, и включит инструмент в структуру маржинального портфеля. Важно понимать, что не все бумаги имеют одинаковую ликвидационную стоимость.</p>
+
+<p>Ликвидационная стоимость — это оценочная стоимость актива, которую брокер готов принять в качестве обеспечения. Она всегда ниже рыночной цены и рассчитывается с учетом волатильности инструмента. Например, голубые фишки могут иметь ликвидационную стоимость в 80-90% от рынка, в то время как акции третьего эшелона — значительно меньше или не котироваться вовсе.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Ликвидационная стоимость актива может меняться в течение торгового дня в зависимости от волатильности рынка и решения риск-менеджмента брокера.</p></div>
+
+<p>Для успешной торговли необходимо четко осознавать разницу между рыночной стоимостью портфеля и его ликвидационной оценкой. Именно от второй цифры брокер отталкивается при расчете доступного плеча и уровня риска. Игнорирование этого параметра может привести к неприятным сюрпризам, когда формально убыточных позиций нет, но маржинальный звонок уже поступил.</p>
+
+<h2 id="требования-к-обеспечению-и-уровень-риска">Требования к обеспечению и уровень риска</h2>
+
+<p>Ключевым индикатором состояния маржинального портфеля в ВТБ является <strong>уровень риска</strong>. Это процентный показатель, который отражает соотношение собственных средств клиента к общей сумме обязательств с учетом требований к обеспечению. Формула расчета достаточно сложна и учитывает множество коэффициентов, но для пользователя она представлена в виде понятного индикатора в приложении.</p>
+
+<p>Пока уровень риска находится в пределах допустимых значений (обычно ниже 80-90%, точные цифры зависят от тарифного плана и типа инструментов), клиент имеет полный доступ к торгам. Однако при достижении пороговых значений включаются защитные механизмы. В ВТБ существует градация уровней риска, каждый из которых влечет за собой определенные ограничения.</p>
+
+<ul>
+ <li>🟢 <strong>Нормальный уровень:</strong> Торговля ведется в штатном режиме, ограничений на открытие новых позиций нет, вывод средств возможен в пределах свободных активов.</li>
+ <li>🟡 <strong>Повышенный уровень:</strong> Доступен только режим закрытия позиций, открытие новых сделок запрещено, вывод денежных средств заблокирован.</li>
+ <li>🔴 <strong>Критический уровень:</strong> Брокер имеет право принудительно закрыть часть или все позиции без уведомления клиента для возврата выданных займов.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> При достижении уровня риска 100% брокер вправе принудительно закрыть ваши позиции по текущей рыночной цене, даже если она крайне невыгодна. Не доводите портфель до этого состояния.</p>
+</blockquote>
+
+<p>Важно отметить, что расчет уровня риска происходит в режиме реального времени. Резкие колебания рынка могут мгновенно изменить этот показатель. Поэтому трейдерам, использующим высокое плечо, рекомендуется держать уровень риска значительно ниже предельных значений, чтобы иметь запас прочности на случай гэпов или высокой волатильности.</p>
+
+<div class="poll-widget" id="poll-3ce0ac38"><div class="poll-widget-question">📊 Какой уровень риска вы считаете безопасным для активной торговли?</div><div class="poll-widget-option" data-poll="3ce0ac38" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">До 30%</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3ce0ac38" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">30-50%</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3ce0ac38" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">50-70%</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3ce0ac38" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Я не торгую с плечом</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="типы-инструментов-в-маржинальной-торговле">Типы инструментов в маржинальной торговле</h2>
+
+<p>В инфраструктуре ВТБ доступно несколько типов инструментов, которые могут входить в состав маржинального портфеля. Понимание различий между ними критически важно для управления рисками. Основное деление происходит по типу совершаемой операции: покупка с плечом (лонг) или продажа без покрытия (шорт).</p>
+
+<p>При покупке акций с плечом (<strong>Long</strong>) вы берете у брокера деньги. В этом случае ваши собственные средства выступают залогом. Брокер начисляет процент за пользование заемными средствами, который списывается ежедневно. Ставка зависит от тарифа и объема заемных средств, и её необходимо учитывать в финансовой модели сделки.</p>
+
+<p>При продаже акций без покрытия (<strong>Short</strong>) ситуация обратная: вы берете у брокера ценные бумаги, продаете их по текущей цене и обязаны вернуть тот же объем бумаг позже. Здесь ваши деньги на счете служат обеспечением. Если цена акции растет, ваш убыток и требования к обеспечению увеличиваются. Также существует комиссия за предоставление бумаг в заем.</p>
+
+<table>
+ <thead>
+ <tr>
+ <th>Тип операции</th>
+ <th>Что берется в заем</th>
+ <th>На что начисляются проценты</th>
+ <th>Риск при росте рынка</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Лонг с плечом</td>
+ <td>Деньги</td>
+ <td>На сумму займа</td>
+ <td>Убыток по позиции</td>
+ </tr>
+ <tr>
+ <td>Шорт (продажа)</td>
+ <td>Ценные бумаги</td>
+ <td>На стоимость бумаг</td>
+ <td>Неограниченный (теоретически)</td>
+ </tr>
+ <tr>
+ <td>Фьючерсы</td>
+ <td>Плечо встроено</td>
+ <td>Включено в цену (комиссия)</td>
+ <td>Зависит от вариационной маржи</td>
+ </tr>
+ </tbody>
+</table>
+
+<p>Отдельного внимания заслуживают <em>фьючерсы</em>. При торговле фьючерсами на Московской бирже плечо уже встроено в механизм контракта через гарантийное обеспечение (ГО). В терминале ВТБ фьючерсы также могут влиять на общий уровень риска портфеля, если они торгуются в рамках единой маржи, однако чаще они требуют отдельного контроля доступного свободного остатка.</p>
+
+<h2 id="процессы-маржинал-колла-и-ликвидации">Процессы Маржинал-колла и Ликвидации</h2>
+
+<p>Управление маржинальным портфелем неразрывно связано с двумя критическими процессами: <strong>маржинальным коллом</strong> (Margin Call) и ликвидацией. Маржинальный колл — это требование брокера пополнить счет или сократить позиции, когда уровень риска достигает определенного порога (обычно около 80-90%).</p>
+
+<p>В ВТБ уведомления о маржинальном колле могут приходить через PUSH-уведомления в приложении, SMS или по электронной почте. Однако полагаться исключительно на уведомления нельзя: технические сбои или проблемы со связью не освобождают клиента от обязательств. Трейдер обязан самостоятельно мониторить состояние счета.</p>
+
+<details class="faq-item"><summary>Что происходит при игнорировании Margin Call?</summary><div class="faq-answer"><p>Если клиент не реагирует на требование пополнить счет, уровень риска продолжает расти. При достижении 100% (или иного порога, указанного в регламенте) включается механизм принудительного закрытия. Брокер продает ваши активы по любой доступной цене, часто с дисконтом, чтобы погасить заем. Остаток средств (если он будет) возвращается клиенту.</p></div></details>
+
+<p>Процесс ликвидации (принудительного закрытия) происходит автоматически системой риск-менеджмента. Алгоритм выбирает позиции для закрытия, часто начиная с самых ликвидных или тех, чье закрытие быстрее всего снизит уровень риска. В моменты высокой волатильности это может привести к значительным убыткам, превышающим первоначальный депозит.</p>
+
+<p>Существует также понятие <strong>Вариационной маржи</strong> (для фьючерсов и некоторых других инструментов). Это ежедневный пересчет стоимости позиции. Если вариационная маржа отрицательная, средства списываются со счета. Если денег на счете недостаточно для покрытия вариационной маржи, это также ведет к росту уровня риска и потенциальному маржинальному коллу.</p>
+
+<h2 id="стоимость-финансирования-и-комиссии">Стоимость финансирования и комиссии</h2>
+
+<p>Использование заемных средств — это платная услуга. Брокер ВТБ взимает проценты за пользование кредитным плечом. Размер ставки зависит от тарифного плана клиента, объема заемных средств и типа валюты займа. Ставки могут быть фиксированными или плавающими, привязанными к ключевой ставке ЦБ или ставке RUONIA.</p>
+
+<p>Начисление процентов происходит ежедневно, даже в выходные и праздничные дни, если позиция открыта. Расчет идет на фактическое количество дней пользования заемными средствами. Это означает, что держать убыточную позицию с плечом долгое время может быть экономически нецелесообразно из-за накопления комиссионных расходов.</p>
+
+<ul>
+ <li>💸 <strong>Комиссия за займы:</strong> Взимается в рублях, долларах или юанях в зависимости от валюты займа.</li>
+ <li>📉 <strong>Комиссия за шорт:</strong> Дополнительный процент за предоставление бумаг в заем, который может значительно превышать ставку по денежным займам.</li>
+ <li>🔄 <strong>Комиссия за перевод:</strong> При переводе активов между режимами (если применимо) или конвертации валюты для покрытия требований.</li>
+</ul>
+
+<p>Для расчета примерной стоимости финансирования в приложении <em>ВТБ Инвестиции</em> часто доступен калькулятор или информационная справка по текущим ставкам. Перед открытием позиции с плечом всегда проверяйте актуальные тарифы в разделе «Комиссии и тарифы» на сайте брокера или в личном кабинете.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед открытием позиции с плечом</h4><label class="check-item"><input type="checkbox"><span>Рассчитать точку безубыточности с учетом комиссии за займы</span></label><label class="check-item"><input type="checkbox"><span>Проверить ликвидность актива</span></label><label class="check-item"><input type="checkbox"><span>Установить стоп-лосс</span></label><label class="check-item"><input type="checkbox"><span>Убедиться, что уровень риска ниже 50%</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="стратегии-управления-рисками-и-оптимизация">Стратегии управления рисками и оптимизация</h2>
+
+<p>Эффективное управление маржинальным портфелем требует дисциплины и четкого плана. Главная ошибка новичков — использование максимального доступного плеча. Профессиональные трейдеры редко загружают портфель более чем на 30-40% от доступного лимита, оставляя запас прочности для маневра.</p>
+
+<p>Одной из базовых стратегий является диверсификация. Не стоит формировать весь портфель из активов одной отрасли или с высокой корреляцией. Если рынок пойдет против вас, убытки по всем позициям суммируются, резко повышая уровень риска. Включение в портфель защитных активов или (денежных средств) помогает сгладить колебания.</p>
+
+<p>Использование стоп-заявок (Stop-Loss) обязательно при торговле с плечом. Это приказ брокеру автоматически закрыть позицию при достижении определенного уровня убытка. Хотя стоп-лосс не гарантирует исполнение по exact цене в условиях гэпа, он ограничивает убыток и предотвращает сценарий полной потери депозита.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Установка стоп-заявок не гарантирует защиту от «проскальзывания» цены. При резких движениях рынка сделка может исполниться значительно хуже указанной цены.</p>
+</blockquote>
+
+<p>Также важно регулярно пересматривать структуру портфеля. Если какая-то позиция сильно выросла в цене, её доля в портфеле увеличивается, что может изменить профиль риска. Ребалансировка (частичная фиксация прибыли или добавление средств) помогает держать уровень риска в безопасных пределах.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Золотое правило маржинальной торговли: плечо увеличивает не только потенциальную прибыль, но и скорость потери капитала. Используйте его только при наличии четкой стратегии выхода.</p></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+ <summary>Можно ли вывести деньги, если открыты позиции с плечом?</summary>
+ <p>Вывод средств возможен только в пределах «свободных» денег, которые не заняты в качестве обеспечения по открытым позициям. Если уровень риска высок, вывод средств будет заблокирован системой до снижения риска.</p>
+</details>
+
+<details>
+ <summary>Что будет, если я ушел в минус по маржинальному портфелю?</summary>
+ <p>Если после принудительной ликвидации позиций на счете образовался долг (отрицательный баланс), клиент обязан его погасить. Брокер имеет право обратиться в суд для взыскания задолженности в принудительном порядке.</p>
+</details>
+
+<details>
+ <summary>Как узнать текущую ставку по займу в ВТБ?</summary>
+ <p>Актуальные ставки по займам (лонг и шорт) публикуются на официальном сайте ВТБ в разделе «Тарифы и комиссии» для брокерского обслуживания, а также отображаются в спецификациях инструментов внутри торгового терминала.</p>
+</details>
+
+<details>
+ <summary>Влияют ли дивиденды на маржинальный портфель?</summary>
+ <p>Да, начисленные дивиденды увеличивают сумму собственных средств на счете, что может положительно сказаться на уровне риска. Однако при коротких позициях (шорт) клиент обязан выплатить дивиденды владельцу бумаг, что приведет к списанию средств со счета.</p>
+</details>
+
+<details>
+ <summary>Можно ли торговать с плечом на ИИС?</summary>
+ <p>На индивидуальных инвестиционных счетах (ИИС) использование заемных средств (маржинальное кредитование) запрещено законодательством РФ. Торговля с плечом возможна только на обычных брокерских счетах.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#базовая-механика-и-принципы-формирования-портфеля">Базовая механика и принципы формирования портфеля</a></li><li><a href="#требования-к-обеспечению-и-уровень-риска">Требования к обеспечению и уровень риска</a></li><li><a href="#типы-инструментов-в-маржинальной-торговле">Типы инструментов в маржинальной торговле</a></li><li><a href="#процессы-маржинал-колла-и-ликвидации">Процессы Маржинал-колла и Ликвидации</a></li><li><a href="#стоимость-финансирования-и-комиссии">Стоимость финансирования и комиссии</a></li><li><a href="#стратегии-управления-рисками-и-оптимизация">Стратегии управления рисками и оптимизация</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-kupit-optsion-na-moskovskoj-birzhe-vtb.html" class="related-card">Как купить опцион на Московской бирже через ВТБ: пошагово 2026</a></li><li><a href="/articles/s/su/subordinirovannye-obligatsii-vtb-chto-eto.html" class="related-card">Субординированные облигации ВТБ: что это и стоит ли покупать</a></li><li><a href="/articles/c/ch/chto-takoe-shortit-na-birzhe-vtb.html" class="related-card">Как шортить на бирже ВТБ: пошаговая инструкция</a></li><li><a href="/articles/i/in/individualnyj-investitsionnyj-schet-vtb-chto-eto.html" class="related-card">Индивидуальный инвестиционный счет в ВТБ: что это и как открыть</a></li><li><a href="/articles/k/ka/kak-rabotayut-fyuchersy-v-vtb-investitsii.html" class="related-card">Фьючерсы в ВТБ Инвестиции: как торговать и тарифы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-kupit-optsion-na-moskovskoj-birzhe-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как купить опцион на Московской бирже через ВТБ: пошагово 2026</span><span class="related-bottom-desc">Инструкция по покупке опционов на Мосбирже через ВТБ Инвестиции: от открытия счета до первой сделки.</span></a><a href="/articles/s/su/subordinirovannye-obligatsii-vtb-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">Субординированные облигации ВТБ: что это и стоит ли покупать</span><span class="related-bottom-desc">Полный разбор субординированных облигаций ВТБ. Риски, доходность, условия погашения и отличия от обы</span></a><a href="/articles/c/ch/chto-takoe-shortit-na-birzhe-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как шортить на бирже ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Полный гид по коротким позициям в приложении ВТБ. Что такое шорт, как открыть сделку и рассчитать ко</span></a><a href="/articles/i/in/individualnyj-investitsionnyj-schet-vtb-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">Индивидуальный инвестиционный счет в ВТБ: что это и как открыть</span><span class="related-bottom-desc">Узнайте, что такое ИИС в ВТБ, какие типы счетов доступны, условия тарификации, налоговые вычеты и по</span></a><a href="/articles/k/ka/kak-rabotayut-fyuchersy-v-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Фьючерсы в ВТБ Инвестиции: как торговать и тарифы</span><span class="related-bottom-desc">Полный гид по фьючерсам в ВТБ Инвестиции: как начать торговать, выбор контрактов, размеры гарантийно</span></a><a href="/articles/z/za/zajmy-overnajt-tsennykh-bumag-v-vtb-chto-eto-takoe.html" class="related-bottom-card"><span class="related-bottom-title">Займы овернайт ценных бумаг ВТБ: условия и порядок предоставления</span><span class="related-bottom-desc">Подробный разбор овернайт-кредитования под залог ценных бумаг в ВТБ. Узнайте тарифы, требования к ли</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

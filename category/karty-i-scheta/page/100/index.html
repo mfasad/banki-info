@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Карты и счета — страница 100 — Банки Инфо</title>
+    <meta name="description" content="Оформление, активация, блокировка и управление дебетовыми и кредитными картами.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+        .cat-hero {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e3a5f 100%);
+            border-bottom: none;
+            padding: 48px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cat-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(37,99,235,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(139,92,246,0.1) 0%, transparent 50%);
+            animation: heroShimmer 8s ease-in-out infinite alternate;
+        }
+        @keyframes heroShimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(3deg); }
+        }
+        .cat-hero .container { position: relative; z-index: 1; }
+        .cat-hero-icon {
+            font-size: 3.5rem; display: block; margin-bottom: 16px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+        }
+        .cat-hero h1 {
+            font-size: 2rem; font-weight: 800; color: #f1f5f9;
+            margin-bottom: 10px; letter-spacing: -0.02em;
+        }
+        .cat-hero p {
+            color: #94a3b8; font-size: 1.05rem; max-width: 600px;
+            margin: 0 auto; line-height: 1.6;
+        }
+        .cat-benefits {
+            display: flex; justify-content: center; gap: 12px;
+            margin-top: 24px; flex-wrap: wrap;
+        }
+        .cat-benefit {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.08); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px; padding: 8px 18px;
+            font-size: 0.88rem; color: #e2e8f0; font-weight: 500;
+            transition: all 0.25s;
+        }
+        .cat-benefit:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        .benefit-icon { font-size: 1.15em; }
+
+        .cat-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px; padding: 32px 0 24px;
+        }
+        .article-home-card {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+            padding: 0; text-decoration: none; color: #1e293b;
+            transition: all 0.25s ease; display: flex; flex-direction: column;
+            overflow: hidden; position: relative;
+        }
+        .article-home-card:hover {
+            border-color: #bfdbfe;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.1);
+            transform: translateY(-4px);
+        }
+        .card-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 20px 0;
+        }
+        .card-icon {
+            font-size: 1.4em;
+            background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+            width: 36px; height: 36px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 6px rgba(37,99,235,0.1);
+        }
+        .card-read-time {
+            font-size: 0.78rem; color: #94a3b8; font-weight: 500;
+        }
+        .article-home-title {
+            font-weight: 600; font-size: 0.97rem; line-height: 1.4;
+            padding: 12px 20px 0; transition: color 0.2s;
+        }
+        .article-home-card:hover .article-home-title { color: #2563eb; }
+        .article-home-desc {
+            font-size: 0.84rem; color: #64748b; line-height: 1.5;
+            padding: 6px 20px 0; flex: 1;
+        }
+        .card-footer {
+            display: flex; justify-content: flex-end; align-items: center;
+            padding: 12px 20px; margin-top: auto;
+            border-top: 1px solid #f1f5f9;
+        }
+        .card-read-more {
+            font-size: 0.82rem; font-weight: 600; color: #94a3b8;
+            transition: all 0.2s;
+        }
+        .article-home-card:hover .card-read-more {
+            color: #2563eb; letter-spacing: 0.02em;
+        }
+
+        .pagination {
+            display: flex; justify-content: center; gap: 6px;
+            padding: 8px 0 48px; flex-wrap: wrap; align-items: center;
+        }
+        .pag-link {
+            padding: 10px 16px; border-radius: 10px; border: 1px solid #e2e8f0;
+            color: #64748b; font-size: 0.9rem; text-decoration: none;
+            transition: all 0.2s; font-weight: 500;
+        }
+        .pag-link:hover { border-color: #2563eb; color: #2563eb; background: #eff6ff; }
+        .pag-active {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: #fff !important; border-color: #2563eb;
+            box-shadow: 0 3px 10px rgba(37,99,235,0.3);
+        }
+        .pag-edge { font-size: 1rem; font-weight: 700; }
+        .pag-dots { color: #94a3b8; padding: 0 4px; }
+
+        
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+
+        @media (max-width: 640px) {
+            .cat-grid { grid-template-columns: 1fr; }
+            .cat-hero h1 { font-size: 1.5rem; }
+        }
+    </style>
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link active">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container">
+            <a href="/">Главная</a>
+            <span class="breadcrumb-sep">›</span>
+            <span class="breadcrumb-current">Карты и счета</span>
+        </div>
+    </nav>
+
+    <section class="cat-hero">
+        <div class="container">
+            <span class="cat-hero-icon">💳</span>
+            <h1>Карты и счета</h1>
+            <p>Оформление, активация, блокировка и управление дебетовыми и кредитными картами. · страница 100 из 444</p>
+            <div class="cat-benefits"><div class="cat-benefit"><span class="benefit-icon">📖</span><span>Понятные инструкции</span></div><div class="cat-benefit"><span class="benefit-icon">✅</span><span>Проверенные решения</span></div><div class="cat-benefit"><span class="benefit-icon">⚡</span><span>Без лишних слов</span></div></div>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="cat-grid">
+            <a href="/articles/k/ka/karta-mir-vtb-dlya-pensionerov-protsent-na-ostatok-skolko-protsentov.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Процент на остаток по карте «Мир» ВТБ для пенсионеров в 2026 году</div>
+                <div class="article-home-desc">Актуальные условия начисления процентов на остаток по дебетовой карте «Мир» ВТБ для пенсионеров: размер ставки, как полу</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/karta-vtb-kak-sdelat.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Как оформить карту ВТБ: пошаговая инструкция 2026 года</div>
+                <div class="article-home-desc">Подробное руководство по оформлению дебетовой и кредитной карты ВТБ онлайн, через приложение и в отделении. Сроки, требо</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/karta-vtb-mir-eto-kakaya.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 17 мин</span>
+                </div>
+                <div class="article-home-title">Карта ВТБ «Мир»: что это, как оформить и пользоваться в 2026 году</div>
+                <div class="article-home-desc">Подробный разбор карты ВТБ «Мир»: тарифы, преимущества, как получить и активировать. Сравнение с другими дебетовыми карт</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/karta-vtb-skolko-izgotavlivaetsya-debetovaya.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Сколько делается дебетовая карта ВТБ: сроки изготовления 2026</div>
+                <div class="article-home-desc">Узнайте точные сроки изготовления дебетовой карты ВТБ в 2026 году: от подачи заявки до получения. Стандартные и ускоренн</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/karta-vtb-supreme-privilegiya-chto-daet.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Карта ВТБ Supreme Привилегия: что дает в 2026 году</div>
+                <div class="article-home-desc">Разбираем все бонусы, условия и привилегии карты ВТБ Supreme Привилегия: кэшбэк, страховки, доступ в залы ожидания и VIP</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/karty-balans-vtb-kak-otklyuchit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Как отключить карту «Баланс» ВТБ: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по отключению карты «Баланс» от ВТБ: через приложение, банкомат и офис. Разбираем нюансы блокировк</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/karty-vtb-na-kakie-tsifry-nachinayutsya.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Карты ВТБ: с каких цифр начинаются номера дебетовых и кредитных карт</div>
+                <div class="article-home-desc">Узнайте, с каких цифр начинаются номера карт ВТБ (дебетовых, кредитных, зарплатных). BIN-коды банка, как определить тип </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ko/kod-statusa-operatsii-cs-active-vtb-chto-znachit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Код статуса «CS Active» в ВТБ — что это значит и как убрать</div>
+                <div class="article-home-desc">Разбираемся, что означает статус операции «CS Active» в банке ВТБ, почему он появляется и как решить проблему. Пошаговые</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ko/kogda-istekaet-srok-dejstviya-karty-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Срок действия карты ВТБ: когда истекает и как проверить</div>
+                <div class="article-home-desc">Узнайте, как определить срок действия дебетовой или кредитной карты ВТБ, что делать при истечении и как получить новую. </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ko/kogda-mozhno-sdat-kreditnuyu-kartu-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Когда можно сдать кредитную карту ВТБ: условия и пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Узнайте, в каких случаях можно досрочно закрыть кредитную карту ВТБ без штрафов, как правильно оформить отказ и что дела</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ko/kogda-prikhodit-stipendiya-studentam-vtb-na-kartu.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Когда приходит стипендия на карту ВТБ студентам в 2026 году: точные сроки</div>
+                <div class="article-home-desc">Узнайте, в какие числа зачисляется стипендия на карту ВТБ для студентов: график выплат, причины задержек, как проверить </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/kr/kreditnaya-karta-vtb-kak-nachislyayutsya-protsenty-posle-lgotnogo-perioda.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Проценты по кредитке ВТБ после льготного периода: как начисляются в 2026</div>
+                <div class="article-home-desc">Разбираемся, как ВТБ считает проценты по кредитной карте после окончания грейса: формулы, примеры расчётов, скрытые коми</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/kr/kreditnaya-karta-vtb-kak-rabotaet-lgotnyj-period.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Льготный период ВТБ по кредитной карте: как работает в 2026 году</div>
+                <div class="article-home-desc">Разбираем механизм льготного периода по картам ВТБ: сроки, условия, как не платить проценты и избежать штрафов. Актуальн</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/kr/kreditnaya-karta-vtb-kakie-dokumenty.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Какие документы нужны для кредитной карты ВТБ в 2026 году</div>
+                <div class="article-home-desc">Полный список документов для оформления кредитной карты ВТБ: паспорт, СНИЛС, справка о доходах. Условия для зарплатных и</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ku/kuda-luchshe-poluchat-zarplatu-na-vtb-ili-sberbank.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">ВТБ или Сбербанк: куда лучше получать зарплату в 2026 году?</div>
+                <div class="article-home-desc">Сравнение условий зарплатных проектов ВТБ и Сбербанка: проценты на остаток, комиссии, бонусы, мобильный банк и удобство </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ku/kuda-ukhodyat-dengi-s-karty-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Куда уходят деньги с карты ВТБ: 7 причин списаний и как проверить</div>
+                <div class="article-home-desc">Разбираем все возможные причины списаний с карты ВТБ: от автоплатежей до мошенничества. Инструкция, как отследить транза</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/l/lo/login-bankovskoj-karty-gde-smotret-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Где посмотреть логин карты ВТБ: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Не знаете, где найти логин для входа в личный кабинет ВТБ по карте? Разбираем все способы: в договоре, СМС, мобильном ба</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/ma/master-schet-v-rublyakh-vtb-chto-eto-i-chem.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Мастер-счет в рублях ВТБ: что это, как открыть и зачем нужен</div>
+                <div class="article-home-desc">Разбираемся, что такое мастер-счет в ВТБ, его особенности, условия обслуживания и как им пользоваться для управления нес</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/mi/minimalnyj-platezh-po-kreditnoj-karte-vtb-24-chto-eto.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Минимальный платеж по кредитной карте ВТБ 24: что это и как рассчитать</div>
+                <div class="article-home-desc">Подробный разбор минимального платежа по кредитной карте ВТБ: формула расчета, сроки оплаты, последствия просрочки и сов</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/mu/multikarta-detskaya-vtb-chto-eto.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Мультикарта ВТБ для детей: что это, как оформить и пользоваться</div>
+                <div class="article-home-desc">Разбираем детскую мультикарту ВТБ: условия выпуска, тарифы, бонусы и как ею управлять через приложение. Полный гайд для </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/mu/multikarta-sokrovishch-vtb-chto-eto-takoe-otzyvy.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Мультикарта Сокровищ ВТБ: что это, отзывы 2026, условия</div>
+                <div class="article-home-desc">Разбираем мультикарту Сокровищ от ВТБ: как работает, тарифы, реальные отзывы клиентов и сравнение с аналогами. Плюсы и м</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/mu/multikarta-vtb-kak-poluchit-protsent-na-ostatok.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Мультикарта ВТБ: как получить процент на остаток в 2026 году</div>
+                <div class="article-home-desc">Подробная инструкция: условия начисления процентов на остаток по Мультикарте ВТБ, тарифы, как увеличить доходность и изб</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/mu/multikarta-vtb-kak-polzovatsya-besplatno.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 15 мин</span>
+                </div>
+                <div class="article-home-title">Мультикарта ВТБ: как пользоваться бесплатно в 2026 году</div>
+                <div class="article-home-desc">Пошаговая инструкция по бесплатному использованию мультикарты ВТБ: условия, тарифы, как избежать комиссий и получить кэш</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/mu/multikarta-vtb-v-chem-podvokh-otzyvy-2022.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Мультикарта ВТБ 2022: скрытые условия и реальные отзывы клиентов</div>
+                <div class="article-home-desc">Что скрывает мультикарта ВТБ? Разбор подводных камней, тарифов и отзывов пользователей за 2022 год. Плюсы и минусы, о ко</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/mu/multikarta-vtb-v-chem-preimushchestva.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Мультикарта ВТБ: 10 реальных преимуществ и скрытые возможности</div>
+                <div class="article-home-desc">Разбираем все плюсы мультикарты ВТБ 2026: кэшбэк до 10%, бесплатное обслуживание, бонусы за покупки и как ими пользовать</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/n/ne/ne-udalos-sozdat-chernovik-ankety-vtb-onlajn-chto-eto.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Не удалось создать черновик анкеты ВТБ Онлайн: причины и решения</div>
+                <div class="article-home-desc">Разбираем ошибку «не удалось создать черновик анкеты» в ВТБ Онлайн: почему возникает, как исправить самостоятельно и ког</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/n/ne/neimennaya-karta-vtb-kak-aktivirovat.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Как активировать неименную карту ВТБ: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по активации неименной карты ВТБ: через банкомат, мобильное приложение, SMS и интернет-банк. Разби</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/o/op/operatsii-po-karte-priostanovleny-vtb-chto-znachit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Операции по карте приостановлены ВТБ: что это значит и как разблокировать</div>
+                <div class="article-home-desc">Узнайте, почему ВТБ блокирует операции по карте, как проверить статус и быстро восстановить доступ к деньгам. Пошаговые </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/o/op/oplata-paketov-notifikatsii-vtb-chto-eto-znachit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Оплата пакетов нотификации ВТБ: что это и зачем нужно?</div>
+                <div class="article-home-desc">Разбираем, что такое пакеты нотификации в ВТБ, как они работают, сколько стоят и как отключить ненужные уведомления. Пол</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/pa/paket-opoveshchenij-bazovyj-vtb-kak-podklyuchit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">💳</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Как подключить пакет оповещений «Базовый» в ВТБ: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по активации SMS/пуш-уведомлений от ВТБ: условия, тарифы, способы подключения через приложение, он</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a></div>
+            <nav class="pagination" aria-label="Страницы"><a href="/category/karty-i-scheta/" class="pag-link pag-edge" title="В начало">«</a><a href="/category/karty-i-scheta/page/99/" class="pag-link">← Назад</a><a href="/category/karty-i-scheta/" class="pag-link">1</a><span class="pag-dots">…</span><a href="/category/karty-i-scheta/page/97/" class="pag-link">97</a><a href="/category/karty-i-scheta/page/98/" class="pag-link">98</a><a href="/category/karty-i-scheta/page/99/" class="pag-link">99</a><a href="/category/karty-i-scheta/page/100/" class="pag-link pag-active">100</a><a href="/category/karty-i-scheta/page/101/" class="pag-link">101</a><a href="/category/karty-i-scheta/page/102/" class="pag-link">102</a><a href="/category/karty-i-scheta/page/103/" class="pag-link">103</a><span class="pag-dots">…</span><a href="/category/karty-i-scheta/page/444/" class="pag-link">444</a><a href="/category/karty-i-scheta/page/101/" class="pag-link">Далее →</a><a href="/category/karty-i-scheta/page/444/" class="pag-link pag-edge" title="В конец">»</a></nav>
+        </div>
+    </main>
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script>
+    document.getElementById('menuBtn')?.addEventListener('click', () => {
+        document.getElementById('mainNav')?.classList.toggle('open');
+    });
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

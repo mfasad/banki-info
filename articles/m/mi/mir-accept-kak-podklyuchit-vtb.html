@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>MIR Accept в ВТБ: как подключить и настроить для бизнеса — Банки Инфо</title>
+    <meta name="description" content="Пошаговая инструкция по подключению MIR Accept в ВТБ для приёма платежей по картам МИР. Условия, тарифы, необходимые документы и нюансы настройки терминала.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/m/mi/mir-accept-kak-podklyuchit-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="MIR Accept в ВТБ: как подключить и настроить для бизнеса">
+    <meta property="og:description" content="Пошаговая инструкция по подключению MIR Accept в ВТБ для приёма платежей по картам МИР. Условия, тарифы, необходимые документы и нюансы настройки терминала.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/platezhi-zhkkh/">Платежи ЖКХ</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">MIR Accept в ВТБ: как подключить и настроить для бизнеса</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как подключить MIR Accept в ВТБ: инструкция для бизнеса 2026 года</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-mir-accept-и-зачем-его-подключать-через-втб">Что такое MIR Accept и зачем его подключать через ВТБ</a></li><li><a href="#кто-обязан-подключить-mir-accept-в-2024-году">Кто обязан подключить MIR Accept в 2024 году</a></li><li><a href="#необходимые-документы-для-подключения-mir-accept-в-втб">Необходимые документы для подключения MIR Accept в ВТБ</a></li><li><a href="#пошаговая-инструкция-как-подключить-mir-accept-в-втб">Пошаговая инструкция: как подключить MIR Accept в ВТБ</a></li><li><a href="#тарифы-втб-на-mir-accept-в-2024-году">Тарифы ВТБ на MIR Accept в 2024 году</a></li><li><a href="#частые-проблемы-при-подключении-и-их-решения">Частые проблемы при подключении и их решения</a></li><li><a href="#альтернативы-mir-accept-в-втб-что-выбрать">Альтернативы MIR Accept в ВТБ: что выбрать</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-mir-accept-в-втб">FAQ: Ответы на частые вопросы о MIR Accept в ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><h2 id="что-такое-mir-accept-и-зачем-его-подключать-через-втб">Что такое MIR Accept и зачем его подключать через ВТБ</h2>
+
+<p>С 2022 года система платежей <strong>MIR Accept</strong> стала обязательным инструментом для большинства российских компаний, работающих с физическими лицами. Этот сервис позволяет бизнесменам принимать оплату по картам <em>МИР</em> без комиссий со стороны международных платёжных систем. ВТБ, как один из крупнейших банков России, предлагает подключение <strong>MIR Accept</strong> на выгодных условиях — с минимальным пакетом документов и гибкими тарифами.</p>
+
+<p>Основное преимущество подключения через ВТБ — интеграция с уже существующим расчётным счётом. Если ваш бизнес уже обслуживается в этом банке, процедура займёт не более 3–5 рабочих дней. При этом <strong>комиссия за приём платежей по картам МИР</strong> через <em>MIR Accept</em> составляет <mark>0% до 31 декабря 2026 года</mark> для большинства категорий бизнеса (уточняйте актуальные условия у менеджера ВТБ). Это делает сервис особенно привлекательным для малого и среднего бизнеса, работающего с розничными клиентами.</p>
+
+<p>Важно понимать, что <em>MIR Accept</em> — это не просто альтернатива традиционному эквайрингу, а отдельный продукт с собственными правилами. Он не заменяет классический эквайринг для Visa/Mastercard (если он у вас подключён), а дополняет его. Например, через <strong>MIR Accept</strong> нельзя принимать платежи по бесконтактной технологии <em>Mir Pay</em> — для этого потребуется отдельное подключение <em>NSPK</em> (Национальной системы платёжных карт).</p>
+
+<h2 id="кто-обязан-подключить-mir-accept-в-2026-году">Кто обязан подключить MIR Accept в 2026 году</h2>
+
+<p>Согласно <a href="https://www.consultant.ru/document/cons_doc_LAW_419714/" target="_blank" rel="noopener noreferrer">Федеральному закону № 161-ФЗ</a>, подключение к <strong>MIR Accept</strong> обязательно для следующих категорий бизнеса:</p>
+
+<ul>
+  <li>🛒 <strong>Розничная торговля</strong> (магазины, супермаркеты, аптеки, торговые сети)</li>
+  <li>🍽️ <strong>Общественное питание</strong> (кафе, рестораны, столовые, фастфуд)</li>
+  <li>🚗 <strong>Автозаправки и автосервисы</strong> (АЗС, шиномонтажи, мойки)</li>
+  <li>🏠 <strong>ЖКХ и коммунальные услуги</strong> (управляющие компании, ТСЖ, ресурсоснабжающие организации)</li>
+  <li>🎭 <strong>Культура и развлечения</strong> (кинотеатры, театры, музеи, фитнес-центры)</li>
+</ul>
+
+<p>Исключения составляют индивидуальные предприниматели на патентной системе налогообложения (если их годовой доход не превышает 60 млн рублей) и микропредприятия с оборотом до 120 млн рублей в год. Однако даже для них подключение <em>MIR Accept</em> остаётся добровольным, но крайне рекомендуемым — особенно если среди клиентов много держателей карт <em>МИР</em>.</p>
+
+<p>Для компаний, которые не подключились к системе до 1 июля 2026 года, предусмотрены штрафы:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип нарушения</th>
+      <th>Штраф для юрлиц</th>
+      <th>Штраф для ИП</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Отсутствие подключения к <em>MIR Accept</em></td>
+      <td>от 50 000 до 100 000 ₽</td>
+      <td>от 5 000 до 10 000 ₽</td>
+    </tr>
+    <tr>
+      <td>Непринятие карты <em>МИР</em> при наличии терминала</td>
+      <td>от 30 000 до 50 000 ₽</td>
+      <td>от 3 000 до 5 000 ₽</td>
+    </tr>
+    <tr>
+      <td>Повторное нарушение в течение года</td>
+      <td>до 200 000 ₽</td>
+      <td>до 20 000 ₽</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ВТБ предлагает бесплатную консультацию по проверке вашего бизнеса на обязательность подключения. Для этого достаточно обратиться в ближайшее отделение банка или позвонить на горячую линию <code>8 800 200-77-99</code> (звонок бесплатный по России).</p>
+
+<div class="poll-widget" id="poll-55551d54"><div class="poll-widget-question">📊 Ваш бизнес уже подключён к MIR Accept?</div><div class="poll-widget-option" data-poll="55551d54" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, через ВТБ</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="55551d54" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, через другой банк</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="55551d54" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет, но планирую</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="55551d54" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет и не планирую</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="55551d54" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Не знаю, обязательно ли это для меня</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="необходимые-документы-для-подключения-mir-accept-в-втб">Необходимые документы для подключения MIR Accept в ВТБ</h2>
+
+<p>Чтобы подключить <strong>MIR Accept</strong> через ВТБ, подготовьте следующий пакет документов:</p>
+
+<ul>
+  <li>📄 <strong>Заявление на подключение</strong> (бланк предоставляет банк)</li>
+  <li>🆔 <strong>Паспорт</strong> руководителя или ИП (оригинал + копия)</li>
+  <li>📑 <strong>Выписка из ЕГРЮЛ/ЕГРИП</strong> (не старше 30 дней)</li>
+  <li>🏢 <strong>Документы на точку продаж</strong> (договор аренды, свидетельство о праве собственности или гарантийное письмо от арендодателя)</li>
+  <li>💳 <strong>Реквизиты расчётного счёта</strong> в ВТБ (если счёт открыт в другом банке, потребуется его перевод)</li>
+</ul>
+
+<p>Для некоторых категорий бизнеса могут потребоваться дополнительные документы:</p>
+
+<ul>
+  <li>🍎 <strong>Для торговли продуктами питания</strong> — лицензия или декларация соответствия (если требуется по закону)</li>
+  <li>💊 <strong>Для аптек</strong> — лицензия на фармацевтическую деятельность</li>
+  <li>🚘 <strong>Для АЗС</strong> — разрешение на розничную продажу топлива</li>
+</ul>
+
+<p>Если у вашей компании уже есть эквайринг в ВТБ, процесс упрощается: достаточно подать заявление на добавление <em>MIR Accept</em> к существующему договору. В этом случае документы не потребуются — банк использует те, что уже есть в деле.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш бизнес относится к категории высокого риска (например, торговля алкоголем, табаком или ювелирными изделиями), ВТБ может запросить дополнительные подтверждающие документы или провести выездную проверку точки продаж.</blockquote>
+
+
+<p>Паспорт руководителя/ИП|Выписка из ЕГРЮЛ/ЕГРИП|Документы на точку продаж|Реквизиты счёта в ВТБ|Заявление (бланк банка)--></p>
+
+<h2 id="пошаговая-инструкция-как-подключить-mir-accept-в-втб">Пошаговая инструкция: как подключить MIR Accept в ВТБ</h2>
+
+<p>Процесс подключения занимает от 3 до 7 рабочих дней и состоит из следующих этапов:</p>
+
+<h3>1. Подача заявки</h3>
+<p>Вы можете подать заявку одним из способов:</p>
+<ul>
+  <li>🖥️ Через <a href="https://www.vtb.ru/" target="_blank" rel="noopener noreferrer"><em>личный кабинет ВТБ-Бизнес</em></a> (раздел «Платежи и переводы» → «Подключить MIR Accept»)</li>
+  <li>📞 По телефону горячей линии <code>8 800 200-77-99</code> (опция «Эквайринг и платежи»)</li>
+  <li>🏦 В отделении ВТБ (записаться на приём можно через <a href="https://www.vtb.ru/personal/offices/" target="_blank" rel="noopener noreferrer">сайт банка</a>)</li>
+</ul>
+
+<h3>2. Заключение договора</h3>
+<p>Банк подготовит проект договора на подключение <strong>MIR Accept</strong>. Внимательно проверьте:</p>
+<ul>
+  <li>💰 <strong>Тарифный план</strong> (комиссия, абонентская плата)</li>
+  <li>📅 <strong>Срок действия договора</strong> (обычно 1–3 года)</li>
+  <li>🔄 <strong>Условия расторжения</strong> (штрафы за досрочное прекращение)</li>
+</ul>
+
+<p>Стандартные условия ВТБ на 2026 год:</p>
+<ul>
+  <li>🆓 <strong>Комиссия за приём карт МИР:</strong> 0% (до 31.12.2026)</li>
+  <li>💳 <strong>Абонентская плата за терминал:</strong> от 0 ₽ (зависит от модели)</li>
+  <li>📤 <strong>Срок зачисления средств:</strong> D+1 (на следующий рабочий день)</li>
+</ul>
+
+<h3>3. Получение и настройка терминала</h3>
+<p>ВТБ предлагает несколько вариантов оборудования:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Модель терминала</th>
+      <th>Тип подключения</th>
+      <th>Стоимость аренды (₽/мес)</th>
+      <th>Поддержка Mir Pay</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>Ingenico iCT220</em></td>
+      <td>GPRS/3G</td>
+      <td>490</td>
+      <td>❌ Нет</td>
+    </tr>
+    <tr>
+      <td><em>PAX A920</em></td>
+      <td>Wi-Fi/3G</td>
+      <td>650</td>
+      <td>✅ Да</td>
+    </tr>
+    <tr>
+      <td><em>SberPay Terminal</em></td>
+      <td>4G</td>
+      <td>800</td>
+      <td>✅ Да</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>После получения терминала его необходимо активировать:</p>
+<ol>
+  <li>Подключите терминал к сети (через SIM-карту, Wi-Fi или Ethernet).</li>
+  <li>Введите данные, указанные в сопроводительном письме от ВТБ (ID мерчанта, пароль).</li>
+  <li>Проведите тестовый платёж на сумму 10 ₽ (средства вернутся на карту через 1–3 дня).</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если ваш бизнес работает в нескольких точках, для каждой потребуется отдельный терминал. ВТБ предлагает скидки при заказе от 3 устройств одновременно.</blockquote>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Перед активацией терминала проверьте, что его прошивка обновлена до последней версии. Устаревшее ПО может не поддерживать <em>MIR Accept</em>. Обновить прошивку можно через меню терминала или с помощью специалиста ВТБ.</p></div>
+
+<h2 id="тарифы-втб-на-mir-accept-в-2026-году">Тарифы ВТБ на MIR Accept в 2026 году</h2>
+
+<p>ВТБ предлагает несколько тарифных планов в зависимости от оборота и типа бизнеса. Ниже приведена актуальная тарифная сетка (на июнь 2026 года):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тарифный план</th>
+      <th>Комиссия по картам МИР</th>
+      <th>Абонентская плата (₽/мес)</th>
+      <th>Минимальный оборот (₽/мес)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Старт</strong></td>
+      <td>0% (до 31.12.2026)</td>
+      <td>0</td>
+      <td>от 50 000</td>
+    </tr>
+    <tr>
+      <td><strong>Оптимальный</strong></td>
+      <td>0% (до 31.12.2026)</td>
+      <td>290</td>
+      <td>от 200 000</td>
+    </tr>
+    <tr>
+      <td><strong>Премиум</strong></td>
+      <td>0% (до 31.12.2026)</td>
+      <td>0</td>
+      <td>от 1 000 000</td>
+    </tr>
+    <tr>
+      <td><strong>Интернет-эквайринг</strong></td>
+      <td>0,7%</td>
+      <td>500</td>
+      <td>от 100 000</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Важные нюансы:</p>
+<ul>
+  <li>💸 <strong>Комиссия 0%</strong> действует только до конца 2026 года. С 2026 года тарифы будут пересмотрены (ожидается комиссия в пределах 0,3–0,7%).</li>
+  <li>📉 <strong>Скидки за оборот:</strong> при превышении планки в 5 млн ₽/мес комиссия может быть снижена до 0,2%.</li>
+  <li>🔒 <strong>Штрафы за несоблюдение оборотов:</strong> если фактический оборот ниже заявленного в договоре, банк вправе взимать штраф до 1 000 ₽/мес.</li>
+</ul>
+
+<p>Для интернет-магазинов ВТБ предлагает отдельное решение — <strong>виртуальный терминал MIR Accept</strong>. Его подключение стоит 1 500 ₽ (разово), а комиссия составляет 0,7% от суммы платежа. Этот вариант подходит для бизнеса, который принимает оплату онлайн (например, через сайт или соцсети).</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Тариф «Премиум» выгоден для бизнеса с большим оборотом — абонентская плата отсутствует, а комиссия фиксирована на уровне 0% до конца 2026 года.</p></div>
+
+<h2 id="частые-проблемы-при-подключении-и-их-решения">Частые проблемы при подключении и их решения</h2>
+
+<p>Несмотря на упрощённую процедуру, при подключении <strong>MIR Accept</strong> в ВТБ могут возникнуть сложности. Рассмотрим самые распространённые:</p>
+
+<h3>1. Терминал не принимает карты МИР</h3>
+<p>Причины и решения:</p>
+<ul>
+  <li>🔌 <strong>Неактуальная прошивка:</strong> обновите ПО терминала через меню <code>Настройки → Обновление ПО</code>.</li>
+  <li>📶 <strong>Проблемы с связью:</strong> проверьте подключение к интернету (GPRS/Wi-Fi). Если используется SIM-карта, убедитесь, что на счёте достаточно средств.</li>
+  <li>🔑 <strong>Неверные настройки мерчанта:</strong> перезагрузите терминал и введите данные повторно (ID и пароль указаны в договоре).</li>
+</ul>
+
+<h3>2. Заявка на подключение зависла</h3>
+<p>Если статус заявки не меняется более 5 рабочих дней:</p>
+<ul>
+  <li>📞 Позвоните в поддержку ВТБ по номеру <code>8 800 200-77-99</code> (опция «Эквайринг»).</li>
+  <li>📧 Напишите в чат <a href="https://www.vtb.ru/" target="_blank" rel="noopener noreferrer">личного кабинета</a> или на почту <code>business@vtb.ru</code>.</li>
+  <li>🏦 Обратитесь в отделение банка с паспортом и номером заявки.</li>
+</ul>
+
+<h3>3. Средства не поступают на счёт</h3>
+<p>Если платежи проходят, но деньги не зачисляются:</p>
+<ul>
+  <li>🕒 Проверьте срок зачисления (по умолчанию D+1, но может быть изменён в договоре).</li>
+  <li>📊 Уточните в <a href="https://business.vtb.ru/" target="_blank" rel="noopener noreferrer">личном кабинете</a> статус транзакций (раздел «История операций»).</li>
+  <li>🔍 Если средства «зависли», запросите выписку по эквайрингу у менеджера ВТБ.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если терминал выдаёт ошибку <code>«Операция запрещена»</code> при попытке оплаты картой <em>МИР</em>, проверьте, не включён ли в настройках режим «Только Visa/Mastercard». Этот параметр должен быть отключён для работы с <strong>MIR Accept</strong>.</blockquote>
+
+<details class="faq-item"><summary>Что делать, если терминал заблокирован?</summary><div class="faq-answer"><p>
+<p>Если терминал заблокировался после нескольких неудачных попыток ввода пин-кода или из-за подозрительных транзакций, свяжитесь с службой безопасности ВТБ по телефону <code>8 800 100-24-24</code> (круглосуточно). Для разблокировки потребуется назвать ID терминала и кодовое слово, указанное в договоре. В некоторых случаях может потребоваться визит специалиста банка (платно, от 1 500 ₽).</p></div></details></p>
+
+<h2 id="альтернативы-mir-accept-в-втб-что-выбрать">Альтернативы MIR Accept в ВТБ: что выбрать</h2>
+
+<p>Если по каким-то причинам <strong>MIR Accept</strong> вам не подходит, ВТБ предлагает альтернативные решения для приёма платежей:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Продукт</th>
+      <th>Комиссия по МИР</th>
+      <th>Поддержка Mir Pay</th>
+      <th>Подходит для</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Классический эквайринг</strong></td>
+      <td>0,5–1,2%</td>
+      <td>✅ Да</td>
+      <td>Розница, HoReCa, услуги</td>
+    </tr>
+    <tr>
+      <td><strong>VTB Pay</strong></td>
+      <td>0,7%</td>
+      <td>✅ Да</td>
+      <td>Интернет-магазины, онлайн-сервисы</td>
+    </tr>
+    <tr>
+      <td><strong>QIWI Касса</strong></td>
+      <td>0,8%</td>
+      <td>❌ Нет</td>
+      <td>Малый бизнес, фрилансеры</td>
+    </tr>
+    <tr>
+      <td><strong>СБП (Система быстрых платежей)</strong></td>
+      <td>0,4%</td>
+      <td>❌ Нет</td>
+      <td>Оплата по QR-коду</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Основные отличия <strong>MIR Accept</strong> от классического эквайринга:</p>
+<ul>
+  <li>💰 <strong>Нулевая комиссия</strong> до конца 2026 года (против 0,5–1,2% у эквайринга).</li>
+  <li>📱 <strong>Ограниченная функциональность:</strong> нет поддержки <em>Mir Pay</em> и бесконтактных платежей (в базовой версии).</li>
+  <li>📊 <strong>Отчётность:</strong> транзакции по <em>MIR Accept</em> отображаются отдельно от эквайринга в личном кабинете.</li>
+</ul>
+
+<p>Если ваш бизнес работает с иностранными клиентами или принимает карты <em>UnionPay</em>, классический эквайринг будет предпочтительнее. Для полностью российского бизнеса (особенно с небольшим оборотом) <strong>MIR Accept</strong> остаётся самым выгодным вариантом.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы подключаете и <strong>MIR Accept</strong>, и классический эквайринг, попросите менеджера ВТБ объединить отчётность в одном личном кабинете. Это упростит бухгалтерию и контроль за платежами.</p></div>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-mir-accept-в-втб">FAQ: Ответы на частые вопросы о MIR Accept в ВТБ</h2>
+
+<details>
+  <summary>🔹 Нужно ли подключать MIR Accept, если у меня уже есть эквайринг в ВТБ?</summary>
+  <p>Да, если ваш бизнес попадает под обязательные категории (розница, общепит, ЖКХ и др.). <strong>MIR Accept</strong> и эквайринг — разные сервисы. Эквайринг позволяет принимать <em>Visa/Mastercard/UnionPay</em>, а <em>MIR Accept</em> — только карты <em>МИР</em>. При этом вы можете использовать один терминал для обоих сервисов (если модель это поддерживает).</p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли подключить MIR Accept без терминала (только QR-код)?</summary>
+  <p>Да, ВТБ предлагает решение <strong>«MIR Accept QR»</strong> для бизнеса с небольшим оборотом. Комиссия составит 0,7%, а средства будут зачисляться на счёт в течение 1 рабочего дня. Для подключения достаточно распечатать QR-код и разместить его на кассе. Клиенты смогут оплачивать покупки через мобильное приложение <em>МИР Пэй</em> или <em>СБП</em>.</p>
+</details>
+
+<details>
+  <summary>🔹 Что будет после 31 декабря 2026 года, когда комиссия 0% закончится?</summary>
+  <p>Пока точные тарифы на 2026 год не утверждены, но ожидается, что комиссия составит <strong>0,3–0,7%</strong> в зависимости от оборота. ВТБ обещает сохранить льготные условия для малого бизнеса (оборот до 60 млн ₽/год). Рекомендуем следить за обновлениями на <a href="https://www.vtb.ru/" target="_blank" rel="noopener noreferrer">официальном сайте банка</a>.</p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли подключить MIR Accept в ВТБ, если счёт открыт в другом банке?</summary>
+  <p>Технически да, но это невыгодно. ВТБ требует открытия расчётного счёта для подключения <strong>MIR Accept</strong>. Если вы откажетесь переводить счёт, банк может:</p>
+  <ul>
+    <li>Увеличить комиссию до 1,2%.</li>
+    <li>Ввести абонентскую плату за терминал (от 900 ₽/мес).</li>
+    <li>Ограничить функционал (например, отключить онлайн-отчётность).</li>
+  </ul>
+  <p>Лучше открыть счёт в ВТБ — это бесплатно и займёт не более 1 дня.</p>
+</details>
+
+<details>
+  <summary>🔹 Как проверить, что MIR Accept работает корректно?</summary>
+  <p>Проведите тестовый платёж:</p>
+  <ol>
+    <li>Возьмите любую карту <em>МИР</em> (можно свою личную).</li>
+    <li>Создайте чек на сумму 10–50 ₽.</li>
+    <li>Оплатите картой через терминал.</li>
+    <li>Проверьте зачисление средств в <a href="https://business.vtb.ru/" target="_blank" rel="noopener noreferrer">личном кабинете</a> (раздел «Эквайринг»).</li>
+  </ol>
+  <p>Если платёж прошёл, а деньги зачислились — сервис работает исправно. Если возникла ошибка, обратитесь в поддержку ВТБ с кодом ошибки (он отображается на экране терминала).</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-mir-accept-и-зачем-его-подключать-через-втб">Что такое MIR Accept и зачем его подключать через ВТБ</a></li><li><a href="#кто-обязан-подключить-mir-accept-в-2024-году">Кто обязан подключить MIR Accept в 2024 году</a></li><li><a href="#необходимые-документы-для-подключения-mir-accept-в-втб">Необходимые документы для подключения MIR Accept в ВТБ</a></li><li><a href="#пошаговая-инструкция-как-подключить-mir-accept-в-втб">Пошаговая инструкция: как подключить MIR Accept в ВТБ</a></li><li><a href="#тарифы-втб-на-mir-accept-в-2024-году">Тарифы ВТБ на MIR Accept в 2024 году</a></li><li><a href="#частые-проблемы-при-подключении-и-их-решения">Частые проблемы при подключении и их решения</a></li><li><a href="#альтернативы-mir-accept-в-втб-что-выбрать">Альтернативы MIR Accept в ВТБ: что выбрать</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-mir-accept-в-втб">FAQ: Ответы на частые вопросы о MIR Accept в ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/n/na/naznachenie-platezha-pri-oplate-kommunalnykh-uslug-cherez-vtb-chto-pisat.html" class="related-card">Назначение платежа за ЖКХ через ВТБ: образцы и правила 2026</a></li><li><a href="/articles/k/ka/kak-oplatit-za-dachu-cherez-vtb.html" class="related-card">Как оплатить дачу через ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-oplatit-rostelekom-cherez-vtb-onlajn.html" class="related-card">Оплата Ростелеком через ВТБ Онлайн: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-oplatit-trikolor-cherez-vtb-onlajn-s-mobilnogo-telefona.html" class="related-card">Оплата Триколор через ВТБ Онлайн с телефона: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-oplatit-detskij-sad-cherez-vtb-bez-komissii.html" class="related-card">Как оплатить детский сад через ВТБ без комиссии — пошаговая инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/n/na/naznachenie-platezha-pri-oplate-kommunalnykh-uslug-cherez-vtb-chto-pisat.html" class="related-bottom-card"><span class="related-bottom-title">Назначение платежа за ЖКХ через ВТБ: образцы и правила 2026</span><span class="related-bottom-desc">Как правильно заполнить поле «назначение платежа» при оплате коммунальных услуг через ВТБ Онлайн или</span></a><a href="/articles/k/ka/kak-oplatit-za-dachu-cherez-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить дачу через ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Все способы оплаты за дачу через ВТБ: онлайн, по реквизитам, через банкомат и мобильное приложение. </span></a><a href="/articles/k/ka/kak-oplatit-rostelekom-cherez-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Оплата Ростелеком через ВТБ Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как быстро оплатить услуги Ростелеком через личный кабинет ВТБ Онлайн: шаги, комиссии, ограничения и</span></a><a href="/articles/k/ka/kak-oplatit-trikolor-cherez-vtb-onlajn-s-mobilnogo-telefona.html" class="related-bottom-card"><span class="related-bottom-title">Оплата Триколор через ВТБ Онлайн с телефона: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как пополнить счёт Триколор ТВ через мобильное приложение ВТБ Онлайн за 3 минуты: способы оплаты, ко</span></a><a href="/articles/k/ka/kak-oplatit-detskij-sad-cherez-vtb-bez-komissii.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить детский сад через ВТБ без комиссии — пошаговая инструкция 2026</span><span class="related-bottom-desc">Узнайте все способы оплаты детского сада через ВТБ без комиссии: через мобильное приложение, личный </span></a><a href="/articles/k/ka/kak-oplatit-za-kvartiru-cherez-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Оплата ЖКХ через ВТБ Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как оплатить коммунальные услуги за квартиру через ВТБ Онлайн: способы, комиссии, ограничения и сове</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как посмотреть счет на карте ВТБ через СМС: команды и коды — Банки Инфо</title>
+    <meta name="description" content="Узнайте, как узнать баланс карты ВТБ через СМС. Команды USSD, бесплатные коды и альтернативные способы проверки счета без интернета.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-posmotret-schet-na-karte-vtb-cherez-sms.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как посмотреть счет на карте ВТБ через СМС: команды и коды">
+    <meta property="og:description" content="Узнайте, как узнать баланс карты ВТБ через СМС. Команды USSD, бесплатные коды и альтернативные способы проверки счета без интернета.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/karty-i-scheta/">Карты и счета</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как посмотреть счет на карте ВТБ через СМС: команды и коды</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как посмотреть счет на карте ВТБ через СМС: полный гид</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#активация-и-настройка-смс-информирования">Активация и настройка СМС-информирования</a></li><li><a href="#проверка-баланса-через-ussd-команды">Проверка баланса через USSD-команды</a></li><li><a href="#запрос-баланса-через-смс-сообщение">Запрос баланса через СМС-сообщение</a></li><li><a href="#таблица-основных-команд-и-кодов-втб">Таблица основных команд и кодов ВТБ</a></li><li><a href="#безопасность-при-использовании-смс-сервисов">Безопасность при использовании СМС-сервисов</a></li><li><a href="#альтернативные-способы-проверки-счета">Альтернативные способы проверки счета</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>Современный ритм жизни диктует свои правила, и часто доступ к мобильному интернету может быть ограничен или нестабилен в самый неподходящий момент. Именно в таких ситуациях владельцы банковских карт задаются вопросом, как посмотреть счет на карте ВТБ через СМС, чтобы оперативно контролировать свои финансы без подключения к Wi-Fi. Это особенно актуально для путешественников за границей, где роуминг данных стоит дорого, или в зонах плохого покрытия сети, где работает только голосовая связь.</p>
+
+<p>Банк ВТБ предусмотрел несколько удобных каналов удаленного обслуживания, позволяющих получать информацию о состоянии счета моментально. <strong>СМС-информирование</strong> остается одним из самых надежных и быстрых способов, не требующих установки дополнительных приложений или наличия смартфона с операционной системой. Достаточно иметь простой кнопочный телефон или даже смартфон с разряженным экраном, чтобы отправить короткий запрос и получить ответ.</p>
+
+<p>В этой статье мы подробно разберем все актуальные команды, коды и нюансы работы с сервисом проверки баланса. Вы узнаете не только о стандартных процедурах, но и о том, как обезопасить себя при использовании текстовых сообщений для банковских операций. Мы рассмотрим альтернативы, если СМС-сервис временно недоступен, и ответим на часто возникающие вопросы пользователей.</p>
+
+<h2 id="активация-и-настройка-смс-информирования">Активация и настройка СМС-информирования</h2>
+<p>Прежде чем отправлять запросы на проверку баланса, необходимо убедиться, что услуга СМС-информирования подключена к вашему банковскому продукту. Без этой базовой настройки банк не сможет отправлять вам ответы на запросы или уведомления о транзакциях. Обычно услуга активируется автоматически при выпуске карты, но для полноценной работы может потребоваться подтверждение через банкомат или мобильное приложение.</p>
+
+<p>Для активации опции через устройство самообслуживания вам потребуется ваша пластиковая карта и ПИН-код. Вставьте карту в <em>банкомат ВТБ</em>, введите пин-код и выберите в меню пункт «Мобильный банк» или «Информирование». Далее следует выбрать опцию «Подключить СМС» и ввести номер мобильного телефона, если он еще не привязан к вашему профилю клиента.</p>
+
+<p>Альтернативный способ активации доступен через официальный сайт банка или горячую линию. Оператор колл-центра может идентифицировать вас по контрольному вопросу и подключить услугу удаленно. Также возможно использование <strong>USSD-команд</strong> для управления сервисами, однако первичная настройка часто требует более авторизованного доступа через приложение «ВТБ Онлайн».</p>
+
+<div class="checklist-block"><h4>☑️ Проверка готовности к СМС-банкингу</h4><label class="check-item"><input type="checkbox"><span>Услуга СМС-информирования подключена</span></label><label class="check-item"><input type="checkbox"><span>На номере карты есть средства для оплаты комиссии (если applicable)</span></label><label class="check-item"><input type="checkbox"><span>Мобильный телефон ловит сеть</span></label><label class="check-item"><input type="checkbox"><span>Номер телефона совпадает с номером в базе банка</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p> Если вы сменили сим-карту или номер, необходимо сначала обновить контактные данные в банке, иначе система безопасности просто проигнорирует ваш запрос.</p>
+
+<h2 id="проверка-баланса-через-ussd-команды">Проверка баланса через USSD-команды</h2>
+<p>Самым быстрым способом узнать остаток на счете является использование <strong>USSD-запросов</strong>. Это специальные кодовые комбинации, которые набираются в меню набора номера как обычный телефонный вызов. Главное преимущество этого метода заключается в том, что он работает даже в сетях 2G и не требует наличия интернета или баланса на сим-карте для исходящего вызова (в зависимости от условий оператора).</p>
+
+<p>Для клиентов ВТБ основной командой для проверки баланса является короткий код. Набрав <code>*100#</code> и нажав кнопку вызова, вы мгновенно получите СМС-сообщение с информацией о доступных средствах на основной карте. Система обрабатывает запрос автоматически, поэтому ответ приходит в течение нескольких секунд.</p>
+
+<ul>
+<li>📱 Наберите комбинацию <code>*100#</code> и нажмите кнопку вызова.</li>
+<li>💳 Дождитесь СМС с указанием текущего баланса и последней операции.</li>
+<li>🔒 Убедитесь, что запрос отправляется с номера, привязанного к карте.</li>
+<li>⚠️ <strong>Внимание:</strong> Услуга может быть платной в зависимости от вашего тарифного плана мобильного оператора, проверьте условия роуминга.</li>
+</ul>
+
+<p>Существует также альтернативная команда <code>*100*0#</code>, которая позволяет запросить баланс принудительно, если стандартный код по каким-то причинам не сработал. Некоторые пользователи отмечают, что в зонах нестабильного приема повторный запрос через звездочку и ноль помогает получить ответ быстрее.</p>
+
+<details class="faq-item"><summary>Что делать, если код не работает?</summary><div class="faq-answer"><p>Если при наборе команды вы слышите гудки или сообщение об ошибке, проверьте, не заблокирована ли услуга исходящих вызовов на вашей сим-карте. Также проблема может быть связана с временными техническими работами на стороне оператора связи или банка. Попробуйте перезагрузить телефон или переставить сим-карту в другой слот.>
+
+<h2 id="запрос-баланса-через-смс-сообщение">Запрос баланса через СМС-сообщение</h2>
+<p>Если по каким-то причинам USSD-коды не работают или ваш телефон не поддерживает их корректное отображение, можно воспользоваться отправкой текстового СМС-сообщения на специальный короткий номер. Этот метод является классическим и проверяен годами использования мобильного банкинга.</p>
+
+<p>Для получения информации о счете необходимо отправить сообщение с определенным текстом на номер <code>100</code>. В теле сообщения нужно указать команду BAL или БАЛАНС. Система распознает текст и отправит ответное сообщение с детализацией вашего счета. Важно соблюдать регистр букв, хотя современные системы часто понимают и lowercase, и uppercase.</p>
+
+<blockquote>⚠️ Внимание: Убедитесь, что на вашем мобильном номере есть средства для оплаты исходящего СМС, если ваш тариф не предусм...</blockquote>
+
+<p>В ответном сообщении вы получите не только текущий остаток, но и информацию о последней совершенной операции, что помогает быстро выявить несанкционированное списание. Текст сообщения обычно приходит с короткого номера 100 или 7100, что является официальным идентификатором банка.</p>
+
+
+
+<h2 id="таблица-основных-команд-и-кодов-втб">Таблица основных команд и кодов ВТБ</h2>
+<p>Для удобства пользователей мы систематизировали основные команды, которые позволяют управлять счетом и получать информацию без доступа к интернету. Использование этих кодов позволяет контролировать финансы в любой точке мира, где есть покрытие сотовой связи.</p>
+
+<table>
+<thead>
+<tr>
+<th>Действие</th>
+<th>Команда / Код</th>
+<th>Куда отправлять</th>
+<th>Стоимость</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Проверка баланса</td>
+<td><code>*100#</code></td>
+<td>Набор номера</td>
+<td>По тарифам оператора</td>
+</tr>
+<tr>
+<td>Запрос баланса (СМС)</td>
+<td>БАЛАНС</td>
+<td>100</td>
+<td>Цена СМС оператора</td>
+</tr>
+<tr>
+<td>Мини-выписка</td>
+<td><code>*100*1#</code></td>
+<td>Набор номера</td>
+<td>По тарифам оператора</td>
+</tr>
+<tr>
+<td>Блокировка карты</td>
+<td><code>*100*2#</code></td>
+<td>Набор номера</td>
+<td>Бесплатно</td>
+</tr>
+</tbody>
+</table>
+
+<p>Использование USSD-меню <code>*100#</code> открывает доступ к интерактивному меню, где можно не только посмотреть счет, но и оплатить мобильную связь или перевести деньги. Навигация в меню осуществляется путем ввода цифр, соответствующих пунктам на экране.</p>
+
+
+
+<h2 id="безопасность-при-использовании-смс-сервисов">Безопасность при использовании СМС-сервисов</h2>
+<p>Безопасность финансовых операций через СМС и USSD является приоритетом для банка, однако пользователям также следует соблюдать определенные правила предосторожности. Мошенники постоянно совершенствуют методы социальной инженерии, пытаясь выманить конфиденциальные данные у ничего не подозревающих клиентов.</p>
+
+<p>Никогда не сообщайте коды из СМС третьим лицам, даже если звонящий представляется сотрудником банка. Настоящие сотрудники ВТБ <strong>никогда не спрашивают</strong> коды подтверждения, ПИН-коды или CVC-коды карт по телефону. Если вам пришло странное сообщение с просьбой перейти по ссылке или перезвонить на неизвестный номер — это с высокой долей вероятности фишинг.</p>
+
+<ul>
+<li>🛡️ Не храните ПИН-код карты в сообщениях или заметках в телефоне.</li>
+<li>🚫 Не переходите по ссылкам из СМС от неизвестных отправителей.</li>
+<li>📞 Проверяйте номер отправителя: официальные СМС приходят с коротких номеров (100, 7100).</li>
+<li>🔒 При потере телефона немедленно блокируйте сим-карту у оператора и карту в банке.</li>
+</ul>
+
+<blockquote>⚠️ Внимание: Остерегайтесь СМС якобы от банка с сообщением о блокировке карты и просьбой срочно позвонить по указанному номеру. Всегда используйте номер горячей линии, указанный на обороте вашей карты или на официальном сайте.</blockquote>
+
+<p>Рекомендуется регулярно проверять историю операций в приложении или через банкомат, чтобы вовремя заметить подозрительную активность. Если вы заметили списание, которое не совершали, немедленно заблокируйте карту через СМС-команду или приложение.</p>
+
+<h2 id="альтернативные-способы-проверки-счета">Альтернативные способы проверки счета</h2>
+<p>Если ни СМС, ни USSD-коды не работают, или вы находитесь за границей без роуминга, существуют другие надежные способы контроля баланса. Технологии шагнули далеко вперед, предлагая более богатый функционал, чем простые текстовые сообщения.</p>
+
+<p>Наиболее популярным и функциональным инструментом остается мобильное приложение <em>«ВТБ Онлайн»</em>. Оно позволяет не только видеть баланс, но и анализировать расходы, оформлять вклады, брать кредиты и оплачивать услуги ЖКХ. Приложение работает через интернет, поэтому его использование в роуминге может быть экономически выгоднее, чем СМС, при наличии Wi-Fi.</p>
+
+<p>Также доступен сервис «ВТБ Телефон» — голосовой робот, который ответит на вопросы о балансе. Для этого нужно позвонить на номер <code>100</code> (бесплатно с мобильных по РФ) или <code>8 (800) 100-24-24</code>. Робот распознает голос или запросит ввод данных с клавиатуры телефона для идентификации.</p>
+
+
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Сколько стоит СМС от банка ВТБ о балансе?</summary>
+<p>Входящие СМС от банка обычно бесплатны для получателя в домашнем регионе. Однако, если вы находитесь в международном роуминге, стоимость входящих сообщений может регулироваться тарифами вашего мобильного оператора. USSD-запросы также могут тарифицироваться оператором связи как исходящие вызовы.</p>
+</details>
+
+<details>
+<summary>Почему не приходит СМС с балансом?</summary>
+<p>Причин может быть несколько: отсутствие сигнала сети, переполненная память телефона, блокировка коротких номеров оператором связи или неактивированная услуга СМС-информирования. Также проверьте, не стоит ли номер банка в «черном списке» вашего смартфона.</p>
+</details>
+
+<details>
+<summary>Можно ли узнать баланс чужой карты через СМС?</summary>
+<p>Нет, это невозможно. Информация о балансе предоставляется только владельцу карты после успешной идентификации через привязанный номер телефона или ПИН-код в банкомате. Доступ к чужим счетам строго запрещен и защищен системами безопасности.</p>
+</details>
+
+<details>
+<summary>Как отключить СМС-информирование?</summary>
+<p>Отключить услугу можно через банкомат ВТБ в разделе «Мобильный банк», через приложение «ВТБ Онлайн» в настройках уведомлений или позвонив в контактный центр банка. Также возможна отправка СМС со словом STOP на номер 100.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#активация-и-настройка-смс-информирования">Активация и настройка СМС-информирования</a></li><li><a href="#проверка-баланса-через-ussd-команды">Проверка баланса через USSD-команды</a></li><li><a href="#запрос-баланса-через-смс-сообщение">Запрос баланса через СМС-сообщение</a></li><li><a href="#таблица-основных-команд-и-кодов-втб">Таблица основных команд и кодов ВТБ</a></li><li><a href="#безопасность-при-использовании-смс-сервисов">Безопасность при использовании СМС-сервисов</a></li><li><a href="#альтернативные-способы-проверки-счета">Альтернативные способы проверки счета</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/b/ba/bankovskaya-karta-vtb-razmagnitilas-chto-delat.html" class="related-card">Размагнитилась карта ВТБ: что делать в 2026 году — пошаговый план</a></li><li><a href="/articles/k/ka/kak-uznat-balans-neimennoj-karty-vtb.html" class="related-card">Как проверить баланс неименной карты ВТБ — 5 способов 2026</a></li><li><a href="/articles/k/ka/kak-popolnit-kartu-cherepakha-vtb-cherez-erip.html" class="related-card">Как пополнить карту «Черепаха» ВТБ через ЕРИП — пошаговая инструкция 2026</a></li><li><a href="/articles/g/gd/gde-luchshe-poluchat-pensiyu-v-sbere-ili-vtb.html" class="related-card">Где лучше получать пенсию: Сбербанк или ВТБ в 2026 году? Сравнение условий</a></li><li><a href="/articles/v/vy/vyplaty-dko-v-vtb-chto-eto.html" class="related-card">ДКО в ВТБ: что это за выплаты и как их получить в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/b/ba/bankovskaya-karta-vtb-razmagnitilas-chto-delat.html" class="related-bottom-card"><span class="related-bottom-title">Размагнитилась карта ВТБ: что делать в 2026 году — пошаговый план</span><span class="related-bottom-desc">Карта ВТБ перестала считываться? Узнайте, как проверить причину, восстановить доступ к деньгам и изб</span></a><a href="/articles/k/ka/kak-uznat-balans-neimennoj-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить баланс неименной карты ВТБ — 5 способов 2026</span><span class="related-bottom-desc">Пошаговая инструкция, как узнать остаток средств на неименной карте ВТБ: через банкомат, онлайн, по </span></a><a href="/articles/k/ka/kak-popolnit-kartu-cherepakha-vtb-cherez-erip.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить карту «Черепаха» ВТБ через ЕРИП — пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд по пополнению детской карты «Черепаха» от ВТБ через систему ЕРИП: комиссии, лимиты, н</span></a><a href="/articles/g/gd/gde-luchshe-poluchat-pensiyu-v-sbere-ili-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Где лучше получать пенсию: Сбербанк или ВТБ в 2026 году? Сравнение условий</span><span class="related-bottom-desc">Сравниваем Сбербанк и ВТБ по условиям начисления пенсий: проценты на остаток, комиссии, удобство обс</span></a><a href="/articles/v/vy/vyplaty-dko-v-vtb-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">ДКО в ВТБ: что это за выплаты и как их получить в 2026 году</span><span class="related-bottom-desc">Разбираемся, что такое ДКО в ВТБ, кому положены дополнительные компенсационные выплаты, как их оформ</span></a><a href="/articles/k/ka/kak-perevypustit-multikartu-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перевыпустить мультикарту ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Узнайте, как быстро перевыпустить мультикарту ВТБ через приложение, банкомат или офис. Сроки, стоимо</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

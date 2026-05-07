@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Завис терминал оплаты ВТБ: что делать и как перезагрузить — Банки Инфо</title>
+    <meta name="description" content="Терминал оплаты ВТБ завис или не печатает чек? Пошаговая инструкция по перезагрузке, проверке связи и устранению ошибок для POS-систем.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/c/ch/chto-delat-esli-zavis-terminal-oplaty-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Завис терминал оплаты ВТБ: что делать и как перезагрузить">
+    <meta property="og:description" content="Терминал оплаты ВТБ завис или не печатает чек? Пошаговая инструкция по перезагрузке, проверке связи и устранению ошибок для POS-систем.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/drugoe/">Другое</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Завис терминал оплаты ВТБ: что делать и как перезагрузить</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Что делать если завис терминал оплаты ВТБ</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#первичная-диагностика-состояния-устройства">Первичная диагностика состояния устройства</a></li><li><a href="#алгоритм-мягкой-перезагрузки-pos-системы">Алгоритм мягкой перезагрузки POS-системы</a></li><li><a href="#методы-жесткого-сброса-hard-reset">Методы жесткого сброса (Hard Reset)</a></li><li><a href="#проблемы-с-печатью-и-сверка-итогов">Проблемы с печатью и сверка итогов</a></li><li><a href="#настройка-связи-и-работа-с-sim-картой">Настройка связи и работа с SIM-картой</a></li><li><a href="#когда-необходима-помощь-технической-поддержки">Когда необходима помощь технической поддержки</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Ситуация, когда <strong>POS-терминал</strong> перестает реагировать на действия кассира в разгар торгового дня, способна вызвать панику у любого предпринимателя. Очередь растет, клиенты нервничают, а устройство либо показывает «черный экран», либо бесконечно крутит индикатор загрузки. В большинстве случаев проблема кроется в программном сбое операционной системы или кратковременном разрыве связи с банком-эквайером.</p>
+<p>Первое, что необходимо сделать — сохранять спокойствие и не пытаться лихорадочно нажимать все кнопки подряд. Хаотичные действия могут привести к повреждению базы данных транзакций, что усложнит последующую сверку итогов. <em>Современные устройства ВТБ</em>, будь то классические PAX, Verifone или новые Android-смартфоны, имеют четкие алгоритмы восстановления работоспособности.</p>
+<p>В этой статье мы разберем детальные шаги по устранению зависания, методы мягкой и жесткой перезагрузки, а также алгоритмы действий при ошибках печати чеков. Понимание логики работы <strong>эквайринговой системы</strong> поможет вам минимизировать время простоя и избежать финансовых потерь.</p>
+
+<h2 id="первичная-диагностика-состояния-устройства">Первичная диагностика состояния устройства</h2>
+<p>Прежде чем переходить к радикальным мерам, необходимо точно определить характер неисправности. Часто терминал кажется зависшим, но на самом деле он просто обрабатывает сложный запрос или пытается выйти на связь с сервером. Посмотрите на дисплей: если горят символы или мигает курсор, система жива. Если экран полностью черный, возможно, сработал режим энергосбережения или села батарея.</p>
+<p>Обратите внимание на индикаторы связи. На классических моделях они обычно расположены в верхней части корпуса. Зеленый мигающий индикатор GPRS/4G говорит о поиске сети, постоянный — о подключении. Отсутствие свечения может указывать на проблемы с SIM-картой или покрытием в точке продаж. В таких случаях <strong>программный сбой</strong> может быть вторичной причиной.</p>
+<p>Проверьте, реагирует ли устройство на нажатия клавиш. Если физический отклик есть, но меню не открывается, возможно, завис конкретный процесс приложения. Попробуйте нажать кнопку отмены (обычно красная с крестиком) несколько раз. Это действие часто прерывает текущую операцию и возвращает систему в главное меню без полной перезагрузки.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Если терминал издает непрерывный писк или дымит, немедленно отключите его от сети питания и зарядных устройств. Эксплуатация неисправного оборудования может привести к возгоранию.</p>
+</blockquote>
+
+<p>Диагностика также включает проверку периферии. Иногда терминал «виснет» в ожидании ответа от подключенного PIN-пада или фискального регистратора. Отсоедините все кабели, кроме питания, и проверьте поведение устройства в изолированном режиме. Это поможет локализовать проблему: в самом терминале или во внешнем оборудов</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Перед началом любых работ с терминалом обязательно запишите последние цифры номера чека или сфотографируйте экран с ошибкой, если он реагирует. Это поможет техподдержке быстрее идентифицировать проблему.</p></div>
+
+<h2 id="алгоритм-мягкой-перезагрузки-pos-системы">Алгоритм мягкой перезагрузки POS-системы</h2>
+<p>Наиболее безопасный способ реанимировать зависший аппарат — выполнить программную перезагрузку. Этот метод позволяет сохранить логи транзакций и корректно завершить фоновые процессы. Для большинства моделей терминалов ВТБ (PAX, Ingenico) существует стандартная комбинация клавиш. Обычно это одновременное зажатие кнопки «Отмена» (Cancel/Коррекция) и «Ввод» (Enter) в течение 3-5 секунд.</p>
+<p>Если комбинация клавиш не срабатывает, попробуйте найти кнопку перезагрузки. На некоторых Android-терминалах (например, Sunmi или PAX A-series) она может быть вынесена отдельно или быть утопленной в корпус, требуя использования скрепки. Нажатие этой кнопки инициирует стандартный цикл выключения и включения операционной системы, аналогичный перезагрузке смартфона.</p>
+<p>В процессе загрузки внимательно следите за сообщениями на экране. Система должна пройти этапы проверки оборудования, подключения к сети и загрузки ключей шифрования. Если процесс останавливается на каком-то этапе (например, «Загрузка ключей» или «Связь с сервером»), это указывает на более глубокую проблему с настройками или связью.</p>
+<div class="checklist-block"><h4>☑️ Чек-лист мягкой перезагрузки</h4><label class="check-item"><input type="checkbox"><span>Зажать Cancel + Enter на 5 сек</span></label><label class="check-item"><input type="checkbox"><span>Дождаться полного выключения экрана</span></label><label class="check-item"><input type="checkbox"><span>Дождаться появления логотипа банка</span></label><label class="check-item"><input type="checkbox"><span>Проверить загрузку главного меню</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="методы-жесткого-сброса-hard-reset">Методы жесткого сброса (Hard Reset)</h2>
+<p>Когда программные методы бессильны, приходится прибегать к жесткому сбросу путем отключения питания. Этот метод эффективен в 90% случаев зависаний, вызванных переполнением буфера памяти или критическими ошибками ядра. Однако использовать его следует осторожно, так как прерывание записи в базу данных может привести к потере информации о последней операции.</p>
+<p>Для стационарных терминалов алгоритм прост: отсоедините кабель питания от розетки или от самого устройства. Подождите минимум 10-15 секунд. Это время необходимо для того, чтобы остаточный ток в конденсаторах рассеялся, и оперативная память полностью очистилась. После паузы подключите питание обратно.</p>
+<p>С мобильными терминалами ситуация сложнее. Если аккумулятор съемный, его необходимо извлечь, подождать паузу и вставить обратно. Если аккумулятор встроенный (что характерно для современных <em>Android-POS</em>), нужно дождаться полного разряда батареи, если кнопка включения не реагирует. В экстренных случаях можно использовать специальный пин для перезагрузки, если он предусмотрен конструкцией.</p>
+<details class="faq-item"><summary>Риски жесткого сброса</summary><div class="faq-answer"><p>При резком обрыве питания во время печати чека или записи в фискальную память возможно появление расхождений при сверке итогов. Всегда проверяйте отчет о закрытии смены после такой процедуры.</p></div></details>
+
+<p>После включения устройство начнет длительную процедуру инициализации. Не пытайтесь сразу проводить оплаты. Дайте терминалу 2-3 минуты на установление стабильного соединения с сервером авторизации и обновление программного обеспечения, если это требуется.</p>
+
+<h2 id="проблемы-с-печатью-и-сверка-итогов">Проблемы с печатью и сверка итогов</h2>
+<p>Частой причиной, по которой терминал кажется зависшим, является блокировка очереди печати. Если чек не выходит, а устройство гудит или мигает индикатором ошибки, возможно, замялась бумага или закончилась термолента. Откройте отсек для бумаги, проверьте правильность укладки рулона (термобумага должна лежать внешней стороной вверх) и закройте крышку до щелчка.</p>
+<p>Если печать не возобновилась, попробуйте выполнить операцию «Сверка итогов» (Settlement). Эта функция отправляет на сервер банка запрос на подтверждение всех проведенных за день транзакций. В меню это обычно раздел <code>Администрирование</code> или <code>Сервис</code> → <code>Сверка итогов</code>. Успешная сверка часто «размораживает» зависшие процессы обмена данными.</p>
+<p>В таблице ниже приведены коды ошибок, которые могут появляться после зависания, и их значение:</p>
+
+<table>
+<thead>
+<tr>
+<th>Код ошибки</th>
+<th>Описание</th>
+<th>Рекомендуемое действие</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>51</td>
+<td>Недостаточно средств</td>
+<td>Повторить операцию с другой картой</td>
+</tr>
+<tr>
+<td>96</td>
+<td>Системная ошибка банка</td>
+<td>Повторить через 5-10 минут</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Отказ в авторизации</td>
+<td>Связаться с банком эмитентом</td>
+</tr>
+<tr>
+<td>98</td>
+<td>Карта заблокирована</td>
+<td>Изъять карту (по инструкции)</td>
+</tr>
+</tbody>
+</table>
+
+<div class="poll-widget" id="poll-43db9b3d"><div class="poll-widget-question">📊 Как часто у вас зависает терминал?</div><div class="poll-widget-option" data-poll="43db9b3d" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Ежедневно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="43db9b3d" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в неделю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="43db9b3d" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в месяц</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="43db9b3d" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Практически никогда</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="настройка-связи-и-работа-с-sim-картой">Настройка связи и работа с SIM-картой</h2>
+<p>Нестабильный интернет — одна из главных причин «зависаний» в момент проведения оплаты. Терминал может долго держать соединение, ожидая ответа от сервера, блокируя другие функции. Если вы используете проводное подключение (Ethernet), проверьте целостность кабеля и горение индикаторов на порту LAN. Мигающие лампочки сигнализируют о наличии трафика.</p>
+<p>При работе через GSM (SIM-карту) проблемы возникают чаще. Убедитесь, что на счете SIM-карты есть средства, а тарифный план позволяет передачу данных. Иногда помогает извлечение SIM-карты, протирание контактов ластиком и повторная установка. В настройках терминала (раздел <code>Коммуникации</code>) проверьте, выбрана ли правильная точка доступа (APN), если используется корпоративная сим-карта.</p>
+<p><strong>Антенна</strong> устройства должна быть плотно прикручена. Даже небольшой люфт может приводить к постоянным переподключениям сети, что воспринимается системой как сбой. Если в помещении плохой сигнал, попробуйте переместить терминал ближе к окну или использовать внешнюю антенну, если модель терминала поддерживает такую опцию.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не извлекайте SIM-карту из терминала, пока он включен. Это может привести к повреждению считывателя или программному сбою драйверов связи.</p>
+</blockquote>
+
+<h2 id="когда-необходима-помощь-технической-поддержки">Когда необходима помощь технической поддержки</h2>
+<p>Существует ряд ситуаций, когда самостоятельные действия могут только навредить. Если после полной перезагрузки и проверки связи терминал продолжает выдавать системные ошибки, требует загрузки ключей или обновления ПО, которое прерывается — пора звонить в поддержку ВТБ. Также помощь специалистов нужна при физических повреждениях: разбитом экране, сломанных кнопках или попадании влаги.</p>
+<p>При звонке в службу поддержки (номер обычно указан на наклейке на корпусе терминала, часто это <code>8-800-100-24-24</code> или специальный номер для эквайринга) подготовьте следующую информацию: идентификатор терминала (TID), номер торговой точки (MID) и текст ошибки, который вы видите на экране. Это значительно ускорит диагностику.</p>
+<p>Специалисты могут провести удаленную диагностику и, при необходимости, перенастроить терминал дистанционно. В некоторых случаях требуется замена устройства, если его модуль связи или памяти вышел из строя физически. Помните, что использование неисправного терминала может привести к блокировке расчетов со стороны платежных систем.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Своевременное обращение в техподдержку при повторяющихся сбоях предотвращает накопление ошибок в базе транзакций и упрощает бухгалтерский учет.</p></div>
+
+<p>Регулярное обслуживание и правильная эксплуатация продлевают жизнь устройству. Не допускайте перегрева терминала на солнце, защищайте его от пыли и ударов. Периодически, хотя бы раз в неделю, проводите плановую перезагрузку устройства в нерабочее время, чтобы очищать кэш и обновлять сетевые настройки.</p>
+
+<details>
+<summary>Что делать, если терминал показывает «Нет связи с хостом»?</summary>
+<p>Эта ошибка означает, что терминал не может соединиться с сервером банка. Проверьте баланс SIM-карты, уровень сигнала, а также правильность даты и времени на устройстве. Если время сбито, сертификаты безопасности не будут работать.</p>
+</details>
+
+<details>
+<summary>Можно ли проводить оплату, если терминал греется?</summary>
+<p>Небольшой нагрев корпуса при активной работе — это нормально. Однако если устройство горячее на ощупь и работает медленно, дайте ему остыть. Перегрев процессора ведет к троттлингу (снижению производительности) и может вызвать зависание.</p>
+</details>
+
+<details>
+<summary>Как часто нужно менять термоленту?</summary>
+<p>Термоленту меняют по мере окончания. Однако, если чеки стали бледными или появляются полосы, ленту нужно заменить немедленно, даже если рулон не закончился. Использование некачественной бумаги вредит термоголовке.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#первичная-диагностика-состояния-устройства">Первичная диагностика состояния устройства</a></li><li><a href="#алгоритм-мягкой-перезагрузки-pos-системы">Алгоритм мягкой перезагрузки POS-системы</a></li><li><a href="#методы-жесткого-сброса-hard-reset">Методы жесткого сброса (Hard Reset)</a></li><li><a href="#проблемы-с-печатью-и-сверка-итогов">Проблемы с печатью и сверка итогов</a></li><li><a href="#настройка-связи-и-работа-с-sim-картой">Настройка связи и работа с SIM-картой</a></li><li><a href="#когда-необходима-помощь-технической-поддержки">Когда необходима помощь технической поддержки</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-ukazan-punkt-v-dogovore-vtb.html" class="related-card">Где в договоре ВТБ указаны ключевые пункты: поиск и разбор</a></li><li><a href="/articles/k/ka/kak-v-vtb-onlajn-posmotret-chek-ob-oplate.html" class="related-card">Как в ВТБ Онлайн посмотреть чек об оплате: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-pozvonit-v-sluzhbu-podderzhki-vtb-24.html" class="related-card">Как позвонить в поддержку ВТБ 24: все способы 2026 года</a></li><li><a href="/articles/k/ka/kak-kupit-osago-v-vtb-onlajn.html" class="related-card">Как купить ОСАГО в ВТБ онлайн: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-ponyat-vtb-bank.html" class="related-card">ВТБ Банк: как понять его услуги, тарифы и возможности в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/g/gd/gde-ukazan-punkt-v-dogovore-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Где в договоре ВТБ указаны ключевые пункты: поиск и разбор</span><span class="related-bottom-desc">Пошаговая инструкция, как найти важные условия в договоре ВТБ: проценты, комиссии, штрафы. Разбор ст</span></a><a href="/articles/k/ka/kak-v-vtb-onlajn-posmotret-chek-ob-oplate.html" class="related-bottom-card"><span class="related-bottom-title">Как в ВТБ Онлайн посмотреть чек об оплате: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид: как найти, сохранить или отправить чек об оплате в приложении ВТБ Онлайн. Инструкции </span></a><a href="/articles/k/ka/kak-pozvonit-v-sluzhbu-podderzhki-vtb-24.html" class="related-bottom-card"><span class="related-bottom-title">Как позвонить в поддержку ВТБ 24: все способы 2026 года</span><span class="related-bottom-desc">Официальные телефоны горячей линии ВТБ 24 для физических и юридических лиц. Как быстро связаться с п</span></a><a href="/articles/k/ka/kak-kupit-osago-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как купить ОСАГО в ВТБ онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Полное руководство по оформлению электронного ОСАГО в ВТБ через интернет: цены, условия, сроки и сов</span></a><a href="/articles/k/ka/kak-ponyat-vtb-bank.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Банк: как понять его услуги, тарифы и возможности в 2026 году</span><span class="related-bottom-desc">Разбираемся, как работает ВТБ: от открытия счёта до кредитов и инвестиций. Пошаговые инструкции, сра</span></a><a href="/articles/k/ka/kak-otklyuchit-avtoplatezh-s-karty-vtb-na-mts.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить автоплатеж с карты ВТБ на МТС: все способы</span><span class="related-bottom-desc">Пошаговая инструкция: как отключить автоплатеж с карты ВТБ на МТС. Способы через приложение, онлайн-</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как ВТБ проверяет кредитную историю: алгоритм, БКИ и требования — Банки Инфо</title>
+    <meta name="description" content="Полный разбор процедуры проверки кредитной истории в банке ВТБ. Какие БКИ запрашивают, как оценивают скоринг и что влияет на отказ.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-vtb-proveryaet-kreditnuyu-istoriyu.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как ВТБ проверяет кредитную историю: алгоритм, БКИ и требования">
+    <meta property="og:description" content="Полный разбор процедуры проверки кредитной истории в банке ВТБ. Какие БКИ запрашивают, как оценивают скоринг и что влияет на отказ.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/kredity/">Кредиты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как ВТБ проверяет кредитную историю: алгоритм, БКИ и требования</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как ВТБ проверяет кредитную историю: полный анализ процедуры</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#источники-информации-с-какими-бки-работает-банк">Источники информации: с какими БКИ работает банк</a></li><li><a href="#алгоритм-скоринга-как-система-оценивает-риски">Алгоритм скоринга: как система оценивает риски</a></li><li><a href="#что-именно-видит-сотрудник-банка-в-отчете">Что именно видит сотрудник банка в отчете</a></li><li><a href="#влияние-прошлых-просрочек-на-решение">Влияние прошлых просрочек на решение</a></li><li><a href="#скрытые-факторы-запросы-и-нагрузка">Скрытые факторы: запросы и нагрузка</a></li><li><a href="#специфика-проверки-для-разных-продуктов">Специфика проверки для разных продуктов</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Получение одобрения по кредитной заявке — это всегда стресс для заемщика, ведь итоговое решение зависит от множества скрытых факторов. Банк <strong>ВТБ</strong>, являясь одним из крупнейших кредиторов страны, использует сложную многоуровневую систему анализа платежеспособности и надежности клиента. Центральное место в этой системе занимает проверка <strong>кредитной истории</strong> (КИ), которая хранит информацию о всех ваших финансовых обязательствах за последние годы.</p>
+
+<p>Процесс анализа данных не является линейным и простым, он включает в себя взаимодействие с несколькими бюро кредитных историй и использование собственных скоринговых моделей банка. Понимание того, как именно сотрудники и автоматизированные системы <em>ВТБ</em> смотрят на ваши прошлые долги, поможет избежать распространенных ошибок при подаче заявки. В этой статье мы детально разберем механизм проверки, источники информации и критерии, которые могут стать решающими.</p>
+
+<p>Многие заемщики ошибочно полагают, что банк видит только текущие просрочки, но реальная картина гораздо шире. Финансовое учреждение оценивает динамику изменения долга, количество запросов от других кредиторов и даже структуру вашей кредитной нагрузки. <strong>Кредитный рейтинг</strong> формируется на основе сотен параметров, и игнорирование хотя бы одного из них может привести к негативному решению.</p>
+
+<h2 id="источники-информации-с-какими-бки-работает-банк">Источники информации: с какими БКИ работает банк</h2>
+
+<p>Первым этапом проверки является запрос данных в специализированные организации — <strong>Бюро кредитных историй</strong> (БКИ). В России их насчитывается более десяти, но крупные банки, включая ВТБ, сотрудничают в основном с лидерами рынка. Чаще всего запросы отправляются в НБКИ (Национальное бюро кредитных историй), а также в ОКБ и «Эквифакс». Это необходимо для получения максимально полной картины, так как разные банки могли передавать данные в разные бюро.</p>
+
+<p>При подаче заявки на кредит или оформление <strong>кредитной карты</strong> вы автоматически даете согласие на обработку персональных данных и запрос в БКИ. Банк получает доступ к вашему <strong>кредитному отчету</strong>, который содержит детальную информацию. В отчете отражаются не только суммы долгов, но и даты платежей, факты реструктуризации и даже информация о списании долгов через процедуру банкротства.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если вы ранее меняли паспорт или личные данные, убедитесь, что они обновлены в базе БКИ. Несоответствие данных может привести к тому, что банк увидит «разорванную» историю или не сможет идентифицировать вас корректно.</p>
+</blockquote>
+
+<p>Важно понимать, что банк видит не только активные кредиты, но и закрытые. История хранится в течение 10 лет после последнего изменения информации по договору. Поэтому старые проблемы, даже решенные пять лет назад, все еще могут влиять на <strong>скоринговый балл</strong>, хотя их вес со временем снижается. ВТБ анализирует сводные данные из всех доступных источников, формируя единый профиль заемщика.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Перед подачей заявки в ВТБ самостоятельно запросите отчеты в основных БКИ (НБКИ, ОКБ). Это позволит вам увидеть свою кредитную историю глазами банка и исправить возможные ошибки до обращения.</p></div>
+
+<h2 id="алгоритм-скоринга-как-система-оценивает-риски">Алгоритм скоринга: как система оценивает риски</h2>
+
+<p>После получения сырых данных из БКИ в действие вступает автоматизированная система <strong>скоринга</strong>. Это математическая модель, которая присваивает каждому параметру определенный вес и вычисляет итоговую вероятность возврата кредита. Для ВТБ, как для банка с государственным участием, характерна консервативная политика, поэтому требования к чистоте истории здесь могут быть выше средних по рынку.</p>
+
+<p>Система оценивает несколько ключевых факторов. В первую очередь анализируется дисциплина платежей: наличие просрочек, их длительность (30, 60, 90+ дней) и частота возникновения. Также учитывается <strong>кредитная нагрузка</strong> — соотношение ежемесячных платежей по всем кредитам к вашему официальному доходу. Если нагрузка превышает 50-60%, шансы на одобрение резко падают.</p>
+
+<p>Отдельное внимание уделяется количеству запросов в БКИ. Каждый раз, когда вы подаете заявку на кредит (даже если просто проверяете лимит в приложении другого банка), в истории появляется отметка. Множество таких запросов за короткий период расценивается системой как признак финансовой нестабильности и острой нужды в деньгах.</p>
+
+<div class="poll-widget" id="poll-f7793972"><div class="poll-widget-question">📊 Сталкивались ли вы с отказом в ВТБ из-за кредитной истории?</div><div class="poll-widget-option" data-poll="f7793972" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, было много просрочек</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f7793972" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, высокая нагрузка</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f7793972" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет, всегда одобряют</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f7793972" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Затрудняюсь ответить</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Алгоритм также проверяет наличие открытых <strong>кредитных линий</strong> и лимитов по картам, даже если вы ими не пользуетесь. Потенциальный долг учитывается в общей нагрузке. Система может автоматически отклонить заявку, если увидит риски, не требующие вмешательства человека. Только в пограничных случаях (когда балл близок к проходному) заявку может рассмотреть <em>кредитный инспектор</em> вручную.</p>
+
+<h2 id="что-именно-видит-сотрудник-банка-в-отчете">Что именно видит сотрудник банка в отчете</h2>
+
+<p>Когда заявка попадает на стол к специалисту или в расширенный модуль проверки, он видит детализированный отчет. Это не просто цифры, а структурированные данные, разделенные на блоки. В первую очередь бросается в глаза статус текущих обязательств: «Действующий», «Закрыт», «Просрочен». Для банка критически важно видеть текущий статус — активен ли договор или он уже закрыт.</p>
+
+<p>Сотрудник видит детальную историю платежей помесячно. Обычно она отображается в виде кодов или цветовой индикации, где каждый цвет обозначает статус платежа в конкретном месяце. Зеленый — оплата в срок, желтый — небольшая задержка, красный — серьезная просрочка. Наличие даже одного красного маркера в последние 12 месяцев может стать причиной отказа.</p>
+
+<p>Также в отчете отображается информация о поручительствах. Если вы выступали поручителем по чужому кредиту, эта сумма также считается вашей потенциальной нагрузкой. ВТБ проверяет и наличие судебных производств или исполнительных листов от <strong>ФССП</strong>, которые часто интегрированы в общие базы данных.</p>
+
+<p>В таблице ниже приведены основные параметры, на которые смотрит банк при анализе отчета:</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр проверки</th>
+<th>Влияние на решение</th>
+<th>Критичность</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Текущие просрочки</td>
+<td>Автоматический отказ</td>
+<td>Критично</td>
+</tr>
+<tr>
+<td>Просрочки 90+ дней в прошлом</td>
+<td>Высокий риск отказа</td>
+<td>Высокая</td>
+</tr>
+<tr>
+<td>Количество запросов (мес)</td>
+<td>Снижение скоринга</td>
+<td>Средняя</td>
+</tr>
+<tr>
+<td>Платежная нагрузка (%)</td>
+<td>Корректировка лимита</td>
+<td>Высокая</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>⚠️ Внимание: Наличие статуса «Списание долга» или «Продажа долга коллекторам» в прошлом делает получение нового кредита в ВТБ практически невозможным в течение нескольких лет.</p>
+</blockquote>
+
+<h2 id="влияние-прошлых-просрочек-на-решение">Влияние прошлых просрочек на решение</h2>
+
+<p>Прошлые проблемы с платежами не всегда означают полный запрет на кредитование, но их влияние зависит от давности и тяжести. Технические просрочки до 5-7 дней, которые быстро гасились, часто игнорируются системой, особенно если они были единичными несколько лет назад. Однако систематические задержки платежей формируют негативный паттерн поведения.</p>
+
+<p>Если у вас была просрочка более 30 дней в последние полгода, вероятность одобрения <strong>потребительского кредита</strong> стремится к нулю. ВТБ требует «чистой» истории в текущем моменте. Ситуация улучшается, если с момента последней серьезной проблемы прошло более 2-3 лет, и с тех пор вы активно и безупречно пользуетесь другими финансовыми продуктами.</p>
+
+<p>Важно различать виды просрочек. Забыли оплатить 100 рублей по кредитке и внесли через неделю — это одно. Не платили ипотеку три месяца — это другое. Банк оценивает сумму задолженности относительно общего лимита. Для <em>микрозаймов</em> (МФО) отношение может быть более негативным, чем для банковских кредитов, так как наличие займов в МФО часто ассоциируется с нехваткой денег на жизнь.</p>
+
+<details class="faq-item"><summary>Как долго хранится информация о просрочках?</summary><div class="faq-answer"><p>Информация о просрочках хранится в БКИ в течение 10 лет с момента последнего изменения статуса договора. Однако банки при скоринге чаще всего смотрят на последние 2-3 года, придавая им наибольший вес.</p></div></details>
+
+<h2 id="скрытые-факторы-запросы-и-нагрузка">Скрытые факторы: запросы и нагрузка</h2>
+
+<p>Многие заемщики не знают, что сам факт частого обращения за кредитами может испортить историю. Каждый запрос фиксируется в БКИ. Если за последние 3 месяца у вас появилось более 3-5 запросов от разных банков, система расценивает это как попытку «набрать денег везде, где дадут». Это сигнал о высокой рискованности клиента.</p>
+
+<p>Кредитная нагрузка рассчитывается как отношение суммы всех ежемесячных платежей к подтвержденному доходу. ВТБ использует консервативный подход: если на платежи уходит более 50% дохода, новый кредит, скорее всего, не дадут или предложат меньшую сумму. В расчет берется не только фактический платеж, но и минимальный платеж по кредитным картам (обычно 5-10% от лимита).</p>
+
+<p>Существует понятие «скрытой нагрузки». Это алименты, которые вы платите неофициально, или кредиты, оформленные на близких родственников, но выплачиваемые вами. Банк их не видит в БКИ, но может узнать о них при звонке или проверке соцсетей, если дело дойдет до суда. Однако в рамках автоматического скоринга учитываются только официальные данные.</p>
+
+<div class="checklist-block"><h4>☑️ Как подготовить кредитную историю к заявке</h4><label class="check-item"><input type="checkbox"><span>Проверить отчет в БКИ на ошибки</span></label><label class="check-item"><input type="checkbox"><span>Закрыть мелкие кредитки с нулевым лимитом</span></label><label class="check-item"><input type="checkbox"><span>Погасить текущие микропросрочки</span></label><label class="check-item"><input type="checkbox"><span>Не подавать новые заявки 2-3 месяца</span></label><label class="check-item"><input type="checkbox"><span>Снизить нагрузку по кредитным картам</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="специфика-проверки-для-разных-продуктов">Специфика проверки для разных продуктов</h2>
+
+<p>Требования к кредитной истории различаются в зависимости от продукта. Для <strong>ипотечного кредитования</strong> стандарты наиболее жесткие. Здесь важна не только отсутствие просрочек, но и стабильность финансового поведения на длинной дистанции. Наличие даже небольших текущих долгов по потребительским кредитам может снизить одобряемую сумму ипотеки.</p>
+
+<p>При оформлении <strong>кредитной карты</strong> требования чуть мягче, но выше процентная ставка для клиентов с неидеальной историей. ВТБ может одобрить карту с небольшим лимитом, чтобы проверить вашу дисциплину в реальном времени. Рефинансирование, напротив, требует очень чистой истории, так как его цель — улучшение условий для платежеспособных клиентов.</p>
+
+<p>Для зарплатных клиентов правила могут быть более лояльными. Банк видит ваши доходы и траты по счету, что частично компенсирует недостатки в КИ. Внутренний скоринг для «своих» клиентов учитывает обороты по счетам, что позволяет закрыть глаза на некоторые внешние факторы.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Зарплатным клиентам ВТБ проще получить одобрение даже с небольшими огрехами в кредитной истории, так как банк видит реальные доходы и траты по счету.</p></div>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Как часто ВТБ обновляет данные из БКИ?</summary>
+<p>Банк запрашивает актуальные данные из бюро кредитных историй в момент подачи вами заявки. Однако внутренние базы могут обновляться с разной периодичностью. Если вы только что погасили кредит, лучше подождать 2-3 дня, пока информация обновится в БКИ, прежде чем подавать новую заявку.</p>
+</details>
+
+<details>
+<summary>Можно ли получить кредит в ВТБ с плохой кредитной историей?</summary>
+<p>С открытыми просрочками или недавними банкротствами — практически невозможно. Если же негатив в истории был давно (более 3-5 лет назад) и с тех пор вы вели себя образцово, шансы есть, но ставка может быть выше стандартной. Рассмотрите вариант кредитной карты с небольшим лимитом.</p>
+</details>
+
+<details>
+<summary>Видит ли ВТБ мои займы в МФО?</summary>
+<p>Да, если микрофинансовая организация передает данные в БКИ (а крупные МФО обязаны это делать по закону). ВТБ видит сумму займа, график платежей и статус. Наличие множества активных займов в МФО воспринимается как признак высокой рискованности заемщика.</p>
+</details>
+
+<details>
+<summary>Что делать, если в кредитной истории ошибка?</summary>
+<p>Необходимо подать заявление в то БКИ, где обнаружена ошибка, с требованием провести проверку. К заявлению нужно приложить документы, подтверждающие вашу правоту (справку из банка об отсутствии долга). Процесс исправления может занять до 30 дней.</p>
+</details>
+
+<details>
+<summary>Влияет ли отказ в кредите на историю?</summary>
+<p>Сам факт отказа в истории не пишется. Однако в истории остается запись о том, что банк делал запрос на проверку вашей кредитоспособности. Множество таких запросов без последующего получения кредита может негативно сказаться на рейтинге.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#источники-информации-с-какими-бки-работает-банк">Источники информации: с какими БКИ работает банк</a></li><li><a href="#алгоритм-скоринга-как-система-оценивает-риски">Алгоритм скоринга: как система оценивает риски</a></li><li><a href="#что-именно-видит-сотрудник-банка-в-отчете">Что именно видит сотрудник банка в отчете</a></li><li><a href="#влияние-прошлых-просрочек-на-решение">Влияние прошлых просрочек на решение</a></li><li><a href="#скрытые-факторы-запросы-и-нагрузка">Скрытые факторы: запросы и нагрузка</a></li><li><a href="#специфика-проверки-для-разных-продуктов">Специфика проверки для разных продуктов</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/b/be/beru-million-v-vtb-skolko-platit.html" class="related-card">Сколько платить за кредит 1 млн в ВТБ в 2026: расчёт ежемесячного платежа</a></li><li><a href="/articles/k/ka/kakaya-protsentnaya-stavka-po-kreditu-dlya-ip-v-vtb.html" class="related-card">Процентная ставка по кредиту для ИП в ВТБ в 2026 году: актуальные условия</a></li><li><a href="/articles/k/ka/kak-uznat-svoi-kredity-v-vtb.html" class="related-card">Как проверить свои кредиты в ВТБ — 5 способов онлайн и офлайн</a></li><li><a href="/articles/k/ka/kak-proiskhodit-dosrochnoe-pogashenie-kredita-v-vtb.html" class="related-card">Досрочное погашение кредита в ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-kupit-zalogovoe-imushchestvo-u-banka-vtb.html" class="related-card">Как купить залоговое имущество у банка ВТБ: пошаговая инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/b/be/beru-million-v-vtb-skolko-platit.html" class="related-bottom-card"><span class="related-bottom-title">Сколько платить за кредит 1 млн в ВТБ в 2026: расчёт ежемесячного платежа</span><span class="related-bottom-desc">Разбираем процентные ставки, ежемесячные платежи и скрытые комиссии по кредиту 1 000 000 рублей в ВТ</span></a><a href="/articles/k/ka/kakaya-protsentnaya-stavka-po-kreditu-dlya-ip-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Процентная ставка по кредиту для ИП в ВТБ в 2026 году: актуальные условия</span><span class="related-bottom-desc">Актуальные ставки по кредитам для ИП в ВТБ: от 7,9% до 25% годовых. Сравнение программ, требования к</span></a><a href="/articles/k/ka/kak-uznat-svoi-kredity-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить свои кредиты в ВТБ — 5 способов онлайн и офлайн</span><span class="related-bottom-desc">Узнайте актуальные кредиты в ВТБ: через личный кабинет, мобильное приложение, банкомат или звонок в </span></a><a href="/articles/k/ka/kak-proiskhodit-dosrochnoe-pogashenie-kredita-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Досрочное погашение кредита в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как правильно погасить кредит в ВТБ досрочно: способы, комиссии, нюансы частичного и полного закрыти</span></a><a href="/articles/k/ka/kak-kupit-zalogovoe-imushchestvo-u-banka-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как купить залоговое имущество у банка ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как приобрести залоговое имущество банка ВТБ. Актуальные площадки торгов, этапы покупки, ню</span></a><a href="/articles/v/vz/vzyat-kredit-v-vtb-banke-kakie-protsentnye-stavki.html" class="related-bottom-card"><span class="related-bottom-title">Кредиты ВТБ: актуальные ставки, условия и проценты</span><span class="related-bottom-desc">Узнайте, какие процентные ставки на кредиты наличными предлагает ВТБ. Полный обзор условий, скрытых </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

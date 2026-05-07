@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>ВТБ Бизнес Онлайн: как загрузить платежки из 1С — пошаговая инструкция 2026 — Банки Инфо</title>
+    <meta name="description" content="Подробное руководство по импорту платежных поручений из 1С в ВТБ Бизнес Онлайн: настройки, форматы файлов, ошибки и решения. Актуально для 1С:Бухгалтерия 8.3 и ВТБ 2026.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/v/vt/vtb-biznes-onlajn-kak-zagruzit-platezhki-iz-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ВТБ Бизнес Онлайн: как загрузить платежки из 1С — пошаговая инструкция 2026">
+    <meta property="og:description" content="Подробное руководство по импорту платежных поручений из 1С в ВТБ Бизнес Онлайн: настройки, форматы файлов, ошибки и решения. Актуально для 1С:Бухгалтерия 8.3 и ВТБ 2026.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/platezhi-zhkkh/">Платежи ЖКХ</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">ВТБ Бизнес Онлайн: как загрузить платежки из 1С — пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как загрузить платежные поручения из 1С в ВТБ Бизнес Онлайн: инструкция с картинками и лайфхаками</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-1сбухгалтерия-к-выгрузке-платежек">Подготовка 1С:Бухгалтерия к выгрузке платежек</a></li><li><a href="#требования-втб-к-формату-платежных-поручений-в-2024-году">Требования ВТБ к формату платежных поручений в 2024 году</a></li><li><a href="#пошаговая-инструкция-выгрузка-платежек-из-1с-в-xml">Пошаговая инструкция: выгрузка платежек из 1С в XML</a></li><li><a href="#загрузка-платежек-в-втб-бизнес-онлайн-пошаговый-процесс">Загрузка платежек в ВТБ Бизнес Онлайн: пошаговый процесс</a></li><li><a href="#типичные-ошибки-и-как-их-исправить">Типичные ошибки и как их исправить</a></li><li><a href="#автоматизация-настройка-прямого-обмена-между-1с-и-втб">Автоматизация: настройка прямого обмена между 1С и ВТБ</a></li><li><a href="#альтернативные-способы-загрузки-платежек-в-втб">Альтернативные способы загрузки платежек в ВТБ</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Загрузка платежных поручений из <em>1С:Бухгалтерия</em> в личный кабинет <strong>ВТБ Бизнес Онлайн</strong> экономит часы ручной работы бухгалтерам и финансовым директорам. Однако даже опытные пользователи сталкиваются с ошибками формата файлов, несоответствием реквизитов или проблемами авторизации. В этой статье — актуальная на 2026 год пошаговая инструкция с учетом последних обновлений <em>1С 8.3</em> и интерфейса <strong>ВТБ</strong>, а также разбор типичных ошибок с готовыми решениями.</p>
+
+<p>Мы рассмотрим два основных способа импорта: через <code>XML</code>-файлы (стандартный формат обмена) и напрямую из <em>1С</em> с помощью встроенного модуля <strong>"Обмен с банком"</strong>. Особое внимание уделим настройке шаблонов платежек в <em>1С</em>, чтобы избежать отказов со стороны банка. В конце статьи — чек-лист для проверки файла перед загрузкой и ответы на частые вопросы от клиентов <strong>ВТБ</strong>.</p>
+
+<h2 id="подготовка-1сбухгалтерия-к-выгрузке-платежек">Подготовка 1С:Бухгалтерия к выгрузке платежек</h2>
+
+<p>Перед тем как экспортировать платежные поручения, необходимо настроить <em>1С:Бухгалтерию 8.3</em> на корректный обмен данными с <strong>ВТБ Бизнес Онлайн</strong>. Без предварительной настройки программа может сформировать файл в устаревшем формате или с неполными реквизитами, что приведет к ошибкам при загрузке.</p>
+
+<p>Первым делом проверьте версию конфигурации <em>1С</em>. Для работы с <strong>ВТБ</strong> требуется актуальная редакция не ниже <code>3.0.125.х</code> (для бухгалтерии предприятия). Узнать версию можно в меню <code>Справка → О программе</code>. Если версия устарела, обновите конфигурацию через <code>Администрирование → Поддержка и обслуживание → Обновление конфигурации</code>.</p>
+
+<ul>
+  <li>🔧 <strong>Настройте банковские реквизиты</strong>: Перейдите в <code>Справочники → Банки</code> и добавьте (или обновите) реквизиты вашего расчетного счета в <strong>ВТБ</strong>. Убедитесь, что указаны <code>БИК</code>, <code>корр. счет</code> и <code>наименование банка</code> без опечаток.</li>
+  <li>📝 <strong>Проверьте шаблоны платежек</strong>: В разделе <code>Банк и касса → Платежные поручения</code> откройте любой шаблон и сравните реквизиты с актуальными требованиями <strong>ВТБ</strong> (см. таблицу ниже).</li>
+  <li>🔄 <strong>Активируйте модуль обмена</strong>: В настройках программы (<code>Администрирование → Настройки программы → Обмен данными</code>) включите опцию <code>"Обмен с банками через файлы"</code>.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если в вашей 1С нет модуля "Обмен с банком", его можно подключить через <code>Администрирование → Печатные формы, отчеты и обработки → Дополнительные отчеты и обработки</code>. Скачайте обработку с сайта <em>1С-ИТС</em> или портала <strong>ВТБ</strong> для корпоративных клиентов.</p></div>
+
+<h2 id="требования-втб-к-формату-платежных-поручений-в-2026-году">Требования ВТБ к формату платежных поручений в 2026 году</h2>
+
+<p><strong>ВТБ Бизнес Онлайн</strong> принимает платежные поручения только в строго определенных форматах. Нарушение структуры файла или отсутствие обязательных полей приводит к автоматическому отказу в обработке. Ниже — актуальные требования на 2026 год, подтвержденные технической поддержкой банка.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>Требования ВТБ</th>
+      <th>Примечание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Формат файла</td>
+      <td><code>XML</code> (версия 1.01 или 1.03)</td>
+      <td>Файлы <code>DBF</code> или <code>XLS</code> не поддерживаются</td>
+    </tr>
+    <tr>
+      <td>Кодировка</td>
+      <td><code>Windows-1251</code> или <code>UTF-8</code></td>
+      <td>При сохранении в <em>1С</em> выбирайте <code>"ANSI"</code> для <code>Windows-1251</code></td>
+    </tr>
+    <tr>
+      <td>Обязательные реквизиты</td>
+      <td>ИНН, КПП, расчетный счет, БИК, сумма, назначение платежа</td>
+      <td>Отсутствие хотя бы одного поля — причина отказа</td>
+    </tr>
+    <tr>
+      <td>Макс. размер файла</td>
+      <td>До 5 МБ</td>
+      <td>При превышении разбейте на несколько файлов</td>
+    </tr>
+    <tr>
+      <td>Количество платежек в файле</td>
+      <td>До 500 штук</td>
+      <td>Для массовых платежей используйте пакетную обработку</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><mark>Важно: с 1 марта 2026 года ВТБ ужесточил контроль за полем "Назначение платежа". Если в назначении указаны символы <code>#</code>, <code>$</code>, <code>%</code> или более 210 знаков, платежка будет отклонена автоматически.</mark> Перед выгрузкой проверьте назначения на соответствие требованиям с помощью встроенного в <em>1С</em> валидатора (<code>Банк и касса → Платежные поручения → Проверить назначения</code>).</p>
+
+<div class="poll-widget" id="poll-2026ae0d"><div class="poll-widget-question">📊 Какой формат файлов вы используете для обмена с ВТБ?</div><div class="poll-widget-option" data-poll="2026ae0d" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">XML</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2026ae0d" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">DBF</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2026ae0d" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">XLS/XLSX</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2026ae0d" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Текстовый (TXT)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="пошаговая-инструкция-выгрузка-платежек-из-1с-в-xml">Пошаговая инструкция: выгрузка платежек из 1С в XML</h2>
+
+<p>Самый надежный способ передачи платежных поручений — экспорт в <code>XML</code>-файл с последующей загрузкой в <strong>ВТБ Бизнес Онлайн</strong>. Этот метод работает даже при нестабильном интернет-соединении и позволяет сохранить копию файла для архива. Следуйте инструкции:</p>
+
+<ol>
+  <li><strong>Откройте журнал платежных поручений</strong> в <em>1С</em>:
+    <p>Перейдите в раздел <code>Банк и касса → Платежные поручения</code>. Отметьте галочками платежки, которые нужно экспортировать. Для массового выбора используйте кнопку <code>"Выделить все"</code> в верхнем меню.</p></li>
+  <li><strong>Сформируйте файл обмена</strong>:
+    <p>Нажмите <code>"Выгрузить"</code> (или <code>"Обмен с банком → Выгрузить платежные поручения"</code>). В открывшемся окне выберите:
+      <ul>
+        <li>Формат: <code>"XML для Клиент-Банка"</code></li>
+        <li>Версия: <code>"1.03"</code> (рекомендуется)</li>
+        <li>Кодировка: <code>"ANSI"</code> (для Windows-1251)</li>
+      </ol>
+    </p>
+  </li>
+  <li><strong>Сохраните файл</strong>:
+    <p>Укажите путь для сохранения (например, <code>C:\ВТБ_Платежки\export_20260515.xml</code>). Избегайте кириллических символов в имени файла и пути.</p></li>
+</ol>
+
+<div class="checklist-block"><h4>☑️ Проверка XML-файла перед загрузкой в ВТБ</h4><label class="check-item"><input type="checkbox"><span>Файл сохранен в кодировке Windows-1251</span></label><label class="check-item"><input type="checkbox"><span>Размер файла не превышает 5 МБ</span></label><label class="check-item"><input type="checkbox"><span>В имени файла нет кириллицы и пробелов</span></label><label class="check-item"><input type="checkbox"><span>Все платежки имеют статус "Готово к выгрузке"</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>После формирования файла откройте его любым текстовым редактором (например, <em>Notepad++</em>) и проверьте первые строки. Корректный <code>XML</code> должен начинаться с:</p>
+<pre><code>&lt;?xml version="1.0" encoding="windows-1251"?&gt;
+<p>&lt;Documents xmlns="urn:cbr-ru:ed:v2.0"&gt;</code></pre></p>
+
+<details class="faq-item"><summary>Пример структуры XML для ВТБ</summary><div class="faq-answer"><p>В файле должны присутствовать теги &lt;Document&gt; (для каждой платежки), &lt;Sum&gt; (сумма), &lt;Payer&gt; (плательщик) и &lt;Receiver&gt; (получатель). Полный шаблон можно скачать на сайте ВТБ в разделе "Обмен документами"</p></div></details>
+
+<h2 id="загрузка-платежек-в-втб-бизнес-онлайн-пошаговый-процесс">Загрузка платежек в ВТБ Бизнес Онлайн: пошаговый процесс</h2>
+
+<p>Теперь, когда файл подготовлен, осталось загрузить его в личный кабинет <strong>ВТБ Бизнес Онлайн</strong>. Процесс занимает не более 5 минут, но требует внимания к деталям — особенно при первом импорте. Используйте эту инструкцию:</p>
+
+<ol>
+  <li><strong>Авторизуйтесь в системе</strong>:
+    <p>Перейдите на сайт <a href="https://business.vtb.ru" target="_blank">business.vtb.ru</a> и войдите под своей учетной записью с правами на создание платежей. Если у вас нет доступа, запросите права у администратора компании в <strong>ВТБ</strong>.</p></li>
+  <li><strong>Перейдите в раздел платежей</strong>:
+    <p>В главном меню выберите <code>"Платежи и переводы" → "Импорт платежных документов"</code>. На некоторых тарифах этот пункт может называться <code>"Загрузка платежек"</code>.</p></li>
+  <li><strong>Выберите файл и параметры</strong>:
+    <p>Нажмите <code>"Выбрать файл"</code> и укажите путь к сохраненному <code>XML</code>. В поле <code>"Тип документа"</code> выберите <code>"Платежные поручения"</code>. Обязательно отметьте галочку <code>"Пропустить дубликаты"</code>, если загружаете платежки повторно.</p></li>
+  <li><strong>Подтвердите загрузку</strong>:
+    <p>После проверки файла системой нажмите <code>"Импортировать"</code>. <strong>ВТБ</strong> покажет предварительный список платежек с статусами. Платежки со статусом <code>"Ошибка"</code> нужно исправить в <em>1С</em> и загрузить повторно.</p></li>
+</ol>
+
+
+<p>1) Соответствие XML-схеме ВТБ (скачайте актуальную схему на сайте банка).</p>
+<p>2) Отсутствие лишних символов перед тегом &lt;?xml&gt;.</p>
+<p>3) Кодировку файла (должна быть Windows-1251).--></p>
+
+<p><strong>Внимание!</strong> После успешной загрузки платежки получают статус <code>"Принято к исполнению"</code>, но еще не отправлены в банк. Для окончательного подтверждения перейдите в <code>"Платежи на подписании"</code> и подпишите документы с помощью <em>ЭЦП</em> или SMS-кода (в зависимости от настроек вашего доступа).</p>
+
+<h2 id="типичные-ошибки-и-как-их-исправить">Типичные ошибки и как их исправить</h2>
+
+<p>Даже при точном следовании инструкции пользователи сталкиваются с ошибками при загрузке платежек. Мы собрали самые распространенные проблемы и способы их решения, подтвержденные технической поддержкой <strong>ВТБ</strong> и <em>1С</em>.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если в ошибке указан код <code>E001</code> или <code>E003</code>, это означает проблему с реквизитами плательщика. Проверьте <code>ИНН</code>, <code>КПП</code> и <code>расчетный счет</code> в настройках <em>1С</em> — они должны полностью совпадать с данными в договоре с <strong>ВТБ</strong>.</blockquote>
+
+<ul>
+  <li>🚫 <strong>Ошибка: "Неверный формат файла"</strong>
+    <p><strong>Причина:</strong> Файл сохранен в неподходящей кодировке или поврежден.<br>
+    <strong>Решение:</strong> Откройте файл в <em>Notepad++</em> и пересохраните в кодировке <code>ANSI</code>. Если ошибка остается, экспортируйте платежки заново из <em>1С</em>.</p></li>
+  <li>🔍 <strong>Ошибка: "Отсутствует обязательное поле"</strong>
+    <p><strong>Причина:</strong> В платежке не заполнено одно из полей: <code>БИК</code>, <code>корр. счет</code> или <code>назначение платежа</code>.<br>
+    <strong>Решение:</strong> Вернитесь в <em>1С</em>, откройте проблемную платежку и заполните все поля. Для массового исправления используйте обработку <code>"Групповое редактирование документов"</code>.</p></li>
+  <li>🔒 <strong>Ошибка: "Недостаточно прав для импорта"</strong>
+    <p><strong>Причина:</strong> У вашей учетной записи в <strong>ВТБ Бизнес Онлайн</strong> нет прав на загрузку платежек.<br>
+    <strong>Решение:</strong> Обратитесь к администратору вашей компании в банке или в службу поддержки <strong>ВТБ</strong> по телефону <code>8 800 100-24-24</code> (для корпоративных клиентов).</p></li>
+</ul>
+
+<p>Если ошибка не указана в списке, скопируйте ее текст и проверьте в <a href="https://business.vtb.ru/help/errors" target="_blank">справочнике ошибок ВТБ</a>. Для сложных случаев (например, коды <code>E010</code>–<code>E015</code>) рекомендуем отправить файл на проверку в техническую поддержку банка через чат в личном кабинете.</p>
+
+<h2 id="автоматизация-настройка-прямого-обмена-между-1с-и-втб">Автоматизация: настройка прямого обмена между 1С и ВТБ</h2>
+
+<p>Для компаний с большим объемом платежей (от 50 в день) ручная выгрузка и загрузка файлов становится неэффективной. <strong>ВТБ</strong> предлагает решение — <strong>прямой обмен данными</strong> между <em>1С</em> и банком через защищенный канал. Этот метод исключает ошибки формата и ускоряет обработку платежек.</p>
+
+<p>Для настройки прямого обмена выполните следующие шаги:</p>
+
+<ol>
+  <li><strong>Получите доступ к API ВТБ</strong>:
+    <p>Обратитесь в банк с заявлением на подключение <strong>"Обмена по каналам связи"</strong>. ВТБ предоставит логин, пароль и сертификат для подключения (файл с расширением <code>.pfx</code>).</p></li>
+  <li><strong>Настройте 1С</strong>:
+    <p>В разделе <code>Администрирование → Обмен данными → Настройки обмена с банками</code> добавьте новый профиль:
+      <ul>
+        <li>Тип обмена: <code>"Прямое подключение"</code></li>
+        <li>Банк: <code>"ВТБ (ПАО)"</code></li>
+        <li>Адрес сервера: <code>"https://business.vtb.ru/api"</code></li>
+        <li>Загрузите сертификат <code>.pfx</code> и укажите пароль.</li>
+      </ol>
+    </p></li>
+  <li><strong>Протестируйте соединение</strong>:
+    <p>В настройках обмена нажмите <code>"Проверить соединение"</code>. Если тест пройден успешно, можно приступать к отправке платежек напрямую.</p></li>
+</ol>
+
+<p><strong>Преимущества прямого обмена:</strong></p>
+<ul>
+  <li>⚡ <strong>Скорость:</strong> Платежки отправляются в банк в течение 1–2 минут.</li>
+  <li>🔄 <strong>Автоматизация:</strong> Можно настроить автоотправку по расписанию (например, ежедневно в 17:00).</li>
+  <li>🛡️ <strong>Безопасность:</strong> Данные передаются по защищенному протоколу <code>TLS 1.3</code>.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При прямом обмене <em>1С</em> должна быть постоянно подключена к интернету. Если соединение прервется во время отправки, платежки могут дублироваться. Используйте резервный канал связи или настройте автоматическое повторение отправки.</blockquote>
+
+<h2 id="альтернативные-способы-загрузки-платежек-в-втб">Альтернативные способы загрузки платежек в ВТБ</h2>
+
+<p>Если по каким-то причинам выгрузка из <em>1С</em> невозможна (например, временные проблемы с программой), <strong>ВТБ Бизнес Онлайн</strong> поддерживает и другие способы импорта платежных поручений. Рассмотрим их подробнее:</p>
+
+<ul>
+  <li>📑 <strong>Загрузка через Excel</strong>
+    <p>Банк принимает файлы <code>XLS</code>/<code>XLSX</code> с платежками, но только по специальному шаблону. <a href="https://business.vtb.ru/templates" target="_blank">Скачайте шаблон</a> на сайте ВТБ, заполните его и импортируйте через раздел <code>"Импорт из Excel"</code>. Обратите внимание: в шаблоне нельзя менять порядок столбцов!</p></li>
+  <li>📋 <strong>Ручной ввод платежек</strong>
+    <p>Подходит для единичных платежей. В личном кабинете перейдите в <code>"Платежи и переводы → Новый платеж"</code> и заполните реквизиты вручную. Для ускорения процесса сохраняйте часто используемые шаблоны (кнопка <code>"Сохранить как шаблон"</code>).</p></li>
+  <li>📱 <strong>Мобильное приложение ВТБ Бизнес</strong>
+    <p>В приложении (доступно для <em>iOS</em> и <em>Android</em>) можно создавать платежки со смартфона, но импорт файлов из <em>1С</em> недоступен. Функция полезна для срочных платежей в отсутствие компьютера.</p></li>
+</ul>
+
+<p>Для компаний, работающих с большим количеством контрагентов, рекомендуем комбинировать способы: основной поток платежек загружать из <em>1С</em>, а срочные или нестандартные платежи вводить вручную.</p>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</h2>
+
+<details>
+  <summary>Можно ли загрузить в ВТБ платежки из 1С:Зарплата и Управление Персоналом?</summary>
+  <p>Да, но потребуется дополнительная настройка. В <em>1С:ЗУП</em> перейдите в <code>"Налоги и взносы → Платежные поручения"</code>, выделите нужные документы и выгрузите их в формате <code>XML для Клиент-Банка</code> (версия 1.03). Главное — убедиться, что в платежках указаны все обязательные реквизиты (ИНН, КПП, БИК).</p>
+</details>
+
+<details>
+  <summary>Почему ВТБ не принимает файл, хотя в 1С он формируется без ошибок?</summary>
+  <p>Наиболее вероятные причины:
+    <ul>
+      <li>В файле используется кодировка <code>UTF-8</code> вместо <code>Windows-1251</code>.</li>
+      <li>В назначении платежа есть запрещенные символы (например, <code>#</code>, <code>%</code>).</li>
+      <li>Размер файла превышает 5 МБ.</li>
+    </ul>
+<p>Проверьте файл в текстовом редакторе и сравните его структуру с <a href="https://business.vtb.ru/help/xml-schema" target="_blank">официальной схемой ВТБ</a>.</p></p>
+</details>
+
+<details>
+  <summary>Как отменить загруженную, но не подписанную платежку?</summary>
+  <p>Перейдите в раздел <code>"Платежи на подписании"</code>, найдите нужную платежку и нажмите <code>"Отклонить"</code>. После отклонения документ исчезнет из списка и не будет отправлен в банк. Если платежка уже подписана, для отмены потребуется звонок в поддержку <strong>ВТБ</strong>.</p>
+</details>
+
+<details>
+  <summary>Можно ли загрузить платежки за прошлые даты?</summary>
+  <p>Да, но с ограничениями:
+    <ul>
+      <li>Дату платежа можно указать не раньше чем за 10 дней до текущей.</li>
+      <li>Для платежей с будущей датой (отложенные платежи) действуют тарифные ограничения.</li>
+    </ul>
+<p>В <em>1С</em> при формировании файла укажите нужную дату в поле <code>"Дата платежа"</code>.</p></p>
+</details>
+
+<details>
+  <summary>Что делать, если при загрузке появляется ошибка "Сертификат недействителен"?</summary>
+  <p>Эта ошибка связана с истекшим сертификатом ЭЦП или проблемами в настройках обмена. Решения:
+    <ol>
+      <li>Обновите сертификат ЭЦП через <code>"Настройки → Сертификаты"</code> в <strong>ВТБ Бизнес Онлайн</code>.</li>
+      <li>Проверьте системное время на компьютере — оно должно совпадать с московским временем.</li>
+      <li>Переустановите криптопровайдер (например, <em>КриптоПро CSP</strong>).</li>
+    </ol>
+<p>Если проблема остается, обратитесь в службу поддержки <strong>ВТБ</em> с кодом ошибки.</p></p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-1сбухгалтерия-к-выгрузке-платежек">Подготовка 1С:Бухгалтерия к выгрузке платежек</a></li><li><a href="#требования-втб-к-формату-платежных-поручений-в-2024-году">Требования ВТБ к формату платежных поручений в 2024 году</a></li><li><a href="#пошаговая-инструкция-выгрузка-платежек-из-1с-в-xml">Пошаговая инструкция: выгрузка платежек из 1С в XML</a></li><li><a href="#загрузка-платежек-в-втб-бизнес-онлайн-пошаговый-процесс">Загрузка платежек в ВТБ Бизнес Онлайн: пошаговый процесс</a></li><li><a href="#типичные-ошибки-и-как-их-исправить">Типичные ошибки и как их исправить</a></li><li><a href="#автоматизация-настройка-прямого-обмена-между-1с-и-втб">Автоматизация: настройка прямого обмена между 1С и ВТБ</a></li><li><a href="#альтернативные-способы-загрузки-платежек-в-втб">Альтернативные способы загрузки платежек в ВТБ</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-oplatit-mobilnuyu-svyaz-v-vtb.html" class="related-card">Как оплатить мобильную связь через ВТБ: 5 способов 2026</a></li><li><a href="/articles/k/ka/kak-oplachivat-zhkkh-v-vtb-onlajn.html" class="related-card">Как оплатить ЖКХ в ВТБ Онлайн: инструкция и комиссии</a></li><li><a href="/articles/k/ka/kak-podklyuchit-uslugu-kollektsiya-vtb.html" class="related-card">Как подключить услугу Коллекция в ВТБ: инструкция</a></li><li><a href="/articles/k/ka/kak-oplatit-sadik-cherez-vtb.html" class="related-card">Как оплатить детский сад через ВТБ Онлайн: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-otmenit-avtoplatezh-v-vtb-onlajn-na-telefone.html" class="related-card">Как отменить автоплатеж в ВТБ Онлайн с телефона — пошаговая инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-oplatit-mobilnuyu-svyaz-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить мобильную связь через ВТБ: 5 способов 2026</span><span class="related-bottom-desc">Пошаговая инструкция: оплата телефона через ВТБ Онлайн, мобильный банк, терминалы и картой. Комиссии</span></a><a href="/articles/k/ka/kak-oplachivat-zhkkh-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить ЖКХ в ВТБ Онлайн: инструкция и комиссии</span><span class="related-bottom-desc">Полный гид по оплате ЖКХ через ВТБ Онлайн. Как найти поставщика, использовать автоплатеж, избежать к</span></a><a href="/articles/k/ka/kak-podklyuchit-uslugu-kollektsiya-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить услугу Коллекция в ВТБ: инструкция</span><span class="related-bottom-desc">Полный гайд по подключению сервиса Коллекция ВТБ. Настройка автоплатежей, условия тарифов и ответы н</span></a><a href="/articles/k/ka/kak-oplatit-sadik-cherez-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить детский сад через ВТБ Онлайн: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как быстро и без комиссии оплатить детский сад через приложение ВТБ Онлайн. Подробная инстр</span></a><a href="/articles/k/ka/kak-otmenit-avtoplatezh-v-vtb-onlajn-na-telefone.html" class="related-bottom-card"><span class="related-bottom-title">Как отменить автоплатеж в ВТБ Онлайн с телефона — пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по отключению автоплатежа в мобильном приложении ВТБ Онлайн: шаги, нюансы и ча</span></a><a href="/articles/c/ch/chto-oznachaet-schet-mes-vystavlen-ot-vtb-24.html" class="related-bottom-card"><span class="related-bottom-title">Что значит «счет МЭС выставлен от ВТБ 24» — разбор и действия</span><span class="related-bottom-desc">Получили уведомление «счет МЭС выставлен от ВТБ 24»? Разбираем, что это за платеж, почему он пришел </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

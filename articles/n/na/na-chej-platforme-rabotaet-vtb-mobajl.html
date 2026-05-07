@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>На чьей платформе работает ВТБ Мобайл: технические детали — Банки Инфо</title>
+    <meta name="description" content="Узнайте, какая платформа лежит в основе мобильного банка ВТБ Мобайл: архитектура, безопасность и сравнение с конкурентами. Актуальная информация 2026 года.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/n/na/na-chej-platforme-rabotaet-vtb-mobajl.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="На чьей платформе работает ВТБ Мобайл: технические детали">
+    <meta property="og:description" content="Узнайте, какая платформа лежит в основе мобильного банка ВТБ Мобайл: архитектура, безопасность и сравнение с конкурентами. Актуальная информация 2026 года.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">На чьей платформе работает ВТБ Мобайл: технические детали</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>На какой платформе работает приложение ВТБ Мобайл: разбор технической основы</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#введение-почему-важно-знать-платформу-мобильного-банка">Введение: почему важно знать платформу мобильного банка</a></li><li><a href="#официальная-информация-что-говорит-сам-втб">Официальная информация: что говорит сам ВТБ</a></li><li><a href="#анализ-мобильного-приложения-фронтенд-и-бэкенд">Анализ мобильного приложения: фронтенд и бэкенд</a></li><li><a href="#сравнение-с-конкурентами-кто-на-чём-работает">Сравнение с конкурентами: кто на чём работает</a></li><li><a href="#безопасность-платформы-как-защищены-данные-пользователей">Безопасность платформы: как защищены данные пользователей</a></li><li><a href="#перспективы-развития-куда-движется-платформа-втб-мобайл">Перспективы развития: куда движется платформа ВТБ Мобайл</a></li><li><a href="#как-пользователю-узнать-версию-платформы-своего-приложения">Как пользователю узнать версию платформы своего приложения</a></li><li><a href="#faq-частые-вопросы-о-платформе-втб-мобайл">FAQ: Частые вопросы о платформе ВТБ Мобайл</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><h2 id="введение-почему-важно-знать-платформу-мобильного-банка">Введение: почему важно знать платформу мобильного банка</h2>
+
+<p>Мобильное приложение <strong>ВТБ Мобайл</strong> — один из ключевых инструментов для управления финансами миллионов клиентов. Но мало кто задумывается о том, <em>на какой технической базе</em> работает этот сервис. Между тем, платформа определяет не только скорость работы и стабильность, но и уровень безопасности, возможности интеграции с другими сервисами, а также перспективы развития функционала.</p>
+
+<p>В отличие от физических банкоматов или офисов, где "железо" и программное обеспечение видны невооружённым глазом, мобильные банки скрывают свою инфраструктуру за удобным интерфейсом. Однако для ИТ-специалистов, разработчиков и просто любопытных пользователей вопрос <mark>о платформе ВТБ Мобайл</mark> остаётся актуальным — особенно на фоне регулярных обновлений и роста киберугроз. В этой статье мы разберёмся, какие технологии стоят за приложением, как они влияют на пользовательский опыт и почему банк выбрал именно такой подход.</p>
+
+<h2 id="официальная-информация-что-говорит-сам-втб">Официальная информация: что говорит сам ВТБ</h2>
+
+<p>Банк <em>ВТБ</em> не раскрывает подробности архитектуры своей мобильной платформы в публичном доступе — это стандартная практика для финансовых организаций, стремящихся защитить инфраструктуру от потенциальных атак. Однако в пресс-релизах, вакансиях для разработчиков и патентных документах можно найти косвенные подтверждения используемых технологий.</p>
+
+<p>Так, в описаниях вакансий для <strong>backend-разработчиков</strong> ВТБ упоминаются:
+<ul>
+  <li>🔹 <em>Java</em> и <em>Kotlin</em> — как основные языки для серверной части;</li>
+  <li>🔹 <em>Spring Boot</em> — фреймворк для создания микросервисов;</li>
+  <li>🔹 <em>Oracle Database</em> и <em>PostgreSQL</em> — системы управления базами данных;</li>
+  <li>🔹 <em>Kubernetes</em> — для оркестрации контейнеров.</li>
+</ul>
+<p>Это позволяет предположить, что мобильное приложение взаимодействует с бэкендом, построенным на этих технологиях.</p></p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Отсутствие официальных заявлений о платформе не означает, что её нет. Банки часто используют гибридные решения, сочетая собственные разработки с продуктами вендоров (например, <em>Backbase</em> или <em>Temenos</em>).</blockquote>
+
+<p>В 2022 году в интервью для <em>"Банковского обозрения"</em> представители ВТБ отмечали, что мобильный банк работает на <strong>"собственной облачной платформе"</strong>, но без уточнений о конкретных компонентах. Это может означать как полную самостоятельную разработку, так и глубокую кастомизацию стороннего решения.</p>
+
+<div class="poll-widget" id="poll-705a6d25"><div class="poll-widget-question">📊 Как вы оцениваете скорость работы ВТБ Мобайл?</div><div class="poll-widget-option" data-poll="705a6d25" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Очень быстрое</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="705a6d25" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Иногда тормозит</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="705a6d25" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Медленное</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="705a6d25" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Никогда не пользовался</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="анализ-мобильного-приложения-фронтенд-и-бэкенд">Анализ мобильного приложения: фронтенд и бэкенд</h2>
+
+<p>Чтобы понять, на какой платформе работает <em>ВТБ Мобайл</em>, разберём приложение на две части: <strong>клиентскую</strong> (то, что установлено на телефоне) и <strong>серверную</strong> (то, что обрабатывает запросы).</p>
+
+<p><strong>Фронтенд (мобильное приложение):</strong>
+<ul>
+  <li>📱 Разработано с использованием <em>нативных технологий</em>: <em>Swift</em> для iOS и <em>Kotlin</em>/<em>Java</em> для Android. Это подтверждает анализ APK-файла приложения (доступен на площадках вроде <em>APKMirror</em>).</li>
+  <li>🔄 Для кросс-платформенных элементов (например, веб-вью для некоторых экранов) может применяться <em>React Native</em> или <em>Flutter</em>, но основной код — нативный.</li>
+  <li>🔒 Для защиты кода используется <em>обфускация</em> (например, <em>ProGuard</em> для Android), что затрудняет реверс-инжиниринг.</li>
+</ul>
+</p>
+
+<p><strong>Бэкенд (серверная часть):</strong>
+<ul>
+  <li>🖥️ Скорее всего, построена на <em>микросервисной архитектуре</em> (подтверждается упоминанием <em>Kubernetes</em> в вакансиях).</li>
+  <li>🔐 Для аутентификации используется <em>OAuth 2.0</em> и <em>многофакторная авторизация (МФА)</em> с push-уведомлениями.</li>
+  <li>📊 Данные хранятся в <em>реляционных базах</em> (вероятно, <em>Oracle</em> или <em>PostgreSQL</em>), а для аналитики — в <em>ClickHouse</em> или подобных системах.</li>
+</ul>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Компонент</th>
+      <th>Технологии</th>
+      <th>Примечания</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Клиент (Android)</td>
+      <td><em>Kotlin</em>, <em>Java</em>, <em>Android SDK</em></td>
+      <td>Нативная разработка с элементами <em>Jetpack Compose</em></td>
+    </tr>
+    <tr>
+      <td>Клиент (iOS)</td>
+      <td><em>Swift</em>, <em>SwiftUI</em></td>
+      <td>Используется <em>Core Data</em> для локального хранения</td>
+    </tr>
+    <tr>
+      <td>Сервер (API)</td>
+      <td><em>Java</em>, <em>Spring Boot</em>, <em>REST/gRPC</em></td>
+      <td>Вероятно, микросервисы с <em>Service Mesh</em></td>
+    </tr>
+    <tr>
+      <td>Базы данных</td>
+      <td><em>Oracle</em>, <em>PostgreSQL</em>, <em>Redis</em></td>
+      <td><em>Redis</em> для кэширования сессий</td>
+    </tr>
+    <tr>
+      <td>Инфраструктура</td>
+      <td><em>Kubernetes</em>, <em>Docker</em>, <em>Private Cloud</em></td>
+      <td>Возможно, гибридное облако с <em>ВТБ Облаком</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы разработчик, попробуйте проанализировать сетевой трафик ВТБ Мобайл через <em>Charles Proxy</em> или <em>Fiddler</em> (с разрешения банка!). Это поможет понять, какие API используются и как устроена авторизация.</p></div>
+
+<h2 id="сравнение-с-конкурентами-кто-на-чём-работает">Сравнение с конкурентами: кто на чём работает</h2>
+
+<p>Чтобы оценить выбор ВТБ, сравним его с платформами других крупных банков. Например:</p>
+
+<ul>
+  <li>🏦 <strong>Сбербанк Онлайн</strong> — использует собственную платформу на базе <em>Java</em> и <em>1C</em> (для бэкенда), фронтенд — <em>Flutter</em> (с 2023 года).</li>
+  <li>💳 <strong>Тинькофф</strong> — полностью на <em>Kotlin Multiplatform</em> (фронтенд) и микросервисах на <em>Go</em>/<em>Java</em> (бэкенд).</li>
+  <li>🏛️ <strong>Альфа-Банк</strong> — ранее использовал <em>Backbase</em>, теперь переходит на собственные решения с <em>React Native</em>.</li>
+</ul>
+
+<p>ВТБ, судя по всему, выбрал <strong>консервативный подход</strong>:
+<blockquote>⚠️ <strong>Внимание:</strong> Нативная разработка для Android/iOS обеспечивает максимальную производительность, но требует больших затрат на поддержку двух кодовых баз. Это может объяснять, почему обновления ВТБ Мобайл выходят реже, чем у конкурентов.</blockquote>
+</p>
+
+<p>Преимущества такого выбора:
+<ul>
+  <li>✅ Более высокая скорость работы (нет "мостов" между нативным и кросс-платформенным кодом).</li>
+  <li>✅ Лучшая интеграция с системными функциями (например, <em>Face ID</em> или <em>Android Biometric API</em>).</li>
+  <li>✅ Высокий уровень безопасности за счёт контроля над всем стеком технологий.</li>
+</ul>
+</p>
+
+<p>Недостатки:
+<ul>
+  <li>❌ Дольше и дороже разрабатывать новые фичи (нужно писать код для двух платформ).</li>
+  <li>❌ Сложнее поддерживать единообразие интерфейса на iOS и Android.</li>
+</ul>
+</p>
+
+<details class="faq-item"><summary>Почему банки не используют веб-приложения (PWA) для мобильных клиентов?</summary><div class="faq-answer"><p>Веб-приложения (Progressive Web Apps) могли бы упростить разработку, но они не обеспечивают необходимого уровня безопасности для финансовых сервисов. Например, PWA не могут использовать аппаратные модули защиты (например, <em>Secure Enclave</em> в iPhone) и уязвимы для атак через браузер. Кроме того, банкам важно присутствие в официальных сторах (App Store, Google Play) для доверия пользователей.</p></div></details>
+
+<h2 id="безопасность-платформы-как-защищены-данные-пользователей">Безопасность платформы: как защищены данные пользователей</h2>
+
+<p>Один из ключевых вопросов при выборе платформы для мобильного банка — <strong>защита от кибератак</strong>. ВТБ заявляет о соответствии стандартам <em>PCI DSS</em> и <em>ГОСТ Р ИСО/МЭК 27001</em>, но как это реализовано технически?</p>
+
+<p>Анализ показывает, что в приложении используются:
+<ul>
+  <li>🔐 <strong>Шифрование трафика</strong> — все данные передаются по <em>TLS 1.2/1.3</em> с сертификатами от доверенных центров (например, <em>GlobalSign</em>).</li>
+  <li>📱 <strong>Защита кода</strong> — обфускация, проверка целостности APK/IPA, детекция jailbreak/root.</li>
+  <li>👤 <strong>Биометрия</strong> — интеграция с <em>Face ID</em>, <em>Touch ID</em> и <em>Android BiometricPrompt</em>.</li>
+  <li>🔄 <strong>Двухфакторная аутентификация</strong> — push-уведомления и SMS-коды (хотя SMS считаются менее безопасными).</li>
+</ul>
+</p>
+
+<p>Однако есть и уязвимости. Например, в 2023 году исследователи из <em>"Group-IB"</em> обнаружили, что некоторые банковские приложения (включая ВТБ) уязвимы для <em>overlay-атак</em> — когда злоумышленник накладывает фейковый экран поверх реального интерфейса. Банк оперативно закрыл эту брешь, но инцидент показал, что даже нативные приложения не застрахованы от рисков.</p>
+
+
+<p>Установите приложение только из официального магазина (App Store/Google Play)|Проверьте разрешения приложения в настройках телефона|Включите двухфакторную аутентификацию в настройках банка|Не используйте jailbreak или root на устройстве|Регулярно обновляйте приложение--></p>
+
+<h2 id="перспективы-развития-куда-движется-платформа-втб-мобайл">Перспективы развития: куда движется платформа ВТБ Мобайл</h2>
+
+<p>В 2026 году ВТБ анонсировал несколько ключевых направлений развития мобильного банка:
+<ul>
+  <li>🤖 <strong>ИИ-ассистент</strong> — интеграция чат-бота на базе <em>генеративного ИИ</em> для ответов на вопросы клиентов.</li>
+  <li>📊 <strong>Персонализированные офферы</strong> — использование <em>machine learning</em> для предложения кредитов и вкладов.</li>
+  <li>🔗 <strong>Open Banking</strong> — открытые API для интеграции с сторонними сервисами (например, <em>1С</em> или <em>МойОфис</em>).</li>
+</ul>
+</p>
+
+<p>Для реализации этих планов банку потребуется:
+<blockquote>⚠️ <strong>Внимание:</strong> Переход на более гибкую архитектуру (например, с использованием <em>Kubernetes</em> и <em>serverless-функций</em>) может потребовать миграции части сервисов на новые платформы. Это чревато временными сбоями в работе приложения.</blockquote>
+</p>
+
+<p>Также ВТБ тестирует <strong>супер-приложение</strong> (по аналогии с <em>WeChat</em> или <em>Сбербанк Онлайн</em>), которое объединит банковские и небанковские сервисы (например, бронирование билетов или оплату ЖКХ). Для этого может потребоваться переход на <em>модульную архитектуру</em>, где каждый сервис работает как отдельный микросервис.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Главный тренд 2026–2026 годов для мобильных банков — переход от монолитных приложений к экосистемам с открытыми API. ВТБ, судя по анонсам, следует этому пути, но сохраняет осторожность в выборе технологий.</p></div>
+
+<h2 id="как-пользователю-узнать-версию-платформы-своего-приложения">Как пользователю узнать версию платформы своего приложения</h2>
+
+<p>Если вы хотите самостоятельно проверить, какая версия платформы используется в вашем <em>ВТБ Мобайл</em>, сделайте следующее:</p>
+
+<p>На <strong>Android</strong>:
+<ol>
+  <li>Откройте <code>Настройки телефона → Приложения → ВТБ Мобайл</code>.</li>
+  <li>Прокрутите до раздела <code>Версия</code> — там будет указан номер сборки (например, <code>5.42.1 (20260515)</code>).</li>
+  <li>Первые две цифры (например, <code>5.42</code>) — версия интерфейса, а дата (<code>20260515</code>) — дата сборки платформы.</li>
+</ol>
+</p>
+
+<p>На <strong>iOS</strong>:
+<ol>
+  <li>Зайдите в <code>App Store → Профиль → Обновления</code>.</li>
+  <li>Найдите <em>ВТБ Мобайл</em> и посмотрите версию (например, <code>5.40.0</code>).</li>
+  <li>Более подробную информацию можно увидеть в <code>Настройки iPhone → ВТБ Мобайл</code>.</li>
+</ol>
+</p>
+
+<p>К сожалению, эти данные не покажут <strong>техническую платформу</strong> (например, <em>Java</em> или <em>Kotlin</em>), но помогут понять, актуальна ли ваша версия. Если номер сборки старше 6 месяцев, рекомендуется обновиться.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Чтобы узнать, какие разрешения запрашивает приложение, на Android зажмите иконку ВТБ Мобайл → <code>Информация о приложении → Разрешения</code>. Если там есть подозрительные пункты (например, доступ к SMS или контактам без причины), это повод обратиться в поддержку.</p></div>
+
+<h2 id="faq-частые-вопросы-о-платформе-втб-мобайл">FAQ: Частые вопросы о платформе ВТБ Мобайл</h2>
+
+<details>
+  <summary>Можно ли пользоваться ВТБ Мобайл на укоренённом (root) телефоне?</summary>
+  <p>Официально банк <strong>запрещает</strong> использование приложения на устройствах с <em>root</em> или <em>jailbreak</em>. При обнаружении таких прав приложение может заблокировать доступ или ограничить функционал (например, отключить платежи). Это связано с риском перехвата данных через суперпользовательские права.</p>
+  <p>Если вам необходимо использовать root, рассмотрите альтернативы:
+  <ul>
+    <li>🌐 Веб-версия <em>ВТБ Онлайн</em> через браузер (менее удобно, но работает).</li>
+    <li>📱 Виртуальная машина без root (например, <em>Island</em> или <em>Shelter</em>).</li>
+  </ul>
+  </p>
+</details>
+
+<details>
+  <summary>Почему ВТБ Мобайл тормозит на моём телефоне?</summary>
+  <p>Причины могут быть разные:
+  <ul>
+    <li>📵 Слабый интернет (проверьте скорость через <em>Speedtest</em>).</li>
+    <li>🗑️ Заполненная память телефона (очистите кэш приложения).</li>
+    <li>🔄 Устаревшая версия приложения (обновите в магазине).</li>
+    <li>🛠️ Проблемы на стороне банка (проверьте статус сервисов на сайте ВТБ).</li>
+  </ul>
+  </p>
+  <p>Если тормоза появляются при конкретных действиях (например, при открытии выписки), это может указывать на <strong>проблемы с бэкендом</strong> — сообщите в поддержку через чат в приложении.</p>
+</details>
+
+<details>
+  <summary>Безопасно ли входить в ВТБ Мобайл через общественный Wi-Fi?</summary>
+  <p>Технически <strong>да</strong>, так как трафик шифруется по <em>TLS</em>. Однако риски остаются:
+  <ul>
+    <li>🕵️‍♂️ <em>MITM-атаки</em> (перехват трафика на уровне роутера).</li>
+    <li>🔄 Подмена DNS (перенаправление на фейковый сайт).</li>
+  </ul>
+  </p>
+  <p>Рекомендации:
+  <ul>
+    <li>🔒 Используйте <em>VPN</em> (например, <em>ВТБ Safe Line</em>, если он доступен).</li>
+    <li>🚫 Не вводите пароли на сайтах, открытых через общественный Wi-Fi.</li>
+    <li>📱 Предпочитайте мобильный интернет (3G/4G/5G) для финансовых операций.</li>
+  </ul>
+  </p>
+</details>
+
+<details>
+  <summary>Можно ли перенести историю операций из ВТБ Мобайл в Excel?</summary>
+  <p>Прямого экспорта в <em>Excel</em> нет, но есть обходные пути:
+  <ol>
+    <li>Сделайте скриншоты выписки и обработайте их через <em>OCR</em> (например, <em>ABBYY FineReader</em>).</li>
+    <li>Используйте <code>ВТБ Онлайн для ПК</code> — там есть экспорт в <code>PDF</code>, который потом можно конвертировать.</li>
+    <li>Напишите в поддержку с просьбой выслать выписку в электронном виде (иногда отправляют <code>CSV</code>).</li>
+  </ol>
+  </p>
+  <p>Для автоматизации можно использовать <em>Python</em>-скрипты с библиотекой <em>PyPDF2</em> (если у вас есть PDF-выписка).</p>
+</details>
+
+<details>
+  <summary>Что делать, если ВТБ Мобайл не запускается после обновления?</summary>
+  <p>Порядок действий:
+  <ol>
+    <li>Перезагрузите телефон.</li>
+    <li>Очистите кэш приложения (<code>Настройки → Приложения → ВТБ Мобайл → Память → Очистить кэш</code>).</li>
+    <li>Удалите и установите приложение заново.</li>
+    <li>Проверьте, не блокирует ли антивирус работу банковского ПО.</li>
+  </ol>
+  </p>
+  <p>Если проблема остаётся — обратитесь в поддержку с указанием:
+  <ul>
+    <li>Модели телефона;</li>
+    <li>Версии ОС;</li>
+    <li>Номера сборки ВТБ Мобайл;</li>
+    <li>Точного времени ошибки.</li>
+  </ul>
+  </p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#введение-почему-важно-знать-платформу-мобильного-банка">Введение: почему важно знать платформу мобильного банка</a></li><li><a href="#официальная-информация-что-говорит-сам-втб">Официальная информация: что говорит сам ВТБ</a></li><li><a href="#анализ-мобильного-приложения-фронтенд-и-бэкенд">Анализ мобильного приложения: фронтенд и бэкенд</a></li><li><a href="#сравнение-с-конкурентами-кто-на-чём-работает">Сравнение с конкурентами: кто на чём работает</a></li><li><a href="#безопасность-платформы-как-защищены-данные-пользователей">Безопасность платформы: как защищены данные пользователей</a></li><li><a href="#перспективы-развития-куда-движется-платформа-втб-мобайл">Перспективы развития: куда движется платформа ВТБ Мобайл</a></li><li><a href="#как-пользователю-узнать-версию-платформы-своего-приложения">Как пользователю узнать версию платформы своего приложения</a></li><li><a href="#faq-частые-вопросы-о-платформе-втб-мобайл">FAQ: Частые вопросы о платформе ВТБ Мобайл</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-vojti-v-vtb-onlajn-po-nomeru-karty.html" class="related-card">Вход в ВТБ Онлайн по номеру карты: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-nastroit-vkhod-v-vtb-po-otpechatku-paltsa-na-telefone.html" class="related-card">Как настроить вход в ВТБ по отпечатку пальца: инструкция</a></li><li><a href="/articles/k/ka/kak-v-vtb-posmotret-istoriyu-operatsij.html" class="related-card">Как в ВТБ посмотреть историю операций: инструкция</a></li><li><a href="/articles/k/ka/kak-ustanovit-prilozhenie-vtb-24-onlajn.html" class="related-card">Как установить приложение ВТБ Онлайн: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-ustanovit-vtb-onlajn-na-planshete.html" class="related-card">Как установить ВТБ Онлайн на планшете: пошаговая инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-vojti-v-vtb-onlajn-po-nomeru-karty.html" class="related-bottom-card"><span class="related-bottom-title">Вход в ВТБ Онлайн по номеру карты: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как авторизоваться в личном кабинете ВТБ Онлайн, если знаешь только номер карты? Официальные способы</span></a><a href="/articles/k/ka/kak-nastroit-vkhod-v-vtb-po-otpechatku-paltsa-na-telefone.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить вход в ВТБ по отпечатку пальца: инструкция</span><span class="related-bottom-desc">Подробная инструкция по настройке входа в ВТБ Онлайн по отпечатку пальца. Узнайте, как включить биом</span></a><a href="/articles/k/ka/kak-v-vtb-posmotret-istoriyu-operatsij.html" class="related-bottom-card"><span class="related-bottom-title">Как в ВТБ посмотреть историю операций: инструкция</span><span class="related-bottom-desc">Полный гид: как в ВТБ посмотреть историю операций через приложение и онлайн-банк. Фильтры, выгрузка </span></a><a href="/articles/k/ka/kak-ustanovit-prilozhenie-vtb-24-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как установить приложение ВТБ Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по установке мобильного банка ВТБ 24 Онлайн на Android и iOS. Скачивание, реги</span></a><a href="/articles/k/ka/kak-ustanovit-vtb-onlajn-na-planshete.html" class="related-bottom-card"><span class="related-bottom-title">Как установить ВТБ Онлайн на планшете: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по установке мобильного банка ВТБ на Android/iPad: требования, скачивание, нас</span></a><a href="/articles/k/ka/kak-vojti-v-vtb-onlajn-pervyj-raz-po-unk.html" class="related-bottom-card"><span class="related-bottom-title">Как войти в ВТБ Онлайн первый раз по УНК: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд: как активировать ВТБ Онлайн через УНК (уникальный номер клиента) с первого раза. Пош</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

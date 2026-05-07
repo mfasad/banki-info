@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>myDSS ВТБ: что это за сервис и как им пользоваться — Банки Инфо</title>
+    <meta name="description" content="Подробный разбор myDSS ВТБ: что это, зачем нужен сервис для бизнеса, особенности подключения и настройки доступа к документам.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/m/my/mydss-vtb-chto-eto.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="myDSS ВТБ: что это за сервис и как им пользоваться">
+    <meta property="og:description" content="Подробный разбор myDSS ВТБ: что это, зачем нужен сервис для бизнеса, особенности подключения и настройки доступа к документам.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/drugoe/">Другое</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">myDSS ВТБ: что это за сервис и как им пользоваться</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>myDSS ВТБ: что это за система и как она работает</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#основное-назначение-системы-mydss">Основное назначение системы myDSS</a></li><li><a href="#ключевые-возможности-и-функции-сервиса">Ключевые возможности и функции сервиса</a></li><li><a href="#технические-требования-и-совместимость">Технические требования и совместимость</a></li><li><a href="#процесс-подключения-и-настройки-доступа">Процесс подключения и настройки доступа</a></li><li><a href="#сравнение-mydss-с-другими-сервисами-втб">Сравнение myDSS с другими сервисами ВТБ</a></li><li><a href="#часто-встречающиеся-проблемы-и-их-решение">Часто встречающиеся проблемы и их решение</a></li><li><a href="#безопасность-данных-при-использовании-mydss">Безопасность данных при использовании myDSS</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>В современном цифровом банковском пространстве аббревиатуры и сокращения встречаются повсеместно, что часто вызывает вопросы у новых пользователей. Одним из таких терминов, который может встретиться клиентам банка ВТБ, является <strong>myDSS</strong>. Если вы столкнулись с этим названием в переписке, технической документации или при настройке сервисов, важно понимать, что речь идет не о стандартном приложении для физических лиц, а о специализированном инструменте.</p>
+
+<p>Разбираясь, <em>myDSS ВТБ что это</em>, следует сразу отметить принадлежность данного решения к корпоративному сектору. Система предназначена для организации безопасного обмена данными и работы с документами в электронном виде. Это не просто хранилище файлов, а комплексный шлюз, обеспечивающий юридически значимый документооборот между бизнесом и контрагентами или государственными органами.</p>
+
+<p>Для многих предпринимателей и сотрудников бухгалтерий внедрение подобных систем становится необходимостью, продиктованной переходом на удаленную работу и цифровизацией процессов. Понимание принципов работы <strong>myDSS</strong> позволяет оптимизировать взаимодействие с банком, сократить бумажную волокиту и ускорить проведение финансовых операций. Далее мы подробно рассмотрим функционал и особенности этого сервиса.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Сервис myDSS ориентирован исключительно на корпоративных клиентов и юридические лица. Физические лица, пользующиеся обычными картами и счетами, как правило, не сталкиваются с данной аббревиатурой в повседневном использовании онлайн-банка.</p>
+</blockquote>
+
+<h2 id="основное-назначение-системы-mydss">Основное назначение системы myDSS</h2>
+
+<p>Аббревиатура DSS в данном контексте часто расшифровывается как <em>Document Sharing Service</em> или аналогичные вариации, указывающие на сервис обмена документами. Основное назначение платформы — создание защищенного канала связи для передачи юридически значимых файлов. В отличие от обычной электронной почты, здесь гарантируется целостность данных и подтверждение факта получения.</p>
+
+<p>Система <strong>myDSS</strong> в экосистеме ВТБ решает задачу интеграции бизнес-процессов компании с банковскими сервисами. Это позволяет автоматизировать выписки, платежные поручения и отчетность. Клиенты банка получают возможность управлять документацией без необходимости посещения офиса, что особенно актуально для компаний с распределенной сетью филиалов.</p>
+
+<p>Важно отметить, что безопасность передачи данных является приоритетом. Использование <strong>myDSS</strong> подразумевает применение современных протоколов шифрования. Это защищает коммерческую тайну и финансовые данные от несанкционированного доступа третьих лиц.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте выделенные каналы связи, такие как myDSS, для передачи любых финансовых документов, содержащих персональные данные или коммерческую тайну, вместо обычной электронной почты.</p></div>
+
+<h2 id="ключевые-возможности-и-функции-сервиса">Ключевые возможности и функции сервиса</h2>
+
+<p>Функционал системы выходит за рамки простой пересылки файлов. <strong>myDSS ВТБ</strong> предлагает ряд инструментов, необходимых для полноценной работы бухгалтерии и финансового департамента. Пользователи получают доступ к архиву документов, который структурирован по датам и типам операций.</p>
+
+<p>Среди ключевых возможностей стоит выделить автоматическую синхронизацию статусов платежей. Когда документ проходит обработку в банке, система мгновенно обновляет его статус в интерфейсе пользователя. Это позволяет в режиме реального времени отслеживать движение денежных средств.</p>
+
+<p>Также система поддерживает работу с электронными подписями. Подписание документов внутри <em>myDSS</em> приравнивается к собственноручной подписи и печати организации. Это устраняет необходимость физической пересылки бумажных оригиналов между контрагентами.</p>
+
+<ul>
+<li>📄 Автоматическое формирование и хранение электронных выписок за любой период.</li>
+<li>🔐 Использование усиленной квалифицированной электронной подписи (УКЭП) для валидации документов.</li>
+<li>🔄 Двусторонний обмен данными с бухгалтерскими программами (1С и другие).</li>
+<li>📊 Возможность массовой загрузки и обработки пакетов документов.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Для работы с электронными подписями внутри системы необходимо заранее выпустить сертификаты в аккредитованном удостоверяющем центре и настроить рабочее место оператора.</p>
+</blockquote>
+
+<h2 id="технические-требования-и-совместимость">Технические требования и совместимость</h2>
+
+<p>Для корректной работы с платформой <strong>myDSS</strong> необходимо соблюдение ряда технических требований. Поскольку речь идет о работе с защищенным контуром, обычные браузеры могут требовать установки дополнительных плагинов или расширений. Чаще всего рекомендуется использование браузера <em>Яндекс.Браузер</em> или <em>Google Chrome</em> с установленным криптопровайдером.</p>
+
+<p>Особое внимание следует уделить операционной системе. Для стабильной работы криптографических модулей, необходимых для <em>myDSS ВТБ</em>, часто требуется ОС Windows. Работа через macOS или Linux возможна, но может потребовать дополнительной настройки эмуляции или использования специализированных версий ПО.</p>
+
+<p>Стабильное интернет-соединение также является критическим фактором. При загрузке больших объемов архивов или работе с тяжелыми графическими файлами документов разрыв соединения может привести к ошибке передачи. Рекомендуется использовать проводное соединение или стабильный корпоративный Wi-Fi.</p>
+
+<div class="poll-widget" id="poll-ea7b6ac4"><div class="poll-widget-question">📊 С какой операционной системой вы планируете работать в myDSS?</div><div class="poll-widget-option" data-poll="ea7b6ac4" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Windows 10/11</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ea7b6ac4" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">macOS</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ea7b6ac4" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Linux</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ea7b6ac4" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Другая ОС</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="процесс-подключения-и-настройки-доступа">Процесс подключения и настройки доступа</h2>
+
+<p>Подключение к системе <strong>myDSS</strong> начинается с подачи заявки в банке ВТБ. Обычно этим занимается уполномоченный представитель юридического лица, имеющий право подписи. Процесс включает в себя заключение дополнительного соглашения к договору банковского обслуживания.</p>
+
+<p>После согласования заявки клиент получает инструкции по настройке рабочего места. Это включает установку необходимого программного обеспечения, настройку сертификатов безопасности и получение учетных данных для входа. Важно строго следовать инструкции, чтобы избежать ошибок доступа.</p>
+
+<p>На этапе первичной настройки администратор системы компании должен распределить права доступа между сотрудниками. Это позволяет контролировать, кто именно может создавать, подписывать или только просматivать документы в <em>myDSS</em>.</p>
+
+<div class="checklist-block"><h4>☑️ Чек-лист для подключения myDSS</h4><label class="check-item"><input type="checkbox"><span>Подать заявку в отделении ВТБ</span></label><label class="check-item"><input type="checkbox"><span>Получить токены или сертификаты</span></label><label class="check-item"><input type="checkbox"><span>Установить ПО для работы с ЭЦП</span></label><label class="check-item"><input type="checkbox"><span>Настроить права доступа для сотрудников</span></label><label class="check-item"><input type="checkbox"><span>Провести тестовую отправку документа</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="сравнение-mydss-с-другими-сервисами-втб">Сравнение myDSS с другими сервисами ВТБ</h2>
+
+<p>В линейке продуктов банка существует несколько решений для бизнеса, и важно не путать их между собой. <strong>myDSS</strong> часто сравнивают с системой <em>ВТБ Бизнес Онлайн</em>. Если последний представляет собой полноценный интернет-банк для управления счетами, то myDSS фокусируется именно на документообороте и интеграциях.</p>
+
+<p>Также стоит упомянуть сервисы DirectBank, которые позволяют проводить платежи прямо из бухгалтерской программы. <strong>myDSS</strong> может выступать как транспортный уровень или дополнение к этим сервисам, обеспечивая хранение и юридическую значимость передаваемых файлов.</p>
+
+<p>Для наглядности сравним основные характеристики этих решений в таблице:</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>ВТБ Бизнес Онлайн</th>
+<th>myDSS</th>
+<th>DirectBank</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Основная функция</td>
+<td>Управление счетами и платежами</td>
+<td>Обмен юридически значимыми документами</td>
+<td>Прямая интеграция с 1С/бухгалтерией</td>
+</tr>
+<tr>
+<td>Интерфейс</td>
+<td>Веб-браузер, мобильное приложение</td>
+<td>Специализированный клиент или веб-интерфейс</td>
+<td>Встроен в программу бухгалтерии</td>
+</tr>
+<tr>
+<td>Работа с ЭЦП</td>
+<td>Требуется (часто облачная или токен)</td>
+<td>Обязательно для подписания документов</td>
+<td>Используется ЭЦП пользователя 1С</td>
+</tr>
+<tr>
+<td>Целевая аудитория</td>
+<td>Малый и средний бизнес</td>
+<td>Крупный бизнес, корпорации</td>
+<td>Любой бизнес, ведущий учет в 1С</td>
+</tr>
+</tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Выбор между myDSS и другими сервисами зависит от глубины автоматизации процессов: для простой оплаты счетов достаточно Бизнес-Онлайн, для сложного документооборота нужен myDSS.</p></div>
+
+<h2 id="часто-встречающиеся-проблемы-и-их-решение">Часто встречающиеся проблемы и их решение</h2>
+
+<p>При эксплуатации <strong>myDSS</strong> пользователи могут столкнуться с техническими сложностями. Наиболее распространенная проблема — ошибка соединения с сервером сертификатов. Это часто решается проверкой даты и времени на компьютере, а также обновлением списков отозванных сертификатов (CRL).</p>
+
+<p>Другой частый случай — несовместимость версий криптопровайдеров. Если на компьютере установлено несколько версий ПО для работы с электронными подписями, <em>myDSS ВТБ</em> может выбирать не тот плагин. В этом случае необходимо проверить настройки браузера и явно указать путь к требуемой библиотеке.</p>
+
+<p>Если документы не отправляются или зависают в статусе "Обработка", рекомендуется проверить размер вложения. Системные ограничения могут запрещать передачу файлов объемом более определенного лимита за один раз. В такой случае архив следует разбить на части.</p>
+
+<details class="faq-item"><summary>Что делать, если сертификат ЭЦП не виден в системе?</summary><div class="faq-answer"><p>Убедитесь, что токен подключен до запуска браузера. Проверьте, установлен ли драйвер токена. Попробуйте открыть сайт в режиме инкогнито с включенными расширениями. Если не помогло — переустановите криптопровайдер.</p></div></details>
+
+<h2 id="безопасность-данных-при-использовании-mydss">Безопасность данных при использовании myDSS</h2>
+
+<p>Вопрос безопасности является фундаментальным для <strong>myDSS</strong>. Банк использует многоуровневую систему защиты, включающую шифрование канала связи по протоколу TLS. Это гарантирует, что данные не будут перехвачены при передаче через интернет.</p>
+
+<p>Кроме того, система ведет детальный лог всех действий. Каждое действие пользователя — вход, просмотр, подписание, отправка — фиксируется с указанием времени и IP-адреса. Это позволяет проводить аудит и расследование в случае возникновения спорных ситуаций.</p>
+
+<p>Пользователям также следует соблюдать правила цифровой гигиены. <mark>Никогда не передавайте пин-коды от токенов и пароли от myDSS третьим лицам, даже коллегам.</mark> Доступ должен быть строго персонализирован для обеспечения персональной ответственности.</p>
+
+<details>
+<summary>Можно ли получить доступ к myDSS с мобильного телефона?</summary>
+<p>Полноценная работа с системой myDSS с мобильных устройств, как правило, не предусмотрена из-за необходимости использования специфического ПО для работы с ЭЦП и больших экранов для работы с документами. Рекомендуется использовать стационарный ПК или ноутбук.</p>
+</details>
+
+<details>
+<summary>Сколько стоит подключение сервиса myDSS?</summary>
+<p>Стоимость подключения и обслуживания зависит от тарифного плана и условий договора с банком ВТБ. Для некоторых категорий клиентов сервис может быть включен в пакетное предложение. Актуальную информацию уточняйте у вашего персонального менеджера.</p>
+</details>
+
+<details>
+<summary>Нужно ли обновлять ПО для myDSS вручную?</summary>
+<p>Да, периодические обновления компонентов безопасности и клиентской части необходимы. Банк рассылает уведомления о выходе новых версий. Игнорирование обновлений может привести к невозможности доступа к системе.</p>
+</details>
+
+<details>
+<summary>Что делать, если утерян токен для доступа?</summary>
+<p>В случае утери токена необходимо немедленно заблокировать его, обратившись в службу поддержки ВТБ Бизнес. После этого потребуется процедура выпуска нового сертификата и токена, что может занять некоторое время.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#основное-назначение-системы-mydss">Основное назначение системы myDSS</a></li><li><a href="#ключевые-возможности-и-функции-сервиса">Ключевые возможности и функции сервиса</a></li><li><a href="#технические-требования-и-совместимость">Технические требования и совместимость</a></li><li><a href="#процесс-подключения-и-настройки-доступа">Процесс подключения и настройки доступа</a></li><li><a href="#сравнение-mydss-с-другими-сервисами-втб">Сравнение myDSS с другими сервисами ВТБ</a></li><li><a href="#часто-встречающиеся-проблемы-и-их-решение">Часто встречающиеся проблемы и их решение</a></li><li><a href="#безопасность-данных-при-использовании-mydss">Безопасность данных при использовании myDSS</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-poluchit-sertifikat-v-vtb-24-biznes-onlajn.html" class="related-card">Как получить сертификат в ВТБ 24 Бизнес Онлайн: пошаговая инструкция 2026</a></li><li><a href="/articles/s/sk/skolko-poluchayut-v-vtb-banke.html" class="related-card">Зарплаты в ВТБ 2026: сколько получают сотрудники банка по должностям</a></li><li><a href="/articles/k/ka/kak-oplatit-uchebu-bez-komissii-vtb.html" class="related-card">Как оплатить учебу без комиссии ВТБ: полное руководство</a></li><li><a href="/articles/c/ch/chej-vtb-na-samom-dele.html" class="related-card">Чей ВТБ на самом деле: структура собственности банка</a></li><li><a href="/articles/v/vt/vtb-arena-gde-nakhoditsya-stantsiya-metro.html" class="related-card">ВТБ Арена: как добраться на метро, схемы и советы 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-poluchit-sertifikat-v-vtb-24-biznes-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как получить сертификат в ВТБ 24 Бизнес Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по получению электронного сертификата для ВТБ Бизнес Онлайн: требования, спосо</span></a><a href="/articles/s/sk/skolko-poluchayut-v-vtb-banke.html" class="related-bottom-card"><span class="related-bottom-title">Зарплаты в ВТБ 2026: сколько получают сотрудники банка по должностям</span><span class="related-bottom-desc">Актуальные данные о зарплатах в ВТБ: от кассиров до топ-менеджеров. Разбивка по регионам, должности </span></a><a href="/articles/k/ka/kak-oplatit-uchebu-bez-komissii-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить учебу без комиссии ВТБ: полное руководство</span><span class="related-bottom-desc">Узнайте, как оплатить обучение в ВТБ Онлайн или через СБП без переплат. Разбор всех способов, лимито</span></a><a href="/articles/c/ch/chej-vtb-na-samom-dele.html" class="related-bottom-card"><span class="related-bottom-title">Чей ВТБ на самом деле: структура собственности банка</span><span class="related-bottom-desc">Подробный анализ акционеров ВТБ. Узнайте, кому принадлежит контрольный пакет акций, как изменилась с</span></a><a href="/articles/v/vt/vtb-arena-gde-nakhoditsya-stantsiya-metro.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Арена: как добраться на метро, схемы и советы 2026</span><span class="related-bottom-desc">Где находится станция метро рядом с ВТБ Ареной на Парке Легенд? Подробные схемы проезда, время в пут</span></a><a href="/articles/p/po/pochemu-otkazali-v-kredite-vtb-banke-zarplatnomu-klientu.html" class="related-bottom-card"><span class="related-bottom-title">Почему отказали в кредите зарплатному клиенту ВТБ: причины и решения</span><span class="related-bottom-desc">Разбираем основные причины отказа в кредите ВТБ зарплатным клиентам. Узнайте, как проверить кредитну</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

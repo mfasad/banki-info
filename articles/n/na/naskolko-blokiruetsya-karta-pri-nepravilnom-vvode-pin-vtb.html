@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Блокировка карты ВТБ: сколько попыток ввода ПИН-кода — Банки Инфо</title>
+    <meta name="description" content="Сколько раз можно вводить ПИН-код ВТБ? Что будет при блокировке, как разблокировать карту и избежать блокировки в банкомате или терминале.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/n/na/naskolko-blokiruetsya-karta-pri-nepravilnom-vvode-pin-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Блокировка карты ВТБ: сколько попыток ввода ПИН-кода">
+    <meta property="og:description" content="Сколько раз можно вводить ПИН-код ВТБ? Что будет при блокировке, как разблокировать карту и избежать блокировки в банкомате или терминале.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Блокировка карты ВТБ: сколько попыток ввода ПИН-кода</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>На сколько блокируется карта ВТБ при неправильном вводе ПИН</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#лимиты-попыток-и-механизм-защиты-счета">Лимиты попыток и механизм защиты счета</a></li><li><a href="#типы-блокировок-временная-и-постоянная">Типы блокировок: временная и постоянная</a></li><li><a href="#что-происходит-после-трех-ошибок-в-банкомате">Что происходит после трех ошибок в банкомате</a></li><li><a href="#разблокировка-через-мобильное-приложение-втб-онлайн">Разблокировка через мобильное приложение ВТБ Онлайн</a></li><li><a href="#смена-пин-кода-в-банкомате-и-отделении">Смена ПИН-кода в банкомате и отделении</a></li><li><a href="#особенности-блокировки-при-онлайн-платежах">Особенности блокировки при онлайн-платежах</a></li><li><a href="#таблица-действий-при-различных-сценариях">Таблица действий при различных сценариях</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Ситуация, когда банкомат или терминал внезапно отказывается принимать вашу платежную карту, всегда вызывает стресс. Особенно неприятно, когда это происходит в момент срочной оплаты покупок или снятия наличных. Владельцы карт <em>ВТБ</em> часто сталкиваются с вопросом: что именно произойдет, если несколько раз подряд ввести неверный код доступа, и как быстро можно восстановить доступ к средствам. Понимание логики работы системы безопасности банка помогает избежать паники и лишних действий.</p>
+
+<p>Система безопасности <strong>ВТБ</strong> настроена на защиту ваших финансов от действий мошенников. Если злоумышленник завладеет вашей картой, он не сможет бесконечно подбирать комбинацию цифр. После определенного количества ошибок доступ к счету будет ограничен. Однако не всегда блокировка означает полную потерю доступа к деньгам. Важно различать временную блокировку операции и полную блокировку самого пластикового носителя. От типа ошибки зависит алгоритм ваших дальнейших действий.</p>
+
+<p>В этой статье мы подробно разберем лимиты попыток, временные интервалы блокировки и способы решения проблемы. Вы узнаете, чем отличается ошибка в банкомате от ошибки в интернет-магазине, и какие действия категорически нельзя совершать, чтобы не усугубить ситуацию. Знание этих нюансов позволит вам уверенно пользоваться банковскими продуктами и быстро решать технические проблемы.</p>
+
+<h2 id="лимиты-попыток-и-механизм-защиты-счета">Лимиты попыток и механизм защиты счета</h2>
+
+<p>Механизм защиты платежных систем работает по строгому алгоритму. Для карт <em>Visa</em> и <em>Mir</em>, выпущенных банком <strong>ВТБ</strong>, установлено стандартное ограничение: у владельца есть три попытки для ввода корректного ПИН-кода. Это число является международным стандартом безопасности. Если вы ввели неверную комбинацию трижды подряд, система автоматически блокирует возможность проведения операций через этот носитель.</p>
+
+<p>Важно понимать, что счетчик ошибок может работать по-разному в зависимости от канала обслуживания. В некоторых случаях, особенно при работе с <em>POS-терминалами</em> в торговых точках, счетчик может сбрасываться после успешной авторизации в другом канале или по истечении определенного времени. Однако полагаться на это не стоит. <strong>Три неудачные попытки</strong> — это критическая черта, после которой включается режим защиты.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Не пытайтесь угадать код методом тыка. Каждая неудачная попытка фиксируется в системе безопасности банка и может быть расценена как подозрительная активность, что приведет к более строгой проверке ваших операций в будущем.</p>
+</blockquote>
+
+<p>Существует также понятие «мягкой» блокировки. Если вы ввели код неправильно один или два раза, но затем остановились, доступ к счету не блокируется. Проблема возникает только при последовательном исчерпании всех лимитов. Некоторые пользователи ошибочно полагают, что после первой ошибки нужно сразу бежать в отделение, но это не так. У вас остается еще две попытки, которые можно использовать осторожно.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Три последовательных неверных ввода ПИН-кода приводят к автоматической блокировке карты для проведения операций в платежных терминалах и банкоматах.</p></div>
+
+<h2 id="типы-блокировок-временная-и-постоянная">Типы блокировок: временная и постоянная</h2>
+
+<p>Не все блокировки одинаковы. В терминологии банка и платежных систем различают несколько уровней ограничений. Чаще всего при тройной ошибке ввода ПИН-кода происходит блокировка именно <strong>пластиковой карты</strong> для операций, требующих авторизации по коду. Это означает, что вы не сможете снять деньги в банкомате или оплатить покупку в магазине, вставив карту в терминал.</p>
+
+<p>Однако доступ к счетам через <em>ВТБ Онлайн</em> или <strong>мобильное приложение</strong> часто остается открытым. Это сделано для того, чтобы клиент мог в любой момент увидеть состояние своих финансов, заблокировать карту самостоятельно или перевыпустить ее. Если же система заподозрит мошеннические действия (например, ввод кода в разных городах за короткое время), может быть временно ограничен доступ к дистанционным каналам обслуживания.</p>
+
+<p>Постоянная блокировка обычно инициируется самим владельцем при утере карты или службой безопасности при выявлении явных признаков кражи средств. В случае с ошибочным вводом ПИН-кода речь чаще идет о временном ограничении, которое снимается либо автоматически через 24 часа, либо после перевыпуска пластика. Точный тип блокировки всегда можно уточнить в приложении.</p>
+
+<details class="faq-item"><summary>Чем отличается блокировка ПИН-кода от блокировки карты?</summary><div class="faq-answer"><p>Блокировка ПИН-кода часто является временным ограничением на проведение операций в терминалах, которое может сброситься через сутки. Полная блокировка карты — это запрет на любые операции, включая онлайн-платежи, который снимается только после перевыпуска пластика или обращения в банк.</p></div></details>
+
+<h2 id="что-происходит-после-трех-ошибок-в-банкомате">Что происходит после трех ошибок в банкомате</h2>
+
+<p>Сценарий действий при ошибке в банкомате является наиболее критичным, так как именно здесь чаще всего пользователи забывают код. Если вы ввели неверный ПИН-код три раза, банкомат <em>ВТБ</em>, как правило, карту не забирает (если она не просрочена или не числится в стоп-листах), но на экране появится сообщение об отказе в обслуживании. Карта останется у вас на руках, но проводить операции ею будет невозможно.</p>
+
+<p>После этого инцидента карта помечается в базе данных как заблокированная по ПИН-коду. Даже если вы вспомните правильную комбинацию цифр через минуту, терминал или банкомат все равно выдадут ошибку. Система не пропустит авторизацию. Это защитный механизм, предотвращающий подбор кода злоумышленниками, которые могли завладеть пластиком.</p>
+
+<p>В некоторых случаях, если банкомат принадлежит сети-партнеру, он может изъять карту при множественных ошибках, но это редкость для современных устройств. Основное последствие — невозможность использования пластика до момента разблокировки. В это время деньги на счете остаются в полной безопасности и доступны для управления через другие каналы.</p>
+
+<div class="poll-widget" id="poll-73bac049"><div class="poll-widget-question">📊 Где вы чаще всего забываете ПИН-код?</div><div class="poll-widget-option" data-poll="73bac049" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">В банкомате</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="73bac049" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">В магазине на кассе</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="73bac049" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">При оплате в интернете</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="73bac049" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">В приложении банка</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="разблокировка-через-мобильное-приложение-втб-онлайн">Разблокировка через мобильное приложение ВТБ Онлайн</h2>
+
+<p>Самый быстрый и удобный способ решить проблему — использовать <strong>ВТБ Онлайн</strong>. Если у вас есть доступ к интернет-банкингу, вы можете самостоятельно управлять статусом своей карты. Часто система позволяет разблокировать ПИН-код или сменить его на новый без визита в офис. Для этого необходимо авторизоваться в приложении с помощью биометрии или пароля.</p>
+
+<p>В меню карты обычно есть раздел «Настройки» или «Лимиты и безопасность». Там можно найти опцию «Разблокировать ПИН-код» или «Сменить ПИН-код». Если карта заблокирована именно из-за ошибок ввода, приложение предложит установить новую комбинацию цифр. После этого старая комбинация перестанет действовать, и вы сможете пользоваться картой с новым кодом сразу же.</p>
+
+<p>Если автоматическая разблокировка через приложение недоступна (например, из-за настроек безопасности или типа карты), там же можно заказать перевыпуск пластика. Новая карта будет доставлена в удобное отделение или курьером. Старая карта при этом перестанет работать, а реквизиты счета (номер счета) останутся прежними, изменится только номер самого пластика и срок действия.</p>
+
+<div class="checklist-block"><h4>☑️ Алгоритм действий в приложении</h4><label class="check-item"><input type="checkbox"><span>Войти в ВТБ Онлайн</span></label><label class="check-item"><input type="checkbox"><span>Выбрать нужную карту</span></label><label class="check-item"><input type="checkbox"><span>Перейти в настройки безопасности</span></label><label class="check-item"><input type="checkbox"><span>Выбрать опцию смены или разблокировки ПИН</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="смена-пин-кода-в-банкомате-и-отделении">Смена ПИН-кода в банкомате и отделении</h2>
+
+<p>Если доступ к мобильному банку временно отсутствует, можно воспользоваться услугами банкомата. Однако здесь есть важный нюанс: если карта уже заблокирована из-за трех ошибок, банкомат может не принять команду на смену ПИН-кода до момента официальной разблокировки. В этом случае необходимо сначала выполнить процедуру разблокировки, которая часто требует подтверждения через СМС или звонок в контактный центр.</p>
+
+<p>В отделении банка процедура проходит максимально надежно. Сотрудник <strong>ВТБ</strong> идентифицирует вашу личность по паспорту. После проверки данных вам будет предложено установить новый ПИН-код на специальном устройстве (пинепаде) или вы получите запечатанный конверт с новым кодом (хотя конверты сейчас используются все реже в пользу мгновенной генерации в приложении).</p>
+
+<p>Стоит отметить, что перевыпуск карты по причине забытого ПИН-кода может быть платным, если это не предусмотрено тарифом вашего пакета обслуживания. Стандартная процедура смены кода через приложение, как правило, бесплатна. Поэтому перед походом в отделение имеет смысл попробовать решить вопрос дистанционно.</p>
+
+<h2 id="особенности-блокировки-при-онлайн-платежах">Особенности блокировки при онлайн-платежах</h2>
+
+<p>При оплате в интернете ситуация выглядит иначе. В большинстве онлайн-магазинов ПИН-код не запрашивается вообще — используется код <strong>CVC/CVV</strong> с оборотной стороны карты и код из СМС (3-D Secure). Если вы трижды ошиблись при вводе CVC-кода, магазин просто не проведет платеж, но карту это обычно не блокирует. Блокировка может наступить, если система антифraud заподозрит мошенничество.</p>
+
+<p>Однако, если интернет-магазин требует ввода ПИН-кода (что бывает при оплате через некоторые шлюзы или в зарубежных сервисах), правила те же: три ошибки ведут к блокировке. Особенность онлайна в том, что здесь сложнее понять, сбрасывается ли счетчик ошибок. Рекомендуется не делать более двух попыток ввода данных карты на одном сайте.</p>
+
+<p>Если вы забыли ПИН-код, который требуется для авторизации в личном кабинете поставщика услуг или в приложении, связанном с банком (например, для подтверждения транзакции), это не блокирует саму карту, но ограничивает доступ к сервису. В таких случаях нужно использовать функцию «Забыли пароль» или восстанавливать доступ через Госуслуги, если сервис это поддерживает.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сохраняйте ПИН-код в надежном месте, например, в менеджере паролей на телефоне, но никогда не храните его в виде фотографии в галерее или в заметках без защиты паролем.</p></div>
+
+<h2 id="таблица-действий-при-различных-сценариях">Таблица действий при различных сценариях</h2>
+
+<p>Для удобства восприятия информации систематизируем основные сценарии и действия. Эта таблица поможет быстро сориентироваться в ситуации и выбрать правильный алгоритм поведения.</p>
+
+<table>
+<thead>
+<tr>
+<th>Ситуация</th>
+<th>Статус карты</th>
+<th>Доступные действия</th>
+<th>Срок решения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-2 ошибки ввода ПИН</td>
+<td>Активна</td>
+<td>Ввести правильный код, сменить через приложение</td>
+<td>Мгновенно</td>
+</tr>
+<tr>
+<td>3 ошибки ввода ПИН</td>
+<td>Заблокирована</td>
+<td>Разблокировка в приложении, перевыпуск</td>
+<td>От 1 мин до 5 дней</td>
+</tr>
+<tr>
+<td>Забыт ПИН-код</td>
+<td>Активна (до ошибок)</td>
+<td>Смена ПИН в приложении или банкомате</td>
+<td>Мгновенно</td>
+</tr>
+<tr>
+<td>Подозрение на кражу</td>
+<td>Полная блокировка</td>
+<td>Блокировка в приложении, звонок в банк</td>
+<td>Мгновенно</td>
+</tr>
+</tbody>
+</table>
+
+<p>Как видно из таблицы, большинство проблем решаются быстро и дистанционно. Главное — не паниковать и не совершать лишних действий, которые могут быть расценены системой безопасности как атака на счет.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли разблокировать карту ВТБ самостоятельно, если я забыл ПИН-код?</summary>
+<p>Да, если у вас есть доступ к приложению <em>ВТБ Онлайн</em>. Вы можете сменить ПИН-код на новый в настройках карты. Старый код при этом перестанет действовать. Если доступа к приложению нет, придется обращаться в отделение банка с паспортом.</p>
+</details>
+
+<details>
+<summary>Сработает ли блокировка, если я ввел неверный код в разных банкоматах?</summary>
+<p>Да, счетчик ошибок является глобальным для всей платежной системы. Неважно, вводили ли вы код в банкомате <em>ВТБ</em>, в терминале магазина или в устройстве другого банка — все попытки суммируются. Три ошибки в сумме приведут к блокировке.</p>
+</details>
+
+<details>
+<summary>Заберет ли банкомат карту после трех ошибок?</summary>
+<p>Современные банкоматы <strong>ВТБ</strong> и большинства других банков не забирают карту автоматически только из-за ошибок ввода ПИН-кода. Карта изымается только если она числится в стоп-листе, повреждена, просрочена или если владелец сам оставил ее в устройстве. Однако пользоваться ею после трех ошибок вы не сможете.</p>
+</details>
+
+<details>
+<summary>Сколько времени действует блокировка после трех ошибок?</summary>
+<p>В некоторых случаях блокировка по ПИН-коду может сниматься автоматически через 24 часа. Однако часто для возобновления работы требуется обязательная смена ПИН-кода через приложение или перевыпуск карты. Точный статус лучше проверить в <em>ВТБ Онлайн</em>.</p>
+</details>
+
+<details>
+<summary>Блокируется ли счет или только карта?</summary>
+<p>Блокируется именно пластиковый носитель (или его виртуальный аналог) для проведения операций, требующих ПИН-код или чип. Доступ к счету через интернет-банкинг, как правило, сохраняется, и вы можете видеть, делать переводы по номеру телефона или оплачивать ЖКХ.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#лимиты-попыток-и-механизм-защиты-счета">Лимиты попыток и механизм защиты счета</a></li><li><a href="#типы-блокировок-временная-и-постоянная">Типы блокировок: временная и постоянная</a></li><li><a href="#что-происходит-после-трех-ошибок-в-банкомате">Что происходит после трех ошибок в банкомате</a></li><li><a href="#разблокировка-через-мобильное-приложение-втб-онлайн">Разблокировка через мобильное приложение ВТБ Онлайн</a></li><li><a href="#смена-пин-кода-в-банкомате-и-отделении">Смена ПИН-кода в банкомате и отделении</a></li><li><a href="#особенности-блокировки-при-онлайн-платежах">Особенности блокировки при онлайн-платежах</a></li><li><a href="#таблица-действий-при-различных-сценариях">Таблица действий при различных сценариях</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-vernut-dengi-snyatye-moshennikami-s-karty-vtb.html" class="related-card">Как вернуть деньги с карты ВТБ после кражи: пошаговая инструкция 2026</a></li><li><a href="/articles/g/ge/generator-parolej-vtb-24-kak-rabotaet.html" class="related-card">Генератор паролей ВТБ: как работает и где найти</a></li><li><a href="/articles/k/ka/kak-otklyuchit-push-kody-v-vtb-24.html" class="related-card">Как отключить Push-уведомления в ВТБ Онлайн 2026: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-proverit-akkreditiv-v-vtb.html" class="related-card">Как проверить аккредитив в ВТБ: пошаговая инструкция и сроки</a></li><li><a href="/articles/k/ka/katalog-klyuchevogo-nositelya-skzi-vtb-24-kak-ego-sdelat.html" class="related-card">Каталог ключевых носителей СКЗИ ВТБ 24: как создать и заполнить</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-vernut-dengi-snyatye-moshennikami-s-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как вернуть деньги с карты ВТБ после кражи: пошаговая инструкция 2026</span><span class="related-bottom-desc">Срочный алгоритм действий: как ВТБ возвращает украденные мошенниками деньги. Блокировка, полиция, ча</span></a><a href="/articles/g/ge/generator-parolej-vtb-24-kak-rabotaet.html" class="related-bottom-card"><span class="related-bottom-title">Генератор паролей ВТБ: как работает и где найти</span><span class="related-bottom-desc">Полный разбор работы генератора паролей ВТБ. Инструкция по созданию ключей в мобильном приложении, р</span></a><a href="/articles/k/ka/kak-otklyuchit-push-kody-v-vtb-24.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить Push-уведомления в ВТБ Онлайн 2026: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по отключению Push-кодов в мобильном приложении ВТБ 24. Способы для iOS/Androi</span></a><a href="/articles/k/ka/kak-proverit-akkreditiv-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить аккредитив в ВТБ: пошаговая инструкция и сроки</span><span class="related-bottom-desc">Узнайте, как проверить статус аккредитива в банке ВТБ через онлайн-банк, мобильное приложение и по т</span></a><a href="/articles/k/ka/katalog-klyuchevogo-nositelya-skzi-vtb-24-kak-ego-sdelat.html" class="related-bottom-card"><span class="related-bottom-title">Каталог ключевых носителей СКЗИ ВТБ 24: как создать и заполнить</span><span class="related-bottom-desc">Пошаговая инструкция по формированию каталога ключевых носителей СКЗИ для юридических лиц в ВТБ. Тре</span></a><a href="/articles/n/na/napisat-pretenziyu-v-bank-vtb-obrazets-kak.html" class="related-bottom-card"><span class="related-bottom-title">Претензия в ВТБ: образец 2026 года и как правильно написать</span><span class="related-bottom-desc">Готовый шаблон претензии в ВТБ с инструкцией по оформлению. Как составить жалобу на банк по кредиту,</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Когда наступает маржин-колл в ВТБ: условия и последствия — Банки Инфо</title>
+    <meta name="description" content="Узнайте, при каком уровне обеспечения наступает маржин-колл в ВТБ. Расчеты, примеры принудительного закрытия позиций и способы избежать убытков.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ko/kogda-nastupaet-marzhin-koll-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Когда наступает маржин-колл в ВТБ: условия и последствия">
+    <meta property="og:description" content="Узнайте, при каком уровне обеспечения наступает маржин-колл в ВТБ. Расчеты, примеры принудительного закрытия позиций и способы избежать убытков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Когда наступает маржин-колл в ВТБ: условия и последствия</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Маржин-колл в ВТБ: условия наступления и порядок действий</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#механизм-работы-маржинального-кредитования">Механизм работы маржинального кредитования</a></li><li><a href="#пороговые-значения-и-условия-наступления-маржин-колла">Пороговые значения и условия наступления маржин-колла</a></li><li><a href="#алгоритм-принудительного-закрытия-позиций">Алгоритм принудительного закрытия позиций</a></li><li><a href="#расчет-уровня-обеспечения-формула-и-примеры">Расчет уровня обеспечения: формула и примеры</a></li><li><a href="#действия-инвестора-при-получении-уведомления">Действия инвестора при получении уведомления</a></li><li><a href="#как-избежать-маржин-колла-стратегии-управления-рисками">Как избежать маржин-колла: стратегии управления рисками</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Торговля с плечом открывает перед инвестором широкие возможности, позволяя оперировать суммами, превышающими собственные средства на счете. Однако использование заемного капитала всегда сопряжено с рисками, главным из которых является возможность потери депозита при неблагоприятном движении рынка. Ключевым механизмом защиты брокера и инвестора в таких ситуациях выступает <strong>маржин-колл</strong> — требование о пополнении счета или частичном закрытии позиций.</p>
+
+<p>В брокерской компании ВТБ, как и в других крупных игроках рынка, действуют строгие регламенты управления рисками. Понимание того, когда именно брокер имеет право принудительно закрыть ваши сделки, является критически важным для каждого, кто использует плечо. <em>Незнание этих правил может привести к ситуации, когда вы потеряете контроль над своим портфелем в самый неподходящий момент.</em></p>
+
+<p>В данной статье мы подробно разберем математику расчета обеспечения, пороговые значения для различных типов счетов и алгоритмы действий системы при падении стоимости активов. <strong>Своевременная реакция на сигналы системы</strong> — единственный способ сохранить капитал в условиях высокой волатильности.</p>
+
+<h2 id="механизм-работы-маржинального-кредитования">Механизм работы маржинального кредитования</h2>
+
+<p>Суть маржинальной торговли заключается в том, что брокер предоставляет клиенту заемные средства (плечо) под залог имеющихся на счете активов. Для контроля рисков постоянно рассчитывается показатель <strong>уровня обеспечения</strong>. Это отношение стоимости портфеля клиента к величине долга перед брокером. Пока этот показатель высок, инвестор может свободно распоряжаться своими позициями.</p>
+
+<p>Однако рынок непредсказуем. Если стоимость купленных в кредит акций падает, залог обесценивается, а долг перед брокером остается прежним или растет (из-за начисления процентов). В этот момент уровень обеспечения снижается. <mark>Критическим моментом является достижение уровня обеспечения значения 100%, что означает полное исчерпание собственных средств клиента в портфеле.</mark></p>
+
+<p>ВТБ, как профессиональный участник рынка, обязан следить за тем, чтобы клиент не ушел в глубокий минус. Поэтому система мониторинга работает в автоматическом режиме 24/7. Как только ваши активы начинают терять в цене, риск-менеджмент брокера оценивает вероятность возврата займа.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте консервативное плечо не более 1:2 или 1:3, чтобы иметь запас прочности для маневра во время временных падений рынка.</p></div>
+
+<h2 id="пороговые-значения-и-условия-наступления-маржин-колла">Пороговые значения и условия наступления маржин-колла</h2>
+
+<p>В регламенте брокера четко прописано, когда наступает этап принудительных действий. Важно различать понятие"маржин-колл" (уведомление) и"ликвидацию" (принудительное закрытие). В ВТБ, как и во многих современных системах, уведомление часто приходит уже тогда, когда ситуация близка к критической, или автоматизировано.</p>
+
+<p>Основным триггером служит падение уровня обеспечения ниже 100%. Это означает, что собственных средств клиента на счете больше нет, все текущее состояние портфеля — это фактически заемные средства брокера. Если клиент не вносит дополнительные деньги, брокер вынужден продавать активы, чтобы вернуть свой заем.</p>
+
+<p>Стоит учитывать, что для разных инструментов могут применяться разные коэффициенты риска. Например, ликвидные акции голубых фишек могут иметь меньший haircut (дисконт при оценке залога), чем акции второго эшелона или облигации с низким рейтингом.</p>
+
+<ul>
+<li>📉 <strong>Уровень 100%</strong> — собственные средства клиента полностью исчерпаны, начинается зона риска принудительного закрытия.</li>
+<li>💸 <strong>Уровень ниже 100%</strong> — брокер получает право в одностороннем порядке закрыть часть или все позиции без уведомления клиента.</li>
+<li>🔔 <strong>Уведомление</strong> — может поступить по SMS или Push, когда уровень обеспечения опускается до критических значений (например, 110-120%).</li>
+</ul>
+
+<p>Инвестору необходимо самостоятельно отслеживать свой статус, так как отсутствие уведомления не снимает ответственности за поддержание достаточного уровня обеспечения. Система может не успеть отправить сигнал при резких скачках котировок (гэпах).</p>
+
+<div class="poll-widget" id="poll-3a84a110"><div class="poll-widget-question">📊 Как часто вы проверяете уровень обеспечения при торговле с плечом?</div><div class="poll-widget-option" data-poll="3a84a110" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Ежедневно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3a84a110" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в неделю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3a84a110" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Только при получении уведомления</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3a84a110" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Никогда не проверяю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="алгоритм-принудительного-закрытия-позиций">Алгоритм принудительного закрытия позиций</h2>
+
+<p>Когда уровень обеспечения падает ниже установленного минимума, вступает в действие механизм принудительного закрытия. В ВТБ этот процесс, как правило, автоматизирован. Робот-ликвидатор выбирает активы для продажи, чтобы погасить долг перед брокером.</p>
+
+<p>Самое неприятное для инвестора в этой ситуации — отсутствие выбора. Ликвидация может произойти по текущей рыночной цене, которая в момент паники на рынке может быть значительно ниже справедливой. Брокер не обязан ждать восстановления котировок.</p>
+
+<p>Порядок закрытия позиций может варьироваться, но обычно система в первую очередь продает наиболее ликвидные активы или те, чей риск дальнейших потерь оценивается как высокий. Клиент получает уведомление о совершенных сделках постфактум.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Принудительное закрытие позиций может произойти в любой момент торговой сессии, если уровень обеспечения упадет ниже критического порога. Ожидание звонка от менеджера в такой ситуации — опасная стратегия.</p>
+</blockquote>
+
+<p>После закрытия позиций долг перед брокером гасится. Если вырученных от продажи средств недостаточно для покрытия займа (что возможно при очень резком обвале), на счете образуется отрицательный баланс, который клиент обязан пополнить.</p>
+
+<h2 id="расчет-уровня-обеспечения-формула-и-примеры">Расчет уровня обеспечения: формула и примеры</h2>
+
+<p>Для понимания рисков необходимо уметь самостоятельно рассчитывать уровень обеспечения. Формула выглядит следующим образом: <strong>(Стоимость портфеля − Величина долга) / Стоимость портфеля × 100%</strong> или, в более простом варианте для оценки запаса прочности: <strong>Собственные средства / Стоимость портфеля</strong>.</p>
+
+<p>Рассмотрим практический пример. Допустим, у вас на счете 100 000 рублей собственных средств. Вы покупаете акций на 200 000 рублей, используя плечо 1:1 (заняли еще 100 000 у брокера). Уровень обеспечения в этот момент составляет 50% собственных средств в портфеле, но относительно долга ситуация иная.</p>
+
+<p>Если акции упадут в цене на 50%, стоимость портфеля станет 100 000 рублей. Ваш долг перед брокером tetap 100 000 рублей. Собственных средств в портфеле станет 0. Это и есть тот самый порог, после которого начинается маржин-колл.</p>
+
+<p>Ниже приведена таблица, демонстрирующая, как изменение котировок влияет на состояние счета при использовании плеча:</p>
+
+<table>
+<thead>
+<tr>
+<th>Изменение цены актива</th>
+<th>Стоимость портфеля</th>
+<th>Долг брокеру</th>
+<th>Собственные средства</th>
+<th>Статус</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+20%</td>
+<td>240 000 руб.</td>
+<td>100 000 руб.</td>
+<td>140 000 руб.</td>
+<td>Прибыль</td>
+</tr>
+<tr>
+<td>0%</td>
+<td>200 000 руб.</td>
+<td>100 000 руб.</td>
+<td>100 000 руб.</td>
+<td>Норма</td>
+</tr>
+<tr>
+<td>-25%</td>
+<td>150 000 руб.</td>
+<td>100 000 руб.</td>
+<td>50 000 руб.</td>
+<td>Риск</td>
+</tr>
+<tr>
+<td>-50%</td>
+<td>100 000 руб.</td>
+<td>100 000 руб.</td>
+<td>0 руб.</td>
+<td>Маржин-колл</td>
+</tr>
+<tr>
+<td>-60%</td>
+<td>80 000 руб.</td>
+<td>100 000 руб.</td>
+<td>-20 000 руб.</td>
+<td>Дефолт</td>
+</tr>
+</tbody>
+</table>
+
+<p>Как видно из таблицы, при использовании плеча 1:1 (50% собственных средств) падение рынка на 50% полностью уничтожает депозит. При больших плечах (например, 1:4) достаточно падения на 20%, чтобы потерять все средства.</p>
+
+<details class="faq-item"><summary>Влияние дивидендов на маржу</summary><div class="faq-answer"><p>При получении дивидендов по акциям, купленным в долг, сумма дивидендов зачисляется на счет, но одновременно с этим возникает обязательство выплатить брокеру дивидендный эквивалент, если вы держите короткую позицию, или просто увеличивается тело долга в некоторых схемах учета.</p></div></details>
+
+<h2 id="действия-инвестора-при-получении-уведомления">Действия инвестора при получении уведомления</h2>
+
+<p>Если вы получили сообщение от ВТБ о снижении уровня обеспечения, действовать нужно немедленно. Каждая минута промедления увеличивает риск принудительной ликвидации по невыгодной цене. У вас есть два основных пути решения проблемы.</p>
+
+<p>Первый вариант — <strong>внесение дополнительных денежных средств</strong> (Top-up). Это самый безопасный способ, так как он позволяет сохранить имеющиеся позиции и переждать временное падение рынка, не фиксируя убыток. Деньги зачисляются на счет практически мгновенно внутри одного банка.</p>
+
+<p>Второй вариант — <strong>самостоятельная продажа части активов</strong>. Если свободных денег нет, необходимо продать часть портфеля, чтобы уменьшить долг перед брокером и вывести уровень обеспечения в безопасную зону. Лучше сделать это самостоятельно по рыночной цене, чем ждать робота.</p>
+
+<ul>
+<li>💰 <strong>Пополнение счета:</strong> быстрый перевод с карты ВТБ или другого банка (с учетом лимитов и времени зачисления).</li>
+<li>📉 <strong>Снижение позиций:</strong> продажа наиболее волатильных или убыточных активов для быстрого высвобождения маржи.</li>
+<li>🚫 <strong>Открытие новых сделок:</strong> категорически запрещено открывать новые позиции с плечом до нормализации ситуации.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Попытка"отыграться" и усредниться, открывая новые позиции с плечом при низком уровне обеспечения, является прямой дорогой к полной потере депозита.</p>
+</blockquote>
+
+<h2 id="как-избежать-маржин-колла-стратегии-управления-рисками">Как избежать маржин-колла: стратегии управления рисками</h2>
+
+<p>Чтобы не попадать в ситуации, требующие экстренных действий, необходимо грамотно управлять рисками заранее. Профессиональные трейдеры никогда не используют доступное плечо на 100%. <em>Оптимальным считается использование не более 30-40% от доступного лимита маржинального кредитования.</em></p>
+
+<p>Использование <strong>стоп-лосс ордеров</strong> (Stop-Loss) — обязательный элемент торговли с плечом. Заранее выставленная заявка на продажу при достижении определенного уровня убытка позволит выйти из сделки с контролируемым, не дожидаясь маржин-колла.</p>
+
+<p>Также важно следить за новостным фоном. Перед выходом важной статистики или отчетов компаний волатильность может резко вырасти, что приведет к резким скачкам котировок и временному падению обеспечения даже при общем тренде.</p>
+
+<div class="checklist-block"><h4>☑️ Чек-ап перед сделкой с плечом</h4><label class="check-item"><input type="checkbox"><span>Рассчитан максимальный убыток</span></label><label class="check-item"><input type="checkbox"><span>Установлен Stop-Loss</span></label><label class="check-item"><input type="checkbox"><span>Уровень обеспечения выше 150%</span></label><label class="check-item"><input type="checkbox"><span>Есть свободные средства на счете</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Регулярный мониторинг портфеля позволяет заметить негативный тренд на ранней стадии. Не стоит полагаться на то, что"рынок обязательно развернется". В маржинальной торговле рынок может оставаться иррациональным дольше, чем вы сможете сохранять платежеспособность.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Главное правило выживания на бирже с плечом: никогда не рискуйте суммой, потеря которой станет критичной для вашего финансового состояния.</p></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Может ли ВТБ закрыть позиции без предупреждения?</summary>
+<p>Да, согласно договору брокерского обслуживания, если уровень обеспечения падает ниже критического значения (обычно 100% или ниже), брокер имеет право принудительно закрыть позиции без предварительного уведомления клиента, чтобы обеспечить возврат заемных средств.</p>
+</details>
+
+<details>
+<summary>Что будет, если после продажи активов долг не покроется полностью?</summary>
+<p>Если вырученных от принудительной продажи средств недостаточно для погашения долга, на счете образуется отрицательный баланс. Клиент обязан пополнить счет на сумму долга. В случае отказа брокер вправе инициировать процедуру взыскания задолженности в судебном порядке.</p>
+</details>
+
+<details>
+<summary>Как часто пересчитывается уровень обеспечения?</summary>
+<p>В современных торговых системах, включая платформы ВТБ, расчет уровня обеспечения происходит в режиме реального времени (онлайн) в течение торговой сессии. Изменение котировок даже на 1 пункт может повлиять на текущий показатель.</p>
+</details>
+
+<details>
+<summary>Можно ли торговать с плечом на ИИС?</summary>
+<p>Да, на индивидуальных инвестиционных счетах (ИИС) типа А и Б в ВТБ доступна торговля с плечом (маржинальное кредитование), но условия могут отличаться от обычных брокерских счетов. Необходимо внимательно изучать тарифы и условия для ИИС, так как вывод средств с такого счета ограничен законом.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#механизм-работы-маржинального-кредитования">Механизм работы маржинального кредитования</a></li><li><a href="#пороговые-значения-и-условия-наступления-маржин-колла">Пороговые значения и условия наступления маржин-колла</a></li><li><a href="#алгоритм-принудительного-закрытия-позиций">Алгоритм принудительного закрытия позиций</a></li><li><a href="#расчет-уровня-обеспечения-формула-и-примеры">Расчет уровня обеспечения: формула и примеры</a></li><li><a href="#действия-инвестора-при-получении-уведомления">Действия инвестора при получении уведомления</a></li><li><a href="#как-избежать-маржин-колла-стратегии-управления-рисками">Как избежать маржин-колла: стратегии управления рисками</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/e/es/esli-ne-prishli-dividendy-kuda-obrashchatsya-vtb.html" class="related-card">Не пришли дивиденды в ВТБ: куда обращаться и что делать в 2026 году</a></li><li><a href="/articles/k/ka/kak-otkryt-pif-v-vtb.html" class="related-card">Как открыть ПИФ в ВТБ: пошаговая инструкция 2026 года</a></li><li><a href="/articles/o/op/opifrfi-vtb-fond-sbalansirovannyj-chto-eto.html" class="related-card">ОПИФРФИ ВТБ Фонд Сбалансированный: что это и стоит ли покупать</a></li><li><a href="/articles/k/ka/kakie-aktsii-darit-vtb-investitsii.html" class="related-card">Акции ВТБ Инвестиции 2026: как получить бонусы и подарки</a></li><li><a href="/articles/k/ka/kak-investirovat-v-vtb-investitsii.html" class="related-card">Как инвестировать в ВТБ Инвестиции: пошаговое руководство 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/e/es/esli-ne-prishli-dividendy-kuda-obrashchatsya-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Не пришли дивиденды в ВТБ: куда обращаться и что делать в 2026 году</span><span class="related-bottom-desc">Дивиденды от ВТБ не поступили на счёт? Узнайте, куда звонить, как написать претензию и что делать, е</span></a><a href="/articles/k/ka/kak-otkryt-pif-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как открыть ПИФ в ВТБ: пошаговая инструкция 2026 года</span><span class="related-bottom-desc">Подробный гайд по открытию паевого инвестиционного фонда в ВТБ: условия, тарифы, необходимые докумен</span></a><a href="/articles/o/op/opifrfi-vtb-fond-sbalansirovannyj-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">ОПИФРФИ ВТБ Фонд Сбалансированный: что это и стоит ли покупать</span><span class="related-bottom-desc">Подробный разбор ОПИФРФИ ВТБ: структура, доходность, комиссии и риски. Узнайте, подходит ли этот фон</span></a><a href="/articles/k/ka/kakie-aktsii-darit-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Акции ВТБ Инвестиции 2026: как получить бонусы и подарки</span><span class="related-bottom-desc">Полный список актуальных акций от ВТБ Инвестиции: бонусы за открытие счета, кешбэк, подарки за актив</span></a><a href="/articles/k/ka/kak-investirovat-v-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как инвестировать в ВТБ Инвестиции: пошаговое руководство 2026</span><span class="related-bottom-desc">Полная инструкция по открытию брокерского счёта в ВТБ Инвестиции, выбору стратегий, комиссиям и нало</span></a><a href="/articles/v/v-/v-kakoj-moment-s-pajshchika-uderzhivaetsya-ndfl-po-pifam-vtb.html" class="related-bottom-card"><span class="related-bottom-title">НДФЛ по ПИФам ВТБ: когда удерживают налог</span><span class="related-bottom-desc">Узнайте, в какой момент происходит удержание НДФЛ по ПИФам ВТБ. Разбираем условия для резидентов, ль</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

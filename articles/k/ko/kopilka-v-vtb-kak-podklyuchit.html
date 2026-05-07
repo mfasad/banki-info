@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Копилка в ВТБ: как подключить и настроить автопополнение — Банки Инфо</title>
+    <meta name="description" content="Подробная инструкция, как подключить Копилку в приложении ВТБ Онлайн. Настройка правил округления, лимиты, способы накопления и управление сервисом.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ko/kopilka-v-vtb-kak-podklyuchit.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Копилка в ВТБ: как подключить и настроить автопополнение">
+    <meta property="og:description" content="Подробная инструкция, как подключить Копилку в приложении ВТБ Онлайн. Настройка правил округления, лимиты, способы накопления и управление сервисом.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Копилка в ВТБ: как подключить и настроить автопополнение</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как подключить Копилку в ВТБ: полная инструкция по настройке</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-представляет-собой-сервис-копилка-в-банке-втб">Что представляет собой сервис Копилка в банке ВТБ</a></li><li><a href="#пошаговая-инструкция-как-подключить-копилку-в-приложении">Пошаговая инструкция: как подключить Копилку в приложении</a></li><li><a href="#настройка-правил-округления-и-стратегий-накопления">Настройка правил округления и стратегий накопления</a></li><li><a href="#управление-средствами-и-выбор-накопительного-продукта">Управление средствами и выбор накопительного продукта</a></li><li><a href="#лимиты-комиссии-и-технические-ограничения">Лимиты, комиссии и технические ограничения</a></li><li><a href="#преимущества-автоматического-накопления-для-бюджета">Преимущества автоматического накопления для бюджета</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>Финансовая грамотность начинается с умения откладывать даже небольшие суммы, которые часто остаются незамеченными в повседневной жизни. Сервис <strong>Копилка</strong> от банка ВТБ представляет собой удобный цифровой инструмент, позволяющий формировать накопления автоматически, без необходимости каждый раз совершать сложные банковские операции. Принцип действия прост: система округляет суммы ваших трат по дебетовой карте и переводит разницу на отдельный счет или в накопительный продукт.</p>
+<p>Подключение услуги занимает всего несколько минут и не требует посещения офиса или оформления бумажных документов. Это решение идеально подходит для тех, кто хочет начать создавать подушку безопасности или копить на конкретную цель, но испытывает трудности с регулярным ручным пополнением. <em>ВТБ Онлайн</em> предоставляет гибкие настройки, позволяющие адаптировать процесс накопления под ваш ритм жизни и текущие финансовые возможности.</p>
+<p>В данном материале мы подробно разберем алгоритм активации сервиса, рассмотрим доступные стратегии накопления и ответим на часто возникающие вопросы пользователей. Вы узнаете, как управлять средствами, какие существуют лимиты и как максимально эффективно использовать функционал мобильного приложения банка.</p>
+
+<h2 id="что-представляет-собой-сервис-копилка-в-банке-втб">Что представляет собой сервис Копилка в банке ВТБ</h2>
+<p>Копилка — это автоматизированный финансовый инструмент, который помогает бережно собирать деньги на основе совершенных вами покупок. Механизм работы базируется на функции округления: при оплате картой или через <code>СБП</code> сумма транзакции округляется до ближайшего удобного значения (например, до 10, 50 или 100 рублей), а разница перечисляется на специальный счет.</p>
+<p><strong>Важной особенностью</strong> является возможность выбора источника средств для накопления. Вы можете настроить перечисление остатков с дебетовой карты, кредитной карты или даже с бизнес-счета. Это делает процесс универсальным для разных категорий клиентов, включая индивидуальных предпринимателей, которые также хотят откладывать часть выручки.</p>
+<blockquote>
+<p>⚠️ Внимание: Средства на счете Копилки не застрахованы АСВ отдельно от основного счета, если они не размещены на специальном накопительном продукте. Уточняйте условия страхования в приложении.</p>
+</blockquote>
+<p>Собранные деньги можно хранить просто на балансе или направить их в накопительный счет <em>«Свои цели»</em> или вклад, где на остаток будут начисляться проценты. Это превращает пассивное хранение в активный инвестиционный процесс, позволяющий защититься от инфляции, пусть и в небольшом масштабе.</p>
+
+<h2 id="пошаговая-инструкция-как-подключить-копилку-в-приложении">Пошаговая инструкция: как подключить Копилку в приложении</h2>
+<p>Процесс активации сервиса максимально упрощен разработчиками и полностью перенесен в цифровой канал. Для начала работы вам потребуется актуальная версия приложения <em>ВТБ Онлайн</em> и действующий договор банковского обслуживания. Инструкция не требует специальных знаний и выполняется по алгоритму.</p>
+<p>Сначала необходимо авторизоваться в системе и перейти в главное меню. Далее следует выбрать раздел «Сервисы» или найти соответствующую иконку на стартовом экране, если вы добавили виджет. Система предложит ознакомиться с условиями и выбрать карту, с которой будут списываться средства для округления.</p>
+<div class="checklist-block"><h4>☑️ Чек-лист подключения Копилки</h4><label class="check-item"><input type="checkbox"><span>Открыть приложение ВТБ Онлайн</span></label><label class="check-item"><input type="checkbox"><span>Перейти в раздел Сервисы</span></label><label class="check-item"><input type="checkbox"><span>Выбрать опцию Копилка</span></label><label class="check-item"><input type="checkbox"><span>Настроить параметры округления</span></label><label class="check-item"><input type="checkbox"><span>Подтвердить подключение</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+<p>На этапе настройки вам будет предложено выбрать правило округления. Вы можете установить фиксированную сумму (например, всегда округлять до 100 рублей) или процент от покупки. Также важно указать счет, на который будут поступать накопления — это может быть ваш текущий счет или специально открытый накопительный.</p>
+<p>После выбора всех параметров система запросит подтверждение операции через <code>Push-уведомление</code> или <strong>SMS-код</strong>. Как только код будет введен, сервис считается активным и начнет работать автоматически при совершении первых транзакций.</p>
+
+<h2 id="настройка-правил-округления-и-стратегий-накопления">Настройка правил округления и стратегий накопления</h2>
+<p>Гибкость сервиса заключается в возможности тонкой настройки параметров. Пользователь не ограничен стандартными шаблонами и может выбрать стратегию, которая не будет ощущаться как финансовая нагрузка. Базовое правило — округление до десятков, сотен или тысяч рублей.</p>
+<p>Например, при покупке продуктов на сумму 435 рублей и правиле округления до 100 рублей, с вашего счета спишется 435 рублей за товар и 65 рублей уйдет в Копилку. Если же выбрать округление до 10 рублей, то накопится только 5 рублей. <mark>Максимальная сумма одного пополнения ограничена правилами банка, но обычно составляет до 15 000 рублей за одну операцию округления.</mark></p>
+<p>Дополнительно можно настроить регулярные платежи. Это отдельная функция, позволяющая переводить фиксированную сумму в Копилку в определенную дату каждого месяца. Комбинирование округления трат и регулярных платежей позволяет значительно ускорить процесс формирования капитала.</p>
+<div class="poll-widget" id="poll-a980fdf1"><div class="poll-widget-question">📊 Как вы предпочитаете копить?</div><div class="poll-widget-option" data-poll="a980fdf1" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Автоматическое округление трат</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a980fdf1" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Фиксированная сумма каждый месяц</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a980fdf1" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Ручное пополнение при наличии свободных денег</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a980fdf1" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Комбинированный подход</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+<p>Для изменения настроек не нужно заново проходить весь путь активации. Достаточно зайти в меню сервиса и отредактировать параметры. Изменения вступают в силу немедленно и применяются ко всем последующим операциям.</p>
+
+<h2 id="управление-средствами-и-выбор-накопительного-продукта">Управление средствами и выбор накопительного продукта</h2>
+<p>Собранные средства не лежат мертвым грузом. В интерфейсе приложения вы можете видеть общую сумму накоплений и историю всех зачислений. Важным аспектом является возможность распоряжаться этими деньгами: их можно тратить, переводить на другие счета или выводить наличными.</p>
+<p>Однако наиболее рациональным способом использования Копилки является размещение средств на накопительных счетах. ВТБ предлагает линейку продуктов, таких как <em>«Свои цели»</em>, которые позволяют получать доход на остаток. Это особенно актуально в периоды высокой ключевой ставки.</p>
+<p>В таблице ниже приведено сравнение основных вариантов размещения средств, собранных через Копилку:</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Текущий счет</th>
+<th>Накопительный счет «Свои цели»</th>
+<th>Вклад</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Доступ к средствам</td>
+<td>Мгновенный</td>
+<td>Мгновенный</td>
+<td>Ограничен сроком</td>
+</tr>
+<tr>
+<td>Начисление процентов</td>
+<td>Нет</td>
+<td>Ежедневно/Ежемесячно</td>
+<td>В конце срока или ежемесячно</td>
+</tr>
+<tr>
+<td>Пополнение</td>
+<td>Без ограничений</td>
+<td>Без ограничений</td>
+<td>Зависит от условий вклада</td>
+</tr>
+<tr>
+<td>Риск потери дохода</td>
+<td>Отсутствует</td>
+<td>Минимальный</td>
+<td>Высокий при снятии</td>
+</tr>
+</tbody>
+</table>
+<p>Переключение между режимами хранения происходит в пару кликов. Вы можете накопить определенную сумму на текущем счете, а затем «запереть» ее на вкладе под более высокий процент, не выводя деньги из экосистемы банка.</p>
+
+<h2 id="лимиты-комиссии-и-технические-ограничения">Лимиты, комиссии и технические ограничения</h2>
+<p>При использовании сервиса важно учитывать установленные банком лимиты. Они касаются как минимальной суммы пополнения, так и максимального остатка на счете Копилки. Обычно минимальное округление составляет 1 рубль, а максимальное — зависит от тарифа вашего пакета услуг.</p>
+<p>Комиссия за использование сервиса Копилка для физических лиц, как правило, отсутствует. Банк зарабатывает на обороте средств и размещении ликвидности, поэтому мотивирует клиентов пользоваться инструментом бесплатно. Однако стоит внимательно читать условия конкретного тарифного плана.</p>
+<blockquote>
+<p>⚠️ Внимание: Округление не происходит при операциях снятия наличных в банкоматах, пополнении мобильных телефонов и некоторых видах переводов. Сервис работает преимущественно с эквайринговыми операциями (покупки в магазинах и онлайн).</p>
+</blockquote>
+<p>Существуют также ограничения по количеству подключенных Копилок. Обычно сервис привязывается к одному основному счету, но в новых версиях приложения появляется возможность создания нескольких «ячеек» для разных целей. Проверьте актуальную информацию в разделе <code>Помощь</code> приложения.</p>
+<details class="faq-item"><summary>Что происходит при отрицательном балансе?</summary><div class="faq-answer"><p>Если на счете недостаточно средств для округления, операция просто не произойдет. Копилка не уходит в минус и не создает задолженность. Следующее округление произойдет при следующей успешной транзакции, когда баланс позволит списать разницу.</p></div></details>
+<p>Технические сбои редки, но возможны. Если вы заметили, что округление не происходит долгое время, попробуйте переподключить сервис или обновить приложение. Логи операций сохраняются в истории, что позволяет контролировать каждое движение.</p>
+
+<h2 id="преимущества-автоматического-накопления-для-бюджета">Преимущества автоматического накопления для бюджета</h2>
+<p>Главный плюс Копилки — психологический комфорт. Человек часто не замечает, как тратит мелкие суммы на кофе, снеки или подписки. Автоматическое отнимание «сдачи» не ощущается как потеря, в отличие от крупного ежемесячного платежа, который приходится планировать.</p>
+<p><strong>Дисциплина</strong> в финансах формируется незаметно. Даже небольшие суммы, откладываемые ежедневно, к концу года могут составить внушительный капитал, достаточный для покупки бытовой техники или оплаты отпуска. Это формирует привычку жить по средствам.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте Копилку для создания буферного фонда. Даже 100-200 рублей в день дадут более 50 000 рублей за год, что станет отличной подушкой безопасности на случай непредвиденных расходов.</p></div>
+<p>Кроме того, сервис помогает визуализировать финансовые цели. Видя, как растет сумма в приложении, пользователь получает положительное подкрепление и мотивацию продолжать в том же духе. Это современный подход к личному бюджету, пришедший на смену бумажным блокнотам.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Автоматизация накоплений через Копилку позволяет сформировать капитал в размере 30-50 тысяч рублей за год без ощутимого снижения уровня жизни.</p></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Можно ли подключить Копилку к кредитной карте?</summary>
+<p>Да, сервис поддерживает работу с кредитными картами ВТБ. Однако стоит быть осторожным: округляя траты по кредитке, вы фактически берете кредит на сумму округления. Если у вас есть льготный период, это допустимо, но лучше использовать для накоплений средства с дебетовой карты или счета.</p>
+</details>
+<details>
+<summary>Как отключить Копилку, если она больше не нужна?</summary>
+<p>Для отключения необходимо зайти в настройки сервиса в приложении <em>ВТБ Онлайн</em> и выбрать пункт «Отключить» или «Удалить Копилку». Средства, накопленные на момент отключения, останутся на указанном счете и будут доступны для использования.</p>
+</details>
+<details>
+<summary>Начисляются ли баллы «Коллекция» на сумму округления?</summary>
+<p>Баллы начисляются на основную сумму покупки по условиям вашей карты. На сумму округления, которая уходит в Копилку, бонусы обычно не начисляются, так как это считается переводом собственных средств, а не покупкой.</p>
+</details>
+<details>
+<summary>Есть ли минимальная сумма для первого пополнения?</summary>
+<p>Минимальная сумма зависит от настроек округления. Если вы установили округление до 10 рублей, то первое пополнение может составить всего несколько рублей. Специального минимального порога для входа в сервис нет.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-представляет-собой-сервис-копилка-в-банке-втб">Что представляет собой сервис Копилка в банке ВТБ</a></li><li><a href="#пошаговая-инструкция-как-подключить-копилку-в-приложении">Пошаговая инструкция: как подключить Копилку в приложении</a></li><li><a href="#настройка-правил-округления-и-стратегий-накопления">Настройка правил округления и стратегий накопления</a></li><li><a href="#управление-средствами-и-выбор-накопительного-продукта">Управление средствами и выбор накопительного продукта</a></li><li><a href="#лимиты-комиссии-и-технические-ограничения">Лимиты, комиссии и технические ограничения</a></li><li><a href="#преимущества-автоматического-накопления-для-бюджета">Преимущества автоматического накопления для бюджета</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-zakachat-prilozhenie-vtb-bank-na-telefon.html" class="related-card">Как установить приложение ВТБ Онлайн на телефон — пошаговая инструкция 2026</a></li><li><a href="/articles/c/ch/chto-sluchilos-s-prilozheniem-vtb-bank.html" class="related-card">Что случилось с приложением ВТБ: причины и решения</a></li><li><a href="/articles/g/gd/gde-posmotret-login-v-vtb.html" class="related-card">Где посмотреть логин в ВТБ Онлайн: все способы</a></li><li><a href="/articles/s/sk/skolko-gigov-vtb.html" class="related-card">Сколько гигабайт в мобильном приложении ВТБ: полный разбор 2026</a></li><li><a href="/articles/c/ch/chto-takoe-qr-karta-vtb-i-kak-polzovatsya.html" class="related-card">QR-карта ВТБ: что это, как подключить и пользоваться</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-zakachat-prilozhenie-vtb-bank-na-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как установить приложение ВТБ Онлайн на телефон — пошаговая инструкция 2026</span><span class="related-bottom-desc">Скачайте официальное приложение ВТБ на Android или iPhone: проверенные способы загрузки, настройка и</span></a><a href="/articles/c/ch/chto-sluchilos-s-prilozheniem-vtb-bank.html" class="related-bottom-card"><span class="related-bottom-title">Что случилось с приложением ВТБ: причины и решения</span><span class="related-bottom-desc">Подробный разбор причин неработоспособности приложения ВТБ. Что произошло, как восстановить доступ и</span></a><a href="/articles/g/gd/gde-posmotret-login-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Где посмотреть логин в ВТБ Онлайн: все способы</span><span class="related-bottom-desc">Узнайте, где найти логин в ВТБ Онлайн и приложении. Инструкция по восстановлению доступа, смене паро</span></a><a href="/articles/s/sk/skolko-gigov-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Сколько гигабайт в мобильном приложении ВТБ: полный разбор 2026</span><span class="related-bottom-desc">Узнайте точный вес приложения ВТБ-Онлайн на Android и iOS, как освободить место и почему размер може</span></a><a href="/articles/c/ch/chto-takoe-qr-karta-vtb-i-kak-polzovatsya.html" class="related-bottom-card"><span class="related-bottom-title">QR-карта ВТБ: что это, как подключить и пользоваться</span><span class="related-bottom-desc">Полный гид по QR-карте ВТБ. Узнайте, как оформить цифровую карту, переводить деньги по QR-коду и опл</span></a><a href="/articles/k/ka/kak-napisat-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как написать в ВТБ Онлайн: поддержка через чат</span><span class="related-bottom-desc">Подробный гид: как написать в ВТБ Онлайн через мобильное приложение. Инструкция по подключению чата </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

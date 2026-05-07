@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Расчет платежа по кредитной карте ВТБ: калькулятор и формулы — Банки Инфо</title>
+    <meta name="description" content="Узнайте, как точно рассчитать платеж по кредитной карте ВТБ. Подробный разбор калькулятора, формулы минимального взноса и льготного периода.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rasschitat-platezh-po-kreditnoj-karte-vtb-kalkulyator.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Расчет платежа по кредитной карте ВТБ: калькулятор и формулы">
+    <meta property="og:description" content="Узнайте, как точно рассчитать платеж по кредитной карте ВТБ. Подробный разбор калькулятора, формулы минимального взноса и льготного периода.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/kredity/">Кредиты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Расчет платежа по кредитной карте ВТБ: калькулятор и формулы</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как рассчитать платеж по кредитной карте ВТБ: калькулятор и формулы</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#принципы-формирования-минимального-платежа">Принципы формирования минимального платежа</a></li><li><a href="#использование-онлайн-калькулятора-и-мобильного-приложения">Использование онлайн-калькулятора и мобильного приложения</a></li><li><a href="#формула-расчета-и-пример-вычислений">Формула расчета и пример вычислений</a></li><li><a href="#льготный-период-и-его-влияние-на-выплаты">Льготный период и его влияние на выплаты</a></li><li><a href="#штрафы-и-комиссии-при-просрочке">Штрафы и комиссии при просрочке</a></li><li><a href="#частые-вопросы-и-стратегии-погашения">Частые вопросы и стратегии погашения</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>Управление личными финансами требует четкого понимания обязательств перед банком, особенно когда речь идет о заемных средствах. <strong>Расчет платежа по кредитной карте ВТБ</strong> часто вызывает вопросы у новых клиентов, поскольку структура минимального взноса отличается от классических потребительских кредитов. Понимание того, как формируется сумма, которую необходимо внести до определенной даты, поможет избежать просрочек и переплат по процентам.</p>
+<p>Современные банковские приложения предлагают автоматизированные решения, но знание базовых принципов начисления процентов дает финансовую независимость. <em>Кредитная карта ВТБ</em> имеет свои особенности в расчете минимального платежа, который зависит от размера задолженности, процентной ставки и наличия дополнительных комиссий. Разобравшись в механике, вы сможете эффективнее планировать свой бюджет и грамотно использовать <strong>льготный период</strong>.</p>
+<p>В этой статье мы детально рассмотрим алгоритмы, по которым банк определяет сумму обязательного взноса. Вы узнаете, какие параметры влияют на итоговую цифру в приложении, и получите инструменты для самостоятельной проверки расчетов. Это особенно важно при планировании крупных покупок или использовании карты в качестве основного инструмента для повседневных трат.</p>
+
+<h2 id="принципы-формирования-минимального-платежа">Принципы формирования минимального платежа</h2>
+<p>Основой для расчета служит сумма вашей задолженности на дату формирования отчета. <strong>Минимальный платеж</strong> по картам ВТБ, как правило, составляет 5% от общей суммы долга, но не менее 1000 рублей (или эквивалента в валюте). Однако это базовая формула, которая может корректироваться в зависимости от условий конкретного тарифного плана.</p>
+<p>Важно учитывать, что в минимальный взнос всегда включаются начисленные проценты за пользование кредитными средствами, если льготный период был нарушен или еще не наступил. Также туда могут входить комиссии за обслуживание, страховые продукты и штрафы, если они были применены в отчетном периоде. <em>Банк ВТБ</em> стремится сделать структуру прозрачной, поэтому все составляющие отображаются в выписке.</p>
+<blockquote>
+<p>⚠️ Внимание: Если вы внесете только минимальную сумму, проценты продолжат начисляться на остаток долга. Это может привести к длительному и дорогому погашению кредита.</p>
+</blockquote>
+<p>Существует также понятие полной суммы задолженности, которую рекомендуется вносить для сохранения беспроцентного периода. <strong>Калькулятор минимального платежа</strong> в приложении показывает именно ту сумму, внесение которой спасет вашу кредитную историю от негативных записей, но не обязательно избавит от переплат.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Всегда вносите сумму больше минимального платежа, если хотите быстрее закрыть кредит и сэкономить на процентах.</p></div>
+
+<h2 id="использование-онлайн-калькулятора-и-мобильного-приложения">Использование онлайн-калькулятора и мобильного приложения</h2>
+<p>Наиболее точным и удобным инструментом для клиентов является официальное мобильное приложение <em>ВТБ Онлайн</em>. Именно там отображается актуальная сумма к оплате, рассчитанная с учетом всех совершенных операций и начислений в реальном времени. Использование сторонних калькуляторов может дать погрешность, так как они не учитывают индивидуальные условия вашего договора.</p>
+<p>Для получения информации откройте приложение и перейдите в раздел кредитных карт. На главном экране продукта обычно отображаются две ключевые цифры: «Минимальный платеж» и «Полная сумма долга». <strong>Онлайн-калькулятор</strong> внутри приложения автоматически пересчитывает эти значения при каждой новой покупке или поступлении средств.</p>
+<ul>
+<li>📱 Откройте приложение и выберите нужную карту из списка продуктов.</li>
+<li>📄 Нажмите на кнопку «Выписка» или «Детали», чтобы увидеть разбивку платежа.</li>
+<li>🔢 Используйте встроенный калькулятор для моделирования суммы внесения.</li>
+<li>✅ Проверьте дату, до которой необходимо внести средства.</li>
+</ul>
+<p>Если вы планируете крупное пополнение, приложение позволит ввести произвольную сумму и увидеть, как изменится остаток долга и дата следующего платежа. Это помогает избежать ситуаций, когда клиент вносит деньги, но они не перекрывают начисленные проценты полностью.</p>
+<details class="faq-item"><summary>Что делать, если сумма в приложении не совпадает с вашими расчетами?</summary><div class="faq-answer"><p>Если вы видите расхождение, проверьте, не включены ли в сумму к оплате скрытые комиссии, страховки или проценты за предыдущие периоды, которые могли быть капитализированы.</p></div></details>
+
+<h2 id="формула-расчета-и-пример-вычислений">Формула расчета и пример вычислений</h2>
+<p>Для тех, кто предпочитает держать финансы под контролем с помощью точных вычислений, полезно знать базовую формулу. <strong>Расчет платежа</strong> производится по следующей логике: берется процент от основной суммы долга (тела кредита) и к нему прибавляются все начисленные проценты и комиссии.</p>
+<p>Рассмотрим пример. Предположим, ваша задолженность составляет 100 000 рублей, а процентная ставка по тарифу — 30% годовых. Минимальный платеж в 5% составит 5000 рублей. Однако, если льготный период закончился, банк начислит проценты на сумму использования.</p>
+<p>Для упрощения понимания структуры платежей ниже приведена таблица с примерами расчетов при разных условиях задолженности:</p>
+<table>
+<thead>
+<tr>
+<th>Сумма долга (руб)</th>
+<th>Процент мин. платежа</th>
+<th>Мин. взнос (руб)</th>
+<th>Начисленные % (примерно)</th>
+<th>Итого к внесению</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20 000</td>
+<td>5%</td>
+<td>1 000 (мин. лимит)</td>
+<td>300</td>
+<td>1 300</td>
+</tr>
+<tr>
+<td>50 000</td>
+<td>5%</td>
+<td>2 500</td>
+<td>800</td>
+<td>3 300</td>
+</tr>
+<tr>
+<td>100 000</td>
+<td>5%</td>
+<td>5 000</td>
+<td>1 500</td>
+<td>6 500</td>
+</tr>
+<tr>
+<td>300 000</td>
+<td>5%</td>
+<td>15 000</td>
+<td>4 000</td>
+<td>19 000</td>
+</tr>
+</tbody>
+</table>
+<p>Обратите внимание, что сумма «Итого к внесению» может варьироваться в зависимости от количества дней использования средств. <strong>Кредитный калькулятор ВТБ</strong> учитывает точное количество дней, прошедших с момента транзакции, что делает ручные расчеты приблизительными.</p>
+
+<h2 id="льготный-период-и-его-влияние-на-выплаты">Льготный период и его влияние на выплаты</h2>
+<p>Одной из главных особенностей кредитных карт является возможность пользоваться деньгами банка бесплатно в течение определенного времени. <em>Льготный период</em> ВТБ может достигать до 110 дней, но его условия зависят от даты формирования отчета. Правильный <strong>расчет даты платежа</strong> критически важен, чтобы не потерять этот бонус.</p>
+<p>Если вы вносите полную сумму задолженности до даты, указанной в отчете, проценты не начисляются вовсе. В этом случае минимальный платеж фактически равен полной сумме долга. Ошибка в дате или сумме может привести к тому, что банк начислит проценты на всю сумму задолженности с момента совершения каждой покупки.</p>
+<div class="poll-widget" id="poll-f93d4874"><div class="poll-widget-question">📊 Как вы обычно используете кредитную карту?</div><div class="poll-widget-option" data-poll="f93d4874" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Полностью гашу в льготный период</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f93d4874" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Вношу минимальный платеж</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f93d4874" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Пользуюсь только для снятия наличных</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f93d4874" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Не пользуюсь кредиткой</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+<p>Важно помнить о правиле «последней покупки». В некоторых тарифах льготный период действует только на покупки, совершенные в предыдущем отчетном периоде. Новые транзакции могут сразу попадать в расчет процентов, если предыдущий долг не был погашен полностью.</p>
+<blockquote>
+<p>⚠️ Внимание: Снятие наличных и переводы на другие карты практически всегда лишают вас льготного периода. Проценты на эти операции начисляются с первого дня.</p>
+</blockquote>
+
+<h2 id="штрафы-и-комиссии-при-просрочке">Штрафы и комиссии при просрочке</h2>
+<p>Несвоевременное внесение минимального платежа ведет к негативным последствиям. Помимо начисления процентов по повышенной ставке, банк применяет штрафные санкции. <strong>Неустойка</strong> рассчитывается как процент от суммы просроченной задолженности за каждый день задержки.</p>
+<p>Кроме того, факт просрочки передается в бюро кредитных историй. Это может существенно снизить ваш кредитный рейтинг, что затруднит получение кредитов, ипотеки или даже оформление рассрочки в магазинах в будущем. <em>ВТБ</em> строго следит за дисциплиной платежей.</p>
+<p>Чтобы избежать неприятностей, настройте автоплатеж в приложении. Это гарантирует, что минимальная сумма будет внесена вовремя, даже если вы забудете о дате отчета. Автоматизация — лучший способ защитить свою кредитную историю.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Настройка автопополнения на сумму минимального платежа — лучшая страховка от случайных просрочек и штрафов.</p></div>
+
+<h2 id="частые-вопросы-и-стратегии-погашения">Частые вопросы и стратегии погашения</h2>
+<p>Многие клиенты задаются вопросом, что выгоднее: вносить минимальный платеж небольшими частями или гасить долг крупными суммами реже? Финансово грамотным подходом является максимальное сокращение тела кредита. Чем меньше основной долг, тем меньше начисляется процентов в следующем периоде.</p>
+<p>Существует стратегия «снежного кома», когда вы вносите минимальные платежи по всем кредитам, а все свободные средства направляете на погашение одного, самого дорогого. В случае с одной кредитной картой это означает внесение любых свободных денег сверх минимума.</p>
+<ul>
+<li>💰 Старайтесь вносить деньги сразу после получения зарплаты, не дожидаясь даты отчета.</li>
+<li>📉 Приоритетно гасите задолженности с самой высокой процентной ставкой.</li>
+<li>📅 Контролируйте дату формирования отчета, чтобы новые траты попадали в следующий цикл.</li>
+</ul>
+<p>Используйте <strong>кредитный калькулятор</strong> для планирования: попробуйте ввести сумму, превышающую минимальную, и посмотрите, как сократится срок погашения и общая переплата. Это мотивирует вносить больше, чем требует банк.</p>
+<div class="checklist-block"><h4>☑️ План безопасного использования карты</h4><label class="check-item"><input type="checkbox"><span>Узнать дату формирования отчета</span></label><label class="check-item"><input type="checkbox"><span>Настроить уведомления в приложении</span></label><label class="check-item"><input type="checkbox"><span>Рассчитать полную сумму для гашения в льготный период</span></label><label class="check-item"><input type="checkbox"><span>Проверить наличие скрытых комиссий</span></label><label class="check-item"><input type="checkbox"><span>Внести платеж за 2-3 дня до срока</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<details>
+<summary>Как узнать точную дату платежа по карте ВТБ?</summary>
+<p>Дату обязательного платежа можно найти в мобильном приложении ВТБ Онлайн на экране кредитной карты, в разделе «Информация» или «Выписка». Также она всегда указывается в SMS-уведомлении, которое приходит после формирования отчета.</p>
+</details>
+<details>
+<summary>Можно ли изменить дату формирования отчета?</summary>
+<p>Да, в большинстве случаев клиент может изменить дату формирования отчета один раз в месяц через чат с поддержкой в приложении или по телефону горячей линии. Это позволяет сдвинуть дату платежа на более удобную, например, на дату получения зарплаты.</p>
+</details>
+<details>
+<summary>Что будет, если внести сумму меньше минимального платежа?</summary>
+<p>В этом случае возникнет просрочка. Банк начислит штраф и проценты, а информация о нарушении договорных обязательств будет передана в бюро кредитных историй, что испортит ваш рейтинг заемщика.</p>
+</details>
+<details>
+<summary>Включается ли годовое обслуживание в минимальный платеж?</summary>
+<p>Да, если комиссия за годовое обслуживание была списана в текущем отчетном периоде, она включается в сумму минимального платежа наравне с основным долгом и процентами.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#принципы-формирования-минимального-платежа">Принципы формирования минимального платежа</a></li><li><a href="#использование-онлайн-калькулятора-и-мобильного-приложения">Использование онлайн-калькулятора и мобильного приложения</a></li><li><a href="#формула-расчета-и-пример-вычислений">Формула расчета и пример вычислений</a></li><li><a href="#льготный-период-и-его-влияние-на-выплаты">Льготный период и его влияние на выплаты</a></li><li><a href="#штрафы-и-комиссии-при-просрочке">Штрафы и комиссии при просрочке</a></li><li><a href="#частые-вопросы-и-стратегии-погашения">Частые вопросы и стратегии погашения</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/p/po/pod-kakoj-protsent-daet-vtb-bank-potrebitelskij-kredit.html" class="related-card">Процент по кредиту в ВТБ в 2026: актуальные ставки и условия</a></li><li><a href="/articles/k/kr/kredit-vtb-kakie-dokumenty-nuzhny-chtoby-vzyat-kredit.html" class="related-card">Какие документы нужны для кредита ВТБ в 2026 году</a></li><li><a href="/articles/k/ka/kak-podat-zayavku-na-kredit-v-vtb-banke-onlajn-cherez-lichnyj-kabinet.html" class="related-card">Как подать заявку на кредит ВТБ онлайн: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kakie-dokumenty-nuzhny-dlya-polucheniya-kredita-v-vtb-24-banka.html" class="related-card">Документы для кредита в ВТБ: полный список 2026</a></li><li><a href="/articles/k/ka/kak-pomenyat-srok-kredita-vtb-onlajn.html" class="related-card">Как изменить срок кредита в ВТБ онлайн: пошаговая инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/p/po/pod-kakoj-protsent-daet-vtb-bank-potrebitelskij-kredit.html" class="related-bottom-card"><span class="related-bottom-title">Процент по кредиту в ВТБ в 2026: актуальные ставки и условия</span><span class="related-bottom-desc">Узнайте, под какой процент ВТБ выдает потребительские кредиты в 2026 году. Сравнение ставок, требова</span></a><a href="/articles/k/kr/kredit-vtb-kakie-dokumenty-nuzhny-chtoby-vzyat-kredit.html" class="related-bottom-card"><span class="related-bottom-title">Какие документы нужны для кредита ВТБ в 2026 году</span><span class="related-bottom-desc">Полный список документов для получения кредита ВТБ. Требования к заемщику, способы подачи заявки и у</span></a><a href="/articles/k/ka/kak-podat-zayavku-na-kredit-v-vtb-banke-onlajn-cherez-lichnyj-kabinet.html" class="related-bottom-card"><span class="related-bottom-title">Как подать заявку на кредит ВТБ онлайн: пошаговая инструкция</span><span class="related-bottom-desc">Подробная инструкция: как взять кредит в ВТБ через личный кабинет. Требования, документы, этапы офор</span></a><a href="/articles/k/ka/kakie-dokumenty-nuzhny-dlya-polucheniya-kredita-v-vtb-24-banka.html" class="related-bottom-card"><span class="related-bottom-title">Документы для кредита в ВТБ: полный список 2026</span><span class="related-bottom-desc">Какие документы нужны для кредита в банке ВТБ? Полный список справок для работающих, пенсионеров и И</span></a><a href="/articles/k/ka/kak-pomenyat-srok-kredita-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как изменить срок кредита в ВТБ онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Узнайте, как самостоятельно поменять срок кредита в ВТБ через личный кабинет или мобильное приложени</span></a><a href="/articles/c/ch/chto-takoe-refinansirovanie-kredita-v-vtb-dlya-fizicheskikh.html" class="related-bottom-card"><span class="related-bottom-title">Рефинансирование кредита в ВТБ для физических лиц в 2026 году</span><span class="related-bottom-desc">Как работает рефинансирование в ВТБ: условия, процентные ставки, пошаговая инструкция и сравнение с </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

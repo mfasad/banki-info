@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Система быстрых платежей ВТБ: подключение для бизнеса — Банки Инфо</title>
+    <meta name="description" content="Инструкция по подключению СБП ВТБ для юридических лиц. Тарифы, комиссии, интеграция с кассой и пошаговый алгоритм активации.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/s/si/sistema-bystrykh-platezhej-vtb-kak-podklyuchit-dlya-yuridicheskikh-lits.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Система быстрых платежей ВТБ: подключение для бизнеса">
+    <meta property="og:description" content="Инструкция по подключению СБП ВТБ для юридических лиц. Тарифы, комиссии, интеграция с кассой и пошаговый алгоритм активации.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/drugoe/">Другое</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Система быстрых платежей ВТБ: подключение для бизнеса</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Система быстрых платежей ВТБ: как подключить для юридических лиц</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#преимущества-приема-платежей-по-qr-коду-для-бизнеса">Преимущества приема платежей по QR-коду для бизнеса</a></li><li><a href="#требования-к-юридическим-лицам-и-тарифы">Требования к юридическим лицам и тарифы</a></li><li><a href="#подготовка-документов-и-техническое-оснащение">Подготовка документов и техническое оснащение</a></li><li><a href="#пошаговая-инструкция-как-подключить-сбп-в-втб-бизнес-онлайн">Пошаговая инструкция: как подключить СБП в ВТБ Бизнес Онлайн</a></li><li><a href="#интеграция-с-кассой-и-автоматизация-процессов">Интеграция с кассой и автоматизация процессов</a></li><li><a href="#безопасность-и-контроль-операций">Безопасность и контроль операций</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Современный ритейл и сфера услуг сегодня немыслимы без возможности мгновенного приема денег от клиентов. <strong>Система быстрых платежей ВТБ</strong> стала одним из ключевых инструментов для бизнеса, позволяя проводить транзакции по QR-коду без участия пластиковых карт и терминалов эквайринга. Это решение существенно снижает издержки предпринимателей, так как комиссии здесь значительно ниже стандартных ставок по карточному эквайрингу.</p>
+
+<p>Для юридических лиц и индивидуальных предпринимателей интеграция СБП открывает новые горизонты в автоматизации расчетов. Процесс подключения максимально упрощен банком и часто не требует посещения отделения. Вы можете активировать услугу дистанционно через <em>ВТБ Бизнес Онлайн</em>, что особенно актуально для малого бизнеса, ценящего свое время. В этой статье мы подробно разберем все этапы настройки, тарифную политику и технические нюансы работы с QR-платежами.</p>
+
+<p>Важно понимать, что переход на <strong>оплату по QR-коду</strong> — это не просто смена терминала, а изменение логики взаимодействия с покупателем. Клиенту больше не нужно ждать, пока терминал свяжется с банком-эквайером; деньги зачисляются на счет продавца практически мгновенно. Это повышает оборачиваемость средств и улучшает кассовую дисциплину предприятия любого масштаба.</p>
+
+<h2 id="преимущества-приема-платежей-по-qr-коду-для-бизнеса">Преимущества приема платежей по QR-коду для бизнеса</h2>
+
+<p>Использование <strong>СБП ВТБ для бизнеса</strong> дает ощутимые финансовые преимущества по сравнению с классическим карточным эквайрингом. Главная причина популярности метода — сниженная комиссия за транзакции. Банк устанавливает льготные тарифы, которые часто не превышают 0,4% — 0,7%, тогда как стандартные ставки по картам могут достигать 2% и выше. Для магазинов с высокой маржинальностью это прямая экономия чистой прибыли.</p>
+
+<p>Кроме того, система позволяет отказаться от дорогостоящего оборудования. Вам не нужно закупать POS-терминалы, арендовать их или платить за обслуживание фискальных регистраторов в полной мере, если используется программная касса. Достаточно смартфона, планшета или статичной наклейки с QR-кодом на кассовой зоне. Это особенно удобно для курьерских служб, выездных точек торговли и малого бизнеса.</p>
+
+<p>Скорость проведения операции также играет критическую роль в часы пик. Покупатель наводит камеру в приложении своего банка, подтверждает сумму, и деньги сразу поступают на <strong>расчетный счет</strong> организации. Нет задержек в несколько дней, характерных для традиционного эквайринга, когда банк-эквайер перечисляет средства позже. Это улучшает управление cash flow компании.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> несмотря на простоту, убедитесь, что ваш кассовый аппарат (фискальный регистратор) совместим с программным обеспечением для печати динамических QR-кодов, если вы планируете автоматизированный прием платежей.</blockquote>
+
+<div class="poll-widget" id="poll-0e8d4302"><div class="poll-widget-question">📊 Какой способ приема платежей для вас приоритетнее?</div><div class="poll-widget-option" data-poll="0e8d4302" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Стационарный POS-терминал</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="0e8d4302" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Мобильный терминал</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="0e8d4302" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">QR-код СБП</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="0e8d4302" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Наличные деньги</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="требования-к-юридическим-лицам-и-тарифы">Требования к юридическим лицам и тарифы</h2>
+
+<p>Чтобы начать пользоваться сервисом, компания должна быть клиентом банка ВТБ и иметь открытый <strong>расчетный счет</strong>. Процедура доступна как для крупных предприятий, так и для ИП. Основным требованием является наличие действующего договора РКО (расчетно-кассового обслуживания) и подключенной системы дистанционного управления финансами. Тарифы на прием платежей регулируются Центральным Банком РФ, но ВТБ может предлагать свои условия в рамках пакетных предложений.</p>
+
+<p>Комиссия за прием платежей через СБП зависит от оборота компании и выбранного тарифного плана. Для малого бизнеса часто действуют льготные периоды или сниженные ставки. Важно учитывать, что лимиты на суммы транзакций могут различаться в зависимости от типа бизнеса и уровня риска, присвоенного службой безопасности банка.</p>
+
+<p>Ниже приведена таблица с ориентировочными параметрами обслуживания, которые могут варьироваться в зависимости от актуальных условий банка:</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение / Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ставка комиссии</td>
+<td>от 0,4% до 0,7% (зависит от МСС-кода)</td>
+</tr>
+<tr>
+<td>Зачисление средств</td>
+<td>Мгновенно или в течение 1 рабочего дня</td>
+</tr>
+<tr>
+<td>Стоимость подключения</td>
+<td>0 рублей (бесплатно)</td>
+</tr>
+<tr>
+<td>Оборудование</td>
+<td>Не требуется (используется смартфон или ПК)</td>
+</tr>
+</tbody>
+</table>
+
+<p>При выборе тарифа стоит обратить внимание на наличие абонентской платы за ведение счета. Часто банки предлагают пакеты, где прием платежей по СБП включен в стоимость обслуживания или идет со значительной скидкой при выполнении определенных условий по обороту. <strong>Аналитика платежей</strong> в личном кабинете позволяет отслеживать все поступления в режиме реального времени.</p>
+
+<h2 id="подготовка-документов-и-техническое-оснащение">Подготовка документов и техническое оснащение</h2>
+
+<p>Перед тем как активировать услугу, необходимо убедиться в готовности технической инфраструктуры. Если вы планируете принимать платежи через кассу, вам потребуется интеграция с вашей учетной системой (1С, iiko, Frontol и др.). Для этого может потребоваться обновление программного обеспечения кассы или установка специального плагина, поддерживающего <strong>протоколы СБП</strong>.</p>
+
+<p>В случае, если вы используете упрощенную схему приема (например, через приложение на планшете продавца), убедитесь, что устройство имеет стабильный доступ в интернет и камеру с хорошим разрешением. Также необходимо, на устройстве сотрудника или в личном кабинете, должны быть установлены актуальные версии приложений <em>ВТБ Бизнес</em> или специализированных программ для мерчантов.</p>
+
+<div class="checklist-block"><h4>☑️ Готовность к подключению СБП</h4><label class="check-item"><input type="checkbox"><span>Проверен договор РКО в ВТБ</span></label><label class="check-item"><input type="checkbox"><span>Есть доступ к интернет-банку</span></label><label class="check-item"><input type="checkbox"><span>Обновлено ПО кассового узла</span></label><label class="check-item"><input type="checkbox"><span>Подготовлены данные для входа в ЛК</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Документально для подключения обычно ничего дополнительно предоставлять не нужно, если вы уже являетесь действующим клиентом банка. Все согласия и заявления формируются в электронном виде внутри системы <strong>ВТБ Бизнес Онлайн</strong>. Однако, если ваш бизнес относится к категории высокорисковых (например, ломбарды или букмекерские конторы), банк может запросить дополнительную информацию о деятельности.</p>
+
+<h2 id="пошаговая-инструкция-как-подключить-сбп-в-втб-бизнес-онлайн">Пошаговая инструкция: как подключить СБП в ВТБ Бизнес Онлайн</h2>
+
+<p>Процесс активации услуги полностью цифровизирован. Вам не нужно никуда ехать или подписывать бумажные документы. Войдите в систему <em>ВТБ Бизнес Онлайн</em> с использованием электронной подписи или кода доступа. В главном меню найдите раздел, отвечающий за эквайринг или прием платежей.</p>
+
+<p>Далее следуйте алгоритму:</p>
+<ul>
+<li>📌 Перейдите в меню <code>Продукты</code> → <code>Эквайринг</code> → <code>СБП</code>.</li>
+<li>📌 Нажмите кнопку <code>Подключить</code> или <code>Оформить заявку</code>.</li>
+<li>📌 Проверьте реквизиты счета для зачисления средств и контактные данные.</li>
+<li>📌 Подпишите заявление электронной подписью (ЭЦП) или через СМС-код.</li>
+</ul>
+
+<p>После успешной подачи заявки активация обычно происходит в течение нескольких минут, реже — одного рабочего дня. В личном кабинете появится возможность генерировать QR-коды, скачивать логотипы для печати и настраивать уведомления о поступлениях. <strong>Настройка уведомлений</strong> крайне важна для оперативного контроля кассы.</p>
+
+<details class="faq-item"><summary>Что делать, если кнопка подключения неактивна?</summary><div class="faq-answer"><p>Если вы не видите кнопку подключения, возможно, на вашем расчетном счете стоят ограничения или не обновлены данные профиля. Попробуйте выйти из системы и войти заново. Если проблема сохраняется, обратитесь в чат поддержки в интернет-банке.">
+
+<p>Важный момент: после подключения проверьте настройки лимитов. По умолчанию могут стоять ограничения на сумму одной операции или дневной оборот, которые можно изменить по запросу в банк. Это мера безопасности, предотвращающая хищения при компрометации доступа к системе.</p>
+
+<h2 id="интеграция-с-кассой-и-автоматизация-процессов">Интеграция с кассой и автоматизация процессов</h2>
+
+<p>Для магазинов с большим потоком клиентов ручное введение суммы и генерация QR-кода оператором неэффективны. Оптимальным решением является <strong>автоматическая интеграция</strong>. В этом случае кассовая программа сама формирует уникальный QR-код для каждого чека и отправляет его на фискальный принтер или клиентский дисплей.</p>
+
+<p>Процесс выглядит так: кассир пробивает товар, касса отправляет запрос в банковский шлюз, получает уникальный QR-код и отображает его покупателю. После оплаты касса автоматически получает подтверждение и пробивает чек. Это исключает человеческий фактор и ошибки при вводе суммы.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> при интеграции убедитесь, что время на кассовом компьютере и сервере синхронизировано. Рассинхронизация времени может привести к ошибкам при проверке подписи QR-кода и отказе в проведении платежа.</blockquote>
+
+
+
+<p>Для реализации интеграции может потребоваться помощь IT-специалистов или обращение в компанию, которая обслуживает вашу кассовую технику. ВТБ предоставляет API и документацию для разработчиков, что позволяет внедрить прием СБП в любые кастомные решения.</p>
+
+<h2 id="безопасность-и-контроль-операций">Безопасность и контроль операций</h2>
+
+<p>Безопасность транзакций в системе быстрых платежей обеспечивается на уровне банковских стандартов и регулятора (ЦБ РФ). Каждая операция защищена криптографическими ключами. Для бизнеса это означает минимизацию риска получения фальшивых купюр или чарджбэков (возвратов платежа), которые характерны для карточного эквайринга.</p>
+
+<p>В личном кабинете <strong>ВТБ Бизнес</strong> доступен подробный реестр операций. Вы можете выгружать отчеты в форматах Excel или CSV для бухгалтерии. Система позволяет отслеживать статус каждой транзакции: "Ожидает оплаты", "Оплачено", "Отклонено". Это дает полный контроль над денежными потоками в режиме реального времени.</p>
+
+<p>Рекомендуется регулярно проводить сверку данных между вашей кассовой программой и выпиской из банка. Хотя система работает стабильно, технические сбои на стороне провайдера интернета или кассового ПО могут привести к расхождениям. <strong>Мониторинг операций</strong> помогает быстро выявлять и устранять такие ситуации.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>СБП исключает возможность чарджбэка (отмены платежа покупателем после получения товара), так как перевод является безотзывным, что защищает бизнес от недобросовестных клиентов.</p></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Нужно ли специальное оборудование для приема СБП?</summary>
+<p>Нет, специальное терминальное оборудование не требуется. Достаточно смартфона, планшета или компьютера с доступом в интернет. Для автоматизации в магазине потребуется кассовый аппарат, поддерживающий печать QR-кодов, или отдельный дисплей покупателя.</p>
+</details>
+
+<details>
+<summary>Как быстро деньги поступают на счет?</summary>
+<p>В системе быстрых платежей зачисление средств происходит мгновенно или в течение нескольких секунд после подтверждения операции клиентом. В редких случаях, зависящих от технических регламентов, зачисление может занять до одного рабочего дня.</p>
+</details>
+
+<details>
+<summary>Может ли клиент вернуть товар, оплаченный через СБП?</summary>
+<p>Технически система СБП не предусматривает функцию обратного возврата (chargeback) как в карточном эквайринге. Возврат средств покупателю осуществляется отдельным платежным поручением с вашего счета на счет клиента, что требует ручного оформления операции в интернет-банке.</p>
+</details>
+
+<details>
+<summary>Работает ли СБП без интернета?</summary>
+<p>Нет, для генерации QR-кода (в случае динамического) и получения подтверждения об оплате необходимо активное интернет-соединение. Статический QR-код (наклейку) можно показать и без интернета, но проверка поступления средств все равно потребует доступа к банковскому приложению или SMS-уведомления.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#преимущества-приема-платежей-по-qr-коду-для-бизнеса">Преимущества приема платежей по QR-коду для бизнеса</a></li><li><a href="#требования-к-юридическим-лицам-и-тарифы">Требования к юридическим лицам и тарифы</a></li><li><a href="#подготовка-документов-и-техническое-оснащение">Подготовка документов и техническое оснащение</a></li><li><a href="#пошаговая-инструкция-как-подключить-сбп-в-втб-бизнес-онлайн">Пошаговая инструкция: как подключить СБП в ВТБ Бизнес Онлайн</a></li><li><a href="#интеграция-с-кассой-и-автоматизация-процессов">Интеграция с кассой и автоматизация процессов</a></li><li><a href="#безопасность-и-контроль-операций">Безопасность и контроль операций</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/v/vt/vtb-kto-reklamiruet-akter.html" class="related-card">Кто рекламирует ВТБ в 2026? Актеры и личности в рекламных кампаниях</a></li><li><a href="/articles/s/sk/skolko-zaplatili-slepakovu-za-reklamu-vtb-bank.html" class="related-card">Сколько заплатили Слепакову за рекламу ВТБ: анализ сделки</a></li><li><a href="/articles/k/kt/kto-osnovatel-vtb-banka.html" class="related-card">Кто основал ВТБ банк: история создания и ключевые фигуры</a></li><li><a href="/articles/k/kt/kto-vkhodit-v-sovet-direktorov-banka-vtb.html" class="related-card">Кто входит в совет директоров банка ВТБ: актуальный состав</a></li><li><a href="/articles/k/ka/kak-popolnit-kartu-trojka-kartoj-vtb.html" class="related-card">Как пополнить карту Тройка с карты ВТБ: способы и инструкции</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/v/vt/vtb-kto-reklamiruet-akter.html" class="related-bottom-card"><span class="related-bottom-title">Кто рекламирует ВТБ в 2026? Актеры и личности в рекламных кампаниях</span><span class="related-bottom-desc">Узнайте, какие известные актеры и медийные личности участвуют в рекламе ВТБ в 2026 году. Анализ стра</span></a><a href="/articles/s/sk/skolko-zaplatili-slepakovu-za-reklamu-vtb-bank.html" class="related-bottom-card"><span class="related-bottom-title">Сколько заплатили Слепакову за рекламу ВТБ: анализ сделки</span><span class="related-bottom-desc">Разбираем, сколько заплатили Семену Слепакову за рекламу ВТБ Банка. Анализ гонораров знаменитостей, </span></a><a href="/articles/k/kt/kto-osnovatel-vtb-banka.html" class="related-bottom-card"><span class="related-bottom-title">Кто основал ВТБ банк: история создания и ключевые фигуры</span><span class="related-bottom-desc">Узнайте, кто стоял у истоков ВТБ банка, как он возник и какие личности сыграли ключевую роль в его р</span></a><a href="/articles/k/kt/kto-vkhodit-v-sovet-direktorov-banka-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Кто входит в совет директоров банка ВТБ: актуальный состав</span><span class="related-bottom-desc">Узнайте, кто входит в совет директоров банка ВТБ. Полный список членов наблюдательного совета, их по</span></a><a href="/articles/k/ka/kak-popolnit-kartu-trojka-kartoj-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить карту Тройка с карты ВТБ: способы и инструкции</span><span class="related-bottom-desc">Узнайте, как быстро и без комиссии пополнить карту Тройка картой ВТБ через приложение, СМС или терми</span></a><a href="/articles/k/ka/kak-oplatit-tele2-s-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить Теле2 с карты ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид по пополнению счета Tele2 с карты банка ВТБ без комиссии. Способы через приложение, Сб</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

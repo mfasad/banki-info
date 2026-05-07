@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Доходность облигации: калькулятор ВТБ и формулы — Банки Инфо</title>
+    <meta name="description" content="Как рассчитать доходность облигации: калькулятор ВТБ, формулы купонного дохода и НКД. Расчет реальной доходности к погашению для инвестора.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rasschitat-dokhodnost-obligatsii-kalkulyator-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Доходность облигации: калькулятор ВТБ и формулы">
+    <meta property="og:description" content="Как рассчитать доходность облигации: калькулятор ВТБ, формулы купонного дохода и НКД. Расчет реальной доходности к погашению для инвестора.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Доходность облигации: калькулятор ВТБ и формулы</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как рассчитать доходность облигации: калькулятор и методики ВТБ</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-влияет-на-доходность-облигаций-в-портфеле">Что влияет на доходность облигаций в портфеле</a></li><li><a href="#основные-виды-доходности-купонная-и-текущая">Основные виды доходности: купонная и текущая</a></li><li><a href="#как-работает-калькулятор-доходности-втб">Как работает калькулятор доходности ВТБ</a></li><li><a href="#формула-расчета-доходности-к-погашению-ytm">Формула расчета доходности к погашению (YTM)</a></li><li><a href="#учет-налогов-и-комиссий-при-расчете">Учет налогов и комиссий при расчете</a></li><li><a href="#сравнение-с-другими-инструментами-сбережений">Сравнение с другими инструментами сбережений</a></li><li><a href="#стратегии-использования-облигаций-в-портфеле">Стратегии использования облигаций в портфеле</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>(см. выше)</p>
+
+
+<p>Инвесторы часто ищут способ быстро оценить потенциальную прибыль от покупки ценных бумаг, используя запрос «как рассчитать доходность облигации калькулятор втб». Это логичное желание, ведь перед вложением средств необходимо понимать, какой реальный доход принесет актив. <strong>Облигации</strong> считаются консервативным инструментом, но их доходность складывается из нескольких переменных, которые не всегда очевидны новичку.</p>
+
+<p>В банке ВТБ, как и в других крупных брокерских компаниях, существуют собственные аналитические инструменты и калькуляторы доходности. Однако понимание математической основы процесса позволяет инвестору не слепо доверять цифрам на экране, а самостоятельно проверять расчеты. <em>Купонный доход</em>, цена покупки, срок до погашения — все эти параметры влияют на итоговую сумму.</p>
+
+<p>В этой статье мы разберем, как работают алгоритмы расчета, какие формулы использует калькулятор ВТБ и на что обратить внимание, чтобы не уйти в минус из-за комиссий или налогов. Вы научитесь отличать номинальную доходность от реальной и поймете, почему <strong>НКД</strong> (накопленный купонный доход) так важен при сделке.</p>
+
+<h2 id="что-влияет-на-доходность-облигаций-в-портфеле">Что влияет на доходность облигаций в портфеле</h2>
+
+<p>Доходность облигации — это не фиксированная цифра, напечатанная на сертификате, а динамический показатель. В первую очередь на него влияет цена покупки. Если вы приобретаете бумагу дешевле номинала (с дисконтом), ваша доходность к погашению будет выше купонной ставки. И наоборот, покупка выше номинала (с премией) снижает итоговый процент.</p>
+
+<p>Второй критический фактор — это частота выплат купонов и возможность их реинвестирования. Калькулятор доходности ВТБ обычно предлагает опцию учета реинвестирования, когда полученные купоны сразу же пускаются в оборот, покупая новые бумаги. Это создает эффект сложного процента, который существенно увеличивает капитал на длинной дистанции.</p>
+
+<p>Не стоит забывать и о налоговом режиме. Для физических лиц в России существует налог на купонный доход и на прибыль от продажи (разница между ценой продажи и покупки). <strong>ИИС</strong> (Индивидуальный инвестиционный счет) может предоставлять налоговые льготы, что делает расчет чистой доходности индивидуальным для каждого клиента.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> При расчете доходности часто забывают про комиссию брокера. ВТБ, как и другие участники рынка, берет процент за проведение сделок. На коротких дистанциях или при малых суммах комиссия может «съесть» значительную часть прибыли, превратив плюсовую сделку в убыточную.</p>
+</blockquote>
+
+<div class="poll-widget" id="poll-5c1adc7c"><div class="poll-widget-question">📊 Какой тип доходности для вас важнее?</div><div class="poll-widget-option" data-poll="5c1adc7c" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Купонная (регулярные выплаты)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="5c1adc7c" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Дисконтная (разница цены)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="5c1adc7c" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Реинвестирование купонов</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="5c1adc7c" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Защита от инфляции</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="основные-виды-доходности-купонная-и-текущая">Основные виды доходности: купонная и текущая</h2>
+
+<p>Прежде чем обращаться к калькулятору, важно разобраться в терминологии. <strong>Купонная доходность</strong> — это отношение размера годового купона к номинальной стоимости облигации. Это «паспортный» параметр, который известен эмитенту и инвестору заранее. Например, если номинал 1000 рублей, а купон 100 рублей в год, купонная доходность составляет 10%.</p>
+
+<p>Однако на рынке облигации торгуются по рыночной цене, которая отличается от номинала. Здесь в игру вступает <strong>текущая доходность</strong>. Она рассчитывается как отношение годового купона к текущей рыночной цене бумаги. Если в примере выше облигация упала в цене до 800 рублей, то текущая доходность составит уже 12,5% (100 / 800), хотя эмитент по-прежнему платит те же 100 рублей.</p>
+
+<p>Калькулятор ВТБ в приложении или личном кабинете обычно показывает именно текущую доходность или доходность к погашению, так как они более точно отражают ситуацию «здесь и сейчас». Текущая доходность полезна для сравнения разных бумаг между собой в моменте, но она не учитывает возврат тела долга в конце срока.</p>
+
+<ul>
+<li>📉 <strong>Дисконт:</strong> Покупка ниже номинала увеличивает итоговую прибыль, так как эмитент вернет полную стоимость.</li>
+<li>📈 <strong>Премия:</strong> Покупка выше номинала снижает итоговую прибыль, так как инвестор переплатил за будущие купоны.</li>
+<li>🔄 <strong>Плавающий купон:</strong> Доходность таких облигаций (флоатеров) привязана к ключевой ставке или индексу RUONIA и меняется в течение срока.</li>
+</ul>
+
+<p>Понимание разницы между этими показателями позволяет грамотно формировать портфель. Если ваша цель — регулярный денежный поток, смотрите на купонную доходность. Если вы хотите максимизировать прибыль в конце срока и готовы ждать, вас должна интересовать доходность к погашению с учетом дисконта.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Обращайте внимание на тип купона. Для консервативных инвесторов в период роста ключевой ставки лучше подходят флоатеры (облигации с плавающим купоном), так как их доходность растет вслед за ставкой ЦБ, защищая тело облигации от падения.</p></div>
+
+<h2 id="как-работает-калькулятор-доходности-втб">Как работает калькулятор доходности ВТБ</h2>
+
+<p>Инструментарий банка ВТБ предоставляет пользователям удобный интерфейс для анализа ценных бумаг. Калькулятор доходности встроен непосредственно в карточку каждой облигации в торговом терминале или мобильном приложении. Он автоматически подтягивает актуальные котировки и параметры эмиссии.</p>
+
+<p>Для работы с калькулятором пользователю не нужно вводить сложные формулы вручную. Система сама учитывает размер купона, периодичность выплат, количество дней до следующего купона и дату погашения. Однако продвинутый инвестор должен понимать, какие параметры можно корректировать для получения персонализированного результата.</p>
+
+<p>Ключевым элементом интерфейса является возможность выбора сценария реинвестирования. Вы можете указать, будете ли вы выводить полученные деньги на карту или снова покупать облигации. Также калькулятор позволяет заложить налоговые вычеты, если вы используете ИИС типа А или Б, что существенно меняет итоговую цифру.</p>
+
+<pre><code>Меню приложения ВТБ Мои Инвестиции:
+<p>1. Выбрать вкладку "Рынки"</p>
+<p>2. Нажать "Облигации"</p>
+<p>3. Выбрать конкретную бумагу</p>
+<p>4. Прокрутить вниз до блока "Параметры" или "Калькулятор"</code></pre></p>
+
+<p>Важно отметить, что калькулятор показывает <em>ожидаемую</em> доходность. Она реализуется только в том случае, если эмитент не допустит дефолта и вы додержите бумагу до конца срока. Рыночная цена в процессе владения будет колебаться, и если продать облигацию раньше срока, реальная доходность может отличаться от расчетной.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Калькулятор не всегда учитывает комиссию за обслуживание счета или депозитарные расходы, если они есть в вашем тарифном плане. Всегда вычитайте эти расходы из расчетной прибыли самостоятельно.</p>
+</blockquote>
+
+<h2 id="формула-расчета-доходности-к-погашению-ytm">Формула расчета доходности к погашению (YTM)</h2>
+
+<p>Хотя калькулятор ВТБ делает всю работу автоматически, знание формулы <strong>Yield to Maturity (YTM)</strong> полезно для понимания сути процесса. Доходность к погашению — это внутренняя норма доходности, которая уравнивает текущую рыночную цену облигации с приведенной стоимостью всех будущих денежных потоков.</p>
+
+<p>Упрощенная формула для приблизительного расчета выглядит следующим образом: она суммирует все купонные платежи и разницу между номиналом и ценой покупки, а затем делит на среднее арифметическое цены покупки и номинала, умноженное на срок. Это дает среднегодовой процент.</p>
+
+<p>Для точного расчета используется метод сложных процентов, который вручную считать долго. Именно поэтому электронные таблицы или калькулятор ВТБ незаменимы. Они используют итерационный метод для нахождения точного значения YTM, учитывая точное количество дней в году и даты выплат.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Обозначение</th>
+<th>Где найти</th>
+<th>Влияние на YTM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Номинал</td>
+<td>N</td>
+<td>Паспорт облигации</td>
+<td>База для расчета купона</td>
+</tr>
+<tr>
+<td>Цена покупки</td>
+<td>P</td>
+<td>Биржевой стакан</td>
+<td>Чем ниже цена, тем выше YTM</td>
+</tr>
+<tr>
+<td>Купон</td>
+<td>C</td>
+<td>Параметры выпуска</td>
+<td>Прямая зависимость</td>
+</tr>
+<tr>
+<td>Срок (лет)</td>
+<td>T</td>
+<td>Дата погашения</td>
+<td>Влияет на дисконтирование</td>
+</tr>
+</tbody>
+</table>
+
+<p>При расчете вручную часто забывают про <strong>НКД</strong>. Когда вы покупаете облигацию между датами выплаты купонов, вы должны компенсировать продавцу часть накопленного дохода. Эта сумма добавляется к цене покупки, но возвращается вам при первой же выплате полного купона. Калькулятор ВТБ учитывает это автоматически, показывая «грязную» цену (с НКД) и «чистую» (без НКД).</p>
+
+<details class="faq-item"><summary>Что такое дюрация облигации?</summary><div class="faq-answer"><p>Дюрация — это средний срок возврата денег инвестору с учетом всех купонных выплат. Она показывает, на сколько процентов изменится цена облигации при изменении ключевой ставки на 1%. Чем выше дюрация, тем сильнее колеблется цена бумаги.</p></div></details>
+
+<h2 id="учет-налогов-и-комиссий-при-расчете">Учет налогов и комиссий при расчете</h2>
+
+<p>Реальная доходность, которая останется в кармане инвестора, всегда меньше расчетной «грязной» доходности. Государство и брокерская компания берут свою долю. В России с купонного дохода по корпоративным облигациям удерживается налог 13% (или 15% для высоких доходов), если купон превышает ключевую ставку ЦБ плюс 5 процентных пунктов.</p>
+
+<p>С государственных облигаций (ОФЗ) налог на купонный доход не взимается, что делает их более привлекательными для инвесторов в высоких налоговых категориях. Однако налог на прибыль от курсовой разницы (разница между ценой продажи и покупки) платится со всех видов облигаций.</p>
+
+<p>Комиссия брокера ВТБ также варьируется в зависимости от тарифа. Она может быть фиксированной за сделку или процентной от оборота. При частой торговле («скальпинге» облигациями) комиссии могут существенно снизить итоговую доходность стратегии.</p>
+
+<ul>
+<li>💰 <strong>Налог на купоны:</strong> Удерживается автоматически брокером при выплате или в конце года.</li>
+<li>📉 <strong>Налог на прибыль:</strong> Платится с положительной разницы при продаже или погашении.</li>
+<li>🤝 <strong>Комиссия брокера:</strong> Зависит от тарифного плана, обычно от 0,01% до 0,3% от суммы сделки.</li>
+</ul>
+
+<p>Использование ИИС (Индивидуального инвестиционного счета) позволяет оптимизировать налоги. Тип А дает вычет на взнос (возврат 13% от внесенной суммы), а Тип Б освобождает от налога на прибыль и купонный доход. Калькулятор доходности ВТБ позволяет включить эти параметры в расчет, если вы укажете тип счета.</p>
+
+<h2 id="сравнение-с-другими-инструментами-сбережений">Сравнение с другими инструментами сбережений</h2>
+
+<p>После того как вы рассчитали доходность облигаций через калькулятор ВТБ, возникает вопрос: а много это или мало? Для объективной оценки необходимо сравнивать полученную цифру с альтернативами. В первую очередь сравнивают с ключевой ставкой ЦБ и ставками по банковским вкладам.</p>
+
+<p>Облигации часто предлагают премию над ставкой по депозитам, но несут чуть большие риски. Корпоративные бумаги надежных эмитентов (рейтинг А и выше) обычно дают доходность на 2-4 процентных пункта выше, чем вклад в том же банке. Однако, в отличие от вклада, облигации не застрахованы АСВ, и здесь работает риск дефолта эмитента.</p>
+
+<p>Также стоит сравнивать с дивидендными акциями. Акции могут дать большую доходность в долгосрочной перспективе за счет роста тела компании, но они гораздо волатильнее. Облигации же обеспечивают предсказуемый денежный поток, что делает их идеальными для консервативной части портфеля.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не сравнивайте доходность облигаций с доходностью акций напрямую. Это инструменты с разным профилем риска. Облигация дает фиксированный доход (в большинстве случаев), а акция — долю в бизнесе с неопределенным будущим.</p>
+</blockquote>
+
+<div class="checklist-block"><h4>☑️ Проверка перед покупкой облигации</h4><label class="check-item"><input type="checkbox"><span>Проверить кредитный рейтинг эмитента</span></label><label class="check-item"><input type="checkbox"><span>Узнать дату погашения</span></label><label class="check-item"><input type="checkbox"><span>Рассчитать доходность к погашению с учетом налогов</span></label><label class="check-item"><input type="checkbox"><span>Проверить ликвидность (объем торгов)</span></label><label class="check-item"><input type="checkbox"><span>Убедиться в отсутствии оферты</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="стратегии-использования-облигаций-в-портфеле">Стратегии использования облигаций в портфеле</h2>
+
+<p>Зная, как рассчитать доходность, можно выстраивать эффективные стратегии. Одна из самых популярных — <strong>лестница облигаций</strong>. Суть метода в покупке бумаг с разными датами погашения. Например, вы покупаете облигации, которые погашаются через 1 год, 2 года, 3 года и так далее. Когда первая бумага гасится, вы покупаете новую с самым долгим сроком в вашем «хвосте».</p>
+
+<p>Такая стратегия позволяет сглаживать риск изменения процентных ставок. Если ставки вырастут, вы сможете реинвестировать деньги из погашенной облигации под более высокий процент. Если упадут — вы останетесь с ранее купленными долгосрочными бумагами с высоким купоном.</p>
+
+<p>Другая стратегия — <em>купонный поток</em>. Инвестор подбирает портфель так, чтобы купоны выплачивались каждый месяц. Это позволяет создавать регулярный пассивный доход, сопоставимый с зарплатой, не продавая тело облигаций. Калькулятор ВТБ помогает спланировать даты выплат, чтобы они совпадали с вашими финансовыми потребностями.</p>
+
+<p> Не стоит вкладывать все средства в облигации одного эмитента или даже одной отрасли. Распределяйте капитал между государственными (ОФЗ), субфедеральными и корпоративными облигациями разных секторов экономики.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Главный секрет успеха в облигациях — не поиск самой высокой доходности (которая часто несет риск дефолта), а баланс между надежностью эмитента и приемлемым процентом, превышающим инфляцию.</p></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли потерять деньги на облигациях, если держать их до погашения?</summary>
+<p>Если вы держите облигацию до погашения и эмитент не объявляет дефолт (не банкротится), то вы гарантированно получите номинальную стоимость обратно плюс все купоны. Риск потери возникает только при продаже бумаги раньше срока по цене ниже цены покупки или в случае банкротства эмитента.</p>
+</details>
+
+<details>
+<summary>Как часто калькулятор ВТБ обновляет данные?</summary>
+<p>Данные в калькуляторе обновляются в режиме реального времени во время биржевых торгов. Однако параметры эмиссии (размер купона, дата погашения) являются статичными и меняются только в случае официальных корпоративных действий эмитента (например, изменение условий оферты).</p>
+</details>
+
+<details>
+<summary>Что делать, если рассчитанная доходность отрицательная?</summary>
+<p>Отрицательная доходность к погашению означает, что вы покупаете облигацию значительно дороже номинала, и будущие купоны не покроют эту переплату. Покупать такие бумаги имеет смысл только в спекулятивных целях (в надежде, что цена вырастет еще больше) или для валютного хеджирования, если речь идет о еврооблигациях.</p>
+</details>
+
+<details>
+<summary>Влияет ли инфляция на реальную доходность?</summary>
+<p>Да, инфляция напрямую влияет на реальную доходность. Реальная доходность равна номинальной доходности минус инфляция. Если облигация дает 10% годовых, а инфляция составляет 12%, то реальная доходность отрицательна (-2%). Для защиты от инфляции существуют ОФЗ-ИН (индексируемые облигации).</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-влияет-на-доходность-облигаций-в-портфеле">Что влияет на доходность облигаций в портфеле</a></li><li><a href="#основные-виды-доходности-купонная-и-текущая">Основные виды доходности: купонная и текущая</a></li><li><a href="#как-работает-калькулятор-доходности-втб">Как работает калькулятор доходности ВТБ</a></li><li><a href="#формула-расчета-доходности-к-погашению-ytm">Формула расчета доходности к погашению (YTM)</a></li><li><a href="#учет-налогов-и-комиссий-при-расчете">Учет налогов и комиссий при расчете</a></li><li><a href="#сравнение-с-другими-инструментами-сбережений">Сравнение с другими инструментами сбережений</a></li><li><a href="#стратегии-использования-облигаций-в-портфеле">Стратегии использования облигаций в портфеле</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/s/sk/skolko-aktsij-vypustil-vtb.html" class="related-card">Сколько акций выпустил ВТБ в 2026 году: полный анализ</a></li><li><a href="/articles/f/fo/forma-w-8ben-vtb-broker-kak-podpisat.html" class="related-card">Форма W-8BEN в ВТБ Брокер: как заполнить и подписать</a></li><li><a href="/articles/d/de/depozitarnye-uslugi-vtb-chto-eto.html" class="related-card">Депозитарные услуги ВТБ: что это и как ими пользоваться в 2026 году</a></li><li><a href="/articles/o/ot/ot-chego-zavisyat-aktsii-vtb.html" class="related-card">От чего зависят акции ВТБ: анализ факторов роста и падения</a></li><li><a href="/articles/k/ka/kak-bystro-zarabotat-na-investitsiyakh-v-vtb.html" class="related-card">Как быстро заработать на инвестициях в ВТБ: 7 проверенных способов 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/s/sk/skolko-aktsij-vypustil-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Сколько акций выпустил ВТБ в 2026 году: полный анализ</span><span class="related-bottom-desc">Актуальная информация об уставном капитале ВТБ: количество акций, эмиссии, структура собственности и</span></a><a href="/articles/f/fo/forma-w-8ben-vtb-broker-kak-podpisat.html" class="related-bottom-card"><span class="related-bottom-title">Форма W-8BEN в ВТБ Брокер: как заполнить и подписать</span><span class="related-bottom-desc">Подробная инструкция по заполнению формы W-8BEN в приложении ВТБ. Как подписать документ, избежать д</span></a><a href="/articles/d/de/depozitarnye-uslugi-vtb-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">Депозитарные услуги ВТБ: что это и как ими пользоваться в 2026 году</span><span class="related-bottom-desc">Разбираемся, что такое депозитарные услуги ВТБ, как они работают для физических и юридических лиц, т</span></a><a href="/articles/o/ot/ot-chego-zavisyat-aktsii-vtb.html" class="related-bottom-card"><span class="related-bottom-title">От чего зависят акции ВТБ: анализ факторов роста и падения</span><span class="related-bottom-desc">Узнайте, от чего зависят акции ВТБ. Разбор влияния дивидендов, геополитики, отчётности и ключевой ст</span></a><a href="/articles/k/ka/kak-bystro-zarabotat-na-investitsiyakh-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как быстро заработать на инвестициях в ВТБ: 7 проверенных способов 2026</span><span class="related-bottom-desc">Реальные способы получения дохода от инвестиций в ВТБ: акции, облигации, фонды и бонусы. Разбираем р</span></a><a href="/articles/p/pr/prognozy-vtb-po-aktsiyam-na-skolko-tochny.html" class="related-bottom-card"><span class="related-bottom-title">Прогнозы ВТБ по акциям: насколько точны аналитики банка в 2026 году?</span><span class="related-bottom-desc">Разбор точности прогнозов ВТБ по акциям: сравнение с реальными котировками, методы анализа и как исп</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как работать с ВТБ Кассой: настройка и прием платежей — Банки Инфо</title>
+    <meta name="description" content="Полное руководство по работе с ВТБ Кассой. Настройка терминала, прием карт, возвраты и работа с приложением для бизнеса. Решаем проблемы с чеками.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rabotat-s-vtb-kassoj.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работать с ВТБ Кассой: настройка и прием платежей">
+    <meta property="og:description" content="Полное руководство по работе с ВТБ Кассой. Настройка терминала, прием карт, возвраты и работа с приложением для бизнеса. Решаем проблемы с чеками.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/platezhi-zhkkh/">Платежи ЖКХ</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работать с ВТБ Кассой: настройка и прием платежей</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Работа с ВТБ Кассой: полное руководство для бизнеса</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#первичная-активация-и-настройка-терминала">Первичная активация и настройка терминала</a></li><li><a href="#интерфейс-и-основные-операции-продажи">Интерфейс и основные операции продажи</a></li><li><a href="#работа-с-возвратами-и-коррекцией-чеков">Работа с возвратами и коррекцией чеков</a></li><li><a href="#открытие-и-закрытие-кассовой-смены">Открытие и закрытие кассовой смены</a></li><li><a href="#мобильное-приложение-и-удаленный-контроль">Мобильное приложение и удаленный контроль</a></li><li><a href="#типовые-проблемы-и-способы-их-решения">Типовые проблемы и способы их решения</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>В современной розничной торговле и сфере услуг скорость проведения платежей напрямую влияет на поток клиентов и общую выручку предприятия. <strong>ВТБ Касса</strong> представляет собой комплексное решение, объединяющее в себе классический POS-терминал и функционал кассового аппарата, что позволяет предпринимателям значительно сократить расходы на оборудование. Правильная настройка и понимание принципов работы с этим устройством помогают избежать очередей и ошибок при пробитии чеков, что особенно актуально в часы пик.</p>
+
+<p>Для начала работы вам не потребуется сложное дополнительное программное обеспечение на стационарном компьютере, так как основные операции выполняются непосредственно на экране терминала или через мобильное приложение. Система построена на базе Android, что делает интерфейс привычным для большинства пользователей смартфонов. <em>Онлайн-касса</em> автоматически передает данные в налоговую службу, освобождая владельца бизнеса от необходимости вручную отправлять отчетность, однако первичная настройка требует внимательного подхода.</p>
+
+<p>Важно сразу отметить, что для стабильной работы устройства необходим стабильный канал связи, будь то встроенный модуль 4G/LTE или подключение к Wi-Fi сети торговой точки. Прежде чем начать принимать оплату от первых покупателей, необходимо убедиться, что фискальный накопитель установлен корректно, а кассовая программа активирована. <mark>Без активной регистрации в личном кабинете банка и настроенного фискального накопителя проведение легальных платежей невозможно.</mark></p>
+
+<h2 id="первичная-активация-и-настройка-терминала">Первичная активация и настройка терминала</h2>
+
+<p>Процесс запуска устройства начинается с включения питания и первичной авторизации. После загрузки операционной системы Android на экране появится предложение выбрать язык и подключиться к сети. Если вы используете стационарную точку продаж, рекомендуется подключить терминал к Wi-Fi роутеру для обеспечения максимальной скорости передачи фискальных данных. В случае выездной торговли встроенной SIM-карты обычно достаточно, но в зонах неуверенного приема лучше проверить уровень сигнала.</p>
+
+<p>Далее следует этап авторизации кассира. Система запросит ввод логина и пароля, которые были предоставлены банком при подключении эквайринга, или предложит войти через корпоративный аккаунт. <strong>Пин-код администратора</strong> необходим для доступа к настройкам, поэтому его следует хранить в secure месте, не передавая рядовым сотрудникам без необходимости. Ошибки на этом этапе часто связаны с неверным вводом данных или отсутствием интернет-соединения.</p>
+
+<p>Критически важным моментом является установка и активация фискального накопителя (ФН). Это защищенное устройство хранит информацию обо всех пробитых чеках. При первой установке терминал предложит провести регистрацию ФН в налоговых органах. Для этого потребуется ввести данные о системе налогообложения (например, УСН или ОСНО) и выбрать appropriate коды деятельности.</p>
+
+<div class="checklist-block"><h4>☑️ Запуск кассы</h4><label class="check-item"><input type="checkbox"><span>Включить терминал и зарядить батарею</span></label><label class="check-item"><input type="checkbox"><span>Подключиться к Wi-Fi или проверить SIM</span></label><label class="check-item"><input type="checkbox"><span>Ввести логин и пароль кассира</span></label><label class="check-item"><input type="checkbox"><span>Убедиться в установке ФН</span></label><label class="check-item"><input type="checkbox"><span>Пробить тестовый чек</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>После успешной регистрации устройство готово к работе. Однако перед началом смены рекомендуется пробить тестовый чек на минимальную сумму, чтобы убедиться, что принтер работает исправно, а данные уходят в ОФД (оператор фискальных данных). Если чек напечатался четко и без ошибок, можно открывать смену для приема платежей от клиентов.</p>
+
+<h2 id="интерфейс-и-основные-операции-продажи">Интерфейс и основные операции продажи</h2>
+
+<p>Рабочее место кассира в ВТБ Кассе спроектировано максимально эргономично. Главный экран содержит крупные кнопки для быстрого ввода суммы или выбора товара из номенклатуры. При ручной вводе суммы необходимо использовать цифровую клавиатуру, appearing на дисплее. Для ускорения процесса многие предприниматели заранее загружают прайс-лист, что позволяет пробивать товары по штрих-коду или выбору из каталога.</p>
+
+<p>Процесс оплаты картой занимает считанные секунды. После формирования итоговой суммы кассир выбирает способ оплаты «Банковская карта» или «NFC». Терминал переходит в режим ожидания карты. Клиенту необходимо приложить карту к экрану или вставить чипом вниз в слот. <em>Бесконтактная оплата</em> (PayPass, PayWave, Mir Pay) проходит быстрее всего и не требует ввода ПИН-кода для сумм до 1000 рублей (лимит может варьироваться).</p>
+
+<ul>
+<li>💳 <strong>Оплата картой:</strong> стандартная процедура с вводом ПИН-кода или подписью чека для крупных сумм.</li>
+<li>📱 <strong>NFC-оплата:</strong> бесконтактное считывание данных с карты или смартфона клиента.</li>
+<li>📄 <strong>Электронный чек:</strong> клиент может выбрать получение чека на email или через SMS, что экономит термобумагу.</li>
+<li>🔢 <strong>Раздельная оплата:</strong> возможность разделить платеж между наличными и картой или несколькими картами.</li>
+</ul>
+
+<p>В случае, если клиент хочет оплатить часть суммы наличными, а часть картой, система позволяет провести комбинированную транзакцию. Сначала вводится сумма наличных, затем остаток пробивается через эквайринг. Это удобно для покупателей, у которых не хватает средств на карте, но есть наличные. Важно правильно указывать типы платежей, чтобы в конце смены отчетность сходилась с фактической выручкой.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте функцию «Последний чек» в меню, чтобы быстро пробить повторяющийся заказ для постоянного клиента, не вводя позиции заново.</p></div>
+
+<h2 id="работа-с-возвратами-и-коррекцией-чеков">Работа с возвратами и коррекцией чеков</h2>
+
+<p>Ошибки при пробитии чеков случаются даже у опытных кассиров, поэтому знание процедуры возврата (refund) является обязательным навыком. ВТБ Касса позволяет выполнить возврат денег на карту клиента, если оригинальный чек был пробит по карте. Для этого необходимо найти транзакцию в журнале операций или ввести номер оригинального чека вручную.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Возврат на карту возможен только в пределах той же смены или в строго определенные банком сроки (обычно до 180 дней), но технически процедура возврата требует наличия оригинала чека или его точных реквизитов.</p>
+</blockquote>
+
+<p>Процедура возврата выглядит следующим образом: кассир выбирает в меню операцию «Возврат», сканирует штрих-код с оригинального чека или вводит его номер. Система запрашивает подтверждение суммы возврата. После этого клиент должен приложить ту же карту, на которую производилась оплата, или ввести ее данные. <strong>Комиссия за возврат</strong> обычно не взимается, но деньги могут идти до 30 рабочих дней, о чем следует предупреждать покупателя.</p>
+
+<p>Если ошибка была обнаружена сразу, до закрытия чека, можно воспользоваться функцией коррекции. Однако, если чек уже фискализирован (отправлен в ОФД), простой отменой не обойтись — требуется именно операция возврата. В некоторых случаях, при отсутствии карты клиента, возможен возврат наличными из кассы, но это требует оформления отдельного акта и зависит от внутренней бухгалтерии предприятия.</p>
+
+<details class="faq-item"><summary>Что делать, если терминал не видит карту возврата?</summary><div class="faq-answer"><p>Если карта клиента утеряна или заменена банком, возврат на новую карту невозможен технически через стандартную процедуру. В этом случае необходимо оформить возврат наличными из кассы с письменным заявлением от клиента и актом о расхождении, согласовав это с бухгалтерией.</p></div></details>
+
+<h2 id="открытие-и-закрытие-кассовой-смены">Открытие и закрытие кассовой смены</h2>
+
+<p>Кассовая смена — это период между двумя отчетами о закрытии смены. По закону смена не должна длиться более 24 часов. ВТБ Касса автоматически напомнит о необходимости закрыть смену, но лучше делать это по окончании рабочего дня. Процедура начинается с формирования Z-отчета, который фиксирует выручку и количество транзакций.</p>
+
+<p>Перед закрытием смены обязательно нужно сверить итоговые суммы в терминале с фактической выручкой в кассе. <em>Горизонтальный чек</em> (X-отчет) позволяет посмотреть промежуточные итоги без закрытия смены, что удобно для сверки в обеденный перерыв. Если суммы не сходятся, необходимо перепроверить журнал операций на наличие ошибочных возвратов или дублей.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр отчета</th>
+<th>Описание</th>
+<th>Значение для бизнеса</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Выручка наличными</strong></td>
+<td>Сумма всех платежей наличными</td>
+<td>Контроль кассовой дисциплины</td>
+</tr>
+<tr>
+<td><strong>Выручка картой</strong></td>
+<td>Сумма эквайринговых операций</td>
+<td>Сверка с выпиской банка</td>
+</tr>
+<tr>
+<td><strong>Количество чеков</strong></td>
+<td>Общее число пробитых фискальных документов</td>
+<td>Анализ потока клиентов</td>
+</tr>
+<tr>
+<td><strong>НДС</strong></td>
+<td>Сумма налога, включенного в чеки</td>
+<td>Для бухгалтерского учета</td>
+</tr>
+</tbody>
+</table>
+
+<p>После печати Z-отчета смена считается закрытой. Данные автоматически отправляются в ОФД и личный кабинет банка. Если интернет в момент закрытия отсутствовал, отчет сохранится в памяти и будет отправлен при первом появлении связи. Важно не забывать, что пока предыдущая смена не закрыта, открытие новой невозможно.</p>
+
+<div class="poll-widget" id="poll-7cb50ecc"><div class="poll-widget-question">📊 Как часто вы закрываете кассовую смену?</div><div class="poll-widget-option" data-poll="7cb50ecc" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Ежедневно в конце дня</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7cb50ecc" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Два раза в день (утро/вечер)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7cb50ecc" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Только в конце недели</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7cb50ecc" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Когда попросит бухгалтер</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="мобильное-приложение-и-удаленный-контроль">Мобильное приложение и удаленный контроль</h2>
+
+<p>Для владельцев бизнеса и управляющих ВТБ предлагает удобное мобильное приложение «ВТБ Бизнес». Через него можно отслеживать поступления в режиме реального времени, не находясь непосредственно у терминала. Приложение позволяет видеть статистику продаж, количество успешных и отклоненных транзакций, а также контролировать работу кассиров.</p>
+
+<p>Функционал приложения не ограничивается мониторингом. Через него можно управлять терминалами: блокировать потерянные устройства, обновлять программное обеспечение удаленно или менять настройки приема платежей. Это особенно полезно для сетей магазинов, где централизованное управление сотней терминалов вручную было бы невозможным.</p>
+
+<p>Также в приложении доступна функция аналитики. Вы можете строить отчеты по периодам, сравнивать выручку разных точек или кассиров. <strong>Push-уведомления</strong> мгновенно сообщают о крупных поступлениях или, наоборот, о технических сбоях в работе оборудования. Это дает возможность оперативно реагировать на изменения в работе торговой точки.</p>
+
+<h2 id="типовые-проблемы-и-способы-их-решения">Типовые проблемы и способы их решения</h2>
+
+<p>Несмотря на надежность системы, в процессе эксплуатации могут возникать технические сложности. Чаще всего они связаны с потерей связи или заканчивающейся термобумагой. Если терминал пишет «Нет связи с ОФД», checkьте индикаторы Wi-Fi или GSM. Временно чеки будут сохраняться в памяти ФН и отправятся позже, но работать касса продолжит.</p>
+
+<p>Другая распространенная проблема — застревание бумаги или низкий заряд батареи. ВТБ Касса оснащена датчиками, которые предупреждают о необходимости заменить рулон до того, как печать станет нечитаемой. Для замены бумаги нужно открыть заднюю крышку, извлечь остатки рулона и вставить новый, убедившись, что бумага лежит термо-слооем к печатающей головке (обычно он темнеет при царапании ногтем).</p>
+
+<ul>
+<li>🔋 <strong>Терминал не включается:</strong> проверьте зарядное устройство и контакты. Возможно, батарея ушла в глубокий разряд, требуется 15-20 минут зарядки.</li>
+<li>📉 <strong>Чек не печатается:</strong> проверьте, правильно ли вставлена бумага и закрыта ли крышка до щелчка.</li>
+<li>📡 <strong>Ошибка соединения:</strong> попробуйте перезагрузить терминал или переключиться с Wi-Fi на мобильную сеть.</li>
+<li>🔒 <strong>Блокировка ФН:</strong> если истек срок действия ФН или переполнен архив, касса заблокируется до замены накопителя.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не пытайтесь вскрыть корпус терминала или извлечь SIM-карту и фискальный накопитель самостоятельно в процессе работы — это может привести к блокировке устройства службой безопасности банка и порче гарантийных пломб.</p>
+</blockquote>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Большинство технических проблем решается простой перезагрузкой терминала (выключить и включить) или проверкой наличия термобумаги.</p></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли принимать оплату через СБП (Систему быстрых платежей) на ВТБ Кассе?</summary>
+<p>Да, современные модели ВТБ Касс поддерживают генерацию QR-кодов для оплаты через СБП. Клиент сканирует код на экране терминала своим банковским приложением и подтверждает платеж. Комиссия для бизнеса по СБП часто ниже, чем по карточному эквайрингу.</p>
+</details>
+
+<details>
+<summary>Что делать, если закончилась бумага посередине пробития чека?</summary>
+<p>Терминал прервет печать и выдаст ошибку. После замены бумаги необходимо найти операцию в журнале «Последние операции» и выбрать пункт «Печать копии чека». Оригинальный чек уже фискализирован и отправлен в ОФД, даже если не напечатался полностью.</p>
+</details>
+
+<details>
+<summary>Как часто нужно менять фискальный накопитель?</summary>
+<p>Срок действия ФН зависит от выбранной модели (13, 15 или 36 месяцев) и системы налогообложения. Для УСН и патента обычно подходят накопители на 36 месяцев, для ОСНО — на 13 месяцев. Система сама предупредит об окончании срока действия за 30 дней.</p>
+</details>
+
+<details>
+<summary>Можно ли подключить ВТБ Кассу к компьютеру через USB?</summary>
+<p>Да, терминал может работать в режиме внешней кассы, подключаясь к ПК через USB или Bluetooth. В этом случае управление пробитием чеков осуществляется через кассовую программу на компьютере (например, 1С), а терминал используется только как фискальный принтер и устройство ввода PIN.</p>
+</details>
+
+<details>
+<summary>Где посмотреть детализацию комиссий за эквайринг?</summary>
+<p>Подробная информация о комиссиях, тарифах и начислениях доступна в разделе «Эквайринг» личного кабинета ВТБ Бизнес. Там же можно скачать реестры платежей за любой период для сверки с бухгалтерией.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#первичная-активация-и-настройка-терминала">Первичная активация и настройка терминала</a></li><li><a href="#интерфейс-и-основные-операции-продажи">Интерфейс и основные операции продажи</a></li><li><a href="#работа-с-возвратами-и-коррекцией-чеков">Работа с возвратами и коррекцией чеков</a></li><li><a href="#открытие-и-закрытие-кассовой-смены">Открытие и закрытие кассовой смены</a></li><li><a href="#мобильное-приложение-и-удаленный-контроль">Мобильное приложение и удаленный контроль</a></li><li><a href="#типовые-проблемы-и-способы-их-решения">Типовые проблемы и способы их решения</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-oplatit-nalog-cherez-prilozhenie-vtb.html" class="related-card">Как оплатить налог через приложение ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-oplatit-shtraf-vai-cherez-vtb.html" class="related-card">Как оплатить штраф ГИБДД через ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/d/do/do-kakogo-vremeni-bank-provodit-platezhi-vtb.html" class="related-card">До какого времени ВТБ проводит платежи в 2026 году? График и нюансы</a></li><li><a href="/articles/k/ka/kak-uznat-id-terminala-ekvajringa-vtb.html" class="related-card">Как узнать ID терминала эквайринга ВТБ: все способы</a></li><li><a href="/articles/k/ka/kak-zaplatit-za-svet-cherez-vtb-onlajn.html" class="related-card">Как оплатить свет через ВТБ Онлайн: пошаговая инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-oplatit-nalog-cherez-prilozhenie-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить налог через приложение ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Узнайте, как быстро и безопасно оплатить налоги через мобильное приложение ВТБ: от поиска квитанции </span></a><a href="/articles/k/ka/kak-oplatit-shtraf-vai-cherez-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить штраф ГИБДД через ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд по оплате штрафов ГИБДД через ВТБ Онлайн, мобильное приложение и банкоматы. Сроки, ко</span></a><a href="/articles/d/do/do-kakogo-vremeni-bank-provodit-platezhi-vtb.html" class="related-bottom-card"><span class="related-bottom-title">До какого времени ВТБ проводит платежи в 2026 году? График и нюансы</span><span class="related-bottom-desc">Узнайте точные часы обработки платежей в ВТБ: лимиты по времени для переводов, оплаты ЖКХ и карт дру</span></a><a href="/articles/k/ka/kak-uznat-id-terminala-ekvajringa-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать ID терминала эквайринга ВТБ: все способы</span><span class="related-bottom-desc">Подробная инструкция, где найти ID терминала эквайринга ВТБ. Способы для кассы, личного кабинета, че</span></a><a href="/articles/k/ka/kak-zaplatit-za-svet-cherez-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить свет через ВТБ Онлайн: пошаговая инструкция</span><span class="related-bottom-desc">Платим за электричество через приложение ВТБ: пошаговый алгоритм, комиссия, автоплатеж и решение про</span></a><a href="/articles/k/ka/kak-oplatit-nalogi-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Оплата налогов в ВТБ Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как быстро оплатить налоги через ВТБ Онлайн: пошаговый гайд с картинками, комиссиями и сроками. Узна</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

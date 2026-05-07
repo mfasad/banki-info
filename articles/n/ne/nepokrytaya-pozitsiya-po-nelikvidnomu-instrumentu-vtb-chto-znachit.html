@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Непокрытая позиция в ВТБ: риски и закрытие — Банки Инфо</title>
+    <meta name="description" content="Что значит непокрытая позиция по неликвидному инструменту в ВТБ. Риски, маржинальные требования и алгоритм действий при дефиците средств.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/n/ne/nepokrytaya-pozitsiya-po-nelikvidnomu-instrumentu-vtb-chto-znachit.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Непокрытая позиция в ВТБ: риски и закрытие">
+    <meta property="og:description" content="Что значит непокрытая позиция по неликвидному инструменту в ВТБ. Риски, маржинальные требования и алгоритм действий при дефиците средств.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Непокрытая позиция в ВТБ: риски и закрытие</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Непокрытая позиция по неликвидному инструменту в ВТБ: что это и чем грозит</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#механика-возникновения-непокрытой-позиции">Механика возникновения непокрытой позиции</a></li><li><a href="#что-такое-неликвидный-инструмент-в-портфеле-втб">Что такое неликвидный инструмент в портфеле ВТБ</a></li><li><a href="#риски-торговли-с-плечом-на-неликвиде">Риски торговли с плечом на неликвиде</a></li><li><a href="#процедура-маржин-колла-и-действия-брокера">Процедура маржин-колла и действия брокера</a></li><li><a href="#стратегии-выхода-из-непокрытой-позиции">Стратегии выхода из непокрытой позиции</a></li><li><a href="#профилактика-рисков-и-управление-капиталом">Профилактика рисков и управление капиталом</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Столкнувшись с уведомлением от брокера или увидев красные цифры в приложении <em>ВТБ Мои Инвестиции</em>, инвестор может обнаружить статус «непокрытая позиция». Это состояние, при котором на вашем счете недостаточно собственных средств для обеспечения уже совершенных сделок или поддержания открытых позиций. Особенно тревожной ситуация становится, если речь заходит о <strong>неликвидных инструментах</strong>, так как они несут в себе скрытые, но мощные риски.</p>
+
+<p>В условиях волатильного рынка и сложных макроэкономических условий понимание механики маржинального кредитования становится критически важным. <strong>Непокрытая позиция</strong> означает, что вы фактически взяли у брокера в долг больше, чем позволяли бы ваши текущие активы, если бы не кредитное плечо. Для банка это сигнал о необходимости срочно выровнять баланс, а для клиента — риск принудительного закрытия сделок.</p>
+
+<p>В этой статье мы детально разберем, что скрывается за термином «неликвидный инструмент» в контексте брокерского обслуживания ВТБ, почему именно такие активы часто становятся причиной блокировок и как грамотно управлять рисками, чтобы сохранить свой капитал. Вы узнаете о механизме <strong>маржинальных требований</strong> и о том, какие действия необходимо предпринять в первую очередь.</p>
+
+<h2 id="механика-возникновения-непокрытой-позиции">Механика возникновения непокрытой позиции</h2>
+
+<p>Фундаментальной причиной появления непокрытой позиции является использование <strong>маржинального кредитования</strong>. Когда вы совершаете сделку с плечом, брокер (в данном случае ВТБ) предоставляет вам заемные средства. Взамен он требует, чтобы стоимость ваших активов всегда превышала сумму долга на определенный процент, называемый <em>начальной маржей</em>.</p>
+
+<p>Если рынок движется против вас, стоимость купленных активов падает. В какой-то момент разница между стоимостью активов и суммой долга становится меньше требуемого минимума. Это и есть момент, когда позиция становится непокрытой. Брокер обязан потребовать от вас внесения дополнительных средств или части активов.</p>
+
+<p>Особую роль здесь играет понятие <strong>ликвидности</strong>. Ликвидный актив (например, акции Газпрома или ОФЗ) можно быстро продать по рыночной цене без существенного проскальзывания. Неликвидный актив продать быстро и выгодно практически невозможно. Если ваша позиция обеспечена именно такими бумагами, риск получения маржин-колла (требования о покрытии) возрастает многократно.</p>
+
+<div class="poll-widget" id="poll-233b7c9d"><div class="poll-widget-question">📊 С каким типом активов вы торгуете чаще всего?</div><div class="poll-widget-option" data-poll="233b7c9d" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Акции голубых фишек</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="233b7c9d" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Облигации федерального займа</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="233b7c9d" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Неликвидные акции третьего эшелона</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="233b7c9d" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Валютные пары</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> В отличие от обычных убытков, непокрытая позиция может привести к ситуации, когда ваш долг перед брокером превысит стоимость всех активов на счете, включая те, что не были задействованы в сделке.</p>
+</blockquote>
+
+<h2 id="что-такое-неликвидный-инструмент-в-портфеле-втб">Что такое неликвидный инструмент в портфеле ВТБ</h2>
+
+<p>В классификации крупных брокеров, таких как ВТБ, инструменты делятся на группы ликвидности. <strong>Неликвидный инструмент</strong> — это актив, который характеризуется низким объемом торгов и высокой волатильностью спрэда (разницы между ценой покупки и продажи). Часто к этой категории относятся акции компаний «третьего эшелона», корпоративные облигации с низким рейтингом или экзотические финансовые инструменты.</p>
+
+<p>Главная проблема неликвидности заключается в невозможности быстрого выхода из позиции. Если вы захотите продать крупный пакет таких акций, вы можете обрушить их цену собственным ордером. Для брокера это означает, что в случае вашей невыплаты он не сможет быстро реализовать залог, чтобы покрыть свои риски.</p>
+
+<p>Именно поэтому ВТБ устанавливает более жесткие <strong>требования к обеспечению</strong> для неликвидных инструментов. Плечо по ним может быть минимальным или отсутствовать вовсе. Если же вы купили такой актив на свои деньги, а затем рынок упал, брокер может пересмотреть оценку риска и потребовать покрытия, даже если формально плеча у вас не было, но актив попал в стоп-лист.</p>
+
+<ul>
+<li>📉 <strong>Низкий оборот:</strong> Сделки по инструменту совершаются редко, что создает риск «застревания» в позиции.</li>
+<li>💸 <strong>Высокий спред:</strong> Разница между_bid_ и _ask_ может достигать 5-10% и более, что делает вход и выход из сделки убыточным.</li>
+<li>🏢 <strong>Отсутствие котировок:</strong> В моменты паники торги могут быть приостановлены, и вы не сможете оценить реальную стоимость актива.</li>
+</ul>
+
+
+
+<h2 id="риски-торговли-с-плечом-на-неликвиде">Риски торговли с плечом на неликвиде</h2>
+
+<p>Торговля неликвидными инструментами с использованием кредитного плеча — это стратегия с экстремально высоким уровнем риска. <strong>Волатильность</strong> таких активов может быть колоссальной. Цена акции может вырасти на 20% за час, а затем упасть на 40% за следующие пятнадцать минут. При наличии плеча такие колебания моментально уничтожают собственный капитал инвестора.</p>
+
+<p>Второй серьезный риск — это <strong>гэпы</strong> (разрывы) в котировках. При открытии торговой сессии цена неликвидной бумаги может открыться значительно ниже цены закрытия предыдущего дня. Если у вас была открытая позиция с плечом, баланс счета может мгновенно уйти в глубокий минус, и вы не успеете среагировать.</p>
+
+<p>Кроме того, существует риск изменения условий брокера. ВТБ имеет право в одностороннем порядке изменить <strong>ставку начальной маржи</strong> для конкретного инструмента. Если вчера акция считалась ликвидной, а сегодня попала в список неликвидных, требования к обеспечению резко вырастут. Это автоматически создаст ситуацию непокрытой позиции, даже если рыночная цена бумаги не изменилась.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр риска</th>
+<th>Ликвидный актив (1 эшелон)</th>
+<th>Неликвидный актив (3 эшелон)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Максимальное плечо</td>
+<td>До 1:5 (условно)</td>
+<td>Часто 1:1 (без плеча)</td>
+</tr>
+<tr>
+<td>Спред (разница цен)</td>
+<td>0.01% - 0.5%</td>
+<td>1% - 15% и выше</td>
+</tr>
+<tr>
+<td>Скорость продажи</td>
+<td>Мгновенно</td>
+<td>Может занять дни</td>
+</tr>
+<tr>
+<td>Риск манипуляции</td>
+<td>Низкий</td>
+<td>Очень высокий</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h2 id="процедура-маржин-колла-и-действия-брокера">Процедура маржин-колла и действия брокера</h2>
+
+<p>Когда позиция становится непокрытой, запускается процедура <strong>маржин-колла</strong>. ВТБ, как и любой регулируемый брокер, обязан уведомить клиента о необходимости пополнения счета. Уведомление может прийти через push-уведомление в приложении, SMS или электронное письмо.</p>
+
+<p>У клиента есть ограниченный срок (обычно это один или два торговых дня, но условия могут быть жестче для неликвидных инструментов), чтобы исправить ситуацию. Игнорирование требования приводит к <strong>принудительному закрытию позиций</strong>. Брокер продает ваши активы по любой доступной цене, чтобы погасить долг.</p>
+
+<p>В случае с неликвидными инструментами принудительное закрытие особенно болезненно. Поскольку buyers (покупателей) мало, брокер может выставить актив на продажу с большим дисконтом. Это фиксирует убыток, который может быть значительно больше, чем если бы вы продали актив планомерно.</p>
+
+<ul>
+<li>📞 <strong>Уведомление:</strong> Получение сигнала от системы риск-менеджмента банка.</li>
+<li>⏳ <strong>Срок:</strong> Ограниченное время на реакцию (до 11:50 следующего торгового дня).</li>
+<li>🔨 <strong>Ликвидация:</strong> Автоматическая или ручная продажа активов брокером.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Если после продажи всех активов на счете все еще остается долг, он не списывается автоматически. Вы остаетесь должны банку эту сумму, и она будет взыскана в судебном порядке.</p>
+</blockquote>
+
+<h2 id="стратегии-выхода-из-непокрытой-позиции">Стратегии выхода из непокрытой позиции</h2>
+
+<p>Если вы уже столкнулись с ситуацией, когда позиция по неликвидному инструменту стала непокрытой, действовать нужно хладнокровно и быстро. Первый и самый очевидный шаг — <strong>внесение денежных средств</strong>. Пополнение счета рублями или перевод ликвидных активов (валюты, акций первого эшелона) с другого счета мгновенно улучшает ситуацию с обеспечением.</p>
+
+<p>Второй вариант — <strong>частичное закрытие позиции</strong>. Даже если инструмент неликвидный, попытка продать часть пакета может высвободить средства для покрытия долга. Однако здесь важно следить за ценой: продавая большой объем, вы можете обвалить котировки еще сильнее.</p>
+
+<p>Третий путь — ожидание, но он применим только если вы уверены в временном характере падения и имеете запас прочности. Однако при наличии требования маржин-колла время работает против вас. <mark>Критически важно понимать: пока позиция непокрыта, начисляются повышенные проценты за пользование кредитом, что ежедневно увеличивает ваш убыток.</mark></p>
+
+<div class="checklist-block"><h4>☑️ Алгоритм действий при маржин-колле</h4><label class="check-item"><input type="checkbox"><span>Оценить размер дефицита средств</span></label><label class="check-item"><input type="checkbox"><span>Проверить наличие свободных денег на других счетах</span></label><label class="check-item"><input type="checkbox"><span>Принять решение: внести деньги или продать актив</span></label><label class="check-item"><input type="checkbox"><span>Исполнить решение до дедлайна (обычно 11:50)</span></label><label class="check-item"><input type="checkbox"><span>Проверить статус позиции в приложении</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="профилактика-рисков-и-управление-капиталом">Профилактика рисков и управление капиталом</h2>
+
+<p>Лучший способ избежать проблем с непокрытыми позициями — грамотное управление рисками на этапе входа в сделку. Никогда не покупайте неликвидные инструменты «на всю котлету», особенно с плечом. <strong>Диверсификация</strong> портфеля — ваш главный щит. Сочетание надежных облигаций, акций крупных компаний и небольшой доли рискованных активов позволит сглаживать волатильность.</p>
+
+<p>Регулярно проверяйте <strong>список инструментов</strong>, по которым ВТБ меняет требования к марже. Эта информация публикуется на сайте брокера в разделах для клиентов. Если ваша любимая бумага «третьего эшелона» вдруг исчезла из списка маржинальных или по ней снизили плечо до нуля — это серьезный сигнал.</p>
+
+<p>Используйте <em>стоп-лосс ордера</em> (стоп-заявления на продажу). Хотя на неликвидном рынке они могут сработать не по той цене, которую вы планировали (из-за гэпов), они все же лучше, чем полный контроль ситуации брокером. Автоматизация выхода из убыточных сделок помогает сохранить дисциплину.</p>
+
+
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Может ли ВТБ закрыть позицию без моего уведомления?</summary>
+<p>Да, в экстренных ситуациях, когда стоимость обеспечения падает слишком быстро и есть риск ухода баланса в глубокий минус, брокер имеет право закрыть позиции принудительно без предварительного звонка, согласно договору брокерского обслуживания.</p>
+</details>
+
+<details>
+<summary>Что будет, если после продажи неликвидного актива я все равно останусся должен?</summary>
+<p>Образовавшийся долг станет вашим финансовым обязательством перед банком. Брокер выставит вам счет, и в случае неоплаты дело может быть передано коллекторам или в суд для взыскания через приставов.</p>
+</details>
+
+<details>
+<summary>Как узнать, является ли инструмент неликвидным?</summary>
+<p>Обратите внимание на спред (разницу между ценой покупки и продажи) в стакане. Если он превышает 1-2%, или если в стакане мало заявок, инструмент можно считать низколиквидным. Также проверяйте раздел «Тарифы и условия» на сайте ВТБ.</p>
+</details>
+
+<details>
+<summary>Можно ли перевести неликвидные акции в другой банк, чтобы избежать продажи?</summary>
+<p>Теоретически можно, но процесс перерегистрации прав собственности занимает время (от 3 до 10 дней). За это время ситуация на счете может ухудшиться, и принимающий брокер также может не принять эти активы в качестве обеспечения.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#механика-возникновения-непокрытой-позиции">Механика возникновения непокрытой позиции</a></li><li><a href="#что-такое-неликвидный-инструмент-в-портфеле-втб">Что такое неликвидный инструмент в портфеле ВТБ</a></li><li><a href="#риски-торговли-с-плечом-на-неликвиде">Риски торговли с плечом на неликвиде</a></li><li><a href="#процедура-маржин-колла-и-действия-брокера">Процедура маржин-колла и действия брокера</a></li><li><a href="#стратегии-выхода-из-непокрытой-позиции">Стратегии выхода из непокрытой позиции</a></li><li><a href="#профилактика-рисков-и-управление-капиталом">Профилактика рисков и управление капиталом</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-kupit-aktsii-kitajskikh-kompanij-vtb.html" class="related-card">Как купить акции китайских компаний через ВТБ в 2026 году</a></li><li><a href="/articles/k/ka/kak-vyvesti-dividendy-s-iis-vtb-na-kartu.html" class="related-card">Как вывести дивиденды с ИИС ВТБ на карту в 2026 году: пошаговая инструкция</a></li><li><a href="/articles/a/ak/aktsii-vtb-kupit-fizicheskomu-litsu-kak.html" class="related-card">Как купить акции ВТБ физическому лицу: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-uznat-prishli-dividendy-ot-brokera-vtb.html" class="related-card">Как проверить дивиденды от ВТБ: 5 способов отследить выплату</a></li><li><a href="/articles/f/fo/fond-zoloto-vtb-kak-rabotaet.html" class="related-card">Фонд Золото ВТБ: как работает и стоит ли покупать</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-kupit-aktsii-kitajskikh-kompanij-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как купить акции китайских компаний через ВТБ в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция по покупке акций Alibaba, Tencent и других китайских компаний через ВТБ Инвести</span></a><a href="/articles/k/ka/kak-vyvesti-dividendy-s-iis-vtb-na-kartu.html" class="related-bottom-card"><span class="related-bottom-title">Как вывести дивиденды с ИИС ВТБ на карту в 2026 году: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гайд по выводу дивидендов с индивидуального инвестиционного счёта ВТБ на банковскую карту:</span></a><a href="/articles/a/ak/aktsii-vtb-kupit-fizicheskomu-litsu-kak.html" class="related-bottom-card"><span class="related-bottom-title">Как купить акции ВТБ физическому лицу: пошаговая инструкция</span><span class="related-bottom-desc">Полный гид по покупке акций банка ВТБ для частных инвесторов. Разбираем IPO, торги на бирже, налоги,</span></a><a href="/articles/k/ka/kak-uznat-prishli-dividendy-ot-brokera-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить дивиденды от ВТБ: 5 способов отследить выплату</span><span class="related-bottom-desc">Пошаговая инструкция: где и как узнать о зачислении дивидендов от брокера ВТБ через личный кабинет, </span></a><a href="/articles/f/fo/fond-zoloto-vtb-kak-rabotaet.html" class="related-bottom-card"><span class="related-bottom-title">Фонд Золото ВТБ: как работает и стоит ли покупать</span><span class="related-bottom-desc">Полный обзор БПИФ «Золото» от ВТБ: механизм работы, комиссии, доходность и риски. Как купить паи чер</span></a><a href="/articles/k/ka/kak-prodat-valyutu-v-vtb-moi-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как продать валюту в ВТБ Мои Инвестиции: инструкция</span><span class="related-bottom-desc">Подробный гид, как продать валюту в приложении ВТБ Мои Инвестиции. Разбор биржевой торговли, курсов </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как подключить Клиент-Банк ВТБ для юридических лиц — Банки Инфо</title>
+    <meta name="description" content="Подробная инструкция по подключению системы ВТБ Бизнес Онлайн для юридических лиц. Пошаговый алгоритм, требования к ПО и решение проблем с токенами.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-podklyuchit-klient-bank-vtb-dlya-yuridicheskogo-litsa.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить Клиент-Банк ВТБ для юридических лиц">
+    <meta property="og:description" content="Подробная инструкция по подключению системы ВТБ Бизнес Онлайн для юридических лиц. Пошаговый алгоритм, требования к ПО и решение проблем с токенами.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить Клиент-Банк ВТБ для юридических лиц</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как подключить Клиент-Банк ВТБ для юридического лица: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-документов-и-подача-заявки-в-отделении">Подготовка документов и подача заявки в отделении</a></li><li><a href="#требования-к-рабочему-месту-и-программному-обеспечению">Требования к рабочему месту и программному обеспечению</a></li><li><a href="#установка-токена-и-настройка-криптографии">Установка токена и настройка криптографии</a></li><li><a href="#регистрация-в-системе-и-создание-пользователей">Регистрация в системе и создание пользователей</a></li><li><a href="#настройка-шаблонов-платежей-и-интеграция-с-1с">Настройка шаблонов платежей и интеграция с 1С</a></li><li><a href="#мобильный-доступ-и-безопасность-операций">Мобильный доступ и безопасность операций</a></li><li><a href="#решение-проблем-и-техническая-поддержка">Решение проблем и техническая поддержка</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Запуск полноценного банковского обслуживания для организации начинается с выбора надежной системы удаленного управления счетами. <strong>Клиент-Банк ВТБ</strong> представляет собой мощный программный комплекс, позволяющий проводить платежи, управлять зарплатными проектами и контролировать ликвидность в режиме реального времени. Для юридических лиц и индивидуальных предпринимателей переход на цифровые каналы обслуживания является не просто удобством, а необходимостью для оптимизации бизнес-процессов.</p>
+
+<p>Процесс интеграции с системой <em>ВТБ Бизнес Онлайн</em> требует внимательной подготовки и наличия специфического оборудования. В отличие от розничных клиентов, корпоративный сегмент подразумевает использование усиленных средств криптографической защиты информации. Вам предстоит пройти несколько этапов: от подачи заявки в отделении до настройки рабочего места на компьютере бухгалтера или директора.</p>
+
+<p>В этой статье мы детально разберем, как подключить клиент-банк ВТБ для юридического лица, какие документы потребуются и как избежать типичных ошибок при установке. <strong>Электронная цифровая подпись</strong> станет вашим главным ключом к финансовым операциям, поэтому вопросам её корректной настройки будет уделено особое внимание. Готовность инфраструктуры предприятия — залог быстрой и бесперебойной работы с банком.</p>
+
+<h2 id="подготовка-документов-и-подача-заявки-в-отделении">Подготовка документов и подача заявки в отделении</h2>
+
+<p>Первым шагом на пути к цифровому банкингу является визит в офис банка с полным пакетом учредительной документации. <strong>Заявление на подключение</strong> системы дистанционного обслуживания заполняется непосредственно в отделении, где сотрудник банка проверяет полномочия обратившегося лица. Важно, чтобы все данные в заявлении совпадали с информацией, содержащейся в ЕГРЮЛ, иначе в регистрации могут отказать.</p>
+
+<p>Для оформления договора вам потребуется предоставить оригиналы или нотариально заверенные копии устава, свидетельства о регистрации и решения о назначении руководителя. Если доступ к системе получают несколько сотрудников, необходимо заранее подготовить список лиц с указанием их прав и лимитов на проведение операций. <em>Многофакторная авторизация</em> в системе ВТБ позволяет гибко настраивать роли, разделяя функции создания и подтверждения платежей.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> При подаче заявления обязательно проверьте актуальность паспорта руководителя и документов, подтверждающих полномочия. Просроченный паспорт или истекший срок действия протокола общего собрания могут стать причиной отказа в обслуживании.</p>
+</blockquote>
+
+<p>После проверки документов банк формирует договор об электронном документообороте, который подписывается с обеих сторон. В этом документе прописываются тарифы, ответственность сторон и технические требования к ПО. Только после подписания всех бумаг начинается техническая часть процесса, связанная с генерацией ключей шифрования.</p>
+
+<h2 id="требования-к-рабочему-месту-и-программному-обеспечению">Требования к рабочему месту и программному обеспечению</h2>
+
+<p>Корпоративная версия клиент-банка предъявляет высокие требования к операционной системе и установленному софту. Для стабильной работы <strong>ВТБ Бизнес Онлайн</strong> необходима операционная система Windows версии 7 и выше, хотя для максимальной безопасности рекомендуется использовать актуальные версии Windows 10 или 11. На компьютер должны быть установлены все последние обновления безопасности от Microsoft.</p>
+
+<p>Ключевым компонентом системы является криптопровайдер, который обеспечивает шифрование данных. ВТБ традиционно работает с продуктом <em>CryptoPro CSP</em>, лицензию на который часто предоставляет сам банк или он приобретается отдельно. Без корректно установленного и настроенного криптопровайдера вход в систему будет невозможен, так как именно он управляет сертификатами ЭЦП.</p>
+
+<p>Также на рабочем месте должен быть установлен специальный плагин для браузера, если вы планируете работать через веб-интерфейс, или полноценный клиентский модуль для толстого клиента. <strong>Системные требования</strong> могут меняться, поэтому перед установкой всегда сверяйтесь с актуальным листом совместимости на официальном сайте банка.</p>
+
+<div class="poll-widget" id="poll-f042f83e"><div class="poll-widget-question">📊 Как вы планируете использовать клиент-банк?</div><div class="poll-widget-option" data-poll="f042f83e" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Только для платежей</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f042f83e" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Для зарплатного проекта</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f042f83e" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Для валютного контроля</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f042f83e" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Для всех операций сразу</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Не забудьте проверить наличие свободного места на жестком диске и оперативной памяти. Для работы с большими объемами данных, например, при выгрузке массивных реестров платежей, системе требуется достаточный ресурс. Рекомендуется иметь не менее 4 ГБ свободной оперативной памяти для комфортной работы без зависаний.</p>
+
+<h2 id="установка-токена-и-настройка-криптографии">Установка токена и настройка криптографии</h2>
+
+<p>После получения комплекта оборудования в отделении, вы обнаружите в нем USB-токен (RuToken или JaCarta), на котором записаны закрытые ключи электронной подписи. Установка драйверов токена — критически важный этап, который часто вызывает сложности у пользователей. Необходимо скачать актуальную версию драйверов с сайта производителя токена или из раздела поддержки ВТБ.</p>
+
+<p>Процесс настройки <strong>криптографического ПО</strong> включает в себя установку самого драйвера токена, криптопровайдера и сертификатов безопасности. Последовательность действий должна быть строгой: сначала драйвер токена, затем перезагрузка, далее CryptoPro CSP и только потом установка сертификатов. Нарушение порядка может привести к конфликту библиотек.</p>
+
+<div class="checklist-block"><h4>☑️ Чек-лист установки драйверов</h4><label class="check-item"><input type="checkbox"><span>Скачать драйвер токена с официального сайта</span></label><label class="check-item"><input type="checkbox"><span>Удалить старые версии драйверов</span></label><label class="check-item"><input type="checkbox"><span>Установить новый драйвер и перезагрузить ПК</span></label><label class="check-item"><input type="checkbox"><span>Установить CryptoPro CSP</span></label><label class="check-item"><input type="checkbox"><span>Проверить видимость токена в системе</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Для проверки корректности установки вставьте токен в USB-порт и запустите программу управления токенами. Система должна определить устройство, показать его серийный номер и статус"Готов к работе". Если токен горит красным индикатором или не определяется, попробуйте USB-порт или переустановить драйверы от имени администратора.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не извлекайте токен во время проведения платежной операции или подписания документа. Это может привести к повреждению файловой системы токена и необходимости его перевыпуска в отделении банка.</p>
+</blockquote>
+
+<h2 id="регистрация-в-системе-и-создание-пользователей">Регистрация в системе и создание пользователей</h2>
+
+<p>Когда техническая часть настроена, наступает время первой авторизации в системе <em>ВТБ Бизнес Онлайн</em>. Первичный вход осуществляется с использованием временных логина и пароля, которые выдаются вместе с токеном. При первом входе система принудительно потребует сменить временный пароль на постоянный, следуя правилам сложности.</p>
+
+<p>Администратор организации (обычно это генеральный директор) получает полные права на управление пользователями. В разделе"Настройки" ->"Пользователи" можно создавать новых сотрудников, назначать им роли и ограничивать доступ к определенным счетам. <strong>Разделение прав доступа</strong> позволяет реализовать принцип"четырех глаз", когда один сотрудник создает платеж, а второй его подтверждает.</p>
+
+<table>
+<thead>
+<tr>
+<th>Роль пользователя</th>
+<th>Возможности</th>
+<th>Ограничения</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Администратор</td>
+<td>Создание пользователей, настройка прав, просмотр всех операций</td>
+<td>Не может единолично проводить платежи без второй подписи (если настроено)</td>
+</tr>
+<tr>
+<td>Операционист</td>
+<td>Создание платежей, выгрузка выписок, создание контрагентов</td>
+<td>Не может подтверждать платежи, не может менять настройки пользователей</td>
+</tr>
+<tr>
+<td>Наблюдатель</td>
+<td>Просмотр остатков и выписок</td>
+<td>Только чтение, создание и подтверждение платежей запрещено</td>
+</tr>
+</tbody>
+</table>
+
+<p>Для каждого пользователя можно настроить индивидуальный лимит на проведение операций без дополнительного согласования. Это повышает безопасность и снижает риски в случае компрометации учетной записи рядового сотрудника. Все действия в системе логируются, и администратор всегда видит, кто и когда выполнял те или иные действия.</p>
+
+<h2 id="настройка-шаблонов-платежей-и-интеграция-с-1с">Настройка шаблонов платежей и интеграция с 1С</h2>
+
+<p>Одной из главных функций клиент-банка является возможность создания шаблонов регулярных платежей. <strong>Шаблоны платежей</strong> позволяют автоматически заполнять поля получателя, назначения платежа и суммы, что значительно ускоряет работу бухгалтера. Вы можете создать шаблоны для уплаты налогов, аренды, коммунальных услуг или выплат поставщикам.</p>
+
+<p>Для крупных компаний критически важна интеграция с бухгалтерскими системами, такими как <em>1С:Предприятие</em>. ВТБ предоставляет прямые каналы обмена, позволяющие выгружать платежные поручения из 1С прямо в банк и загружать выписки обратно в программу. Настройка этого обмена требует установки специального модуля и настройки путей к файлам обмена.</p>
+
+<details class="faq-item"><summary>Как настроить прямой банк в 1С?</summary><div class="faq-answer"><p>Для настройки необходимо в разделе"Банк и кассы" выбрать ваш банк, перейти в настройки и выбрать тип подключения"Клиент-Банк". Далее укажите путь к исполняемому файлу VB2Bank.exe или используйте встроенный механизм DirectBank, если ваша версия 1С поддерживает API ВТБ. Потребуется ввести логин и пароль, полученные в настройках пользователя ВТБ Бизнес Онлайн.">
+<p>Для настройки прямого банка в 1С убедитесь, что у вас установлена последняя версия обработки обмена с банком.</p>
+</details>
+
+<p>При работе с большими объемами документов удобно использовать функцию пакетной обработки. Вы можете загрузить файл с множеством платежей, система проверит их на наличие ошибок и сформирует реестр на подпись. <mark>Максимальный размер загружаемого файла выписки или реестра платежей ограничен 50 МБ</mark>, что следует учитывать при планировании операций.</p>
+
+<h2 id="мобильный-доступ-и-безопасность-операций">Мобильный доступ и безопасность операций</h2>
+
+<p>Современный бизнес требует постоянного контроля, и ВТБ предлагает мобильное приложение <em>ВТБ Бизнес</em> для смартфонов и планшетов. Приложение позволяет approve-ить платежи, отслеживать поступления и контролировать остатки в режиме 24/7. Для входа в мобильную версию используется тот же логин, но пароль может быть задан отдельно для повышения безопасности.</p>
+
+<p>Безопасность в мобильном клиент-банке обеспечивается биометрией, пин-кодом и привязкой к конкретному устройству. <strong>Двухфакторная аутентификация</strong> является обязательной: даже зная пароль, злоумышленник не сможет войти без физического доступа к вашему телефону или токена. Приложение автоматически блокируется после нескольких минут неактивности.</p>
+
+
+
+<p>В случае утери устройства или токена необходимо немедленно заблокировать доступ. Это можно сделать через call-центр банка или обратившись в отделение. Блокировка происходит мгновенно, что предотвращает несанкционированный доступ к счетам компании. После блокировки потребуется процедура восстановления доступа с перевыпуском ключей.</p>
+
+<h2 id="решение-проблем-и-техническая-поддержка">Решение проблем и техническая поддержка</h2>
+
+<p>В процессе эксплуатации могут возникать технические сложности, такие как ошибки соединения с сервером или проблемы с отображением сертификатов. Часто проблема кроется в истекшем сроке действия сертификата безопасности или неправильной системной дате. <strong>Диагностика проблемы</strong> начинается с проверки логоов криптопровайдера и состояния сетевого соединения.</p>
+
+<p>Если система выдает ошибку при подписании документа, проверьте, выбран ли правильный сертификат в настройках плагина. Иногда в системе может быть установлено несколько сертификатов, и клиент-банк пытается использовать не тот, который привязан к токену. Переустановка плагина браузера или очистка кэша часто решают проблемы с веб-версией.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>90% проблем с подключением решаются переустановкой драйверов токена в правильном порядке и проверкой системного времени.</p></div>
+
+<p>Для решения сложных технических вопросов ВТБ предоставляет многоканальную поддержку. Вы можете связаться с специалистами через чат в клиент-банке, по телефону горячей линии или создать обращение в личном кабинете. При обращении обязательно указывайте код ошибки и скриншот сообщения, это ускорит диагностику.</p>
+
+<details>
+<summary>Что делать, если токен не определяется компьютером?</summary>
+<p>Попробуйте подключить токен в другой USB-порт, желательно напрямую в материнскую плату, а не через USB-хаб. Проверьте диспетчер устройств Windows — если устройство помечено желтым восклицательным знаком, требуется переустановка драйверов с правами администратора.</p>
+</details>
+
+<details>
+<summary>Как восстановить доступ, если забыт пароль администратора?</summary>
+<p>Самостоятельно восстановить пароль администратора невозможно из соображений безопасности. Необходимо лично обратиться в отделение банка с паспортом и учредительными документами для сброса пароля и получения новых реквизитов доступа.</p>
+</details>
+
+<details>
+<summary>Можно ли установить клиент-банк на виртуальную машину?</summary>
+<p>Установка на виртуальные машины возможна, но требует специальной лицензии и настройки проброса USB-портов для токена. Рекомендуется предварительно согласовать эту конфигурацию с техническими специалистами банка, так как стандартная поддержка в этом случае может быть ограничена.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-документов-и-подача-заявки-в-отделении">Подготовка документов и подача заявки в отделении</a></li><li><a href="#требования-к-рабочему-месту-и-программному-обеспечению">Требования к рабочему месту и программному обеспечению</a></li><li><a href="#установка-токена-и-настройка-криптографии">Установка токена и настройка криптографии</a></li><li><a href="#регистрация-в-системе-и-создание-пользователей">Регистрация в системе и создание пользователей</a></li><li><a href="#настройка-шаблонов-платежей-и-интеграция-с-1с">Настройка шаблонов платежей и интеграция с 1С</a></li><li><a href="#мобильный-доступ-и-безопасность-операций">Мобильный доступ и безопасность операций</a></li><li><a href="#решение-проблем-и-техническая-поддержка">Решение проблем и техническая поддержка</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/p/pr/prilozhenie-vtb-chto-za-khren.html" class="related-card">Приложение ВТБ: что за хрень и как решить проблемы</a></li><li><a href="/articles/k/ka/kak-skachat-prilozhenie-vtb-24-na-telefon.html" class="related-card">Как скачать ВТБ 24 на телефон — официальная инструкция 2026</a></li><li><a href="/articles/c/ch/chto-znachit-dostupnye-sredstva-v-vtb-onlajn.html" class="related-card">Доступные средства в ВТБ Онлайн: что значит и где смотреть</a></li><li><a href="/articles/k/ka/kak-aktivirovat-sim-kartu-vtb-mobajl-na-telefone.html" class="related-card">Как активировать SIM-карту ВТБ Мобайл на телефоне: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-skachat-prilozhenie-vtb-24-lichnyj-kabinet.html" class="related-card">Как скачать ВТБ 24 Личный кабинет: официальная инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/p/pr/prilozhenie-vtb-chto-za-khren.html" class="related-bottom-card"><span class="related-bottom-title">Приложение ВТБ: что за хрень и как решить проблемы</span><span class="related-bottom-desc">Разбираемся, почему приложение ВТБ не работает, зависает или выдает ошибки. Решения проблем с входом</span></a><a href="/articles/k/ka/kak-skachat-prilozhenie-vtb-24-na-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как скачать ВТБ 24 на телефон — официальная инструкция 2026</span><span class="related-bottom-desc">Пошаговое руководство по установке мобильного банка ВТБ 24 на Android и iOS. Скачивание с App Store,</span></a><a href="/articles/c/ch/chto-znachit-dostupnye-sredstva-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Доступные средства в ВТБ Онлайн: что значит и где смотреть</span><span class="related-bottom-desc">Узнайте, что означает статус «доступные средства» в приложении ВТБ Онлайн. Разница с балансом, причи</span></a><a href="/articles/k/ka/kak-aktivirovat-sim-kartu-vtb-mobajl-na-telefone.html" class="related-bottom-card"><span class="related-bottom-title">Как активировать SIM-карту ВТБ Мобайл на телефоне: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по активации SIM-карты ВТБ Мобайл на смартфоне: от установки до первого звонка</span></a><a href="/articles/k/ka/kak-skachat-prilozhenie-vtb-24-lichnyj-kabinet.html" class="related-bottom-card"><span class="related-bottom-title">Как скачать ВТБ 24 Личный кабинет: официальная инструкция 2026</span><span class="related-bottom-desc">Пошаговое руководство по установке мобильного приложения ВТБ Онлайн (Личный кабинет) на Android и iO</span></a><a href="/articles/k/ka/kak-vojti-v-vtb-bank-po-loginu.html" class="related-bottom-card"><span class="related-bottom-title">Как войти в ВТБ Онлайн по логину: полная инструкция</span><span class="related-bottom-desc">Подробное руководство, как войти в ВТБ Банк Онлайн по логину. Решения проблем с доступом, настройка </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

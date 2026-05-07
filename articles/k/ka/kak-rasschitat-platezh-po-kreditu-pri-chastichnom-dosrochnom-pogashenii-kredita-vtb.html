@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Расчет платежа при частичном досрочном погашении в ВТБ: пошаговая инструкция — Банки Инфо</title>
+    <meta name="description" content="Как рассчитать новый платеж по кредиту ВТБ после частичного досрочного погашения? Разбор методов уменьшения срока и платежа, формулы и советы.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rasschitat-platezh-po-kreditu-pri-chastichnom-dosrochnom-pogashenii-kredita-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Расчет платежа при частичном досрочном погашении в ВТБ: пошаговая инструкция">
+    <meta property="og:description" content="Как рассчитать новый платеж по кредиту ВТБ после частичного досрочного погашения? Разбор методов уменьшения срока и платежа, формулы и советы.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/kredity/">Кредиты</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Расчет платежа при частичном досрочном погашении в ВТБ: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как рассчитать платеж по кредиту ВТБ при частичном досрочном погашении</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#механика-начисления-процентов-при-изменении-графика">Механика начисления процентов при изменении графика</a></li><li><a href="#выбор-стратегии-уменьшение-срока-или-размера-платежа">Выбор стратегии: уменьшение срока или размера платежа</a></li><li><a href="#пошаговая-инструкция-по-расчету-нового-платежа">Пошаговая инструкция по расчету нового платежа</a></li><li><a href="#таблица-сравнения-вариантов-пересчета">Таблица сравнения вариантов пересчета</a></li><li><a href="#особенности-проведения-операции-через-втб-онлайн">Особенности проведения операции через ВТБ Онлайн</a></li><li><a href="#типичные-ошибки-и-важные-нюансы">Типичные ошибки и важные нюансы</a></li><li><a href="#ответы-на-часто-задаваемые-вопросы">Ответы на часто задаваемые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Финансовая дисциплина часто приводит к появлению свободных средств, которые заемщики стремятся направить на погашение обязательств перед банком. В случае с <em>ВТБ</em>, одним из крупнейших финансовых институтов страны, процедура частичного досрочного погашения является стандартной операцией, доступной через мобильное приложение или в офисе. Однако многие клиенты сталкиваются с трудностями в понимании того, как именно изменится их график платежей после внесения дополнительной суммы.</p>
+
+<p>Сложность заключается в том, что итоговая переплата и размер нового ежемесячного взноса зависят не только от внесенной суммы, но и от выбранного вами способа реструктуризации графика. <strong>Частичное досрочное погашение</strong> — это мощный инструмент оптимизации кредитной нагрузки, который при грамотном использовании позволяет сэкономить сотни тысяч рублей на процентах. В этой статье мы детально разберем механику расчетов и поможем вам выбрать оптимальную стратегию.</p>
+
+<p>Понимание принципов начисления процентов даст вам возможность самостоятельно прогнозировать свои расходы. Не стоит полагаться исключительно на автоматические расчеты системы без предварительного анализа, так как выбор неверного сценария может снизить эффективность ваших вложений. Давайте рассмотрим, как банки пересчитывают задолженность и что происходит с вашим <strong>кредитным договором</strong> в момент внесения средств.</p>
+
+<h2 id="механика-начисления-процентов-при-изменении-графика">Механика начисления процентов при изменении графика</h2>
+
+<p>Чтобы правильно рассчитать будущий платеж, необходимо понимать, из чего складывается ваш ежемесячный взнос. При аннуитетной схеме, которая является наиболее распространенной в <em>ВТБ</em>, платеж состоит из двух частей: одна идет на погашение основного долга (тела кредита), а другая — на оплату начисленных за месяц процентов. В начале срока большую часть платежа составляют именно проценты, и лишь малая часть идет на уменьшение основного долга.</p>
+
+<p>Когда вы вносите сумму сверх обязательного платежа, эти деньги полностью идут на уменьшение тела кредита. Это критически важный момент: <strong>основной долг</strong> снижается мгновенно, а значит, проценты в следующем месяце будут начисляться уже на меньшую сумму. Именно на этом эффекте и строится экономия.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Всегда вносите средства на счет до 20:00 в день списания обязательного платежа, чтобы система успела корректно обработать операцию и пересчитать проценты за текущий период.</p></div>
+
+<p>Существует заблуждение, что банк может игнорировать внесенные средства или применять к ним какие-либо скрытые комиссии. В реальности <em>ВТБ</em>, как и другие крупные банки, обязан пересчитать график в соответствии с федеральным законодательством. Однако </p>
+
+<blockquote>⚠️ Внимание: Если вы вносите деньги между датами платежей, проценты за фактическое пользование кредитом в этот период все равно будут начислены. Внесение средств в день платежа максимально эффективно, так как вся сумма пойдет на уменьшение тела долга, а не на покрытие набежавших за пару дней процентов.</blockquote>
+
+<h2 id="выбор-стратегии-уменьшение-срока-или-размера-платежа">Выбор стратегии: уменьшение срока или размера платежа</h2>
+
+<p>При подаче заявления на частичное досрочное погашение в <em>ВТБ</em> вам предложат два варианта развития событий. Выбор между ними является ключевым моментом, определяющим вашу финансовую стратегию на ближайшие годы. Каждый из вариантов имеет свои преимущества и недостатки, которые нужно учитывать исходя из вашей текущей ситуации.</p>
+
+<p>Первый вариант — <strong>уменьшение срока кредита</strong>. В этом случае размер ежемесячного платежа остается прежним, но сокращается количество месяцев, оставшихся до полного закрытия долга. Этот метод наиболее выгоден с математической точки зрения, так как позволяет минимизировать итоговую переплату по процентам. Чем быстрее вы вернете тело кредита, тем меньше времени банк будет начислять проценты на остаток.</p>
+
+<p>Второй вариант — <strong>уменьшение размера платежа</strong>. Здесь срок кредита остается неизменным, но снижается сумма, которую необходимо вносить каждый месяц. Это отличный способ снизить финансовую нагрузку, если ваш бюджет стал менее стабным или вы планируете крупные траты в будущем. Однако итоговая переплата по процентам в этом случае снизится не так значительно, как при сокращении срока.</p>
+
+<div class="poll-widget" id="poll-1cdc39a5"><div class="poll-widget-question">📊 Что для вас важнее при досрочном погашении?</div><div class="poll-widget-option" data-poll="1cdc39a5" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Сократить срок кредита</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1cdc39a5" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Уменьшить ежемесячный платеж</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1cdc39a5" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Полностью закрыть кредит</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1cdc39a5" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Пока не решил</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Многие заемщики используют комбинированный подход: сначала они выбирают уменьшение платежа, чтобы создать себе «финансовую подушку» и снизить обязательную нагрузку, а затем продолжают вносить ту же сумму, которая была у них до рефинансирования, фактически реализуя стратегию сокращения срока вручную. Этот метод требует высокой самодисциплины, но дает гибкость.</p>
+
+<h2 id="пошаговая-инструкция-по-расчету-нового-платежа">Пошаговая инструкция по расчету нового платежа</h2>
+
+<p>Для самостоятельного расчета нового графика платежей вам не обязательно быть финансовым аналитиком. Достаточно знать несколько ключевых параметров вашего договора и использовать простые арифметические операции или кредитные калькуляторы. Точность расчетов зависит от актуальности данных, которые вы используете в формуле.</p>
+
+<p>В первую очередь вам необходимо узнать точную сумму остатка основного долга на текущую дату. Эту информацию можно найти в мобильном приложении <em>ВТБ Онлайн</em> или запросить в отделении банка. Не путайте полную сумму задолженности (включая будущие проценты) с остатком основного долга — для расчетов нужен именно второй показатель.</p>
+
+<div class="checklist-block"><h4>☑️ Подготовка к расчету</h4><label class="check-item"><input type="checkbox"><span>Узнать остаток основного долга</span></label><label class="check-item"><input type="checkbox"><span>Уточнить текущую процентную ставку</span></label><label class="check-item"><input type="checkbox"><span>Определить количество оставшихся месяцев</span></label><label class="check-item"><input type="checkbox"><span>Выбрать дату внесения средств</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Далее следует определить, какую сумму вы планируете внести досрочно. Важно учитывать, что минимальная сумма частичного погашения в <em>ВТБ</em> может регулироваться условиями договора, хотя часто ограничений по минимуму нет. После внесения средств новый платеж будет рассчитываться по формуле аннуитета, где в качестве исходной суммы (PV) берется новый остаток долга.</p>
+
+<p>Формула расчета ежемесячного платежа (P) выглядит следующим образом: P = S <em> (i </em> (1+i)^n) / ((1+i)^n - 1), где S — остаток долга, i — месячная процентная ставка (годовая ставка делится на 12 и на 100), n — количество оставшихся месяцев. Если вы выбрали уменьшение срока, то P остается прежним, а n пересчитывается.</p>
+
+<pre><code>Пример расчета месячной ставки:
+<p>Годовая ставка 15%.</p>
+<p>Месячная ставка = 15 / 12 / 100 = 0.0125</code></pre></p>
+
+<p>Использование сложных формул вручную может привести к ошибкам из-за округления чисел. Банковские системы используют более точные алгоритмы с большим количеством знаков после запятой. Поэтому для получения точной цифры до копейки лучше воспользоваться официальным <strong>кредитным калькулятором</strong> на сайте банка или в приложении, который автоматически учтет все нюансы вашего договора.</p>
+
+<h2 id="таблица-сравнения-вариантов-пересчета">Таблица сравнения вариантов пересчета</h2>
+
+<p>Чтобы наглядно продемонстрировать разницу между двумя стратегиями, рассмотрим пример. Предположим, что остаток долга составляет 500 000 рублей, осталось 24 месяца, ставка 12% годовых. Вы вносите 100 000 рублей досрочно. Как изменятся параметры кредита?</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>До погашения</th>
+<th>Уменьшение платежа</th>
+<th>Уменьшение срока</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Остаток долга</td>
+<td>500 000 руб.</td>
+<td>400 000 руб.</td>
+<td>400 000 руб.</td>
+</tr>
+<tr>
+<td>Ежемесячный платеж</td>
+<td>23 537 руб.</td>
+<td>18 829 руб.</td>
+<td>23 537 руб.</td>
+</tr>
+<tr>
+<td>Срок кредита</td>
+<td>24 мес.</td>
+<td>24 мес.</td>
+<td>18 мес.</td>
+</tr>
+<tr>
+<td>Итоговая переплата</td>
+<td>62 888 руб.</td>
+<td>51 896 руб.</td>
+<td>38 250 руб.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Из таблицы видно, что выбор стратегии <strong>уменьшения срока</strong> позволяет сэкономить значительно больше средств на процентах (38 250 против 51 896 рублей переплаты). Однако ежемесячная нагрузка в этом случае не снижается, что может быть критично для семейного бюджета. Выбор всегда остается за заемщиком и зависит от его приоритетов.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Математически выгоднее сокращать срок кредита, но психологически комфортнее снижать ежемесяный платеж, особенно в условиях нестабильной экономики.</p></div>
+
+<h2 id="особенности-проведения-операции-через-втб-онлайн">Особенности проведения операции через ВТБ Онлайн</h2>
+
+<p>Современные технологии позволяют управлять кредитом, не выходя из дома. Приложение <em>ВТБ Онлайн</em> предоставляет полный функционал для частичного досрочного погашения. Это не только удобно, но и позволяет мгновенно увидеть предварительный расчет нового графика перед подтверждением операции.</p>
+
+<p>Для проведения операции необходимо авторизоваться в приложении, перейти в раздел кредитов и выбрать нужный договор. В меню управления кредитом будет доступна опция «Частичное досрочное погашение». Система предложит ввести сумму и выбрать желаемую дату. Обратите внимание, что дата погашения должна приходиться на рабочий день банка.</p>
+
+<p>В интерфейсе приложения вы сможете выбрать один из двух вариантов пересчета: сокращение срока или платежа. <strong>Интерфейс ВТБ</strong> обычно показывает предварительный результат сразу после ввода суммы, что позволяет быстро сравнить варианты. После подтверждения операция будет запланирована, и средства спишутся в указанную дату.</p>
+
+<details class="faq-item"><summary>Что делать, если кнопка погашения неактивна?</summary><div class="faq-answer"><p>Если опция недоступна, возможно, на счете недостаточно свободных средств (не учитывая зарезервированные суммы), или наступили технические работы. Также проверка может быть ограничена для кредитов, выданных менее месяца назад, согласно условиям договора.</p></div></details>
+
+<p>Важно проверить статус операции на следующий день после указанной даты. Иногда требуется дополнительное подтверждение через СМС-код или push-уведомление. Если график не обновился в течение двух рабочих дней, имеет смысл обратиться в службу поддержки для уточнения статуса транзaccии.</p>
+
+<h2 id="типичные-ошибки-и-важные-нюансы">Типичные ошибки и важные нюансы</h2>
+
+<p>При планировании досрочного погашения заемщики часто упускают из виду детали, которые могут свести на нет всю экономию или создать лишние трудности. Одна из распространенных ошибок — недостаточное количество средств на счете. Система спишет ровно ту сумму, которую вы указали в заявлении, и если на балансе не хватит денег даже на копейку, операция будет отклонена или проведена частично.</p>
+
+<p>Еще один нюанс касается страховки. Если ваш кредит застрахован, то при значительном уменьшении суммы долга (обычно более чем на 30-50%) вы имеете право на возврат части страховой премии пропорционально оставшемуся сроку. Многие забывают об этом праве, теряя деньги.</p>
+
+<blockquote>⚠️ Внимание: При подаче заявления на досрочное погашение убедитесь, что на счете нет арестов или ограничений со стороны ФССП. В противном случае внесенные средства могут быть автоматически направлены на погашение других долгов, а не на уменьшение кредита в ВТБ.</blockquote>
+
+<p>Также стоит учитывать влияние инфляции. В периоды высокой инфляции деньги дешевеют, и фиксированный платеж становится менее ощутимым для бюджета. В такие времена агрессивное досрочное погашение может быть менее выгодным, чем размещение средств на депозите под высокий процент. Однако это требует индивидуального <strong>финансового расчета</strong>.</p>
+
+<details class="faq-item"><summary>Можно ли отменить досрочное погашение?</summary><div class="faq-answer"><p>Отменить уже совершенную операцию нельзя. Однако, если заявление подано, но дата исполнения еще не наступила, вы можете обратиться в банк с заявлением об отзыве поручения. Успех зависит от того, успела ли система сформировать проводки.</p></div></details>
+
+<p>Не забывайте запрашивать новый график платежей после каждой операции частичного погашения. Хотя в электронном банке он обновляется автоматически, бумажная или PDF-копия с печатью банка может понадобиться для других финансовых институтов или для личного архива. Это документ, подтверждающий изменение условий договора.</p>
+
+<h2 id="ответы-на-часто-задаваемые-вопросы">Ответы на часто задаваемые вопросы</h2>
+
+<details>
+<summary>Можно ли вносить досрочное погашение в ВТБ без комиссии?</summary>
+<p>Да, согласно законодательству РФ и условиям большинства кредитных договоров ВТБ, частичное и полное досрочное погашение потребительских кредитов осуществляется без комиссий и штрафов. Вы вносите только сумму основного долга.</p>
+</details>
+
+<details>
+<summary>За сколько дней нужно подавать заявление на досрочное погашение?</summary>
+<p>В ВТБ, как правило, заявление подается непосредственно в день планируемого погашения через приложение, либо за 30 дней, если вы делаете это через офис банка по старым правилам. В мобильном приложении операция часто доступна «день в день» до определенного времени.</p>
+</details>
+
+<details>
+<summary>Влияет ли частичное погашение на кредитную историю?</summary>
+<p>Да, влияет положительно. В кредитной истории отображается факт исполнения обязательств. Досрочное погашение показывает банкам, что вы платежеспособны и дисциплинированны, что может повысить ваш кредитный рейтинг для будущих займов.</p>
+</details>
+
+<details>
+<summary>Что будет, если внести сумму меньше минимального платежа?</summary>
+<p>Если вы вносите сумму меньше обязательного ежемесячного платежа, это не считается досрочным погашением в полном смысле, а просто частичным внесением текущего взноса. На пересчет графика это не повлияет, а на остаток могут быть начислены пени за недоплату.</p>
+</details>
+
+<details>
+<summary>Можно ли изменить способ пересчета после подачи заявления?</summary>
+<p>После того как заявление подписано (особенно через ЭЦП в приложении) и дата исполнения наступила, изменить выбор (с сокращения срока на уменьшение платежа или наоборот) нельзя. Операция считается совершенной.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#механика-начисления-процентов-при-изменении-графика">Механика начисления процентов при изменении графика</a></li><li><a href="#выбор-стратегии-уменьшение-срока-или-размера-платежа">Выбор стратегии: уменьшение срока или размера платежа</a></li><li><a href="#пошаговая-инструкция-по-расчету-нового-платежа">Пошаговая инструкция по расчету нового платежа</a></li><li><a href="#таблица-сравнения-вариантов-пересчета">Таблица сравнения вариантов пересчета</a></li><li><a href="#особенности-проведения-операции-через-втб-онлайн">Особенности проведения операции через ВТБ Онлайн</a></li><li><a href="#типичные-ошибки-и-важные-нюансы">Типичные ошибки и важные нюансы</a></li><li><a href="#ответы-на-часто-задаваемые-вопросы">Ответы на часто задаваемые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-ubrat-strakhovku-iz-kredita-vtb.html" class="related-card">Как убрать страховку из кредита ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/p/pe/perenos-ostatka-po-kreditnomu-dogovoru-chto-eto-vtb.html" class="related-card">Перенос остатка по кредиту в ВТБ: что это и как оформить в 2026</a></li><li><a href="/articles/b/ba/bank-vtb-kak-otkazatsya-ot-strakhovki-po-kreditu.html" class="related-card">Как отказаться от страховки по кредиту ВТБ в 2026 году: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-pogasit-kreditnuyu-kartu-vtb-cherez-prilozhenie.html" class="related-card">Как погасить кредитку ВТБ через приложение: пошаговая инструкция</a></li><li><a href="/articles/k/ko/komu-ne-odobryayut-kredit-v-vtb.html" class="related-card">Кому не одобряют кредит в ВТБ: причины отказа и решение</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-ubrat-strakhovku-iz-kredita-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как убрать страховку из кредита ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Юридические способы отказа от страховки по кредиту ВТБ: через банк, суд или ЦБ. Сроки, документы и п</span></a><a href="/articles/p/pe/perenos-ostatka-po-kreditnomu-dogovoru-chto-eto-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Перенос остатка по кредиту в ВТБ: что это и как оформить в 2026</span><span class="related-bottom-desc">Подробный разбор процедуры переноса остатка по кредитному договору в ВТБ: условия, тарифы, пошаговая</span></a><a href="/articles/b/ba/bank-vtb-kak-otkazatsya-ot-strakhovki-po-kreditu.html" class="related-bottom-card"><span class="related-bottom-title">Как отказаться от страховки по кредиту ВТБ в 2026 году: пошаговая инструкция</span><span class="related-bottom-desc">Полное руководство по отказу от страховки по кредиту в ВТБ: сроки, документы, образцы заявлений и ню</span></a><a href="/articles/k/ka/kak-pogasit-kreditnuyu-kartu-vtb-cherez-prilozhenie.html" class="related-bottom-card"><span class="related-bottom-title">Как погасить кредитку ВТБ через приложение: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид: как внести деньги и погасить кредитную карту ВТБ через мобильное приложение. Сроки за</span></a><a href="/articles/k/ko/komu-ne-odobryayut-kredit-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Кому не одобряют кредит в ВТБ: причины отказа и решение</span><span class="related-bottom-desc">Узнайте, кому не одобряют кредит в ВТБ. Разбор причин отказа, влияние кредитной истории, долговой на</span></a><a href="/articles/k/ka/kak-vospolzovatsya-strakhovkoj-po-kreditu-v-vtb-sostoyaniyu-zdorovya.html" class="related-bottom-card"><span class="related-bottom-title">Страховка по кредиту ВТБ: выплата при ухудшении здоровья</span><span class="related-bottom-desc">Как получить выплату по страховке кредита ВТБ при болезни. Инструкция, список документов, сроки и ус</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как настроить QUIK ВТБ для фьючерсов: пошаговая инструкция — Банки Инфо</title>
+    <meta name="description" content="Подробный гайд по установке терминала QUIK ВТБ для торговли фьючерсами. Настройка рабочего места, подключение счетов и ключевые параметры.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-nastroit-kvik-vtb-dlya-torgovli-fyuchersami.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как настроить QUIK ВТБ для фьючерсов: пошаговая инструкция">
+    <meta property="og:description" content="Подробный гайд по установке терминала QUIK ВТБ для торговли фьючерсами. Настройка рабочего места, подключение счетов и ключевые параметры.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как настроить QUIK ВТБ для фьючерсов: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Настройка QUIK ВТБ для торговли фьючерсами: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-и-установка-программного-обеспечения">Подготовка и установка программного обеспечения</a></li><li><a href="#авторизация-и-настройка-подключения-к-серверу">Авторизация и настройка подключения к серверу</a></li><li><a href="#формирование-рабочего-стола-для-фьючерсов">Формирование рабочего стола для фьючерсов</a></li><li><a href="#работа-с-таблицей-инструментов-и-спецификацией">Работа с таблицей инструментов и спецификацией</a></li><li><a href="#выставление-и-управление-заявками">Выставление и управление заявками</a></li><li><a href="#технический-анализ-и-индикаторы-в-quik">Технический анализ и индикаторы в QUIK</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Современный фондовый рынок России невозможно представить без надежного программного обеспечения, которое позволяет трейдерам оперативно реагировать на изменения котировок. <strong>Торговый терминал QUIK</strong> от компании ARQA Technologies уже много лет является стандартом де-факто для профессиональных участников торгов и частных инвесторов. В связке с брокером ВТБ эта платформа открывает широкие возможности для работы с деривативами, обеспечивая высокую скорость исполнения ордеров и стабильность соединения.</p>
+
+<p>Торговля фьючерсами требует особого подхода к настройке, так как деривативы обладают специфической спецификацией контрактов и высокой волатильностью. <em>ВТБ</em> предоставляет своим клиентам адаптированную версию программы, которая уже содержит необходимые сертификаты и настройки подключения. Однако стандартная установка часто требует дополнительной ручной конфигурации для комфортной работы именно с фьючерсными контрактами.</p>
+
+<p>В этой статье мы подробно разберем весь путь от скачивания дистрибутива до выставления первой заявки на фьючерс. Вы узнаете, как правильно сформировать рабочий стол, какие индикаторы необходимы для анализа и как избежать распространенных ошибок при подключении срочного рынка. Грамотная подготовка <em>рабочего места</em> — это первый шаг к успешной торговле.</p>
+
+<h2 id="подготовка-и-установка-программного-обеспечения">Подготовка и установка программного обеспечения</h2>
+
+<p>Первым шагом является получение актуальной версии программы. В отличие от универсальных версий, дистрибутив для клиентов <em>ВТБ</em> содержит предустановленные настройки серверов и ключи шифрования, что значительно упрощает процесс первичного запуска. Скачивать программу следует исключительно с официального сайта брокера или доверенного ресурса <em>arqatech</em>, так как использование сторонних сборок несет риски компрометации данных.</p>
+
+<p>Процесс инсталляции не требует глубоких технических знаний, но важно соблюдать последовательность действий. При установке выберите полный путь к папке, избегая кириллических символов в названии директории, чтобы исключить возможные конфликты с системными библиотеками. После завершения копирования файлов на жесткий диск необходимо запустить исполняемый файл <code>info.exe</code> или <code>start.exe</code> для первоначальной конфигурации.</p>
+
+<blockquote>⚠️ Внимание: Никогда не устанавливайте терминал в системные папки Windows, такие как Program Files, без прав администратора, так как это может привести к ошибкам при обновлении конфигурационных файлов.</blockquote>
+
+<p>Ключевым моментом на этапе установки является выбор правильного сервера подключения. Для торговли фьючерсами на Московской Бирже через ВТБ необходимо убедиться, что в настройках указан правильный шлюз. Часто пользователи сталкиваются с проблемой, когда программа пытается подключиться к демо-серверу или серверу другого брокера, если ранее на компьютере была установлена другая версия софта.</p>
+
+<ul>
+ <li>📥 Скачайте дистрибутив с личного кабинета клиента ВТБ или официального сайта.</li>
+ <li>💾 Запустите установщик и выберите директорию без русских букв в пути.</li>
+ <li>🔌 Проверьте настройки сетевого подключения в файле <code>info.cfg</code> при необходимости.</li>
+ <li>🔐 Убедитесь, что антивирус не блокирует создание соединений для <em>quik.exe</em>.</li>
+</ul>
+
+<p>После успешного запуска вы увидите окно авторизации. Здесь потребуются логин и пароль, которые можно получить в личном кабинете инвестора. <strong>Код доступа</strong> является критически важным элементом безопасности, поэтому храните его отдельно от логина. После ввода данных программа загрузит списки инструментов и настройки вашего рабочего места с сервера.</p>
+
+<h2 id="авторизация-и-настройка-подключения-к-серверу">Авторизация и настройка подключения к серверу</h2>
+
+<p>Процесс входа в систему требует внимательности, так как доступ к торгам фьючерсами может быть ограничен до момента прохождения тестирования или подписания дополнительных соглашений. В окне входа введите предоставленные брокером credentials. Если вы планируете торговать на срочном рынке, убедитесь, что в вашем договоре с <em>ВТБ</em> прописана возможность работы с деривативами.</p>
+
+<p>В некоторых случаях требуется ручная настройка параметров соединения, особенно если вы находитесь в корпоративной сети с жесткими фаерволами. В меню настроек соединения необходимо проверить порт и адрес сервера. Стандартные настройки для ВТБ обычно подставляются автоматически, но при проблемах со стабильностью связи изменить метод соединения на HTTP или использовать прокси-сервер.</p>
+
+<p>Важно различать режимы работы терминала: онлайн и офлайн. Для торговли фьючерсами необходим постоянный <strong>онлайн-режим</strong>, так как котировки и стакан цен обновляются в реальном времени. Любая задержка в передаче данных (лаг) может привести к существенным финансовым потерям, особенно при скальперских стратегиях.</p>
+
+<table>
+ <thead>
+ <tr>
+ <th>Параметр</th>
+ <th>Значение для ВТБ</th>
+ <th>Описание</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Сервер</td>
+ <td>tcp.vtb.ru:4701 (пример)</td>
+ <td>Адрес основного шлюза</td>
+ </tr>
+ <tr>
+ <td>Протокол</td>
+ <td>TCP/IP</td>
+ <td>Основной протокол передачи</td>
+ </tr>
+ <tr>
+ <td>Порт</td>
+ <td>4701 / 4702</td>
+ <td>Стандартные порты QUIK</td>
+ </tr>
+ <tr>
+ <td>Шифрование</td>
+ <td>SSL/TLS</td>
+ <td>Защита канала связи</td>
+ </tr>
+ </tbody>
+</table>
+
+<blockquote>⚠️ Внимание: При использовании публичных Wi-Fi сетей обязательно активируйте VPN-соединение, так как передача торговых паролей по открытым каналам небезопасна.</blockquote>
+
+<div class="checklist-block"><h4>☑️ Проверка перед торгами</h4><label class="check-item"><input type="checkbox"><span>Проверен баланс на счете</span></label><label class="check-item"><input type="checkbox"><span>Активирован доступ к срочному рынку</span></label><label class="check-item"><input type="checkbox"><span>Установлены актуальные котировки</span></label><label class="check-item"><input type="checkbox"><span>Проверено время до экспирации</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="формирование-рабочего-стола-для-фьючерсов">Формирование рабочего стола для фьючерсов</h2>
+
+<p>Интерфейс терминала по умолчанию может выглядеть перегруженным или, наоборот, недостаточно информативным для торговли фьючерсами. Главная задача трейдера — создать эффективное <strong>рабочее пространство</strong>. Для работы с деривативами критически важны окна"Котировки","Стакан" (Depth of Market) и"Заявки".</p>
+
+<p>Начните с добавления таблицы котировок. В меню"Создать окно" выберите"Котировки". В настройках таблицы добавьте необходимые колонки: текущая цена, изменение за день, объем торгов и, самое главное для фьючерсов, время экспирации и шаг цены. Фьючерсные контракты имеют ограниченный срок жизни, поэтому контроль даты исполнения обязателен.</p>
+
+<p>Окно"Стакан" является основным инструментом для анализа ликвидности. Для фьючерсов на индекс РТС или нефть Brent характерна высокая волатильность, и стакан позволяет видеть реальную глубину рынка. Настройте отображение так, чтобы видеть не менее 10-20 строк заявок с каждой стороны. Это поможет оценивать силу покупателей и продавцов.</p>
+
+<ul>
+ <li>📊 Добавьте окно"График" для технического анализа ценовых движений.</li>
+ <li>📝 Создайте таблицу"Заявки" для контроля открытых позиций.</li>
+ <li>💰 Откройте окно"Портфель" для мониторинга свободных средств и гарантийного обеспечения.</li>
+ <li>⏰ Настройте отображение времени биржи, оно может отличаться от локального.</li>
+</ul>
+
+<p>Не забывайте о возможности сохранения конфигурации рабочего места. После того как вы расположите окна удобным для вас образом, сохраните файл настроек <code>.winfo</code> или <code>.wnd</code>. Это позволит вам быстро восстановить привычную обстановку в случае переустановки системы или сбоя настроек. <em>Архитектура окон</em> влияет на скорость принятия решений.</p>
+
+<div class="poll-widget" id="poll-517e2174"><div class="poll-widget-question">📊 Какой инструмент вас интересует больше?</div><div class="poll-widget-option" data-poll="517e2174" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Фьючерс на индекс РТС:Фьючерс на нефть:Фьючерс на доллар/рубль:Фьючерс на золото</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="работа-с-таблицей-инструментов-и-спецификацией">Работа с таблицей инструментов и спецификацией</h2>
+
+<p>Фьючерсы отличаются от акций наличием специфических параметров, таких как размер шага цены, стоимость шага и дата экспирации. В терминале QUIK эти данные отображаются в таблице инструментов. Чтобы добавить нужный контракт, нажмите правой кнопкой мыши на поле ввода кода инструмента и выберите"Редактировать список".</p>
+
+<p>Коды фьючерсов ВТБ и других эмитентов имеют определенную структуру. Например, фьючерс на индекс РТС с экспирацией в марте 2026 года может иметь код <code>RIM4</code> или <code>RTS-3.24</code> в зависимости от обозначений месяца. Понимание этой логики необходимо для быстрого поиска инструментов. Ошибка в выборе месяца поставки может привести к торговле неликвидным контрактом.</p>
+
+<p>В таблице инструментов обязательно добавьте колонку"Гарантийное обеспечение" (ГО). Это сумма, которая блокируется на счете при открытии позиции. Размер ГО может меняться биржей в зависимости от волатильности рынка. Контроль уровня ГО позволяет управлять рисками и избегать маржин-коллов.</p>
+
+<blockquote>⚠️ Внимание: Всегда проверяйте дату последнего торгового дня фьючерсного контракта. Попытка открыть позицию в день экспирации или на неликвидном дальнем месяце может привести к автоматическому закрытию по невыгодной цене.</blockquote>
+
+<p>Для удобства анализа можно настроить цветовую индикацию изменений цены. В настройках таблицы установите правила: если цена выросла — зеленый фон, если упала — красный. Это позволяет мгновенно оценивать ситуацию на рынке, не вчитываясь в цифры. <strong>Визуализация</strong> данных ускоряет реакцию трейдера.</p>
+
+<details class="faq-item"><summary>Как рассчитывается шаг цены?</summary><div class="faq-answer"><p>Шаг цены — это минимальное изменение стоимости контракта. Для фьючерса на индекс РТС он составляет 1 пункт индекса, что в денежном выражении равно определенной сумме рублей. Знание стоимости шага необходимо для расчета потенциальной прибыли или убытка.</p></div></details>
+
+<h2 id="выставление-и-управление-заявками">Выставление и управление заявками</h2>
+
+<p>Процесс торговли фьючерсами в QUIK осуществляется через окно ввода заявок. Вызвать его можно двойным кликом по цене в стакане или через горячие клавиши (обычно F2 для покупки и F3 для продажи). В окне заявки необходимо указать количество лотов и тип ордера.</p>
+
+<p>Существует два основных типа заявок: лимитные и рыночные. Лимитная заявка исполняется только по указанной цене или лучше. Рыночная заявка исполняется мгновенно по лучшим ценам в стакане. Для фьючерсов с высокой волатильностью использование рыночных ордеров может быть рискованным из-за проскальзывания цены.</p>
+
+<p>Важным элементом управления рисками является установка стоп-заявок. Стоп-лосс ограничивает убытки, а тейк-профит фиксирует прибыль. В терминале ВТБ можно настроить условные заявки, которые активируются при достижении определенного уровня цены. Это позволяет автоматизировать процесс торговли и снизить эмоциональную нагрузку.</p>
+
+<pre><code>Пример структуры стоп-заявки:
+<p>Тип: Stop-Limit</p>
+<p>Цена активации: 100000</p>
+<p>Цена исполнения: 99900</p>
+<p>Количество: 1 лот</code></pre></p>
+
+<p>Контроль исполнения заявок ведется в окне"Заявки". Здесь отображаются все активные, исполненные и снятые ордера. Статус заявки меняется в реальном времени:"Поставлена","Исполнена","Снята". Внимательно следите за статусом, особенно при работе с большими объемами, когда заявка может быть исполнена частично.</p>
+
+<ul>
+ <li>✅ Используйте лимитные заявки для входа в позицию по запланированной цене.</li>
+ <li>🛑 Обязательно выставляйте стоп-лосс сразу после открытия позиции.</li>
+ <li>👀 Следите за окном"Заявки" на предмет частичного исполнения.</li>
+ <li>🔄 При необходимости используйте функцию"Заявка по исполненной" для усреднения.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте горячие клавиши для быстрого выставления и снятия заявок. Настройка клавиш в меню"Система" →"Настройки" →"Клавиши" может значительно ускорить вашу работу.</p></div>
+
+<h2 id="технический-анализ-и-индикаторы-в-quik">Технический анализ и индикаторы в QUIK</h2>
+
+<p>Торговля фьючерсами невозможна без анализа графиков. Встроенный графический анализатор QUIK предоставляет широкий набор инструментов. Для начала работы откроите график нужного инструмента. Вы можете выбрать таймфрейм от одной минуты до месяца, что позволяет проводить анализ как для дейтрейдинга, так и для свинг-трейдинга.</p>
+
+<p>В арсенале терминала есть множество технических индикаторов: скользящие средние (Moving Average), RSI, MACD, Bollinger Bands и другие. Для фьючерсов часто используют уровни поддержки и сопротивления, а также объемный анализ (Volume Profile). Добавление индикаторов осуществляется через контекстное меню графика.</p>
+
+<p><strong>Настройка индикаторов</strong> позволяет адаптировать их под конкретный инструмент. Например, период скользящей средней можно изменить в зависимости от волатильности фьючерса. Сохраняйте шаблоны графиков, чтобы не настраивать индикаторы заново для каждого нового инструмента.</p>
+
+<table>
+ <thead>
+ <tr>
+ <th>Индикатор</th>
+ <th>Назначение</th>
+ <th>Рекомендуемый таймфрейм</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>RSI</td>
+ <td>Определение перекупленности/перепроданности</td>
+ <td>1 мин - 1 час</td>
+ </tr>
+ <tr>
+ <td>MACD</td>
+ <td>Определение тренда и разворотов</td>
+ <td>15 мин - 1 день</td>
+ </tr>
+ <tr>
+ <td>Volume</td>
+ <td>Анализ активности торгов</td>
+ <td>Любой</td>
+ </tr>
+ <tr>
+ <td>Bollinger Bands</td>
+ <td>Оценка волатильности</td>
+ <td>5 мин - 4 часа</td>
+ </tr>
+ </tbody>
+</table>
+
+<p>Не стоит перегружать график множеством индикаторов. Оптимально использовать 2-3 проверенных инструмента, которые дают непротиворечивые сигналы. Излишняя информация может запутать и привести к ошибочным решениям. <em>Технический анализ</em> — это инструмент вероятности, а не гарантия результата.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Успешная торговля фьючерсами в QUIK зависит не только от правильного прогноза, но и от грамотного управления рисками и скоростью исполнения операций.</p></div>
+
+<details>
+<summary>Как восстановить настройки терминала после сбоя?</summary>
+<p>Если терминал работает некорректно, можно восстановить настройки по умолчанию. Для этого закройте программу, перейдите в папку установки и найдите файл конфигурации или резервную копию рабочего места. Также можно переустановить терминал, сохранив папку с пользовательскими данными, если она вынесена отдельно.</p>
+</details>
+
+<details>
+<summary>Что делать, если котировки не обновляются?</summary>
+<p>Проверьте интернет-соединение и статус подключения в нижнем правом углу терминала. Если соединение есть, но данных нет, возможно, биржа закрыта или проводятся технические работы. Попробуйте переподключиться или перезагрузить компьютер. В крайнем случае обратитесь в техподдержку ВТБ.</p>
+</details>
+
+<details>
+<summary>Можно ли торговать фьючерсами с мобильного приложения QUIK?</summary>
+<p>Да, ВТБ предоставляет мобильную версию терминала. Однако функционал мобильной версии ограничен по сравнению с десктопной. Для полноценного технического анализа и работы со сложными заявками рекомендуется использовать компьютерную версию.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-и-установка-программного-обеспечения">Подготовка и установка программного обеспечения</a></li><li><a href="#авторизация-и-настройка-подключения-к-серверу">Авторизация и настройка подключения к серверу</a></li><li><a href="#формирование-рабочего-стола-для-фьючерсов">Формирование рабочего стола для фьючерсов</a></li><li><a href="#работа-с-таблицей-инструментов-и-спецификацией">Работа с таблицей инструментов и спецификацией</a></li><li><a href="#выставление-и-управление-заявками">Выставление и управление заявками</a></li><li><a href="#технический-анализ-и-индикаторы-в-quik">Технический анализ и индикаторы в QUIK</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/s/s-/s-kakogo-vozrasta-mozhno-otkryt-brokerskij-schet-v-vtb-investitsii.html" class="related-card">С какого возраста можно открыть брокерский счет в ВТБ</a></li><li><a href="/articles/k/ko/kogda-vtb-vyshel-na-ipo.html" class="related-card">Когда ВТБ вышел на IPO: история, даты и последствия для инвесторов</a></li><li><a href="/articles/k/ka/kak-vyvesti-dollary-s-brokerskogo-scheta-vtb-investitsii-na-kartu.html" class="related-card">Как вывести доллары с брокерского счета ВТБ на карту</a></li><li><a href="/articles/i/ii/iis-vtb-gde-otobrazhaetsya.html" class="related-card">Где найти ИИС ВТБ: отображение в приложении и на сайте</a></li><li><a href="/articles/k/ka/kak-poluchit-nalogovyj-vychet-za-investitsionnyj-schet-v-vtb.html" class="related-card">Налоговый вычет за ИИС в ВТБ: пошаговая инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/s/s-/s-kakogo-vozrasta-mozhno-otkryt-brokerskij-schet-v-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">С какого возраста можно открыть брокерский счет в ВТБ</span><span class="related-bottom-desc">Узнайте, с какого возраста можно открыть брокерский счет в ВТБ Инвестиции. Подробно о правилах для д</span></a><a href="/articles/k/ko/kogda-vtb-vyshel-na-ipo.html" class="related-bottom-card"><span class="related-bottom-title">Когда ВТБ вышел на IPO: история, даты и последствия для инвесторов</span><span class="related-bottom-desc">Узнайте точную дату IPO ВТБ, как проходил выход на биржу, какие акции выпускались и как это повлияло</span></a><a href="/articles/k/ka/kak-vyvesti-dollary-s-brokerskogo-scheta-vtb-investitsii-na-kartu.html" class="related-bottom-card"><span class="related-bottom-title">Как вывести доллары с брокерского счета ВТБ на карту</span><span class="related-bottom-desc">Актуальная инструкция: как вывести доллары с брокерского счета ВТБ Инвестиции на валютную карту. Осо</span></a><a href="/articles/i/ii/iis-vtb-gde-otobrazhaetsya.html" class="related-bottom-card"><span class="related-bottom-title">Где найти ИИС ВТБ: отображение в приложении и на сайте</span><span class="related-bottom-desc">Узнайте, где отображается ИИС ВТБ. Инструкция по проверке статуса счета в приложении, личном кабинет</span></a><a href="/articles/k/ka/kak-poluchit-nalogovyj-vychet-za-investitsionnyj-schet-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Налоговый вычет за ИИС в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как вернуть 13% с инвестиций через ИИС ВТБ: условия, документы, сроки и ошибки. Актуальные правила н</span></a><a href="/articles/k/ka/kak-postavit-short-v-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как поставить шорт в ВТБ Инвестиции: пошаговая инструкция 2026</span><span class="related-bottom-desc">Разбираемся, как открыть короткую позицию (шорт) в приложении ВТБ Инвестиции: условия, риски, комисс</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

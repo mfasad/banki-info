@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>3DS SMS в ВТБ: что это, как работает и зачем нужен — Банки Инфо</title>
+    <meta name="description" content="Разбираемся, что такое 3DS SMS в ВТБ, как подключить и использовать для безопасных онлайн-платежей. Инструкции, нюансы и ответы на частые вопросы.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/3/3d/3ds-sms-vtb-chto-eto-takoe.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="3DS SMS в ВТБ: что это, как работает и зачем нужен">
+    <meta property="og:description" content="Разбираемся, что такое 3DS SMS в ВТБ, как подключить и использовать для безопасных онлайн-платежей. Инструкции, нюансы и ответы на частые вопросы.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">3DS SMS в ВТБ: что это, как работает и зачем нужен</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>3DS SMS в ВТБ: что это за технология и как она защищает ваши платежи</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-3ds-в-банке-втб-просто-о-сложном">Что такое 3DS в банке ВТБ: просто о сложном</a></li><li><a href="#как-работает-3ds-sms-в-втб-пошаговый-разбор">Как работает 3DS SMS в ВТБ: пошаговый разбор</a></li><li><a href="#зачем-нужен-3ds-в-втб-5-причин-использовать">Зачем нужен 3DS в ВТБ: 5 причин использовать</a></li><li><a href="#как-подключить-или-отключить-3ds-sms-в-втб">Как подключить или отключить 3DS SMS в ВТБ</a></li><li><a href="#частые-проблемы-с-3ds-sms-в-втб-и-их-решения">Частые проблемы с 3DS SMS в ВТБ и их решения</a></li><li><a href="#3ds-10-vs-3ds-20-в-втб-в-чём-разница">3DS 1.0 vs 3DS 2.0 в ВТБ: в чём разница?</a></li><li><a href="#безопасность-и-мошенничество-как-не-потерять-деньги-с-3ds">Безопасность и мошенничество: как не потерять деньги с 3DS</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-3ds-sms-в-втб">FAQ: ответы на частые вопросы о 3DS SMS в ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Если вы когда-нибудь оплачивали покупки в интернете картой ВТБ, то наверняка сталкивались с запросом SMS-кода для подтверждения платежа. Эта система называется <strong>3D-Secure</strong> (или сокращённо <em>3DS</em>), а SMS с одноразовым паролем — её ключевой элемент. Но почему банки так настойчиво внедряют эту технологию, и чем она отличается от обычного подтверждения по СМС? В этой статье разберём, что такое <strong>3DS SMS в ВТБ</strong>, как оно работает на практике, и почему без него сегодня не обойтись.</p>
+
+<p>Сразу уточним: <em>3DS</em> — это не просто «ещё один код из сообщения», а полноценный протокол безопасности, который защищает ваши деньги от мошенников. ВТБ, как и другие банки, обязан его использовать по требованиям международных платёжных систем (<em>Visa</em> и <em>Mastercard</em>). Без 3D-Secure многие онлайн-магазины просто не примут вашу карту. Но как именно это работает, и что делать, если SMS не приходит? Об этом — далее.</p>
+
+<h2 id="что-такое-3ds-в-банке-втб-просто-о-сложном">Что такое 3DS в банке ВТБ: просто о сложном</h2>
+
+<p><strong>3D-Secure (3DS)</strong> — это технология дополнительной аутентификации при онлайн-платежах. Она добавляет ещё один шаг подтверждения помимо ввода номера карты, срока действия и CVC-кода. В случае с ВТБ этот шаг реализован через <strong>SMS с одноразовым паролем</strong>, который приходит на телефон, привязанный к карте.</p>
+
+<p>Почему «3D»? Аббревиатура расшифровывается как <em>Three-Domain Secure</em> (безопасность трёх доменов):
+<strong>банк</strong> (ВТБ), <strong>платежная система</strong> (<em>Visa/Mastercard</em>) и <strong>интернет-магазин</strong>. Все три стороны взаимодействуют, чтобы подтвердить, что платеж совершает именно владелец карты, а не мошенник.</p>
+
+<p>ВТБ использует две версии протокола:
+<ul>
+ <li>🔹 <strong>3D-Secure 1.0</strong> — классическая схема с SMS-кодом (ещё встречается в некоторых магазинах).</li>
+ <li>🔹 <strong>3D-Secure 2.0</strong> — современная версия с поддержкой биометрии (отпечаток пальца, Face ID) и анализом поведения пользователя. ВТБ постепенно переходит на неё, но SMS остаются резервным методом.</li>
+</ul>
+</p>
+
+<p>Важно понимать: <mark>3DS SMS — это не просто «банковская прихоть», а требование международных стандартов PCI DSS, которые обязывают банки подтверждать подозрительные транзакции.</mark> Без этого механизма риск списания денег мошенниками вырастает в разы.</p>
+
+<h2 id="как-работает-3ds-sms-в-втб-пошаговый-разбор">Как работает 3DS SMS в ВТБ: пошаговый разбор</h2>
+
+<p>Рассмотрим типичный сценарий оплаты с 3D-Secure на примере покупки в интернет-магазине:</p>
+
+<ol>
+ <li><strong>Шаг 1.</strong> Вы вводите данные карты ВТБ на сайте магазина (номер, срок действия, CVC).</li>
+ <li><strong>Шаг 2.</strong> Система магазина отправляет запрос в банк на авторизацию платежа.</li>
+ <li><strong>Шаг 3.</strong> ВТБ анализирует транзакцию:
+ <ul>
+ <li>🔍 Проверяет, подозрительный ли это платеж (необычная сумма, геолокация, время суток).</li>
+ <li>🔍 Сверяет с вашей историей операций.</li>
+ </ol>
+ </li>
+ <li><strong>Шаг 4.</strong> Если платеж кажется рискованным, банк отправляет вам <strong>SMS с кодом</strong> (обычно 6 цифр).</li>
+ <li><strong>Шаг 5.</strong> Вы вводите код на сайте магазина — платеж проходит.</li>
+</ol>
+
+<p>Весь процесс занимает 10–30 секунд. Если SMS не пришло, проверьте:
+<ul>
+ <li>📶 Есть ли связь у оператора (иногда сообщения задерживаются).</li>
+ <li>📱 Привязан ли к карте актуальный номер телефона (можно уточнить в <code>ВТБ-Онлайн → Карты → Настройки</code>).</li>
+ <li>🔄 Не блокирует ли антивирус или VPN доставку SMS.</li>
+</ul>
+</p>
+
+<div class="poll-widget" id="poll-f4df64d3"><div class="poll-widget-question">📊 Как часто вы сталкиваетесь с 3DS подтверждением при оплате?</div><div class="poll-widget-option" data-poll="f4df64d3" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Почти всегда</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f4df64d3" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Иногда</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f4df64d3" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Рядом</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f4df64d3" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Никогда</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="зачем-нужен-3ds-в-втб-5-причин-использовать">Зачем нужен 3DS в ВТБ: 5 причин использовать</h2>
+
+<p>Многие клиенты воспринимают SMS-подтверждение как лишнюю формальность, но на самом деле это критически важный механизм защиты. Вот почему ВТБ и другие банки его активно применяют:</p>
+
+<ol>
+ <li><strong>Защита от кражи данных карты.</strong> Даже если мошенники узнают номер вашей карты, CVC и срок действия, без SMS-кода они не смогут подтвердить платеж.</li>
+ <li><strong>Снижение числа спорных транзакций.</strong> Банки несут ответственность за мошеннические списания, и 3DS помогает им избегать убытков.</li>
+ <li><strong>Соответствие международным стандартам.</strong> Без 3D-Secure многие зарубежные магазины (например, <em>Amazon</em>, <em>AliExpress</em>) не принимают карты.</li>
+ <li><strong>Уменьшение блокировок карт.</strong> Банк реже будет блокировать вашу карту за «подозрительную активность», если вы подтверждаете платежи самостоятельно.</li>
+ <li><strong>Возможность оспорить списание.</strong> Если платеж прошёл без 3DS (например, в офлайн-магазине), вернуть деньги сложнее.</li>
+</ol>
+
+<p>Кроме того, с 2022 года в России действуют ужесточённые требования ЦБ по подтверждению онлайн-платежей. Без 3DS многие операции просто не пройдут.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы получите SMS с кодом 3DS, но не совершали платеж — <strong>ни в коем случае не вводите его нигде</strong> и сразу заблокируйте карту через <code>ВТБ-Онлайн</code> или по телефону <code>8 800 100-24-24</code>. Это может быть попытка мошенников списать деньги.</blockquote>
+
+<h2 id="как-подключить-или-отключить-3ds-sms-в-втб">Как подключить или отключить 3DS SMS в ВТБ</h2>
+
+<p>В большинстве случаев <strong>3D-Secure подключён к карте ВТБ по умолчанию</strong> — банк активирует его автоматически при выпуске пластика. Однако иногда требуется ручная настройка, например, если:</p>
+<ul>
+ <li>📱 Вы сменили номер телефона, привязанный к карте.</li>
+ <li>🔄 Карта выпущена давно (до 2018 года), и 3DS не был активирован.</li>
+ <li>🌍 Вы планируете платежи в зарубежных магазинах.</li>
+</ul>
+
+<p>Чтобы проверить или изменить настройки:</p>
+
+
+<p>Зайти в приложение ВТБ-Онлайн</p>
+<p>Выбрать нужную карту в разделе"Карты"</p>
+<p>Перейти в"Настройки безопасности"</p>
+<p>Убедиться, что опция"3D-Secure" активна</p>
+<p>При необходимости обновить номер телефона--></p>
+
+<p>Отключить 3DS полностью нельзя — это требование платёжных систем. Но можно:</p>
+<ul>
+ <li>🔧 Настроить <strong>биометрическую аутентификацию</strong> (если поддерживается вашей картой).</li>
+ <li>📱 Добавить <strong>доверенные устройства</strong> в ВТБ-Онлайн, чтобы уменьшить количество запросов SMS.</li>
+</ul>
+
+<p>Если у вас <em>корпоративная карта ВТБ</em>, настройки 3DS может управлять только владелец счёта (обычно бухгалтерия или руководитель).</p>
+
+<h2 id="частые-проблемы-с-3ds-sms-в-втб-и-их-решения">Частые проблемы с 3DS SMS в ВТБ и их решения</h2>
+
+<p>Несмотря на надёжность технологии, клиенты ВТБ иногда сталкиваются с трудностями при работе с 3D-Secure. Рассмотрим типичные ситуации и способы ихшения:</p>
+
+<table>
+ <thead>
+ <tr>
+ <th>Проблема</th>
+ <th>Возможная причина</th>
+ <th>Решение</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>SMS с кодом не приходит</td>
+ <td>Номер телефона не привязан к карте или заблокирован оператором</td>
+ <td>Обновите номер в <code>ВТБ-Онлайн</code> или обратитесь в поддержку банка</td>
+ </tr>
+ <tr>
+ <td>Код не подходит (ошибка"Неверный пароль")</td>
+ <td>Истёк срок действия кода (обычно 5–10 минут) или опечатка при вводе</td>
+ <td>Запросите новый код или проверьте правильность ввода</td>
+ </tr>
+ <tr>
+ <td>Сайт магазина не принимает карту ВТБ</td>
+ <td>Магазин не поддерживает 3DS 2.0 или есть технические проблемы</td>
+ <td>Попробуйте оплатить с другого устройства или свяжитесь с поддержкой магазина</td>
+ </tr>
+ <tr>
+ <td>Слишком частые запросы SMS</td>
+ <td>Банк считает ваши платежи подозрительными (например, из-за VPN или необычной геолокации)</td>
+ <td>Добавьте устройство в доверенные в <code>ВТБ-Онлайн</code> или временно отключите VPN</td>
+ </tr>
+ </tbody>
+</table>
+
+<p>Если проблема сохраняется, свяжитесь с поддержкой ВТБ:
+<ul>
+ <li>📞 По телефону: <code>8 800 100-24-24</code> (круглосуточно).</li>
+ <li>💬 В чате в приложении <em>ВТБ-Онлайн</em>.</li>
+ <li>🏛 В отделении банка (найдите ближайшее в <code>ВТБ-Онлайн → Офисы</code>).</li>
+</ul>
+</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Мошенники часто просят отправить им SMS-код 3DS под предлогом «проверки безопасности» или «разблокировки счёта». <strong>Банк никогда не запрашивает коды по телефону или в мессенджерах!</strong> Это 100% попытка обмана.</blockquote>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы часто покупаете в одном и том же магазине (например, <em>Ozon</em> или <em>Wildberries</em>), добавьте его в"Избранные мерчанты" в настройках карты ВТБ. Это уменьшит количество запросов 3DS.</p></div>
+
+<h2 id="3ds-10-vs-3ds-20-в-втб-в-чём-разница">3DS 1.0 vs 3DS 2.0 в ВТБ: в чём разница?</h2>
+
+<p>ВТБ постепенно переводит клиентов с устаревшей версии <em>3D-Secure 1.0</em> на новую — <strong>3DS 2.0</strong>. Разберёмся, чем они отличаются и почему это важно:</p>
+
+<table>
+ <thead>
+ <tr>
+ <th>Параметр</th>
+ <th>3D-Secure 1.0</th>
+ <th>3D-Secure 2.0</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Способ подтверждения</td>
+ <td>Только SMS-код</td>
+ <td>SMS + биометрия (отпечаток, Face ID) + анализ поведения</td>
+ </tr>
+ <tr>
+ <td>Скорость платежа</td>
+ <td>Дольше (перенаправление на страницу банка)</td>
+ <td>Быстрее (подтверждение прямо в приложении магазина)</td>
+ </tr>
+ <tr>
+ <td>Уровень безопасности</td>
+ <td>Базовый</td>
+ <td>Повышенный (10+ параметров анализа)</td>
+ </tr>
+ <tr>
+ <td>Поддержка зарубежных магазинов</td>
+ <td>Ограниченная</td>
+ <td>Полная (соответствует стандартам <em>EMVCo</em>)</td>
+ </tr>
+ </tbody>
+</table>
+
+<p>Главное преимущество <strong>3DS 2.0</strong> — <strong>адаптивная аутентификация</strong>. Банк анализирует:
+<ul>
+ <li>📍 Геолокацию (совпадает ли с вашим обычным местоположением).</li>
+ <li>🕒 Время суток (необычные для вас часы активности).</li>
+ <li>💻 Устройство (ранее использовалось ли для платежей).</li>
+ <li>🛒 Тип товара (например, нехарактерные для вас покупки).</li>
+</ul>
+</p>
+
+<p>Если система считает платеж безопасным, она может <strong>пропустить запрос SMS</strong> (например, при покупке в привычном магазине с вашего смартфона). Это сокращает количество подтверждений без потери безопасности.</p>
+
+<details class="faq-item"><summary>Как узнать, какая версия 3DS у моей карты ВТБ?</summary><div class="faq-answer"><p>
+<p>Чтобы проверить версию протокола, попробуйте совершить тестовый платеж (например, пополнить счёт телефона на 1 рубль).</p>
+<p>Если вас перенаправили на отдельную страницу банка для ввода SMS — это <em>3DS 1.0</em>.</p>
+<p>Если подтверждение произошло прямо в окне магазина (возможно, с предложением использовать отпечаток пальца) — у вас <em>3DS 2.0</em>.</p>
+<p>ВТБ автоматически обновляет протокол для новых карт, но для старых (выпущенных до 2020 года) может потребоваться перевыпуск.</p></div></details></p>
+
+<h2 id="безопасность-и-мошенничество-как-не-потерять-деньги-с-3ds">Безопасность и мошенничество: как не потерять деньги с 3DS</h2>
+
+<p>Технология 3D-Secure значительно снижает риски, но мошенники постоянно придумывают новые схемы обмана. Вот актуальные угрозы, о которых стоит знать клиентам ВТБ:</p>
+
+<ul>
+ <li>🕵️ <strong>Фишинговые сайты.</strong> Злоумышленники создают копии популярных магазинов (например, <em>СберМегаМаркет</em> или <em>Яндекс.Маркет</em>), где просят ввести данные карты и код 3DS. Все деньги уходят мошенникам.</li>
+ <li>📞 <strong>Звонки «от имени банка».</strong> Мошенники представляются сотрудниками ВТБ и просят назвать код из SMS для «проверки безопасности».</li>
+ <li>💳 <strong>Подмена номеров.</strong> Если вы потеряли карту, мошенник может перевыпустить её на свой номер телефона и получать SMS-коды.</li>
+ <li>🖥 <strong>Вредоносное ПО.</strong> Вирусы на телефоне или компьютере могут перехватывать SMS (например, через троян <em>Cerberus</em>).</li>
+</ul>
+
+<p>Как защититься:
+<strong>1.</strong> Никогда не вводите код 3DS на сайтах, которым не доверяете. Перед оплатой проверяйте:
+<ul>
+ <li>🔒 Наличие замка в адресной строке (протокол <code>https://</code>).</li>
+ <li>🌐 Правильное написание домена (например, <code>ozon.ru</code>, а не <code>ozon-market.ru</code>).</li>
+</ul>
+<strong>2.</strong> Не храните данные карты в браузере или на сомнительных сайтах.
+<strong>3.</strong> Подключите в ВТБ-Онлайн уведомления о всех операциях по SMS или push.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если мошенник украл данные вашей карты, но не имеет доступа к телефону, он не сможет подтвердить платеж через 3DS. Поэтому главное — беречь SIM-карту и не передавать коды третьим лицам.</p></div>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-3ds-sms-в-втб">FAQ: ответы на частые вопросы о 3DS SMS в ВТБ</h2>
+
+<details>
+ <summary>Могу ли я отключить 3DS SMS в ВТБ полностью?</summary>
+ <p>Нет, отключить 3D-Secure невозможно — это требование международных платёжных систем (<em>Visa</em>, <em>Mastercard</em>) и Центробанка РФ. Однако вы можете:</p>
+ <ul>
+ <li>🔄 Настроить биометрическую аутентификацию (если поддерживается вашей картой).</li>
+ <li>📱 Добавить доверенные устройства в <code>ВТБ-Онлайн</code>, чтобы уменьшить количество запросов.</li>
+ </ul>
+ <p>Без 3DS многие онлайн-магазины не примут вашу карту.</p>
+</details>
+
+<details>
+ <summary>Сколько действует код из SMS для 3DS?</summary>
+ <p>Срок действия одноразового пароля — <strong>5–10 минут</strong> (зависит от настроек банка). Если код просрочен, запросите новый на сайте магазина. Обратите внимание: каждый новый запрос генерирует уникальный код, старые становятся недействительными.</p>
+</details>
+
+<details>
+ <summary>Почему ВТБ просит 3DS-код при оплате в офлайн-магазине?</summary>
+ <p>Если речь идёт о <strong>бесконтактной оплате</strong> (например, через <em>Apple Pay</em> или <em>Google Pay</em>), банк может запросить подтверждение для транзакций свыше <code>1 000–3 000 ₽</code> (лимит устанавливает магазин). Это стандартная мера безопасности. Для обычных платежей по карте в терминале 3DS не требуется.</p>
+</details>
+
+<details>
+ <summary>Можно ли использовать 3DS за границей?</summary>
+ <p>Да, <strong>3D-Secure работает за рубежом</strong>, но учитывайте два нюанса:
+ <strong>1.</strong> Роуминг должен быть активирован, чтобы приходили SMS.
+ <strong>2.</strong> Некоторые зарубежные банкоматы и терминалы могут не поддерживать 3DS 2.0 — в этом случае платеж пройдёт без подтверждения (риск выше).
+ <p>Рекомендуем перед поездкой:</p>
+ <ul>
+ <li>🌍 Уведомить ВТБ о поездке через <code>ВТБ-Онлайн → Путешествия</code>.</li>
+ <li>📱 Проверить баланс для оплаты роуминга.</li>
+ </ul>
+ </p>
+</details>
+
+<details>
+ <summary>Что делать, если пришёл 3DS-код, но я не совершал платеж?</summary>
+ <p>Это признак попытки мошенничества! Немедленно:
+ <strong>1.</strong> Не вводите код нигде.
+ <strong>2.</strong> Заблокируйте карту:
+ <ul>
+ <li>📱 Через <code>ВТБ-Онлайн → Карты → Заблокировать</code>.</li>
+ <li>📞 По телефону <code>8 800 100-24-24</code>.</li>
+ </ul>
+ <strong>3.</strong> Проверьте историю операций на наличие несанкционированных списаний.
+ <strong>4.</strong> Обратитесь в банк для расследования инцидента.
+ </p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-3ds-в-банке-втб-просто-о-сложном">Что такое 3DS в банке ВТБ: просто о сложном</a></li><li><a href="#как-работает-3ds-sms-в-втб-пошаговый-разбор">Как работает 3DS SMS в ВТБ: пошаговый разбор</a></li><li><a href="#зачем-нужен-3ds-в-втб-5-причин-использовать">Зачем нужен 3DS в ВТБ: 5 причин использовать</a></li><li><a href="#как-подключить-или-отключить-3ds-sms-в-втб">Как подключить или отключить 3DS SMS в ВТБ</a></li><li><a href="#частые-проблемы-с-3ds-sms-в-втб-и-их-решения">Частые проблемы с 3DS SMS в ВТБ и их решения</a></li><li><a href="#3ds-10-vs-3ds-20-в-втб-в-чём-разница">3DS 1.0 vs 3DS 2.0 в ВТБ: в чём разница?</a></li><li><a href="#безопасность-и-мошенничество-как-не-потерять-деньги-с-3ds">Безопасность и мошенничество: как не потерять деньги с 3DS</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-3ds-sms-в-втб">FAQ: ответы на частые вопросы о 3DS SMS в ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/s/sp/spisyvayutsya-dengi-s-karty-vtb-chto-delat.html" class="related-card">С карты ВТБ списываются деньги: что делать в 2026 году</a></li><li><a href="/articles/k/ka/kak-smenit-pin-kod-v-vtb-onlajn-cherez-telefon.html" class="related-card">Как сменить ПИН-код в ВТБ Онлайн через телефон — пошаговая инструкция 2026</a></li><li><a href="/articles/c/ch/chto-delat-esli-spisali-dengi-s-karty-moshenniki-kreditnoj-karty-vtb.html" class="related-card">Мошенники списали деньги с карты ВТБ: что делать в 2026 году</a></li><li><a href="/articles/v/vt/vtb-rutoken-kak-ustanovit.html" class="related-card">Как установить Рутокен ЭЦП для ВТБ Онлайн: полная инструкция</a></li><li><a href="/articles/u/us/usluga-3-ds-vtb-chto-eto.html" class="related-card">3D Secure в ВТБ: что это, как работает и зачем нужен в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/s/sp/spisyvayutsya-dengi-s-karty-vtb-chto-delat.html" class="related-bottom-card"><span class="related-bottom-title">С карты ВТБ списываются деньги: что делать в 2026 году</span><span class="related-bottom-desc">Неожиданные списания с карты ВТБ? Узнайте, как проверить транзакции, заблокировать карту и вернуть д</span></a><a href="/articles/k/ka/kak-smenit-pin-kod-v-vtb-onlajn-cherez-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить ПИН-код в ВТБ Онлайн через телефон — пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по изменению ПИН-кода карты ВТБ через мобильное приложение: шаги, требования, </span></a><a href="/articles/c/ch/chto-delat-esli-spisali-dengi-s-karty-moshenniki-kreditnoj-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Мошенники списали деньги с карты ВТБ: что делать в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция: как вернуть деньги, если с кредитной карты ВТБ списали средства мошенники. Куд</span></a><a href="/articles/v/vt/vtb-rutoken-kak-ustanovit.html" class="related-bottom-card"><span class="related-bottom-title">Как установить Рутокен ЭЦП для ВТБ Онлайн: полная инструкция</span><span class="related-bottom-desc">Пошаговая инструкция по установке драйверов Рутокен для ВТБ. Настройка плагина, проверка сертификата</span></a><a href="/articles/u/us/usluga-3-ds-vtb-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">3D Secure в ВТБ: что это, как работает и зачем нужен в 2026 году</span><span class="related-bottom-desc">Разбираем услугу 3D Secure от ВТБ: принцип работы, как подключить и отключить, почему может не работ</span></a><a href="/articles/k/ka/kak-podtverdit-uchetnuyu-zapis-na-gosuslugakh-cherez-telefon-vtb-onlajn-poshagovo.html" class="related-bottom-card"><span class="related-bottom-title">Подтверждение Госуслуг через ВТБ Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как подтвердить учетную запись на портале Госуслуг через мобильный банк ВТБ Онлайн: подробная инстру</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

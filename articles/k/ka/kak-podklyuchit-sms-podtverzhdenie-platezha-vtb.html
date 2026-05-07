@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как подключить СМС-подтверждение платежей ВТБ: пошаговая инструкция — Банки Инфо</title>
+    <meta name="description" content="Узнайте, как настроить СМС-подтверждение операций в ВТБ Онлайн. Инструкция по подключению 3D-Secure, управлению лимитами и безопасности карт.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-podklyuchit-sms-podtverzhdenie-platezha-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить СМС-подтверждение платежей ВТБ: пошаговая инструкция">
+    <meta property="og:description" content="Узнайте, как настроить СМС-подтверждение операций в ВТБ Онлайн. Инструкция по подключению 3D-Secure, управлению лимитами и безопасности карт.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить СМС-подтверждение платежей ВТБ: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как подключить СМС-подтверждение платежа ВТБ: полная инструкция</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#зачем-нужно-смс-подтверждение-и-как-оно-работает">Зачем нужно СМС-подтверждение и как оно работает</a></li><li><a href="#настройка-уведомлений-в-мобильном-приложении-втб-онлайн">Настройка уведомлений в мобильном приложении ВТБ Онлайн</a></li><li><a href="#активация-3d-secure-через-банкомат-и-терминал">Активация 3D-Secure через банкомат и терминал</a></li><li><a href="#управление-лимитами-и-безопасностью-платежей">Управление лимитами и безопасностью платежей</a></li><li><a href="#проблемы-с-получением-смс-и-их-решение">Проблемы с получением СМС и их решение</a></li><li><a href="#альтернативные-способы-подтверждения-операций">Альтернативные способы подтверждения операций</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Безопасность финансовых операций в современной цифровой среде становится приоритетом номер один для владельцев банковских карт. Когда речь заходит о <strong>ВТБ</strong>, система защиты выстроена так, чтобы минимизировать риски мошенничества при онлайн-покупках. Многие пользователи сталкиваются с необходимостью активировать или перенастроить функцию получения кодов для подтверждения транзакций, но не всегда понимают, где именно скрываются нужные переключатели.</p>
+
+<p>Подключение <em>3D-Secure</em> (технология подтверждения платежей) — это не просто формальность, а обязательный уровень защиты ваших средств. Без активированной услуги проведения платежей через интернет могут быть заблокированы или требовать ручного вмешательства сотрудников банка. В этой статье мы детально разберем, как управлять уведомлениями, где найти настройки в приложении и что делать, если коды перестали приходить.</p>
+
+<p>Стоит отметить, что современные банковские системы часто используют автоматическое определение предпочтительного канала связи. Однако пользователь всегда сохраняет право самостоятельно выбрать способ авторизации: через <code>VTB Online</code>, через СМС или через пуш-уведомление. Понимание этих различий поможет вам избежать ситуаций, когда платеж «завис» в ожидании реакции клиента.</p>
+
+<h2 id="зачем-нужно-смс-подтверждение-и-как-оно-работает">Зачем нужно СМС-подтверждение и как оно работает</h2>
+
+<p>Технология <strong>3D-Secure</strong> была внедрена международными платежными системами для защиты держателей карт при совершении покупок в интернете. Принцип работы прост: после ввода данных карты на сайте магазина система перенаправляет вас на защищенную страницу банка. Именно там <em>ВТБ</em> запрашивает дополнительный код, который отправляется на привязанный номер телефона.</p>
+
+<p>Это создает двухфакторную аутентификацию. Даже если злоумышленники каким-то образом завладеют номером вашей карты и сроком действия, они не смогут завершить транзакцию без доступа к вашему мобильному устройству. <strong>СМС-код</strong> является одноразовым паролем, действительным лишь короткое время, что делает его перехват практически невозможным в реальном времени.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Никогда не сообщайте приходящие коды подтверждения посторонним людям, даже если звонящий представляется сотрудником безопасности банка. Сотрудники ВТБ никогда не спрашивают коды из СМС.</p>
+</blockquote>
+
+<p>Важно различать СМС-информирование о совершенных операциях и СМС-подтверждение для входа или оплаты. Первое носит уведомительный характер и часто бывает платным (услуга «СМС-оповещение»), второе — бесплатно и необходимо для авторизации действий. Для управления этими сервисами в приложении предусмотрены отдельные разделы, о которых мы поговорим ниже.</p>
+
+<div class="poll-widget" id="poll-e015348a"><div class="poll-widget-question">📊 Как вы чаще всего подтверждаете платежи?</div><div class="poll-widget-option" data-poll="e015348a" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Через СМС-код</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e015348a" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Через пуш-уведомление в приложении</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e015348a" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Я не подтверждаю платежи онлайн</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e015348a" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Использую только офлайн-оплату</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="настройка-уведомлений-в-мобильном-приложении-втб-онлайн">Настройка уведомлений в мобильном приложении ВТБ Онлайн</h2>
+
+<p>Основным инструментом управления безопасностью для клиентов банка является мобильное приложение <em>ВТБ Онлайн</em>. Именно здесь сосредоточены все рычаги контроля над вашими финансами. Чтобы проверить статус подключенных услуг, необходимо авторизоваться в системе с использованием биометрии, ПИН-кода или пароля.</p>
+
+<p>После входа в систему обратите внимание на главный экран, где отображаются ваши счета и карты. Для детальной настройки выберите конкретную <strong>банковскую карту</strong>, к которой хотите привязать номер телефона. В меню действий, обычно располагающемся в нижней части экрана или под иконкой карты, нужно найти раздел «Настройки» или «Сервисы».</p>
+
+<p>В открывшемся списке ищем пункт, связанный с уведомлениями. Здесь система предложит выбрать предпочтительный канал связи. Современные версии приложения <code>VTB Online</code> позволяют гибко комбинировать способы оповещения. Вы можете оставить СМС только для критически важных операций, а о мелких покупках узнавать через бесплатные пуш-уведомления.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка настроек безопасности</h4><label class="check-item"><input type="checkbox"><span>Вход в приложение ВТБ Онлайн выполнен</span></label><label class="check-item"><input type="checkbox"><span>Выбрана нужная банковская карта</span></label><label class="check-item"><input type="checkbox"><span>Открыто меню настроек карты</span></label><label class="check-item"><input type="checkbox"><span>Проверен раздел «Уведомления»</span></label><label class="check-item"><input type="checkbox"><span>Включены СМС для платежей в интернете</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Не забывайте, что для корректной работы сервиса номер телефона в банке должен совпадать с номером сим-карты, установленной в смартфоне в момент запроса кода. Если вы недавно сменили номер, его необходимо обновить в профиле клиента через сотрудника банка или банкомат, иначе <strong>СМС-код</strong> будет уходить на старый номер.</p>
+
+<h2 id="активация-3d-secure-через-банкомат-и-терминал">Активация 3D-Secure через банкомат и терминал</h2>
+
+<p>Если использование смартфона временно недоступно или вы предпочитаете классические методы обслуживания, активировать необходимые сервисы можно через сеть устройств самообслуживания <em>ВТБ</em>. Банкоматы и терминалы предоставляют доступ к базовым настройкам безопасности, включая управление мобильным банкингом и подтверждением операций.</p>
+
+<p>Для начала работы вставьте карту в терминал и введите ПИН-код. В главном меню выберите раздел «Мобильный банк» или «Настройки карты». Интерфейс устройств может отличаться в зависимости от модели, но логика остается единой. Вам потребуется найти пункт, отвечающий за подключение услуг дистанционного обслуживания.</p>
+
+<p>Следуйте инструкциям на экране, чтобы активировать получение кодов. Система может предложить распечатать чек с временными паролями или сразу отправит тестовое СМС. Убедитесь, что услуга «Мобильный банк» активна, так как именно она является фундаментом для работы <strong>3D-Secure</strong>.</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип устройства</th>
+<th>Доступные функции</th>
+<th>Необходимые данные</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Банкомат ВТБ</td>
+<td>Полная настройка, смена номера</td>
+<td>Карта, ПИН-код, Паспорт (иногда)</td>
+</tr>
+<tr>
+<td>Терминал самообслуживания</td>
+<td>Подключение уведомлений</td>
+<td>Карта, ПИН-код</td>
+</tr>
+<tr>
+<td>Офис банка</td>
+<td>Любые изменения профиля</td>
+<td>Паспорт, Карта</td>
+</tr>
+</tbody>
+</table>
+
+<details class="faq-item"><summary>Что делать, если банкомат не выдает чек с кодами?</summary><div class="faq-answer"><p>В современных системах ВТБ бумажные чеки с паролями могут не печататься. Коды сразу отправляются на телефон. Если СМС не пришло в течение 5 минут, проверьте баланс сим-карты и уровень сигнала, затем обратитесь к сотруднику банка.</p></div></details>
+
+<h2 id="управление-лимитами-и-безопасностью-платежей">Управление лимитами и безопасностью платежей</h2>
+
+<p>Безопасность — это не только коды, но и контроль сумм. В приложении <em>ВТБ Онлайн</em> существует возможность устанавливать лимиты на операции в интернете. Это дополнительная страховка: даже если мошенники получат доступ к вашему телефону, они не смогут вывести сумму выше установленного вами порога без дополнительной авторизации.</p>
+
+<p>Для настройки перейдите в профиль карты и выберите «Лимиты и ограничения». Здесь можно установить дневной или месячный потолок расходов, а также ограничить количество операций. <strong>СМС-подтверждение</strong> будет требоваться для каждой попытки выхода за рамки стандартных безопасных значений или при входе с нового устройства.</p>
+
+<p>Также стоит обратить внимание на функцию временной блокировки. Если вы сомневаетесь в безопасности платежа или потеряли телефон, карту можно заблокировать в один клик. После восстановления доступа к телефону блокировку легко снять, и все настройки, включая привязку номера для СМС, сохранятся.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Установите лимит на онлайн-покупки чуть выше вашей средней месячной траты. Это позволит совершать обычные покупки без лишних подтверждений, но остановит крупное хищение средств.</p></div>
+
+<h2 id="проблемы-с-получением-смс-и-их-решение">Проблемы с получением СМС и их решение</h2>
+
+<p>Ситуация, когда СМС с кодом не приходит, может застать врасплох во время оплаты важного счета. Причин может быть несколько: от технических сбоев на стороне оператора связи до переполненной памяти телефона. Первым делом проверьте, есть ли свободное место для новых сообщений в вашем устройстве.</p>
+
+<p>Часто проблема кроется в настройках самого смартфона. Антивирусные программы или «умные» определители номера могут ошибочно классифицировать СМС от банка как спам и скрывать их. Проверьте папку «Спам» или «Заблокированные» в вашем приложении сообщений. Если код там, добавьте номер отправителя (обычно это <code>VTB-Bank</code> или короткий номер) в белый список контактов.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если СМС не приходят более часа, а другие сообщения приходят нормально, возможно, на стороне оператора возникли проблемы с доставкой сообщений от коротких номеров. Попробуйте перезагрузить телефон или временно переключиться на режим «Только 4G/LTE».</p>
+</blockquote>
+
+<p>В некоторых случаях помогает ручная перепривязка номера. Для этого в приложении <em>ВТБ Онлайн</em> можно найти опцию «Изменить номер» или «Повторно отправить код». Если ничего не помогает, единственным верным решением остается звонок в контактный центр или визит в офис, где специалист проверит статус подключения услуги на стороне банка.</p>
+
+<h2 id="альтернативные-способы-подтверждения-операций">Альтернативные способы подтверждения операций</h2>
+
+<p>С развитием технологий СМС постепенно уступает место более современным и безопасным методам. ВТБ активно внедряет подтверждение через <strong>Push-уведомления</strong>. Это сообщения, приходящие непосредственно в приложение банка. Они работают через интернет, бесплатны и защищены внутренней шифровкой приложения, что делает их надежнее обычных СМС.</p>
+
+<p>Еще один удобный способ — использование виджета в приложении. При попытке оплаты на сайте, если вы авторизованы в приложении на том же устройстве, запрос на подтверждение может прийти автоматически. Вам не нужно вводить никаких кодов, достаточно нажать «Подтвердить» или использовать биометрию (FaceID/TouchID).</p>
+
+<p>Для владельцев карт <em>Mir</em> и других платежных систем также доступно подтверждение через голосовых ассистентов или чат-ботов, если такая функция поддерживается вашим тарифным планом. Однако классическое СМС остается универсальным методом, работающим даже при отсутствии интернета (GSM-сеть).</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Пуш-уведомления в приложении ВТБ Онлайн являются более безопасной и быстрой альтернативой СМС, так как они не передаются через открытые каналы сотовых операторов.</p></div>
+
+<details>
+<summary>Можно ли подключить СМС-подтверждение на номер другого человека?</summary>
+<p>Технически СМС будут приходить на любой указанный номер, если он внесен в профиль карты. Однако это снижает безопасность. Если номер не принадлежит вам, вы не сможете контролировать операции. Для оформления карты на другого человека (например, ребенка) лучше использовать дополнительную карту с отдельным номером телефона владельца допкарты.</p>
+</details>
+
+<details>
+<summary>Сколько действует код подтверждения платежа?</summary>
+<p>Стандартное время жизни кода <strong>3D-Secure</strong> в ВТБ составляет от 3 до 5 минут. После этого код сгорает, и для оплаты потребуется запросить новый. Вводить старый код бесполезно — система его отклонит.</p>
+</details>
+
+<details>
+<summary>Берется ли плата за СМС с кодом подтверждения?</summary>
+<p>Нет, СМС с кодами подтверждения операций (входящие) всегда бесплатны для клиента, независимо от тарифа вашего сотового оператора и страны нахождения (в роуминге условия могут отличаться, уточняйте у оператора). Платной может быть только услуга «СМС-информирование» о совершенных операциях.</p>
+</details>
+
+<details>
+<summary>Что делать, если телефон утерян вместе с сим-картой?</summary>
+<p>Необходимо срочно заблокировать сим-карту у оператора связи и карту в приложении (если есть доступ) или по телефону банка. После восстановления сим-карты у оператора с тем же номером, все настройки СМС-подтверждения в ВТБ сохранятся автоматически, так как привязка идет к номеру, а не к физической симке.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#зачем-нужно-смс-подтверждение-и-как-оно-работает">Зачем нужно СМС-подтверждение и как оно работает</a></li><li><a href="#настройка-уведомлений-в-мобильном-приложении-втб-онлайн">Настройка уведомлений в мобильном приложении ВТБ Онлайн</a></li><li><a href="#активация-3d-secure-через-банкомат-и-терминал">Активация 3D-Secure через банкомат и терминал</a></li><li><a href="#управление-лимитами-и-безопасностью-платежей">Управление лимитами и безопасностью платежей</a></li><li><a href="#проблемы-с-получением-смс-и-их-решение">Проблемы с получением СМС и их решение</a></li><li><a href="#альтернативные-способы-подтверждения-операций">Альтернативные способы подтверждения операций</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-smenit-parol-karta-vtb.html" class="related-card">Как сменить пароль карты ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ku/kuda-zhalovatsya-na-obsluzhivanie-v-banke-vtb-24.html" class="related-card">Куда жаловаться на ВТБ 24: инструкция 2026 года</a></li><li><a href="/articles/k/ka/kak-prodlit-sertifikat-elektronnoj-podpisi-vtb.html" class="related-card">Как продлить ЭП ВТБ в 2026: пошаговая инструкция и сроки</a></li><li><a href="/articles/s/s-/s-kakogo-nomera-mozhet-zvonit-vtb-bank-klientu.html" class="related-card">С какого номера звонит ВТБ банк клиентам в 2026 году? Полный список</a></li><li><a href="/articles/g/gd/gde-napisat-otzyv-o-banke-vtb.html" class="related-card">Где оставить отзыв о ВТБ в 2026: официальные и независимые площадки</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-smenit-parol-karta-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить пароль карты ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по смене пароля карты ВТБ через мобильный банк, банкомат и личный кабинет. Акт</span></a><a href="/articles/k/ku/kuda-zhalovatsya-na-obsluzhivanie-v-banke-vtb-24.html" class="related-bottom-card"><span class="related-bottom-title">Куда жаловаться на ВТБ 24: инструкция 2026 года</span><span class="related-bottom-desc">Полный гайд по жалобам на обслуживание в ВТБ: от горячей линии до Роспотребнадзора. Как составить пр</span></a><a href="/articles/k/ka/kak-prodlit-sertifikat-elektronnoj-podpisi-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как продлить ЭП ВТБ в 2026: пошаговая инструкция и сроки</span><span class="related-bottom-desc">Подробная инструкция по продлению сертификата электронной подписи ВТБ: способы, сроки, стоимость и ч</span></a><a href="/articles/s/s-/s-kakogo-nomera-mozhet-zvonit-vtb-bank-klientu.html" class="related-bottom-card"><span class="related-bottom-title">С какого номера звонит ВТБ банк клиентам в 2026 году? Полный список</span><span class="related-bottom-desc">Официальные номера ВТБ для звонков клиентам: как отличить настоящий звонок от мошенников, проверка н</span></a><a href="/articles/g/gd/gde-napisat-otzyv-o-banke-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Где оставить отзыв о ВТБ в 2026: официальные и независимые площадки</span><span class="related-bottom-desc">Список проверенных платформ для написания отзыва о банке ВТБ: официальный сайт, ЦБ РФ, Банки.ру и др</span></a><a href="/articles/c/ch/chto-delat-esli-zvonili-moshenniki-iz-banka-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Звонили мошенники из ВТБ: что делать в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция: как распознать мошенников от ВТБ, куда жаловаться и как защитить свои деньги. </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

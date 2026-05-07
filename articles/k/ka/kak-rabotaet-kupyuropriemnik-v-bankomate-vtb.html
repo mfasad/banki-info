@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как работает купюроприемник в банкомате ВТБ: устройство — Банки Инфо</title>
+    <meta name="description" content="Подробный разбор устройства купюроприемника в банкоматах ВТБ. Как происходит распознавание валюты, защита от мошенничества и этапы обработки банкнот.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rabotaet-kupyuropriemnik-v-bankomate-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает купюроприемник в банкомате ВТБ: устройство">
+    <meta property="og:description" content="Подробный разбор устройства купюроприемника в банкоматах ВТБ. Как происходит распознавание валюты, защита от мошенничества и этапы обработки банкнот.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/ofisy-i-bankomaty/">Офисы и банкоматы</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работает купюроприемник в банкомате ВТБ: устройство</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как работает купюроприемник в банкомате ВТБ</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#физический-механизм-захвата-и-транспортировки-банкнот">Физический механизм захвата и транспортировки банкнот</a></li><li><a href="#системы-оптического-и-магнитного-сканирования">Системы оптического и магнитного сканирования</a></li><li><a href="#алгоритмы-распознавания-номинала-и-подлинности">Алгоритмы распознавания номинала и подлинности</a></li><li><a href="#защита-от-мошенничества-и-удочек">Защита от мошенничества и «удочек»</a></li><li><a href="#сортировка-и-хранение-в-кассетах">Сортировка и хранение в кассетах</a></li><li><a href="#типичные-причины-отказа-приема-купюр">Типичные причины отказа приема купюр</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>Современный банкомат ВТБ — это сложнейший вычислительный комплекс, способный за считанные секунды распознать подлинность денежной купюры, определить её номинал и безопасно зачислить средства на счет клиента. В основе этого процесса лежит высокоточный механизм <strong>купуросприемника</strong>, который объединяет в себе передовые оптические технологии, механику и сложные алгоритмы машинного обучения. Пользователи редко задумываются о том, что происходит внутри устройства после того, как банкнота исчезает в приемном отверстии, но именно от скорости и точности работы этого узла зависит эффективность всей банковской операции.</p>
+<p>Процесс приема наличности в устройствах самообслуживания ВТБ кардинально отличается от бытовых детекторов валют, используемых в магазинах. Здесь применяется многоступенчатая система верификации, исключающая человеческий фактор и минимизирующая риски ошибок. <em>Инженеры банка</em> постоянно совершенствуют программное обеспечение терминалов, чтобы они могли безошибочно работать даже с потертыми, слегка поврежденными или ветхими купюрами, которые часто встречаются в обращении.</p>
+<p>Понимание принципов работы этого механизма помогает клиентам избегать распространенных ошибок при внесении средств. Например, знание о том, как датчики реагируют на смятые углы или скрепки, позволяет подготовить купюры к загрузке правильно. В этой статье мы детально разберем физическую и программную сторону процесса, чтобы вы могли чувствовать себя увереннее при взаимодействии с <strong>банковским оборудованием</strong>.</p>
+
+<h2 id="физический-механизм-захвата-и-транспортировки-банкнот">Физический механизм захвата и транспортировки банкнот</h2>
+<p>Первым этапом работы является физический захват банкноты. Как только пользователь вставляет купюру в приемное отверстие, в дело вступает система роликов и фрикционных механизмов. <strong>Транспортировочный вал</strong> захватывает край бумаги и с высокой скоростью протягивает её через весь тракт устройства. Скорость движения здесь подобрана оптимально: она должна быть достаточно высокой для быстродействия, но щадящей для целостности банкноты.</p>
+<p>Внутри тракта ВТБ использует специальные ремни и направляющие, которые удерживают купюру в строго горизонтальном положении. Это критически важно для прохождения через узлы сканирования. Если банкнота пойдет криво или сомнется, система немедленно среагирует. Механика устройства спроектирована так, чтобы минимизировать трение и статическое электричество, которое могло бы привести к слипанию нескольких купюр.</p>
+<blockquote>⚠️ Внимание: Никогда не пытайтесь протолкнуть купюру пальцами или посторонними предметами во время работы механизма. Это может привести к замятию, повреждению чувствительных датчиков и временной блокировке устройства для проведения технического обслуживания.</blockquote>
+<p>Особое внимание уделяется системе разделения купюр. Если в приемник попало несколько банкнот сразу, <em>механизм сепарации</em> обязан их разделить. В старых моделях это делалось с помощью трения, но современные модули ВТБ используют вакуумные системы и сложные профили резины, чтобы отделить одну купюру от другой. Только одиночная банкнота пропускается дальше на сканирование, а остальные возвращаются пользователю или отправляются в кассету возврата.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Всегда расправляйте купюры перед внесением. Даже небольшие заломы могут вызвать ошибку датчиков толщины, и машина вернет деньги.</p></div>
+
+<h2 id="системы-оптического-и-магнитного-сканирования">Системы оптического и магнитного сканирования</h2>
+<p>После успешного захвата банкнота попадает в зону сканирования, где происходит ее всесторонняя проверка. Это сердце купюроприемника. В банкоматах ВТБ используется мультиспектральный анализ, который включает в себя несколько независимых каналов проверки. Первым в дело вступает <strong>оптический сканер</strong>, делающий высококачественные снимки обеих сторон купюры в различных диапазонах света: видимом, инфракрасном и ультрафиовом.</p>
+<p>Параллельно с оптикой работает магнитная головка. Она считывает магнитный портрет банкноты — распределение магнитных частиц в краске, которые невидимы глазу. Для каждой номинальной стоимости (100, 500, 1000, 5000 рублей) существует свой уникальный <em>магнитный шаблон</em>. Если магнитная сигнатура не совпадает с эталоном, заложенным в памяти процессора, купюра будет отвергнута.</p>
+<ul>
+ <li>🔍 <strong>Инфракрасный анализ:</strong> проверяет наличие специальных меток, видимых только в ИК-диапазоне, которые есть на настоящих рублях.</li>
+ <li>🌈 <strong>Цветовой анализ:</strong> сравнивает палитру оттенков с этлонными значениями, исключая цветную ксерокопию.</li>
+ <li>🧲 <strong>Магнитный анализ:</strong> считывает скрытые магнитные метки на портретах и защитных нитях.</li>
+ <li>📏 <strong>Геометрический контроль:</strong> измеряет точные размеры банкноты, отбраковывая обрезанные или нестандартные экземпляры.</li>
+</ul>
+<p>Все полученные данные обрабатываются мгновенно. Процессор сравнивает «портрет» вставленной купюры с базой данных. Алгоритмы учитывают степень изношенности, наличие пятен или надписей. Если купюра слишком ветхая, но подлинная, система может принять её, но отправить в отдельную кассету для пересчета или утилизации, чтобы не выдавать её другому клиенту.</p>
+
+<h2 id="алгоритмы-распознавания-номинала-и-подлинности">Алгоритмы распознавания номинала и подлинности</h2>
+<p>Программная часть купюроприемника в банкоматах ВТБ базируется на нейросетях и эвристических алгоритмах. В отличие от простых детекторов, которые ищут лишь наличие ультрафиолетовой метки, здесь проводится комплексный анализ. <strong>Искусственный интеллект</strong> оценивает совокупность факторов: плотность бумаги, реакцию на разные длины волн и магнитные свойства. Это позволяет выявлять даже высококачественные подделки, так называемые «суперкупюры».</p>
+<p>Одной из ключевых функций является определение номинала. Система не просто «видит» цифру на купюре, она анализирует её конструктивные особенности. Например, размер, расположение защитных нитей и водяных знаков строго привязаны к номиналу. Если на купюре номиналом 1000 рублей будут обнаружены признаки, характерные для 5000 рублей (например, попытка химического травления), алгоритм заблокирует операцию.</p>
+<details class="faq-item"><summary>Как обновляется база признаков?</summary><div class="faq-answer"><p>Банки регулярно получают обновления программного обеспечения для купюроприемников. В них загружаются новые шаблоны для новых серий банкнот и, что важнее, сигнатуры известных подделок, circulating в регионе.</p></div></details>
+<p>Важным аспектом является адаптивность системы. Если в регион поступает партия банкнот с определенным дефектом печати (брак монетного двора), центральная система мониторинга ВТБ может скорректировать чувств<em>ствительность датчиков</em> удаленно, чтобы клиенты могли внести свои деньги, даже если они выглядят неидеально. Однако, это тонкая настройка, которая не должна compromising безопасность.</p>
+
+<h2 id="защита-от-мошенничества-и-удочек">Защита от мошенничества и «удочек»</h2>
+<p>Безопасность — приоритет номер один для банка. Купюроприемники ВТБ оснащены механическими и электронными ловушками для мошенников. Одна из распространенных схем — использование «удочки» (тонкой лески или пленки), когда злоумышленник пытается вытянуть купюру обратно после того, как датчики уже зафиксировали её внесение. Механизм банкомата оснащен <strong>датчиками натяжения</strong> и дополнительными захватами.</p>
+<p>Как только система обнаруживает сопротивление при втягивании банкноты или попытку обратного движения, срабатывает аварийный протокол. Купюра либо обрезается (в некоторых моделях), либо надежно зажимается в недоступном для извлечения месте, ожидая инкассации. Одновременно с этим на пульт охраны и в службу безопасности банка уходит сигнал тревоги с указанием времени и номера устройства.</p>
+<table>
+ <thead>
+ <tr>
+ <th>Тип угрозы</th>
+ <th>Метод защиты в купюроприемнике</th>
+ <th>Реакция системы</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Введение фальшивки</td>
+ <td>Мультиспектральный анализ (ИК, УФ, магнит)</td>
+ <td>Отказ в приеме, возврат купюры</td>
+ </tr>
+ <tr>
+ <td>Попытка извлечения («удочка»)</td>
+ <td>Датчики обратного хода и натяжения</td>
+ <td>Блокировка купюры, сигнал тревоги</td>
+ </tr>
+ <tr>
+ <td>Введение скотча/пленки</td>
+ <td>Оптические датчики прозрачности</td>
+ <td>Отказ в приеме, требование убрать</td>
+ </tr>
+ <tr>
+ <td>Пучок купюр (веер)</td>
+ <td>Датчики толщины и сепаратор</td>
+ <td>Возврат всей пачки или разделение</td>
+ </tr>
+ </tbody>
+</table>
+<p>Также существуют методы защиты от химической обработки купюр. Мошенники иногда пытаются смыть краску с купюр малого номинала, чтобы напечатать на них крупные суммы. Специальные реагенты в краске настоящих рублей при попытке смыва меняют свои свойства, что сразу фиксируется <em>химическими сенсорами</em> внутри тракта.</p>
+
+<div class="poll-widget" id="poll-24fbbe13"><div class="poll-widget-question">📊 Сталкивались ли вы с проблемами при внесении наличных в банкомате?</div><div class="poll-widget-option" data-poll="24fbbe13" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, банкомат «жевал» деньги:Да, не принял купюру из-за ветхости:Нет, все всегда проходит гладко:Затрудняюсь ответить</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="сортировка-и-хранение-в-кассетах">Сортировка и хранение в кассетах</h2>
+<p>После успешной верификации банкнота направляется в одну из кассет (модулей хранения). В современных банкоматах ВТБ используется технология рециркуляции. Это означает, что принятые от одного клиента купюры не отправляются сразу в хранилище банка, а складываются в специальные кассеты для последующей выдачи другим клиентам. Это снижает логистические расходы и ускоряет оборот наличности.</p>
+<p>Однако, не все купюры пригодны для повторной выдачи. Механизм сортировки оценивает состояние каждой банкноты по шкале качества. Идеальные купюры идут в кассету выдачи, а ветхие, грязные или надорванные — в кассету утилизации (reject box). <strong>Кассеты</strong> представляют собой герметичные металлические модули, которые извлекаются только авторизованными инкассаторами.</p>
+<p>Процесс укладки в кассету также строго контролируется. Купюры укладываются стопкой, выравниваются и прижимаются. Датчики уровня заполнения кассеты в реальном времени передают информацию на сервер банка. Это позволяет службам логистики заранее планировать выемку денег, чтобы банкомат не остался без наличности в часы пик.</p>
+<div class="checklist-block"><h4>☑️ Проверка купюры перед внесением</h4><label class="check-item"><input type="checkbox"><span>Купюра расправлена и не имеет сильных заломов:Отсутствуют скрепки, скотч или резинки:Номинал четко читется и не вызывает сомнений:Купюра не является ветхой или разорванной</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<h2 id="типичные-причины-отказа-приема-купюр">Типичные причины отказа приема купюр</h2>
+<p>Даже при совершенной технологии случаются ситуации, когда банкомат возвращает деньги. Чаще всего это связано с физическим состоянием банкноты, которое не соответствует техническим требованиям для автоматической обработки. Механизм просто «не понимает», что это за объект, или считает его слишком рискованным для зачисления.</p>
+<p>Среди самых частых причин можно выделить наличие посторонних предметов. Даже крошечный кусочек скотча или канцелярская скрепка могут изменить магнитный или геометрический профиль купюры. Также проблемы возникают с очень новыми, «хрустящими» купюрами, которые слипаются из-за статики, или с очень старыми, потерявшими упругость.</p>
+<blockquote>⚠️ Внимание: Если банкомат вернул купюру несколько раз подряд, не пытайтесь вставить её снова силой или в смятом виде. Это может привести к застреванию банкноты внутри механизма, что потребует вызова технической службы и остановки работы терминала.</blockquote>
+<p>Иногда причиной отказа становится программный сбой или переполнение конкретной кассеты. В этом случае на экране появится соответствующее сообщение. </p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+ <summary>Что делать, если банкомат ВТБ забрал деньги, но не зачислил их на счет?</summary>
+ <p>В первую очередь, не паникуйте. Сохраните чек об операции (если он был выдан) или сфотографируйте экран с сообщением об ошибке. Сразу же позвоните в контактный центр банка по номеру, указанному на банкомате. Оператор заблокирует операцию и инициирует процедуру пересчета кассеты. Деньги будут возвращены на счет после проверки инкассаторами, обычно в течение 1-3 рабочих дней.</p>
+</details>
+<details>
+ <summary>Можно ли в банкомат ВТБ вносить доллары или евро?</summary>
+ <p>Большинство современных банкоматов ВТБ являются мультивалютными и технически оснащены купюроприемниками, способными распознавать доллары США и евро. Однако, возможность приема конкретной валюты зависит от настроек программного обеспечения и наличия соответствующих кассет в данном терминале. Перед внесением проверьте список доступных валют на экране или в приложении.</p>
+</details>
+<details>
+ <summary>Примет ли банкомат купюру с небольшой дырочкой от степлера?</summary>
+ <p>Скорее всего, нет. Дырка от степлера нарушает целостность полотна, что фиксируется оптическими датчиками как дефект. Кроме того, металлическая скоба (если она осталась) вызовет срабатывание магнитных сенсоров и может повредить механизм. Такие купюры лучше обменять в кассе банка или магазине.</p>
+</details>
+<details>
+ <summary>Как быстро обновляется база данных подделок в купюроприемнике?</summary>
+ <p>Обновление сигнатур подделок и новых серий банкнот происходит централизованно. Банк регулярно рассылает обновления программного обеспечения на сеть банкоматов. Частота обновлений зависит от текущей ситуации с фальсификатами в регионе и может варьироваться от еженедельной до ежедневной в критических ситуациях.</p>
+</details>
+<details>
+ <summary>Почему банкомат принимает купюры только расправленными?</summary>
+ <p>Транспортировочный тракт купюроприемника имеет узкие каналы. Мятая купюра может замяться, сложиться пополам или застрять между роликами, что приведет к поломке механизма. Датчики толщины также не смогут корректно считать параметры смятой банкноты, так как её профиль будет неравномерным.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#физический-механизм-захвата-и-транспортировки-банкнот">Физический механизм захвата и транспортировки банкнот</a></li><li><a href="#системы-оптического-и-магнитного-сканирования">Системы оптического и магнитного сканирования</a></li><li><a href="#алгоритмы-распознавания-номинала-и-подлинности">Алгоритмы распознавания номинала и подлинности</a></li><li><a href="#защита-от-мошенничества-и-удочек">Защита от мошенничества и «удочек»</a></li><li><a href="#сортировка-и-хранение-в-кассетах">Сортировка и хранение в кассетах</a></li><li><a href="#типичные-причины-отказа-приема-купюр">Типичные причины отказа приема купюр</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-nakhoditsya-poblizosti-bankomat-vtb.html" class="related-card">Где найти ближайший банкомат ВТБ: 7 способов поиска в 2026 году</a></li><li><a href="/articles/v/v-/v-kakikh-bankakh-mozhno-snimat-vtb-bez-komissii.html" class="related-card">Где снимать наличные с карты ВТБ без комиссии в 2026 году</a></li><li><a href="/articles/g/gd/gde-v-kolomne-bank-vtb.html" class="related-card">ВТБ в Коломне: адреса отделений, банкоматы, график работы 2026</a></li><li><a href="/articles/s/sn/snyatie-nalichnykh-s-karty-vtb-v-drugikh-bankomatakh-skolko-komissiya.html" class="related-card">Комиссия за снятие наличных с карты ВТБ в чужих банкоматах</a></li><li><a href="/articles/s/sk/skolko-mozhno-snyat-v-bankomate-sberbanka-za-raz-s-karty-vtb-bez-komissii.html" class="related-card">Сколько можно снять в банкомате Сбербанка с карты ВТБ без комиссии в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/g/gd/gde-nakhoditsya-poblizosti-bankomat-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Где найти ближайший банкомат ВТБ: 7 способов поиска в 2026 году</span><span class="related-bottom-desc">Ищете банкомат ВТБ рядом? Узнайте, как быстро найти ближайший терминал через карты, приложение, сайт</span></a><a href="/articles/v/v-/v-kakikh-bankakh-mozhno-snimat-vtb-bez-komissii.html" class="related-bottom-card"><span class="related-bottom-title">Где снимать наличные с карты ВТБ без комиссии в 2026 году</span><span class="related-bottom-desc">Список банков и банкоматов, где можно обналичить средства с карты ВТБ без процентов. Актуальные усло</span></a><a href="/articles/g/gd/gde-v-kolomne-bank-vtb.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ в Коломне: адреса отделений, банкоматы, график работы 2026</span><span class="related-bottom-desc">Где найти отделения и банкоматы ВТБ в Коломне? Актуальные адреса, часы работы, телефоны и отзывы кли</span></a><a href="/articles/s/sn/snyatie-nalichnykh-s-karty-vtb-v-drugikh-bankomatakh-skolko-komissiya.html" class="related-bottom-card"><span class="related-bottom-title">Комиссия за снятие наличных с карты ВТБ в чужих банкоматах</span><span class="related-bottom-desc">Узнайте размер комиссии за снятие денег с карт ВТБ в других банкоматах. Актуальные лимиты, тарифы Му</span></a><a href="/articles/s/sk/skolko-mozhno-snyat-v-bankomate-sberbanka-za-raz-s-karty-vtb-bez-komissii.html" class="related-bottom-card"><span class="related-bottom-title">Сколько можно снять в банкомате Сбербанка с карты ВТБ без комиссии в 2026 году</span><span class="related-bottom-desc">Актуальные лимиты на снятие наличных с карт ВТБ через банкоматы Сбербанка без комиссии: правила, огр</span></a><a href="/articles/f/fi/filial-vtb-6318-gde-nakhoditsya.html" class="related-bottom-card"><span class="related-bottom-title">Филиал ВТБ 6318: адрес, график работы, телефоны в 2026 году</span><span class="related-bottom-desc">Где находится филиал ВТБ с кодом 6318? Точный адрес, схемы проезда, часы работы и контакты отделения</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

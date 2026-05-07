@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как создать QR-код для оплаты ВТБ: инструкция для бизнеса — Банки Инфо</title>
+    <meta name="description" content="Полная инструкция: как самостоятельно создать QR-код для оплаты через ВТБ Онлайн. Настройка эквайринга, создание статических и динамических кодов.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-sozdat-qr-kod-samomu-dlya-oplaty-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как создать QR-код для оплаты ВТБ: инструкция для бизнеса">
+    <meta property="og:description" content="Полная инструкция: как самостоятельно создать QR-код для оплаты через ВТБ Онлайн. Настройка эквайринга, создание статических и динамических кодов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как создать QR-код для оплаты ВТБ: инструкция для бизнеса</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как создать QR-код для оплаты ВТБ: пошаговая инструкция для бизнеса</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#преимущества-оплаты-по-qr-коду-через-втб">Преимущества оплаты по QR-коду через ВТБ</a></li><li><a href="#подготовка-к-работе-требования-и-настройки">Подготовка к работе: требования и настройки</a></li><li><a href="#инструкция-создание-статического-qr-кода-в-приложении">Инструкция: создание статического QR-кода в приложении</a></li><li><a href="#как-сформировать-динамический-код-для-конкретной-суммы">Как сформировать динамический код для конкретной суммы</a></li><li><a href="#печать-и-размещение-qr-кодов-для-клиентов">Печать и размещение QR-кодов для клиентов</a></li><li><a href="#частые-ошибки-и-способы-их-устранения">Частые ошибки и способы их устранения</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Современный бизнес требует быстрых и удобных решений для приема платежей, и <strong>QR-код</strong> стал одним из самых популярных инструментов в этой сфере. Клиенты ценят возможность оплатить покупку простым наведением камеры смартфона, не ища сдачу и не прикасаясь к терминалу. Для предпринимателей, обслуживающихся в <em>ВТБ</em>, создание такого кода — это не только вопрос удобства, но и способ существенно сэкономить на комиссиях по сравнению с классическим эквайрингом.</p>
+
+<p>Процесс генерации платежного кода может показаться сложным только на первый взгляд, однако банк максимально упростил эту процедуру, интегрировав функционал в мобильное приложение. Вам не потребуется специальное оборудование или сложные технические знания, чтобы начать принимать платежи по <strong>СБП</strong> (Системе быстрых платежей). Достаточно иметь смартфон с доступом в интернет и действующий договор с банком.</p>
+
+<p>В этой статье мы подробно разберем, как создать QR-код для оплаты ВТБ, какие существуют виды кодов и как правильно настроить их для вашего магазина или точки услуг. Мы рассмотрим нюансы работы в приложении <em>ВТБ Бизнес</em> и ответим на частые вопросы, возникающие у новых пользователей системы.</p>
+
+<h2 id="преимущества-оплаты-по-qr-коду-через-втб">Преимущества оплаты по QR-коду через ВТБ</h2>
+
+<p>Переход на расчеты через <strong>СБП</strong> дает ощутимые преимущества как для продавца, так и для покупателя. В первую очередь бизнес привлекает низкая комиссия, которая значительно ниже ставок по традиционным банковским картам. Это позволяет предпринимателям сохранять маржинальность даже при работе с небольшими чеками.</p>
+
+<p>Кроме того, скорость проведения транзакции увеличивается в разы. Покупателю не нужно вставлять карту, вводить ПИН-код или ждать соединения с банкоматом. Весь процесс занимает несколько секунд, что особенно актуально в часы пик, когда у кассы скапливается очередь. <em>ВТБ</em> обеспечивает мгновенное зачисление средств на расчетный счет.</p>
+
+<ul>
+<li>🚀 Мгновенное зачисление денег на счет продавца без задержек.</li>
+<li>💰 Низкая комиссия за прием платежей по сравнению с эквайрингом.</li>
+<li>📱 Отсутствие необходимости в дорогостоящем POS-терминале.</li>
+<li>🔒 Высокий уровень безопасности транзакций через защищенные каналы банка.</li>
+</ul>
+
+<p>Важно отметить, что использование QR-кодов позволяет собирать детальную статистику по продажам прямо в личном кабинете. Вы всегда будете знать, сколько платежей прошло, какие суммы были средними и в какое время наблюдается наибольший поток клиентов. Это мощный инструмент для <strong>аналитики</strong> вашего бизнеса.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Для приема платежей по QR-коду у вас должен быть открыт расчетный счет в ВТБ и подключен сервис эквайринга или СБП. Без активного договора с банком генерация рабочего кода невозможна.</p>
+</blockquote>
+
+<h2 id="подготовка-к-работе-требования-и-настройки">Подготовка к работе: требования и настройки</h2>
+
+<p>Прежде чем приступать к созданию кода, необходимо убедиться, что ваше мобильное устройство и программное обеспечение готовы к работе. Основным инструментом для управления финансами бизнеса в ВТБ является приложение <em>ВТБ Бизнес Онлайн</em>. Убедитесь, что на вашем смартфоне установлена последняя версия этого приложения, так как функционал может обновляться.</p>
+
+<p>Также проверьте настройки безопасности. Для работы с финансовыми инструментами часто требуется подтверждение операций через <strong>СМС</strong> или push-уведомления. Убедитесь, что номер телефона, привязанный к учетной записи, активен и находится под рукой.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка готовности к работе</h4><label class="check-item"><input type="checkbox"><span>Установлено приложение ВТБ Бизнес Онлайн</span></label><label class="check-item"><input type="checkbox"><span>Есть доступ к интернету</span></label><label class="check-item"><input type="checkbox"><span>Заключен договор с банком</span></label><label class="check-item"><input type="checkbox"><span>Активен номер телефона для СМС</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Если вы планируете использовать статический QR-код (распечатанный на бумаге или размещенный на витрине), вам также потребуется принтер или услуги типографии для его нанесения на стойкие материалы. Динамический код, который генерируется для каждой суммы отдельно, требует только экрана смартфона или планшета.</p>
+
+<h2 id="инструкция-создание-статического-qr-кода-в-приложении">Инструкция: создание статического QR-кода в приложении</h2>
+
+<p>Статический код — это универсальный инструмент для точек с фиксированными ценами или для тех, кто принимает произвольные суммы от клиентов (например, донаты или оплата по счету). Создать его можно буквально за пару минут через интерфейс мобильного приложения.</p>
+
+<p>Для начала войдите в систему <em>ВТБ Бизнес Онлайн</em> с правами администратора или пользователя, имеющего доступ к платежным сервисам. В главном меню найдите раздел, отвечающий за прием платежей. Обычно он так и называется — «Прием платежей» или «Эквайринг».</p>
+
+<p>Далее следуйте алгоритму:</p>
+<ol>
+<li>Выберите опцию «Создать QR-код» или «Мои коды».</li>
+<li>Укажите тип кода — статический (постоянный).</li>
+<li>Выберите расчетный счет, на который будут поступать средства.</li>
+<li>При необходимости задайте название точки продаж для идентификации в чеках.</li>
+<li>Нажмите кнопку «Сформировать».</li>
+</ol>
+
+<p>После генерации система предложит вам сохранить изображение или отправить его на печать. <strong>Статический код</strong> не содержит информации о сумме платежа, поэтому клиент сможет ввести любую сумму при сканировании, если вы не установите ограничения в настройках тарифа.</p>
+
+<details class="faq-item"><summary>Где хранить резервную копию кода?</summary><div class="faq-answer"><p>Рекомендуется сохранить цифровую версию статического QR-кода в облачном хранилище или на электронной почте. Если бумажный вариант на кассе будет поврежден или утерян, вы сможете быстро распечатать новый без повторного обращения в банк или настройки в приложении.</p></div></details>
+
+<h2 id="как-сформировать-динамический-код-для-конкретной-суммы">Как сформировать динамический код для конкретной суммы</h2>
+
+<p>Динамический код идеально подходит для торговли, где сумма чека меняется для каждого покупателя. Он содержит зашифрованную информацию о конкретной транзакции, что исключает ошибки при вводе суммы клиентом и ускоряет процесс обслуживания.</p>
+
+<p>Процесс формирования выглядит следующим образом. В приложении <em>ВТБ Бизнес</em> перейдите в раздел создания платежей. Выберите опцию «Выставить счет» или «Создать чек». Введите точную сумму, которую должен оплатить клиент, и при необходимости добавьте описание товара или услуги.</p>
+
+<p>После ввода данных система сгенерирует уникальный <strong>QR-код</strong>, действительный только для этой суммы и часто ограниченный по времени. Клиент сканирует его, видит уже введенную сумму и подтверждает платеж своим биометрическим ключом или ПИН-кодом в своем банковском приложении.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Статический код</th>
+<th>Динамический код</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Сумма</td>
+<td>Вводит клиент</td>
+<td>Фиксирована продавцом</td>
+</tr>
+<tr>
+<td>Срок действия</td>
+<td>Бессрочный</td>
+<td>Ограничен (обычно 15-30 мин)</td>
+</tr>
+<tr>
+<td>Использование</td>
+<td>Размещение на витрине/столе</td>
+<td>Формирование на кассе</td>
+</tr>
+<tr>
+<td>Скорость</td>
+<td>Высокая</td>
+<td>Максимальная</td>
+</tr>
+</tbody>
+</table>
+
+<p>Использование динамических кодов снижает риск мошенничества, так как клиент не может случайно или намеренно изменить сумму платежа в своем приложении. Это особенно важно при работе с крупными чеками.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте планшеты с автосменой экрана для динамических кодов. Если у вас большой поток клиентов, подключите второй экран покупателя, который будет автоматически показывать QR-код после пробития чека в кассовой программе.</p></div>
+
+<h2 id="печать-и-размещение-qr-кодов-для-клиентов">Печать и размещение QR-кодов для клиентов</h2>
+
+<p>Качество печати играет критическую роль в скорости считывания кода. Размытое, слишком маленькое или плохо освещенное изображение может привести к тому, что камера клиента не распознает <strong>паттерн</strong>. Для статических кодов используйте контрастную печать: черный код на белом фоне.</p>
+
+<p>Размещайте коды на видном месте, на уровне глаз или рук покупателя. Если вы используете <em>ВТБ</em> для приема платежей, убедитесь, что рядом с кодом есть логотип системы быстрых платежей (СБП) и логотип банка. Это повышает доверие клиентов и подсказывает им, как именно нужно оплатить.</p>
+
+<p>Материалы для размещения должны быть износостойкими. В местах с высокой проходимостью используйте ламинацию или пластиковые таблички. Бумажный листок быстро придет в негодность от постоянного контакта с руками и окружающей средой.</p>
+
+<ul>
+<li>🖨️ Печатайте код в размере не менее 4х4 см для уверенного считывания.</li>
+<li>☀️ Избегайте бликов на поверхности кода (используйте матовые материалы).</li>
+<li>📍 Размещайте инструкцию «Наведи камеру» рядом с изображением.</li>
+<li>🧹 Регулярно протирайте поверхность с кодом от пыли и загрязнений.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не заклеивайте часть QR-кода или не наносите на него логотипы поверх служебных элементов. Это может нарушить структуру и сделать код нечитаемым для сканеров.</p>
+</blockquote>
+
+<div class="poll-widget" id="poll-1bf5da93"><div class="poll-widget-question">📊 Где вы планируете разместить QR-код?</div><div class="poll-widget-option" data-poll="1bf5da93" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">На кассовой зоне</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1bf5da93" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">На столиках в зале</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1bf5da93" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">На витрине у входа</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1bf5da93" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">В рекламных буклетах</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1bf5da93" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">На сайте в интернете</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="частые-ошибки-и-способы-их-устранения">Частые ошибки и способы их устранения</h2>
+
+<p>При внедрении новой системы оплаты могут возникать технические или организационные сложности. Одна из распространенных проблем — истекший срок действия динамического кода. Если клиент долго не оплачивал счет, код может перестать работать. В этом случае <strong>ВТБ</strong> требует сгенерировать новый код с актуальной суммой.</p>
+
+<p>Другая проблема — отсутствие интернета в точке продаж. Хотя для генерации кода продавцу нужен интернет, клиенту для оплаты он также необходим. Убедитесь, что в месте торговли стабильный сигнал мобильной сети или работает Wi-Fi.</p>
+
+<p>Если код не считывается камерой:</p>
+<ol>
+<li>Проверьте чистоту объектива камеры телефона.</li>
+<li>Убедитесь, что код не перевернут и хорошо освещен.</li>
+<li>Попробуйте изменить расстояние между телефоном и кодом.</li>
+<li>Проверьте, поддерживает ли приложение банка функцию СБП.</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Корректная работа QR-кода зависит не только от правильной генерации в банке, но и от физических условий его размещения: света, чистоты и качества печати.</p></div>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Нужно ли платить комиссию за создание QR-кода?</summary>
+<p>Сама генерация кода в приложении <em>ВТБ</em> бесплатна. Однако банк взимает комиссию за успешное проведение платежа по этому коду. Размер комиссии зависит от вашего тарифного плана и оборотов, но он, как правило, ниже, чем при классическом карточном эквайринге.</p>
+</details>
+
+<details>
+<summary>Можно ли создать QR-код без интернета?</summary>
+<p>Нет, для создания динамического кода и проверки статуса статического транзакции необходим доступ к серверам банка. Без соединения с интернетом приложение не сможет сформировать уникальный идентификатор платежа.</p>
+</details>
+
+<details>
+<summary>Что делать, если клиент оплатил, но деньги не пришли?</summary>
+<p>В системе <strong>СБП</strong> зачисления происходят мгновенно. Если денег нет, проверьте статус операции в приложении <em>ВТБ Бизнес</em>. Возможно, платеж был отклонен банком-эмитентом клиента или произошла техническая ошибка. В спорных ситуациях обратитесь в поддержку банка с ID транзакции.</p>
+</details>
+
+<details>
+<summary>Можно ли использовать один QR-код для разных точек?</summary>
+<p>Технически один статический код привязан к одному расчетному счету. Однако для корректной аналитики и учета рекомендуется создавать отдельные коды для каждой торговой точки или кассира, чтобы понимать источник выручки.</p>
+</details>
+
+<details>
+<summary>Работает ли оплата по QR-коду с кредитных карт?</summary>
+<p>Да, клиент может оплатить покупку, сканируя код, с любой карты, привязанной к его приложению банка, включая кредитные средства, если банк-эмитент поддерживает такие операции в СБП.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#преимущества-оплаты-по-qr-коду-через-втб">Преимущества оплаты по QR-коду через ВТБ</a></li><li><a href="#подготовка-к-работе-требования-и-настройки">Подготовка к работе: требования и настройки</a></li><li><a href="#инструкция-создание-статического-qr-кода-в-приложении">Инструкция: создание статического QR-кода в приложении</a></li><li><a href="#как-сформировать-динамический-код-для-конкретной-суммы">Как сформировать динамический код для конкретной суммы</a></li><li><a href="#печать-и-размещение-qr-кодов-для-клиентов">Печать и размещение QR-кодов для клиентов</a></li><li><a href="#частые-ошибки-и-способы-их-устранения">Частые ошибки и способы их устранения</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-podtverdit-akkaunt-cherez-vtb.html" class="related-card">Как подтвердить аккаунт через ВТБ: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-polozhit-dengi-na-telefon-cherez-kartu-vtb-cherez-sms.html" class="related-card">Как пополнить телефон через карту ВТБ по SMS: пошаговая инструкция 2026</a></li><li><a href="/articles/v/vt/vtb-chto-proiskhodit-s-onlajn-bankom.html" class="related-card">ВТБ Онлайн банк 2026: что происходит с сервисом и как пользоваться</a></li><li><a href="/articles/k/ka/kak-otklyuchit-push-uvedomlenie-v-vtb-onlajn.html" class="related-card">Как отключить Push-уведомления в ВТБ Онлайн: полная инструкция</a></li><li><a href="/articles/k/ka/kak-vojti-v-vtb-onlajn-bez-karty.html" class="related-card">Вход в ВТБ Онлайн без карты: пошаговая инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-podtverdit-akkaunt-cherez-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как подтвердить аккаунт через ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гайд по подтверждению аккаунта в ВТБ Онлайн через госуслуги, офис банка или терминал. Реша</span></a><a href="/articles/k/ka/kak-polozhit-dengi-na-telefon-cherez-kartu-vtb-cherez-sms.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить телефон через карту ВТБ по SMS: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд по пополнению баланса телефона с карты ВТБ через SMS: условия, комиссии, ограничения </span></a><a href="/articles/v/vt/vtb-chto-proiskhodit-s-onlajn-bankom.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Онлайн банк 2026: что происходит с сервисом и как пользоваться</span><span class="related-bottom-desc">Актуальная информация о работе ВТБ Онлайн в 2026 году: технические сбои, новые функции, как восстано</span></a><a href="/articles/k/ka/kak-otklyuchit-push-uvedomlenie-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить Push-уведомления в ВТБ Онлайн: полная инструкция</span><span class="related-bottom-desc">Подробная инструкция, как отключить Push-уведомления в приложении ВТБ Онлайн. Настройки для Android </span></a><a href="/articles/k/ka/kak-vojti-v-vtb-onlajn-bez-karty.html" class="related-bottom-card"><span class="related-bottom-title">Вход в ВТБ Онлайн без карты: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как авторизоваться в личном кабинете ВТБ Онлайн без банковской карты: через логин/пароль, по номеру </span></a><a href="/articles/k/ka/kak-vojti-v-lichnyj-kabinet-vtb-biznes-onlajn-v-pervyj-raz.html" class="related-bottom-card"><span class="related-bottom-title">Вход в ВТБ Бизнес Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как войти в ВТБ Бизнес Онлайн в первый раз? Актуальная инструкция по авторизации, настройке токена и</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

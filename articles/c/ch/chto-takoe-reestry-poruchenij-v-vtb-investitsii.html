@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Реестры поручений в ВТБ Инвестиции: что это и как работают — Банки Инфо</title>
+    <meta name="description" content="Разбираемся, что такое реестры поручений в ВТБ Инвестиции, как они формируются, зачем нужны и как проверять их статус. Полное руководство для инвесторов.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/c/ch/chto-takoe-reestry-poruchenij-v-vtb-investitsii.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Реестры поручений в ВТБ Инвестиции: что это и как работают">
+    <meta property="og:description" content="Разбираемся, что такое реестры поручений в ВТБ Инвестиции, как они формируются, зачем нужны и как проверять их статус. Полное руководство для инвесторов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Реестры поручений в ВТБ Инвестиции: что это и как работают</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Реестры поручений в ВТБ Инвестиции: как они работают и зачем нужны инвестору</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-реестр-поручений-и-зачем-он-нужен">Что такое реестр поручений и зачем он нужен</a></li><li><a href="#типы-реестров-поручений-в-втб-инвестиции">Типы реестров поручений в ВТБ Инвестиции</a></li><li><a href="#как-проверить-статус-поручения-в-втб-инвестиции">Как проверить статус поручения в ВТБ Инвестиции</a></li><li><a href="#сколько-времени-поручение-находится-в-реестре">Сколько времени поручение находится в реестре</a></li><li><a href="#частые-ошибки-инвесторов-при-работе-с-реестрами-поручений">Частые ошибки инвесторов при работе с реестрами поручений</a></li><li><a href="#как-отменить-или-изменить-поручение-в-реестре">Как отменить или изменить поручение в реестре</a></li><li><a href="#реестры-поручений-для-разных-типов-активов">Реестры поручений для разных типов активов</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-реестрах-поручений">FAQ: ответы на частые вопросы о реестрах поручений</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Когда вы покупаете или продаёте ценные бумаги через <em>ВТБ Инвестиции</em>, ваша сделка не выполняется мгновенно. Между моментом подачи заявки и её исполнением проходит несколько этапов, один из которых — попадание в <strong>реестр поручений</strong>. Этот термин часто вызывает вопросы у начинающих инвесторов: что это за реестр, почему сделка не проходит сразу, и как понять, на каком этапе находится ваше поручение?</p>
+
+<p>В этой статье мы подробно разберём, как устроена система реестров поручений в <em>ВТБ Инвестиции</em>, какие типы реестров существуют, сколько времени занимает обработка, и что делать, если ваше поручение «зависло». Также вы узнаете, как отличаются реестры для разных типов активов (акции, облигации, фонды) и почему иногда сделки исполняются не в тот же день. Эта информация поможет избежать распространённых ошибок и лучше контролировать свои инвестиции.</p>
+
+<h2 id="что-такое-реестр-поручений-и-зачем-он-нужен">Что такое реестр поручений и зачем он нужен</h2>
+
+<p>Реестр поручений — это внутренний учётный документ брокера (в данном случае <em>ВТБ Инвестиции</em>), в который попадают все клиентские заявки на покупку или продажу ценных бумаг. Он нужен для того, чтобы:</p>
+
+<ul>
+  <li>📝 <strong>Фиксировать очередь исполнения</strong> — если на одну бумагу поступает много заявок, они обрабатываются в порядке поступления (с учётом приоритетов по цене и времени).</li>
+  <li>⚖️ <strong>Контролировать лимиты</strong> — брокер проверяет, хватает ли у клиента денег или бумаг для сделки.</li>
+  <li>🔄 <strong>Синхронизироваться с биржей</strong> — не все заявки отправляются на биржу сразу (например, при лимитированных ордерах).</li>
+  <li>🛡️ <strong>Минимизировать риски</strong> — реестр помогает избежать ошибок при исполнении (например, продажи несуществующих бумаг).</li>
+</ul>
+
+<p>Проще говоря, реестр — это «очередь» ваших заявок, которая гарантирует, что сделка будет выполнена корректно и в соответствии с правилами биржи. Без него был бы хаос: заявки терялись бы, исполнялись в случайном порядке, а клиенты не понимали бы, почему их ордер не сработал.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Реестр поручений — это <strong>не то же самое</strong>, что и реестр владельцев ценных бумаг (который ведёт депозитарий). Первый нужен для обработки сделок, второй — для учёта прав собственности на активы.</blockquote>
+
+<h2 id="типы-реестров-поручений-в-втб-инвестиции">Типы реестров поручений в ВТБ Инвестиции</h2>
+
+<p>В зависимости от типа сделки и актива ваше поручение может попасть в один из нескольких реестров. Вот основные виды:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип реестра</th>
+      <th>Для каких сделок используется</th>
+      <th>Время обработки</th>
+      <th>Особенности</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Реестр рыночных поручений</strong></td>
+      <td>Покупка/продажа по рыночной цене (ордера типа «по рынку»)</td>
+      <td>От нескольких секунд до 1–2 часов</td>
+      <td>Исполняется быстро, но цена может отличаться от ожидаемой</td>
+    </tr>
+    <tr>
+      <td><strong>Реестр лимитированных поручений</strong></td>
+      <td>Ордера с фиксированной ценой (типа «лимитный»)</td>
+      <td>До конца торговой сессии или до отмены</td>
+      <td>Может висеть в реестре днями, если цена не достигнута</td>
+    </tr>
+    <tr>
+      <td><strong>Реестр стоп-заявок</strong></td>
+      <td>Стоп-лосс или тейк-профит</td>
+      <td>Активируется при достижении стоп-цены</td>
+      <td>Преобразуется в рыночный ордер после срабатывания</td>
+    </tr>
+    <tr>
+      <td><strong>Реестр внебиржевых сделок</strong></td>
+      <td>Покупка/продажа ОФЗ, корпоративных облигаций, некоторых ETF</td>
+      <td>От 1 до 3 рабочих дней</td>
+      <td>Требует ручной обработки брокером</td>
+    </tr>
+    <tr>
+      <td><strong>Реестр репо и маржинальных сделок</strong></td>
+      <td>Сделки с плечом или под залог ценных бумаг</td>
+      <td>От 1 часа до 1 дня</td>
+      <td>Дополнительные проверки на обеспечение</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Например, если вы выставили <strong>лимитированный ордер</strong> на покупку акций <em>Газпрома</em> по 200 рублей, а текущая цена 210 рублей, ваше поручение будет висеть в реестре до тех пор, пока цена не упадёт до 200 рублей (или пока вы не отмените его). В то же время <strong>рыночный ордер</strong> на продажу тех же акций исполнится почти мгновенно по лучшей доступной цене.</p>
+
+<div class="poll-widget" id="poll-ca5cf507"><div class="poll-widget-question">📊 Какой тип ордеров вы используете чаще?</div><div class="poll-widget-option" data-poll="ca5cf507" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Рыночные (по текущей цене)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ca5cf507" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Лимитированные (с фиксированной ценой)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ca5cf507" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Стоп-заявки</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ca5cf507" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Не знаю, что это</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="как-проверить-статус-поручения-в-втб-инвестиции">Как проверить статус поручения в ВТБ Инвестиции</h2>
+
+<p>Чтобы узнать, на каком этапе находится ваше поручение, воспользуйтесь одним из следующих способов:</p>
+
+<ol>
+  <li><strong>Мобильное приложение <em>ВТБ Инвестиции</strong>:</strong>
+    <ul>
+      <li>📱 Откройте раздел <code>Портфель → История операций → Активные поручения</code>.</li>
+      <li>🔍 Здесь отображаются все текущие заявки с статусами: «В реестре», «Исполняется», «Исполнено» или «Отклонено».</li>
+    </ul>
+  </li>
+  <li><strong>Личный кабинет на сайте:</strong>
+    <ul>
+      <li>💻 Перейдите в <code>Торговля → Мои поручения</code>.</li>
+      <li>📊 Статусы обновляются в реальном времени (с задержкой до 5 минут).</li>
+    </ul>
+  </li>
+  <li><strong>Звонок в поддержку:</em>
+    <ul>
+      <li>📞 По номеру 8 800 100-24-24 (звонок бесплатный).</li>
+      <li>💬 Сообщите оператору номер поручения (можно найти в истории операций).</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Если ваше поручение долго висит в статусе «В реестре», это может означать:</p>
+<ul>
+  <li>🕒 Для лимитированных ордеров: цена ещё не достигла указанного уровня.</li>
+  <li>🔄 Для внебиржевых сделок: идёт процесс согласования с контрагентом.</li>
+  <li>⚠️ Для маржинальных сделок: не хватает обеспечения (нужно пополнить счёт).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если поручение висит в реестре более 3 рабочих дней без изменений, свяжитесь с поддержкой <em>ВТБ Инвестиции</em> — возможно, произошла техническая ошибка.</p></div>
+
+<h2 id="сколько-времени-поручение-находится-в-реестре">Сколько времени поручение находится в реестре</h2>
+
+<p>Срок нахождения поручения в реестре зависит от типа сделки и рынка. Вот средние значения:</p>
+
+<ul>
+  <li>🏃 <strong>Рыночные ордера на акции/облигации:</strong> от нескольких секунд до 1–2 часов (исполняются в течение торговой сессии).</li>
+  <li>⏳ <strong>Лимитированные ордера:</strong> до конца торговой сессии (если цена не достигнута — переносятся на следующий день).</li>
+  <li>📅 <strong>Внебиржевые сделки (ОФЗ, корпоративные облигации):</strong> 1–3 рабочих дня.</li>
+  <li>🔄 <strong>Стоп-заявки:</strong> активируются при достижении стоп-цены, затем исполняются как рыночные.</li>
+  <li>📉 <strong>Маржинальные сделки:</strong> до 1 рабочего дня (дополнительные проверки).</li>
+</ul>
+
+<p><mark>Важно: поручения, поданные после 18:45 (окончание основной торговой сессии на Мосбирже), попадают в реестр следующего торгового дня.</mark> Это касается и лимитированных ордеров — они не переносятся автоматически, если не были исполнены.</p>
+
+<details class="faq-item"><summary>Что делать, если поручение «зависло» в реестре?</summary><div class="faq-answer"><p>
+<p>Если ваше поручение висит в статусе «В реестре» дольше обычного, проверьте:</p>
+<p>1. <strong>Для лимитированных ордеров</strong>: не изменилась ли цена актива в противоположную сторону (возможно, стоит скорректировать цену).</p>
+<p>2. <strong>Для внебиржевых сделок</strong>: не требуется ли дополнительное согласование (например, для крупных пакетов облигаций).</p>
+<p>3. <strong>Для маржинальных сделок</strong>: хватает ли обеспечения на счёте (проверьте в разделе <code>Кредитное плечо</code>).</p>
+<p>Если проблема не решена — обратитесь в поддержку с указанием номера поручения и тикера актива.</p></div></details></p>
+
+<h2 id="частые-ошибки-инвесторов-при-работе-с-реестрами-поручений">Частые ошибки инвесторов при работе с реестрами поручений</h2>
+
+<p>Даже опытные инвесторы иногда допускают ошибки, связанные с реестрами поручений. Вот самые распространённые:</p>
+
+<ul>
+  <li>❌ <strong>Игнорирование времени торговой сессии.</strong> Поручения, поданные в нерабочее время (например, вечером или в выходные), попадут в реестр только на следующий торговый день. Это может привести к упущенной прибыли, если цена актива резко изменится.</li>
+  <li>❌ <strong>Неправильно указанная цена в лимитированном ордере.</strong> Например, вы ставите покупку по 100 рублей, когда текущая цена 120 рублей — такой ордер никогда не исполнится, пока цена не упадёт.</li>
+  <li>❌ <strong>Забытые стоп-заявки.</strong> Если вы выставили стоп-лосс и забыли про него, он может сработать неожиданно (например, при краткосрочном падении цены).</li>
+  <li>❌ <strong>Недостаток средств для маржинальных сделок.</strong> Поручение может «зависнуть» в реестре, если на счёте не хватает обеспечения.</li>
+</ul>
+
+<p>Чтобы избежать этих ошибок:</p>
+
+<p>✅ Убедитесь, что торговая сессия открыта (с 10:00 до 18:45 по МСК).</p>
+<p>✅ Для лимитированных ордеров проверьте, реалистична ли указанная цена.</p>
+<p>✅ Просчитайте достаточно ли средств/бумаг для сделки (особенно при маржинальной торговле).</p>
+<p>✅ Отмените старые неисполненные поручения, если они потеряли актуальность.--></p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы торгуете на <em>СПБ Бирже</em> (например, иностранные акции), учтите, что время обработки поручений может отличаться из-за разницы в часовом поясе и правил клиринга.</blockquote>
+
+<h2 id="как-отменить-или-изменить-поручение-в-реестре">Как отменить или изменить поручение в реестре</h2>
+
+<p>Если вы передумали или ошиблись при оформлении поручения, его можно отменить или изменить. Вот как это сделать:</p>
+
+<ol>
+  <li><strong>Отмена поручения:</strong>
+    <ul>
+      <li>📱 В мобильном приложении: <code>Портфель → История операций → Активные поручения → выберите поручение → Отменить</code>.</li>
+      <li>💻 В личном кабинете: <code>Торговля → Мои поручения → Отменить</code>.</li>
+    </ol>
+    <p>Отмена возможна, пока поручение не исполнено. Для рыночных ордеров это нужно сделать <strong>максимально быстро</strong> — они исполняются почти мгновенно.</p>
+  </li>
+  <li><strong>Изменение поручения:</strong>
+    <p>Непосредственно изменить цену или количество в существующем поручении нельзя. Вместо этого:</p>
+    <ol>
+      <li>Отмените текущее поручение.</li>
+      <li>Создайте новое с нужными параметрами.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Исключение: <strong>стоп-заявки</strong> можно редактировать (изменять стоп-цену или цену исполнения) прямо в приложении, не отменяя их.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Отмена лимитированного ордера не влечёт никаких комиссий. Однако если вы часто отменяете и создаёте новые поручения, это может привести к упущенным возможностям из-за изменения цены актива.</p></div>
+
+<h2 id="реестры-поручений-для-разных-типов-активов">Реестры поручений для разных типов активов</h2>
+
+<p>Правила работы с реестрами поручений могут отличаться в зависимости от типа ценных бумаг. Рассмотрим ключевые особенности:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип актива</th>
+      <th>Особенности реестра поручений</th>
+      <th>Среднее время исполнения</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Акции российских компаний</strong></td>
+      <td>Рыночные ордера исполняются быстро, лимитированные — до конца сессии</td>
+      <td>Секунды — 1 день</td>
+    </tr>
+    <tr>
+      <td><strong>Облигации (ОФЗ, корпоративные)</strong></td>
+      <td>Многие сделки проходят вне биржи, требуют ручного согласования</td>
+      <td>1–3 рабочих дня</td>
+    </tr>
+    <tr>
+      <td><strong>ETF и биржевые фонды</strong></td>
+      <td>Исполнение зависит от ликвидности фонда (некоторые ETF торгуются редко)</td>
+      <td>От нескольких минут до 1 дня</td>
+    </tr>
+    <tr>
+      <td><strong>Иностранные акции (через СПБ Биржу)</strong></td>
+      <td>Время обработки зависит от часового пояса биржи (NYSE, NASDAQ и т. д.)</td>
+      <td>От 1 часа до 2 дней</td>
+    </tr>
+    <tr>
+      <td><strong>Валюта и драгметаллы</strong></td>
+      <td>Исполняются как рыночные ордера, но с учётом спреда</td>
+      <td>Секунды — 1 час</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Например, если вы покупаете <em>облигации федерального займа (ОФЗ)</em>, ваше поручение может висеть в реестре до 3 дней, так как эти бумаги часто торгуются вне биржи через систему <em>РЕПО</em> или прямые сделки с <em>ВТБ</em>. В то же время покупка акций <em>Сбербанка</em> по рыночной цене займёт не более минуты.</p>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-реестрах-поручений">FAQ: ответы на частые вопросы о реестрах поручений</h2>
+
+<details>
+  <summary>Можно ли увидеть очередь исполнения поручений в реестре?</summary>
+  <p>Нет, <em>ВТБ Инвестиции</em> не показывает очередь поручений других клиентов. Вы видите только свои активные заявки и их статус. Приоритет исполнения зависит от времени подачи и цены (для лимитированных ордеров).</p>
+</details>
+
+<details>
+  <summary>Почему моё поручение исполнилось не по той цене, которую я указал?</summary>
+  <p>Это характерно для <strong>рыночных ордеров</strong> — они исполняются по лучшей доступной цене на момент обработки. Если рынок волатилен, итоговая цена может отличаться от текущей на момент подачи заявки. Для контроля точной цены используйте <strong>лимитированные ордера</strong>.</p>
+</details>
+
+<details>
+  <summary>Что значит статус «Отклонено» в реестре поручений?</summary>
+  <p>Поручение может быть отклонено по нескольким причинам:
+  <ul>
+    <li>💰 Недостаточно средств на счёте.</li>
+    <li>📉 Цена актива выходит за установленные брокером лимиты.</li>
+    <li>🔒 Акция временно приостановлена к торгам.</li>
+    <li>📝 Ошибка в параметрах поручения (например, некорректное количество лотов).</li>
+  </ul>
+<p>Точную причину можно уточнить в поддержке <em>ВТБ Инвестиции</em>.</p></p>
+</details>
+
+<details>
+  <summary>Можно ли подать поручение на покупку акций в выходные?</summary>
+  <p>Да, технически вы можете создать поручение в выходные или праздничные дни, но оно попадёт в реестр только в первый рабочий день. Например, если вы выставили ордер в субботу, он начнёт обрабатываться в понедельник (если это не праздничный день).</p>
+</details>
+
+<details>
+  <summary>Что делать, если поручение исполнилось частично?</summary>
+  <p>Частичное исполнение возможно, если на рынке не хватило ликвидности для полного выполнения вашего ордера. В этом случае:</p>
+  <ul>
+    <li>📌 Остаток поручения останется в реестре до полного исполнения или отмены.</li>
+    <li>💹 Вы можете отменить неисполненную часть и выставить новый ордер.</li>
+  </ul>
+  <p>Частичное исполнение чаще встречается при торговле малоликвидными акциями или крупными пакетами.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-реестр-поручений-и-зачем-он-нужен">Что такое реестр поручений и зачем он нужен</a></li><li><a href="#типы-реестров-поручений-в-втб-инвестиции">Типы реестров поручений в ВТБ Инвестиции</a></li><li><a href="#как-проверить-статус-поручения-в-втб-инвестиции">Как проверить статус поручения в ВТБ Инвестиции</a></li><li><a href="#сколько-времени-поручение-находится-в-реестре">Сколько времени поручение находится в реестре</a></li><li><a href="#частые-ошибки-инвесторов-при-работе-с-реестрами-поручений">Частые ошибки инвесторов при работе с реестрами поручений</a></li><li><a href="#как-отменить-или-изменить-поручение-в-реестре">Как отменить или изменить поручение в реестре</a></li><li><a href="#реестры-поручений-для-разных-типов-активов">Реестры поручений для разных типов активов</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-реестрах-поручений">FAQ: ответы на частые вопросы о реестрах поручений</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-vyvodyatsya-dengi-s-brokerskogo-scheta-vtb.html" class="related-card">Как вывести деньги с брокерского счета ВТБ в 2026 году: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-uznat-parol-vtb-investitsii.html" class="related-card">Как восстановить пароль ВТБ Инвестиции — официальные способы 2026</a></li><li><a href="/articles/c/ch/chto-za-reestry-poruchenij-vtb-investitsii.html" class="related-card">Реестры поручений ВТБ Инвестиции: что это и как пользоваться в 2026 году</a></li><li><a href="/articles/c/ch/chto-takoe-iis-schet-v-vtb.html" class="related-card">ИИС-счет в ВТБ: что это, как открыть и получить налоговый вычет</a></li><li><a href="/articles/a/ao/ao-npf-vtb-pensionnye-nakopleniya-kak-poluchit-dengi-na-kartu-sberbanka.html" class="related-card">НПФ ВТБ: как перевести накопления на карту Сбербанка</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-vyvodyatsya-dengi-s-brokerskogo-scheta-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как вывести деньги с брокерского счета ВТБ в 2026 году: пошаговая инструкция</span><span class="related-bottom-desc">Способы вывода средств с брокерского счета ВТБ: сроки, комиссии, ограничения и пошаговые инструкции </span></a><a href="/articles/k/ka/kak-uznat-parol-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как восстановить пароль ВТБ Инвестиции — официальные способы 2026</span><span class="related-bottom-desc">Пошаговая инструкция по восстановлению доступа к личному кабинету ВТБ Инвестиции: через приложение, </span></a><a href="/articles/c/ch/chto-za-reestry-poruchenij-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Реестры поручений ВТБ Инвестиции: что это и как пользоваться в 2026 году</span><span class="related-bottom-desc">Разбираемся, что такое реестры поручений в ВТБ Инвестиции, как они работают, где их найти и почему э</span></a><a href="/articles/c/ch/chto-takoe-iis-schet-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">ИИС-счет в ВТБ: что это, как открыть и получить налоговый вычет</span><span class="related-bottom-desc">Разбираемся, что такое индивидуальный инвестиционный счет (ИИС) в ВТБ: условия открытия, типы счетов</span></a><a href="/articles/a/ao/ao-npf-vtb-pensionnye-nakopleniya-kak-poluchit-dengi-na-kartu-sberbanka.html" class="related-bottom-card"><span class="related-bottom-title">НПФ ВТБ: как перевести накопления на карту Сбербанка</span><span class="related-bottom-desc">Полная инструкция: как получить деньги из НПФ ВТБ на карту Сбербанка. Сроки, документы, налоги и пош</span></a><a href="/articles/v/vt/vtb-investitsii-chto-takoe-ochered-zayavok.html" class="related-bottom-card"><span class="related-bottom-title">Очередь заявок в ВТБ Инвестиции: как работает и зачем нужна</span><span class="related-bottom-desc">Разбираемся, что такое очередь заявок в ВТБ Инвестиции, как она формируется, почему сделка может дол</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

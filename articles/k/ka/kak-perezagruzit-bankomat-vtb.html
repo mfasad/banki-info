@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как перезагрузить банкомат ВТБ: инструкция для инкассаторов — Банки Инфо</title>
+    <meta name="description" content="Профессиональная инструкция по перезагрузке АТМ ВТБ. Программный и аппаратный сброс, коды ошибок, действия при зависании и правила безопасности.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-perezagruzit-bankomat-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как перезагрузить банкомат ВТБ: инструкция для инкассаторов">
+    <meta property="og:description" content="Профессиональная инструкция по перезагрузке АТМ ВТБ. Программный и аппаратный сброс, коды ошибок, действия при зависании и правила безопасности.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/ofisy-i-bankomaty/">Офисы и банкоматы</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как перезагрузить банкомат ВТБ: инструкция для инкассаторов</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как перезагрузить банкомат ВТБ: техническая инструкция</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#диагностика-состояния-терминала-перед-сбросом">Диагностика состояния терминала перед сбросом</a></li><li><a href="#программная-перезагрузка-через-интерфейс-администратора">Программная перезагрузка через интерфейс администратора</a></li><li><a href="#аппаратный-сброс-и-перезагрузка-питания">Аппаратный сброс и перезагрузка питания</a></li><li><a href="#специфика-перезагрузки-различных-моделей-атм">Специфика перезагрузки различных моделей АТМ</a></li><li><a href="#действия-при-ошибках-во-время-перезагрузки">Действия при ошибках во время перезагрузки</a></li><li><a href="#безопасность-и-финальная-проверка-работоспособности">Безопасность и финальная проверка работоспособности</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Ситуация, когда банкомат перестает реагировать на команды или зависает во время проведения операции, требует немедленного вмешательства технического специалиста. Для обычного пользователя это повод обратиться к сотруднику банка, однако для персонала, отвечающего за обслуживание <strong>ATM-терминалов</strong>, критически важно знать алгоритм действий. Перезагрузка оборудования — это не просто выключение и включение питания, а строго регламентированный процесс, нарушение которого может привести к блокировке модулей или потере данных транзакций.</p>
+
+<p>В большинстве случаев современные устройства на базе <em>Diebold Nixdorf</em> или <em>NCR</em>, используемые сетью ВТБ, оснащены системами самодиагностики, которые пытаются восстановить работу автоматически. Однако при критических сбоях <strong>операционной системы</strong> или аппаратных ошибках диспенсера требуется ручная инициализация процесса рестарта. Важно понимать разницу между программным сбросом через интерфейс администратора и физическим отключением электропитания, так как эти методы имеют разные последствия для логики работы устройства.</p>
+
+<p>Данное руководство предназначено исключительно для <strong>квалифицированного персонала</strong> и сотрудников инкассаторских служб, имеющих соответствующие допуски. Любые действия, производимые с устройством без авторизации, могут быть расценены как попытка несанкционированного доступа. Перед началом любых манипуляций необходимо убедиться в отсутствии активных клиентов у терминала и перевести устройство в режим технического обслуживания.</p>
+
+<h2 id="диагностика-состояния-терминала-перед-сбросом">Диагностика состояния терминала перед сбросом</h2>
+
+<p>Прежде чем инициировать принудительную перезагрузку, необходимо провести визуальный осмотр и анализ текущего состояния <strong>аппаратно-программного комплекса</strong>. Часто причина зависания кроется в механическом застревании купюры в тракте или переполнении журнала событий, что не требует полного отключения питания. Современные банкоматы ВТБ оснащены сенсорными панелями или скрытыми клавиатурами для ввода кодов обслуживания, которые позволяют считать текущий статус без вскрытия верхнего модуля.</p>
+
+<p>Обратите внимание на индикаторы состояния модулей, расположенные внутри сейфа. Если горит красный индикатор на модуле диспенсера, это может указывать на <strong>механическую ошибку</strong>, которую программный рестарт не исправит. В то же время, если экран оператора показывает «синий экран» или застыл на логотипе банка более 5 минут, вероятен сбой в работе <em>Windows Embedded</em> или <em>Linux</em>, что требует вмешательства в работу компьютера.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если на экране отображается сообщение о проведении инкассации или аудита кассеты, категорически запрещено прерывать процесс перезагрузкой. Это приведет к рассинхронизации электронного и физического баланса кассет.</p>
+</blockquote>
+
+<p>Для точной диагностики используйте служебную клавиатуру. Введите пин-код обслуживающего персонала (обычно это стандартный код завода-изготовителя или индивидуальный код инженера), чтобы войти в меню <strong>XFS-менеджера</strong>. Здесь можно просмотреть логи последних ошибок. Если ошибка помечена как «recoverable» (восстановимая), достаточно выполнить мягкий рестарт через меню. В случае фатальных ошибок ядра системы потребуется жесткая перезагрузка.</p>
+
+<div class="poll-widget" id="poll-a0cae4db"><div class="poll-widget-question">📊 Какой тип ошибки чаще всего встречается на вашем участке?</div><div class="poll-widget-option" data-poll="a0cae4db" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Зависание экрана</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a0cae4db" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Ошибка диспенсера</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a0cae4db" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Проблемы с сетью</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a0cae4db" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Сбой считывателя карт</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="программная-перезагрузка-через-интерфейс-администратора">Программная перезагрузка через интерфейс администратора</h2>
+
+<p>Наиболее безопасным и предпочтительным методом восстановления работоспособности является программная перезагрузка. Этот метод позволяет операционной системе корректно завершить все активные процессы, закрыть базы данных транзакций и отключить питание периферийных устройств в правильном порядке. Для доступа к этим функциям необходимо авторизоваться в системе управления банкоматом.</p>
+
+<p>Войдите в меню администратора, используя физическую клавиатуру или сенсорный экран. Навигация обычно осуществляется через комбинации клавиш или touchscreen-интерфейс в зависимости от модели <em>Diebold</em> или <em>NCR</em>. Вам потребуется найти раздел, отвечающий за управление системой. В интерфейсе <strong>ProCash</strong> или <em>Agilis</em> этот пункт часто скрыт в глубине меню для безопасности.</p>
+
+<p>Последовательность действий для программного рестарта выглядит следующим образом:</p>
+<ul>
+<li>🔑 Введите персональный код доступа инженера в поле авторизации.</li>
+<li>💻 Перейдите в меню <code>Service Functions</code> → <code>System Control</code>.</li>
+<li>🔄 Выберите опцию <code>Restart Application</code> для перезапуска только программного обеспечения банкомата.</li>
+<li>🛑 Если требуется полный перезапуск ОС, выберите <code>Reboot System</code> и подтвердите действие.</li>
+</ul>
+
+<p>После выбора команды система начнет процедуру shutdown. Экран может погаснуть, после чего последует автоматическое включение. Весь процесс занимает от 3 до 7 минут. В это время <strong>контроллер банкомата</strong> проводит самотестирование всех подключенных модулей: (card reader), пин-пада, принтера чеков и диспенсера. Успешное завершение процесса подтверждается переходом устройства в режим «Ready» (Готов к работе) и появлением приветственного экрана клиента.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед программным сбросом</h4><label class="check-item"><input type="checkbox"><span>Убедиться в отсутствии клиентов у банкомата</span></label><label class="check-item"><input type="checkbox"><span>Проверить отсутствие застрявших карт в ридере</span></label><label class="check-item"><input type="checkbox"><span>Убедиться, что не идет процесс выдачи наличных</span></label><label class="check-item"><input type="checkbox"><span>Подготовить ключи доступа к верхней панели</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="аппаратный-сброс-и-перезагрузка-питания">Аппаратный сброс и перезагрузка питания</h2>
+
+<p>В ситуациях, когда программный интерфейс не реагирует на команды или устройство полностью «зависло», применяется метод аппаратного сброса. Этот способ является более агрессивным и несет в себе определенные риски для <strong>файловой системы</strong> и целостности данных, поэтому используется только когда мягкие методы неэффективны. Физическое отключение питания прерывает все процессы мгновенно.</p>
+
+<p>Для выполнения аппаратной перезагрузки необходимо получить доступ к компьютерному модулю банкомата. Обычно он расположен в верхней части устройства (top box). Откройте верхнюю крышку, используя служебный ключ. Внутри вы увидите системный блок или специализированный промышленный компьютер. На передней панели материнской платы или на внешнем контроллере питания расположена кнопка включения/выключения.</p>
+
+<p>Алгоритм действий при жестком сбросе:</p>
+<ul>
+<li>🔌 Отключите основное питание банкомата через автоматический выключатель в нише или нажмите кнопку <code>Power Off</code> на системном блоке.</li>
+<li>⏳ Выждите паузу не менее 30–60 секунд. Это необходимо для полного разряда конденсаторов и сброса остаточного напряжения в цепях <strong>контроллера</strong>.</li>
+<li>⚡ Включите питание обратно. Система начнет процедуру POST (самотестирование при включении).</li>
+<li>👁️ Контролируйте процесс загрузки визуально, следя за индикаторами на материнской плате и экране.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Не включайте питание повторно сразу же после выключения. Кратковременные скачки напряжения могут повредить блок питания или жесткий диск, на котором хранится <em>ОС банкомата</em>.</p>
+</blockquote>
+
+<p>После включения питания компьютер начнет загрузку операционной системы. Если используется <em>Windows XP Embedded</em> или более новые версии, процесс может занять до 5 минут. Важно не открывать нижнюю сейфовую часть (кассетный модуль) во время загрузки, так как это может спровоцировать ошибку безопасности и блокировку устройства системой защиты от взлома <strong>EPP</strong> (Encrypted PIN Pad).</p>
+
+<h2 id="специфика-перезагрузки-различных-моделей-атм">Специфика перезагрузки различных моделей АТМ</h2>
+
+<p>Сеть банкоматов ВТБ heterogeneous и состоит из устройств разных производителей и годов выпуска. Процедура рестарта может существенно отличаться в зависимости от используемого «железа». Понимание различий между моделями <em>Diebold Nixdorf</em>, <em>NCR</em> и <em>Wincor</em> (теперь <em>Diebold</em>) позволяет избежать ошибок при обслуживании.</p>
+
+<p>Устройства марки <em>Diebold Nixdorf</em> (серии ProCash, ProCore) часто требуют использования специальной сервисной клавиатуры или подключения ноутбука через порт <strong>RS-232</strong> для глубокой диагностики. В этих моделях кнопка питания может быть скрыта внутри корпуса за дополнительной защитной панелью. Программное обеспечение <em>Vynamic</em> или более старые версии <em>ProBase</em> имеют свои особенности выхода из режима обслуживания.</p>
+
+<p>Банкоматы <em>NCR</em> (серии SelfServ) обычно оснащены более доступным интерфейсом управления. Однако в новых моделях с операционной системой на базе Linux процедура shutdown может быть скрыта за несколькими уровнями меню безопасности. Также в этих устройствах часто встречается двойная система питания: одна для компьютера, другая для модулей периферии. При сбоях иногда требуется отключать их раздельно.</p>
+
+<p>Сравнительная таблица особенностей перезагрузки:</p>
+
+<table>
+<thead>
+<tr>
+<th>Модель / Производитель</th>
+<th>Расположение кнопки Power</th>
+<th>Особенности ПО</th>
+<th>Время полной загрузки</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Diebold ProCash</td>
+<td>Внутри верхнего модуля, на плате</td>
+<td>Vynamic / ProBase</td>
+<td>4-6 минут</td>
+</tr>
+<tr>
+<td>NCR SelfServ</td>
+<td>На передней панели системного блока</td>
+<td>APTRA / Windows</td>
+<td>5-7 минут</td>
+</tr>
+<tr>
+<td>Wincor CMD-V</td>
+<td>Скрытый переключатель в нише</td>
+<td>ProTopas</td>
+<td>3-5 минут</td>
+</tr>
+<tr>
+<td>Китайские АТМ (GRG)</td>
+<td>На задней стенке компьютера</td>
+<td>Linux-based</td>
+<td>2-4 минуты</td>
+</tr>
+</tbody>
+</table>
+
+<details class="faq-item"><summary>Что делать, если банкомат не включается после сброса питания?</summary><div class="faq-answer"><p>Если после подачи питания экран остается черным, а индикаторы не загораются, проверьте наличие напряжения в розетке и состояние автоматического выключателя. Возможно, сработала защита от скачка напряжения. Если питание есть, но реакции нет, вероятно, вышел из строя блок питания (PSU) или материнская плата. Требуется вызов инженера для замены hardware-компонентов.</p></div></details>
+
+<h2 id="действия-при-ошибках-во-время-перезагрузки">Действия при ошибках во время перезагрузки</h2>
+
+<p>Процесс восстановления работы банкомата не всегда проходит гладко. В ходе загрузки могут возникать критические ошибки, требующие немедленной реакции оператора. Наиболее частая проблема — «циклическая перезагрузка» (boot loop), когда устройство постоянно выключается и включается, не доходя до рабочего стола. Это часто свидетельствует о повреждении <strong>системных файлов</strong> или конфликте оборудования.</p>
+
+<p>Если на экране появляется код ошибки, запишите его точно. Коды формата <code>Error 000034</code> или <code>XFS Error</code> содержат информацию о том, какой именно модуль не прошел инициализацию. Например, ошибка инициализации диспенсера может блокировать загрузку всего приложения, даже если компьютер исправен. В таких случаях может потребоваться физическое отключение проблемного модуля для проверки гипотезы.</p>
+
+<p>При возникновении ошибки <strong>Database Corruption</strong> (повреждение базы данных) программный сброс не поможет. Система будет предлагать восстановить резервную копию или переинсталлировать ПО. В условиях торговой точки это сделать невозможно, требуется вмешательство удаленного центра поддержки ВТБ или выездной группы.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если во время загрузки раздается громкий треск или гудение изнутри устройства, немедленно обесточьте банкомат. Это признак механического разрушения компонентов жесткого диска или заклинивания вентиляторов, что может привести к возгоранию.</p>
+</blockquote>
+
+<p>В случае неудачной попытки перезагрузки, когда устройство переходит в режим «Out of Service» (Не работает), необходимо закрыть зону обслуживания клиента и выставить соответствующее объявление. Попытки многократного включения («пингования») устройства без устранения причины сбоя могут усугубить ситуацию и привести к полной блокировке <strong>логического замка</strong> сейфа.</p>
+
+<h2 id="безопасность-и-финальная-проверка-работоспособности">Безопасность и финальная проверка работоспособности</h2>
+
+<p>После успешной перезагрузки и появления приветственного экрана работа специалиста не заканчивается. Критически важно провести тестовую транзакцию, чтобы убедиться в полной функциональности всех узлов. Банкомат может показать рабочий стол, но при этом не иметь связи с хост-процессингом или иметь заблокированный диспенсер.</p>
+
+<p>Выполните следующие проверки:</p>
+<ul>
+<li>📡 Проверьте индикатор связи с хостом (обычно зеленый значок сети или надпись «Online»).</li>
+<li>🧾 Распечатайте тестовый чек (Z-отчет или диагностический чек) через меню администратора.</li>
+<li>💳 Проведите тестовое снятие минимальной суммы или операцию «Баланс» с последующим возвратом карты.</li>
+<li>🔒 Убедитесь, что защитные шторки и модули захлопнулись корректно после операции.</li>
+</ul>
+
+<p>Только после подтверждения успешного прохождения всех этапов тестирования устройство считается готовым к эксплуатации. Не забудьте зафиксировать факт проведения работ и перезагрузки в <strong>журнале обслуживания</strong> (электронном или бумажном), указав время, причину сбоя и использованный метод восстановления. Это необходимо для статистики и анализа надежности оборудования.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Успешная перезагрузка банкомата — это не просто включение питания, а комплексная проверка всех модулей и подтверждение связи с процессинговым центром банка.</p></div>
+
+<p>Соблюдение регламента при обслуживании ATM-терминалов ВТБ гарантирует бесперебойность финансовых операций для клиентов и сохранность денежных средств. Помните, что каждое устройство — это сложный программно-аппаратный комплекс, требующий внимательного и профессионального подхода.</p>
+
+<details>
+<summary>Можно ли перезагружать банкомат во время выдачи денег?</summary>
+<p>Категорически нет. Прерывание процесса диспенсации (выдачи купюр) приведет к тому, что деньги будут выданы, но не списаны со счета (или наоборот), что создаст кассовый разрыв. Сначала дождитесь завершения операции или отмены транзакции.</p>
+</details>
+
+<details>
+<summary>Что делать, если забыт пин-код администратора?</summary>
+<p>Без пин-кода доступ к меню перезагрузки закрыт. Используйте аппаратный метод (кнопка питания), но будьте готовы к возможным ошибкам файловой системы. Для восстановления доступа к ПО потребуется вызов инженера с мастер-ключами.</p>
+</details>
+
+<details>
+<summary>Сколько времени занимает полная перезагрузка банкомата ВТБ?</summary>
+<p>В среднем процесс занимает от 5 до 10 минут. Это время включает в себя загрузку BIOS, операционной системы, инициализацию драйверов XFS, запуск приложения банкомата и установление защищенного соединения с хостом банка.</p>
+</details>
+
+<details>
+<summary>Опасна ли частая перезагрузка для жесткого диска?</summary>
+<p>Резкие отключения питания вредны для любых накопителей. Однако в промышленных банкоматах используются SSD с повышенной устойчивостью к вибрациям и скачкам. Тем не менее, злоупотреблять аппаратным сбросом (Hard Reset) не рекомендуется.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#диагностика-состояния-терминала-перед-сбросом">Диагностика состояния терминала перед сбросом</a></li><li><a href="#программная-перезагрузка-через-интерфейс-администратора">Программная перезагрузка через интерфейс администратора</a></li><li><a href="#аппаратный-сброс-и-перезагрузка-питания">Аппаратный сброс и перезагрузка питания</a></li><li><a href="#специфика-перезагрузки-различных-моделей-атм">Специфика перезагрузки различных моделей АТМ</a></li><li><a href="#действия-при-ошибках-во-время-перезагрузки">Действия при ошибках во время перезагрузки</a></li><li><a href="#безопасность-и-финальная-проверка-работоспособности">Безопасность и финальная проверка работоспособности</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ko/kogda-otkryvayutsya-banki-vtb.html" class="related-card">Время работы отделений ВТБ в 2026: график, выходные, праздники</a></li><li><a href="/articles/k/ka/kak-pomenyat-nomer-telefona-v-vtb-onlajn-cherez-bankomat.html" class="related-card">Как поменять номер телефона в ВТБ Онлайн через банкомат: пошаговая инструкция 2026</a></li><li><a href="/articles/s/sk/skolko-mozhno-snyat-s-vtb-v-sutki-cherez-bankomat.html" class="related-card">Сколько можно снять с ВТБ через банкомат в сутки: лимиты 2026</a></li><li><a href="/articles/v/vt/vtb-bank-gde-nakhoditsya-blizhajshee.html" class="related-card">ВТБ Банк: как найти ближайшее отделение или банкомат в 2026 году</a></li><li><a href="/articles/s/sk/skolko-mozhno-polozhit-na-kartu-vtb-cherez-bankomat-nalichnymi.html" class="related-card">Сколько можно положить на карту ВТБ через банкомат наличными в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ko/kogda-otkryvayutsya-banki-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Время работы отделений ВТБ в 2026: график, выходные, праздники</span><span class="related-bottom-desc">Актуальный график работы банка ВТБ: когда открываются отделения, часы работы в будни/выходные, особе</span></a><a href="/articles/k/ka/kak-pomenyat-nomer-telefona-v-vtb-onlajn-cherez-bankomat.html" class="related-bottom-card"><span class="related-bottom-title">Как поменять номер телефона в ВТБ Онлайн через банкомат: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по смене номера телефона в ВТБ через банкомат: шаги, требования, возможные оши</span></a><a href="/articles/s/sk/skolko-mozhno-snyat-s-vtb-v-sutki-cherez-bankomat.html" class="related-bottom-card"><span class="related-bottom-title">Сколько можно снять с ВТБ через банкомат в сутки: лимиты 2026</span><span class="related-bottom-desc">Актуальные лимиты на снятие наличных в банкоматах ВТБ по дебетовым и кредитным картам. Как увеличить</span></a><a href="/articles/v/vt/vtb-bank-gde-nakhoditsya-blizhajshee.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Банк: как найти ближайшее отделение или банкомат в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция, как найти ближайший офис или банкомат ВТБ в вашем городе. Карты, фильтры, часы</span></a><a href="/articles/s/sk/skolko-mozhno-polozhit-na-kartu-vtb-cherez-bankomat-nalichnymi.html" class="related-bottom-card"><span class="related-bottom-title">Сколько можно положить на карту ВТБ через банкомат наличными в 2026 году</span><span class="related-bottom-desc">Актуальные лимиты пополнения карт ВТБ через банкоматы наличными: суточные, месячные и разовые ограни</span></a><a href="/articles/k/ka/kak-sdelat-vypisku-po-karte-vtb-cherez-bankomat.html" class="related-bottom-card"><span class="related-bottom-title">Как сделать выписку по карте ВТБ через банкомат: инструкция</span><span class="related-bottom-desc">Подробный гид: как получить выписку по карте ВТБ через банкомат. Разбор функционала, лимитов печати </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

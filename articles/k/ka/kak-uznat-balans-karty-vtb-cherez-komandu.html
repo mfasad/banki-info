@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как проверить баланс карты ВТБ через команду USSD и SMS — Банки Инфо</title>
+    <meta name="description" content="Пошаговая инструкция по проверке остатка на карте ВТБ с помощью команд *111#, SMS-запросов и мобильного приложения. Актуальные способы 2026 года.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-uznat-balans-karty-vtb-cherez-komandu.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как проверить баланс карты ВТБ через команду USSD и SMS">
+    <meta property="og:description" content="Пошаговая инструкция по проверке остатка на карте ВТБ с помощью команд *111#, SMS-запросов и мобильного приложения. Актуальные способы 2026 года.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/karty-i-scheta/">Карты и счета</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как проверить баланс карты ВТБ через команду USSD и SMS</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как узнать баланс карты ВТБ через команду: все способы</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#проверка-баланса-карты-втб-почему-команды-остаются-актуальными">Проверка баланса карты ВТБ: почему команды остаются актуальными</a></li><li><a href="#основная-команда-для-проверки-баланса-111">Основная команда для проверки баланса: *111#</a></li><li><a href="#проверка-баланса-через-sms-запрос">Проверка баланса через SMS-запрос</a></li><li><a href="#альтернативные-команды-для-карт-втб">Альтернативные команды для карт ВТБ</a></li><li><a href="#проверка-баланса-через-звонок-в-контакт-центр">Проверка баланса через звонок в контакт-центр</a></li><li><a href="#частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</a></li><li><a href="#безопасность-как-не-стать-жертвой-мошенников">Безопасность: как не стать жертвой мошенников</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><h2 id="проверка-баланса-карты-втб-почему-команды-остаются-актуальными">Проверка баланса карты ВТБ: почему команды остаются актуальными</h2>
+
+<p>В эпоху мобильных банков и онлайн-сервисов многие клиенты <em>ВТБ</em> по-прежнему предпочитают проверять баланс карты через простые USSD-команды или SMS-запросы. Этот метод работает даже без интернета, не требует установки приложений и занимает буквально несколько секунд. Особенно он востребован в ситуациях, когда под рукой нет смартфона с доступом к <strong>ВТБ-Онлайн</strong>, а нужно срочно уточнить остаток средств.</p>
+
+<p>Банк поддерживает несколько способов дистанционной проверки баланса, но именно <mark>команда *111#</mark> и SMS-запросы остаются самыми универсальными. Они работают для всех типов карт — от классических <em>Visa/Mastercard</em> до <em>МИР</em>, включая зарплатные, кредитные и дебетовые продукты. В этой статье разберём все актуальные команды, нюансы их использования и альтернативные методы проверки остатка.</p>
+
+<h2 id="основная-команда-для-проверки-баланса-111">Основная команда для проверки баланса: *111#</h2>
+
+<p>Самый быстрый способ узнать остаток по карте <em>ВТБ</em> — набрать на телефоне комбинацию <code>*111#</code> и нажать кнопку вызова. Эта USSD-команда работает на всех мобильных операторах (МТС, Билайн, МегаФон, Теле2) и не требует подключения к интернету. После набора откроется меню <strong>ВТБ-Информ</strong>, где нужно выбрать пункт для проверки баланса.</p>
+
+<p>Пошаговая инструкция:</p>
+<ul>
+  <li>📱 Наберите на клавиатуре телефона <code>*111#</code> (без пробелов и знаков).</li>
+  <li>📞 Нажмите кнопку вызова (как при обычном звонке).</li>
+  <li>🔢 В открывшемся меню выберите пункт <code>1</code> — "Баланс карты" (или аналогичный, в зависимости от версии меню).</li>
+  <li>💳 Следуйте подсказкам системы: может потребоваться ввод последних 4 цифр карты.</li>
+  <li>📄 Через несколько секунд на экране отобразится текущий баланс.</li>
+</ul>
+
+<p>Важно: услуга <strong>ВТБ-Информ</strong> должна быть подключена к вашему номеру телефона. Если при наборе команды вы видите ошибку, проверьте, привязан ли номер к карте. Сделать это можно через <strong>ВТБ-Онлайн</strong> или в отделении банка.</p>
+
+<div class="poll-widget" id="poll-1052e939"><div class="poll-widget-question">📊 Какой способ проверки баланса вы используете чаще?</div><div class="poll-widget-option" data-poll="1052e939" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">USSD-команды (*111#)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1052e939" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">SMS-запросы</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1052e939" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Мобильное приложение ВТБ-Онлайн</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1052e939" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Звонок в контакт-центр</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="проверка-баланса-через-sms-запрос">Проверка баланса через SMS-запрос</h2>
+
+<p>Если USSD-команды по какой-то причине не работают (например, на некоторых моделях смартфонов), можно отправить SMS на короткий номер <em>ВТБ</em>. Для этого:</p>
+<ol>
+  <li>Создайте новое SMS-сообщение.</li>
+  <li>В поле получателя укажите номер <code>900</code> (для всех операторов).</li>
+  <li>В тексте сообщения напишите команду <code>БАЛАНС ХХХХ</code>, где <code>ХХХХ</code> — последние 4 цифры вашей карты.</li>
+  <li>Отправьте SMS. Ответ с остатком придёт в течение 1–2 минут.</li>
+</ol>
+
+<p>Пример правильного SMS-запроса:</p>
+<pre><code>БАЛАНС 1234</code></pre>
+
+<p>Обратите внимание: услуга платная — стоимость одного SMS-запроса составляет <strong>3–5 рублей</strong> в зависимости от тарифа. Точную цену уточняйте на сайте банка или в договоре обслуживания. Также проверьте, что номер <code>900</code> не заблокирован вашим оператором (иногда короткие номера банков попадают в "чёрные списки" антиспама).</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если SMS не приходит, попробуйте перезагрузить телефон или временно отключить блокировщики спама (например, в приложениях "Truecaller" или встроенных функциях Android/iOS).</p></div>
+
+<h2 id="альтернативные-команды-для-карт-втб">Альтернативные команды для карт ВТБ</h2>
+
+<p>Помимо стандартной команды <code>*111#</code>, банк поддерживает и другие USSD-запросы для управления счётом. Вот полный список актуальных комбинаций:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Команда</th>
+      <th>Назначение</th>
+      <th>Примечание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>*111#</code></td>
+      <td>Главное меню <strong>ВТБ-Информ</strong></td>
+      <td>Работает для всех карт, включая кредитные</td>
+    </tr>
+    <tr>
+      <td><code>*111*1#</code></td>
+      <td>Быстрая проверка баланса</td>
+      <td>Аналог выбора пункта "1" в основном меню</td>
+    </tr>
+    <tr>
+      <td><code>*111*2#</code></td>
+      <td>История последних операций</td>
+      <td>Показывает 3–5 транзакций</td>
+    </tr>
+    <tr>
+      <td><code>*111*3#</code></td>
+      <td>Блокировка карты</td>
+      <td>Экстренная блокировка при утере</td>
+    </tr>
+    <tr>
+      <td><code>*111*0#</code></td>
+      <td>Связь с оператором</td>
+      <td>Перенаправляет на голосовое меню</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Для кредитных карт <em>ВТБ</em> доступна отдельная команда <code>*111*4#</code>, которая показывает не только остаток средств, но и доступный лимит, а также дату очередного платежа. Это удобно для контроля задолженности.</p>
+
+<details class="faq-item"><summary>Что делать, если команда не работает?</summary><div class="faq-answer"><p>
+<p>Если после набора <code>*111#</code> вы видите сообщение "Услуга недоступна", проверьте:</p>
+<p>1. Привязан ли ваш номер телефона к карте (можно уточнить в отделении банка или через <strong>ВТБ-Онлайн</strong>).</p>
+<p>2. Активна ли услуга "Мобильный банк" (иногда её отключают по умолчанию при выпуске карты).</p>
+<p>3. Не заблокирован ли номер <code>900</code> вашим оператором (проверяется в личном кабинете мобильного оператора).</p>
+<p>4. Не истёк ли срок действия SIM-карты (USSD-команды могут не работать на старых картах).</p>
+<p></p></div></details></p>
+
+<h2 id="проверка-баланса-через-звонок-в-контакт-центр">Проверка баланса через звонок в контакт-центр</h2>
+
+<p>Если команды и SMS не срабатывают, можно позвонить в <strong>контакт-центр ВТБ</strong> по номеру <code>8 800 100-24-24</code> (звонок бесплатный по России). После соединения с оператором вам потребуется:</p>
+<ul>
+  <li>🔊 Назвать свои ФИО (как в договоре).</li>
+  <li>🆔 Указать номер карты или счёт (можно без CVV-кода).</li>
+  <li>🔢 Продиктовать код из SMS (если потребуется подтверждение).</li>
+</ul>
+
+<p>Этот способ подходит, если вы находитесь за границей (где USSD-команды могут не работать) или если карта привязана к другому номеру телефона. Однако учтите, что в часы пиковой нагрузки дождаться ответа оператора может быть сложно.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Звонок в контакт-центр — единственный способ проверить баланс, если у вас нет доступа к привязанному номеру телефона (например, при утере SIM-карты).</p></div>
+
+<h2 id="частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</h2>
+
+<p>При использовании USSD-команд и SMS-запросов клиенты <em>ВТБ</em> часто сталкиваются с типичными проблемами. Вот самые распространённые из них и способы решения:</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если после набора <code>*111#</code> вы видите сообщение "Недостаточно средств", это не означает, что на карте нулевой баланс. Скорее всего, на счёту мобильного телефона недостаточно денег для оплаты USSD-запроса (стоимость — около 1–2 рублей). Пополните баланс телефона и повторите попытку.</blockquote>
+
+<p>Другие распространённые ошибки:</p>
+<ul>
+  <li>📵 <strong>"Услуга недоступна"</strong> — проверьте, подключён ли <strong>Мобильный банк</strong> (можно активировать через банкомат или <strong>ВТБ-Онлайн</strong>).</li>
+  <li>🔄 <strong>"Неверный формат команды"</strong> — убедитесь, что вы набираете <code>*111#</code> без пробелов и лишних символов.</li>
+  <li>📱 <strong>"Команда не поддерживается"</strong> — на некоторых телефонах (особенно на <em>iPhone</em> с двойной SIM-картой) USSD-команды могут не работать. Попробуйте отправить SMS на <code>900</code>.</li>
+  <li>🕒 <strong>"Запрос обрабатывается слишком долго"</strong> — возможно, проблемы на стороне банка. Повторите попытку через 5–10 минут.</li>
+</ul>
+
+<p>Если ни один из способов не сработал, проверьте, не заблокирована ли ваша карта. Для этого можно:</p>
+<ol>
+  <li>Вставить карту в банкомат <em>ВТБ</em> и попробовать проверить баланс через меню устройства.</li>
+  <li>Авторизоваться в <strong>ВТБ-Онлайн</strong> (если есть доступ к интернету).</li>
+  <li>Обратиться в ближайшее отделение банка с паспортом.</li>
+</ol>
+
+<h2 id="безопасность-как-не-стать-жертвой-мошенников">Безопасность: как не стать жертвой мошенников</h2>
+
+<p>При использовании USSD-команд и SMS-запросов важно помнить о рисках мошенничества. Злоумышленники часто рассылают фишинговые сообщения с просьбой перевести деньги или "подтвердить данные карты". Вот ключевые правила безопасности:</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Банк <em>ВТБ</em> никогда не запрашивает по SMS или звонку полный номер карты, CVV-код или пароль из <strong>ВТБ-Онлайн</strong>. Если вам пришло такое сообщение — это 100% мошенники. Немедленно заблокируйте карту через команду <code>*111*3#</code>.</blockquote>
+
+<p>Что делать, если вы подозреваете мошенничество:</p>
+
+<p>🛡️ Немедленно заблокируйте карту через USSD (<code>*111*3#</code>) или <strong>ВТБ-Онлайн</strong></p>
+<p>📞 Позвоните в контакт-центр по номеру <code>8 800 100-24-24</code> (не используйте номера из подозрительных SMS!)</p>
+<p>📱 Проверьте историю операций в мобильном приложении на наличие несанкционированных списаний</p>
+<p>🔄 Смените пароль от <strong>ВТБ-Онлайн</strong> и <strong>Мобильного банка</strong></p>
+<p>--></p>
+
+<p>Также будьте осторожны с:</p>
+<ul>
+  <li>🔗 Ссылками в SMS или мессенджерах (даже если они выглядят как официальные). <em>ВТБ</em> никогда не просит переходить по ссылкам для "подтверждения данных".</li>
+  <li>📞 Звонками от "сотрудников банка" с просьбой назвать код из SMS. Это классическая схема мошенников.</li>
+  <li>💳 Предложениями "повысить лимит" или "получить бонус" за перевод денег на другой счёт.</li>
+</ul>
+
+<p>Если вы всё же стали жертвой мошенников, немедленно:</p>
+<ol>
+  <li>Заблокируйте карту.</li>
+  <li>Напишите заявление в банк о несанкционированном списании (можно через <strong>ВТБ-Онлайн</strong> или в отделении).</li>
+  <li>Обратитесь в полицию с паспортом и выпиской по счёту.</li>
+</ol>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</h2>
+
+<details>
+  <summary>Можно ли проверить баланс карты ВТБ через команду, если я за границей?</summary>
+  <p>Да, но с нюансами. USSD-команды (<code>*111#</code>) работают не во всех странах из-за особенностей роуминга. Альтернативные способы:</p>
+  <ul>
+    <li>Использовать <strong>ВТБ-Онлайн</strong> (нужен интернет).</li>
+    <li>Позвонить в контакт-центр по номеру <code>+7 495 728-77-66</code> (платно).</li>
+    <li>Отправить SMS на <code>+7 900</code> (стоимость зависит от роуминговых тарифов).</li>
+  </ul>
+  <p>Уточните тарифы на роуминг у вашего мобильного оператора.</p>
+</details>
+
+<details>
+  <summary>Сколько стоит проверка баланса через USSD или SMS?</summary>
+  <p>Стоимость зависит от тарифа вашего мобильного оператора:</p>
+  <ul>
+    <li>USSD-запрос (<code>*111#</code>) — обычно <strong>1–2 рубля</strong> (списывается с баланса телефона).</li>
+    <li>SMS на номер <code>900</code> — <strong>3–5 рублей</strong> (списывается с баланса телефона).</li>
+    <li>Звонок в контакт-центр — бесплатно по номеру <code>8 800 100-24-24</code> (из России).</li>
+  </ul>
+  <p>Точные тарифы уточняйте у своего оператора или на сайте <em>ВТБ</em>.</p>
+</details>
+
+<details>
+  <summary>Почему команда *111# не работает на моём iPhone?</summary>
+  <p>На некоторых моделях <em>iPhone</em> (особенно с двумя SIM-картами) USSD-команды могут не срабатывать из-за особенностей iOS. Решения:</p>
+  <ol>
+    <li>Попробуйте отправить SMS на <code>900</code> с текстом <code>БАЛАНС ХХХХ</code>.</li>
+    <li>Включите режим "Авиарежим" на 10 секунд, затем выключите и повторите набор команды.</li>
+    <li>Установите SIM-карту в слот <code>SIM 1</code> (на некоторых моделях USSD работает только с основной SIM).</li>
+    <li>Обновите iOS до последней версии (в новых версиях исправлены ошибки с USSD).</li>
+  </ol>
+</details>
+
+<details>
+  <summary>Можно ли проверить баланс чужой карты ВТБ по номеру?</summary>
+  <p>Нет. Банк <em>ВТБ</em> не предоставляет информацию о балансе карты третьим лицам, даже если вы знаете её номер. Доступ к данным имеют только:</p>
+  <ul>
+    <li>Владелец карты (через привязанный номер телефона).</li>
+    <li>Доверенные лица (при наличии нотариальной доверенности).</li>
+    <li>Сотрудники банка (только при личном визите клиента с паспортом).</li>
+  </ul>
+  <p>Любые предложения "узнать баланс по номеру карты" — это мошенничество.</p>
+</details>
+
+<details>
+  <summary>Как часто обновляется баланс при проверке через команду?</summary>
+  <p>Информация о балансе, полученная через USSD или SMS, обновляется в <strong>реальном времени</strong>. То есть вы видите актуальный остаток на счёту с учётом всех проведённых операций (включая holdings по кредитным картам). Однако:</p>
+  <ul>
+    <li>Для <strong>дебетовых карт</strong> данные обновляются мгновенно.</li>
+    <li>Для <strong>кредитных карт</strong> может быть задержка до 1–2 часов из-за обработки транзакций.</li>
+    <li>Если вы только что пополнили счёт (например, через терминал), подождите 5–10 минут и проверьте баланс повторно.</li>
+  </ul>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#проверка-баланса-карты-втб-почему-команды-остаются-актуальными">Проверка баланса карты ВТБ: почему команды остаются актуальными</a></li><li><a href="#основная-команда-для-проверки-баланса-111">Основная команда для проверки баланса: *111#</a></li><li><a href="#проверка-баланса-через-sms-запрос">Проверка баланса через SMS-запрос</a></li><li><a href="#альтернативные-команды-для-карт-втб">Альтернативные команды для карт ВТБ</a></li><li><a href="#проверка-баланса-через-звонок-в-контакт-центр">Проверка баланса через звонок в контакт-центр</a></li><li><a href="#частые-ошибки-и-как-их-избежать">Частые ошибки и как их избежать</a></li><li><a href="#безопасность-как-не-стать-жертвой-мошенников">Безопасность: как не стать жертвой мошенников</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-zakryt-kreditnuyu-kartu-vtb-cherez-lichnyj-kabinet-onlajn-besplatno.html" class="related-card">Как закрыть кредитную карту ВТБ онлайн через личный кабинет 2026</a></li><li><a href="/articles/k/ka/kak-snyat-avtoplatezh-s-karty-vtb.html" class="related-card">Как отключить автоплатеж в ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-najti-vladeltsa-karty-moskvicha-vtb.html" class="related-card">Как найти владельца карты «Москвича» ВТБ: официальные способы 2026</a></li><li><a href="/articles/k/ka/kak-po-nomeru-karty-uznat-balans-vtb.html" class="related-card">Как узнать баланс карты ВТБ по номеру — 5 безопасных способов</a></li><li><a href="/articles/v/vt/vtb-karta-ne-aktivna-chto-delat.html" class="related-card">ВТБ карта не активна — причины и что делать в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-zakryt-kreditnuyu-kartu-vtb-cherez-lichnyj-kabinet-onlajn-besplatno.html" class="related-bottom-card"><span class="related-bottom-title">Как закрыть кредитную карту ВТБ онлайн через личный кабинет 2026</span><span class="related-bottom-desc">Пошаговая инструкция по бесплатному закрытию кредитки ВТБ через интернет-банк: проверка долга, отпра</span></a><a href="/articles/k/ka/kak-snyat-avtoplatezh-s-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить автоплатеж в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по отмене автоплатежей с карты ВТБ через личный кабинет, мобильное приложение </span></a><a href="/articles/k/ka/kak-najti-vladeltsa-karty-moskvicha-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как найти владельца карты «Москвича» ВТБ: официальные способы 2026</span><span class="related-bottom-desc">Пошаговая инструкция: как узнать ФИО держателя социальной карты москвича от ВТБ через личный кабинет</span></a><a href="/articles/k/ka/kak-po-nomeru-karty-uznat-balans-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать баланс карты ВТБ по номеру — 5 безопасных способов</span><span class="related-bottom-desc">Можно ли проверить остаток по номеру карты ВТБ без SMS и пароля? Разбираем официальные и альтернатив</span></a><a href="/articles/v/vt/vtb-karta-ne-aktivna-chto-delat.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ карта не активна — причины и что делать в 2026 году</span><span class="related-bottom-desc">Карта ВТБ не активируется или заблокирована? Узнайте все причины, как разблокировать карту через при</span></a><a href="/articles/s/s-/s-kakogo-vozrasta-mozhno-oformit-kreditnuyu-kartu-v-vtb-banke.html" class="related-bottom-card"><span class="related-bottom-title">С какого возраста можно оформить кредитную карту ВТБ в 2026 году</span><span class="related-bottom-desc">Узнайте минимальный возраст для кредитной карты ВТБ, условия для несовершеннолетних и студентов, а т</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

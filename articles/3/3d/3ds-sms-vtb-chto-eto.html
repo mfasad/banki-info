@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>3ds sms втб: что это и как работает 3D Secure — Банки Инфо</title>
+    <meta name="description" content="Узнайте, что такое 3ds sms втб и как технология защищает ваши платежи в интернете. Разбор кодов подтверждения и безопасности карт.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/3/3d/3ds-sms-vtb-chto-eto.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="3ds sms втб: что это и как работает 3D Secure">
+    <meta property="og:description" content="Узнайте, что такое 3ds sms втб и как технология защищает ваши платежи в интернете. Разбор кодов подтверждения и безопасности карт.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">3ds sms втб: что это и как работает 3D Secure</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>3ds sms втб: что это и как работает защита платежей</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#понятие-3d-secure-и-его-назначение">Понятие 3D Secure и его назначение</a></li><li><a href="#как-происходит-процесс-подтверждения-в-втб">Как происходит процесс подтверждения в ВТБ</a></li><li><a href="#различия-между-3d-secure-и-secure-click">Различия между 3D Secure и Secure Click</a></li><li><a href="#типичные-проблемы-при-получении-кодов-подтверждения">Типичные проблемы при получении кодов подтверждения</a></li><li><a href="#безопасность-и-защита-от-мошенников">Безопасность и защита от мошенников</a></li><li><a href="#настройки-карты-и-управление-уведомлениями">Настройки карты и управление уведомлениями</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>При совершении покупок в интернете владельцы банковских карт часто сталкиваются с необходимостью подтвердить операцию через дополнительный код, приходящий в смс-сообщении. Многие пользователи видят в описании транзакции или в приложении аббревиатуру <strong>3ds sms втб</strong>, что это такое, знают не все, хотя сталкиваются с этим регулярно. Данная технология является стандартом безопасности, который призван защитить ваши денежные средства от мошенничества при оплате онлайн.</p>
+
+<p>В банке <em>ВТБ</em>, как и в других крупных финансовых организациях, внедрена система <em>3D Secure</em>. Именно она требует ввода секретного кода для подтверждения вашей личности. Понимание принципов работы этой системы поможет вам избежать паники при блокировках и правильно реагировать на запросы банка во время покупок.</p>
+
+<p>Далее мы подробно разберем механизм работы протокола, рассмотрим различия между классическим подтверждением и технологией <em>Secure Click</em>, а также ответим на частые вопросы пользователей. Важно знать, что игнорирование этих запросов может привести к отказу в проведении платежа, поэтому стоит разобраться в нюансах.</p>
+
+<h2 id="понятие-3d-secure-и-его-назначение">Понятие 3D Secure и его назначение</h2>
+
+<p>Аббревиатура <strong>3ds</strong> расшифровывается как <em>3-Domain Secure</em>. Это протокол, разработанный платежными системами <em>Visa</em> и <em>Mastercard</em> для повышения безопасности интернет-платежей. Суть технологии заключается в том, что для проведения операции требуется не только данные карты, но и дополнительный фактор аутентификации, которым чаще всего выступает код из смс.</p>
+
+<p>Когда вы видите запрос <strong>3ds sms втб</strong>, это означает, что банк-эмитент (в данном случае <em>ВТБ</em>) должен подтвердить, что именно владелец карты инициирует платеж. Система связывается с банком, тот отправляет запрос на ваш номер телефона, и только после ввода правильного кода транзакция проходит. Это создает надежный барьер для злоумышленников, даже если они украли номер вашей карты.</p>
+
+<p>Использование данного протокола стало обязательным стандартом для большинства интернет-магазинов и сервисов. Без прохождения проверки <em>3D Secure</em> оплата просто не состоится. Это защищает не только ваши деньги, но и снижает риски для торгово-сервисных предприятий, принимающих карты <em>ВТБ</em>.</p>
+
+<ul>
+<li>🔒 Гарантирует, что оплату проводит реальный владелец карты, а не тот, кто просто скопировал ее данные.</li>
+<li>📱 Требует наличия доступа к мобильному телефону, привязанному к банковскому счету.</li>
+<li>🛡️ Снижает вероятность мошеннических операций в интернет-магазинах и сервисах.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Никогда не сообщайте код из смс с пометкой 3ds или VTB посторонним лицам, даже если звонящий представляется сотрудником банка. Настоящие сотрудники никогда не спрашивают эти коды.</p>
+</blockquote>
+
+<h2 id="как-происходит-процесс-подтверждения-в-втб">Как происходит процесс подтверждения в ВТБ</h2>
+
+<p>Процесс подтверждения транзакции в банке <em>ВТБ</em> отлажен до автоматизма. Когда вы вводите данные карты на сайте продавца и нажимаете кнопку «Оплатить», происходит перенаправление на защищенную страницу или всплывает окно подтверждения. Именно в этот момент срабатывает триггер системы безопасности.</p>
+
+<p>На ваш номер телефона, который указан в анкете клиента банка, приходит короткое текстовое сообщение. В нем содержится цифровой код, обычно состоящий из 4-6 цифр. Этот код действителен только в течение короткого промежутка времени, как правило, не более 5-10 минут. Вам необходимо ввести его в соответствующее поле на странице оплаты.</p>
+
+<p>После ввода кода информация передается обратно в банк для верификации. Если код совпадает с тем, что был сгенерирован системой, и срок его действия не истек, операция помечается как <strong>успешная</strong>. Средства списываются с вашего счета, а магазин получает подтверждение оплаты. В случае ошибки в цифрах или истечения времени платеж будет отклонен.</p>
+
+<div class="poll-widget" id="poll-85ceaa39"><div class="poll-widget-question">📊 Как вы чаще всего подтверждаете платежи в интернете?</div><div class="poll-widget-option" data-poll="85ceaa39" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Через смс-код</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="85ceaa39" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Через push-уведомление в приложении</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="85ceaa39" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Через звонок роботом</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="85ceaa39" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Я не пользуюсь онлайн-платежами</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Важно отметить, что запрос на подтверждение может приходить не только при покупках в магазинах, но и при привязке карты к сервисам такси, доставки еды или подпискам. В таких случаях код 3ds подтверждает согласие на регулярные списания или факт добавления карты в профиль.</p>
+
+<h2 id="различия-между-3d-secure-и-secure-click">Различия между 3D Secure и Secure Click</h2>
+
+<p>Традиционный <strong>3ds sms втб</strong> постепенно уступает место более современным и удобным методам подтверждения, таким как <em>Secure Click</em>. Основное отличие заключается в способе получения кода. Если классический метод требует ожидания смс-сообщения от мобильного оператора, что может быть проблематично в зонах плохого приема или при роуминге, то <em>Secure Click</em> работает через интернет-канал.</p>
+
+<p>При использовании технологии <em>Secure Click</em> запрос на подтверждение приходит прямо в мобильное приложение <em>ВТБ Онлайн</em> в виде Push-уведомления. Вам не нужно вводить никаких цифр вручную — достаточно просто нажать кнопку «Подтвердить» или «Отклонить» в приложении. Это значительно ускоряет процесс оплаты и исключает ошибки при вводе длинных кодов.</p>
+
+<p>Кроме того, <em>Secure Click</em> считается более безопасным методом, так как канал связи между приложением и сервером банка шифруется сильнее, чем обычные смс-сообщения, которые теоретически могут быть перехвачены. Однако для работы этого метода на смартфоне должен быть включен интернет.</p>
+
+<table>
+<thead>
+<tr>
+<th>Характеристика</th>
+<th>3D Secure (СМС)</th>
+<th>Secure Click (Push)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Канал связи</td>
+<td>Мобильная сеть (GSM)</td>
+<td>Интернет (Wi-Fi / 4G)</td>
+</tr>
+<tr>
+<td>Действия пользователя</td>
+<td>Ввод цифрового кода</td>
+<td>Одно нажатие кнопки</td>
+</tr>
+<tr>
+<td>Зависимость от роуминга</td>
+<td>Высокая (нужна сеть оператора)</td>
+<td>Низкая (нужен только интернет)</td>
+</tr>
+<tr>
+<td>Скорость подтверждения</td>
+<td>Средняя (зависит от сети)</td>
+<td>Мгновенная</td>
+</tr>
+</tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы находитесь за границей, включите роуминг данных или подключитесь к Wi-Fi, чтобы получать Push-уведомления Secure Click, так как обычные смс могут не приходить или быть платными.</p></div>
+
+<h2 id="типичные-проблемы-при-получении-кодов-подтверждения">Типичные проблемы при получении кодов подтверждения</h2>
+
+<p>Несмотря на надежность системы, пользователи иногда сталкиваются с трудностями. Самая распространенная проблема — <strong>задержка смс</strong>. Сообщения могут идти долго из-за перегрузки каналов мобильного оператора или технических работ на стороне банка. В таких случаях повторный запрос кода часто не помогает, а лишь создает очередь сообщений.</p>
+
+<p>Другой частый случай — смена номера телефона или сим-карты. Если вы сменили номер, но не обновили данные в банке, код 3ds будет уходить на старый номер, доступ к которому у вас отсутствует. В этом случае проведение онлайн-платежей станет невозможным до визита в офис или звонка в колл-центр.</p>
+
+<p>Также стоит учитывать блокировщики спам-сообщений, установленные на смартфоне. Иногда они ошибочно классифицируют служебные смс от банка как рекламный мусор и прячут их в отдельную папку. Проверка этой папки может решить проблему «пропавшего» кода.</p>
+
+<ul>
+<li>📵 Отсутствие сети или сигнала в момент покупки препятствует получению смс.</li>
+<li>🚫 Переполненная память телефона может блокировать приход новых сообщений.</li>
+<li>🔄 Технические сбои на стороне процессингового центра могут задерживать отправку кодов.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Если смс не приходит более 5 минут, не запрашивайте код бесконечно. Подождите 15-20 минут или попробуйте использовать другой способ оплаты, чтобы не заблокировать карту системой антифрод.</p>
+</blockquote>
+
+<h2 id="безопасность-и-защита-от-мошенников">Безопасность и защита от мошенников</h2>
+
+<p>Технология <strong>3ds sms втб</strong> является ключевым элементом защиты, но она эффективна только при грамотном поведении пользователя. Мошенники часто используют методы социальной инженерии, чтобы выманить у вас этот код. Они могут звонить, представляясь службой безопасности, и утверждать, что с вашей карты пытаются украсть деньги, требуя продиктовать код из смс для «отмены операции».</p>
+
+<p>Запомните: код 3ds предназначен исключительно для подтверждения <strong>расходной</strong> операции. Если вы не совершаете покупку прямо сейчас, а смс пришло — значит, кто-то пытается использовать ваши данные. В такой ситуации код называть нельзя ни в коем случае.</p>
+
+<details class="faq-item"><summary>Что делать, если код все-таки назвали?</summary><div class="faq-answer"><p>Если вы сообщили код мошенникам, немедленно заблокируйте карту через приложение или по телефону горячей линии. После этого напишите заявление в полицию и в банк о несогласии с операцией для запуска процедуры чарджбэка.</p></div></details>
+
+<p>Банк <em>ВТБ</em> использует сложные алгоритмы анализа транзакций. Если система заметит подозрительную активность (например, покупку в другом городе сразу после оплаты в вашем регионе), она может заблокировать карту превентивно. В этом случае 3ds код не придет, пока вы не разблокируете карту или не подтвердите легальность операций.</p>
+
+<h2 id="настройки-карты-и-управление-уведомлениями">Настройки карты и управление уведомлениями</h2>
+
+<p>Для комфортного использования онлайн-платежей важно правильно настроить уведомления в личном кабинете или приложении <em>ВТБ Онлайн</em>. Вы можете выбрать, какие именно оповещения вам нужны: обо всех операциях или только о тех, что превышают определенную сумму. Однако отключать уведомления о <strong>3ds</strong> операциях технически невозможно, так как это часть протокола безопасности.</p>
+
+<p>В приложении также можно увидеть историю запросов. Если вы видите в логах запрос на подтверждение, но не совершали действий, это сигнал для немедленной смены ПИН-кода и перевыпуска карты. Регулярный мониторинг истории операций помогает быстро выявлять несанкционированный доступ.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка настроек безопасности</h4><label class="check-item"><input type="checkbox"><span>Включены Push-уведомления</span></label><label class="check-item"><input type="checkbox"><span>Актуален номер телефона в профиле</span></label><label class="check-item"><input type="checkbox"><span>Установлен антивирус на телефон</span></label><label class="check-item"><input type="checkbox"><span>Не установлены неизвестные приложения</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Рекомендуется периодически проверять, какие устройства имеют доступ к вашему аккаунту <em>ВТБ Онлайн</em>. Если вы увидите незнакомое устройство, немедленно завершите его сеанс и смените пароль от входа в приложение. Это предотвратит возможность злоумышленникам инициировать платежи и запрашивать коды 3ds на ваш телефон.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли отключить 3ds sms втб для ускорения платежей?</summary>
+<p>Полностью отключить протокол 3D Secure для покупок в интернете нельзя, так как это требование международных платежных систем и законодательства. Однако для мелких сумм или проверенных merchants (торговых точек) может работать технология токенизации, когда повторный ввод кода не требуется.</p>
+</details>
+
+<details>
+<summary>Приходит ли 3ds код при переводах между своими счетами?</summary>
+<p>Обычно переводы между собственными счетами и картами внутри одного банка (например, с карты ВТБ на счет ВТБ) проходят без запроса 3ds кода. Код запрашивается при переводах физическим лицам по номеру карты (P2P) или при оплате товаров и услуг.</p>
+</details>
+
+<details>
+<summary>Что делать, если телефон утерян и я не могу получить смс?</summary>
+<p>В этом случае необходимо срочно заблокировать сим-карту у мобильного оператора и карту в банке. Для получения доступа к средствам нужно будет перевыпустить сим-карту с сохранением номера в салоне связи оператора, после чего вы снова сможете получать коды подтверждения.</p>
+</details>
+
+<details>
+<summary>Сколько времени действует код 3ds?</summary>
+<p>Стандартное время жизни кода составляет от 5 до 10 минут. После истечения этого времени код становится невалидным, и для проведения операции потребуется запрашивать новый. Старый код ввести уже не получится.</p>
+</details>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Технология 3ds sms втб — это ваш главный щит в интернете. Никогда не игнорируйте эти запросы, но и никогда не передавайте коды третьим лицам.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#понятие-3d-secure-и-его-назначение">Понятие 3D Secure и его назначение</a></li><li><a href="#как-происходит-процесс-подтверждения-в-втб">Как происходит процесс подтверждения в ВТБ</a></li><li><a href="#различия-между-3d-secure-и-secure-click">Различия между 3D Secure и Secure Click</a></li><li><a href="#типичные-проблемы-при-получении-кодов-подтверждения">Типичные проблемы при получении кодов подтверждения</a></li><li><a href="#безопасность-и-защита-от-мошенников">Безопасность и защита от мошенников</a></li><li><a href="#настройки-карты-и-управление-уведомлениями">Настройки карты и управление уведомлениями</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/z/zv/zvonki-s-vtb-s-kakogo-nomera.html" class="related-card">С какого номера звонят из ВТБ: официальные контакты и мошенники</a></li><li><a href="/articles/b/ba/bank-vtb-zvonyat-govoryat-chto-oformlen-kredit.html" class="related-card">Звонят из ВТБ про оформленный кредит: что делать и как проверить</a></li><li><a href="/articles/v/v-/v-kakoj-sud-podavat-iskovoe-zayavlenie-na-bank-vtb.html" class="related-card">В какой суд подать иск на ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/s/sp/spisali-dengi-s-karty-vtb-bez-podtverzhdeniya-chto.html" class="related-card">Списали деньги с карты ВТБ без подтверждения: что делать</a></li><li><a href="/articles/k/ka/kak-obezopasit-lichnyj-kabinet-vtb.html" class="related-card">Как обезопасить личный кабинет ВТБ: полная инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/z/zv/zvonki-s-vtb-s-kakogo-nomera.html" class="related-bottom-card"><span class="related-bottom-title">С какого номера звонят из ВТБ: официальные контакты и мошенники</span><span class="related-bottom-desc">Узнайте, с каких номеров звонят сотрудники ВТБ 2026: официальные телефоны банка, как отличить мошенн</span></a><a href="/articles/b/ba/bank-vtb-zvonyat-govoryat-chto-oformlen-kredit.html" class="related-bottom-card"><span class="related-bottom-title">Звонят из ВТБ про оформленный кредит: что делать и как проверить</span><span class="related-bottom-desc">Получили звонок от ВТБ о кредите, который не брали? Узнайте, как отличить мошенников от банка, прове</span></a><a href="/articles/v/v-/v-kakoj-sud-podavat-iskovoe-zayavlenie-na-bank-vtb.html" class="related-bottom-card"><span class="related-bottom-title">В какой суд подать иск на ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Куда обращаться с иском к банку ВТБ: районный, арбитражный или мировой суд? Разбираем подсудность, с</span></a><a href="/articles/s/sp/spisali-dengi-s-karty-vtb-bez-podtverzhdeniya-chto.html" class="related-bottom-card"><span class="related-bottom-title">Списали деньги с карты ВТБ без подтверждения: что делать</span><span class="related-bottom-desc">Неожиданно списали деньги с карты ВТБ без СМС? Узнайте причины: подписки, автоплатежи или мошенники.</span></a><a href="/articles/k/ka/kak-obezopasit-lichnyj-kabinet-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как обезопасить личный кабинет ВТБ: полная инструкция</span><span class="related-bottom-desc">Подробный гид по защите счета в ВТБ Онлайн. Настройка двухфакторной аутентификации, защита от фишинг</span></a><a href="/articles/t/ts/tsifrovoj-login-unk-vtb-chto-eto-takoe.html" class="related-bottom-card"><span class="related-bottom-title">Цифровой логин УНК ВТБ: что это и как пользоваться в 2026 году</span><span class="related-bottom-desc">Разбираемся, что такое цифровой логин УНК в ВТБ, зачем он нужен клиентам, как его получить и использ</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

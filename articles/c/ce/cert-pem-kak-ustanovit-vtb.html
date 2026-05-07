@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как установить сертификат .pem в ВТБ: пошаговая инструкция 2026 — Банки Инфо</title>
+    <meta name="description" content="Подробное руководство по установке корневых и личных сертификатов .pem в личном кабинете ВТБ Онлайн, мобильном приложении и для работы с API. Разбираем ошибки и нюансы для физических и юридических лиц.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/c/ce/cert-pem-kak-ustanovit-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как установить сертификат .pem в ВТБ: пошаговая инструкция 2026">
+    <meta property="og:description" content="Подробное руководство по установке корневых и личных сертификатов .pem в личном кабинете ВТБ Онлайн, мобильном приложении и для работы с API. Разбираем ошибки и нюансы для физических и юридических лиц.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как установить сертификат .pem в ВТБ: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Установка сертификата .pem в ВТБ: инструкция для всех устройств</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-сертификат-pem-и-зачем-он-нужен-клиентам-втб">Что такое сертификат .pem и зачем он нужен клиентам ВТБ</a></li><li><a href="#какие-сертификаты-pem-может-потребовать-втб">Какие сертификаты .pem может потребовать ВТБ</a></li><li><a href="#пошаговая-установка-сертификата-pem-в-втб">Пошаговая установка сертификата .pem в ВТБ</a></li><li><a href="#особенности-установки-для-юридических-лиц-втб-бизнес-онлайн">Особенности установки для юридических лиц (ВТБ Бизнес Онлайн)</a></li><li><a href="#распространённые-ошибки-и-их-решение">Распространённые ошибки и их решение</a></li><li><a href="#использование-pem-для-работы-с-api-втб">Использование .pem для работы с API ВТБ</a></li><li><a href="#пути-к-сертификату-и-ключу">Пути к сертификату и ключу</a></li><li><a href="#запрос-к-api-втб">Запрос к API ВТБ</a></li><li><a href="#частые-вопросы-по-сертификатам-pem-в-втб">Частые вопросы по сертификатам .pem в ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Работа с сертификатами <strong>.pem</strong> в экосистеме <em>ВТБ</em> требуется в нескольких сценариях: от настройки безопасного доступа к <em>ВТБ Онлайн</em> до интеграции бизнес-систем с банковским API. Несмотря на кажущуюся техническую сложность, процесс установки можно выполнить самостоятельно — главное понимать, какой тип сертификата вам нужен и на какое устройство его предстоит инсталлировать.</p>
+
+<p>В этой статье мы разберём все актуальные способы установки <strong>корневых сертификатов ВТБ</strong> (для проверки подлинности сайтов) и <strong>личных сертификатов</strong> (для авторизации в системах банка) в формате <code>.pem</code>. Отдельное внимание уделим типичным ошибкам, таким как <code>ERR_CERT_AUTHORITY_INVALID</code> или проблемы с импортом в <em>Windows</em>/<em>macOS</em>, а также нюансам для юридических лиц, работающих с <em>ВТБ Бизнес Онлайн</em>.</p>
+
+<p>Если вы никогда раньше не работали с сертификатами, начните с раздела «Что такое .pem и зачем он нужен в ВТБ». Опытным пользователям рекомендуем сразу перейти к <a href="#instructions">пошаговым инструкциям</a> для вашей операционной системы.</p>
+
+<h2 id="что-такое-сертификат-pem-и-зачем-он-нужен-клиентам-втб">Что такое сертификат .pem и зачем он нужен клиентам ВТБ</h2>
+
+<p>Файл с расширением <code>.pem</code> — это текстовый контейнер, который может содержать:</p>
+<ul>
+  <li>🔐 <strong>Сертификат открытого ключа</strong> (например, корневой сертификат <em>ВТБ</em> для проверки подлинности сайта <code>online.vtb.ru</code>)</li>
+  <li>🔑 <strong>Закрытый ключ</strong> (используется для авторизации в системах банка, например, при работе с API)</li>
+  <li>📜 <strong>Цепочку сертификатов</strong> (несколько сертификатов в одном файле, связанных иерархически)</li>
+</ul>
+
+<p>В контексте <em>ВТБ</em> сертификаты <code>.pem</code> применяются для:</p>
+<ol>
+  <li>Безопасного подключения к <em>ВТБ Онлайн</em> через браузер (если стандартный сертификат системы не подходит).</li>
+  <li>Авторизации юридических лиц в <em>ВТБ Бизнес Онлайн</em> при использовании электронной подписи.</li>
+  <li>Интеграции сторонних сервисов с банковским API (например, для автоматического формирования платежных поручений).</li>
+  <li>Настройки VPN-подключений к корпоративным системам <em>ВТБ</em> (актуально для сотрудников партнёров банка).</li>
+</ol>
+
+<p>Важно отличать <code>.pem</code> от других форматов сертификатов:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Формат</th>
+      <th>Расширение</th>
+      <th>Применение в ВТБ</th>
+      <th>Особенности</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>PEM</strong></td>
+      <td><code>.pem</code>, <code>.crt</code>, <code>.cer</code></td>
+      <td>Универсальный (личный кабинет, API, VPN)</td>
+      <td>Текстовый формат, начинается с <code>-----BEGIN CERTIFICATE-----</code></td>
+    </tr>
+    <tr>
+      <td><strong>PKCS#12</strong></td>
+      <td><code>.p12</code>, <code>.pfx</code></td>
+      <td>Электронная подпись для юридических лиц</td>
+      <td>Бинарный формат, защищён паролем</td>
+    </tr>
+    <tr>
+      <td><strong>DER</strong></td>
+      <td><code>.der</code>, <code>.cer</code></td>
+      <td>Редко (внутренние системы банка)</td>
+      <td>Бинарный формат, не читается как текст</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы скачали сертификат с сайта <em>ВТБ</em> в формате <code>.cer</code>, его можно переименовать в <code>.pem</code> — структура файла от этого не изменится. Главное, чтобы содержимое начиналось с заголовка <code>-----BEGIN CERTIFICATE-----</code>.</blockquote>
+
+<h2 id="какие-сертификаты-pem-может-потребовать-втб">Какие сертификаты .pem может потребовать ВТБ</h2>
+
+<p>Банк использует несколько типов сертификатов в формате <code>.pem</code>, и их установка отличается в зависимости от цели:</p>
+
+<p><strong>1. Корневой сертификат ВТБ</strong></p>
+<ul>
+  <li>🏦 <strong>Назначение:</strong> Проверка подлинности сайтов <em>ВТБ</em> (например, <code>online.vtb.ru</code> или <code>business.vtb.ru</code>).</li>
+  <li>🔗 <strong>Где взять:</strong> Официальный сайт банка в разделе «Центр загрузки» или по <a href="https://www.vtb.ru/personal/support/security/certificates/" target="_blank">прямой ссылке</a>.</li>
+  <li>🖥️ <strong>Куда устанавливать:</strong> Хранилище доверенных корневых центров сертификации вашей ОС или браузера.</li>
+</ul>
+
+<p><strong>2. Личный сертификат клиента</strong></p>
+<ul>
+  <li>👤 <strong>Назначение:</strong> Авторизация в <em>ВТБ Бизнес Онлайн</em> (для юридических лиц) или работа с API.</li>
+  <li>🔐 <strong>Где взять:</strong> Выдаётся банком после подписания договора на дистанционное обслуживание или через личный кабинет.</li>
+  <li>📱 <strong>Куда устанавливать:</strong> Личное хранилище сертификатов на устройстве или в специализированное ПО (например, <em>КриптоПро CSP</em>).</li>
+</ul>
+
+<p><strong>3. Сертификат для VPN/API</strong></p>
+<ul>
+  <li>🌐 <strong>Назначение:</strong> Подключение к внутренним системам <em>ВТБ</em> (например, для партнёров или разработчиков).</li>
+  <li>📧 <strong>Где взять:</strong> Предоставляется технической поддержкой банка по запросу.</li>
+  <li>🔧 <strong>Куда устанавливать:</strong> Конфигурационные файлы VPN-клиента или среды разработки.</li>
+</ul>
+
+<div class="poll-widget" id="poll-1820696c"><div class="poll-widget-question">📊 Для чего вам нужен сертификат .pem в ВТБ?</div><div class="poll-widget-option" data-poll="1820696c" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Для доступа к ВТБ Онлайн</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1820696c" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Для работы с ВТБ Бизнес Онлайн</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1820696c" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Для интеграции через API</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1820696c" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Для настройки VPN</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1820696c" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Другой вариант</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="пошаговая-установка-сертификата-pem-в-втб">Пошаговая установка сертификата .pem в ВТБ</h2>
+
+<p>Выберите инструкцию для вашей операционной системы или устройства. Если вы не уверены, какой сертификат у вас на руках, вернитесь к предыдущему разделу.</p>
+
+<h3>🖥️ Установка на Windows 10/11</h3>
+
+<p>Для установки <strong>корневого сертификата ВТБ</strong> на <em>Windows</em>:</p>
+<ol>
+  <li>Скачайте файл сертификата с официального сайта (например, <code>VTB_Root_CA.pem</code>).</li>
+  <li>Кликните по файлу правой кнопкой → <strong>Установить сертификат</strong>.</li>
+  <li>Выберите <strong>Локальный компьютер</strong> (если у вас права администратора) или <strong>Текущий пользователь</strong>.</li>
+  <li>Поместите сертификат в хранилище <strong>Доверенные корневые центры сертификации</strong>.</li>
+  <li>Перезагрузите браузер или компьютер.</li>
+</ol>
+
+<p>Для установки <strong>личного сертификата</strong> (например, для <em>ВТБ Бизнес Онлайн</em>):</p>
+<ol>
+  <li>Убедитесь, что у вас установлено ПО <em>КриптоПро CSP</em> (скачать можно <a href="https://www.cryptopro.ru/" target="_blank">здесь</a>).</li>
+  <li>Откройте <code>Пуск → КриптоПро CSP</code> → вкладка <strong>Сервис</strong> → <strong>Просмотреть сертификаты в контейнере</strong>.</li>
+  <li>Нажмите <strong>Обзор</strong> → <strong>Установить личный сертификат</strong> и выберите ваш <code>.pem</code>-файл.</li>
+  <li>Введите пароль от закрытого ключа (если требуется).</li>
+</ol>
+
+<div class="checklist-block"><h4>☑️ Проверка установки сертификата на Windows</h4><label class="check-item"><input type="checkbox"><span>Сертификат отображается в "Управление сертификатами" (certmgr.msc)</span></label><label class="check-item"><input type="checkbox"><span>Сайт online.vtb.ru открывается без предупреждений</span></label><label class="check-item"><input type="checkbox"><span>В КриптоПро CSP виден новый контейнер</span></label><label class="check-item"><input type="checkbox"><span>Пароль от ключа сохранён в безопасном месте</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h3>🍎 Установка на macOS</h3>
+
+<p>На <em>Mac</em> процесс проще благодаря встроенному инструменту <strong>Связка ключей</strong>:</p>
+<ol>
+  <li>Дважды кликните по файлу <code>.pem</code> — откроется <strong>Связка ключей</strong>.</li>
+  <li>Выберите ключ <strong>login</strong> (для текущего пользователя) или <strong>System</strong> (для всех пользователей, потребуются права администратора).</li>
+  <li>Введите пароль от учётной записи <em>Mac</em>, если запросит система.</li>
+  <li>Перезапустите браузер (<em>Safari</em> или <em>Chrome</em>).</li>
+</ol>
+
+<p>Для проверки:</p>
+<ul>
+  <li>Откройте <strong>Spotlight</strong> (⌘ + Пробел) → введите <strong>Связка ключей</strong>.</li>
+  <li>Найдите сертификат <em>VTB</em> в разделе <strong>Сертификаты</strong>.</li>
+  <li>Убедитесь, что статус <strong>Доверенный</strong> (зелёная галочка).</li>
+</ul>
+
+<h3>📱 Установка на Android/iOS</h3>
+
+<p>На мобильных устройствах сертификаты <code>.pem</code> устанавливаются через настройки системы:</p>
+
+<p><strong>Для Android:</strong></p>
+<ol>
+  <li>Скачайте файл сертификата на устройство (например, в папку <code>Загрузки</code>).</li>
+  <li>Перейдите в <code>Настройки → Безопасность → Установить из хранилища</code> (путь может отличаться в зависимости от версии Android).</li>
+  <li>Выберите файл <code>.pem</code> и подтвердите установку.</li>
+  <li>Присвойте сертификату имя (например, <strong>VTB Root CA</strong>) и нажмите <strong>ОК</strong>.</li>
+</ol>
+
+<p><strong>Для iOS (iPhone/iPad):</strong></p>
+<ol>
+  <li>Отправьте файл <code>.pem</code> на почту или загрузите через <em>iCloud Drive</em>.</li>
+  <li>Откройте файл → нажмите <strong>Установить</strong> → введите пароль устройства.</li>
+  <li>Перейдите в <code>Настройки → Основные → VPN и управление устройством</code> и активируйте сертификат.</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> На <em>iOS</em> сертификаты, установленные вручную, могут сбрасываться после обновления системы. Рекомендуем создать резервную копию файла <code>.pem</code> в <em>iCloud</em> или на компьютере.</blockquote>
+
+<h3>🌐 Установка в браузере (Chrome, Firefox, Edge)</h3>
+
+<p>Если вам нужно установить сертификат <strong>только для браузера</strong> (например, для работы с <em>ВТБ Онлайн</em> в <em>Chrome</em>):</p>
+
+<p><strong>Для Chrome/Edge:</strong></p>
+<ol>
+  <li>Откройте <code>Настройки → Конфиденциальность и безопасность → Безопасность → Управление сертификатами</code>.</li>
+  <li>Во вкладке <strong>Доверенные корневые центры сертификации</strong> нажмите <strong>Импорт</strong>.</li>
+  <li>Выберите файл <code>.pem</code> и следуйте инструкциям мастера импорта.</li>
+</ol>
+
+<p><strong>Для Firefox:</strong></p>
+<ol>
+  <li>Откройте <code>Настройки → Приватность и защита → Сертификаты → Просмотреть сертификаты</code>.</li>
+  <li>Во вкладке <strong>Центры сертификации</strong> нажмите <strong>Импорт</strong>.</li>
+  <li>Выберите файл и отметьте галочку <strong>Доверять этому ЦС для идентификации веб-сайтов</strong>.</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если после установки сертификата сайт <em>ВТБ Онлайн</em> всё равно выдаёт ошибку <code>NET::ERR_CERT_AUTHORITY_INVALID</code>, очистите кэш браузера и проверьте системное время на устройстве — оно должно быть синхронизировано с серверами времени.</p></div>
+
+<h2 id="особенности-установки-для-юридических-лиц-втб-бизнес-онлайн">Особенности установки для юридических лиц (ВТБ Бизнес Онлайн)</h2>
+
+<p>Юридическим лицам и индивидуальным предпринимателям сертификаты <code>.pem</code> требуются для:</p>
+<ul>
+  <li>📑 Подписания платежных поручений в <em>ВТБ Бизнес Онлайн</em>.</li>
+  <li>🔄 Обмена документами с налоговой через банк.</li>
+  <li>🤝 Интеграции 1С или других бухгалтерских программ с системами <em>ВТБ</em>.</li>
+</ul>
+
+<p>Процесс установки отличается от стандартного:</p>
+<ol>
+  <li><strong>Получите сертификат</strong> в отделении банка или через личный кабинет <em>ВТБ Бизнес Онлайн</em> (раздел <code>Настройки → Сертификаты</code>).</li>
+  <li><strong>Установите КриптоПро CSP</strong> (версия не ниже 5.0) — это обязательное условие для работы с электронной подписью.</li>
+  <li><strong>Импортируйте сертификат</strong> через <code>Пуск → КриптоПро CSP → Сервис → Установить личный сертификат</code>.</li>
+  <li><strong>Настройте браузер</strong>:
+    <ul>
+      <li>В <em>Chrome</em>/<em>Edge</em>: включите поддержку <em>КриптоПро</em> через расширение <a href="https://chrome.google.com/webstore/detail/cryptopro-extension/eaghnlfpfcddafkdaommljhdhjhjdmpe" target="_blank">CryptoPro Extension</a>.</li>
+      <li>В <em>Firefox</em>: введите в адресной строке <code>about:config</code>, найдите параметр <code>security.enterprise_roots.enabled</code> и установите значение <strong>true</strong>.</li>
+    </ol>
+  </li>
+</ol>
+
+<p><mark>Сертификаты для юридических лиц в ВТБ имеют срок действия 1 год. За месяц до истечения банк отправляет уведомление на email, но рекомендуем отслеживать дату самостоятельно через раздел «Сертификаты» в личном кабинете.</mark></p>
+
+<details class="faq-item"><summary>Что делать если истёк сертификат для ВТБ Бизнес Онлайн?</summary><div class="faq-answer"><p>Если срок действия сертификата закончился, вам необходимо:
+<p>1. Перейти в раздел <code>Настройки → Сертификаты</code> в личном кабинете.</p>
+<p>2. Нажать <strong>Запросить новый сертификат</strong> и следовать инструкциям.</p>
+<p>3. Установить новый сертификат через <em>КриптоПро CSP</em> (старый будет автоматически деактивирован).</p>
+<p>4. Обновить сертификат в бухгалтерском ПО (1С, Контур и т.д.), если он там использовался.</p>
+<p>Без действующего сертификата вы не сможете подписывать платежки и документы!</p></div></details></p>
+
+<h2 id="распространённые-ошибки-и-их-решение">Распространённые ошибки и их решение</h2>
+
+<p>При работе с сертификатами <code>.pem</code> в <em>ВТБ</em> пользователи сталкиваются с типичными проблемами. Разберём самые частые:</p>
+
+<p><strong>1. Ошибка <code>ERR_CERT_AUTHORITY_INVALID</code> в браузере</strong></p>
+<ul>
+  <li>🔍 <strong>Причина:</strong> Сертификат не установлен в доверенные корневые или установлен не в то хранилище.</li>
+  <li>⚡ <strong>Решение:</strong>
+    <ol>
+      <li>Проверьте, что сертификат установлен в хранилище <strong>Доверенные корневые центры сертификации</strong> (а не в <strong>Личное</strong>).</li>
+      <li>Очистите кэш браузера (<code>Ctrl + Shift + Del</code>).</li>
+      <li>Проверьте системное время — оно должно совпадать с текущим по московскому времени.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>2. Ошибка <code>Невозможно импортировать: неверный формат</code></strong></p>
+<ul>
+  <li>🔍 <strong>Причина:</strong> Файл повреждён или имеет неверное расширение (например, сохранён как <code>.txt</code>).</li>
+  <li>⚡ <strong>Решение:</strong>
+    <ol>
+      <li>Откройте файл в <strong>Блокноте</strong> — он должен начинаться с <code>-----BEGIN CERTIFICATE-----</code>.</li>
+      <li>Если файл выглядит как набор непонятных символов, он в формате <code>DER</code> — конвертируйте его в <code>PEM</code> через <a href="https://www.sslshopper.com/ssl-converter.html" target="_blank">SSL Converter</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>3. ВТБ Бизнес Онлайн не видит сертификат</strong></p>
+<ul>
+  <li>🔍 <strong>Причина:</strong> Сертификат установлен не в тот контейнер <em>КриптоПро</em> или не привязан к вашему аккаунту.</li>
+  <li>⚡ <strong>Решение:</strong>
+    <ol>
+      <li>Проверьте в <em>КриптоПро CSP</em>, что сертификат установлен в контейнер с именем вашей организации.</li>
+      <li>В личном кабинете <em>ВТБ Бизнес Онлайн</em> перейдите в <code>Настройки → Сертификаты</code> и привяжите сертификат к вашему профилю.</li>
+      <li>Обновите страницу браузера (<code>F5</code>) или перезапустите его.</li>
+    </ul>
+  </li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Возможная причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ERR_CERT_DATE_INVALID</code></td>
+      <td>Истёк срок действия сертификата или неверная дата на устройстве</td>
+      <td>Обновите сертификат или синхронизируйте время с серверами <em>ВТБ</em></td>
+    </tr>
+    <tr>
+      <td><code>Нет доступа к ключевому контейнеру</code> (КриптоПро)</td>
+      <td>Нет прав на доступ к закрытому ключу или повреждён контейнер</td>
+      <td>Переустановите <em>КриптоПро CSP</em> и импортируйте сертификат заново</td>
+    </tr>
+    <tr>
+      <td>Сайт <em>ВТБ Онлайн</em> просит логин/пароль несмотря на сертификат</td>
+      <td>Сертификат не привязан к вашему аккаунту</td>
+      <td>Обратитесь в поддержку <em>ВТБ</em> для привязки сертификата к профилю</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы видите ошибку <code>ERR_SSL_PROTOCOL_ERROR</code>, скорее всего, проблема не в сертификате, а в протоколе шифрования. Попробуйте отключить в браузере устаревшие протоколы (SSL 3.0, TLS 1.0) через настройки или обновление браузера.</p></div>
+
+<h2 id="использование-pem-для-работы-с-api-втб">Использование .pem для работы с API ВТБ</h2>
+
+<p>Если вы разрабатываете сервис, интегрированный с <em>ВТБ</em> (например, для автоматического формирования платежей или получения выписок), вам потребуется:</p>
+<ol>
+  <li><strong>Клиентский сертификат</strong> в формате <code>.pem</code> (выдаётся банком после заключения договора).</li>
+  <li><strong>Закрытый ключ</strong> (обычно идёт в паре с сертификатом).</li>
+  <li><strong>Документация API</strong> (доступна по запросу в <em>ВТБ</em>).</li>
+</ol>
+
+<p>Пример подключения к API <em>ВТБ</em> на <em>Python</em> с использованием сертификата:</p>
+<pre><code>import requests
+
+<h2 id="пути-к-сертификату-и-ключу">Пути к сертификату и ключу</h2>
+<p>cert_path = 'client_cert.pem'</p>
+<p>key_path = 'private_key.pem'</p>
+
+<h2 id="запрос-к-api-втб">Запрос к API ВТБ</h2>
+<p>response = requests.get(</p>
+<p>'https://api.vtb.ru/v1/accounts',</p>
+<p>cert=(cert_path, key_path),</p>
+<p>headers={'Accept': 'application/json'}</p>
+<p>)</p>
+
+<p>print(response.json())</code></pre></p>
+
+<p>Ключевые нюансы:</p>
+<ul>
+  <li>🔐 Сертификат и ключ должны быть в <strong>одной директории</strong> с вашим скриптом.</li>
+  <li>🔒 Закрытый ключ не должен быть доступен третьим лицам — храните его в защищённом хранилище.</li>
+  <li>🔄 Срок действия сертификатов для API обычно <strong>3 месяца</strong> — следите за обновлениями.</li>
+</ul>
+
+<p><mark>Для тестирования API ВТБ предоставляет пессочницу (sandbox), где можно использовать тестовые сертификаты. Запросите доступ к ней через техническую поддержку банка.</mark></p>
+
+<h2 id="частые-вопросы-по-сертификатам-pem-в-втб">Частые вопросы по сертификатам .pem в ВТБ</h2>
+
+<details>
+  <summary>🔹 Можно ли использовать один сертификат .pem на нескольких устройствах?</summary>
+  <p>Да, но с оговорками:</p>
+  <ul>
+    <li>🖥️ <strong>Корневой сертификат ВТБ</strong> можно скопировать на любое количество устройств — он не привязан к аккаунту.</li>
+    <li>👤 <strong>Личный сертификат</strong> (для <em>ВТБ Бизнес Онлайн</em> или API) привязан к вашему профилю. Его можно установить на несколько устройств, но <strong>одновременно работать с одним аккаунтом можно только с одного устройства</strong> (иначе банк заблокирует доступ по подозрению в мошенничестве).</li>
+  </ul>
+  <p>Для юридических лиц рекомендуем использовать <em>КриптоПро CSP</em> с экспортом/импортом контейнера через резервную копию.</p>
+</details>
+
+<details>
+  <summary>🔹 Как конвертировать сертификат из .pfx в .pem для ВТБ?</summary>
+  <p>Используйте <em>OpenSSL</em> или онлайн-конвертеры:</p>
+  <ol>
+    <li>Установите <em>OpenSSL</em> (например, через <a href="https://slproweb.com/products/Win32OpenSSL.html" target="_blank">Win32OpenSSL</a>).</li>
+    <li>Выполните команду в терминале:
+      <pre><code>openssl pkcs12 -in certificate.pfx -out certificate.pem -nodes</code></pre>
+<p>где <code>certificate.pfx</code> — ваш исходный файл, а <code>certificate.pem</code> — результат.</li></p>
+    <li>Введите пароль от <code>.pfx</code>-файла, когда запросит система.</li>
+  </ol>
+  <p>Для онлайн-конвертации подойдёт сервис <a href="https://www.sslshopper.com/ssl-converter.html" target="_blank">SSL Shopper</a> (загрузите <code>.pfx</code>, выберите формат <code>PEM</code> и скачайте результат).</p>
+</details>
+
+<details>
+  <summary>🔹 Почему после установки сертификата ВТБ Онлайн всё равно просит СМС-код?</summary>
+  <p>Это нормальная практика — банк использует <strong>многофакторную аутентификацию</strong>. Сертификат подтверждает подлинность устройства, а СМС-код — что доступ осуществляет именно вы. Отключить запрос СМС нельзя, но можно:</p>
+  <ul>
+    <li>📱 Подключить <strong>push-уведомления</strong> в мобильном приложении <em>ВТБ Онлайн</em> (раздел <code>Настройки → Безопасность</code>).</li>
+    <li>🔑 Использовать <strong>биометрию</strong> (отпечаток пальца или Face ID) вместо СМС (доступно в мобильном приложении).</li>
+  </ul>
+  <p>Для юридических лиц в <em>ВТБ Бизнес Онлайн</em> сертификат заменяет СМС-код при подписании документов, но для входа может потребоваться дополнительная аутентификация.</p>
+</details>
+
+<details>
+  <summary>🔹 Как удалить сертификат .pem из системы?</summary>
+  <p>Инструкция зависит от ОС:</p>
+  <p><strong>Windows:</strong></p>
+  <ol>
+    <li>Нажмите <code>Win + R</code> → введите <code>certmgr.msc</code> → <strong>Enter</strong>.</li>
+    <li>Найдите сертификат <em>ВТБ</em> в соответствующем хранилище (например, <strong>Личное</strong> или <strong>Доверенные корневые центры</strong>).</li>
+    <li>Кликните правой кнопкой → <strong>Удалить</strong>.</li>
+  </ol>
+  <p><strong>macOS:</strong></p>
+  <ol>
+    <li>Откройте <strong>Связка ключей</strong> (через <em>Spotlight</em>).</li>
+    <li>Найдите сертификат, кликните правой кнопкой → <strong>Удалить</strong>.</li>
+  </ol>
+  <p><strong>Android/iOS:</strong></p>
+  <ol>
+    <li>Перейдите в <code>Настройки → Безопасность → Доверенные сертификаты</code> (Android) или <code>Настройки → Основные → VPN и управление устройством</code> (iOS).</li>
+    <li>Выберите сертификат и удалите его.</li>
+  </ol>
+</details>
+
+<details>
+  <summary>🔹 Где взять актуальный корневой сертификат ВТБ в формате .pem?</summary>
+  <p>Официальные сертификаты <em>ВТБ</em> доступны по ссылке:</p>
+  <ul>
+    <li>🌐 <a href="https://www.vtb.ru/personal/support/security/certificates/" target="_blank">Страница поддержки ВТБ</a> (раздел «Сертификаты»).</li>
+    <li>📧 Или запросите у технической поддержки по телефону <strong>8 800 100-24-24</strong> (для юридических лиц).</li>
+  </ul>
+  <p>Скачивайте сертификаты только с официальных источников — использование сторонних сертификатов может привести к блокировке аккаунта!</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-сертификат-pem-и-зачем-он-нужен-клиентам-втб">Что такое сертификат .pem и зачем он нужен клиентам ВТБ</a></li><li><a href="#какие-сертификаты-pem-может-потребовать-втб">Какие сертификаты .pem может потребовать ВТБ</a></li><li><a href="#пошаговая-установка-сертификата-pem-в-втб">Пошаговая установка сертификата .pem в ВТБ</a></li><li><a href="#особенности-установки-для-юридических-лиц-втб-бизнес-онлайн">Особенности установки для юридических лиц (ВТБ Бизнес Онлайн)</a></li><li><a href="#распространённые-ошибки-и-их-решение">Распространённые ошибки и их решение</a></li><li><a href="#использование-pem-для-работы-с-api-втб">Использование .pem для работы с API ВТБ</a></li><li><a href="#пути-к-сертификату-и-ключу">Пути к сертификату и ключу</a></li><li><a href="#запрос-к-api-втб">Запрос к API ВТБ</a></li><li><a href="#частые-вопросы-по-сертификатам-pem-в-втб">Частые вопросы по сертификатам .pem в ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-ubrat-vtb-iz-telefonnoj-knigi.html" class="related-card">Как удалить ВТБ из контактов: полная инструкция</a></li><li><a href="/articles/k/ka/kak-vernut-dengi-esli-spisali-moshenniki-v-vtb.html" class="related-card">Как вернуть деньги, если мошенники списали с карты ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/s/s-/s-kakogo-nomera-vtb-prisylaet-sms.html" class="related-card">С какого номера ВТБ присылает SMS: официальные данные 2026</a></li><li><a href="/articles/k/ka/kak-pomenyat-parol-v-vtb-onlajn-v-bankomate.html" class="related-card">Как сменить пароль ВТБ Онлайн через банкомат: пошаговая инструкция 2026</a></li><li><a href="/articles/s/sk/skolko-dnej-proveryaet-sluzhba-bezopasnosti-pri-prieme-na-rabotu-v-bank-vtb.html" class="related-card">Сколько дней проверяет служба безопасности ВТБ при приеме на работу в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-ubrat-vtb-iz-telefonnoj-knigi.html" class="related-bottom-card"><span class="related-bottom-title">Как удалить ВТБ из контактов: полная инструкция</span><span class="related-bottom-desc">Узнайте, как убрать ВТБ из телефонной книги на Android и iPhone. Причины появления, методы удаления </span></a><a href="/articles/k/ka/kak-vernut-dengi-esli-spisali-moshenniki-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как вернуть деньги, если мошенники списали с карты ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Мошенники списали деньги с карты ВТБ? Узнайте, как вернуть средства через банк, полицию и ЦБ: сроки,</span></a><a href="/articles/s/s-/s-kakogo-nomera-vtb-prisylaet-sms.html" class="related-bottom-card"><span class="related-bottom-title">С какого номера ВТБ присылает SMS: официальные данные 2026</span><span class="related-bottom-desc">Узнайте официальные номера ВТБ для SMS-уведомлений, как отличить настоящие сообщения от мошенников и</span></a><a href="/articles/k/ka/kak-pomenyat-parol-v-vtb-onlajn-v-bankomate.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить пароль ВТБ Онлайн через банкомат: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство, как изменить пароль от ВТБ Онлайн через банкомат: шаги, требования к паролю, </span></a><a href="/articles/s/sk/skolko-dnej-proveryaet-sluzhba-bezopasnosti-pri-prieme-na-rabotu-v-bank-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Сколько дней проверяет служба безопасности ВТБ при приеме на работу в 2026 году</span><span class="related-bottom-desc">Подробный разбор сроков проверки СБ ВТБ: от 3 дней до 1 месяца. Как ускорить процесс, какие документ</span></a><a href="/articles/k/ka/kak-sdelat-kod-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как получить код в ВТБ: пошаговая инструкция 2026 года</span><span class="related-bottom-desc">Способы получения кода в ВТБ для подтверждения операций: через приложение, СМС, банкомат и звонок в </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

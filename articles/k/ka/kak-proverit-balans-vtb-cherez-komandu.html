@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как проверить баланс ВТБ через USSD-команду: коды — Банки Инфо</title>
+    <meta name="description" content="Подробный гид: как узнать баланс ВТБ через команду, СМС и мобильный банк. Решения проблем с USSD-запросами и проверка карт других банков.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-proverit-balans-vtb-cherez-komandu.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как проверить баланс ВТБ через USSD-команду: коды">
+    <meta property="og:description" content="Подробный гид: как узнать баланс ВТБ через команду, СМС и мобильный банк. Решения проблем с USSD-запросами и проверка карт других банков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как проверить баланс ВТБ через USSD-команду: коды</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Проверка баланса ВТБ через команду: полный справочник</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#основной-ussd-код-для-проверки-баланса">Основной USSD-код для проверки баланса</a></li><li><a href="#альтернативные-способы-запроса-информации-о-счете">Альтернативные способы запроса информации о счете</a></li><li><a href="#пошаговая-инструкция-как-правильно-набрать-команду">Пошаговая инструкция: как правильно набрать команду</a></li><li><a href="#возможные-ошибки-и-способы-их-решения">Возможные ошибки и способы их решения</a></li><li><a href="#стоимость-услуги-и-условия-тарификации">Стоимость услуги и условия тарификации</a></li><li><a href="#безопасность-при-использовании-ussd-запросов">Безопасность при использовании USSD-запросов</a></li><li><a href="#проверка-баланса-карт-других-банков-через-втб">Проверка баланса карт других банков через ВТБ</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>В современном ритме жизни доступ к финансовым средствам должен быть мгновенным, и знание того, <strong>как проверить баланс втб через команду</strong>, является базовым навыком для каждого клиента банка. Отсутствие стабильного интернет-соединения в метро или за городом не должно становиться препятствием для совершения покупок или снятия наличных. Использование USSD-запросов позволяет получить актуальную информацию о состоянии счета за считанные секунды, используя только стандартный интерфейс набора номера.</p>
+
+<p>Система быстрого обслуживания клиентов банка работает в автоматическом режиме 24 часа в сутки, 7 дней в неделю. Вам не нужно ждать соединения с оператором или искать терминал для входа в личный кабинет. Достаточно просто набрать короткий цифровой код на клавиатуре телефона, и система моментально отобразит необходимую сумму на экране вашего устройства.</p>
+
+<p>Важно отметить, что данный метод является универсальным и подходит для владельцев любых мобильных операторов, включая МТС, Билайн, МегаФон и Теле2. Однако существуют определенные нюансы, зависящие от типа SIM-карты и тарифного плана, о которых необходимо знать заранее, чтобы избежать неожиданных комиссий или технических ошибок при запросе.</p>
+
+<h2 id="основной-ussd-код-для-проверки-баланса">Основной USSD-код для проверки баланса</h2>
+
+<p>Центральным элементом системы самообслуживания является универсальный цифровой запрос, который позволяет мгновенно получить информацию о текущем остатке средств. Для владельцев карт <em>ВТБ</em> основным и наиболее быстрым способом является набор комбинации <code>*100#</code>. После ввода этого кода и нажатия кнопки вызова, на экране мобильного телефона появится всплывающее сообщение с подробной информацией о балансе.</p>
+
+<p>Этот метод работает даже в тех случаях, когда интернет-соединение полностью отсутствует или работает нестабильно. USSD-запросы передаются через каналы голосовой связи, что делает их доступными практически в любой точке покрытия сотовой связи. Это особенно актуально для путешественников или жителей удаленных районов, где 3G или 4G сети могут не функционировать должным образом.</p>
+
+<p>Полученный ответ обычно содержит не только общую сумму, но и детализацию по основным счетам, если их у клиента несколько. В некоторых случаях система может предложить дополнительное меню для выбора конкретной карты, если к номеру телефона привязано несколько продуктов банка.</p>
+
+<blockquote>⚠️ Внимание: Убедитесь, что ваша SIM-карта активна и имеет положительный баланс, так как некоторые операторы связи могут блокировать исходящие USSD-запросы при отрицательном балансе абонента.</blockquote>
+
+<p>Для успешного выполнения операции необходимо, чтобы телефон находился в зоне уверенного приема сигнала. Если после набора кода <code>*100#</code> ответ не приходит в течение 10-15 секунд, рекомендуется повторить попытку или переместиться в место с лучшим покрытием сети.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если код *100# не работает, попробуйте набрать *100*0# для принудительного запроса баланса основной карты.</p></div>
+
+<h2 id="альтернативные-способы-запроса-информации-о-счете">Альтернативные способы запроса информации о счете</h2>
+
+<p>Если по каким-либо причинам основной код не работает или вызывает техническую ошибку, существуют альтернативные методы получения данных. Банк предусмотрел несколько резервных вариантов, чтобы клиент никогда не оставался без информации о своих финансах. Использование <strong>резервных кодов</strong> часто помогает в ситуациях, когда основная система перегружена.</p>
+
+<p>Одним из таких способов является использование короткого номера 100. Позвонив по этому номеру, вы попадете в автоматическое голосовое меню, которое предложит озвучить баланс или отправить его в виде СМС-сообщения. Это удобно, когда экран телефона поврежден или использование дисплея затруднено.</p>
+
+<ul>
+<li>📞 Звонок на короткий номер 100 с мобильного телефона (бесплатно).</li>
+<li>💬 Отправка СМС-запроса с текстом "BALANS" на номер 100.</li>
+<li>📱 Использование виджета банка на рабочем столе смартфона (требует предварительной настройки).</li>
+</ul>
+
+<p>Также стоит упомянуть о возможности использования Push-уведомлений. Если у вас установлен <em>VTB Онлайн</em>, но интернет временно недоступен, последнее полученное уведомление о приходе средств или списании может дать представление о текущем состоянии счета, хотя это и не является точным методом проверки в реальном времени.</p>
+
+<p>Некоторые пользователи предпочитают использовать банкоматы сети ВТБ, которые позволяют проверить баланс без комиссии даже при использовании карт других банков (в рамках партнерских программ). Однако это требует физического присутствия у устройства и наличия самой пластиковой карты.</p>
+
+<div class="poll-widget" id="poll-7aa9d7fe"><div class="poll-widget-question">📊 Какой способ проверки баланса вам удобнее?</div><div class="poll-widget-option" data-poll="7aa9d7fe" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">USSD-команда *100#</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7aa9d7fe" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Мобильное приложение</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7aa9d7fe" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Звонок оператору</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7aa9d7fe" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">СМС-запрос</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="пошаговая-инструкция-как-правильно-набрать-команду">Пошаговая инструкция: как правильно набрать команду</h2>
+
+<p>Процесс проверки баланса максимально упрощен разработчиками, чтобы им могли пользоваться люди любого возраста и уровня технической грамотности. Тем не менее, четкое следование алгоритму действий гарантирует успешное получение информации и исключает возможность ошибки ввода.</p>
+
+<p>Для начала разблокируйте свой мобильный телефон и перейдите в стандартное приложение «Телефон» или «Звонки», которым вы обычно пользуетесь для набора номера собеседника. Не открывайте браузер или сторонние мессенджеры, так как нам нужен именно интерфейс набора номера.</p>
+
+<div class="checklist-block"><h4>☑️ Алгоритм проверки баланса</h4><label class="check-item"><input type="checkbox"><span>Разблокировать экран телефона</span></label><label class="check-item"><input type="checkbox"><span>Открыть приложение «Телефон»</span></label><label class="check-item"><input type="checkbox"><span>Набрать код *100#</span></label><label class="check-item"><input type="checkbox"><span>Нажать кнопку вызова</span></label><label class="check-item"><input type="checkbox"><span>Считать ответ на экране</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Введите на виртуальной или физической клавиатуре следующую последовательность символов: звездочка, цифра один, цифра ноль, цифра ноль, решетка. Визуально это должно выглядеть так:</p>
+
+<pre><code>*100#</code></pre>
+
+<p>После ввода последнего символа (решетки) не нужно ждать, нажмите зеленую кнопку вызова. На экране может появиться надпись «Идет вызов» или «Обработка USSD-запроса». Через несколько секунд всплывет окно с текстом от банка, содержащим актуальный баланс.</p>
+
+<blockquote>⚠️ Внимание: Не набирайте код в поле для ввода интернет-адреса в браузере, это не сработает. Используйте только интерфейс телефонной книги.</blockquote>
+
+<p>Если на экране появилось меню с выбором действий, следуйте инструкциям на дисплее, выбирая пункт «Проверка баланса» или аналогичный. Обычно это соответствует вводу цифры 1 или 2, но интерфейс может меняться в зависимости от обновлений системы банка.</p>
+
+<h2 id="возможные-ошибки-и-способы-их-решения">Возможные ошибки и способы их решения</h2>
+
+<p>Несмотря на простоту процедуры, пользователи иногда сталкиваются с техническими проблемами. Понимание природы ошибки позволяет быстро устранить ее и получить доступ к <strong>финансовой информации</strong>. Чаще всего проблемы связаны с настройками сети или статусом сим-карты.</p>
+
+<p>Одной из распространенных ошибок является сообщение «Запрос не может быть обработан» или «Ошибка соединения». Это часто свидетельствует о временных сбоях в сети оператора связи или на стороне банка. В такой ситуации не стоит паниковать, достаточно подождать 1-2 минуты и повторить попытку.</p>
+
+<p>Также важно проверять, не заблокирована ли услуга передачи данных для USSD-запросов у вашего мобильного оператора. Хотя это редкость, некоторые корпоративные тарифы или детские тарифные планы могут иметь ограничения на исходящие запросы сервисных кодов.</p>
+
+<ul>
+<li>❌ Ошибка «Неверный формат запроса» — проверьте, не добавили ли вы лишние пробелы или символы.</li>
+<li>❌ Ошибка «Услуга недоступна» — возможно, вы находитесь в роуминге или зоне без покрытия.</li>
+<li>❌ Ошибка «Карта не найдена» — проблема с привязкой номера телефона к счету в базе банка.</li>
+</ul>
+
+<p>В редких случаях проблема может крыться в переполненной памяти телефона или кэше сим-карты. Перезагрузка устройства часто помогает сбросить временные ошибки и восстановить нормальную работу USSD-меню.</p>
+
+<details class="faq-item"><summary>Что делать, если код блокируется антивирусом?</summary><div class="faq-answer"><p>Некоторые агрессивные настройки антивирусных программ могут блокировать исходящие вызовы на короткие номера. Попробуйте временно отключить защиту или добавить номер 100 в белый список контактов.</p></div></details>
+
+<h2 id="стоимость-услуги-и-условия-тарификации">Стоимость услуги и условия тарификации</h2>
+
+<p>Вопрос стоимости всегда актуален для клиентов, и банк старается сделать базовые услуги максимально доступными. Проверка баланса через USSD-команду <code>*100#</code> является полностью бесплатной услугой со стороны банка ВТБ. Вы не платите комиссию за сам факт запроса информации о счете.</p>
+
+<p>Однако стоит учитывать тарифы вашего сотового оператора. Большинство крупных операторов («большая четверка») также предоставляют эту услугу бесплатно, но в некоторых редких тарифных планах или при нахождении в роуминге за исходящий вызов на сервисный номер может взиматься плата согласно вашему тарифу.</p>
+
+<p>Для владельцев корпоративных тарифов условия могут отличаться. Если телефоном пользуется сотрудник организации, ему стоит уточнить у своего IT-отдела или в бухгалтерии, оплачивает ли компания услуги связи полностью или есть лимиты на сервисные вызовы.</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип операции</th>
+<th>Комиссия банка ВТБ</th>
+<th>Комиссия оператора связи</th>
+<th>Лимиты</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Запрос баланса (*100#)</td>
+<td>0 руб.</td>
+<td>0 руб. (обычно)</td>
+<td>Нет ограничений</td>
+</tr>
+<tr>
+<td>Запрос последних операций</td>
+<td>0 руб.</td>
+<td>0 руб.</td>
+<td>5 запросов в день</td>
+</tr>
+<tr>
+<td>СМС-информирование</td>
+<td>Зависит от пакета</td>
+<td>Стоимость СМС</td>
+<td>По тарифу</td>
+</tr>
+<tr>
+<td>Звонок на 100</td>
+<td>0 руб.</td>
+<td>Бесплатно в РФ</td>
+<td>10 мин разговор</td>
+</tr>
+</tbody>
+</table>
+
+<p> В международном роуминге входящие и исходящие USSD-запросы могут тарифицироваться как исходящие вызовы или СМС, что может быть дорого.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>В домашнем регионе России проверка баланса через *100# абсолютно бесплатна для клиента.</p></div>
+
+<h2 id="безопасность-при-использовании-ussd-запросов">Безопасность при использовании USSD-запросов</h2>
+
+<p>Безопасность финансовых операций стоит на первом месте, и использование USSD-кодов имеет свои особенности в этом плане. С одной стороны, этот метод считается более безопасным, чем использование публичных Wi-Fi сетей для входа в интернет-банк, так как данные не передаются через интернет-каналы.</p>
+
+<p>Однако существуют риски, связанные с физической безопасностью устройства. Если ваш телефон попал в руки мошенников, они могут легко узнать баланс и последние операции, просто набрав команду. Поэтому крайне важно защищать доступ к самому смартфону.</p>
+
+<p>Используйте надежный пин-код, графический ключ или биометрическую защиту (отпечаток пальца, Face ID) для разблокировки экрана. Это первое и самое важное препятствие для злоумышленников, которое не позволит им воспользоваться функцией быстрого баланса.</p>
+
+<blockquote>⚠️ Внимание: Никогда не сообщайте коды, приходящие в СМС после запроса баланса, третьим лицам. Банк никогда не запрашивает эти коды по телефону.</blockquote>
+
+<p>Также рекомендуется регулярно проверять историю вызовов. Если вы заметили исходящий вызов на номер 100 или другой сервисный номер в то время, когда телефоном пользовались не вы, это повод сменить SIM-карту и обратиться в банк для блокировки карт.</p>
+
+<h2 id="проверка-баланса-карт-других-банков-через-втб">Проверка баланса карт других банков через ВТБ</h2>
+
+<p>Многие клиенты используют карты разных банков, и возникает вопрос: можно ли проверить баланс карты <em>Сбербанка</em> или <em>Тинькофф</em> через команду ВТБ? Ответ однозначный: напрямую через USSD-код ВТБ проверить баланс карт других банков невозможно.</p>
+
+<p>Каждый банк имеет свою собственную систему безопасности и свои коды для проверки баланса. Команда <code>*100#</code> работает только внутри экосистемы ВТБ. Для проверки карт других эмитентов необходимо использовать их собственные сервисные коды или приложения.</p>
+
+<p>Тем не менее, если у вас оформлена дебетовая карта ВТБ с функцией «Мультикарта» или аналогичными продуктами, вы можете видеть балансы счетов в других валютах или бонусных счетах внутри своего личного кабинета ВТБ, но это касается только продуктов самого банка.</p>
+
+<ul>
+<li>🏦 Для карт Сбербанка используйте код <code>*900#</code>.</li>
+<li>💳 Для карт Тинькофф используйте код <code>*105#</code>.</li>
+<li>🏛 Для карт Альфа-Банка используйте код <code>*155#</code>.</li>
+</ul>
+
+<p>Универсального кода для всех банков не существует из соображений безопасности и технической архитектуры банковских систем. Попытка ввести код чужого банка с сим-картой, не привязанной к этому банку, скорее всего, приведет к ошибке или запросу подключения услуги, за которую могут взять деньги.</p>
+
+<details class="faq-item"><summary>Можно ли проверить баланс по номеру карты?</summary><div class="faq-answer"><p>Нет, проверка баланса всегда требует авторизации через SIM-карту (для USSD) или вход в приложение с паролем. Просто по номеру карты узнать баланс нельзя.</p></div></details>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Почему не приходит СМС с балансом после запроса?</summary>
+<p>Это может быть связано с переполненной памятью телефона, проблемами в сети оператора или временным сбоем на стороне банка. Попробуйте перезагрузить телефон или проверить баланс через меню *100# еще раз.</p>
+</details>
+
+<details>
+<summary>Работает ли команда *100# без интернета?</summary>
+<p>Да, USSD-запросы работают через каналы голосовой связи и не требуют подключения к интернету (3G/4G/Wi-Fi). Достаточно наличия сигнала сотовой сети.</p>
+</details>
+
+<details>
+<summary>Можно ли проверить баланс кредитной карты ВТБ этим кодом?</summary>
+<p>Да, команда <code>*100#</code> показывает баланс всех основных продуктов, включая кредитные карты, показывая текущую задолженность или доступный лимит.</p>
+</details>
+
+<details>
+<summary>Что делать, если телефон пишет «Неверный MMI код»?</summary>
+<p>Ошибка MMI (Man-Machine Interface) часто возникает при плохом сигнале или конфликте сим-карты. Извлеките сим-карту, протрите контакты, вставьте обратно и попробуйте снова. Если не помогает — обратитесь к оператору связи.</p>
+</details>
+
+<details>
+<summary>Сколько раз в день можно проверять баланс?</summary>
+<p>Ограничений со стороны банка на количество проверок практически нет, но слишком частые запросы (например, каждые 10 секунд) могут быть расценены системой безопасности как подозрительная активность, и доступ может быть временно ограничен.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#основной-ussd-код-для-проверки-баланса">Основной USSD-код для проверки баланса</a></li><li><a href="#альтернативные-способы-запроса-информации-о-счете">Альтернативные способы запроса информации о счете</a></li><li><a href="#пошаговая-инструкция-как-правильно-набрать-команду">Пошаговая инструкция: как правильно набрать команду</a></li><li><a href="#возможные-ошибки-и-способы-их-решения">Возможные ошибки и способы их решения</a></li><li><a href="#стоимость-услуги-и-условия-тарификации">Стоимость услуги и условия тарификации</a></li><li><a href="#безопасность-при-использовании-ussd-запросов">Безопасность при использовании USSD-запросов</a></li><li><a href="#проверка-баланса-карт-других-банков-через-втб">Проверка баланса карт других банков через ВТБ</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/z/za/zachem-nuzhen-internet-bank-vtb.html" class="related-card">Зачем нужен интернет-банк ВТБ: функции, преимущества и как подключить</a></li><li><a href="/articles/k/ka/kak-snyat-nalichnye-po-qr-kodu-vtb.html" class="related-card">Как снять наличные по QR-коду в ВТБ: полная инструкция</a></li><li><a href="/articles/k/ka/kak-podklyuchit-sbr-v-vtb-v-prilozhenii.html" class="related-card">Как подключить СБП в ВТБ Онлайн: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-najdu-vtb-onlajn.html" class="related-card">Как найти ВТБ Онлайн: поиск, вход и вход через Госуслуги</a></li><li><a href="/articles/p/po/pochemu-ne-skaniruetsya-qr-kod-v-vtb-onlajn.html" class="related-card">QR-код в ВТБ Онлайн не сканируется: причины и решения 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/z/za/zachem-nuzhen-internet-bank-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Зачем нужен интернет-банк ВТБ: функции, преимущества и как подключить</span><span class="related-bottom-desc">Разбираемся, почему интернет-банк ВТБ экономит время и деньги: управление счетами, переводы, оплата </span></a><a href="/articles/k/ka/kak-snyat-nalichnye-po-qr-kodu-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как снять наличные по QR-коду в ВТБ: полная инструкция</span><span class="related-bottom-desc">Узнайте, как снять наличные по QR-коду в ВТБ без карты через приложение. Подробный пошаговый алгорит</span></a><a href="/articles/k/ka/kak-podklyuchit-sbr-v-vtb-v-prilozhenii.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить СБП в ВТБ Онлайн: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как подключить СБП в приложении ВТБ. Полная настройка переводов по номеру телефона, лимиты,</span></a><a href="/articles/k/ka/kak-najdu-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как найти ВТБ Онлайн: поиск, вход и вход через Госуслуги</span><span class="related-bottom-desc">Где найти приложение ВТБ Онлайн на iPhone и Android? Подробная инструкция по входу через Госуслуги, </span></a><a href="/articles/p/po/pochemu-ne-skaniruetsya-qr-kod-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">QR-код в ВТБ Онлайн не сканируется: причины и решения 2026</span><span class="related-bottom-desc">Разбираем 10+ причин, почему не считывается QR-код в приложении ВТБ Онлайн: от технических сбоев до </span></a><a href="/articles/k/ka/kak-vklyuchit-sms-uvedomleniya-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как включить SMS-уведомления в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по настройке SMS-оповещений в ВТБ Онлайн: через приложение, личный кабинет и б</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

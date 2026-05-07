@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как работает приложение ВТБ на iPhone: функции и настройка — Банки Инфо</title>
+    <meta name="description" content="Подробный гайд по установке, настройке и использованию мобильного банка ВТБ на iPhone. Все функции, советы по безопасности и решение проблем.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rabotaet-prilozhenie-vtb-na-ajfone.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает приложение ВТБ на iPhone: функции и настройка">
+    <meta property="og:description" content="Подробный гайд по установке, настройке и использованию мобильного банка ВТБ на iPhone. Все функции, советы по безопасности и решение проблем.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работает приложение ВТБ на iPhone: функции и настройка</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Приложение ВТБ на iPhone: как работает, как установить и настроить</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#введение-зачем-нужно-приложение-втб-на-iphone">Введение: зачем нужно приложение ВТБ на iPhone</a></li><li><a href="#системные-требования-и-совместимость-с-iphone">Системные требования и совместимость с iPhone</a></li><li><a href="#установка-и-первый-запуск-пошаговая-инструкция">Установка и первый запуск: пошаговая инструкция</a></li><li><a href="#основные-функции-приложения-что-можно-делать">Основные функции приложения: что можно делать</a></li><li><a href="#безопасность-как-защитить-свои-деньги">Безопасность: как защитить свои деньги</a></li><li><a href="#apple-pay-и-другие-интеграции-с-экосистемой-apple">Apple Pay и другие интеграции с экосистемой Apple</a></li><li><a href="#типичные-проблемы-и-их-решение">Типичные проблемы и их решение</a></li><li><a href="#скрытые-фишки-что-умеет-приложение-но-не-все-знают">Скрытые фишки: что умеет приложение, но не все знают</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><h2 id="введение-зачем-нужно-приложение-втб-на-iphone">Введение: зачем нужно приложение ВТБ на iPhone</h2>
+
+<p>Мобильный банк <em>ВТБ Онлайн</em> для <em>iPhone</em> — это не просто альтернатива посещению отделения, а полноценный финансовый центр в вашем кармане. С его помощью можно оплачивать счета, переводить деньги, открывать вклады и даже брать кредиты — всё это без очередей и бумажной волокиты. Но как именно работает это приложение на устройствах <em>Apple</em>? Чем оно отличается от веб-версии или Android-аналога?</p>
+
+<p>В этой статье мы разберём <strong>все ключевые функции</strong> приложения <em>ВТБ</em> для <em>iOS</em>, от установки и авторизации до скрытых возможностей, о которых многие пользователи даже не подозревают. Вы узнаете, как настроить уведомления, подключить <strong>Apple Pay</strong>, решить типичные проблемы с входом и обеспечить максимальную безопасность своих финансов. А если вы только планируете перейти на <em>iPhone</em> с <em>Android</em>, мы объясним, как перенести данные банка без потерь.</p>
+
+<h2 id="системные-требования-и-совместимость-с-iphone">Системные требования и совместимость с iPhone</h2>
+
+<p>Прежде чем устанавливать приложение, убедитесь, что ваш <em>iPhone</em> соответствует минимальным требованиям. На данный момент <em>ВТБ Онлайн</em> поддерживает:</p>
+
+<ul>
+  <li>📱 <strong>iOS 13.0 и новее</strong> — приложение оптимизировано для последних версий, но работает и на старых (с ограничениями).</li>
+  <li>🔋 <em>iPhone 6s</em> и выше — на более ранних моделях возможны лаги или отсутствие части функций.</li>
+  <li>🛡️ <strong>Touch ID/Face ID</strong> — для быстрой авторизации (на моделях без сканера отпечатков вход только по паролю).</li>
+  <li>🌐 Стабильное интернет-соединение — <code>Wi-Fi</code> или <code>мобильная сеть 4G/5G</code>.</li>
+</ul>
+
+<p>Если ваш <em>iPhone</em> старше <em>6s</em>, приложение может установиться, но некоторые функции (например, <strong>биометрическая авторизация</strong> или <strong>анимации интерфейса</strong>) будут недоступны. Также на устройствах с <code>iOS 12</code> и ниже возможны проблемы с <strong>push-уведомлениями</strong> — банк постепенно отказывается от поддержки устаревших систем.</p>
+
+<div class="poll-widget" id="poll-9d169cc7"><div class="poll-widget-question">📊 Какая модель iPhone у вас?</div><div class="poll-widget-option" data-poll="9d169cc7" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">iPhone 15/15 Pro</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="9d169cc7" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">iPhone 14/14 Pro</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="9d169cc7" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">iPhone 13/13 Pro</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="9d169cc7" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">iPhone 12 или старше</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="9d169cc7" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Другой</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="установка-и-первый-запуск-пошаговая-инструкция">Установка и первый запуск: пошаговая инструкция</h2>
+
+<p>Скачать официальное приложение <em>ВТБ Онлайн</em> можно только из <strong>App Store</strong>. Будьте осторожны: в сети встречаются мошеннические сайты, предлагающие "ускоренную установку" — это всегда вирус! Вот как установить приложение безопасно:</p>
+
+<ol>
+  <li>Откройте <code>App Store</code> на вашем <em>iPhone</em>.</li>
+  <li>В строке поиска введите "<strong>ВТБ Онлайн</strong>" (не путайте с "<em>ВТБ Инвестиции</em>" или "<em>ВТБ Бизнес</em>").</li>
+  <li>Нажмите "<strong>Загрузить</strong>" (приложение бесплатное, весит ~150 МБ).</li>
+  <li>После установки тапните "<strong>Открыть</strong>".</li>
+</ol>
+
+<p>При первом запуске система предложит:</p>
+<ul>
+  <li>🔐 Ввести номер телефона, привязанный к вашему счёту в <em>ВТБ</em>.</li>
+  <li>📲 Подтвердить вход через <code>SMS</code> или звонок (код приходит в течение 1–2 минут).</li>
+  <li>👤 Создать <strong>пароль для входа</strong> (минимум 8 символов, с цифрами и буквами).</li>
+  <li>🆔 Настроить <strong>биометрию</strong> (<em>Face ID</em> или <em>Touch ID</em>, если поддерживается).</li>
+</ul>
+
+
+<p>Номер телефона привязан к счёту в ВТБ|</p>
+<p>На телефоне достаточно места (минимум 200 МБ свободно)|</p>
+<p>Включён мобильный интернет или Wi-Fi|</p>
+<p>Отключён VPN (может блокировать SMS)--></p>
+
+<p><strong>Важно:</strong> если вы уже пользовались <em>ВТБ Онлайн</em> на <em>Android</em>, при первом входе на <em>iPhone</em> система предложит <strong>перенести историю операций</strong>. Для этого нужно подтвердить действие через <code>SMS</code> на старом устройстве.</p>
+
+<h2 id="основные-функции-приложения-что-можно-делать">Основные функции приложения: что можно делать</h2>
+
+<p>Интерфейс <em>ВТБ Онлайн</em> на <em>iOS</em> интуитивно понятен, но некоторые функции скрыты в глубине меню. Вот полный список возможностей:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Категория</th>
+      <th>Функции</th>
+      <th>Особенности на iPhone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Управление счетами</strong></td>
+      <td>
+        <ul>
+          <li>Просмотр баланса и истории операций</li>
+          <li>Блокировка/разблокировка карты</li>
+          <li>Заказ новой карты или перевыпуск</li>
+        </ul>
+      </td>
+      <td>Поддержка <em>Widget</em> на главном экране (баланс без входа)</td>
+    </tr>
+    <tr>
+      <td><strong>Переводы и платежи</strong></td>
+      <td>
+        <ul>
+          <li>Переводы по номеру телефона/карты</li>
+          <li>Оплата ЖКХ, штрафов, мобильной связи</li>
+          <li>Переводы в другие банки (в т.ч. по СБП)</li>
+        </ul>
+      </td>
+      <td>Интеграция с <em>Apple Pay</em> для быстрых платежей</td>
+    </tr>
+    <tr>
+      <td><strong>Кредиты и вклады</strong></td>
+      <td>
+        <ul>
+          <li>Оформление кредита онлайн</li>
+          <li>Открытие вклада с повышенной ставкой</li>
+          <li>Досрочное погашение кредита</li>
+        </ul>
+      </td>
+      <td>Видеозвонок с менеджером прямо в приложении</td>
+    </tr>
+    <tr>
+      <td><strong>Бонусы и кэшбэк</strong></td>
+      <td>
+        <ul>
+          <li>Активация кэшбэка по категориям</li>
+          <li>Обмен бонусов на мили или скидки</li>
+          <li>Участие в акциях банка</li>
+        </ul>
+      </td>
+      <td>Push-уведомления о новых акциях</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><mark>Уникальная функция для iPhone:</mark> в <em>ВТБ Онлайн</em> реализована поддержка <strong>Siri Shortcuts</strong>. Например, можно голосом попросить показать баланс или перевести деньги на часто используемый счёт. Для настройки перейдите в <code>Настройки → Голоса и жесты → Настроить команды для Siri</code>.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы часто переводите деньги одному и тому же человеку, добавьте его в "<strong>Избранные получатели</strong>" (раздел "<code>Переводы</code>"). Это сэкономит время при следующем платеже.</p></div>
+
+<h2 id="безопасность-как-защитить-свои-деньги">Безопасность: как защитить свои деньги</h2>
+
+<p>Банк <em>ВТБ</em> использует многорубежную систему защиты, но безопасность во многом зависит и от пользователя. Вот ключевые правила:</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Никогда не вводите коды из <code>SMS</code> на сторонних сайтах или по телефону — даже если звонят "из банка". Мошенники часто имитируют голосовые сообщения от <em>ВТБ</em>.</blockquote>
+
+<ul>
+  <li>🔒 Включите <strong>двухфакторную авторизацию</strong> в настройках (<code>Профиль → Безопасность</code>).</li>
+  <li>📵 Не сохраняйте пароли от банка в браузере или <em>iCloud Keychain</em>.</li>
+  <li>🛡️ Регулярно проверяйте <strong>историю входов</strong> в разделе "<code>Безопасность</code>".</li>
+  <li>🚫 Отключите <strong>автозаполнение</strong> для полей с реквизитами карт.</li>
+</ul>
+
+<p>Если вы потеряли <em>iPhone</em> или он был украден:</p>
+<ol>
+  <li>Немедленно заблокируйте доступ к приложению через <a href="https://online.vtb.ru">веб-версию ВТБ Онлайн</a>.</li>
+  <li>Используйте функцию "<strong>Удаленная блокировка</strong>" в <em>iCloud</em> (найти устройство → стирание данных).</li>
+  <li>Позвоните в поддержку <em>ВТБ</em> по номеру <code>8 800 100-24-24</code> для блокировки карт.</li>
+</ol>
+
+<details class="faq-item"><summary>Что делать, если приложение запрашивает необычные разрешения?</summary><div class="faq-answer"><p>
+<p>Если <em>ВТБ Онлайн</em> внезапно просит доступ к <code>Контактам</code>, <code>Фото</code> или <code>Геолокации</code> — это повод насторожиться. Официальное приложение банка не нуждается в таких разрешениях для работы. Скорее всего, вы скачали подделку. Удалите её и установите приложение заново из <strong>App Store</strong> по прямой ссылке: <a href="https://apps.apple.com/ru/app/vtb-onlajn/id1044297560">ссылка</a></p></div></details></p>
+
+<h2 id="apple-pay-и-другие-интеграции-с-экосистемой-apple">Apple Pay и другие интеграции с экосистемой Apple</h2>
+
+<p>Одним из ключевых преимуществ <em>iPhone</em> является поддержка <strong>Apple Pay</strong> — системы бесконтактных платежей. В <em>ВТБ Онлайн</em> подключить карту к <em>Apple Pay</em> можно за несколько шагов:</p>
+
+<ol>
+  <li>Откройте приложение и перейдите в раздел "<code>Карты</code>".</li>
+  <li>Выберите карту, которую хотите добавить в <em>Apple Pay</em>.</li>
+  <li>Нажмите "<strong>Добавить в Apple Pay</strong>" и следуйте инструкциям системы.</li>
+  <li>Подтвердите добавление через <code>SMS</code> или <em>Face ID</em>.</li>
+</ol>
+
+<p>После этого картой можно расплачиваться:</p>
+<ul>
+  <li>📱 В магазинах — через <em>iPhone</em> (поднесите к терминалу, подтвердите <em>Face ID</em>).</li>
+  <li>💻 В интернете — выбирайте опцию "<strong>Apple Pay</strong>" при оформлении заказа.</li>
+  <li>🚇 В метро/транспорте — в городах, где поддерживается <strong>бесконтактная оплата</strong>.</li>
+</ul>
+
+<p><strong>Важно:</strong> в <em>ВТБ Онлайн</em> можно настроить <strong>лимиты на платежи через Apple Pay</strong>. Например, ограничить сумму одного платежа или отключить оплату в интернете. Для этого перейдите в <code>Настройки карты → Ограничения</code>.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Apple Pay в <em>ВТБ</em> работает даже без интернета — платежи проходят через технологию <strong>NFC</strong>, а авторизация происходит локально на устройстве.</p></div>
+
+<p>Кроме <em>Apple Pay</em>, приложение интегрировано с:</p>
+<ul>
+  <li>📊 <strong>Виджетом на главном экране</strong> — показывает баланс без входа.</li>
+  <li>🔄 <strong>Автообновлением курсов валют</strong> (если у вас мультивалютный счёт).</li>
+  <li>📱 <strong>Handoff</strong> — можно начать операцию на <em>iPhone</em> и закончить на <em>Mac</em>.</li>
+</ul>
+
+<h2 id="типичные-проблемы-и-их-решение">Типичные проблемы и их решение</h2>
+
+<p>Даже в самом стабильном приложении иногда возникают сбои. Вот самые частые проблемы пользователей <em>ВТБ Онлайн</em> на <em>iPhone</em> и способы их устранения:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Проблема</th>
+      <th>Возможная причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Не приходит SMS с кодом</td>
+      <td>
+        <ul>
+          <li>Блокировка оператором</li>
+          <li>Сбой в работе банка</li>
+        </ul>
+      </td>
+      <td>
+        <ol>
+          <li>Проверьте баланс телефона.</li>
+          <li>Перезагрузите <em>iPhone</em>.</li>
+          <li>Попробуйте запросить код через звонок (опция в приложении).</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>Приложение вылетает при запуске</td>
+      <td>
+        <ul>
+          <li>Устаревшая версия iOS</li>
+          <li>Повреждённые данные кэша</li>
+        </ul>
+      </td>
+      <td>
+        <ol>
+          <li>Обновите iOS в <code>Настройки → Основные → Обновление ПО</code>.</li>
+          <li>Удалите и установите приложение заново.</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>Не работает Face ID</td>
+      <td>
+        <ul>
+          <li>Отключена в настройках банка</li>
+          <li>Сбой в работе датчика</li>
+        </ul>
+      </td>
+      <td>
+        <ol>
+          <li>Проверьте разрешения в <code>Настройки iPhone → Face ID и код-пароль</code>.</li>
+          <li>Перезапустите приложение.</li>
+        </ol>
+      </td>
+    </tr>
+    <tr>
+      <td>Не отображается баланс</td>
+      <td>
+        <ul>
+          <li>Сбой синхронизации</li>
+          <li>Ограничения по времени (ночное обслуживание)</li>
+        </ul>
+      </td>
+      <td>
+        <ol>
+          <li>Обновите данные (потяните экран вниз).</li>
+          <li>Проверьте время на устройстве (должно быть автоматическим).</li>
+        </ol>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если после обновления <em>iOS</em> приложение перестало запускаться, проверьте, не отозвал ли <em>Apple</em> сертификат у банка (редко, но случается). В этом случае дождитесь обновления приложения в <code>App Store</code>.</blockquote>
+
+<p>Если ни один из способов не помог, свяжитесь с поддержкой:</p>
+<ul>
+  <li>📞 По телефону: <code>8 800 100-24-24</code> (круглосуточно).</li>
+  <li>💬 В чате внутри приложения (раздел "<code>Помощь</code>").</li>
+  <li>📧 По почте: <code>support@vtb.ru</code> (ответ в течение 24 часов).</li>
+</ul>
+
+<h2 id="скрытые-фишки-что-умеет-приложение-но-не-все-знают">Скрытые фишки: что умеет приложение, но не все знают</h2>
+
+<p>Многие пользователи годами пользуются <em>ВТБ Онлайн</em>, но не подозревают о некоторых "продвинутых" функциях. Вот несколько лайфхаков:</p>
+
+<ul>
+  <li>📊 <strong>Экспорт истории операций</strong>: можно выгрузить транзакции за любой период в <code>Excel</code> или <code>PDF</code> (раздел "<code>История</code>" → "<code>Экспорт</code>"). Полезно для бухгалтерии или анализа расходов.</li>
+  <li>🔄 <strong>Быстрый перевод самому себе</strong>: если у вас несколько карт <em>ВТБ</em>, можно настроить шаблон для перевода между ними в один тап.</li>
+  <li>📱 <strong>Режим для слабовидящих</strong>: в настройках доступны крупный шрифт и высококонтрастная тема.</li>
+  <li>🛡️ <strong>Скрытые карты</strong>: если вы боитесь, что кто-то увидит номера ваших карт в приложении, их можно скрыть (раздел "<code>Карты</code>" → "<code>Настройки отображения</code>").</li>
+  <li>🌍 <strong>Путешествия за границу</strong>: перед поездкой включите опцию "<code>Зарубежные платежи</code>" для своей карты, иначе она может не работать.</li>
+</ul>
+
+<p>Ещё одна малоизвестная возможность — <strong>виртуальные карты</strong>. Их можно выпустить прямо в приложении для одноразовых платежей в интернете. Это защищает основную карту от мошенников. Чтобы создать виртуальную карту:</p>
+<ol>
+  <li>Перейдите в раздел "<code>Карты</code>".</li>
+  <li>Нажмите "<strong>Выпустить виртуальную карту</strong>".</li>
+  <li>Укажите лимит и срок действия (от 1 часа до 1 года).</li>
+  <li>Используйте её для оплаты — данные самоуничтожатся после истечения срока.</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы часто платите в одной и той же валюте (например, в долларах), откройте <strong>мультивалютный счёт</strong> прямо в приложении. Это сэкономит на конвертации.</p></div>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</h2>
+
+<details>
+  <summary>Можно ли пользоваться ВТБ Онлайн на iPhone без интернета?</summary>
+  <p>Частично. Вы можете просматривать историю операций и баланс в <strong>офлайн-режиме</strong>, если предварительно синхронизировали данные. Однако для переводов, платежей и обновления информации интернет обязателен. Также без сети не работают <strong>push-уведомления</strong> и <em>Apple Pay</em> (для онлайн-платежей).</p>
+</details>
+
+<details>
+  <summary>Как перенести данные из ВТБ Онлайн с Android на iPhone?</summary>
+  <p>При первом входе на <em>iPhone</em> система предложит перенести историю операций. Для этого:</p>
+  <ol>
+    <li>На старом <em>Android</em>-устройстве откройте <em>ВТБ Онлайн</em>.</li>
+    <li>Перейдите в <code>Настройки → Экспорт данных</code>.</li>
+    <li>Сгенерируйте код переноса (действует 10 минут).</li>
+    <li>Введите этот код на <em>iPhone</em> при запросе.</li>
+  </ol>
+  <p>Если этот способ не сработал, история операций подтянется автоматически в течение 24 часов.</p>
+</details>
+
+<details>
+  <summary>Почему в приложении не отображаются некоторые операции?</summary>
+  <p>Это может происходить по нескольким причинам:</p>
+  <ul>
+    <li>🕒 <strong>Задержка обработки</strong> — некоторые платежи (например, в выходные) отображаются с опозданием.</li>
+    <li>🔄 <strong>Сбой синхронизации</strong> — попробуйте обновить данные (потяните экран вниз).</li>
+    <li>🛡️ <strong>Ограничения по безопасности</strong> — если операция кажется подозрительной, банк может скрыть её до проверки.</li>
+  </ul>
+  <p>Если проблема не исчезает, свяжитесь с поддержкой через чат в приложении.</p>
+</details>
+
+<details>
+  <summary>Можно ли удалить историю операций в ВТБ Онлайн?</summary>
+  <p>Нет, полностью удалить историю операций нельзя — банк хранит её в течение <strong>5 лет</strong> в соответствии с законодательством. Однако вы можете:</p>
+  <ul>
+    <li>Скрыть конкретные транзакции от отображения в мобильном приложении (но они останутся в базе банка).</li>
+    <li>Экспортировать историю и удалить её локально с телефона (через <code>Настройки iPhone → Хранилище</code>).</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Как отключить рекламу и предложения в приложении?</summary>
+  <p>В <em>ВТБ Онлайн</em> можно уменьшить количество показываемых акций и рекламы:</p>
+  <ol>
+    <li>Перейдите в <code>Профиль → Настройки → Персональные предложения</code>.</li>
+    <li>Отключите опцию "<strong>Показывать акции и специальные предложения</strong>".</li>
+    <li>В том же разделе можно настроить тематику предлагаемых продуктов (например, скрыть кредиты).</li>
+  </ol>
+  <p>Полностью отключить уведомления о новых продуктах банка нельзя — это требование регуляторов.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#введение-зачем-нужно-приложение-втб-на-iphone">Введение: зачем нужно приложение ВТБ на iPhone</a></li><li><a href="#системные-требования-и-совместимость-с-iphone">Системные требования и совместимость с iPhone</a></li><li><a href="#установка-и-первый-запуск-пошаговая-инструкция">Установка и первый запуск: пошаговая инструкция</a></li><li><a href="#основные-функции-приложения-что-можно-делать">Основные функции приложения: что можно делать</a></li><li><a href="#безопасность-как-защитить-свои-деньги">Безопасность: как защитить свои деньги</a></li><li><a href="#apple-pay-и-другие-интеграции-с-экосистемой-apple">Apple Pay и другие интеграции с экосистемой Apple</a></li><li><a href="#типичные-проблемы-и-их-решение">Типичные проблемы и их решение</a></li><li><a href="#скрытые-фишки-что-умеет-приложение-но-не-все-знают">Скрытые фишки: что умеет приложение, но не все знают</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-privyazat-svoj-schet-v-mobilnom-prilozhenii-vtb-onlajn-k-nomeru-telefona.html" class="related-card">Как привязать счет ВТБ Онлайн к телефону: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-pereustanovit-prilozhenie-vtb-onlajn.html" class="related-card">Как переустановить ВТБ Онлайн: полная инструкция 2026</a></li><li><a href="/articles/g/gd/gde-v-prilozhenii-vtb-izbrannoe.html" class="related-card">Где в приложении ВТБ найти Избранное: полное руководство</a></li><li><a href="/articles/k/ka/kak-zajti-v-vtb-bank-onlajn-v-lichnyj-kabinet.html" class="related-card">Как зайти в ВТБ Онлайн: вход в личный кабинет</a></li><li><a href="/articles/k/ka/kak-otklyuchit-podpisku-v-vtb-onlajn-s-telefona-cherez-prilozhenie.html" class="related-card">Как отключить подписку в ВТБ Онлайн с телефона через приложение</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-privyazat-svoj-schet-v-mobilnom-prilozhenii-vtb-onlajn-k-nomeru-telefona.html" class="related-bottom-card"><span class="related-bottom-title">Как привязать счет ВТБ Онлайн к телефону: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по привязке банковского счета к номеру телефона в мобильном приложении ВТБ Онл</span></a><a href="/articles/k/ka/kak-pereustanovit-prilozhenie-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как переустановить ВТБ Онлайн: полная инструкция 2026</span><span class="related-bottom-desc">Подробная инструкция по переустановке ВТБ Онлайн в 2026 году. Как скачать на Android и iOS, восстано</span></a><a href="/articles/g/gd/gde-v-prilozhenii-vtb-izbrannoe.html" class="related-bottom-card"><span class="related-bottom-title">Где в приложении ВТБ найти Избранное: полное руководство</span><span class="related-bottom-desc">Ищете, где в приложении ВТБ находится Избранное? Узнайте, как добавлять получателей, оплачивать счет</span></a><a href="/articles/k/ka/kak-zajti-v-vtb-bank-onlajn-v-lichnyj-kabinet.html" class="related-bottom-card"><span class="related-bottom-title">Как зайти в ВТБ Онлайн: вход в личный кабинет</span><span class="related-bottom-desc">Подробная инструкция: как войти в ВТБ Онлайн через сайт и приложение. Решения проблем с доступом, ко</span></a><a href="/articles/k/ka/kak-otklyuchit-podpisku-v-vtb-onlajn-s-telefona-cherez-prilozhenie.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить подписку в ВТБ Онлайн с телефона через приложение</span><span class="related-bottom-desc">Пошаговая инструкция по отмене подписок в мобильном приложении ВТБ Онлайн: где найти список активных</span></a><a href="/articles/k/ka/kak-sdelat-mobilnyj-bank-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить мобильный банк ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по установке и настройке мобильного банка ВТБ на смартфоне. Регистрация, вход,</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

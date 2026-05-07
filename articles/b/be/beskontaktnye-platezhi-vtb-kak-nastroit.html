@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как настроить бесконтактные платежи ВТБ на Android и iPhone — Банки Инфо</title>
+    <meta name="description" content="Пошаговая инструкция по настройке бесконтактных платежей ВТБ. Mir Pay, NFC, PayPass: как добавить карту и оплачивать телефоном в 2026 году.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/b/be/beskontaktnye-platezhi-vtb-kak-nastroit.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как настроить бесконтактные платежи ВТБ на Android и iPhone">
+    <meta property="og:description" content="Пошаговая инструкция по настройке бесконтактных платежей ВТБ. Mir Pay, NFC, PayPass: как добавить карту и оплачивать телефоном в 2026 году.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как настроить бесконтактные платежи ВТБ на Android и iPhone</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Бесконтактные платежи ВТБ: полная инструкция по настройке</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#проверка-совместимости-смартфона-и-подготовка-к-настройке">Проверка совместимости смартфона и подготовка к настройке</a></li><li><a href="#настройка-mir-pay-для-карт-платежной-системы-мир">Настройка Mir Pay для карт платежной системы Мир</a></li><li><a href="#использование-втб-онлайн-и-qr-платежей">Использование ВТБ Онлайн и QR-платежей</a></li><li><a href="#решениеных-проблем-при-подключении-карты">Решениеных проблем при подключении карты</a></li><li><a href="#безопасность-бесконтактных-платежей-и-лимиты">Безопасность бесконтактных платежей и лимиты</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Современный ритм жизни диктует свои правила, и возможность оплачивать покупки одним касанием смартфона стала стандартом де-факто. Для клиентов <strong>ВТБ</strong> процедура настройки бесконтактных платежей претерпела ряд изменений в связи с обновлением технологических платформ и санкционными ограничениями. Теперь процесс требует внимания к деталям, так как стандартные методы Google Pay и Apple Pay для российских карт больше не функционируют. Однако банк предлагает альтернативные, безопасные и удобные решения.</p>
+
+<p>В этой статье мы подробно разберем, как активировать <strong>NFC-оплату</strong> на устройствах с операционной системой Android и iOS. Вы узнаете о работе сервиса <em>Mir Pay</em>, особенностях использования <strong>QR-кодов</strong> и тонкостях настройки приложений для обеспечения максимальной скорости транзакций в торговых точках. Понимание этих механизмов позволит вам забыть о наличных и пластиковых картах, используя лишь свой гаджет.</p>
+
+<p>Важно отметить, что успех операции зависит не только от настроек банка, но и от версии операционной системы вашего устройства, а также от модели смартфона. Некоторые бюджетные модели могут не поддерживать необходимые протоколы безопасности <em>Host Card Emulation</em>. Поэтому перед началом настройки рекомендуется убедиться в актуальности программного обеспечения вашего телефона и наличии модуля ближней бесконтактной связи.</p>
+
+<h2 id="проверка-совместимости-смартфона-и-подготовка-к-настройке">Проверка совместимости смартфона и подготовка к настройке</h2>
+
+<p>Первым шагом на пути к удобным платежам является техническая проверка вашего устройства. Не каждый смартфон, даже оснащенный модулем NFC, способен эмулировать банковскую карту. Для работы сервисов вроде <strong>Mir Pay</strong> или <em>ВТБ Онлайн</em> необходимы определенные сертификаты безопасности и поддержка технологии HCE. Обычно этим обладают устройства среднего и высокого ценового сегмента, выпущенные не ранее 2016 года.</p>
+
+<p>Владельцам iPhone следует быть особенно внимательными: из-за закрытости экосистемы <em>Apple</em>, прямой аналог Google Pay на айфонах с российскими картами не работает. Однако для Android-устройств возможности шире. Вам потребуется убедиться, что в настройках системы активирован режим NFC и выбран правильный элемент безопасности для проведения транзакций.</p>
+
+<ul>
+<li>📱 Проверьте наличие логотипа NFC на задней панели смартфона или в спецификации устройства в меню настроек.</li>
+<li>🔒 Убедитесь, что на телефоне не установлены права суперпользователя (Root), так как банковские приложения могут блокировать работу с ними.</li>
+<li>🌐 Установите последнюю версию операционной системы Android для поддержки актуальных протоколов шифрования данных.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Если ваш смартфон был куплен за границей и не имеет сертифицированной версии Google Play Services для региона РФ, некоторые функции бесконтактной оплаты могут работать нестабильно или требовать дополнительных настроек региона.</p>
+</blockquote>
+
+<p>Также критически важно наличие самого приложения банка. Для полноценного использования всех функций, включая <strong>биометрию</strong> и токенизацию карт, необходимо использовать актуальную версию <em>ВТБ Онлайн</em>. Если приложение было удалено из официальных магазинов, его установку следует производить только через проверенные каналы, такие как RuStore или официальный сайт кредитной организации, чтобы избежать компрометации данных.</p>
+
+<h2 id="настройка-mir-pay-для-карт-платежной-системы-мир">Настройка Mir Pay для карт платежной системы Мир</h2>
+
+<p>Наиболее популярным способом осуществления бесконтактных платежей в текущих условиях является использование национальной платежной системы <strong>Мир</strong> через приложение <em>Mir Pay</em>. Этот сервис позволяет превратить смартфон в полноценный платежный инструмент, работающий по принципу токенизации. Данные карты не передаются терминалу напрямую, что обеспечивает высокий уровень защиты.</p>
+
+<p>Процесс настройки начинается с загрузки приложения из магазина <strong>RuStore</strong> или официального сайта НСПК. После установки вам потребуется пройтиую процедуру регистрации, которая занимает не более минуты. Система запросит разрешение на использование NFC и уведомлений, что необходимо для подтверждения операций.</p>
+
+<div class="checklist-block"><h4>☑️ Подготовка к подключению карты</h4><label class="check-item"><input type="checkbox"><span>Скачать Mir Pay из RuStore:Включить NFC в настройках телефона:Иметь под рукой карту ВТБ:Знать код CVC/CVV с обратной стороны</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<p>Для добавления карты ВТБ в <em>Mir Pay</em> выполните следующие действия: запустите приложение, нажмите кнопку «Добавить карту» и отсканируйте пластик с помощью камеры или введите данные вручную. Система автоматически свяжется с банком для верификации. В этот момент на номер, привязанный к карте, придет <strong>SMS-код</strong>, который необходимо ввести в соответствующее поле.</p>
+
+<p>Особое внимание стоит уделить настройкам по умолчанию. В меню приложения можно выбрать, какая карта будет предлагаться терминалу при разблокированном экране. Это удобно, если у вас оформлено несколько продуктов ВТБ, например, дебетовая и кредитная карты, и вы хотите приоритезировать расходы с конкретного счета.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Требование</th>
+<th>Где проверить</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Операционная система</td>
+<td>Android 6.0 и выше</td>
+<td>Настройки → О телефоне</td>
+</tr>
+<tr>
+<td>Модуль связи</td>
+<td>NFC с поддержкой HCE</td>
+<td>Настройки → Подключения</td>
+</tr>
+<tr>
+<td>Интернет</td>
+<td>Мобильный или Wi-Fi</td>
+<td>Требуется для токенизации</td>
+</tr>
+<tr>
+<td>Блокировка экрана</td>
+<td>Пин-код или биометрия</td>
+<td>Настройки → Безопасность</td>
+</tr>
+</tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>При добавлении карты в Mir Pay интернет должен быть включен только в момент привязки. Для оплаты в магазине наличие интернета не требуется, так как токен хранится в защищенной памяти телефона.</p></div>
+
+<h2 id="использование-втб-онлайн-и-qr-платежей">Использование ВТБ Онлайн и QR-платежей</h2>
+
+<p>Если модель вашего смартфона не поддерживает NFC или вы предпочитаете не привязывать карту к сторонним кошелькам, <strong>ВТБ</strong> предлагает альтернативу — оплату по QR-коду через собственное приложение <em>ВТБ Онлайн</em>. Этот метод универсален и работает на любых устройствах, включая iPhone, так как не зависит от hardware-модулей ближней связи.</p>
+
+<p>Технология <strong>СБП</strong> (Система Быстрых Платежей) лежит в основе этого метода. При наведении камеры приложения на специальный QR-код на кассе, происходит мгновенный перевод средств со счета на счет продавца. Комиссия для клиента в большинстве случаев отсутствует, а лимиты значительно выше, чем при бесконтактной оплате телефоном.</p>
+
+<p>Для активации функции убедитесь, что в приложении <em>ВТБ Онлайн</em> в разделе «Платежи» включена опция «Оплата по QR». При совершении покупки откройте приложение, выберите соответствующую иконку сканера и наведите камеру на код. Подтверждение операции часто требует ввода <strong>ПИН-кода</strong> или использования Face ID, что гарантирует безопасность.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При оплате по QR-коду через СБП убедитесь, что вы сканируете именно статический код merchant-а, а не динамический чек другого покупателя, чтобы средства не ушли не тому получателю.</p>
+</blockquote>
+
+<p>Преимуществом данного метода является его независимость от типа терминала в торговой точке. Даже если терминал не принимает бесконтактные платежи или сеть работает нестабильно, QR-код часто остается доступным. Кроме того, история всех таких операций сохраняется в приложении банка с подробным описанием места и времени покупки.</p>
+
+<h2 id="решениеных-проблем-при-подключении-карты">Решениеных проблем при подключении карты</h2>
+
+<p>Несмотря на простоту процедуры, пользователи могут столкнуться с техническими трудностями. Часто проблема кроется в том, что карта ВТБ уже была ранее добавлена в другой сервис или на другом устройстве, и система безопасности требует повторной верификации. В этом случае может потребоваться звонок в <strong>контактный центр</strong> или посещение банкомата для сброса настроек.</p>
+
+<p>Другой распространенной причиной отказа является несовпадение регионов. Если сим-карта одного оператора, а банковский счет открыт в другом регионе, некоторые сервисы могут блокировать операцию из-за подозрения в мошенничестве. Также стоит проверить, не исчерпан ли лимит на операции без контакта, который можно изменить в настройках карты в приложении.</p>
+
+<div class="poll-widget" id="poll-0b9975ea"><div class="poll-widget-question">📊 С какой проблемой вы столкнулись при настройке?</div><div class="poll-widget-option" data-poll="0b9975ea" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Карта не добавляется:Ошибка NFC:Приложение вылетает:Все работает отлично</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Если приложение <em>Mir Pay</em> пишет «Ошибка добавления», попробуйте следующий алгоритм: удалите приложение, перезагрузите смартфон, очистите кэш служб Google Play (если применимо) и установите приложение заново. Иногда помогает временное отключение VPN-сервисов, которые могут маскировать ваше местоположение и вызывать блокировку со стороны банка.</p>
+
+<p>В случае, когда NFC включен, но терминал не реагирует на телефон, проверьте положение чипа. В разных моделях смартфонов антенна находится в разных местах: в верхней части, по центру или ближе к камере. Экспериментальным путем найдите точку наилучшего контакта с терминалом.</p>
+
+<h2 id="безопасность-бесконтактных-платежей-и-лимиты">Безопасность бесконтактных платежей и лимиты</h2>
+
+<p>Безопасность средств при использовании <strong>бесконтактных технологий</strong> ВТБ обеспечивается многоуровневой системой защиты. При оплате телефоном номер вашей реальной карты никогда не передается продавцу. Вместо этого генерируется уникальный цифровой токен, действительный только для одной транзакции или сессии. Даже если хакеры перехватят сигнал, они не смогут воспользоваться этими данными.</p>
+
+<p>Для сумм до 1000 рублей (сумма может варьироваться в зависимости от настроек банка и типа терминала) часто не требуется ввод ПИН-кода или биометрическое подтверждение, если телефон разблокирован. Однако для крупных покупок система обязательно запросит дополнительную авторизацию. Это баланс между удобством и защитой от кражи средств в случае потери устройства.</p>
+
+<ul>
+<li>🔐 Используйте сложный пароль или биометрию для разблокировки экрана смартфона — это первый рубеж обороны.</li>
+<li>🚫 Не храните на телефоне фотографии ПИН-кодов и CVC-кодов карт в галерее.</li>
+<li>📲 Регулярно обновляйте приложения банка и платежных систем для закрытия уязвимостей безопасности.</li>
+</ul>
+
+<details class="faq-item"><summary>Что делать, если телефон украден?</summary><div class="faq-answer"><p>В первую очередь необходимо удаленно заблокировать SIM-карту через оператора связи. Затем, войдя в личный кабинет ВТБ Онлайн с другого устройства (или попросив родственника), заблокируйте привязанные карты. Функция «Найти устройство» (Google Find My Device или Apple Find My) позволит удаленно стереть данные с телефона, включая токены платежных приложений.</p></div></details>
+
+<p>Лимиты на бесконтактные платежи могут устанавливаться самим пользователем в приложении <em>ВТБ Онлайн</em>. Вы можете установить дневной лимит на операции без ПИН-кода или полностью отключить возможность оплаты без подтверждения, если планируете находиться в местах скопления людей. Это дает полный контроль над финансами.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли добавить карту ВТБ в Google Pay или Samsung Pay?</summary>
+<p>На данный момент карты российских банков, включая ВТБ, не работают в сервисах Google Pay и Samsung Pay из-за ограничений платежных систем. Для оплаты телефоном необходимо использовать приложение <em>Mir Pay</em> (для карт МИР) или оплачивать по QR-коду через <em>ВТБ Онлайн</em>.</p>
+</details>
+
+<details>
+<summary>Работает ли бесконтактная оплата ВТБ за границей?</summary>
+<p>Оплата телефоном за границей картами ВТБ возможна только в тех странах, где принимаются карты платежной системы <strong>Мир</strong> (например, некоторые страны СНГ, Турция, Вьетнам), и только через приложение <em>Mir Pay</em>. Карты Visa и Mastercard, выпущенные в РФ, за границей не работают.</p>
+</details>
+
+<details>
+<summary>Нужен ли интернет для оплаты телефоном в магазине?</summary>
+<p>Для непосредственного проведения оплаты в момент поднесения телефона к терминалу интернет не требуется. Токен для оплаты хранится в защищенной памяти устройства. Однако интернет нужен для первоначальной привязки карты и периодического обновления токенов безопасности.</p>
+</details>
+
+<details>
+<summary>Что делать, если терминал не видит телефон?</summary>
+<p>Убедитесь, что модуль NFC включен в настройках, телефон не находится в чехле с металлической пластиной, а экран разблокирован. Попробуйте приложить телефон к терминалу другой стороной или сместить его выше/ниже, чтобы найти зону считывания.</p>
+</details>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Настройка бесконтактных платежей ВТБ через Mir Pay или QR-коды — это безопасный и современный способ управления финансами, который не требует ношения с собой пластиковых карт и обеспечивает защиту данных через токенизацию.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#проверка-совместимости-смартфона-и-подготовка-к-настройке">Проверка совместимости смартфона и подготовка к настройке</a></li><li><a href="#настройка-mir-pay-для-карт-платежной-системы-мир">Настройка Mir Pay для карт платежной системы Мир</a></li><li><a href="#использование-втб-онлайн-и-qr-платежей">Использование ВТБ Онлайн и QR-платежей</a></li><li><a href="#решениеных-проблем-при-подключении-карты">Решениеных проблем при подключении карты</a></li><li><a href="#безопасность-бесконтактных-платежей-и-лимиты">Безопасность бесконтактных платежей и лимиты</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-aktivirovat-vtb-onlajn.html" class="related-card">Как активировать ВТБ Онлайн: полная инструкция</a></li><li><a href="/articles/k/ka/kak-uznat-ostatok-na-karte-vtb-cherez-telefon.html" class="related-card">Как узнать остаток на карте ВТБ через телефон: все способы</a></li><li><a href="/articles/k/ka/kak-zablokirovat-sms-ot-banka-vtb.html" class="related-card">Как отключить СМС от банка ВТБ: все способы блокировки</a></li><li><a href="/articles/p/po/pochemu-ne-prikhodit-kod-ot-vtb-podtverzhdeniya-na-telefon.html" class="related-card">Почему не приходит код от ВТБ: все причины и решения</a></li><li><a href="/articles/k/ka/kak-sdelat-chtoby-mozhno-bylo-rasplachivatsya-telefonom-vmesto-kartochki-vtb.html" class="related-card">Как платить телефоном вместо карты ВТБ: инструкции</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-aktivirovat-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как активировать ВТБ Онлайн: полная инструкция</span><span class="related-bottom-desc">Подробная инструкция по активации ВТБ Онлайн. Узнайте, как войти в приложение, получить код активаци</span></a><a href="/articles/k/ka/kak-uznat-ostatok-na-karte-vtb-cherez-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать остаток на карте ВТБ через телефон: все способы</span><span class="related-bottom-desc">Узнайте, как проверить баланс карты ВТБ по номеру телефона. СМС, USSD-коды, приложение и автоинформа</span></a><a href="/articles/k/ka/kak-zablokirovat-sms-ot-banka-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить СМС от банка ВТБ: все способы блокировки</span><span class="related-bottom-desc">Пошаговая инструкция: как заблокировать СМС от ВТБ. Отключение платных подписок, уведомлений о транз</span></a><a href="/articles/p/po/pochemu-ne-prikhodit-kod-ot-vtb-podtverzhdeniya-na-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Почему не приходит код от ВТБ: все причины и решения</span><span class="related-bottom-desc">Не приходит СМС от ВТБ с кодом подтверждения? Разбираем 10 причин блокировки, настройки телефона и с</span></a><a href="/articles/k/ka/kak-sdelat-chtoby-mozhno-bylo-rasplachivatsya-telefonom-vmesto-kartochki-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как платить телефоном вместо карты ВТБ: инструкции</span><span class="related-bottom-desc">Полный гид по настройке NFC-оплаты через Mir Pay, Samsung Pay и сторонние сервисы. Узнайте, как расп</span></a><a href="/articles/k/ka/kak-skachat-vtb-prilozhenie-na-android-besplatno.html" class="related-bottom-card"><span class="related-bottom-title">Как скачать ВТБ Онлайн на Android бесплатно — официальная инструкция 2026</span><span class="related-bottom-desc">Пошаговое руководство по установке мобильного банка ВТБ на смартфон с Android: где скачать APK, как </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

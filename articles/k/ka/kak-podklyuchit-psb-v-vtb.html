@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как подключить ПСБ к ВТБ: переводы, автоплатежи и СБП — Банки Инфо</title>
+    <meta name="description" content="Полная инструкция, как подключить ПСБ в ВТБ. Настройка СБП, автоплатежей и переводов между картами. Решение ошибок подключения в приложении банка.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-podklyuchit-psb-v-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить ПСБ к ВТБ: переводы, автоплатежи и СБП">
+    <meta property="og:description" content="Полная инструкция, как подключить ПСБ в ВТБ. Настройка СБП, автоплатежей и переводов между картами. Решение ошибок подключения в приложении банка.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/perevody/">Переводы</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить ПСБ к ВТБ: переводы, автоплатежи и СБП</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как подключить ПСБ в ВТБ: интеграция сервисов и переводы</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#методы-взаимодействия-между-банками">Методы взаимодействия между банками</a></li><li><a href="#настройка-переводов-через-сбп">Настройка переводов через СБП</a></li><li><a href="#создание-автоплатежей-в-пользу-псб">Создание автоплатежей в пользу ПСБ</a></li><li><a href="#таблица-сравнения-методов-подключения">Таблица сравнения методов подключения</a></li><li><a href="#решение-проблем-и-ошибок">Решение проблем и ошибок</a></li><li><a href="#безопасность-операций">Безопасность операций</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>В современной финансовой экосистеме клиенты часто используют продукты нескольких банков одновременно, что требует удобных инструментов для управления капиталом. <strong>Подключение карт ПСБ (Промсвязьбанк)</strong> к приложению ВТБ Онлайн открывает доступ к единому финансовому центру, позволяя контролировать расходы и доходы в одном интерфейсе. Это особенно актуально для тех, кто получает зарплату на карту одного банка, а ипотеку или кредит оплачивает через другой.</p>
+
+<p>Процесс интеграции может подразумевать два различных сценария: добавление карты как внешнего счета для быстрых переводов или настройку регулярных автоплатежей. <em>ВТБ Онлайн</em> предоставляет гибкие инструменты для работы с картами сторонних эмитентов, включая государственные банки. Однако пользователи часто путают прямое подключение счета с использованием Системы быстрых платежей (СБП).</p>
+
+<p>Важно понимать, что технически"привязать" карту ПСБ к ВТБ так, чтобы она отображалась как собственная с полным функционалом управления, невозможно из-за банковской безопасности. Тем не менее, <mark>настройка шаблонов и автоплатежей</mark> через интерфейс ВТБ позволяет эффективно управлять финансами ПСБ без необходимости постоянного переключения между приложениями. Далее мы подробно разберем все доступные методы взаимодействия.</p>
+
+<h2 id="методы-взаимодействия-между-банками">Методы взаимодействия между банками</h2>
+
+<p>Перед тем как приступать к настройке, необходимо четко определить вашу конечную цель. Пользователи часто ищут кнопку"Добавить банк", которой не существует в привычном виде. <strong>Интеграция счетов</strong> в российских банковских приложениях работает по принципу адресации, а не полной синхронизации баз данных. Вы не становитесь клиентом ПСБ внутри ВТБ, но получаете инструменты для операций.</p>
+
+<p>Существует три основных способа наладить взаимодействие:
+<ul>
+ <li>📲 <strong>СБП (Система быстрых платежей)</strong> — мгновенные переводы по номеру телефона без комиссии в лимитах ЦБ.</li>
+ <li>💳 <strong>Перевод по номеру карты</strong> — классический метод с использованием реквизитов карты ПСБ.</li>
+ <li>🔄 <strong>Автоплатежи</strong> — настройка регулярных списаний со счета ВТБ в пользу ПСБ.</li>
+</ul>
+</p>
+
+<blockquote>⚠️ Внимание: Прямое подключение карты ПСБ для оплаты покупок через NFC (Mir Pay) в приложении ВТБ невозможно. Для оплаты телефоном необходимо использовать приложение самого эмитента карты.</blockquote>
+
+<p>Выбор метода зависит от частоты операций. Если вам нужно просто перекинуть деньги, удобнее всего использовать <em>СБП</em>. Если же требуется ежемесячно гасить кредит в ПСБ, оптимальным решением станет создание <strong>автоплатежа</strong> в приложении ВТБ. Это избавит от риска забыть о платеже и попадания на пени.</p>
+
+<div class="poll-widget" id="poll-266d3df0"><div class="poll-widget-question">📊 Какой способ взаимодействия с ПСБ вам нужнее?</div><div class="poll-widget-option" data-poll="266d3df0" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Мгновенные переводы (СБП)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="266d3df0" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Настройка автоплатежей</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="266d3df0" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Просто узнать баланс</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="266d3df0" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Оплата кредитов</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="настройка-переводов-через-сбп">Настройка переводов через СБП</h2>
+
+<p>Самый популярный и выгодный способ взаимодействия — использование <strong>Системы быстрых платежей</strong>. Этот метод позволяет переводить деньги с карты ВТБ на карту ПСБ по номеру телефона. Комиссия при этом не взимается (в рамках лимита 100 000 рублей в месяц для переводов самому себе или другим лицам, в зависимости от текущих тарифов ЦБ).</p>
+
+<p>Для осуществления операции откройте приложение <em>ВТБ Онлайн</em> и перейдите в раздел платежей. Выберите получателя из списка контактов или введите номер телефона вручную. Критически важно правильно выбрать банк получателя — в нашем случае это <strong>Промсвязьбанк (ПСБ)</strong>. Ошибка в выборе банка приведет к тому, что деньги уйдут в другой банк, привязанный к этому номеру телефона, или вернутся с задержкой.</p>
+
+<p>Алгоритм действий выглядит следующим образом:
+<ol>
+ <li>Нажмите кнопку"Платежи" в нижнем меню приложения.</li>
+ <li>Выберите категорию"Переводы" и далее"По номеру телефона".</li>
+ <li>Введите номер телефона получателя (владельца карты ПСБ).</li>
+ <li>В списке банков выберите <code>Промсвязьбанк</code>.</li>
+ <li>Укажите сумму и подтвердите операцию кодом из СМС.</li>
+</ol>
+</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сохраняйте часто используемые получатели в избранное, чтобы не вводить номер телефона и не выбирать банк заново при каждом платеже.</p></div>
+
+<p>Особенность СБП в том, что система сама проверяет, активен ли у получателя этот сервис. Если клиент ПСБ отключил прием переводов по СБП в своем банке, операция не пройдет. Также стоит учитывать лимиты: для сумм свыше 100 тысяч рублей в месяц может взиматься комиссия 0.4%, но не более 1500 рублей.</p>
+
+<h2 id="создание-автоплатежей-в-пользу-псб">Создание автоплатежей в пользу ПСБ</h2>
+
+<p>Для тех, кто обслуживает кредитные обязательства или регулярно пополняет счета в Промсвязьбанке, незаменимым инструментом станет <strong>автоплатеж</strong>. Эта функция позволяет настроить автоматическое списание средств со счета ВТБ в пользу ПСБ по расписанию. Это идеальный вариант для оплаты ипотеки, кредита или регулярного пополнения накопительного счета.</p>
+
+<p>Настройка производится в разделе"Платежи" ->"Автоплатежи". Вам потребуется создать новый шаблон. В качестве получателя можно выбрать организацию (если вы платите напрямую в банк по реквизитам) илическое лицо (перевод самому себе). В случае с ПСБ чаще всего используется перевод по номеру карты или счету.</p>
+
+<p>При создании автоплатежа обратите внимание на следующие параметры:
+<ul>
+ <li>📅 <strong>Периодичность</strong> — выберите"Ежемесячно" и укажите дату списания (лучше за 2-3 дня до даты платежа в ПСБ).</li>
+ <li>💰 <strong>Сумма</strong> — можно установить фиксированную сумму или процент от остатка.</li>
+ <li>📩 <strong>Уведомления</strong> — обязательно включите Push-уведомления, чтобы контролировать факт списания.</li>
+</ul>
+</p>
+
+<div class="checklist-block"><h4>☑️ Чек-лист настройки автоплатежа</h4><label class="check-item"><input type="checkbox"><span>Выбрать карту списания (ВТБ)</span></label><label class="check-item"><input type="checkbox"><span>Указать точные реквизиты ПСБ</span></label><label class="check-item"><input type="checkbox"><span>Проверить дату первого платежа</span></label><label class="check-item"><input type="checkbox"><span>Установить лимит контроля (если нужно)</span></label><label class="check-item"><input type="checkbox"><span>Сохранить шаблон</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<blockquote>⚠️ Внимание: Всегда оставляйте на карте ВТБ запас средств на 10-15% больше суммы автоплатежа. Это обезопасит вас от технических колебаний курса (если валюта khácая) или случайных комиссий, которые могут привести к отказу в проведении платежа.</blockquote>
+
+<p> ПСБ не может инициировать списание с вашего счета в ВТБ без вашего акцепта (за исключением платежей по закону, например, налогов). Поэтому контроль дат всегда лежит на владельце счета в ВТБ.</p>
+
+<h2 id="таблица-сравнения-методов-подключения">Таблица сравнения методов подключения</h2>
+
+<p>Чтобы вам было проще выбрать подходящий вариант интеграции, мы подготовили сравнительную таблицу. Она поможет понять разницу между разовыми переводами и постоянными настройками.</p>
+
+<table>
+ <thead>
+ <tr>
+ <th>Параметр</th>
+ <th>СБП (По телефону)</th>
+ <th>Перевод по карте</th>
+ <th>Автоплатеж</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Скорость зачисления</td>
+ <td>Мгновенно</td>
+ <td>До 3 дней (обычно мин)</td>
+ <td>В дату по расписанию</td>
+ </tr>
+ <tr>
+ <td>Комиссия (до 100 т.р.)</td>
+ <td>0%</td>
+ <td>1.25% (мин. 50 р.)</td>
+ <td>Зависит от метода</td>
+ </tr>
+ <tr>
+ <td>Необходимость реквизитов</td>
+ <td>Только телефон</td>
+ <td>Номер карты</td>
+ <td>Реквизиты + Дата</td>
+ </tr>
+ <tr>
+ <td>Лимиты</td>
+ <td>100 000 руб/мес (без комиссии)</td>
+ <td>Лимиты карт ВТБ</td>
+ <td>Лимиты карт ВТБ</td>
+ </tr>
+ </tbody>
+</table>
+
+<p>Из таблицы видно, что <strong>СБП</strong> является наиболее выгодным и быстрым способом для большинства пользователей. Переводы по номеру карты имеют смысл только в том случае, если получатель не подключил СБП или вы не знаете его номер телефона, привязанный к банке.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Использование СБП экономит до 1.25% от суммы перевода по сравнению с классическим карточным переводом, что на больших суммах дает ощутимую выгоду.</p></div>
+
+<h2 id="решение-проблем-и-ошибок">Решение проблем и ошибок</h2>
+
+<p>В процессе настройки пользователи могут столкнуться с техническими трудностями. Часто ошибка возникает при вводе реквизитов: система может не находить банк или указывать неверный БИК. Убедитесь, что вы выбираете именно <em>ПАО"Промсвязьбанк"</em>, а не его дочерние структуры, если такие имеются в списке.</p>
+
+<p>Еще одна распространенная проблема — блокировка операции службой безопасности. Если вы впервые делаете крупный перевод в ПСБ или настраиваете автоплатеж на новую карту, <strong>ВТБ</strong> может приостановить операцию для проверки. Это стандартная процедура антифрода (115-ФЗ).</p>
+
+<p>Что делать в случае ошибки:
+<ol>
+ <li>Проверьте актуальность приложения <em>ВТБ Онлайн</em> в официальном магазине RuStore.</li>
+ <li>Убедитесь, что карта ПСБ активна и не заблокирована самим эмитентом.</li>
+ <li>При ошибке"Лимиты превышены" проверьте настройки ограничений в профиле.</li>
+</ol>
+</p>
+
+<details class="faq-item"><summary>Что делать, если деньги списались, но не пришли?</summary><div class="faq-answer"><p>Если операция по СБП висит в статусе"В обработке" более 30 минут, необходимо сохранить чек (скриншот) и обратиться в поддержку ВТБ через чат. Обычно проблема решается в течение 1-3 рабочих дней возвратом средств.</p></div></details>
+
+<p>Также стоит учитывать технические работы. Банковская система России работает в режиме 24/7, но регламентные работы ЦБ РФ или самих банков (ВТБ и ПСБ) могут временно приостанавливать проведение платежей. Обычно о таких работах сообщается на главных страницах приложений.</p>
+
+<h2 id="безопасность-операций">Безопасность операций</h2>
+
+<p>Интеграция с внешними банками требует повышенного внимания к безопасности. Когда вы добавляете шаблон получателя в ПСБ, вы создаете удобный путь для вывода средств. Если злоумышленник получит доступ к вашему телефону, он сможет быстро опустошить счет. Поэтому <strong>биометрия</strong> и сложные пин-коды обязательны.</p>
+
+<p>Никогда не сообщайте коды из СМС, даже если звонящий представляется сотрудником банка. Сотрудники ВТБ и ПСБ никогда не спрашивают коды подтверждения. Также остерегайтесь фишинговых ссылок, которые могут маскироваться под уведомления о"необходимости подтвердить подключение карты".</p>
+
+<p>Рекомендации по безопасности:
+<ul>
+ <li>🔒 Установите отдельный пин-код на вход в приложение банка.</li>
+ <li>📱 Не устанавливайте приложение банка на устройства с root-правами.</li>
+ <li>🚫 Не переходите по ссылкам из СМС о блокировке карт.</li>
+</ul>
+</p>
+
+<blockquote>⚠️ Внимание: Если вы потеряли телефон, немедленно заблокируйте сим-карту у оператора и карты во всех банках через колл-центр. Это важнее, чем поиск самого устройства.</blockquote>
+
+<p>Соблюдение этих простых правил позволит вам пользоваться всеми преимуществами <em>ВТБ Онлайн</em> и карт ПСБ без риска потери средств. Финансовая грамотность и осторожность — главные союзники в цифровую эпоху.</p>
+
+<details>
+ <summary>Можно ли привязать карту ПСБ для оплаты в магазинах через ВТБ Pay?</summary>
+ <p>Нет, напрямую добавить карту стороннего банка (ПСБ) в сервис ВТБ Pay для оплаты телефоном нельзя. ВТБ Pay работает только с картами, выпущенным самим банком ВТБ. Для оплаты картой ПСБ используйте приложение ПСБ (если есть поддержка Mir Pay) или физическую карту.</p>
+</details>
+
+<details>
+ <summary>Какой лимит на переводы в ПСБ через СБП?</summary>
+ <p>Лимит устанавливается Центральным Банком РФ. На текущий момент переводы самому себе и другим лицам по СБП бесплатны до 100 000 рублей в месяц. Суммы сверх этого лимита облагаются комиссией 0.4%, но не более 1500 рублей. Лимиты могут быть изменены регулятором.</p>
+</details>
+
+<details>
+ <summary>Что делать, если автоплатеж не прошел по карте ВТБ?</summary>
+ <p>Проверьте баланс карты списания, срок действия карты и лимиты на операции в интернете. Также убедитесь, что реквизиты получателя (ПСБ) не изменились. Если карта ПСБ сменила номер (например, при перевыпуске), шаблон автоплатежа нужно обновить вручную.</p>
+</details>
+
+<details>
+ <summary>Как удалить привязанную карту ПСБ из шаблонов?</summary>
+ <p>Зайдите в раздел"Платежи" ->"Мои шаблоны" (или"Избранное"). Найдите шаблон с получателем ПСБ, нажмите на него и выберите"Удалить" или"Редактировать" ->"Удалить шаблон". Это действие не блокирует карту, а лишь убираетный доступ к ней.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#методы-взаимодействия-между-банками">Методы взаимодействия между банками</a></li><li><a href="#настройка-переводов-через-сбп">Настройка переводов через СБП</a></li><li><a href="#создание-автоплатежей-в-пользу-псб">Создание автоплатежей в пользу ПСБ</a></li><li><a href="#таблица-сравнения-методов-подключения">Таблица сравнения методов подключения</a></li><li><a href="#решение-проблем-и-ошибок">Решение проблем и ошибок</a></li><li><a href="#безопасность-операций">Безопасность операций</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-otmenit-operatsiyu-perevoda-v-vtb-onlajn-po-nomeru-telefona.html" class="related-card">Как отменить перевод в ВТБ Онлайн по номеру телефона — пошагово</a></li><li><a href="/articles/k/ka/kak-vklyuchit-sistemu-bystrykh-platezhej-v-vtb-onlajn.html" class="related-card">Как подключить СБП в ВТБ Онлайн: пошаговая инструкция 2026</a></li><li><a href="/articles/p/po/pochemu-ne-perevodit-dengi-sberbank-na-vtb.html" class="related-card">Почему Сбербанк не переводит деньги на ВТБ: 7 причин и решения</a></li><li><a href="/articles/k/ka/kak-sdelat-perevod-s-karty-vtb-cherez-telefon.html" class="related-card">Как перевести деньги с карты ВТБ через телефон: пошаговая инструкция 2026</a></li><li><a href="/articles/s/sk/skolko-mozhno-perevesti-s-karty-na-kartu-vtb-v-den-cherez-mobilnyj-bank-bez-komissii.html" class="related-card">Лимиты переводов ВТБ: сколько можно перевести без комиссии</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-otmenit-operatsiyu-perevoda-v-vtb-onlajn-po-nomeru-telefona.html" class="related-bottom-card"><span class="related-bottom-title">Как отменить перевод в ВТБ Онлайн по номеру телефона — пошагово</span><span class="related-bottom-desc">Узнайте, можно ли отменить перевод по номеру телефона в ВТБ Онлайн, сроки возврата, инструкции для м</span></a><a href="/articles/k/ka/kak-vklyuchit-sistemu-bystrykh-platezhej-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить СБП в ВТБ Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по активации Системы Быстрых Платежей в личном кабинете ВТБ Онлайн: условия, о</span></a><a href="/articles/p/po/pochemu-ne-perevodit-dengi-sberbank-na-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Почему Сбербанк не переводит деньги на ВТБ: 7 причин и решения</span><span class="related-bottom-desc">Разбираем основные причины, почему переводы между Сбербанком и ВТБ задерживаются или блокируются. Ин</span></a><a href="/articles/k/ka/kak-sdelat-perevod-s-karty-vtb-cherez-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги с карты ВТБ через телефон: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд по переводам с карты ВТБ через мобильное приложение и SMS. Лимиты, комиссии, способы </span></a><a href="/articles/s/sk/skolko-mozhno-perevesti-s-karty-na-kartu-vtb-v-den-cherez-mobilnyj-bank-bez-komissii.html" class="related-bottom-card"><span class="related-bottom-title">Лимиты переводов ВТБ: сколько можно перевести без комиссии</span><span class="related-bottom-desc">Узнайте, сколько денег можно перевести с карты ВТБ на карту без комиссии. Актуальные лимиты через мо</span></a><a href="/articles/k/ka/kak-ochistit-istoriyu-perevodov-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как очистить историю переводов в ВТБ: полная инструкция</span><span class="related-bottom-desc">Подробный гид по удалению истории операций в приложении ВТБ Онлайн. Узнайте, можно ли скрыть перевод</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

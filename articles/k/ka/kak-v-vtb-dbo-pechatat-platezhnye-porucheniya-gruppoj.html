@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Печать платежек в ВТБ ДБО: Групповая обработка — Банки Инфо</title>
+    <meta name="description" content="Инструкция по массовой печати платежных поручений в ВТБ ДБО. Настройка шаблонов, работа с Excel и устранение ошибок принтера.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-v-vtb-dbo-pechatat-platezhnye-porucheniya-gruppoj.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Печать платежек в ВТБ ДБО: Групповая обработка">
+    <meta property="og:description" content="Инструкция по массовой печати платежных поручений в ВТБ ДБО. Настройка шаблонов, работа с Excel и устранение ошибок принтера.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/drugoe/">Другое</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Печать платежек в ВТБ ДБО: Групповая обработка</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как в ВТБ ДБО печатать платежные поручения группой</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-рабочего-места-и-настройка-шаблонов">Подготовка рабочего места и настройка шаблонов</a></li><li><a href="#формирование-группы-документов-для-печати">Формирование группы документов для печати</a></li><li><a href="#использование-функции-печать-реестра">Использование функции «Печать реестра»</a></li><li><a href="#массовая-выгрузка-через-excel-и-печать">Массовая выгрузка через Excel и печать</a></li><li><a href="#настройка-параметров-принтера-для-пакетной-печати">Настройка параметров принтера для пакетной печати</a></li><li><a href="#таблица-сравнения-методов-печати">Таблица сравнения методов печати</a></li><li><a href="#устранение-ошибок-при-групповой-печати">Устранение ошибок при групповой печати</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Работа с системой <strong>ДБО ВТБ</strong> часто требует от бухгалтера высокой скорости обработки операций, особенно в дни выплат заработной платы или перечисления налогов. Стандартная поштучная печать документов отнимает драгоценное время, поэтому возможность формирования пачки документов одной командой становится критически важной функцией. В интерфейсе онлайн-банка реализован функционал пакетной обработки, который позволяет выводить на принтер сразу несколько <em>платежных поручений</em>.</p>
+
+<p>Для успешной реализации этой задачи пользователю необходимо понимать логику работы реестров и иметь правильно настроенный шаблон вывода. <strong>Групповая печать</strong> доступна как для исполненных, так и для принятых к исполнению документов, что дает гибкость в планировании рабочего процесса. Важно учитывать, что настройки браузера и драйвера принтера могут влиять на итоговый вид документа, поэтому перед массовой отправкой стоит проверить превью.</p>
+
+<p>В данной статье мы разберем пошаговый алгоритм действий, который позволит вам автоматизировать рутинные процессы. Мы рассмотрим работу через стандартный интерфейс «Клиент-Банк», особенности формирования реестров и типичные ошибки, возникающие при работе с большими объемами данных. Грамотное использование этих инструментов существенно сократит время, затрачиваемое на административные задачи.</p>
+
+<h2 id="подготовка-рабочего-места-и-настройка-шаблонов">Подготовка рабочего места и настройка шаблонов</h2>
+
+<p>Перед тем как приступать к массовой операции, убедитесь, что в вашей системе установлен и корректно работает плагин для работы с электронными подписями, а также настроен <strong>локальный принтер</strong>. Часто проблемы с выводом документов возникают именно на этапе взаимодействия браузера с печатающим устройством. В настройках «ДБО» необходимо проверить, выбран ли правильный формат отображения документов, так как от этого зависит верстка при печати.</p>
+
+<p>Особое внимание следует уделить шаблонам, если ваша организация использует нестандартные формы или требует наличия дополнительных полей. В разделе настроек профиля можно задать параметры по умолчанию, которые будут применяться ко всем документам в группе. Это избавит от необходимости вручную корректировать каждый файл перед отправкой на печать.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте браузер Google Chrome или Яндекс.Браузер в режиме совместимости для наиболее стабильной работы интерфейса ДБО ВТБ.</p></div>
+
+<p>Также рекомендуется заранее проверить наличие актуальных драйверов для вашего печатного оборудования. Устаревшее программное обеспечение принтера может некорректно обрабатывать сложные графические элементы или <strong>QR-коды</strong>, которые генерируются системой автоматически. Если вы планируете печатать документы в формате А4 с двух сторон, убедитесь, что эта опция поддерживается драйвером и выбрана в свойствах устройства.</p>
+
+<h2 id="формирование-группы-документов-для-печати">Формирование группы документов для печати</h2>
+
+<p>Основной процесс начинается в разделе «Платежи», где отображается список всех созданных вами документов. Для выбора группы поручений вам не нужно открывать каждый из них отдельно. Система предоставляет удобные инструменты фильтрации и массового выделения, которые позволяют сформировать нужную выборку за несколько секунд.</p>
+
+<p>Вы можете отсортировать документы по дате создания, статусу исполнения или контрагенту. После того как нужные строки отображены на экране, достаточно воспользоваться чекбоксами слева от номеров документов. Это действие активирует панель инструментов, где появится кнопка для групповых операций.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка перед печатью</h4><label class="check-item"><input type="checkbox"><span>Документы имеют статус «Принято» или «Исполнено»</span></label><label class="check-item"><input type="checkbox"><span>На счетах достаточно средств для проведения (если требуется)</span></label><label class="check-item"><input type="checkbox"><span>Правильно выбран принтер по умолчанию</span></label><label class="check-item"><input type="checkbox"><span>Проверен формат бумаги в лотке</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Важно отметить, что система позволяет комбинировать документы разных типов в одной выборке, однако для печати лучше группировать однотипные операции. Например, отдельно сформировать группу налоговых платежей и отдельно — выплат поставщикам. Это упростит архивирование бумажных копий в дальнейшем.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не пытайтесь выделить более 100 документов одновременно, если ваш компьютер имеет ограниченные оперативные ресурсы. Это может привести к временной freezes браузера или некорректному формированию печатной формы.</p>
+</blockquote>
+
+<h2 id="использование-функции-печать-реестра">Использование функции «Печать реестра»</h2>
+
+<p>После выделения необходимых строк в списке платежей, найдите кнопку «Печать» или «Сформировать реестр». В открывшемся окне система предложит выбрать формат вывода. Для групповой обработки наиболее удобным вариантом является формирование единого PDF-файла, который содержит все выбранные <strong>платежные поручения</strong> последовательно.</p>
+
+<p>Альтернативный вариант — печать с сопроводительным листом (реестром), где перечислены все документы в пачке с их суммами и назначением платежей. Такой подход удобен для бухгалтерии, так как позволяет быстро сверить количество листов с фактическим наличием документов в стопке.</p>
+
+<details class="faq-item"><summary>Что делать, если кнопка печати неактивна?</summary><div class="faq-answer"><p>Если вы выделили документы, но кнопка печати остается серой, проверьте права доступа. Возможно, ваша роль в системе не предполагает права на печать, или документы находятся в статусе черновика, который не предполагает вывода на бумагу.</p></div></details>
+
+<p>При выборе опции «Печать реестра» система автоматически генерирует оглавление. В нем указываются номера документов, даты и суммы. Это особенно полезно при передаче документов в архив или при отправке курьером в другие подразделения компании.</p>
+
+<h2 id="массовая-выгрузка-через-excel-и-печать">Массовая выгрузка через Excel и печать</h2>
+
+<p>В некоторых случаях стандартные средства печати могут не удовлетворять специфическим требованиям пользователя. Тогда на помощь приходит функция экспорта. Вы можете выгрузить список выбранных платежей в формате <em>XLS</em> или <em>CSV</em>, однако для печати самих поручений этот метод используется реже и требует дополнительных манипуляций.</p>
+
+<p>Более эффективный способ — использование функции «Выгрузить документы» в формате, совместимом с офисными пакетами, если такая опция доступна в вашей версии ДБО. Это позволяет сохранить электронные копии в удобном виде, а затем распечатать их средствами Acrobat Reader или аналогичного ПО, которое часто обладает более гибкими настройками печати, чем браузер.</p>
+
+<p>Преимущество работы через внешние файлы заключается в возможности редактирования перед печатью. Вы можете добавить водяные знаки, изменить колонтитулы или объединить файлы в одном документе вручную, если автоматическая группировка дала сбой.</p>
+
+<div class="poll-widget" id="poll-f9a3f249"><div class="poll-widget-question">📊 Как вы чаще всего печатаете документы?</div><div class="poll-widget-option" data-poll="f9a3f249" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Через браузер напрямую</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f9a3f249" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Выгружаю в PDF и печатаю отдельно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f9a3f249" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Использую сторонние программы</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="f9a3f249" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Печатаю только по одному</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="настройка-параметров-принтера-для-пакетной-печати">Настройка параметров принтера для пакетной печати</h2>
+
+<p>Качество печати финансовых документов имеет первостепенное значение, так как неразборчивые цифры или смазанные печати могут стать причиной отказа в приеме документа контрагентом или налоговой. В окне предпросмотра, которое открывается перед отправкой на принтер, необходимо проверить масштабирование.</p>
+
+<p>Убедитесь, что стоит галочка «Вписать в страницу» или выбран масштаб 100%, чтобы важные реквизиты не обрезались полями принтера. Для лазерных принтеров рекомендуется выбирать режим «Черно-белая» печать, если цветное отображение не является обязательным требованием вашего документооборота.</p>
+
+<p>Если вы используете сетевой принтер, убедитесь, что очередь печати не переполнена другими задачами. Большие пакеты документов могут «застрять» в очереди, если на сервере печати возникли ошибки. В таком случае очистка очереди и повторная отправка обычно решают проблему.</p>
+
+<h2 id="таблица-сравнения-методов-печати">Таблица сравнения методов печати</h2>
+
+<p>Для удобства выбора оптимального способа работы с документами, рассмотрим сравнительную характеристику доступных методов. Каждый из них имеет свои преимущества в зависимости от объема документов и целей печати.</p>
+
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Скорость работы</th>
+<th>Гибкость настроек</th>
+<th>Оптимальный объем</th>
+</tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Прямая печать из браузера</td>
+<td>Высокая</td>
+<td>Низкая</td>
+<td>До 20 документов</td>
+</tr>
+<tr>
+<td>Формирование PDF-реестра</td>
+<td>Средняя</td>
+<td>Средняя</td>
+<td>20-100 документов</td>
+</tr>
+<tr>
+<td>Выгрузка и печать через PDF-ридер</td>
+<td>Низкая (на старте)</td>
+<td>Высокая</td>
+<td>Более 100 документов</td>
+</tr>
+<tr>
+<td>Печать по одному документу</td>
+<td>Очень низкая</td>
+<td>Высокая</td>
+<td>1-5 документов</td>
+</tr>
+</tbody>
+</table>
+
+<p>Как видно из таблицы, для разовых операций подходит прямая печать, но для объемной работы лучше использовать формирование реестров. Это позволяет сэкономить время и снизить нагрузку на систему.</p>
+
+<h2 id="устранение-ошибок-при-групповой-печати">Устранение ошибок при групповой печати</h2>
+
+<p>Одной из самых частых проблем является «вылет» окна печати или отсутствие реакции системы на команду. Это часто связано с блокировкой всплывающих окон браузером. Необходимо добавить адрес <strong>ВТБ ДБО</strong> в список исключений блокировщика всплывающих окон.</p>
+
+<p>Еще одна распространенная ошибка — смещение полей печати, из-за чего табличная часть поручения обрезается. Решение кроется в настройках масштаба в диалоговом окне печати браузера. Попробуйте изменить масштаб с «По умолчанию» на «Подогнать под страницу».</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Стабильность работы ДБО напрямую зависит от версии браузера и наличия актуальных плагинов безопасности.</p></div>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Если при печати большого реестра документ обрывается на середине, не пытайтесь сразу же повторить операцию. Дождитесь полной загрузки предыдущего файла в буфер принтера, чтобы избежать дублирования страниц.</p>
+</blockquote>
+
+<p>В случае возникновения критических ошибок, которые не удается устранить стандартными методами, рекомендуется воспользоваться функцией «Сохранить как PDF» и распечатать файл отдельно. Это обходной путь, который гарантированно сохранит данные, даже если прямой канал связи с принтером работает нестабильно.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли распечатать платежное поручение с электронной подписью?</summary>
+<p>Да, при печати из ДБО ВТБ на документе автоматически отображается штамп об электронной подписи и уникальный идентификатор документа. Это придает бумажной копии юридическую значимость в рамках внутреннего документооборота.</p>
+</details>
+
+<details>
+<summary>Почему при групповой печати некоторые документы пропускаются?</summary>
+<p>Это может происходить, если документы находятся в разных статусах (например, один исполнен, а другой еще проводится) или если у пользователя нет прав на просмотр/печать конкретного документа в рамках выбранной группы.</p>
+</details>
+
+<details>
+<summary>Как изменить ориентацию страницы при печати реестра?</summary>
+<p>Ориентация страницы (книжная или альбомная) задается в настройках печати вашего браузера или PDF-ридера перед подтверждением операции. В самом интерфейсе ДБО этот параметр обычно фиксирован под стандартный формат А4.</p>
+</details>
+
+<details>
+<summary>Сохраняется ли история распечатанных документов в системе?</summary>
+<p>Да, факт формирования печатной формы может логироваться в системе безопасности банка, однако сам статус документа («Исполнено», «Проведено») от этого не меняется. История ваших действий доступна в разделе «Мои настройки» или «Журнал событий».</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-рабочего-места-и-настройка-шаблонов">Подготовка рабочего места и настройка шаблонов</a></li><li><a href="#формирование-группы-документов-для-печати">Формирование группы документов для печати</a></li><li><a href="#использование-функции-печать-реестра">Использование функции «Печать реестра»</a></li><li><a href="#массовая-выгрузка-через-excel-и-печать">Массовая выгрузка через Excel и печать</a></li><li><a href="#настройка-параметров-принтера-для-пакетной-печати">Настройка параметров принтера для пакетной печати</a></li><li><a href="#таблица-сравнения-методов-печати">Таблица сравнения методов печати</a></li><li><a href="#устранение-ошибок-при-групповой-печати">Устранение ошибок при групповой печати</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/v/vt/vtb-strakhovaya-kompaniya-chya.html" class="related-card">ВТБ Страхование: чья компания, кому принадлежит в 2026 году?</a></li><li><a href="/articles/k/ka/kak-rasplachivatsya-ajfonom-vmesto-bankovskoj-karty-mir-vtb.html" class="related-card">Как платить iPhone вместо карты Мир ВТБ: полная инструкция</a></li><li><a href="/articles/k/ka/kak-zapolnit-platezhnoe-poruchenie-vtb-24.html" class="related-card">Как заполнить платежное поручение ВТБ: пошаговая инструкция</a></li><li><a href="/articles/v/vt/vtb-arena-gde-priparkovatsya.html" class="related-card">ВТБ Арена: где припарковаться в 2026 году – парковки, цены, схемы</a></li><li><a href="/articles/v/vt/vtb-arena-kakoj-sektor-luchshe.html" class="related-card">ВТБ Арена: какой сектор выбрать для лучшего вида — экспертный гайд 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/v/vt/vtb-strakhovaya-kompaniya-chya.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Страхование: чья компания, кому принадлежит в 2026 году?</span><span class="related-bottom-desc">Разбираем структуру собственников ВТБ Страхование: кто реальный владелец, как связано с банком ВТБ и</span></a><a href="/articles/k/ka/kak-rasplachivatsya-ajfonom-vmesto-bankovskoj-karty-mir-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как платить iPhone вместо карты Мир ВТБ: полная инструкция</span><span class="related-bottom-desc">Подробная инструкция по настройке оплаты телефоном в ВТБ. Как использовать iPhone вместо карты МИР, </span></a><a href="/articles/k/ka/kak-zapolnit-platezhnoe-poruchenie-vtb-24.html" class="related-bottom-card"><span class="related-bottom-title">Как заполнить платежное поручение ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробная инструкция по заполнению платежного поручения в ВТБ Онлайн. Образцы реквизитов, правила вв</span></a><a href="/articles/v/vt/vtb-arena-gde-priparkovatsya.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Арена: где припарковаться в 2026 году – парковки, цены, схемы</span><span class="related-bottom-desc">Подробный гайд по парковкам у ВТБ Арены: официальные и ближайшие стоянки, цены, схемы подъезда, прав</span></a><a href="/articles/v/vt/vtb-arena-kakoj-sektor-luchshe.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Арена: какой сектор выбрать для лучшего вида — экспертный гайд 2026</span><span class="related-bottom-desc">Подробный анализ секторов ВТБ Арены: где лучше сидеть на концерте, хоккее или футболе? Сравнение цен</span></a><a href="/articles/k/ka/kak-popolnit-stim-cherez-kartu-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить Steam через карту ВТБ: актуальные способы 2026</span><span class="related-bottom-desc">Полная инструкция: как оплатить Steam картой ВТБ в 2026 году. Рабочие методы через посредников, СБП </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

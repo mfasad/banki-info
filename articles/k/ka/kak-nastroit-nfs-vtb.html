@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Настройка NFS в ВТБ: пошаговая инструкция 2026 года — Банки Инфо</title>
+    <meta name="description" content="Как подключить и настроить систему NFS в ВТБ для юридических лиц: требования, инструкции, ошибки и решения. Актуально для 2026 года.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-nastroit-nfs-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Настройка NFS в ВТБ: пошаговая инструкция 2026 года">
+    <meta property="og:description" content="Как подключить и настроить систему NFS в ВТБ для юридических лиц: требования, инструкции, ошибки и решения. Актуально для 2026 года.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/perevody/">Переводы</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Настройка NFS в ВТБ: пошаговая инструкция 2026 года</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как настроить NFS в ВТБ: полное руководство для бизнеса</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-nfs-в-втб-и-зачем-она-нужна">Что такое NFS в ВТБ и зачем она нужна</a></li><li><a href="#требования-для-подключения-nfs-в-втб">Требования для подключения NFS в ВТБ</a></li><li><a href="#пошаговая-инструкция-как-подключить-nfs-в-втб">Пошаговая инструкция: как подключить NFS в ВТБ</a></li><li><a href="#настройка-файлового-обмена-в-nfs">Настройка файлового обмена в NFS</a></li><li><a href="#api-интеграция-с-nfs-особенности-настройки">API-интеграция с NFS: особенности настройки</a></li><li><a href="#типичные-ошибки-и-их-решения">Типичные ошибки и их решения</a></li><li><a href="#безопасность-при-работе-с-nfs">Безопасность при работе с NFS</a></li><li><a href="#faq-частые-вопросы-по-nfs-в-втб">FAQ: Частые вопросы по NFS в ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Система <strong>NFS (National Financial System)</strong> от <em>ВТБ</em> — это инструмент для автоматизации платежей и управления финансовыми потоками, который активно используется юридическими лицами и индивидуальными предпринимателями. Настройка NFS позволяет оптимизировать взаимодействие с банком, ускорить обработку платежей и минимизировать ручной ввод данных. Однако процесс подключения и конфигурации часто вызывает вопросы: от получения доступа до интеграции с бухгалтерскими программами.</p>
+
+<p>В этой статье мы разберём <mark>все этапы настройки NFS в ВТБ по состоянию на 2026 год</mark>, включая требования к клиенту, пошаговые инструкции для разных форматов обмена (файловый, API, веб-интерфейс), а также типичные ошибки и способы их устранения. Особое внимание уделим нюансам работы с <code>1С</code>, <em>Клиент-Банком</em> и другими популярными системами. Если вы планируете перейти на NFS или уже столкнулись с трудностями — здесь найдёте ответы на ключевые вопросы.</p>
+
+<h2 id="что-такое-nfs-в-втб-и-зачем-она-нужна">Что такое NFS в ВТБ и зачем она нужна</h2>
+
+<p>NFS (<strong>National Financial System</strong>) — это сервис дистанционного банковского обслуживания (ДБО) от <em>ВТБ</em>, предназначенный для корпоративных клиентов. В отличие от стандартного <em>ВТБ-Бизнес Онлайн</em>, NFS предлагает расширенные возможности автоматизации:</p>
+
+<ul>
+  <li>📄 <strong>Файловый обмен</strong> — загрузка платежных поручений и выписок в форматах <code>.txt</code>, <code>.xml</code>, <code>.csv</code> без ручного ввода.</li>
+  <li>🔌 <strong>API-интеграция</strong> — прямое подключение к бухгалтерским системам (<em>1С</em>, <em>МойСклад</em>, <em>Бит.Финанс</em>).</li>
+  <li>⚡ <strong>Массовая обработка</strong> — отправка пакетов платежей (до 1000 документов в одном файле).</li>
+  <li>🔒 <strong>Усиленная безопасность</strong> — двухфакторная аутентификация, электронные подписи (ЭП) и контроль доступа.</li>
+</ul>
+
+<p>NFS актуальна для компаний с большим объёмом платежей (от 50 в месяц), так как сокращает время на обработку документов до 80%. Например, если ваша бухгалтерия тратит 2 часа в день на ручной ввод платежек, переход на NFS освободит до 30 рабочих часов в месяц. При этом сервис поддерживает все виды платежей: <strong>налоги, зарплату, поставщикам, внутрибанковские переводы</strong> и даже валютные операции (при наличии соответствующего договора).</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> NFS не заменяет <em>ВТБ-Бизнес Онлайн</em>, а дополняет его. Для доступа к сервису требуется действующий договор на РКО (расчётно-кассовое обслуживание) в <em>ВТБ</em> и отдельное соглашение на подключение NFS.</blockquote>
+
+<h2 id="требования-для-подключения-nfs-в-втб">Требования для подключения NFS в ВТБ</h2>
+
+<p>Прежде чем приступать к настройке, убедитесь, что ваша компания соответствует минимальным требованиям банка:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Критерий</th>
+      <th>Требование</th>
+      <th>Примечание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Тип клиента</td>
+      <td>Юридическое лицо или ИП</td>
+      <td>Физические лица не могут подключить NFS</td>
+    </tr>
+    <tr>
+      <td>Договор РКО</td>
+      <td>Действующий в <em>ВТБ</em></td>
+      <td>Минимальный пакет обслуживания — "Старт"</td>
+    </tr>
+    <tr>
+      <td>Электронная подпись (ЭП)</td>
+      <td>Квалифицированная (КЭП) или неквалифицированная (НЭП)</td>
+      <td>Для массовых платежей требуется КЭП</td>
+    </tr>
+    <tr>
+      <td>Технические условия</td>
+      <td>Стабильный интернет, ПК с <em>Windows 7+</em> или <em>macOS</em></td>
+      <td>Для API-интеграции нужен выделенный IP-адрес</td>
+    </tr>
+    <tr>
+      <td>Объём платежей</td>
+      <td>От 50 документов в месяц</td>
+      <td>Банк может отказать при меньшем объёме</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Дополнительно <em>ВТБ</em> может запросить:</p>
+<ul>
+  <li>📋 <strong>Заявление на подключение</strong> (образец предоставляет банк).</li>
+  <li>🔐 <strong>Копии документов</strong> (устав, выписка из ЕГРЮЛ, приказ о назначении директора).</li>
+  <li>💻 <strong>Техническое задание</strong> (если планируется API-интеграция).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> С 2026 года <em>ВТБ</em> обязательно требует прохождение <strong>тестового периода</strong> (1–2 недели) перед полноценным запуском NFS. В это время вы отправляете тестовые платежи, которые банк проверяет на корректность формата.</blockquote>
+
+<div class="poll-widget" id="poll-8de3fb8e"><div class="poll-widget-question">📊 Какой способ обмена с NFS вы планируете использовать?</div><div class="poll-widget-option" data-poll="8de3fb8e" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Файловый (через Клиент-Банк)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="8de3fb8e" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">API-интеграция с 1С</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="8de3fb8e" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Веб-интерфейс NFS</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="8de3fb8e" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Ещё не решил</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="пошаговая-инструкция-как-подключить-nfs-в-втб">Пошаговая инструкция: как подключить NFS в ВТБ</h2>
+
+<p>Процесс подключения состоит из 5 ключевых этапов. Рассмотрим каждый подробно.</p>
+
+<h3>1. Подача заявки в банк</h3>
+<p>Начните с обращения в <strong>ваше отделение <em>ВТБ</strong></strong> или к личному менеджеру. Вам потребуется:</p>
+<ol>
+  <li>Заполнить <strong>заявление на подключение NFS</strong> (форма № 141-НФС).</li>
+  <li>Предоставить <strong>пакет документов</strong> (см. таблицу выше).</li>
+  <li>Указать <strong>способ обмена</strong> (файловый, API или оба).</li>
+</ol>
+<p>Срок рассмотрения заявки — <strong>3–5 рабочих дней</em>. После одобрения банк пришлёт на email:</p>
+<ul>
+  <li>🔑 Логин и пароль для входа в <em>NFS Веб</em>.</li>
+  <li>📄 Инструкции по настройке (в зависимости от выбранного способа обмена).</li>
+  <li>🔗 Ссылку на тестовый контур (для прохождения проверки).</li>
+</ul>
+
+<h3>2. Установка программного обеспечения</h3>
+<p>Если вы выбрали <strong>файловый обмен</strong>, установите:</p>
+<ul>
+  <li>🖥️ <em>ВТБ Клиент-Банк</em> (последнюю версию с сайта банка).</li>
+  <li>🔐 <em>КриптоПро CSP</em> (для работы с электронной подписью).</li>
+</ul>
+<p>Для <strong>API-интеграции</strong> потребуется:</p>
+<ul>
+  <li>🌐 Выделенный IP-адрес (его нужно согласовать с банком).</li>
+  <li>🛠️ SDK от <em>ВТБ</em> (библиотеки для разработчиков).</li>
+</ul>
+
+
+<p>Заявление подано в банк|ПО Клиент-Банк установлено|Электронная подпись настроена|Тестовый контур активирован--></p>
+
+<h3>3. Настройка тестового контура</h3>
+<p>Перед работой с реальными платежами <em>ВТБ</em> обязывает пройти тестирование:</p>
+<ol>
+  <li>Авторизуйтесь в <strong><em>NFS Веб</strong> (тестовая версия)</strong> по данным из письма банка.</li>
+  <li>Создайте <strong>тестовый платеж</strong> (например, перевод на 1 рубль).</li>
+  <li>Отправьте файл через <code>Клиент-Банк</code> или API.</li>
+  <li>Дождитесь подтверждения от банка (обычно в течение 1 рабочего дня).</li>
+</ol>
+<p>Если тест пройден успешно, банк активирует <strong>боевой контур</strong>. При ошибках — пришлёт список исправлений.</p>
+
+<h3>4. Интеграция с бухгалтерскими системами</h3>
+<p>Для автоматизации обмена данными настройте интеграцию:</p>
+<ul>
+  <li>📊 <strong>1С:Предприятие</em> — используйте обработку <code>"Обмен с ВТБ NFS"</code> (доступна в <em>1С:ИТС</em>).</li>
+  <li>📦 <strong>МойСклад</strong> — подключите через модуль <em>"Банковские платежи"</em>.</li>
+  <li>🔧 <strong>Самостоятельная разработка</strong> — используйте <em>API NFS</em> (документация на сайте <em>ВТБ</em>).</li>
+</ul>
+
+<h3>5. Переход на боевой режим</h3>
+<p>После успешного тестирования:</p>
+<ol>
+  <li>Получите новые реквизиты доступа для <strong>боевого контура</strong>.</li>
+  <li>Настройте <strong>расписание автообмена</strong> (если нужно).</li>
+  <li>Проведите первый реальный платеж (рекомендуется начать с небольшой суммы).</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Тестовый контур — обязательный этап. Без его прохождения банк не активирует боевой режим NFS.</p></div>
+
+<h2 id="настройка-файлового-обмена-в-nfs">Настройка файлового обмена в NFS</h2>
+
+<p>Файловый обмен — самый распространённый способ работы с NFS. Он подходит компаниям, которые не хотят настраивать API, но нуждаются в автоматизации. Рассмотрим процесс по шагам.</p>
+
+<h3>1. Форматы файлов</h3>
+<p><em>ВТБ</em> поддерживает следующие форматы:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Формат</th>
+      <th>Расширение</th>
+      <th>Назначение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Текстовый</td>
+      <td><code>.txt</code></td>
+      <td>Платежные поручения, выписки</td>
+    </tr>
+    <tr>
+      <td>XML</td>
+      <td><code>.xml</code></td>
+      <td>Структурированные данные (для интеграций)</td>
+    </tr>
+    <tr>
+      <td>CSV</td>
+      <td><code>.csv</code></td>
+      <td>Импорт/экспорт в Excel</td>
+    </tr>
+    <tr>
+      <td>DBF</td>
+      <td><code>.dbf</code></td>
+      <td>Для совместимости со старыми версиями 1С</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Пример структуры файла платежного поручения в формате <code>.txt</code>:</p>
+<pre><code>01;ПП;12345678;01.01.2026;40702810900000000001;БИК044525225;ИНН7707083893;КПП770701001;ООО РОМАШКА;1000.00;Назначение платежа</code></pre>
+
+<h3>2. Настройка в Клиент-Банке</h3>
+<p>Чтобы настроить обмен файлами:</p>
+<ol>
+  <li>Откройте <em>ВТБ Клиент-Банк</em> и перейдите в <code>Настройки → Обмен данными → NFS</code>.</li>
+  <li>Укажите путь к папке для <strong>входящих</strong> (от банка) и <strong>исходящих</strong> (от вас) файлов.</li>
+  <li>Выберите формат файлов (рекомендуется <code>XML</code> для новых систем).</li>
+  <li>Настройте <strong>расписание автообмена</strong> (например, ежедневно в 9:00 и 17:00).</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте отдельные папки для тестовых и боевых файлов, чтобы избежать путаницы. Например: <code>C:\NFS\Test\In</code> и <code>C:\NFS\Prod\Out</code>.</p></div>
+
+<h3>3. Подписание файлов ЭП</h3>
+<p>Все исходящие файлы должны быть подписаны <strong>электронной подписью</strong>:</p>
+<ul>
+  <li>🔐 Для <em>КриптоПро CSP</em> используйте сертификат, выданный <em>ВТБ</em> или аккредитованным УЦ.</li>
+  <li>📂 Подписывайте файлы через <code>Клиент-Банк</code> или внешние утилиты (например, <em>CryptoARM</em>).</li>
+  <li>⚠️ Проверяйте статус подписи в логах (файл <code>NFS_LOG.txt</code> в папке программы).</li>
+</ul>
+
+<h3>4. Обработка ошибок</h3>
+<p>Если файл не прошёл обработку, <em>ВТБ</em> вернёт его с пометкой об ошибке. Распространённые коды:</p>
+<ul>
+  <li>🔴 <code>ERR_001</code> — неверный формат файла.</li>
+  <li>🔴 <code>ERR_003</code> — недостаточно средств на счёте.</li>
+  <li>🔴 <code>ERR_005</code> — истёк срок действия ЭП.</li>
+</ul>
+<p>Для устранения ошибок:</p>
+<ol>
+  <li>Проверьте файл на соответствие <a href="https://www.vtb.ru/nfs/docs" target="_blank">требованиям <em>ВТБ</em></a>.</li>
+  <li>Обновите сертификат ЭП (если истёк).</li>
+  <li>Свяжитесь с поддержкой по телефону <code>8 800 100-24-24</code> (для корпоративных клиентов).</li>
+</ol>
+
+<details class="faq-item"><summary>Пример файла с ошибкой</summary><div class="faq-answer"><p>
+<p>ERR_001;Платежное поручение №123;Неверный БИК получателя;Исправьте БИК на 044525225</p>
+<p></p></div></details></p>
+
+<h2 id="api-интеграция-с-nfs-особенности-настройки">API-интеграция с NFS: особенности настройки</h2>
+
+<p>API-интеграция подходит компаниям с собственными IT-отделами или разработчиками. Она позволяет отправлять платежи и получать выписки прямо из корпоративных систем (например, <em>1С</em> или <em>SAP</em>).</p>
+
+<h3>1. Получение доступа к API</h3>
+<p>Для работы с API необходимо:</p>
+<ul>
+  <li>📝 Подписать <strong>дополнительное соглашение</strong> на использование API.</li>
+  <li>🔑 Получить <strong>клиентский сертификат</strong> и <strong>приватный ключ</strong>.</li>
+  <li>🌐 Согласовать <strong>белый IP-адрес</strong> (с которого будут отправляться запросы).</li>
+</ul>
+
+<h3>2. Технические требования</h3>
+<p><em>ВТБ</em> предъявляет следующие требования к интеграции:</p>
+<ul>
+  <li>🖥️ Сервер с <em>Windows Server 2012+</em> или <em>Linux</em> (Ubuntu, CentOS).</li>
+  <li>🔒 Поддержка протокола <strong>TLS 1.2+</strong>.</li>
+  <li>📡 Стабильное интернет-соединение (ping до серверов <em>ВТБ</em> не более 100 мс).</li>
+</ul>
+
+<h3>3. Пример запроса на отправку платежа</h3>
+<p>Запрос отправляется по адресу:</p>
+<pre><code>POST https://api.nfs.vtb.ru/v1/payments
+<p>Headers:</p>
+<p>Authorization: Bearer {ваш_token}</p>
+<p>Content-Type: application/json</p>
+
+<p>Body:</p>
+<p>{</p>
+<p>"payment": {</p>
+<p>"amount": 1000.00,</p>
+<p>"currency": "RUB",</p>
+<p>"account": "40702810900000000001",</p>
+<p>"bik": "044525225",</p>
+<p>"inn": "7707083893",</p>
+<p>"kpp": "770701001",</p>
+<p>"receiver": "ООО РОМАШКА",</p>
+<p>"purpose": "Оплата по договору №123 от 01.01.2026"</p>
+<p>}</p>
+<p>}</code></pre></p>
+
+<h3>4. Обработка ответов сервера</h3>
+<p>Сервер <em>ВТБ</em> возвращает ответы в формате <code>JSON</code> с кодом статуса:</p>
+<ul>
+  <li>✅ <code>200 OK</code> — платеж принят в обработку.</li>
+  <li>⚠️ <code>400 Bad Request</code> — ошибка в данных (например, неверный БИК).</li>
+  <li>🔴 <code>500 Internal Server Error</code> — сбой на стороне банка (повторите запрос позже).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При API-интеграции <em>ВТБ</em> устанавливает лимит на количество запросов — <strong>1000 в час</strong>. Превышение лимита приводит к блокировке на 15 минут.</blockquote>
+
+<h2 id="типичные-ошибки-и-их-решения">Типичные ошибки и их решения</h2>
+
+<p>Даже при правильной настройке пользователи NFS сталкиваются с проблемами. Рассмотрим самые частые из них.</p>
+
+<h3>1. Ошибки при авторизации</h3>
+<p>Если система не принимает логин/пароль:</p>
+<ul>
+  <li>🔄 Проверьте <strong>регистр символов</strong> (пароль чувствителен к нему).</li>
+  <li>🔑 Убедитесь, что используете данные для <strong>боевого контура</strong>, а не тестового.</li>
+  <li>📅 Проверьте срок действия <strong>сертификата ЭП</strong> (может быть просрочен).</li>
+</ul>
+
+<h3>2. Проблемы с файлами</h3>
+<p>Файл не загружается или возвращается с ошибкой:</p>
+<ul>
+  <li>📄 Проверьте <strong>формат файла</strong> (должен соответствовать документации <em>ВТБ</em>).</li>
+  <li>🔢 Убедитесь, что <strong>разделитель</strong> в <code>CSV</code> — точка с запятой (<code>;</code>).</li>
+  <li>📁 Проверьте <strong>права доступа</strong> к папке обмена (должны быть на чтение/запись).</li>
+</ul>
+
+<h3>3. Задержки платежей</h3>
+<p>Если платеж не ушёл в обработку:</p>
+<ul>
+  <li>⏳ Проверьте <strong>время отправки</strong> (NFS работает по МСК, cutoff-time — 16:00).</li>
+  <li>💰 Убедитесь, что на счёте <strong>достаточно средств</strong> (включая комиссию).</li>
+  <li>📡 Проверьте <strong>логи Клиент-Банка</strong> на наличие ошибок сети.</li>
+</ul>
+
+<h3>4. Проблемы с API</h3>
+<p>При интеграции через API возможны сбои:</p>
+<ul>
+  <li>🌐 <code>403 Forbidden</code> — проверьте <strong>белый IP-адрес</strong> (возможно, он изменился).</li>
+  <li>🔌 <code>429 Too Many Requests</code> — вы превысили лимит запросов (подождите 15 минут).</li>
+  <li>🔐 <code>401 Unauthorized</code> — истёк <strong>токен авторизации</strong> (обновите его).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сохраняйте логи обмена файлами в отдельную папку (например, <code>C:\NFS\Logs</code>). Это поможет быстро найти причину сбоя.</p></div>
+
+<h2 id="безопасность-при-работе-с-nfs">Безопасность при работе с NFS</h2>
+
+<p>NFS предоставляет широкие возможности, но требует повышенного внимания к безопасности. Следуйте этим рекомендациям:</p>
+
+<h3>1. Защита электронной подписи</h3>
+<ul>
+  <li>🔐 Храните <strong>приватный ключ ЭП</strong> на защищённом носителе (например, <em>Рутокен</em> или <em>JaCarta</em>).</li>
+  <li>🔑 Не передавайте <strong>пароль от контейнера</strong> по email или мессенджерам.</li>
+  <li>📋 Регулярно обновляйте сертификаты (срок действия — 1 год).</li>
+</ul>
+
+<h3>2. Контроль доступа</h3>
+<ul>
+  <li>👥 Назначайте <strong>роли пользователям</strong> в <em>NFS Веб</em> (администратор, оператор, наблюдатель).</li>
+  <li>🔒 Ограничивайте доступ к папкам обмена (только для ответственных лиц).</li>
+  <li>📊 Ведите <strong>журнал действий</strong> (кто и когда отправлял платежи).</li>
+</ul>
+
+<h3>3. Защита от мошенничества</h3>
+<ul>
+  <li>🕵️‍♂️ Проверяйте <strong>реквизиты получателей</strong> перед отправкой (особенно при первом платеже).</li>
+  <li>📧 Не открывайте подозрительные письма с просьбой "обновить данные NFS".</li>
+  <li>🔄 Регулярно меняйте пароли от <em>NFS Веб</em> (раз в 3 месяца).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> С 2026 года <em>ВТБ</em> блокирует учётные записи NFS при подозрении на взлом. Если вы получили SMS с кодом подтверждения, но не инициализировали вход — немедленно свяжитесь с банком по телефону <code>8 800 200-77-99</code> (служба безопасности).</blockquote>
+
+<h2 id="faq-частые-вопросы-по-nfs-в-втб">FAQ: Частые вопросы по NFS в ВТБ</h2>
+
+<details>
+  <summary>❓ Сколько стоит подключение NFS в ВТБ?</summary>
+  <p>Подключение к NFS бесплатное, но банк взимает комиссию за обработку платежей:</p>
+  <ul>
+    <li>💳 Платежи в рублях — <strong>0,1% от суммы</strong> (минимум 50 руб., максимум 1000 руб.).</li>
+    <li>💱 Валютные платежи — <strong>0,2%</strong> (минимум 10 USD/EUR).</li>
+  </ul>
+  <p>Точные тарифы уточняйте в <a href="https://www.vtb.ru/business/tariffs" target="_blank">тарифах <em>ВТБ</em></a>.</p>
+</details>
+
+<details>
+  <summary>❓ Можно ли подключить NFS для ИП?</summary>
+  <p>Да, индивидуальные предприниматели могут подключить NFS при соблюдении условий:</p>
+  <ul>
+    <li>📄 Наличие действующего договора РКО в <em>ВТБ</em>.</li>
+    <li>💼 Объём платежей от <strong>30 документов в месяц</strong>.</li>
+    <li>🔐 Наличие <strong>квалифицированной ЭП</strong>.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>❓ Как отменить платеж, отправленный через NFS?</summary>
+  <p>Отмена возможна, если платеж ещё не ушёл в обработку:</p>
+  <ol>
+    <li>Авторизуйтесь в <em>NFS Веб</em> или <em>Клиент-Банке</em>.</li>
+    <li>Перейдите в <code>История платежей → Ожидающие</code>.</li>
+    <li>Нажмите <strong>"Отменить"</strong> и подтвердите ЭП.</li>
+  </ol>
+  <p>Если платеж уже обработан, свяжитесь с банком по телефону <code>8 800 100-24-24</code> (для корпоративных клиентов).</p>
+</details>
+
+<details>
+  <summary>❓ Какие форматы файлов поддерживает NFS для выписок?</summary>
+  <p><em>ВТБ</em> предоставляет выписки в следующих форматах:</p>
+  <ul>
+    <li>📄 <code>XML</code> — для автоматизированной обработки.</li>
+    <li>📑 <code>PDF</code> — для печати и архива.</li>
+    <li>📊 <code>CSV</code> — для импорта в Excel или 1С.</li>
+    <li>🗃️ <code>DBF</code> — для совместимости со старыми системами.</li>
+  </ul>
+  <p>Чтобы настроить автоматическую отправку выписок, перейдите в <code>NFS Веб → Настройки → Выписки</code> и укажите email или путь к папке.</p>
+</details>
+
+<details>
+  <summary>❓ Что делать, если NFS не видит мои файлы?</summary>
+  <p>Проверьте следующие моменты:</p>
+  <ul>
+    <li>📁 Путь к папке обмена указан верно (без опечаток).</li>
+    <li>🔄 Файлы имеют правильное <strong>расширение</strong> (<code>.txt</code>, <code>.xml</code> и т.д.).</li>
+    <li>🔒 Файлы <strong>подписаны ЭП</strong> (без подписи не обрабатываются).</li>
+    <li>🕒 Время на сервере синхронизировано с <strong>московским временем</strong>.</li>
+  </ul>
+  <p>Если проблема остаётся, проверьте логи в <code>C:\Program Files\VTB\ClientBank\Logs\NFS_LOG.txt</code>.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-nfs-в-втб-и-зачем-она-нужна">Что такое NFS в ВТБ и зачем она нужна</a></li><li><a href="#требования-для-подключения-nfs-в-втб">Требования для подключения NFS в ВТБ</a></li><li><a href="#пошаговая-инструкция-как-подключить-nfs-в-втб">Пошаговая инструкция: как подключить NFS в ВТБ</a></li><li><a href="#настройка-файлового-обмена-в-nfs">Настройка файлового обмена в NFS</a></li><li><a href="#api-интеграция-с-nfs-особенности-настройки">API-интеграция с NFS: особенности настройки</a></li><li><a href="#типичные-ошибки-и-их-решения">Типичные ошибки и их решения</a></li><li><a href="#безопасность-при-работе-с-nfs">Безопасность при работе с NFS</a></li><li><a href="#faq-частые-вопросы-по-nfs-в-втб">FAQ: Частые вопросы по NFS в ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-perevesti-dollary-s-karty-sberbanka-na-kartu-vtb.html" class="related-card">Как перевести доллары с карты Сбербанка на карту ВТБ</a></li><li><a href="/articles/k/ka/kak-perevesti-sredstva-iz-sberbanka-v-vtb-bez-komissii.html" class="related-card">Перевод из Сбербанка в ВТБ без комиссии — 5 способов 2026</a></li><li><a href="/articles/k/ka/kak-uznat-nomer-karty-vtb-drugogo-cheloveka.html" class="related-card">Как узнать номер карты ВТБ другого человека: официальные способы</a></li><li><a href="/articles/k/ka/kak-perevesti-dengi-v-terminale-vtb.html" class="related-card">Как перевести деньги через терминал ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/p/pe/perevod-na-vtb-bez-komissii-s-kakikh-bankov.html" class="related-card">Перевод на ВТБ без комиссии: с каких банков можно перевести в 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-perevesti-dollary-s-karty-sberbanka-na-kartu-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести доллары с карты Сбербанка на карту ВТБ</span><span class="related-bottom-desc">Подробный гид: как перевести доллары с карты Сбербанка на карту ВТБ. Инструкция по переводу через СБ</span></a><a href="/articles/k/ka/kak-perevesti-sredstva-iz-sberbanka-v-vtb-bez-komissii.html" class="related-bottom-card"><span class="related-bottom-title">Перевод из Сбербанка в ВТБ без комиссии — 5 способов 2026</span><span class="related-bottom-desc">Как перевести деньги с карты Сбербанка на карту ВТБ без комиссии: пошаговые инструкции, лимиты, срок</span></a><a href="/articles/k/ka/kak-uznat-nomer-karty-vtb-drugogo-cheloveka.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать номер карты ВТБ другого человека: официальные способы</span><span class="related-bottom-desc">Узнайте, как узнать номер карты ВТБ другого человека законно. Переводы по номеру телефона, СБП и офи</span></a><a href="/articles/k/ka/kak-perevesti-dengi-v-terminale-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги через терминал ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд по переводу средств через терминалы ВТБ: комиссии, лимиты, инструкции для карт и счет</span></a><a href="/articles/p/pe/perevod-na-vtb-bez-komissii-s-kakikh-bankov.html" class="related-bottom-card"><span class="related-bottom-title">Перевод на ВТБ без комиссии: с каких банков можно перевести в 2026</span><span class="related-bottom-desc">Актуальный список банков, с которых можно перевести деньги на карту ВТБ без комиссии. Условия, лимит</span></a><a href="/articles/k/ka/kakoj-protsent-pri-perevode-so-sberbanka-na-vtb-komissiya.html" class="related-bottom-card"><span class="related-bottom-title">Комиссия Сбербанка на перевод в ВТБ в 2026: проценты и способы экономии</span><span class="related-bottom-desc">Сколько берет Сбербанк за перевод на карту ВТБ: актуальные тарифы 2026 года, сравнение способов (онл</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

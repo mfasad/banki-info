@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как платить NFC ВТБ: Инструкция для Android и iPhone — Банки Инфо</title>
+    <meta name="description" content="Полный гид по оплате NFC через ВТБ. Настройка Mir Pay, Pay Pass и Pay Anywhere на Android и iOS. Решение проблем и обход ограничений.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-platit-nfc-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как платить NFC ВТБ: Инструкция для Android и iPhone">
+    <meta property="og:description" content="Полный гид по оплате NFC через ВТБ. Настройка Mir Pay, Pay Pass и Pay Anywhere на Android и iOS. Решение проблем и обход ограничений.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как платить NFC ВТБ: Инструкция для Android и iPhone</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как платить NFC ВТБ: актуальные способы и настройки</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#принцип-работы-бесконтактной-оплаты-через-втб">Принцип работы бесконтактной оплаты через ВТБ</a></li><li><a href="#настройка-nfc-оплаты-на-android-устройствах">Настройка NFC-оплаты на Android устройствах</a></li><li><a href="#оплата-nfc-для-владельцев-iphone-ios">Оплата NFC для владельцев iPhone (iOS)</a></li><li><a href="#использование-wear-os-и-умных-часов">Использование Wear OS и умных часов</a></li><li><a href="#сравнение-методов-оплаты-таблица-возможностей">Сравнение методов оплаты: таблица возможностей</a></li><li><a href="#решение-проблем-и-troubleshooting">Решение проблем и troubleshooting</a></li><li><a href="#вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>В условиях изменившегося ландшафта мобильного банкинга вопрос, как платить NFC ВТБ, остается одним из самых актуальных для миллионов клиентов. Несмотря на внешние ограничения, банк продолжает активно развивать альтернативные экосистемы, позволяющие совершать покупки в одно касание. Пользователям доступны как нативные решения для Android, так и специализированные сервисы для владельцев iPhone, требующие правильной настройки.</p>
+
+<p>Понимание механизмов работы <strong>NFC-платежей</strong> поможет вам избежать неловких ситуаций на кассе и быстро адаптироваться к новым условиям. В этой статье мы подробно разберем все доступные методы, технические нюансы настройки и секреты использования мобильных кошельков. Вы узнаете, какие приложения действительно работают сейчас и как их правильно активировать.</p>
+
+<h2 id="принцип-работы-бесконтактной-оплаты-через-втб">Принцип работы бесконтактной оплаты через ВТБ</h2>
+<p>Технология NFC (Near Field Communication) базируется на радиосвязи малого радиуса действия, что обеспечивает высокий уровень безопасности транзакций. Когда вы подносите смартфон к терминалу, происходит обмен зашифрованными данными между чипом устройства и считывающим устройством банка-эквайера. В системе ВТБ этот процесс часто опосредован <strong>токенизацией</strong>, когда реальные данные карты заменяются виртуальным идентификатором.</p>
+
+<p>Для успешной оплаты критически важно наличие исправного модуля связи в вашем гаджете и активированная функция в настройках операционной системы. Современные смартфоны используют динамические коды безопасности, которые меняются с каждой транзакцией, что делает перехват данных практически невозможным. Это фундаментальное отличие от статических магнитных полос старых карт.</p>
+
+<p>В экосистеме ВТБ реализована поддержка различных протоколов, включая Mir Pay для отечественных карт и Pay Pass для международных систем (там, где это технически возможно). <em>Пользователь</em> может не замечать сложных процессов шифрования, происходящих за доли секунды, но должен знать базовые правила: экран должен быть включен, а приложение разблокировано или авторизовано через биометрию.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При оплате через NFC сумма транзакции без ввода PIN-кода часто ограничена законодательством (обычно до 1000 или 5000 рублей в зависимости от текущих правил ЦБ РФ). При превышении лимита терминал запросит подтверждение.</p>
+</blockquote>
+
+<h2 id="настройка-nfc-оплаты-на-android-устройствах">Настройка NFC-оплаты на Android устройствах</h2>
+<p>Владельцы смартфонов на базе Android имеют наиболее широкий выбор инструментов для бесконтактной оплаты. Основным и наиболее стабильным решением остается приложение <strong>Mir Pay</strong>, которое позволяет привязывать карты любых российских банков, включая ВТБ. Процесс настройки начинается с установки приложения из официальных магазинов или доверенных источников.</p>
+
+<p>После установки необходимо пройти процедуру идентификации, которая может включать вход через <code>Госуслуги</code> или подтверждение через СМС-код. Это обязательный шаг для обеспечения безопасности ваших финансовых средств. Далее следует этап добавления карты: вы можете отсканировать ее камерой или ввести данные вручную, после чего банк проведет верификацию.</p>
+
+<p>Важно убедиться, что в настройках телефона в разделе <code>Подключения → NFC</code> активирован переключатель, а в качестве основного платежного средства выбрано соответствующее приложение. Для карт ВТБ также может потребоваться обновление приложения «ВТБ Онлайн» до последней версии для корректного отображения уведомлений о транзакциях.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка готовности Android к оплате</h4><label class="check-item"><input type="checkbox"><span>NFC включен в настройках</span></label><label class="check-item"><input type="checkbox"><span>Установлено приложение Mir Pay</span></label><label class="check-item"><input type="checkbox"><span>Карта ВТБ добавлена и активна</span></label><label class="check-item"><input type="checkbox"><span>Приложение выбрано по умолчанию</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Стоит отметить, что некоторые производители смартфонов могут иметь собственные ограничения или требования к программному обеспечению. Например, на устройствах Huawei без сервисов Google процесс установки может потребовать дополнительных манипуляций через AppGallery. Всегда проверяйте совместимость вашей модели с последними версиями платежных систем.</p>
+
+<h2 id="оплата-nfc-для-владельцев-iphone-ios">Оплата NFC для владельцев iPhone (iOS)</h2>
+<p>Пользователи iOS сталкиваются с наибольшими ограничениями из-за закрытости экосистемы Apple, однако решение существует. С конца 2022 года банк ВТБ внедрил технологию Pay Anywhere (ранее известную как SBP Pay), которая позволяет оплачивать покупки по <strong>QR-кодам</strong> и NFC-меткам через приложение банка. Хотя это не классический NFC в терминал, функционально это заменяет бесконтактную оплату.</p>
+
+<p>Для реализации платежей необходимо открыть приложение ВТБ Онлайн и найти раздел, посвященный платежам. Там генерируется динамический код или предлагается считать QR-код продавца. В некоторых случаях, при наличии специального оборудования у магазина, возможна оплата через считывание NFC-метки телефоном, но это менее распространенный сценарий.</p>
+
+<p>Ключевым моментом является наличие активной подписки или подключение услуги в интернет-банке. Процесс максимально упрощен: вы открываете приложение, нажимаете кнопку оплаты и подносите телефон к терминалу (если поддерживается эмуляция) или сканируете код. Система мгновенно спишет средства со счета.</p>
+
+<details class="faq-item"><summary>Работает ли Apple Pay с картами ВТБ?</summary><div class="faq-answer"><p>Напрямую через Wallet — нет. Карты, удаленные из Apple Pay до марта 2022 года, не работают. Единственный рабочий способ — использование сервиса Pay Anywhere внутри приложения ВТБ Онлайн или оплата по QR-коду СБП.</p></div></details>
+
+<p>Обратите внимание на уровень заряда батареи: в некоторых моделях iPhone функция экспресс-оплаты может работать даже при разряженном аккумуляторе в течение нескольких часов после выключения, но для работы банковских приложений через NFC-метки телефон должен быть включен.</p>
+
+<h2 id="использование-wear-os-и-умных-часов">Использование Wear OS и умных часов</h2>
+<p>Владельцы умных часов на базе Wear OS (Samsung Galaxy Watch, Huawei Watch и другие) также могут пользоваться бесконтактной оплатой. Принцип действия аналогичен смартфонам: на часы устанавливается приложение Mir Pay, куда добавляется карта ВТБ. Это позволяет оставлять телефон в кармане или дома.</p>
+
+<p>Настройка производится через сопряженное приложение на телефоне. После синхронизации часы получают токен карты. При поднесении запястья к терминалу происходит вибрация, подтверждающая успешную считку данных. Это особенно удобно при занятиях спортом или когда руки заняты пакетами.</p>
+
+<ul>
+<li>🔋 Убедитесь, что часы заряжены, так как NFC модуль потребляет энергию.</li>
+<li>📱 Проверьте связь между часами и телефоном для актуализации токенов безопасности.</li>
+<li>🛡️ Используйте блокировку экрана на часах для защиты от несанконного доступа.</li>
+</ul>
+
+<p> Например, некоторые сложные сценарии авторизации или выбор конкретного счета для списания могут быть доступны только в полном приложении на телефоне. Тем не менее, для бытовых покупок это идеальный инструмент.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>При оплате часами держите запястье неподвижно у терминала 1-2 секунды. Резкое отдергивание руки может прервать процесс обмена данными и привести к ошибке транзакции.</p></div>
+
+<h2 id="сравнение-методов-оплаты-таблица-возможностей">Сравнение методов оплаты: таблица возможностей</h2>
+<p>Для удобства выбора оптимального способа оплаты мы подготовили сравнительную таблицу. Она поможет понять, какой метод подойдет именно под вашу модель устройства и привычки использования гаджетов.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Mir Pay (Android)</th>
+<th>Pay Anywhere (iOS/Android)</th>
+<th>Умные часы (Wear OS)</th>
+<th>Физическая карта</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Совместимость</td>
+<td>Android (без Google Pay)</td>
+<td>iOS, Android</td>
+<td>Часы на Wear OS</td>
+<td>Все терминалы</td>
+</tr>
+<tr>
+<td>Тип связи</td>
+<td>NFC</td>
+<td>NFC / QR-код</td>
+<td>NFC</td>
+<td>NFC / Чип / Магнит</td>
+</tr>
+<tr>
+<td>Наличие интернета</td>
+<td>Не нужно (офлайн токен)</td>
+<td>Нужен (для генерации)</td>
+<td>Не нужно (офлайн токен)</td>
+<td>Не нужно</td>
+</tr>
+<tr>
+<td>Безопасность</td>
+<td>Высокая (токенизация)</td>
+<td>Высокая (динамический код)</td>
+<td>Высокая (биометрия)</td>
+<td>Средняя (риск клонирования)</td>
+</tr>
+</tbody>
+</table>
+
+<p>Как видно из таблицы, <strong>Mir Pay</strong> остается лидером по удобству для пользователей Android, обеспечивая опыт, максимально близкий к привычному Apple Pay. Для владельцев iPhone безальтернативным вариантом становится использование внутренних сервисов банка через QR или NFC-метки, что требует минимальной привычки.</p>
+
+<h2 id="решение-проблем-и-troubleshooting">Решение проблем и troubleshooting</h2>
+<p>Даже при правильной настройке могут возникать ситуации, когда терминал не считывает телефон. Чаще всего проблема кроется в несовпадении позиций NFC-антенн. Антенна в смартфоне обычно расположена в верхней части корпуса, ближе к камере, и именно этот участок нужно подносить к терминалу.</p>
+
+<p>Еще одной распространенной причиной сбоев являются защитные чехлы. Металлизированные вставки, толстый пластик или магнитные крепления могут экранировать сигнал. Если оплата не проходит, попробуйте снять чехол или изменить угол наклона телефона. Также стоит проверить, не включен ли режим полета, который блокирует все беспроводные интерфейсы.</p>
+
+<ul>
+<li>📶 Убедитесь, что NFC включен именно для этого приложения в настройках системы.</li>
+<li>🔄 Перезагрузите смартфон, если модуль связи «завис» после долгой работы.</li>
+<li>💳 Проверьте срок действия карты и лимиты в приложении ВТБ Онлайн.</li>
+</ul>
+
+<blockquote>
+<p>⚠️ Внимание: Если терминал пишет «Ошибка банка» или «Транзакция отклонена», проблема может быть на стороне процессинга. В таком случае попробуйте оплатить другой картой или наличными, а затем обратитесь в поддержку ВТБ.</p>
+</blockquote>
+
+<div class="poll-widget" id="poll-2aaee118"><div class="poll-widget-question">📊 Что чаще всего мешает вам оплатить телефоном?</div><div class="poll-widget-option" data-poll="2aaee118" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Толстый чехол</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2aaee118" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Не нахожу антенну NFC</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2aaee118" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Разряжен телефон</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2aaee118" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Терминал не принимает</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2aaee118" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Все работает отлично</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</h2>
+<details>
+<summary>Можно ли оплачивать покупки в зарубежных интернет-магазинах через NFC ВТБ?</summary>
+<p>Прямая оплата через NFC в зарубежных магазинах зависит от платежной системы. Карты «Мир» работают только в ряде дружественных стран. Для покупок в интернете NFC не требуется, но могут возникнуть сложности с прохождением платежей из-за блокировок международных систем.</p>
+</details>
+
+<details>
+<summary>Безопасно ли хранить большие суммы на карте, привязанной к NFC?</summary>
+<p>Да, это безопасно. При оплате через NFC реальный номер карты не передается терминалу, используется одноразовый токен. Даже если данные будут перехвачены, они бесполезны для мошенников. Рекомендуется установить лимиты на операции в приложении банка.</p>
+</details>
+
+<details>
+<summary>Что делать, если телефон разрядился в ноль, а нужно оплатить?</summary>
+<p>Некоторые модели смартфонов (например, iPhone и флагманы Samsung) поддерживают режим резервного питания для NFC. В течение нескольких часов после выключения телефон может совершить несколько платежей. Однако полагаться на это не стоит — лучше держать заряд выше 10-15%.</p>
+</details>
+
+<details>
+<summary>Нужен ли интернет для каждой оплаты через Mir Pay?</summary>
+<p>Интернет нужен только для первоначальной привязки карты и периодического обновления токенов безопасности (обычно раз в несколько дней или после определенного числа транзакций). Сам процесс оплаты у терминала проходит в офлайн-режиме.</p>
+</details>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Главный вывод: Для стабильной оплаты NFC ВТБ на Android используйте Mir Pay, а на iPhone — сервис Pay Anywhere внутри приложения банка. Регулярно обновляйте приложения для поддержки новых протоколов безопасности.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#принцип-работы-бесконтактной-оплаты-через-втб">Принцип работы бесконтактной оплаты через ВТБ</a></li><li><a href="#настройка-nfc-оплаты-на-android-устройствах">Настройка NFC-оплаты на Android устройствах</a></li><li><a href="#оплата-nfc-для-владельцев-iphone-ios">Оплата NFC для владельцев iPhone (iOS)</a></li><li><a href="#использование-wear-os-и-умных-часов">Использование Wear OS и умных часов</a></li><li><a href="#сравнение-методов-оплаты-таблица-возможностей">Сравнение методов оплаты: таблица возможностей</a></li><li><a href="#решение-проблем-и-troubleshooting">Решение проблем и troubleshooting</a></li><li><a href="#вопросы-и-ответы-faq">Вопросы и ответы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-v-prilozhenii-vtb-podklyuchit-sms.html" class="related-card">Как подключить СМС в приложении ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-udalit-shablon-v-vtb-onlajn-cherez-mobilnoe-prilozhenie.html" class="related-card">Как удалить шаблон в ВТБ Онлайн через мобильное приложение: пошаговая инструкция 2026</a></li><li><a href="/articles/v/vt/vtb-prilozhenie-net-v-plej-markete-pochemu.html" class="related-card">Почему нет приложения ВТБ в Плей Маркете: причины и решение</a></li><li><a href="/articles/k/ka/kak-otklyuchit-vse-platnye-podpiski-s-karty-vtb.html" class="related-card">Как отключить подписки с карты ВТБ: полная инструкция</a></li><li><a href="/articles/k/ka/kak-otkazatsya-ot-vtb-mobajl-sim-karty.html" class="related-card">Как отказаться от ВТБ Мобайл: закрытие номера и договора</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-v-prilozhenii-vtb-podklyuchit-sms.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить СМС в приложении ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по активации СМС-уведомлений в мобильном банке ВТБ: от настройки профиля до ре</span></a><a href="/articles/k/ka/kak-udalit-shablon-v-vtb-onlajn-cherez-mobilnoe-prilozhenie.html" class="related-bottom-card"><span class="related-bottom-title">Как удалить шаблон в ВТБ Онлайн через мобильное приложение: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по удалению шаблонов платежей в приложении ВТБ Онлайн на Android и iOS. Актуал</span></a><a href="/articles/v/vt/vtb-prilozhenie-net-v-plej-markete-pochemu.html" class="related-bottom-card"><span class="related-bottom-title">Почему нет приложения ВТБ в Плей Маркете: причины и решение</span><span class="related-bottom-desc">Узнайте, почему пропал ВТБ Онлайн из Google Play, как безопасно скачать приложение на Android и избе</span></a><a href="/articles/k/ka/kak-otklyuchit-vse-platnye-podpiski-s-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить подписки с карты ВТБ: полная инструкция</span><span class="related-bottom-desc">Пошаговое руководство по отмене автоплатежей и подписок в ВТБ Онлайн. Как заблокировать списания чер</span></a><a href="/articles/k/ka/kak-otkazatsya-ot-vtb-mobajl-sim-karty.html" class="related-bottom-card"><span class="related-bottom-title">Как отказаться от ВТБ Мобайл: закрытие номера и договора</span><span class="related-bottom-desc">Пошаговая инструкция, как отказаться от сим-карты ВТБ Мобайл. Способы расторжения договора, закрытие</span></a><a href="/articles/k/ka/kak-vklyuchit-uvedomleniya-v-vtb-banke.html" class="related-bottom-card"><span class="related-bottom-title">Как включить уведомления в ВТБ Банке: настройки push и SMS</span><span class="related-bottom-desc">Подробная инструкция: как включить push-уведомления в ВТБ Банке. Настройка сообщений в приложении, н</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

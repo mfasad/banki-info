@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Стоп-лосс в ВТБ Мои Инвестиции: как работает и настроить — Банки Инфо</title>
+    <meta name="description" content="Подробный гид по стоп-лосс заявкам в приложении ВТБ Мои Инвестиции. Узнайте, как ограничить убытки, настроить триггер и избежать ошибок при торговле.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rabotaet-stop-loss-v-vtb-moi-investitsii.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Стоп-лосс в ВТБ Мои Инвестиции: как работает и настроить">
+    <meta property="og:description" content="Подробный гид по стоп-лосс заявкам в приложении ВТБ Мои Инвестиции. Узнайте, как ограничить убытки, настроить триггер и избежать ошибок при торговле.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Стоп-лосс в ВТБ Мои Инвестиции: как работает и настроить</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как работает стоп-лосс в приложении ВТБ Мои Инвестиции</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#сущность-и-назначение-стоп-лосс-заявки">Сущность и назначение стоп-лосс заявки</a></li><li><a href="#технические-особенности-работы-в-приложении-втб">Технические особенности работы в приложении ВТБ</a></li><li><a href="#пошаговая-инструкция-по-установке-стоп-лосса">Пошаговая инструкция по установке стоп-лосса</a></li><li><a href="#различия-между-stop-limit-и-stop-market">Различия между Stop-Limit и Stop-Market</a></li><li><a href="#расчет-оптимального-уровня-стоп-лосса">Расчет оптимального уровня стоп-лосса</a></li><li><a href="#типичные-ошибки-и-способы-их-избежать">Типичные ошибки и способы их избежать</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Рынок ценных бумаг отличается высокой волатильностью, и даже опытные инвесторы не застрахованы от резких колебаний котировок. Для управления рисками и защиты капитала в терминалах и мобильных приложениях брокеров, таких как <em>ВТБ Мои Инвестиции</em>, существует специальный инструмент — <strong>стоп-лосс</strong>. Этот механизм позволяет автоматически зафиксировать убыток, если цена актива достигнет определенного уровня, избавляя трейдера от необходимости постоянно мониторить график.</p>
+
+<p>В отличие от обычной рыночной заявки, стоп-лосс не исполняется мгновенно при выставлении. Он находится в ожидании, пока рыночная цена не коснется заданного вами порога, после чего превращается в активную заявку на продажу. Понимание логики работы этого инструмента критически важно для формирования грамотной торговой стратегии и сохранения депозита в периоды турбулентности.</p>
+
+<p>В данной статье мы подробно разберем, как именно настроить стоп-заявку в приложении ВТБ, чем она отличается от лимитной и рыночной, а также рассмотрим нюансы исполнения ордеров в условиях высокой волатильности. Вы научитесь правильно рассчитывать уровни защиты и избегать распространенных ошибок, которые могут привести к преждевременному выходу из позиции.</p>
+
+<h2 id="сущность-и-назначение-стоп-лосс-заявки">Сущность и назначение стоп-лосс заявки</h2>
+
+<p><strong>Стоп-лосс</strong> (от англ. Stop Loss — остановить потери) — это отложенная заявка, целью которой является ограничение убытков по открытой позиции. Если вы купили акции по 100 рублей, вы можете выставить стоп-лосс на уровне 90 рублей. В случае падения цены до этой отметки система автоматически продаст актив, зафиксировав убыток в 10 рублей, но не позволив ему вырасти до 50 или 30 рублей при дальнейшем обвале рынка.</p>
+
+<p>Основная функция данного инструмента в <em>ВТБ Мои Инвестиции</em> заключается в автоматизации дисциплины. Психологически сложно принять решение о продаже падающего актива, надеясь на отскок, но математика рынка диктует свои правила. Использование стопов позволяет исключить эмоции из уравнения и строго следовать торговому плану, который был составлен заранее, в спокойной обстановке.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Стоп-лосс не гарантирует исполнение именно по указанной цене. В моменты резких скачков котировок (гэпов) сделка может пройти значительно ниже установленного уровня, так как стоп-заявка превращается в рыночную.</p>
+</blockquote>
+
+<p>Важно понимать разницу между ценой активации и ценой исполнения. Цена активации (триггер) — это уровень, при достижении которого стоп-заявка «просыпается» и отправляется на биржу. Цена исполнения — это средняя цена, по которой фактически пройдут сделки. Между этими двумя значениями может существовать разница, известная как <strong>проскальзывание</strong>.</p>
+
+<div class="poll-widget" id="poll-6d82106e"><div class="poll-widget-question">📊 Какой тип управления рисками вы предпочитаете?</div><div class="poll-widget-option" data-poll="6d82106e" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Жесткий стоп-лосс</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="6d82106e" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Плавающий стоп</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="6d82106e" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Без стопов, держу до победного</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="6d82106e" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Хеджирование опционами</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="технические-особенности-работы-в-приложении-втб">Технические особенности работы в приложении ВТБ</h2>
+
+<p>Интерфейс приложения <em>ВТБ Мои Инвестиции</em> разработан с учетом потребностей как начинающих, так и профессиональных участников рынка. Механизм стоп-заявок здесь реализован через создание условий, которые постоянно отслеживаются сервером брокера. Пока условие не выполнено, заявка не попадает в стакан биржи и не влияет на ликвидность.</p>
+
+<p>Для корректной работы стоп-лосса необходимо, чтобы приложение имело доступ к актуальным котировкам в реальном времени. В ВТБ данные транслируются напрямую с Московской Биржи. Однако стоит учитывать, что в моменты открытия торгов или выхода важных новостей могут возникать задержки в обновлении котировок в мобильном приложении, хотя серверная часть работает быстрее.</p>
+
+<p>Существует два основных типа стоп-заявок, доступных для настройки:</p>
+<ul>
+<li>📉 <strong>Stop-Limit</strong>: при достижении цены триггера выставляется лимитированная заявка с указанной ценой.</li>
+<li>🏃 <strong>Stop-Market</strong>: при достижении цены триггера выставляется рыночная заявка на продажу по любой доступной цене.</li>
+</ul>
+
+<p>В мобильном приложении чаще всего используется упрощенный интерфейс, где пользователь задает цену активации, а система сама определяет тип исполнения или предлагает выбрать приоритет. Для сложных стратегий, требующих точного контроля цены, рекомендуется использовать десктопную версию терминала или веб-версию, где доступны расширенные настройки.</p>
+
+
+
+<h2 id="пошаговая-инструкция-по-установке-стоп-лосса">Пошаговая инструкция по установке стоп-лосса</h2>
+
+<p>Процесс выставления защитной заявки в <em>ВТБ Мои Инвестиции</em> максимально упрощен и занимает несколько секунд. Для начала необходимо перейти в раздел «Портфель» и выбрать конкретную позицию (акцию, облигацию или валютную пару), по которой вы хотите установить ограничение убытков.</p>
+
+<p>После выбора актива нажмите на кнопку «Продать» или найдите в меню действий опцию «Стоп-заявка» (иногда она скрыта в дополнительном меню «Еще» или «Заявки»). Откроется окно настройки параметров, где потребуется указать ключевые значения для активации ордера.</p>
+
+
+
+<p>В поле «Цена» или «Цена активации» необходимо ввести значение, при котором должна сработать защита. Например, если текущая цена 150 рублей, а вы готовы терпеть падение до 140, то именно 140 будет ценой триггера. Далее следует выбрать срок действия заявки — обычно это «До отмены» (GTC), чтобы стоп действовал до тех пор, пока вы сами его не уберете или он не исполнится.</p>
+
+<p>После подтверждения заявка появится в разделе «Заявки» со статусом «Активна» или «Ожидает». С этого момента система будет мониторить цену последней сделки. Как только биржа зарегистрирует сделку по цене триггера или ниже, ваш стоп-лосс будет активирован.</p>
+
+<h2 id="различия-между-stop-limit-и-stop-market">Различия между Stop-Limit и Stop-Market</h2>
+
+<p>Понимание разницы между этими двумя типами заявок является критически важным для эффективного управления рисками. В <em>ВТБ Мои Инвестиции</em>, как и в других профессиональных терминалах, выбор между ними определяет, насколько точно вы сможете контролировать цену выхода из позиции.</p>
+
+<p><strong>Stop-Market</strong> (Стоп-рыночная) заявка гарантирует исполнение, но не гарантирует цену. Как только цена достигает уровня триггера, система отправляет на биржу команду продать актив по любой доступной цене. Это обеспечивает выход из позиции даже в условиях обвала, когда покупателей мало, но итоговая цена продажи может быть значительно ниже ожидаемой.</p>
+
+<p><strong>Stop-Limit</strong> (Стоп-лимитная) заявка, напротив, гарантирует цену, но не гарантирует исполнение. При достижении триггера выставляется лимитированная заявка с конкретной ценой. Если рынок падает стремительно и «проскакивает» вашу лимитную цену, заявка останется в стакане неисполненной, а убыток продолжит расти. Этот тип подходит для менее волатильных активов.</p>
+
+<p>Сравнительная таблица поможет выбрать правильный тип заявки для вашей ситуации:</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Stop-Market</th>
+<th>Stop-Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Гарантия исполнения</td>
+<td>Высокая</td>
+<td>Низкая (зависит от рынка)</td>
+</tr>
+<tr>
+<td>Контроль цены</td>
+<td>Низкий (возможно проскальзывание)</td>
+<td>Высокий (цена фиксируется)</td>
+</tr>
+<tr>
+<td>Риск</td>
+<td>Получить цену хуже ожидаемой</td>
+<td>Остаться с активом при продолжающемся падении</td>
+</tr>
+<tr>
+<td>Лучшее применение</td>
+<td>Резкие обвалы, высокая волатильность</td>
+<td>Плавные тренды, низкая волатильность</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h2 id="расчет-оптимального-уровня-стоп-лосса">Расчет оптимального уровня стоп-лосса</h2>
+
+<p>Установка стоп-лосса «на глаз» или исходя из желаемой суммы убытка часто приводит к тому, что рыночный шум выбивает позицию как раз перед разворотом цены в нужную сторону. Профессиональные трейдеры используют технический анализ для определения уровней, где сценарий движения цены меняется.</p>
+
+<p>Одним из популярных методов является установка стопа за локальными минимумами или максимумами. Если вы покупаете актив на росте, стоп-лосс следует размещать ниже последнего значимого минимума (лоу). Пробой этого уровня технически означает, что покупатели ослабли, и дальнейшее падение вероятно.</p>
+
+<p>Также широко используется расчет на основе волатильности, например, с помощью индикатора <em>ATR (Average True Range)</em>. Стоп-лосс устанавливается на расстоянии 2 или 3 значений ATR от текущей цены. Это позволяет «дать рынку дышать» и отфильтровать обычные колебания, реагируя только на значимые движения.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не устанавливайте стоп-лосс слишком близко к текущей цене ради минимизации убытка на сделку. Слишком узкий стоп будет выбит случайным колебанием, после чего цена может резко пойти вверх, оставив вас без позиции и с убытком.</p>
+</blockquote>
+
+<p>Важно учитывать размер позиции. Если вы торгуете большим объемом, расстояние до стопа должно быть больше, чтобы избежать ложных срабатываний, но при этом размер потенциального убытка в денежном выражении не должен превышать 1-2% от общего капитала.</p>
+
+<h2 id="типичные-ошибки-и-способы-их-избежать">Типичные ошибки и способы их избежать</h2>
+
+<p>Одной из самых распространенных ошибок новичков в <em>ВТБ Мои Инвестиции</em> является перемещение стоп-лосса в сторону убытка. Когда цена подходит к уровню стопа, трейдеру кажется, что сейчас будет отскок, и он отодвигает защиту еще ниже. Это превращает стоп-лосс из инструмента защиты в инструмент накопления убытков.</p>
+
+<p>Другая ошибка — отсутствие стопа при открытии позиции. Многие начинают думать о защите только тогда, когда убыток уже стал ощутимым. В этот момент психологически очень сложно зафиксировать потерю, и трейдер продолжает ждать, надеясь на чудо. Правило гласит: <strong>стоп-лосс должен быть установлен в момент входа в сделку</strong>.</p>
+
+<p>Третья ошибка связана с круглыми числами. Часто новички ставят стопы ровно на 100, 200, 500 рублей. Крупные игроки и алгоритмы знают об этой психологии и часто продавливают цену чуть ниже круглого уровня, выбивая массу стопов, после чего цена разворачивается. Рекомендуется ставить стопы с «хвостиком», например, 198.50 вместо 200.</p>
+
+
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Сгорят ли деньги, если стоп-лосс не сработает?</summary>
+<p>Если стоп-лосс не сработал (например, в случае с Stop-Limit, когда цена пробила триггер, но не дошла до лимита), позиция останется открытой. Убыток будет «бумажным» (незафиксированным), пока вы не продадите актив или цена не вернется вверх. Риск в том, что цена может больше не вернуться.</p>
+</details>
+
+<details>
+<summary>Можно ли выставить стоп-лосс на выходных?</summary>
+<p>Выставить заявку в приложении <em>ВТБ Мои Инвестиции</em> можно в любое время, но исполнена она будет только во время торгов на бирже. Если важные новости выйдут в выходные и на открытии торгов в понедельник цена откроется «гэпом» вниз, стоп сработает по цене открытия, которая может быть значительно ниже вашего триггера.</p>
+</details>
+
+<details>
+<summary>Берет ли ВТБ комиссию за выставление стоп-заявки?</summary>
+<p>Само выставление и хранение стоп-заявки бесплатно. Комиссия брокера и биржи взимается только в момент исполнения заявки (покупки или продажи актива). Тарифы зависят от вашего тарифного плана в ВТБ.</p>
+</details>
+
+<details>
+<summary>Что такое «хвост» в контексте стоп-лосса?</summary>
+<p>«Хвост» или «фитиль» свечи — это резкий, кратковременный скачок цены, который быстро возвращается обратно. Стоп-лоссы часто выбиваются такими хвостами, так как алгоритмы специально толкают цену к зонам скопления стоп-заявок для получения ликвидности.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#сущность-и-назначение-стоп-лосс-заявки">Сущность и назначение стоп-лосс заявки</a></li><li><a href="#технические-особенности-работы-в-приложении-втб">Технические особенности работы в приложении ВТБ</a></li><li><a href="#пошаговая-инструкция-по-установке-стоп-лосса">Пошаговая инструкция по установке стоп-лосса</a></li><li><a href="#различия-между-stop-limit-и-stop-market">Различия между Stop-Limit и Stop-Market</a></li><li><a href="#расчет-оптимального-уровня-стоп-лосса">Расчет оптимального уровня стоп-лосса</a></li><li><a href="#типичные-ошибки-и-способы-их-избежать">Типичные ошибки и способы их избежать</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-bystro-otkryvaetsya-brokerskij-schet-v-vtb.html" class="related-card">Как быстро открыть брокерский счёт в ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-uznat-kogda-byl-otkryt-iis-v-vtb.html" class="related-card">Как узнать дату открытия ИИС в ВТБ: 5 проверенных способов</a></li><li><a href="/articles/i/ip/ipre-ajpio-ot-vtb-chto-eto.html" class="related-card">IPO от ВТБ: что это, как участвовать и стоит ли покупать</a></li><li><a href="/articles/k/ka/kak-otklyuchit-overnajt-v-vtb-broker.html" class="related-card">Как отключить овернайт в ВТБ Брокер: пошаговая инструкция 2026</a></li><li><a href="/articles/v/vt/vtb-ili-otkrytie-broker-luchshe-kakoj.html" class="related-card">ВТБ или Открытие брокер: какой выбрать в 2026-2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-bystro-otkryvaetsya-brokerskij-schet-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как быстро открыть брокерский счёт в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Скорость открытия брокерского счёта в ВТБ: от онлайн-заявки до торгов за 15 минут. Сравнение способо</span></a><a href="/articles/k/ka/kak-uznat-kogda-byl-otkryt-iis-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать дату открытия ИИС в ВТБ: 5 проверенных способов</span><span class="related-bottom-desc">Пошаговая инструкция, как проверить дату открытия индивидуального инвестиционного счета (ИИС) в ВТБ </span></a><a href="/articles/i/ip/ipre-ajpio-ot-vtb-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">IPO от ВТБ: что это, как участвовать и стоит ли покупать</span><span class="related-bottom-desc">Подробный разбор IPO от ВТБ: что это такое, как купить акции банка, риски для инвесторов и перспекти</span></a><a href="/articles/k/ka/kak-otklyuchit-overnajt-v-vtb-broker.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить овернайт в ВТБ Брокер: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по отключению овернайт в ВТБ Брокер через мобильное приложение и веб-версию. Р</span></a><a href="/articles/v/vt/vtb-ili-otkrytie-broker-luchshe-kakoj.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ или Открытие брокер: какой выбрать в 2026-2026</span><span class="related-bottom-desc">Сравнение брокеров ВТБ и Открытие: комиссии, тарифы, приложения и условия для новичков. Экспертный а</span></a><a href="/articles/k/ka/kak-popolnit-brokerskij-schet-v-vtb-moi-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить брокерский счёт в ВТБ Мои Инвестиции: 5 способов</span><span class="related-bottom-desc">Пошаговая инструкция по пополнению брокерского счёта в ВТБ Мои Инвестиции: через приложение, банкома</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

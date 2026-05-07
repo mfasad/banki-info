@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Биржевой стакан ВТБ 24: как читать и анализировать для торговли — Банки Инфо</title>
+    <meta name="description" content="Пошаговое руководство по чтению биржевого стакана в ВТБ 24: структура, уровни поддержки/сопротивления, скрытые ордера и стратегии для трейдеров.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-chitat-birzhevoj-stakan-vtb-24.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Биржевой стакан ВТБ 24: как читать и анализировать для торговли">
+    <meta property="og:description" content="Пошаговое руководство по чтению биржевого стакана в ВТБ 24: структура, уровни поддержки/сопротивления, скрытые ордера и стратегии для трейдеров.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Биржевой стакан ВТБ 24: как читать и анализировать для торговли</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как правильно читать биржевой стакан в ВТБ 24: разбор структуры и стратегии торговли</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-биржевой-стакан-и-зачем-он-нужен">Что такое биржевой стакан и зачем он нужен</a></li><li><a href="#структура-биржевого-стакана-в-втб-24">Структура биржевого стакана в ВТБ 24</a></li><li><a href="#как-определять-уровни-поддержки-и-сопротивления">Как определять уровни поддержки и сопротивления</a></li><li><a href="#скрытые-ордера-и-манипуляции-в-стакане">Скрытые ордера и манипуляции в стакане</a></li><li><a href="#стратегии-торговли-по-биржевому-стакану">Стратегии торговли по биржевому стакану</a></li><li><a href="#ошибки-начинающих-при-работе-со-стаканом">Ошибки начинающих при работе со стаканом</a></li><li><a href="#альтернативные-инструменты-анализа-в-втб-24">Альтернативные инструменты анализа в ВТБ 24</a></li><li><a href="#faq-частые-вопросы-о-биржевом-стакане-втб-24">FAQ: Частые вопросы о биржевом стакане ВТБ 24</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Биржевой стакан (или <strong>order book</strong>) — это ключевой инструмент для трейдеров, работающих на фондовом рынке через <em>ВТБ 24</em>. Он отображает текущие заявки на покупку и продажу активов, позволяя оценивать спрос, предложение и потенциальные уровни цен. Однако без понимания структуры стакана и принципов его анализа данные могут показаться хаотичными.</p>
+
+<p>Многие начинающие инвесторы открывают стакан в терминале <em>ВТБ Мои Инвестиции</em> или <em>Quik</em>, но не знают, как интерпретировать столбцы с ценами и объёмами. Между тем, умение читать стакан помогает предсказывать краткосрочные движения цены, выявлять крупных игроков и избегать ловушек маркет-мейкеров. В этой статье разберём, как расшифровать данные стакана, на что обращать внимание при торговле, и какие стратегии можно применять на практике.</p>
+
+<h2 id="что-такое-биржевой-стакан-и-зачем-он-нужен">Что такое биржевой стакан и зачем он нужен</h2>
+
+<p>Биржевой стакан — это динамическая таблица, где отображаются <strong>лимитные заявки</strong> на покупку и продажу актива по разным ценам. В <em>ВТБ 24</em> его можно открыть в торговом терминале рядом с графиком цены. Стакан показывает не только текущие котировки, но и глубину рынка: сколько лотов готовы купить или продать по каждой цене.</p>
+
+<p>Для чего это нужно трейдеру?</p>
+
+<p>- <strong>Определение уровней поддержки/сопротивления</strong>. Скопление крупных заявок на определённой цене часто становится барьером для дальнейшего движения.</p>
+<p>- <strong>Выявление скрытых ордеров</strong>. Крупные игроки могут дробить заявки, чтобы не демонстрировать реальный интерес — стакан помогает это заметить.</p>
+<p>- <strong>Анализ ликвидности</strong>. Чем больше заявок в стакане, тем проще открыть или закрыть позицию без сильного влияния на цену.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В <em>ВТБ 24</em> стакан обновляется с задержкой до 15 секунд для обычных клиентов. Реальные институциональные трейдеры видят данные в режиме реального времени — это создаёт неравные условия.</blockquote>
+
+<div class="poll-widget" id="poll-a643006d"><div class="poll-widget-question">📊 Как часто вы анализируете биржевой стакан?</div><div class="poll-widget-option" data-poll="a643006d" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Каждую сделку</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a643006d" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Несколько раз в день</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a643006d" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Рядом с важными новостями</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a643006d" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Никогда не смотрю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="структура-биржевого-стакана-в-втб-24">Структура биржевого стакана в ВТБ 24</h2>
+
+<p>В терминале <em>ВТБ Мои Инвестиции</em> стакан представлен в виде таблицы с тремя основными блоками:</p>
+
+<p>1. <strong>Заявки на покупку (Bid)</strong> — левая часть стакана, где указаны цены, по которым участники рынка готовы купить актив, и соответствующие объёмы.</p>
+<p>2. <strong>Заявки на продажу (Ask)</strong> — правая часть, с ценами и объёмами на продажу.</p>
+<p>3. <strong>Последние сделки (Time & Sales)</strong> — история исполненных ордеров, часто отображается ниже или справа.</p>
+
+<p>Пример структуры стакана для акции <strong>Сбербанка (SBER)</strong>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Цена покупки (Bid)</th>
+      <th>Объём (лотов)</th>
+      <th>Цена продажи (Ask)</th>
+      <th>Объём (лотов)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>280.50</td>
+      <td>150</td>
+      <td>280.70</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>280.30</td>
+      <td>80</td>
+      <td>280.80</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <td>280.00</td>
+      <td>250</td>
+      <td>281.00</td>
+      <td>50</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>В этом примере видно, что наибольший объём покупок сконцентрирован на уровне <code>280.00</code>, а продавцы активно выставляют заявки выше <code>280.70</code>. Такое распределение может сигнализировать о ближайшем уровне сопротивления.</p>
+
+<mark>В терминале ВТБ 24 стакан отображает заявки только по лимитным ордерам — рыночные заявки (по текущей цене) в нём не видны, что важно учитывать при анализе.</mark>
+
+<h2 id="как-определять-уровни-поддержки-и-сопротивления">Как определять уровни поддержки и сопротивления</h2>
+
+<p>Уровни поддержки и сопротивления — это цены, около которых концентрируется максимальный объём заявок. Их можно выявить по следующим признакам:</p>
+
+<ul>
+  <li>📈 <strong>Скопление крупных объёмов</strong> на одной цене (например, 500+ лотов на покупку или продажу).</li>
+  <li>🔄 <strong>Многократное "пробивание" и отскок</strong> цены от одного уровня.</li>
+  <li>📉 <strong>Резкое уменьшение объёмов</strong> после прохождения уровня — признак исчерпания интереса.</li>
+</ul>
+
+<p>Например, если в стакане акции <em>Газпрома (GAZP)</em> на уровне <code>185.00</code> висит 1000 лотов на покупку, а цена несколько раз подходила к этому значению и отскакивала вверх — это явная поддержка. Пробитие такого уровня при увеличении объёмов может сигнализировать о смене тренда.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сравнивайте данные стакана с графиком объёмов за прошлые дни. Если текущие скопления заявок совпадают с историческими уровнями, их надёжность выше.</p></div>
+
+<h2 id="скрытые-ордера-и-манипуляции-в-стакане">Скрытые ордера и манипуляции в стакане</h2>
+
+<p>Крупные участники рынка (маркет-мейкеры, хedge-фонды) часто маскируют свои намерения, используя следующие приёмы:</p>
+
+<ul>
+  <li>🎭 <strong>"Ложные стены"</strong> — выставление крупных заявок, которые снимаются перед исполнением. Например, в стакане висит 1000 лотов на продажу по <code>300.00</code>, но при подходе цены заявка исчезает.</li>
+  <li>🔍 <strong>Дробление ордеров</strong> — вместо одной большой заявки выставляется несколько мелких, чтобы не привлекать внимание.</li>
+  <li>⚡ <strong>"Снайперские" ордера</strong> — мгновенное исполнение скрытых лимитных заявок, которые не видны в стакане.</li>
+</ul>
+
+<p>Как это использовать?</p>
+<p>- Если видите крупную заявку, которая долго висит без исполнения — это может быть ловушка.</p>
+<p>- Резкое исчезновение большого объёма перед движением цены часто предвещает разворот.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В <em>ВТБ 24</em> нет доступа к данным о скрытых ордерах (icebergs), которые видны только брокерам с прямым доступом к бирже. Это ограничивает возможности анализа.</blockquote>
+
+<details class="faq-item"><summary>Пример манипуляции в стакане</summary><div class="faq-answer"><p>
+<p>В 2023 году на акциях <em>Ростелекома (RTKM)</em> наблюдалась следующая картина: в стакане долго висела заявка на продажу 2000 лотов по цене на 2% выше рынка. Мелкие трейдеры восприняли это как сопротивление и открывали короткие позиции. Однако при подходе цены ордер исчез, а цена продолжила рост — это был классический "бычий капкан".</p></div></details></p>
+
+<h2 id="стратегии-торговли-по-биржевому-стакану">Стратегии торговли по биржевому стакану</h2>
+
+<p>Анализ стакана можно интегрировать в различные торговые стратегии. Вот три наиболее эффективных подхода для клиентов <em>ВТБ 24</em>:</p>
+
+<h3>1. Скальпинг на разнице Bid-Ask</h3>
+<p>Суть: использование разницы между лучшими ценами покупки и продажи (спредом). Если спред широкий, а в стакане есть скопление заявок с одной стороны — можно открыть позицию в направлении дисбаланса.</p>
+<p><strong>Пример:</strong> В стакане акции <em>Лукойла (LKOH)</em> лучшая цена покупки — <code>7100</code> (500 лотов), а продажи — <code>7120</code> (100 лотов). Дисбаланс в пользу покупателей сигнализирует о возможном росте.</p>
+
+<h3>2. Торговля на пробое уровней</h3>
+<p>Если цена долго консолидируется около уровня поддержки/сопротивления, а затем пробьёт его на увеличенном объёме — это сигнал к открытию позиции в направлении пробоя.</p>
+
+<h3>3. Ловля "стоповых охотников"</h3>
+<p>Крупные игроки часто "выбивают" стоп-лоссы мелких трейдеров, временно двигая цену против тренда. В стакане это проявляется как резкое появление больших объёмов с одной стороны перед разворотом.</p>
+
+
+<p>Анализ дисбаланса Bid/Ask|Проверка исторических уровней|Оценка ликвидности (объёмов)|Сопоставление с графиком объёмов--></p>
+
+<h2 id="ошибки-начинающих-при-работе-со-стаканом">Ошибки начинающих при работе со стаканом</h2>
+
+<p>Даже опытные трейдеры иногда допускают ошибки при анализе стакана. Вот самые распространённые из них:</p>
+
+<ul>
+  <li>🔴 <strong>Игнорирование контекста</strong>. Стакан показывает только текущую картину, но не учитывает новостной фон или макроэкономические данные.</li>
+  <li>📊 <strong>Переоценка мелких объёмов</strong>. Заявки на 10–20 лотов редко влияют на рынок — фокусируйтесь на крупных ордерах (100+ лотов).</li>
+  <li>⏳ <strong>Забывают про задержку данных</strong>. В <em>ВТБ 24</em> стакан обновляется с лагом, поэтому реальная картина может отличаться.</li>
+</ul>
+
+<p>Чтобы избежать потерь, всегда сопоставляйте данные стакана с:</p>
+<p>- Графиком цены и объёмов.</p>
+<p>- Новостной лентой (например, выход отчётности компании).</p>
+<p>- Индикаторами вроде <code>VWAP</code> или <code>OBV</code>.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Стакан — это инструмент для подтверждения сигналов, а не самостоятельная стратегия. Всегда используйте его в комплексе с другими методами анализа.</p></div>
+
+<h2 id="альтернативные-инструменты-анализа-в-втб-24">Альтернативные инструменты анализа в ВТБ 24</h2>
+
+<p>Помимо стакана, в терминале <em>ВТБ Мои Инвестиции</em> доступны дополнительные инструменты для глубинного анализа:</p>
+
+<p>1. <strong>График "Стопы и лимиты"</strong> — показывает скопление стоп-заявок, которые могут стать триггерами для движения цены.</p>
+<p>2. <strong>Кластерный анализ</strong> — визуализация объёмов торгов по ценовым уровням (доступен в <em>Quik</em>).</p>
+<p>3. <strong>Лента сделок (Time & Sales)</strong> — история исполненных ордеров с указанием агрессивной стороны (покупатель или продавец инициализировал сделку).</p>
+
+<p>Для клиентов <em>ВТБ 24 Премиум</em> доступны расширенные аналитические инструменты, включая:</p>
+<p>- Данные по открытому интересу (для фьючерсов).</p>
+<p>- Агрегированные показатели ликвидности по секторам.</p>
+
+<p>Если вам не хватает функционала стандартного терминала, рассмотрите подключение <em>Quik</em> или платформы <em>Tinkoff Invest</em> (через API ВТБ).</p>
+
+<h2 id="faq-частые-вопросы-о-биржевом-стакане-втб-24">FAQ: Частые вопросы о биржевом стакане ВТБ 24</h2>
+
+<details>
+  <summary>Можно ли увидеть скрытые ордера (icebergs) в стакане ВТБ 24?</summary>
+  <p>Нет, скрытые ордера (icebergs) не отображаются в стандартном стакане <em>ВТБ 24</em>. Их видят только брокеры с прямым доступом к биржевой системе. Однако косвенно их присутствие можно заподозрить по неожиданным скачкам цены при небольших видимых объёмах.</p>
+</details>
+
+<details>
+  <summary>Как часто обновляется стакан в мобильном приложении ВТБ?</summary>
+  <p>В мобильном приложении <em>ВТБ Мои Инвестиции</em> стакан обновляется с задержкой до 15–20 секунд. Для скальпинга или высокочастотной торговли лучше использовать десктопный терминал <em>Quik</em> с подключением к ВТБ.</p>
+</details>
+
+<details>
+  <summary>Что означает большая разница между лучшими ценами Bid и Ask?</summary>
+  <p>Широкий спред (разница между лучшей ценой покупки и продажи) обычно сигнализирует о низкой ликвидности актива. Это может быть вызвано:</p>
+  <ul>
+    <li>Малым интересом к бумаге (например, акции второго эшелона).</li>
+    <li>Внебиржевым временем (премаркет или постмаркет).</li>
+    <li>Сильной волатильностью на новостях.</li>
+  </ul>
+  <p>Торговать такие активы рискованно — высока вероятность проскальзывания (slippage).</p>
+</details>
+
+<details>
+  <summary>Можно ли торговать только по стакану, без графиков?</summary>
+  <p>Теоретически да, но это крайне рискованно. Стакан показывает текущую картину, но не отражает:</p>
+  <ul>
+    <li>Трендовые движения (нужен график).</li>
+    <li>Уровни Фибоначчи или другие технические сигналы.</li>
+    <li>Новостной фон (например, выход статистики).</li>
+  </ul>
+  <p>Опытные трейдеры используют стакан как <strong>дополнительный фильтр</strong> для подтверждения сигналов с графиков.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-биржевой-стакан-и-зачем-он-нужен">Что такое биржевой стакан и зачем он нужен</a></li><li><a href="#структура-биржевого-стакана-в-втб-24">Структура биржевого стакана в ВТБ 24</a></li><li><a href="#как-определять-уровни-поддержки-и-сопротивления">Как определять уровни поддержки и сопротивления</a></li><li><a href="#скрытые-ордера-и-манипуляции-в-стакане">Скрытые ордера и манипуляции в стакане</a></li><li><a href="#стратегии-торговли-по-биржевому-стакану">Стратегии торговли по биржевому стакану</a></li><li><a href="#ошибки-начинающих-при-работе-со-стаканом">Ошибки начинающих при работе со стаканом</a></li><li><a href="#альтернативные-инструменты-анализа-в-втб-24">Альтернативные инструменты анализа в ВТБ 24</a></li><li><a href="#faq-частые-вопросы-о-биржевом-стакане-втб-24">FAQ: Частые вопросы о биржевом стакане ВТБ 24</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-kupit-bitkoin-v-rossii-cherez-vtb.html" class="related-card">Как купить биткоин через ВТБ в 2026: пошаговая инструкция</a></li><li><a href="/articles/v/vt/vtb-investitsii-depozitarnye-uslugi-za-chto.html" class="related-card">Депозитарные услуги ВТБ: тарифы, комиссии и за что платим</a></li><li><a href="/articles/k/ka/kak-smenit-kod-dostupa-v-vtb-investitsii.html" class="related-card">Как сменить код доступа в ВТБ Инвестиции — пошаговая инструкция 2026</a></li><li><a href="/articles/c/ch/chto-takoe-iis-v-vtb-i-dlya-chego-on-nuzhen-i-kak-rabotaet-dlya-chajnikov.html" class="related-card">ИИС в ВТБ: что это, как работает и зачем нужен простыми словами</a></li><li><a href="/articles/k/ka/kak-otkryt-pif-v-vtb.html" class="related-card">Как открыть ПИФ в ВТБ: пошаговая инструкция 2026 года</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-kupit-bitkoin-v-rossii-cherez-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как купить биткоин через ВТБ в 2026: пошаговая инструкция</span><span class="related-bottom-desc">Можно ли купить BTC через ВТБ Онлайн, какие есть альтернативы и как избежать блокировки счета. Актуа</span></a><a href="/articles/v/vt/vtb-investitsii-depozitarnye-uslugi-za-chto.html" class="related-bottom-card"><span class="related-bottom-title">Депозитарные услуги ВТБ: тарифы, комиссии и за что платим</span><span class="related-bottom-desc">Полный разбор тарифов ВТБ Инвестиции. За что берут депозитарий, сколько стоит обслуживание, как сниз</span></a><a href="/articles/k/ka/kak-smenit-kod-dostupa-v-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить код доступа в ВТБ Инвестиции — пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по смене пароля в приложении ВТБ Инвестиции: через мобильный банк, сайт и при </span></a><a href="/articles/c/ch/chto-takoe-iis-v-vtb-i-dlya-chego-on-nuzhen-i-kak-rabotaet-dlya-chajnikov.html" class="related-bottom-card"><span class="related-bottom-title">ИИС в ВТБ: что это, как работает и зачем нужен простыми словами</span><span class="related-bottom-desc">Разбираем индивидуальный инвестиционный счёт (ИИС) в ВТБ: как открыть, какие налоги сэкономить, скол</span></a><a href="/articles/k/ka/kak-otkryt-pif-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как открыть ПИФ в ВТБ: пошаговая инструкция 2026 года</span><span class="related-bottom-desc">Подробный гайд по открытию паевого инвестиционного фонда в ВТБ: условия, тарифы, необходимые докумен</span></a><a href="/articles/n/np/npr1-vtb-investitsii-chto.html" class="related-bottom-card"><span class="related-bottom-title">НПР1 ВТБ Инвестиции: обзор, риски и доходность</span><span class="related-bottom-desc">Что такое НПР1 ВТБ Инвестиции? Полный анализ структуры, доходности, рисков и налоговых особенностей </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

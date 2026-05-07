@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как работает СБП в ВТБ: лимиты, комиссии и настройки — Банки Инфо</title>
+    <meta name="description" content="Полный гид по Системе быстрых платежей в банке ВТБ. Узнайте про лимиты, комиссии, коды QR и способы отключения автоплатежей.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rabotaet-sbp-v-vtb-banke.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает СБП в ВТБ: лимиты, комиссии и настройки">
+    <meta property="og:description" content="Полный гид по Системе быстрых платежей в банке ВТБ. Узнайте про лимиты, комиссии, коды QR и способы отключения автоплатежей.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/perevody/">Переводы</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работает СБП в ВТБ: лимиты, комиссии и настройки</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как работает СБП в ВТБ: подробный разбор возможностей и лимитов</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#регистрация-и-подключение-сервиса-в-приложении">Регистрация и подключение сервиса в приложении</a></li><li><a href="#лимиты-и-комиссии-на-переводы-в-2024-2025-годах">Лимиты и комиссии на переводы в 2024-2025 годах</a></li><li><a href="#пошаговая-инструкция-как-отправить-деньги-по-номеру-телефона">Пошаговая инструкция: как отправить деньги по номеру телефона</a></li><li><a href="#оплата-покупок-по-qr-коду-в-магазинах-и-онлайн">Оплата покупок по QR-коду в магазинах и онлайн</a></li><li><a href="#безопасность-операций-и-защита-от-мошенников">Безопасность операций и защита от мошенников</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Современный ритм жизни диктует свои условия, требуя мгновенного обмена финансовыми ресурсами без задержек и лишних сложностей. <strong>Система быстрых платежей</strong> (СБП), разработанная Центральным банком России, стала именно тем инструментом, который кардинально изменил представление граждан о банковских операциях. В банке <em>ВТБ</em> этот сервис интегрирован максимально глубоко, позволяя клиентам совершать мгновенные переводы по номеру телефона, оплачивать покупки в интернете и выставлять счета прямо в приложении.</p>
+<p>Раньше межбанковские переводы могли идти несколько дней, а за срочность приходилось платить значительные комиссии. Сегодня ситуация изменилась: переводы через СБП в <em>ВТБ</em> доступны 24 часа в сутки, 7 дней в неделю, включая выходные и праздничные дни. Это означает, что деньги поступят на счет получателю в любой момент, независимо от того, когда была проведена операция.</p>
+<p>Важно отметить, что для использования сервиса не нужно подключать дополнительные услуги или посещать офис банка. <strong>Функционал</strong> уже доступен всем держателям карт, имеющим доступ к мобильному приложению или интернет-банку. Понимание принципов работы этой системы позволит вам не только экономить время, но и существенно снизить расходы на банковское обслуживание, так как многие операции через СБП бесплатны для физических лиц.</p>
+
+<h2 id="регистрация-и-подключение-сервиса-в-приложении">Регистрация и подключение сервиса в приложении</h2>
+<p>Процесс начала использования Системы быстрых платежей в <em>ВТБ</em> максимально упрощен и не требует сложных манипуляций. Фактически, <strong>автоматическая регистрация</strong> происходит в момент, когда вы впервые совершаете действие, требующее использования СБП, например, перевод по номеру телефона. Однако для полноценного контроля и настройки уведомлений рекомендуется проверить соответствующие разделы в приложении.</p>
+<p>Для того чтобы убедиться, что сервис активен, необходимо войти в мобильное приложение <em>ВТБ Онлайн</em> под своим логином. В главном меню следует выбрать интересующую вас карту, с которой планируете проводить операции. В разделе настроек карты или в меню платежей обычно отображается информация о подключенных сервисах, где СБП значится как базовая опция.</p>
+<p>Если вы хотите изменить банк по умолчанию для входящих переводов, вам потребуется воспользоваться функционалом биометрии или подтверждением через СМС. Это необходимо для того, чтобы система знала, на какой именно счет зачислять средства, если у вас открыто несколько карт в разных банках. <mark>ВТБ позволяет выбрать эту банк как приоритетный для зачисления средств через СБП, что ускоряет поступление денег.</mark></p>
+<p>Стоит помнить, что для проведения операций требуется стабильное интернет-соединение и актуальная версия мобильного приложения. Устаревшее программное обеспечение может не поддерживать новые протоколы безопасности или форматы QR-кодов, что приведет к ошибке при попытке оплаты.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не сообщайте коды из СМС или push-уведомлений третьим лицам, даже если звонящий представляется сотрудником банка. Сотрудники <em>ВТБ</em> никогда не запрашивают эти данные для подключения или настройки СБП.</p>
+</blockquote>
+<p>После первичной настройки система запоминает ваши предпочтения. При последующих переводах приложение будет предлагать использовать СБП по умолчанию, если получатель также обслуживается в банке, поддерживающем эту систему. Это избавляет от необходимости каждый раз вручную выбирать способ проведения операции.</p>
+
+<h2 id="лимиты-и-комиссии-на-переводы-в-2026-2026-годах">Лимиты и комиссии на переводы в 2026-2026 годах</h2>
+<p>Одним из главных преимуществ использования СБП в <em>ВТБ</em> является прозрачная тарифная политика. Для большинства розничных клиентов переводы физических лиц являются бесплатными, однако существуют определенные ограничения, установленные регулятором и самим банком. Эти лимиты могут меняться, поэтому важно следить за актуальной информацией в приложении.</p>
+<p>На текущий момент действует правило, согласно которому переводы на сумму до 100 000 рублей в месяц с одного клиента в другие банки осуществляются без комиссии. Это суммарный лимит по всем вашим счетам и картам в рамках одного банка. Если вы планируете отправлять более крупные суммы, стоит учитывать возможные изменения в тарифах.</p>
+<p>Для операций, превышающих установленный месячный лимит, или для переводов, осуществляемых в рамках корпоративных тарифов, могут применяться комиссии. Обычно они составляют 0,4% от суммы перевода, но не более 1500 рублей за одну операцию. Точный размер комиссии всегда отображается на экране подтверждения перед отправкой денег.</p>
+<div class="poll-widget" id="poll-e4535db1"><div class="poll-widget-question">📊 Как часто вы пользуетесь СБП?</div><div class="poll-widget-option" data-poll="e4535db1" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Ежедневно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e4535db1" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Несколько раз в неделю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e4535db1" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в месяц</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e4535db1" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Практически не пользуюсь</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+<p>Ниже приведена таблица с ориентировочными лимитами, однако конкретные условия могут зависеть от вашего тарифного плана:</p>
+<table>
+<thead>
+<tr>
+<th>Тип операции</th>
+<th>Лимит в месяц (руб.)</th>
+<th>Комиссия сверх лимита</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Перевод физлицам (СБП)</td>
+<td>100 000</td>
+<td>0,4% (макс. 1500 руб.)</td>
+</tr>
+<tr>
+<td>Пополнение счета брокера</td>
+<td>Без ограничений*</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Оплата услуг (ЖКХ, связь)</td>
+<td>Без ограничений</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>Перевод самому себе</td>
+<td>Без ограничений</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<p>Важно учитывать, что лимиты суммируются по всем вашим переводам через СБП, совершенным через любые каналы (мобильное приложение, интернет-банк). Если вы исчерпали бесплатный лимит в начале месяца, придется ждать следующего расчетного периода или оплатить комиссию.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Лимиты на переводы могут быть индивидуальными для разных категорий клиентов. Для уточнения персональных ограничений перейдите в раздел <code>Профиль → Тарифы и лимиты</code> в приложении <em>ВТБ</em>.</p>
+</blockquote>
+<p>Также существуют ограничения на разовую сумму перевода, которые могут варьироваться в зависимости от уровня безопасности вашего аккаунта и способа авторизации. Использование биометрии или подтверждение через <em>ВТБ-Ключ</em> может расширить доступные возможности.</p>
+
+<h2 id="пошаговая-инструкция-как-отправить-деньги-по-номеру-телефона">Пошаговая инструкция: как отправить деньги по номеру телефона</h2>
+<p>Отправка денежных средств через Систему быстрых платежей — это одна из самых востребованных функций, доступная клиентам <em>ВТБ</em>. Процесс занимает буквально несколько секунд и требует минимального количества действий. Главное — знать номер телефона получателя и банк, в котором он обслуживается.</p>
+<p>Для начала откройте приложение <em>ВТБ Онлайн</em> и авторизуйтесь. На главном экране выберите опцию <code>Платежи</code> или найдите кнопку <code>Перевести</code>. Далее выберите пункт <code>По номеру телефона</code>. Система автоматически подставит номер телефона, привязанный к вашей карте, но его можно изменить.</p>
+<div class="checklist-block"><h4>☑️ Алгоритм перевода</h4><label class="check-item"><input type="checkbox"><span>Ввести номер телефона</span></label><label class="check-item"><input type="checkbox"><span>Выбрать банк получателя</span></label><label class="check-item"><input type="checkbox"><span>Указать сумму</span></label><label class="check-item"><input type="checkbox"><span>Проверить данные и подтвердить</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+<p>После ввода номера система предложит выбрать банк получателя. Если у человека открыто несколько счетов в разных банках, подключенных к СБП, вы сможете выбрать конкретный банк из списка. Если банк не выбран вручную, система попытается найти его автоматически или предложит отправить в банк по умолчанию.</p>
+<p>На следующем этапе необходимо ввести сумму перевода. Приложение сразу покажет, взимается ли комиссия за данную операцию. Внимательно проверьте фамилию, имя и отчество получателя, которые отобразятся на экране. Это критически важный этап для предотвращения ошибок.</p>
+<p>Завершающим шагом станет подтверждение операции. В зависимости от настроек безопасности, вам может потребоваться ввести код из СМС, использовать Face ID или подтвердить действие в приложении <em>ВТБ-Ключ</em>. После успешного выполнения вы получите уведомление о проведении платежа.</p>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сохраняйте часто используемые контакты в избранное внутри приложения — это позволит отправлять деньги в один клик, не вводя номер каждый заново.</p></div>
+<p>Если перевод не прошел, система выдаст соответствующее сообщение с указанием причины. Это может быть неверный номер, отсутствие у получателя открытого счета в выбранном банке или технические работы на стороне процессинга.</p>
+
+<h2 id="оплата-покупок-по-qr-коду-в-магазинах-и-онлайн">Оплата покупок по QR-коду в магазинах и онлайн</h2>
+<p>Оплата по QR-коду через СБП становится все более популярной альтернативой пластиковым картам и NFC-платежам. В <em>ВТБ</em> этот процесс реализован очень удобно: вам не нужно иметь физическую карту с собой, достаточно смартфона с установленным приложением. Это не только удобно, но и безопасно, так как данные карты не передаются терминалу.</p>
+<p>В торговой точке или на сайте интернет-магазина выберите способ оплаты <strong>СБП</strong> или <em>QR-код</em>. На экране кассового аппарата или мониторе компьютера появится графическое изображение. Вам необходимо запустить приложение <em>ВТБ Онлайн</em> и выбрать функцию сканирования, которая обычно расположена в верхнем углу экрана или в меню платежей.</p>
+<p>Наведите камеру смартфона на QR-код. Приложение считает информацию и автоматически откроет страницу оплаты, где будет указан магазин и сумма к оплате. В онлайн-банкинге вы также можете сформировать свой персональный QR-код для приема платежей, если вы являетесь самозанятым или предпринимателем.</p>
+<p>Для подтверждения оплаты в магазине часто не требуется даже вводить пароль, если сумма небольшая, однако для крупных покупок система запросит подтверждение. Это обеспечивает дополнительный уровень защиты ваших средств от несанкционированного списания.</p>
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Перед подтверждением оплаты всегда сверяйте название магазина и сумму на экране смартфона с данными на чеке или сайте. Мошенники могут подделывать QR-коды, подменяя реквизиты получателя.</p>
+</blockquote>
+<p>Оплата через СБП часто выгоднее для merchants (продавцов), поэтому многие магазины предлагают дополнительные скидки или бонусы при выборе этого способа расчета. В приложении <em>ВТБ</em> такие предложения могут отображаться в разделе акций и партнеров.</p>
+
+<h2 id="безопасность-операций-и-защита-от-мошенников">Безопасность операций и защита от мошенников</h2>
+<p>Безопасность финансовых операций является приоритетом для банка <em>ВТБ</em> и разработчиков Системы быстрых платежей. Используется комплекс мер защиты, включая шифрование данных, двухфакторную авторизацию и постоянный мониторинг транзакций антифрод-системами. Однако безопасность зависит не только от банка, но и от действий самого клиента.</p>
+<p>Одной из ключевых особенностей СБП является то, что при оплате по QR-коду вы не передаете данные своей карты. Это означает, что даже если терминал в магазине будет скомпрометирован, данные вашей карты не попадут в руки злоумышленников. Вы авторизуетесь только в своем защищенном приложении.</p>
+<p>Тем не менее, социальная инженерия остается мощным оружием мошенников. Они могут звонить от имени банка и просить «отменить перевод» или «проверить безопасность», запрашивая коды из СМС. Помните: <strong>сотрудники банка</strong> никогда не спрашивают коды подтверждения, пароли и пин-коды.</p>
+<details class="faq-item"><summary>Что делать, если вы перевели деньги мошенникам?</summary><div class="faq-answer"><p>Немедленно позвоните в контактный центр ВТБ по номеру 100 (с мобильного) или 8 800 100-24-24. Напишите заявление в полицию и предоставьте его копию в банк. Банк заблокирует счет получателя, если он еще не был опустошен, но гарантировать возврат средств сложно.</p></div></details>
+<p>Для дополнительной защиты рекомендуется установить лимиты на операции в настройках приложения. Например, можно ограничить сумму разового перевода или дневной лимит трат. Если карта будет утеряна или данные попадут к мошенникам, они не смогут вывести крупную сумму.</p>
+<p>Также стоит регулярно проверять историю операций в приложении. При обнаружении подозрительной активности немедленно блокируйте карту через приложение и связывайтесь со службой поддержки. В <em>ВТБ Онлайн</em> есть функция быстрой блокировки в один клик.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<p>В этом разделе собраны ответы на наиболее популярные вопросы пользователей, касающиеся работы СБП в банке <em>ВТБ</em>. Если вы не нашли ответ на свой вопрос, рекомендуется обратиться в официальную справку приложения или связаться с оператором.</p>
+<details>
+<summary>Можно ли отменить перевод через СБП после его проведения?</summary>
+<p>К сожалению, отменить перевод, совершенный через Систему быстрых платежей, после его проведения <strong>невозможно</strong>. Операция происходит мгновенно, и деньги сразу поступают на счет получателю. Вернуть средства можно только по договоренности с получателем или через суд, если была доказана мошенническая деятельность.</p>
+</details>
+<details>
+<summary>Как узнать, подключен ли у получателя СБП?</summary>
+<p>При вводе номера телефона в приложении <em>ВТБ</em> система автоматически проверяет, подключена ли у владельца номера услуга СБП. Если сервис не подключен или номер не привязан ни к одному банку, вы получите соответствующее уведомление об ошибке перед отправкой денег.</p>
+</details>
+<details>
+<summary>Есть ли ограничения по времени работы СБП?</summary>
+<p>Система быстрых платежей работает в режиме 24/7/365. Переводы можно совершать в любое время суток, включая выходные и праздничные дни. Задержки возможны только в случае проведения регламентных технических работ на стороне ЦБ РФ или банков-участников.</p>
+</details>
+<details>
+<summary>Можно ли платить через СБП за границей?</summary>
+<p>На данный момент использование СБП для оплаты товаров и услуг за пределами Российской Федерации <strong>не поддерживается</strong>. Система предназначена для внутренних расчетов внутри страны. Для платежей за рубежом необходимо использовать другие инструменты, доступные в вашем банке.</p>
+</details>
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>СБП в ВТБ — это быстрый, бесплатный (в рамках лимитов) и безопасный способ управления финансами, который полностью заменяет наличные и пластиковые карты в большинстве повседневных ситуаций.</p></div></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#регистрация-и-подключение-сервиса-в-приложении">Регистрация и подключение сервиса в приложении</a></li><li><a href="#лимиты-и-комиссии-на-переводы-в-2024-2025-годах">Лимиты и комиссии на переводы в 2024-2025 годах</a></li><li><a href="#пошаговая-инструкция-как-отправить-деньги-по-номеру-телефона">Пошаговая инструкция: как отправить деньги по номеру телефона</a></li><li><a href="#оплата-покупок-по-qr-коду-в-магазинах-и-онлайн">Оплата покупок по QR-коду в магазинах и онлайн</a></li><li><a href="#безопасность-операций-и-защита-от-мошенников">Безопасность операций и защита от мошенников</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-vklyuchit-sistemu-bystrykh-platezhej-v-vtb-banke.html" class="related-card">Как подключить СБП в ВТБ: пошаговая инструкция 2026 года</a></li><li><a href="/articles/k/ka/kak-sdelat-vozvrat-perevoda-vtb-na-kartu.html" class="related-card">Как вернуть ошибочный перевод ВТБ на карту: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kakuyu-summu-mozhno-perevesti-cherez-sbp-bez-komissii-v-vtb.html" class="related-card">Сколько можно перевести через СБП без комиссии в ВТБ в 2026 году</a></li><li><a href="/articles/k/ka/kak-perevesti-dengi-v-terminale-vtb.html" class="related-card">Как перевести деньги через терминал ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-otozvat-platezh-v-vtb-onlajn-esli-on-ispolnen.html" class="related-card">Как вернуть исполненный платеж в ВТБ Онлайн</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-vklyuchit-sistemu-bystrykh-platezhej-v-vtb-banke.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить СБП в ВТБ: пошаговая инструкция 2026 года</span><span class="related-bottom-desc">Подробное руководство по активации системы быстрых платежей (СБП) в ВТБ через мобильное приложение, </span></a><a href="/articles/k/ka/kak-sdelat-vozvrat-perevoda-vtb-na-kartu.html" class="related-bottom-card"><span class="related-bottom-title">Как вернуть ошибочный перевод ВТБ на карту: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид по возврату денег в ВТБ. Что делать при ошибочном переводе на карту, счет или номер те</span></a><a href="/articles/k/ka/kakuyu-summu-mozhno-perevesti-cherez-sbp-bez-komissii-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Сколько можно перевести через СБП без комиссии в ВТБ в 2026 году</span><span class="related-bottom-desc">Актуальные лимиты бесплатных переводов через Систему быстрых платежей (СБП) для клиентов ВТБ: суммы,</span></a><a href="/articles/k/ka/kak-perevesti-dengi-v-terminale-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги через терминал ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд по переводу средств через терминалы ВТБ: комиссии, лимиты, инструкции для карт и счет</span></a><a href="/articles/k/ka/kak-otozvat-platezh-v-vtb-onlajn-esli-on-ispolnen.html" class="related-bottom-card"><span class="related-bottom-title">Как вернуть исполненный платеж в ВТБ Онлайн</span><span class="related-bottom-desc">Узнайте, можно ли отозвать исполненный перевод в ВТБ Онлайн. Пошаговые инструкции, сроки возврата и </span></a><a href="/articles/k/ka/kak-razreshit-dostup-v-sberbanke-chtoby-perevesti-s-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как разрешить доступ в СберБанк Онлайн для перевода с ВТБ</span><span class="related-bottom-desc">Подробная инструкция: как настроить доступ к счетам ВТБ в приложении СберБанка. Разбор технологии СБ</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

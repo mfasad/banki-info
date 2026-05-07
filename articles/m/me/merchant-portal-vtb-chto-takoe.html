@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Merchant Portal ВТБ: что это, как работает и зачем нужен — Банки Инфо</title>
+    <meta name="description" content="Разбираемся, что такое Merchant Portal от ВТБ, как он помогает бизнесу принимать платежи, управлять эквайрингом и анализировать транзакции. Пошаговая инструкция по регистрации и настройке.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/m/me/merchant-portal-vtb-chto-takoe.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Merchant Portal ВТБ: что это, как работает и зачем нужен">
+    <meta property="og:description" content="Разбираемся, что такое Merchant Portal от ВТБ, как он помогает бизнесу принимать платежи, управлять эквайрингом и анализировать транзакции. Пошаговая инструкция по регистрации и настройке.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/platezhi-zhkkh/">Платежи ЖКХ</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Merchant Portal ВТБ: что это, как работает и зачем нужен</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Merchant Portal ВТБ: личный кабинет для бизнеса по приёму платежей</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-merchant-portal-втб-и-для-чего-он-нужен">Что такое Merchant Portal ВТБ и для чего он нужен</a></li><li><a href="#как-работает-merchant-portal-основные-функции">Как работает Merchant Portal: основные функции</a></li><li><a href="#как-зарегистрироваться-в-merchant-portal-втб">Как зарегистрироваться в Merchant Portal ВТБ</a></li><li><a href="#настройка-merchant-portal-пошаговая-инструкция">Настройка Merchant Portal: пошаговая инструкция</a></li><li><a href="#как-работать-с-chargeback-в-merchant-portal">Как работать с chargeback в Merchant Portal</a></li><li><a href="#мобильное-приложение-merchant-portal-возможности-и-ограничения">Мобильное приложение Merchant Portal: возможности и ограничения</a></li><li><a href="#частые-проблемы-и-ошибки-в-merchant-portal">Частые проблемы и ошибки в Merchant Portal</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-merchant-portal-втб">FAQ: ответы на частые вопросы о Merchant Portal ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p><em>Merchant Portal ВТБ</em> — это онлайн-платформа для предпринимателей и компаний, которая позволяет управлять эквайрингом, отслеживать платежи клиентов и анализировать финансовые потоки. Если ваш бизнес принимает оплату банковскими картами (офлайн или онлайн), этот сервис станет незаменимым инструментом для контроля транзакций, настройки терминалов и решения спорных ситуаций.</p>
+
+<p>Многие владельцы магазинов, кафе или интернет-площадок сталкиваются с вопросами: как подключить эквайринг ВТБ, где смотреть историю платежей или как оспорить chargeback? <strong>Merchant Portal решает эти задачи</strong> — он объединяет все функции по работе с платежами в одном интерфейсе. В этой статье разберём, что такое <em>Merchant Portal</em>, как он работает, какие возможности открывает для бизнеса и как в нём зарегистрироваться.</p>
+
+<h2 id="что-такое-merchant-portal-втб-и-для-чего-он-нужен">Что такое Merchant Portal ВТБ и для чего он нужен</h2>
+
+<p><strong>Merchant Portal</strong> (или «Личный кабинет мерчанта») — это веб-сервис от <em>ВТБ</em>, предназначенный для компаний, подключённых к эквайрингу банка. Через этот портал бизнес может:</p>
+
+<ul>
+  <li>📊 <strong>Отслеживать все платежи</strong> в реальном времени — как успешные, так и отклонённые;</li>
+  <li>🔧 <strong>Управлять настройками терминалов</strong> (POS-терминалы, онлайн-эквайринг);</li>
+  <li>📄 <strong>Формировать отчёты</strong> по транзакциям за любой период;</li>
+  <li>🛡️ <strong>Работать с chargeback</strong> (спорными платежами) и оспаривать необоснованные возвраты;</li>
+  <li>🔄 <strong>Настраивать рекуррентные платежи</strong> (автоплатежи) для подписок или абонементов.</li>
+</ul>
+
+<p>По сути, это <mark>единая точка доступа ко всем инструментам эквайринга ВТБ</mark>, которая заменяет обращения в банк по каждому вопросу. Например, если клиент оспорил платеж через свой банк, вы увидите уведомление в <em>Merchant Portal</em> и сможете оперативно предоставить доказательства легитимности транзакции.</p>
+
+<p>Сервис подходит для:</p>
+<ul>
+  <li>🏪 <strong>Розничных магазинов</strong> (супермаркеты, бутики, аптеки);</li>
+  <li>☕ <strong>Общепита</strong> (кафе, рестораны, фастфуд);</li>
+  <li>🌐 <strong>Интернет-магазинов</strong> и сервисов;</li>
+  <li>🏥 <strong>Медицинских и образовательных учреждений</strong>;</li>
+  <li>🚗 <strong>Автосервисов, заправок, отелей</strong>.</li>
+</ul>
+
+<div class="poll-widget" id="poll-2072350e"><div class="poll-widget-question">📊 Ваш бизнес уже подключён к эквайрингу ВТБ?</div><div class="poll-widget-option" data-poll="2072350e" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, используем Merchant Portal</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2072350e" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, но не пользуемся личным кабинетом</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2072350e" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет, только планируем</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="2072350e" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет, работаем с другим банком</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="как-работает-merchant-portal-основные-функции">Как работает Merchant Portal: основные функции</h2>
+
+<p>Интерфейс портала разделён на несколько ключевых разделов, каждый из которых отвечает за определённые задачи. Рассмотрим основные:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Раздел</th>
+      <th>Назначение</th>
+      <th>Примеры действий</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Дашборд</strong></td>
+      <td>Общая статистика по платежам</td>
+      <td>Просмотр объёма транзакций за день/неделю, среднего чека, динамики продаж</td>
+    </tr>
+    <tr>
+      <td><strong>Транзакции</strong></td>
+      <td>История всех платежей</td>
+      <td>Фильтрация по статусу (успешные, отклонённые), поиск по номеру карты или сумме</td>
+    </tr>
+    <tr>
+      <td><strong>Терминалы</strong></td>
+      <td>Управление POS-устройствами</td>
+      <td>Активация/блокировка терминалов, настройка лимитов, прошивка</td>
+    </tr>
+    <tr>
+      <td><strong>Chargeback</strong></td>
+      <td>Работа со спорными платежами</td>
+      <td>Просмотр претензий, загрузка доказательств, обжалование возвратов</td>
+    </tr>
+    <tr>
+      <td><strong>Отчёты</strong></td>
+      <td>Аналитика и экспорт данных</td>
+      <td>Формирование выписок по МСС-кодам, экспорт в Excel для бухгалтерии</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Одна из самых востребованных функций — <strong>мониторинг chargeback</strong>. Если клиент оспорил платеж (например, заявил, что не получал товар), банк списывает деньги со счёта мерчанта и инициирует разбирательство. В <em>Merchant Portal</em> вы увидите уведомление о споре и сможете:</p>
+<ul>
+  <li>📂 Загрузить доказательства (чеки, скриншоты переписки, данные трекинга);</li>
+  <li>⏳ Отслеживать статус рассмотрения;</li>
+  <li>💬 Общаться с банком через встроенный чат.</li>
+</ul>
+
+<p>Ещё один полезный инструмент — <strong>настройка уведомлений</strong>. Вы можете получать оповещения по email или SMS о:</p>
+<ul>
+  <li>🔴 Отклонённых транзакциях (например, из-за нехватки средств на карте клиента);</li>
+  <li>🟡 Подозрительных платежах (попытках мошенничества);</li>
+  <li>🟢 Успешных автоплатежах (для подписок).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если ваш бизнес работает с предоплатой (например, бронирование отелей или билетов), в Merchant Portal можно настроить <strong>отложенный захват средств</strong> (auth + capture). Это снизит риск chargeback, так как деньги спишутся только после подтверждения услуги.</p></div>
+
+<h2 id="как-зарегистрироваться-в-merchant-portal-втб">Как зарегистрироваться в Merchant Portal ВТБ</h2>
+
+<p>Чтобы получить доступ к порталу, ваш бизнес должен быть <strong>подключён к эквайрингу ВТБ</strong>. Если это ещё не сделано, сначала обратитесь в банк для оформления договора. После подключения регистрация в <em>Merchant Portal</em> займёт не более 10 минут.</p>
+
+
+<p>Получите логин и пароль от банка (приходят на email или SMS)|Перейдите на сайт <a href="https://merchant.vtb.ru">merchant.vtb.ru</a>|Введите учётные данные в форму авторизации|Настройте двухфакторную аутентификацию (по SMS или через приложение ВТБ)|Подтвердите доступ по email (придёт письмо со ссылкой)--></p>
+
+<p>Если вы не получили данные для входа, свяжитесь с менеджером ВТБ или поддержкой эквайринга по телефону <code>8 800 100-24-24</code> (звонок бесплатный). Вам понадобятся:</p>
+<ul>
+  <li>📄 Реквизиты вашей компании (ИНН, ОГРН);</li>
+  <li>🔑 Номер договора эквайринга;</li>
+  <li>📱 Контактный телефон, указанный при подключении.</li>
+</ul>
+
+<p>После первого входа система предложит <strong>сменить временный пароль</strong> на постоянный. Придумайте надёжную комбинацию (не менее 8 символов, с цифрами и заглавными буквами). Также рекомендуем:</p>
+<ul>
+  <li>🔐 Включить <strong>двухфакторную аутентификацию</strong> (2FA) — это защитит аккаунт от взлома;</li>
+  <li>📋 Сохранить резервные коды доступа (их можно скачать в настройках безопасности);</li>
+  <li>🚫 Не использовать один пароль для других сервисов.</li>
+</ul>
+
+<details class="faq-item"><summary>Что делать, если не приходит SMS с кодом?</summary><div class="faq-answer"><p>Если код подтверждения не приходит, проверьте:
+<p>- Правильно ли указан номер телефона в профиле;</p>
+<p>- Нет ли блокировки SMS от банка (иногда операторы задерживают сообщения);</p>
+<p>- Попробуйте запросить код повторно через 1–2 минуты.</p>
+<p>Если проблема сохраняется, обратитесь в поддержку ВТБ по телефону <code>8 800 100-24-24</code> (выберите опцию «Эквайринг»).</p></div></details></p>
+
+<h2 id="настройка-merchant-portal-пошаговая-инструкция">Настройка Merchant Portal: пошаговая инструкция</h2>
+
+<p>После регистрации необходимо настроить портал под нужды вашего бизнеса. Рассмотрим ключевые шаги:</p>
+
+<h3>1. Подключение терминалов</h3>
+<p>Если вы используете <strong>POS-терминалы</strong> (например, <em>Ingenico</em> или <em>Verifone</em>), их нужно привязать к аккаунту:</p>
+<ol>
+  <li>Перейдите в раздел <code>Терминалы → Список устройств</code>;</li>
+  <li>Нажмите <code>Добавить терминал</code>;</li>
+  <li>Введите серийный номер устройства (указан на корпусе или в документах);</li>
+  <li>Подтвердите привязку через SMS.</li>
+</ol>
+
+<p>Для <strong>онлайн-эквайринга</strong> (приём платежей на сайте) потребуется:</p>
+<ul>
+  <li>🔗 Интегрировать <em>ВТБ Платежный виджет</em> или API;</li>
+  <li>🔑 Получить тестовые и рабочие ключи доступа (выдаёт банк);</li>
+  <li>🛠️ Проверить корректность работы через <code>Песочницу</code> (test-режим).</li>
+</ul>
+
+<h3>2. Настройка уведомлений</h3>
+<p>Чтобы не пропускать важные события, настройте оповещения:</p>
+<ol>
+  <li>Перейдите в <code>Настройки → Уведомления</code>;</li>
+  <li>Выберите события (например, «Новый chargeback» или «Отклонённая транзакция»);</li>
+  <li>Укажите email и/или телефон для получения alerts;</li>
+  <li>Сохраните изменения.</li>
+</ol>
+
+<h3>3. Формирование отчётов</h3>
+<p>В разделе <code>Отчёты</code> можно:</p>
+<ul>
+  <li>📅 Выгрузить историю транзакций за любой период;</li>
+  <li>📊 Сгруппировать данные по терминалам, типам карт или МСС-кодам;</li>
+  <li>📥 Экспортировать отчёты в <code>Excel</code> или <code>PDF</code> для бухгалтерии.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Регулярно проверяйте раздел <strong>Chargeback</strong> — у вас есть <mark>лишь 7–10 дней</mark>, чтобы оспорить необоснованный возврат средств. Пропуск срока автоматически означает проигрыш спора.</p></div>
+
+<h2 id="как-работать-с-chargeback-в-merchant-portal">Как работать с chargeback в Merchant Portal</h2>
+
+<p><strong>Chargeback</strong> (или «спорный платеж») — это возврат средств на карту клиента по его требованию. Чаще всего это происходит, если:</p>
+<ul>
+  <li>🛒 Клиент не получил товар/услугу;</li>
+  <li>💳 Платеж был совершён без согласия владельца карты (мошенничество);</li>
+  <li>📦 Товар не соответствует описанию;</li>
+  <li>🔄 Произошла техническая ошибка (например, двойное списание).</li>
+</ul>
+
+<p>В <em>Merchant Portal</em> вы увидите уведомление о новом chargeback в разделе <code>Спорные платежи</code>. Алгоритм действий:</p>
+
+<ol>
+  <li><strong>Изучите причину спора</strong> (она указана в деталях транзакции).</li>
+  <li><strong>Соберите доказательства</strong>:
+    <ul>
+      <li>📄 Копия чека или квитанции;</li>
+      <li>📦 Фото/видео товара (если спор по качеству);</li>
+      <li>📱 Скриншоты переписки с клиентом;</li>
+      <li>🚚 Данные трекинга доставки (если товар отправлялся курьером).</li>
+    </ol>
+  </li>
+  <li><strong>Загрузите документы</strong> в портал через кнопку <code>Ответить на спор</code>.</li>
+  <li><strong>Отслеживайте статус</strong> — банк рассмотрит ваши доказательства в течение 30 дней.</li>
+</ol>
+
+<p>Если спор решён в вашу пользу, деньги будут возвращены на счёт. Если нет — сумма спишется окончательно.</p>
+
+
+<p>- <strong>3D-Secure</strong> (подтверждение платежа по SMS);</p>
+<p>- Чёткие <strong>условия возврата</strong> на сайте/в чеках;</p>
+<p>- <strong>Трекинг-номера</strong> для отправлений (доказательство доставки).--></p>
+
+<h2 id="мобильное-приложение-merchant-portal-возможности-и-ограничения">Мобильное приложение Merchant Portal: возможности и ограничения</h2>
+
+<p>ВТБ предлагает <strong>мобильное приложение</strong> для <em>Merchant Portal</em>, доступное на <em>Android</em> и <em>iOS</em>. Оно дублирует основные функции веб-версии, но с некоторыми ограничениями.</p>
+
+<p><strong>Что можно делать в приложении:</strong></p>
+<ul>
+  <li>📱 Просматривать историю транзакций;</li>
+  <li>🔔 Получать push-уведомления о новых платежах или спорах;</li>
+  <li>📊 Видеть базовую статистику (оборот, количество платежей);</li>
+  <li>🔒 Блокировать терминалы в случае утери или кражи.</li>
+</ul>
+
+<p><strong>Чего нельзя сделать в мобильной версии:</strong></p>
+<ul>
+  <li>❌ Загружать документы для оспаривания chargeback (только через веб);</li>
+  <li>❌ Настраивать сложные отчёты с фильтрами;</li>
+  <li>❌ Интегрировать онлайн-эквайринг (требуется ПК).</li>
+</ul>
+
+<p>Приложение удобно для <strong>оперативного мониторинга</strong>, но для полноценной работы лучше использовать десктопную версию.</p>
+
+<div class="poll-widget" id="poll-d862f8f9"><div class="poll-widget-question">📊 Пользуетесь ли вы мобильным приложением Merchant Portal?</div><div class="poll-widget-option" data-poll="d862f8f9" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, регулярно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="d862f8f9" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Только для уведомлений</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="d862f8f9" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет, работаю через браузер</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="d862f8f9" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Не знал о его существовании</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="частые-проблемы-и-ошибки-в-merchant-portal">Частые проблемы и ошибки в Merchant Portal</h2>
+
+<p>При работе с порталом пользователи сталкиваются с типичными сложностями. Рассмотрим самые распространённые и способы их решения:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Проблема</th>
+      <th>Возможная причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Не удаётся войти в аккаунт</td>
+      <td>Неверный логин/пароль или блокировка</td>
+      <td>Восстановите пароль через <code>Забыли пароль?</code> или обратитесь в поддержку</td>
+    </tr>
+    <tr>
+      <td>Терминал не отображается в списке</td>
+      <td>Устройство не привязано к аккаунту</td>
+      <td>Добавьте терминал вручную по серийному номеру или свяжитесь с банком</td>
+    </tr>
+    <tr>
+      <td>Платежи не проходят (ошибка "Отказано")</td>
+      <td>Лимит по терминалу исчерпан или проблемы с банком-эмитентом</td>
+      <td>Проверьте лимиты в настройках терминала или запросите увеличение в ВТБ</td>
+    </tr>
+    <tr>
+      <td>Не приходят уведомления</td>
+      <td>Неверно настроены оповещения или блокировка email/SMS</td>
+      <td>Проверьте раздел <code>Настройки → Уведомления</code> и "белый список" у оператора</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Если проблема не решается самостоятельно, свяжитесь с <strong>службой поддержки эквайринга ВТБ</strong>:</p>
+<ul>
+  <li>📞 Телефон: <code>8 800 100-24-24</code> (круглосуточно);</li>
+  <li>✉️ Email: <code>merchant@vtb.ru</code>;</li>
+  <li>💬 Чат в личном кабинете (раздел <code>Поддержка</code>).</li>
+</ul>
+
+<details class="faq-item"><summary>Что делать, если терминал заблокирован?</summary><div class="faq-answer"><p>Если POS-терминал внезапно перестал работать (показывает "Заблокирован"), причины могут быть следующими:
+<p>- <strong>Подозрительные транзакции</strong> (банк временно приостановил работу);</p>
+<p>- <strong>Просроченное обслуживание</strong> (необходимо обновить ПО);</p>
+<p>- <strong>Техническая неисправность</strong>.</p>
+<p>Для разблокировки позвоните в поддержку ВТБ или обратитесь в ближайший офис банка с паспортом и договором эквайринга.</p></div></details></p>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-merchant-portal-втб">FAQ: ответы на частые вопросы о Merchant Portal ВТБ</h2>
+
+<details>
+  <summary>🔹 Можно ли подключить Merchant Portal без договора эквайринга?</summary>
+  <p>Нет, <em>Merchant Portal</em> доступен только для клиентов ВТБ, подключённых к эквайрингу. Если у вас ещё нет договора, сначала оформите его в банке.</p>
+</details>
+
+<details>
+  <summary>🔹 Сколько стоит пользование Merchant Portal?</summary>
+  <p>Сам портал бесплатный, но за эквайринг взимается комиссия (обычно 1,5–3% от суммы платежа, в зависимости от тарифа). Уточните условия в своём договоре с ВТБ.</p>
+</details>
+
+<details>
+  <summary>🔹 Как часто обновляются данные о транзакциях?</summary>
+  <p>Информация в <em>Merchant Portal</em> обновляется в реальном времени. Задержки возможны только при технических работах (обычно ночью).</p>
+</details>
+
+<details>
+  <summary>🔹 Можно ли интегрировать Merchant Portal с 1С или другими системами?</summary>
+  <p>Да, ВТБ предоставляет <strong>API для интеграции</strong> с бухгалтерскими программами (1С, MyBusiness) и CRM. Для настройки обратитесь к своему менеджеру в банке.</p>
+</details>
+
+<details>
+  <summary>🔹 Что делать, если клиент оспорил платеж, но товар был доставлен?</summary>
+  <p>Загрузите в <em>Merchant Portal</em> доказательства доставки: фото товара, акт приёма-передачи, данные трекинга. Банк рассмотрит их и примет решение в вашу пользу, если документы корректны.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-merchant-portal-втб-и-для-чего-он-нужен">Что такое Merchant Portal ВТБ и для чего он нужен</a></li><li><a href="#как-работает-merchant-portal-основные-функции">Как работает Merchant Portal: основные функции</a></li><li><a href="#как-зарегистрироваться-в-merchant-portal-втб">Как зарегистрироваться в Merchant Portal ВТБ</a></li><li><a href="#настройка-merchant-portal-пошаговая-инструкция">Настройка Merchant Portal: пошаговая инструкция</a></li><li><a href="#как-работать-с-chargeback-в-merchant-portal">Как работать с chargeback в Merchant Portal</a></li><li><a href="#мобильное-приложение-merchant-portal-возможности-и-ограничения">Мобильное приложение Merchant Portal: возможности и ограничения</a></li><li><a href="#частые-проблемы-и-ошибки-в-merchant-portal">Частые проблемы и ошибки в Merchant Portal</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-merchant-portal-втб">FAQ: ответы на частые вопросы о Merchant Portal ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-raspechatat-platezhnoe-poruchenie-vtb.html" class="related-card">Как распечатать платежное поручение в ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-podklyuchit-avtoplatezh-na-tele2-s-karty-vtb.html" class="related-card">Автоплатеж Tele2 с карты ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/s/sc/schet-oplaty-nalogov-vtb-chto-eto.html" class="related-card">Счёт оплаты налогов в ВТБ: что это и как им пользоваться в 2026 году</a></li><li><a href="/articles/n/na/naznachenie-platezha-pri-oplate-kommunalnykh-uslug-cherez-vtb-chto-pisat.html" class="related-card">Назначение платежа за ЖКХ через ВТБ: образцы и правила 2026</a></li><li><a href="/articles/k/ka/kak-cherez-vtb-onlajn-oplatit-kommunalnye-uslugi-po-shtrikh-kodu.html" class="related-card">Оплата ЖКХ через ВТБ Онлайн по штрих-коду: пошаговая инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-raspechatat-platezhnoe-poruchenie-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как распечатать платежное поручение в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по печати платежного поручения в ВТБ Онлайн, мобильном приложении и офисе банк</span></a><a href="/articles/k/ka/kak-podklyuchit-avtoplatezh-na-tele2-s-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Автоплатеж Tele2 с карты ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как подключить автоплатеж для пополнения Tele2 с карты ВТБ: способы, комиссии, ограничения и решение</span></a><a href="/articles/s/sc/schet-oplaty-nalogov-vtb-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">Счёт оплаты налогов в ВТБ: что это и как им пользоваться в 2026 году</span><span class="related-bottom-desc">Разбираемся, что такое счёт для уплаты налогов в ВТБ, как его открыть, пополнить и использовать для </span></a><a href="/articles/n/na/naznachenie-platezha-pri-oplate-kommunalnykh-uslug-cherez-vtb-chto-pisat.html" class="related-bottom-card"><span class="related-bottom-title">Назначение платежа за ЖКХ через ВТБ: образцы и правила 2026</span><span class="related-bottom-desc">Как правильно заполнить поле «назначение платежа» при оплате коммунальных услуг через ВТБ Онлайн или</span></a><a href="/articles/k/ka/kak-cherez-vtb-onlajn-oplatit-kommunalnye-uslugi-po-shtrikh-kodu.html" class="related-bottom-card"><span class="related-bottom-title">Оплата ЖКХ через ВТБ Онлайн по штрих-коду: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как быстро оплатить коммунальные услуги по штрих-коду через ВТБ Онлайн: детальная инструкция с фото,</span></a><a href="/articles/k/ka/kak-popolnit-kartu-trojka-s-mobilnogo-cherez-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить карту «Тройка» через ВТБ Онлайн с телефона в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция по пополнению транспортной карты «Тройка» через мобильное приложение ВТБ. Спосо</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

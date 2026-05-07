@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как подключить QScalp к QUIK ВТБ: пошаговая инструкция 2026 — Банки Инфо</title>
+    <meta name="description" content="Детальное руководство по интеграции QScalp с терминалом QUIK от ВТБ: настройка соединения, экспорт данных, решение ошибок и оптимизация для скальпинга.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-podklyuchit-qscalp-k-quik-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить QScalp к QUIK ВТБ: пошаговая инструкция 2026">
+    <meta property="og:description" content="Детальное руководство по интеграции QScalp с терминалом QUIK от ВТБ: настройка соединения, экспорт данных, решение ошибок и оптимизация для скальпинга.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить QScalp к QUIK ВТБ: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Подключение QScalp к QUIK ВТБ: полное руководство для трейдеров</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-подготовка-что-нужно-для-подключения">1. Подготовка: что нужно для подключения</a></li><li><a href="#2-установка-qscalpconnector-пошаговая-инструкция">2. Установка QScalpConnector: пошаговая инструкция</a></li><li><a href="#3-настройка-qscalp-для-работы-с-quik">3. Настройка QScalp для работы с QUIK</a></li><li><a href="#4-синхронизация-стакана-и-сделок-тонкие-настройки">4. Синхронизация стакана и сделок: тонкие настройки</a></li><li><a href="#5-типичные-ошибки-и-их-решения">5. Типичные ошибки и их решения</a></li><li><a href="#6-оптимизация-соединения-для-скальпинга">6. Оптимизация соединения для скальпинга</a></li><li><a href="#7-автоматизация-торговли-отправка-заявок-из-qscalp">7. Автоматизация торговли: отправка заявок из QScalp</a></li><li><a href="#8-альтернативные-способы-подключения">8. Альтернативные способы подключения</a></li><li><a href="#faq-частые-вопросы-по-подключению">FAQ: Частые вопросы по подключению</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Торговый терминал <em>QScalp</em> и платформа <em>QUIK</em> от <strong>ВТБ</strong> — популярное сочетание среди скальперов и внутридневных трейдеров на российском рынке. Однако их интеграция часто вызывает вопросы у новичков: от настроек подключения до синхронизации стаканов и сделок. В этой статье разберём <strong>все этапы соединения</strong> двух платформ — от установки драйверов до тонкой настройки экспорта данных, а также рассмотрим типичные ошибки и способы их устранения.</p>
+
+<p>Важно понимать, что <em>QScalp</em> не является официальным продуктом <strong>ВТБ</strong>, поэтому его подключение требует ручной настройки через <code>LUA-скрипты</code> в <em>QUIK</em>. Готовых "плагинов" для автоматической интеграции не существует — вся магию обеспечивает правильно настроенный <code>QScalpConnector</code>. Если вы ранее не работали с <em>LUA</em> или настройками <em>QUIK</em>, рекомендуем внимательно следовать инструкциям, чтобы избежать ошибок при передаче данных.</p>
+
+<p>Статья актуальна для версий:
+<ul>
+  <li>🔹 <em>QUIK</em> 10.5.0.1 и выше (включая последнюю стабильную сборку от ВТБ)</li>
+  <li>🔹 <em>QScalp</em> 2.6.0+ (с поддержкой протокола <code>QS_API</code>)</li>
+  <li>🔹 ОС Windows 10/11 (64-bit)</li>
+</ul>
+</p>
+
+<h2 id="1-подготовка-что-нужно-для-подключения">1. Подготовка: что нужно для подключения</h2>
+
+<p>Прежде чем приступать к настройке, убедитесь, что у вас установлены и обновлены все необходимые компоненты. Без них интеграция <em>QScalp</em> и <em>QUIK</em> просто невозможна.</p>
+
+<p>Основные требования:
+<ul>
+  <li>📥 <strong>Установленный терминал QUIK</strong> от ВТБ с действующим логином/паролем (demo-версия не подойдёт для реальной торговли).</li>
+  <li>🖥️ <strong>QScalp</strong> последней версии (скачать можно на <a href="https://qscalp.com" target="_blank">официальном сайте</a>).</li>
+  <li>🔧 <strong>LUA 5.1</strong> (входит в комплект <em>QUIK</em>, но иногда требует ручной регистрации в системе).</li>
+  <li>📂 <strong>Права администратора</strong> на ПК для установки драйверов и изменения реестра (если потребуется).</li>
+</ul>
+</p>
+
+<p>Особое внимание уделите <strong>версии QUIK</strong>: некоторые сборки от брокеров (например, <em>ВТБ Капитал</em>) могут иметь ограничения на подключение сторонних скриптов. Если ваш терминал выдаёт ошибку <code>Access denied</code> при запуске <code>LUA</code>, обратитесь в поддержку брокера за разблокировкой.</p>
+
+<div class="poll-widget" id="poll-5e6ebea9"><div class="poll-widget-question">📊 Какой брокер предоставляет вам QUIK?</div><div class="poll-widget-option" data-poll="5e6ebea9" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">ВТБ</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="5e6ebea9" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Открытие</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="5e6ebea9" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Финам</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="5e6ebea9" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Тинькофф</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="5e6ebea9" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Другой</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="2-установка-qscalpconnector-пошаговая-инструкция">2. Установка QScalpConnector: пошаговая инструкция</h2>
+
+<p><code>QScalpConnector</code> — это мостик между <em>QUIK</em> и <em>QScalp</em>, который преобразует данные стакана и сделок в формат, понятный скальперскому терминалу. Его установка состоит из трёх этапов: скачивание файлов, настройка <em>QUIK</em> и запуск соединения.</p>
+
+<p>Следуйте алгоритму:
+<ol>
+  <li><strong>Скачайте архив с коннектором</strong> с <a href="https://github.com/QScalp/QUIK-Connector" target="_blank">GitHub</a> (выбирайте последнюю стабильную версию).</li>
+  <li><strong>Распакуйте файлы</strong> в папку <code>C:\QUIK\LuaScripts\</code> (создайте её, если не существует).</li>
+  <li><strong>Запустите QUIK</strong> и откройте <code>Таблица текущих торгов → LUA-скрипты</code>.</li>
+  <li><strong>Добавьте скрипт</strong> <code>QScalpConnector.lua</code> через меню <code>Файл → Открыть скрипт</code>.</li>
+</ol>
+</p>
+
+
+<p>Загружены все файлы из репозитория|Папка LuaScripts доступна для записи|QUIK запущен от имени администратора|В настройках QUIK разрешён запуск LUA-скриптов--></p>
+
+<p>После добавления скрипта в <em>QUIK</em> появится новое окно <code>QScalp Connector</code>. Здесь нужно указать:
+<ul>
+  <li>🔢 <strong>Порт подключения</strong> (по умолчанию <code>34130</code>, но можно изменить, если порт занят).</li>
+  <li>📌 <strong>Класс активов</strong> (например, <code>TQBR</code> для акций Мосбиржи).</li>
+  <li>🔄 <strong>Режим синхронизации</strong> (<code>Full</code> для полной передачи стакана, <code>Light</code> — только цены).</li>
+</ul>
+</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если после запуска коннектора в QScalp не отображаются инструменты, проверьте, что в QUIK подключены котировки для нужного класса активов (например, TQBR для акций). Для этого перейдите в <code>Настройки → Таблицы → Текущие торги</code> и добавьте недостающие инструменты.</p></div>
+
+<h2 id="3-настройка-qscalp-для-работы-с-quik">3. Настройка QScalp для работы с QUIK</h2>
+
+<p>Теперь переходим к настройке <em>QScalp</em>. Здесь критично правильно указать параметры подключения, чтобы терминал "увидел" данные из <em>QUIK</em>.</p>
+
+<p>Откройте <em>QScalp</em> и выполните шаги:
+<ol>
+  <li>Перейдите в <code>Настройки → Подключения → Добавить новое подключение</code>.</li>
+  <li>Выберите тип <code>QUIK (QScalp Connector)</code>.</li>
+  <li>Укажите:
+    <ul>
+      <li>📍 <strong>Адрес сервера</strong>: <code>127.0.0.1</code> (локальный хост).</li>
+      <li>🔢 <strong>Порт</strong>: тот же, что в <code>QScalpConnector.lua</code> (по умолчанию <code>34130</code>).</li>
+      <li>🔑 <strong>Имя пользователя</strong>: любое (например, <code>QUIK_VTB</code>).</li>
+    </ol>
+  </li>
+  <li>Нажмите <code>Подключиться</code>.</li>
+</ol>
+</p>
+
+<p>Если соединение установлено успешно, в нижней панели <em>QScalp</em> появится зелёный индикатор <code>Connected</code>, а в таблице инструментов — список доступных бумаг из <em>QUIK</em>. Если индикатор красный (<code>Disconnected</code>), проверьте:</p>
+
+<ul>
+  <li>🔌 <strong>Запущен ли QUIK</strong> и активен ли скрипт <code>QScalpConnector.lua</code>.</li>
+  <li>🔒 <strong>Не блокирует ли фаервол</strong> порт <code>34130</code> (добавьте исключение для <em>QUIK</em> и <em>QScalp</em>).</li>
+  <li>📡 <strong>Совпадают ли порты</strong> в настройках <em>QScalp</em> и <code>QScalpConnector.lua</code>.</li>
+</ul>
+
+<details class="faq-item"><summary>Что делать, если QScalp не видит инструменты?</summary><div class="faq-answer"><p>
+<p>Если в QScalp отображается подключение, но список инструментов пуст, причины могут быть следующими:</p>
+<p>1. В QUIK не подключены котировки для выбранного класса активов (например, TQBR).</p>
+<p>2. В скрипте QScalpConnector.lua неверно указан класс активов (проверьте строку `ClassCode = "TQBR"`).</p>
+<p>3. В настройках QScalp не выбран правильный класс в фильтре инструментов.</p>
+<p>Решение: откройте в QUIK таблицу "Текущие торги", добавьте нужные инструменты, затем перезапустите коннектор.</p></div></details></p>
+
+<h2 id="4-синхронизация-стакана-и-сделок-тонкие-настройки">4. Синхронизация стакана и сделок: тонкие настройки</h2>
+
+<p>По умолчанию <code>QScalpConnector</code> передаёт в <em>QScalp</em> только цены <code>Bid/Ask</code> и последние сделки. Для полноценного скальпинга потребуется настроить глубину стакана и фильтрацию данных.</p>
+
+<p>Откройте файл <code>QScalpConnector.lua</code> в любом текстовом редакторе (например, <em>Notepad++</em>) и найдите следующие параметры:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>Значение по умолчанию</th>
+      <th>Рекомендуемое значение</th>
+      <th>Описание</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>DEPTH</code></td>
+      <td><code>5</code></td>
+      <td><code>10</code></td>
+      <td>Глубина стакана (количество лучших заявок Bid/Ask)</td>
+    </tr>
+    <tr>
+      <td><code>SEND_TRADES</code></td>
+      <td><code>true</code></td>
+      <td><code>true</code></td>
+      <td>Передача информации о сделках</td>
+    </tr>
+    <tr>
+      <td><code>SEND_ORDERBOOK</code></td>
+      <td><code>true</code></td>
+      <td><code>true</code></td>
+      <td>Передача стакана заявок</td>
+    </tr>
+    <tr>
+      <td><code>FILTER_BY_VOLUME</code></td>
+      <td><code>false</code></td>
+      <td><code>true</code></td>
+      <td>Фильтрация мелких сделок (полезно для чистоты ленты)</td>
+    </tr>
+    <tr>
+      <td><code>MIN_VOLUME</code></td>
+      <td><code>1</code></td>
+      <td><code>10</code> (для акций)</td>
+      <td>Минимальный объём сделки для отображения</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>После изменения параметров <strong>обязательно перезапустите</strong> скрипт в <em>QUIK</em> (кнопка <code>Stop</code> → <code>Run</code>). В <em>QScalp</em> обновление данных произойдёт автоматически через 1–2 секунды.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для скальпинга на ликвидных акциях (например, Сбербанк, Газпром) рекомендуется установить глубину стакана <code>DEPTH = 20</code> и включить фильтрацию сделок по объёму (<code>MIN_VOLUME = 50</code>). Это снизит нагрузку на терминал и уберёт рыночный шум.</p></div>
+
+<h2 id="5-типичные-ошибки-и-их-решения">5. Типичные ошибки и их решения</h2>
+
+<p>Даже при правильной настройке подключение может работать нестабильно. Ниже — <strong>самые распространённые проблемы</strong> и способы их устранения.</p>
+
+<p><strong>Ошибка 1: "Connection refused" в QScalp</strong></p>
+<ul>
+  <li>🔹 <strong>Причина</strong>: порт <code>34130</code> занят другим процессом или заблокирован.</li>
+  <li>🔹 <strong>Решение</strong>:
+    <ol>
+      <li>Проверьте порт через команду <code>netstat -ano | findstr 34130</code> в <code>CMD</code>.</li>
+      <li>Если порт занят, измените его в <code>QScalpConnector.lua</code> и в настройках <em>QScalp</em>.</li>
+      <li>Отключите фаервол или добавьте исключения для <code>quik.exe</code> и <code>qscalp.exe</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Ошибка 2: Данные в QScalp обновляются с задержкой</strong></p>
+<ul>
+  <li>🔹 <strong>Причина</strong>: высокая нагрузка на <em>QUIK</em> или медленное интернет-соединение.</li>
+  <li>🔹 <strong>Решение</strong>:
+    <ul>
+      <li>Уменьшите глубину стакана (<code>DEPTH</code>) в скрипте.</li>
+      <li>Отключите передачу ненужных классов активов.</li>
+      <li>Закройте другие ресурсоёмкие приложения (например, <em>MetaTrader</em> или браузер с множеством вкладок).</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Ошибка 3: В QScalp не отображаются сделки</strong></p>
+<ul>
+  <li>🔹 <strong>Причина</strong>: в <em>QUIK</em> не подключена таблица сделок или отключён параметр <code>SEND_TRADES</code>.</li>
+  <li>🔹 <strong>Решение</strong>:
+    <ol>
+      <li>В <em>QUIK</em> откройте таблицу <code>Все сделки</code> для нужного инструмента.</li>
+      <li>Убедитесь, что в <code>QScalpConnector.lua</code> стоит <code>SEND_TRADES = true</code>.</li>
+      <li>Перезапустите скрипт.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если после всех манипуляций данные в QScalp обновляются рывками, попробуйте в настройках QUIK отключить визуализацию графиков (меню <code>Настройки → Графики → Отключить отрисовку</code>). Это снизит нагрузку на процессор.</p></div>
+
+<h2 id="6-оптимизация-соединения-для-скальпинга">6. Оптимизация соединения для скальпинга</h2>
+
+<p>Для высокочастотного трейдинга стандартные настройки <code>QScalpConnector</code> могут быть недостаточными. Рассмотрим, как <strong>уменьшить задержки</strong> и повысить стабильность соединения.</p>
+
+<p><strong>Способы оптимизации:</strong>
+<ul>
+  <li>🚀 <strong>Используйте проводное подключение к интернету</strong> (Wi-Fi добавляет 10–50 мс задержки).</li>
+  <li>⚡ <strong>Отключите ненужные инструменты</strong> в <em>QUIK</em>: оставьте только те бумаги, которые торгуете.</li>
+  <li>🔧 <strong>Настройте приоритет процесса</strong>:
+    <ol>
+      <li>Откройте <code>Диспетчер задач</code> (Ctrl+Shift+Esc).</li>
+      <li>Найдите процессы <code>quik.exe</code> и <code>qscalp.exe</code>.</li>
+      <li>Установите приоритет <code>Высокий</code> (правый клик → <code>Задать приоритет</code>).</li>
+    </ul>
+  </li>
+  <li>📊 <strong>Уменьшите частоту обновления графиков</strong> в <em>QScalp</em> (меню <code>Настройки → Графики → Интервал обновления</code>).</li>
+</ul>
+</p>
+
+<p><mark>Критическая рекомендация для скальперов: если вы торгуете на серверах ВТБ в Москве, выберите в настройках QUIK опцию "Подключаться к ближайшему серверу" (меню <code>Настройки → Соединение</code>). Это сократит ping до 1–5 мс вместо 20–30 мс при подключении к резервным серверам.</mark></p>
+
+<p>Для проверки текущей задержки используйте команду в <em>QUIK</em>:
+<pre><code>print("Ping: ", getInfoParam("PING", 1))</code></pre>
+<p>Если значение превышает <code>20 мс</code>, свяжитесь с поддержкой <strong>ВТБ</strong> для диагностики соединения.</p></p>
+
+<h2 id="7-автоматизация-торговли-отправка-заявок-из-qscalp">7. Автоматизация торговли: отправка заявок из QScalp</h2>
+
+<p>Одного подключения данных недостаточно — для полноценной торговли нужно настроить <strong>передачу заявок</strong> из <em>QScalp</em> в <em>QUIK</em>. Это требует дополнительной настройки скрипта.</p>
+
+<p>В файле <code>QScalpConnector.lua</code> найдите блок:
+<pre><code>-- Настройки отправки заявок
+<p>SEND_ORDERS = false  -- измените на true</p>
+<p>ACCOUNT = ""         -- укажите счёт из QUIK (например, "NL00112233")</p>
+</code></pre>
+</p>
+
+<p>После активации этой опции в <em>QScalp</em> появится возможность отправлять заявки напрямую. <strong>Важно:</strong>
+<ul>
+  <li>🔐 Перед первым ордером проверьте, что в <em>QUIK</em> разрешена торговля по API (меню <code>Настройки → Торговля → Разрешить внешние заявки</code>).</li>
+  <li>📝 Убедитесь, что указанный счёт (<code>ACCOUNT</code>) имеет достаточный депозит и открытые позиции.</li>
+  <li>⚠️ <strong>Тестируйте отправку заявок на демо-счёте</strong>, прежде чем использовать реальные деньги.</li>
+</ul>
+</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Чтобы избежать случайных сделок, в QScalp настройте подтверждение отправки ордеров (меню <code>Настройки → Торговля → Запрашивать подтверждение</code>). Это добавит лишний клик, но убережёт от ошибок.</p></div>
+
+<h2 id="8-альтернативные-способы-подключения">8. Альтернативные способы подключения</h2>
+
+<p>Если стандартный <code>QScalpConnector</code> работает нестабильно, рассмотрите альтернативные варианты интеграции:</p>
+
+<p><strong>Способ 1: Использование <em>QPILE</strong> (QUIK Python Interface)</em></p>
+<ul>
+  <li>🐍 Позволяет подключаться к <em>QUIK</em> через <code>Python</code> и передавать данные в <em>QScalp</em> через <code>TCP/IP</code>.</li>
+  <li>🔹 <strong>Плюсы</strong>: высокая гибкость, поддержка кастомизации.</li>
+  <li>🔸 <strong>Минусы</strong>: требует знаний <code>Python</code>.</li>
+</ul>
+
+<p><strong>Способ 2: Платный коннектор <em>QScalp Pro</strong></strong></p>
+<ul>
+  <li>💰 Стоимость: ~5 000 ₽ в месяц.</li>
+  <li>🔹 <strong>Плюсы</em>:
+    <ul>
+      <li>Встроенная поддержка <em>QUIK</em>, <em>Transaq</em>, <em>Plaza 2</em>.</li>
+      <li>Ниже задержки (оптимизированный протокол).</li>
+    </ul>
+  </li>
+  <li>🔸 <strong>Минусы</strong>: платная подписка.</li>
+</ul>
+
+<p><strong>Способ 3: Виртуальный сервер (VPS)</strong></p>
+<ul>
+  <li>🖥️ Аренда VPS рядом с серверами <strong>ВТБ</strong> (например, в дата-центре <em>Selectel</em> или <em>Hetzner</em> в Москве).</li>
+  <li>🔹 <strong>Плюсы</strong>: стабильное соединение, низкий ping.</li>
+  <li>🔸 <strong>Минусы</strong>: дополнительные расходы (~1 500 ₽/мес).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы торгуете на частотах выше 10 сделок в минуту, рассмотрите аренду VPS. Даже с учётом затрат, выигрыш от снижения задержек перекроет стоимость сервера.</p></div>
+
+<h2 id="faq-частые-вопросы-по-подключению">FAQ: Частые вопросы по подключению</h2>
+
+<details>
+  <summary>Можно ли подключить QScalp к QUIK от другого брокера (не ВТБ)?</summary>
+  <p>Да, но могут возникнуть ограничения:
+  <ul>
+    <li>Некоторые брокеры (например, <em>Тинькофф</em>) блокируют <code>LUA-скрипты</code> в своих сборках <em>QUIK</em>.</li>
+    <li>В <em>Открытие</em> или <em>Финам</em> подключение работает без ограничений, но требуется проверка настроек фаервола.</li>
+  </ol>
+<p>Перед настройкой уточните у брокера, разрешён ли запуск внешних скриптов.</p></p>
+</details>
+
+<details>
+  <summary>Как проверить, что данные из QUIK корректно передаются в QScalp?</summary>
+  <p>Сравните:
+  <ol>
+    <li>Цены <code>Bid/Ask</code> в <em>QUIK</em> (таблица "Текущие торги") и <em>QScalp</em> (окно "Стакан").</li>
+    <li>Последнюю сделку в ленте <em>QUIK</em> и в таблице "Тиковые данные" в <em>QScalp</em>.</li>
+    <li>Глубину стакана: в <em>QScalp</em> должно отображаться столько же уровней, сколько задано в параметре <code>DEPTH</code>.</li>
+  </ol>
+<p>Если данные расходятся более чем на 1 тик, проверьте настройки <code>QScalpConnector.lua</code>.</p></p>
+</details>
+
+<details>
+  <summary>Почему QScalp "завис" и перестал обновлять данные?</summary>
+  <p>Вероятные причины:
+  <ul>
+    <li><strong>QUIK перестал отправлять данные</strong> (проверьте, не "завис" ли терминал — попробуйте обновить котировки вручную).</li>
+    <li><strong>Ошибка в скрипте</strong> (откройте консоль <code>LUA</code> в <em>QUIK</em> и посмотрите логи).</li>
+    <li><strong>Перегрузка канала</strong> (закройте другие приложения, использующие интернет).</li>
+  </ul>
+  <strong>Первое действие</strong>: перезапустите <code>QScalpConnector.lua</code> (кнопка <code>Stop</code> → <code>Run</code>).</p>
+</details>
+
+<details>
+  <summary>Можно ли торговать с телефона через QScalp + QUIK?</summary>
+  <p>Технически возможно, но <strong>крайне не рекомендуется</strong>:
+  <ul>
+    <li>📱 На Android/iOS нет официальных версий <em>QScalp</em> или <em>QUIK</em>.</li>
+    <li>🖥️ Потребуется удалённый доступ к ПК (через <em>TeamViewer</em> или <em>RDP</em>), что добавляет задержки.</li>
+    <li>⚠️ Риск случайных сделок из-за нестабильного соединения.</li>
+  </ul>
+<p>Альтернатива: используйте мобильный <em>QUIK</em> от ВТБ для мониторинга и <em>QScalp</em> на ПК для торговли.</p></p>
+</details>
+
+<details>
+  <summary>Как обновить QScalpConnector до последней версии?</summary>
+  <p>Инструкция:
+  <ol>
+    <li>Скачайте новую версию скрипта с <a href="https://github.com/QScalp/QUIK-Connector" target="_blank">GitHub</a>.</li>
+    <li>Закройте <em>QUIK</em> и <em>QScalp</em>.</li>
+    <li>Замените старые файлы в <code>C:\QUIK\LuaScripts\</code> новыми.</li>
+    <li>Запустите <em>QUIK</em>, откройте скрипт и проверьте версию в логе (должна совпадать с последней на GitHub).</li>
+  </ol>
+  <strong>Внимание</strong>: перед обновлением сделайте резервную копию старой версии скрипта!</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#1-подготовка-что-нужно-для-подключения">1. Подготовка: что нужно для подключения</a></li><li><a href="#2-установка-qscalpconnector-пошаговая-инструкция">2. Установка QScalpConnector: пошаговая инструкция</a></li><li><a href="#3-настройка-qscalp-для-работы-с-quik">3. Настройка QScalp для работы с QUIK</a></li><li><a href="#4-синхронизация-стакана-и-сделок-тонкие-настройки">4. Синхронизация стакана и сделок: тонкие настройки</a></li><li><a href="#5-типичные-ошибки-и-их-решения">5. Типичные ошибки и их решения</a></li><li><a href="#6-оптимизация-соединения-для-скальпинга">6. Оптимизация соединения для скальпинга</a></li><li><a href="#7-автоматизация-торговли-отправка-заявок-из-qscalp">7. Автоматизация торговли: отправка заявок из QScalp</a></li><li><a href="#8-альтернативные-способы-подключения">8. Альтернативные способы подключения</a></li><li><a href="#faq-частые-вопросы-по-подключению">FAQ: Частые вопросы по подключению</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kakie-pify-v-vtb.html" class="related-card">Какие ПИФы есть в ВТБ в 2026 году: полный список фондов и условия</a></li><li><a href="/articles/k/ka/kak-zarabotat-na-obligatsiyakh-vtb-investitsii.html" class="related-card">Как заработать на облигациях ВТБ Инвестиции в 2026 году: пошаговый гайд</a></li><li><a href="/articles/c/ch/chto-takoe-brokerskij-schet-v-vtb-fizicheskomu-litsu.html" class="related-card">Брокерский счет в ВТБ для физических лиц: что это и как открыть</a></li><li><a href="/articles/k/ka/kak-kupit-evro-na-brokerskom-schete-vtb.html" class="related-card">Как купить евро на брокерском счете ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/v/vt/vtb-investitsii-skolko-mozhno-vyvesti-deneg-v-mesyats.html" class="related-card">ВТБ Инвестиции: лимиты вывода денег в месяц в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kakie-pify-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Какие ПИФы есть в ВТБ в 2026 году: полный список фондов и условия</span><span class="related-bottom-desc">Актуальный обзор всех ПИФов ВТБ: сравнение доходности, рисков, комиссий и стратегий. Как выбрать фон</span></a><a href="/articles/k/ka/kak-zarabotat-na-obligatsiyakh-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как заработать на облигациях ВТБ Инвестиции в 2026 году: пошаговый гайд</span><span class="related-bottom-desc">Полное руководство по покупке облигаций через ВТБ Инвестиции: выбор стратегий, расчет доходности, на</span></a><a href="/articles/c/ch/chto-takoe-brokerskij-schet-v-vtb-fizicheskomu-litsu.html" class="related-bottom-card"><span class="related-bottom-title">Брокерский счет в ВТБ для физических лиц: что это и как открыть</span><span class="related-bottom-desc">Полный гид по брокерскому счету ВТБ для физлиц. Тарифы, типы счетов (ИИС, обычный), процесс открытия</span></a><a href="/articles/k/ka/kak-kupit-evro-na-brokerskom-schete-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как купить евро на брокерском счете ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Разбираемся, как приобрести евро через брокерский счёт ВТБ: от открытия счёта до вывода валюты. Тари</span></a><a href="/articles/v/vt/vtb-investitsii-skolko-mozhno-vyvesti-deneg-v-mesyats.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Инвестиции: лимиты вывода денег в месяц в 2026 году</span><span class="related-bottom-desc">Сколько можно вывести с брокерского счёта ВТБ Инвестиции за месяц? Разбираем лимиты, комиссии и нюан</span></a><a href="/articles/v/vt/vtb-pify-chto-budet.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ ПИФы: что будет с фондами и стоит ли инвестировать</span><span class="related-bottom-desc">Анализ перспектив ПИФов ВТБ: прогнозы доходности, влияние санкций, структура портфелей и стратегии д</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

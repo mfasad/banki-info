@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Настройка 1С:ДиректБанк ВТБ: пошаговая инструкция 2026 — Банки Инфо</title>
+    <meta name="description" content="Как подключить и настроить 1С:ДиректБанк ВТБ для бизнеса: регистрация, настройка обмена, решение ошибок. Актуальная инструкция с скриншотами и советами экспертов.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-nastroit-1s-direkt-bank-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Настройка 1С:ДиректБанк ВТБ: пошаговая инструкция 2026">
+    <meta property="og:description" content="Как подключить и настроить 1С:ДиректБанк ВТБ для бизнеса: регистрация, настройка обмена, решение ошибок. Актуальная инструкция с скриншотами и советами экспертов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/karty-i-scheta/">Карты и счета</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Настройка 1С:ДиректБанк ВТБ: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>1С:ДиректБанк ВТБ — полная инструкция по настройке для юридических лиц</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#требования-для-подключения-1сдиректбанк-втб">Требования для подключения 1С:ДиректБанк ВТБ</a></li><li><a href="#регистрация-и-первое-подключение-к-втб-директбанк">Регистрация и первое подключение к ВТБ ДиректБанк</a></li><li><a href="#настройка-1спредприятие-для-работы-с-втб">Настройка 1С:Предприятие для работы с ВТБ</a></li><li><a href="#настройка-обмена-данными-выписки-платежи-курсы-валют">Настройка обмена данными: выписки, платежи, курсы валют</a></li><li><a href="#типичные-ошибки-и-их-решение">Типичные ошибки и их решение</a></li><li><a href="#оптимизация-работы-с-1сдиректбанк-втб">Оптимизация работы с 1С:ДиректБанк ВТБ</a></li><li><a href="#тарифы-втб-на-обслуживание-директбанк-в-2024-году">Тарифы ВТБ на обслуживание ДиректБанк в 2024 году</a></li><li><a href="#частые-вопросы-по-настройке-1сдиректбанк-втб">Частые вопросы по настройке 1С:ДиректБанк ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<em>1С:ДиректБанк ВТБ</em> — это сервис для автоматизации обмена финансовой информацией между бухгалтерской программой <strong>1С:Предприятие</strong> и банковскими счетами в <em>ВТБ</em>. Он позволяет бизнесменам экономить время на ручном вводе платежей, выписок и курсов валют, снижая риск ошибок. Но настройка этого инструмента часто вызывает сложности: от получения доступа в личном кабинете до корректной интеграции с конкретной версией <em>1С</em>.
+
+<p>В этой статье вы найдёте <strong>пошаговую инструкцию</strong> с актуальными скриншотами 2026 года, разбор типичных ошибок (например, <code>Ошибка 403: Доступ запрещён</code> или <code>Не найден сертификат</code>), а также советы по оптимизации работы. Мы учли последние обновления <em>ВТБ</em> и <em>1С</em>, поэтому инструкция подойдёт как для опытных бухгалтеров, так и для новичков.</p>
+
+<p>Особое внимание уделите разделу про <strong>сертификаты ЭЦП</strong> — это самый частый источник проблем. Также мы сравнили тарифы <em>ВТБ</em> на обслуживание <em>ДиректБанка</em> и привели таблицу совместимости с версиями <em>1С</em> (включая <em>1С:Бухгалтерию 8.3</em> и <em>1С:Управление торговлей</em>). Если вы уже пытались настроить обмен и получили ошибку — проверьте наш <a href="#faq">FAQ-блок</a> в конце статьи.
+
+<p>⚠️ <strong>Важно:</strong> С 1 июля 2026 года <em>ВТБ</em> изменил процедуру авторизации в <em>ДиректБанке</em> — теперь требуется двухфакторная аутентификация через <em>ВТБ-Онлайн</em>. Об этом мы расскажем в разделе про <a href="#auth">первое подключение</a>.
+
+<h2 id="требования-для-подключения-1сдиректбанк-втб">Требования для подключения 1С:ДиректБанк ВТБ</h2>
+
+<p>Перед настройкой проверьте, соответствует ли ваша система минимальным требованиям. Без этого подключение будет невозможно или приведёт к сбоям.
+
+<ul>
+  <li>💻 <strong>1С:Предприятие</strong> версии <em>8.3.10.2569</em> или новее (для <em>Бухгалтерии 3.0</em>, <em>УТ 11</em>, <em>ERP 2.4</em>). Старые версии (например, <em>1С 7.7</em>) не поддерживаются.</li>
+  <li>🔐 <strong>Квалифицированная электронная подпись (КЭП)</strong> от удостоверяющего центра, аккредитованного Минкомсвязи (например, <em>Тензор</em>, <em>СКБ Контур</em>). Подпись должна быть привязана к расчётному счёту в <em>ВТБ</em>.</li>
+  <li>📄 <strong>Договор на обслуживание</strong> в <em>ВТБ</em> с подключённой услугой <code>ДиректБанк</code> (тарифы см. в таблице ниже). Без договора банк не предоставит доступ к API.</li>
+  <li>🌐 <strong>Стабильное интернет-соединение</strong> (рекомендуемая скорость — от 10 Мбит/с). При обмене данными через <em>1С</em> используются протоколы <code>HTTPS</code> и <code>SSL/TLS 1.2</code>.</li>
+</ul>
+
+<p>Если вы используете <em>1С:Предприятие</em> в облаке (например, <em>1С:Фреш</em>), убедитесь, что ваш тариф поддерживает внешние интеграции. В некоторых случаях потребуется <strong>выделенный IP-адрес</strong> для сервера — уточните это у своего хостинг-провайдера.
+
+<div class="poll-widget" id="poll-1e1514e2"><div class="poll-widget-question">📊 Какой версией 1С вы пользуетесь?</div><div class="poll-widget-option" data-poll="1e1514e2" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">1С:Бухгалтерия 8.3</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1e1514e2" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">1С:Управление торговлей 11</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1e1514e2" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">1С:ERP 2.4</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1e1514e2" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">1С:Зарплата и управление персоналом</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="1e1514e2" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Другая версия</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>⚠️ <strong>Внимание:</strong> Если ваша организация работает с валютными счетами, потребуется дополнительное соглашение с <em>ВТБ</em> на обмен валютными выписками. Без него в <em>1С</em> будут поступать данные только по рублёвым операциям.
+
+<h2 id="регистрация-и-первое-подключение-к-втб-директбанк">Регистрация и первое подключение к ВТБ ДиректБанк</h2>
+
+<p>Процесс регистрации состоит из трёх этапов: получение доступа в личном кабинете <em>ВТБ-Онлайн</em>, настройка прав пользователя и генерация ключей для <em>1С</em>. Рассмотрим каждый шаг подробно.
+
+<p>1. <strong>Авторизация в <em>ВТБ-Онлайн</strong></em>
+<p>Перейдите на сайт <a href="https://online.vtb.ru" target="_blank" rel="nofollow">online.vtb.ru</a> и войдите под логином юридического лица. Если у вас ещё нет доступа, обратитесь в отделение <em>ВТБ</em> с паспортом и документами компании. После входа проверьте, что в меню <code>Настройки → Услуги</code> отображается пункт <code>ДиректБанк</code>. Если его нет — подключите услугу через чат поддержки или в офисе банка.</p>
+
+<p>2. <strong>Создание пользователя для 1С</strong>
+<p>В разделе <code>Администрирование → Пользователи</code> добавьте нового пользователя с ролью <code>Оператор ДиректБанк</code>. Укажите:</p>
+<p>- Логин (например, <code>1c_integration</code>)</p>
+<p>- Пароль (длина не менее 12 символов, с заглавными буквами и цифрами)</p>
+<p>- Привязанный расчётный счёт</p>
+   <p>⚠️ <strong>Внимание:</strong> Не используйте для интеграции учётную запись главного бухгалтера или директора. Это нарушает политику безопасности <em>ВТБ</em> и может привести к блокировке доступа.
+
+<p>3. <strong>Генерация сертификата и ключей</strong>
+<p>В меню <code>ДиректБанк → Настройки обмена</code> выберите <code>Сгенерировать новый сертификат</code>. Система создаст файл <code>.pfx</code> (личный ключ) и <code>.cer</code> (открытый ключ). Сохраните оба файла на жёсткий диск — они понадобятся для настройки <em>1С</em>.</p>
+
+
+<p>Скачать сертификат .pfx и .cer из ВТБ-Онлайн|</p>
+<p>Проверить версию 1С (не ниже 8.3.10.2569)|</p>
+<p>Установить криптопровайдер (например, КриптоПро CSP)|</p>
+<p>Получить доступ к расчётному счёту в ВТБ-Онлайн|</p>
+<p>Создать отдельного пользователя для интеграции--></p>
+
+<h2 id="настройка-1спредприятие-для-работы-с-втб">Настройка 1С:Предприятие для работы с ВТБ</h2>
+
+<p>Теперь перейдём к конфигурированию <em>1С</em>. Инструкция подходит для большинства типовых конфигураций, но могут быть нюансы в зависимости от версии. Если вы используете нетиповую доработку, обратитесь к программисту <em>1С</em>.
+
+<p>1. <strong>Установка обработки обмена</strong>
+<p>Скачайте последнюю версию обработки <code>DirectBank.v8o</code> с сайта <em>ВТБ</em> (раздел <code>Поддержка → 1С:ДиректБанк</code>). В <em>1С</em> перейдите в <code>Файл → Открыть</code> и выберите скачанный файл. Обработка добавится в список внешних отчётов.</p>
+
+<p>2. <strong>Настройка подключения</strong>
+<p>Откройте обработку и заполните поля:</p>
+<p>- <strong>Адрес сервера</strong>: <code>https://directbank.vtb.ru</code></p>
+<p>- <strong>Порт</strong>: <code>443</code></p>
+<p>- <strong>Имя пользователя</strong>: логин, созданный в <em>ВТБ-Онлайн</em></p>
+<p>- <strong>Пароль</strong>: пароль пользователя</p>
+<p>- <strong>Сертификат</strong>: укажите путь к файлу <code>.pfx</code></p>
+<p>- <strong>Пароль сертификата</strong>: введите пароль, заданный при генерации</p>
+
+<p>3. <strong>Тестовое подключение</strong>
+<p>Нажмите <code>Проверить соединение</code>. Если всё настроено верно, появится сообщение <code>Соединение установлено успешно</code>. При ошибке проверьте:</p>
+<p>- Корректность введённых данных</p>
+<p>- Наличие интернета</p>
+<p>- Действительность сертификата (срок не истёк)</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если при тестовом подключении возникает ошибка <code>SSL handshake failed</code>, обновите корневые сертификаты в системе. Для этого скачайте последний пакет с сайта <em>КриптоПро</em> и установите его.</p></div>
+
+<p>⚠️ <strong>Внимание:</strong> Если вы используете прокси-сервер, в настройках <em>1С</em> укажите его адрес и порт в разделе <code>Дополнительные параметры → Прокси</code>. Иначе обмен данными будет заблокирован.
+
+<h2 id="настройка-обмена-данными-выписки-платежи-курсы-валют">Настройка обмена данными: выписки, платежи, курсы валют</h2>
+
+<p>После успешного подключения необходимо настроить <strong>автоматический обмен</strong> между <em>1С</em> и <em>ВТБ</em>. Это позволит загружать выписки, отправлять платежки и обновлять курсы валют без ручного ввода.
+
+<p>1. <strong>Загрузка банковских выписок</strong>
+<p>В обработке <em>ДиректБанк</em> перейдите в раздел <code>Выписки</code> и настройте параметры:</p>
+<p>- <strong>Период загрузки</strong>: укажите дату, с которой нужно получать выписки (например, <code>01.01.2026</code>)</p>
+<p>- <strong>Счёт</strong>: выберите расчётный счёт из списка</p>
+<p>- <strong>Формат</strong>: <code>1С (Банк-Клиент)</code></p>
+   <p>Нажмите <code>Загрузить</code>. Система запросит данные у <em>ВТБ</em> и создаст документы <code>Выписка банка</code> в <em>1С</em>.
+
+<p>2. <strong>Отправка платежных поручений</strong>
+<p>Чтобы отправлять платежки напрямую из <em>1С</em>, в обработке выберите раздел <code>Платежи</code> и:</p>
+<p>- Укажите счёт списания</p>
+<p>- Загрузите список контрагентов из <em>1С</em> (кнопка <code>Обновить справочник</code>)</p>
+<p>- Настройте шаблоны платежей (например, для зарплаты, поставщикам)</p>
+   <p>После этого платежки можно будет отправлять прямо из документов <em>1С</em> (например, из <code>Платёжного поручения</code>).
+
+<p>3. <strong>Обновление курсов валют</strong>
+<p>В разделе <code>Справочники</code> выберите <code>Курсы валют</code> и настройте источник — <code>ЦБ РФ</code> или <code>ВТБ</code>. Укажите периодичность обновления (например, <code>Ежедневно в 10:00</code>).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип обмена</th>
+      <th>Периодичность</th>
+      <th>Формат данных</th>
+      <th>Примечания</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Банковские выписки</td>
+      <td>Ежедневно</td>
+      <td>1С (Банк-Клиент)</td>
+      <td>Рекомендуется настраивать на конец рабочего дня</td>
+    </tr>
+    <tr>
+      <td>Платёжные поручения</td>
+      <td>По мере необходимости</td>
+      <td>XML (стандарт ВТБ)</td>
+      <td>Требуется предварительная проверка реквизитов</td>
+    </tr>
+    <tr>
+      <td>Курсы валют</td>
+      <td>1 раз в день</td>
+      <td>CSV или XML</td>
+      <td>Можно настроить автоматическое обновление</td>
+    </tr>
+    <tr>
+      <td>Справочник контрагентов</td>
+      <td>1 раз в неделю</td>
+      <td>1С (обмен данными)</td>
+      <td>Позволяет синхронизировать реквизиты</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для корректной работы обмена платежками в 1С должен быть заполнен справочник <code>Банки</code> с актуальными БИК и корреспондентскими счетами. Иначе платежи уйдут с ошибкой <code>Неверный БИК</code>.</p></div>
+
+<h2 id="типичные-ошибки-и-их-решение">Типичные ошибки и их решение</h2>
+
+<p>Даже при правильной настройке могут возникать сбои. Мы собрали самые распространённые ошибки и способы их устранения.
+
+<ul>
+  <li>🔴 <code>Ошибка 403: Доступ запрещён</code> — проверьте, что IP-адрес вашего компьютера разрешён в настройках <em>ВТБ-Онлайн</em> (раздел <code>Безопасность → Разрешённые IP</code>). Также убедитесь, что сертификат не истёк.</li>
+  <li>🔴 <code>Не найден сертификат</code> — переустановите сертификат в хранилище <em>КриптоПро</em>. Для этого откройте <code>Пуск → КриптоПро CSP → Сертификаты</code> и импортируйте файл <code>.pfx</code> заново.</li>
+  <li>🔴 <code>Ошибка соединения: Timeout</code> — проверьте настройки прокси или брандмауэра. Возможно, порт <code>443</code> заблокирован. Также попробуйте отключить VPN.</li>
+  <li>🔴 <code>Неверный формат файла</code> — обновите обработку <em>DirectBank.v8o</em> до последней версии. Старые версии не поддерживают новые форматы выписок <em>ВТБ</em>.</li>
+</ul>
+
+<p>Если ошибка повторяется, обратитесь в поддержку <em>ВТБ</em> по телефону <code>8 800 100-24-24</code> (для юридических лиц). При обращении укажите:
+<p>- Код ошибки</p>
+<p>- Время её возникновения</p>
+<p>- Логин пользователя <em>ДиректБанк</em></p>
+
+<details class="faq-item"><summary>Что делать, если платеж ушёл, но не отобразился в 1С?</summary><div class="faq-answer"><p>
+<p>Если платежное поручение было отправлено из 1С, но не появилось в журнале документов, проверьте:</p>
+<p>1. Статус платежа в <em>ВТБ-Онлайн</em> (раздел <code>Платежи → История</code>).</p>
+<p>2. Логи обмена в 1С (<code>Администрирование → Журнал регистрации</code>).</p>
+<p>3. Наличие дубля документа (возможно, он был создан с другим номером).</p>
+<p>Если платеж висит в статусе <code>На проверке</code>, дождитесь подтверждения от банка (обычно до 24 часов).</p></div></details></p>
+
+<h2 id="оптимизация-работы-с-1сдиректбанк-втб">Оптимизация работы с 1С:ДиректБанк ВТБ</h2>
+
+<p>Чтобы ускорить обмен данными и снизить риск ошибок, воспользуйтесь этими советами:
+
+<p>1. <strong>Автоматизация по расписанию</strong>
+<p>Настройте автоматическую загрузку выписок в нерабочие часы (например, в <code>03:00</code>). Для этого в обработке <em>ДиректБанк</em> перейдите в <code>Настройки → Расписание</code> и добавьте задачу. Укажите:</p>
+<p>- Тип операции: <code>Загрузка выписок</code></p>
+<p>- Периодичность: <code>Ежедневно</code></p>
+<p>- Время: <code>03:00</code></p>
+
+<p>2. <strong>Резервное копирование сертификатов</strong>
+   <mark>Сертификаты ЭЦП для ДиректБанк действуют 1 год — за месяц до истечения срока банк пришлёт уведомление на email, но лучше настроить собственное напоминание в календаре.</mark> Сохраните резервные копии файлов <code>.pfx</code> и <code>.cer</code> на внешний носитель или в облако.
+
+<p>3. <strong>Контроль лимитов</strong>
+<p>У <em>ВТБ</em> есть лимиты на количество запросов к API (например, не более 100 выписок в час). Если вы работаете с большим объёмом данных, разбейте загрузку на части. Например, загружайте выписки поквартально, а не за весь год.</p>
+
+<p>4. <strong>Интеграция с другими сервисами</strong>
+<p>Если вы используете <em>1С:Зарплата</em>, настройте автоматическую выгрузку ведомостей на зарплатные карты <em>ВТБ</em>. Для этого в обработке <em>ДиректБанк</em> активируйте модуль <code>Зарплатные проекты</code>.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для ускорения работы с платежами создайте в 1С шаблоны для регулярных операций (например, аренда, коммунальные платежи). Это сократит время на заполнение реквизитов.</p></div>
+
+<h2 id="тарифы-втб-на-обслуживание-директбанк-в-2026-году">Тарифы ВТБ на обслуживание ДиректБанк в 2026 году</h2>
+
+<p>Стоимость подключения и обслуживания <em>1С:ДиректБанк</em> зависит от тарифного плана вашего расчётного счёта. Ниже приведена актуальная таблица тарифов для юридических лиц (данные на июнь 2026 года).
+
+<table>
+  <thead>
+    <tr>
+      <th>Тарифный план</th>
+      <th>Абонентская плата (в месяц)</th>
+      <th>Стоимость одного платежа</th>
+      <th>Лимит бесплатных выписок</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Старт</td>
+      <td>0 ₽</td>
+      <td>15 ₽</td>
+      <td>50 выписок/мес.</td>
+    </tr>
+    <tr>
+      <td>Оптимальный</td>
+      <td>500 ₽</td>
+      <td>10 ₽</td>
+      <td>200 выписок/мес.</td>
+    </tr>
+    <tr>
+      <td>Премиум</td>
+      <td>1 500 ₽</td>
+      <td>5 ₽</td>
+      <td>Неограничено</td>
+    </tr>
+    <tr>
+      <td>Корпоративный</td>
+      <td>Индивидуально</td>
+      <td>Индивидуально</td>
+      <td>Индивидуально</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>⚠️ <strong>Внимание:</strong> С 1 января 2026 года <em>ВТБ</em> ввёл комиссию за обмен валютными выписками — <code>50 ₽ за каждую выписку</code> (для тарифов <code>Старт</code> и <code>Оптимальный</code>). Чтобы избежать дополнительных расходов, запросите у банка пакет <code>Валютный ДиректБанк</code> (стоимость — <code>1 000 ₽/мес.</code>, но без ограничений по выпискам).
+
+<p>Если ваш оборот превышает <code>5 млн ₽/мес.</code>, свяжитесь с персональным менеджером <em>ВТБ</em> для перехода на индивидуальные условия. Возможно, банк предложит скидку на абонентскую плату или бесплатный лимит платежей.
+
+<h2 id="частые-вопросы-по-настройке-1сдиректбанк-втб">Частые вопросы по настройке 1С:ДиректБанк ВТБ</h2>
+
+<details>
+  <summary>🔹 Почему не загружаются выписки за прошлый год?</summary>
+  <p>Банк хранит выписки в электронном виде только за последние <strong>12 месяцев</strong>. Чтобы получить данные за более ранний период, запросите архивные выписки в офисе <em>ВТБ</em> или через личный кабинет (<code>Выписки → Архив</code>). Их можно загрузить в <em>1С</em> вручную через <code>Банк-Клиент → Импорт</code>.
+</details>
+
+<details>
+  <summary>🔹 Можно ли подключить ДиректБанк к 1С:Зарплата и Управление Персоналом?</summary>
+  <p>Да, но для этого нужно:
+  <ol>
+    <li>Установить обработку <code>DirectBank.v8o</code> (та же, что и для <em>Бухгалтерии</em>).</li>
+    <li>В настройках обмена активировать модуль <code>Зарплатные проекты</code>.</li>
+    <li>Синхронизировать справочник сотрудников с реквизитами зарплатных карт <em>ВТБ</em>.</li>
+  </ol>
+  <p>После этого вы сможете выгружать ведомости на карты прямо из <em>1С:ЗУП</em>.
+</details>
+
+<details>
+  <summary>🔹 Как проверить, что сертификат установлен правильно?</summary>
+  <p>Откройте <code>Пуск → КриптоПро CSP → Сертификаты</code> и найдите ваш сертификат в списке. Он должен:
+  <ul>
+    <li>Иметь статус <code>Действителен</code>.</li>
+    <li>Быть привязан к вашему расчётному счёту в <em>ВТБ</em>.</li>
+    <li>Иметь в поле <code>Назначение</code> значение <code>Аутентификация клиента</code>.</li>
+  </ul>
+  <p>Если сертификат отсутствует или истёк, запросите новый в <em>ВТБ-Онлайн</em>.
+</details>
+
+<details>
+  <summary>🔹 Что делать, если платеж завис в статусе "Отправлено в банк"?</summary>
+  <p>Это означает, что платежное поручение ушло в <em>ВТБ</em>, но ещё не обработано. Возможные причины:
+  <ul>
+    <li>Банк проводит проверку реквизитов (до 24 часов).</li>
+    <li>На счёте недостаточно средств.</li>
+    <li>Превышен дневной лимит на платежи (проверьте в <code>ВТБ-Онлайн → Лимиты</code>).</li>
+  </ul>
+  <p>Чтобы ускорить обработку, свяжитесь с оператором <em>ВТБ</em> и уточните статус платежа по его УИН (уникальный идентификатор начисления).
+</details>
+
+<details>
+  <summary>🔹 Можно ли использовать один сертификат для нескольких компаний?</summary>
+  <p>Нет, <em>ВТБ</em> привязывает сертификат к конкретному расчётному счёту и юридическому лицу. Если у вас несколько компаний, для каждой нужно:
+  <ol>
+    <li>Создать отдельного пользователя в <em>ВТБ-Онлайн</em>.</li>
+    <li>Сгенерировать уникальный сертификат.</li>
+    <li>Настроить отдельное подключение в <em>1С</em>.</li>
+  </ol>
+  <p>Исключение — если компании входят в одну группу и у них общий счёт. В этом случае можно использовать один сертификат, но это нужно согласовать с банком.
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#требования-для-подключения-1сдиректбанк-втб">Требования для подключения 1С:ДиректБанк ВТБ</a></li><li><a href="#регистрация-и-первое-подключение-к-втб-директбанк">Регистрация и первое подключение к ВТБ ДиректБанк</a></li><li><a href="#настройка-1спредприятие-для-работы-с-втб">Настройка 1С:Предприятие для работы с ВТБ</a></li><li><a href="#настройка-обмена-данными-выписки-платежи-курсы-валют">Настройка обмена данными: выписки, платежи, курсы валют</a></li><li><a href="#типичные-ошибки-и-их-решение">Типичные ошибки и их решение</a></li><li><a href="#оптимизация-работы-с-1сдиректбанк-втб">Оптимизация работы с 1С:ДиректБанк ВТБ</a></li><li><a href="#тарифы-втб-на-обслуживание-директбанк-в-2024-году">Тарифы ВТБ на обслуживание ДиректБанк в 2024 году</a></li><li><a href="#частые-вопросы-по-настройке-1сдиректбанк-втб">Частые вопросы по настройке 1С:ДиректБанк ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/n/ne/ne-pomnyu-pin-kod-ot-karty-vtb-kak-vosstanovit.html" class="related-card">Забыли ПИН-код карты ВТБ: как восстановить доступ</a></li><li><a href="/articles/k/ka/kak-pomenyat-pin-kod-na-karte-vtb-cherez-onlajn-bank.html" class="related-card">Как поменять ПИН-код карты ВТБ через онлайн-банк в 2026 году</a></li><li><a href="/articles/k/ka/kak-uznat-balans-karty-vtb-armiya-cherez-telefon.html" class="related-card">Как проверить баланс карты ВТБ Армия по телефону в 2026 году</a></li><li><a href="/articles/k/ka/kak-proverit-pensiyu-v-vtb.html" class="related-card">Как проверить пенсию в ВТБ: способы и инструкции</a></li><li><a href="/articles/k/ka/kak-uznat-nomer-svoego-bankovskogo-scheta-vtb.html" class="related-card">Как узнать номер счета ВТБ: 5 способов и реквизиты</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/n/ne/ne-pomnyu-pin-kod-ot-karty-vtb-kak-vosstanovit.html" class="related-bottom-card"><span class="related-bottom-title">Забыли ПИН-код карты ВТБ: как восстановить доступ</span><span class="related-bottom-desc">Забыли ПИН-код карты ВТБ? Узнайте, как восстановить доступ через банкомат, мобильное приложение или </span></a><a href="/articles/k/ka/kak-pomenyat-pin-kod-na-karte-vtb-cherez-onlajn-bank.html" class="related-bottom-card"><span class="related-bottom-title">Как поменять ПИН-код карты ВТБ через онлайн-банк в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция по смене ПИН-кода карты ВТБ через личный кабинет ВТБ Онлайн. Как сбросить или в</span></a><a href="/articles/k/ka/kak-uznat-balans-karty-vtb-armiya-cherez-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить баланс карты ВТБ Армия по телефону в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция, как узнать остаток по карте ВТБ Армия через мобильный банк, SMS и звонок. Спос</span></a><a href="/articles/k/ka/kak-proverit-pensiyu-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить пенсию в ВТБ: способы и инструкции</span><span class="related-bottom-desc">Узнайте, как проверить поступление пенсии в ВТБ через приложение, банкомат или СМС. Подробный гид по</span></a><a href="/articles/k/ka/kak-uznat-nomer-svoego-bankovskogo-scheta-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать номер счета ВТБ: 5 способов и реквизиты</span><span class="related-bottom-desc">Узнайте, где найти номер лицевого счета ВТБ. Подробная инструкция: онлайн-банк, мобильное приложение</span></a><a href="/articles/k/ka/kak-otklyuchit-obsluzhivanie-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить обслуживание карты ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как отключить смс-информирование, платные опции и страховки на карте ВТБ. Полная инструкция</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

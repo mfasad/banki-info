@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Тейк-профит и стоп-лосс в ВТБ: как настроить и использовать — Банки Инфо</title>
+    <meta name="description" content="Подробное руководство по настройке тейк-профита и стоп-лосса в ВТБ Инвестициях: пошаговые инструкции, примеры, советы и ошибки новичков.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/t/te/tejk-profit-i-stop-loss-chto-eto-v-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Тейк-профит и стоп-лосс в ВТБ: как настроить и использовать">
+    <meta property="og:description" content="Подробное руководство по настройке тейк-профита и стоп-лосса в ВТБ Инвестициях: пошаговые инструкции, примеры, советы и ошибки новичков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Тейк-профит и стоп-лосс в ВТБ: как настроить и использовать</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Тейк-профит и стоп-лосс в ВТБ: полное руководство для инвесторов 2026</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-тейк-профит-и-стоп-лосс-простыми-словами">Что такое тейк-профит и стоп-лосс простыми словами</a></li><li><a href="#как-работают-tp-и-sl-в-терминале-втб-механика-исполнения">Как работают TP и SL в терминале ВТБ: механика исполнения</a></li><li><a href="#пошаговая-инструкция-как-выставить-тейк-профит-и-стоп-лосс-в-втб">Пошаговая инструкция: как выставить тейк-профит и стоп-лосс в ВТБ</a></li><li><a href="#ошибки-новичков-что-не-так-с-вашими-стоп-лоссами">Ошибки новичков: что не так с вашими стоп-лоссами</a></li><li><a href="#стратегии-использования-tp-и-sl-в-втб">Стратегии использования TP и SL в ВТБ</a></li><li><a href="#нюансы-втб-что-нужно-знать-перед-использованием-tpsl">Нюансы ВТБ: что нужно знать перед использованием TP/SL</a></li><li><a href="#альтернативы-стоп-лоссу-в-втб-когда-стандартные-ордера-не-подходят">Альтернативы стоп-лоссу в ВТБ: когда стандартные ордера не подходят</a></li><li><a href="#faq-частые-вопросы-о-тейк-профите-и-стоп-лоссе-в-втб">FAQ: Частые вопросы о тейк-профите и стоп-лоссе в ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Торговля на бирже через <em>ВТБ Инвестиции</em> требует не только умения выбирать активы, но и грамотного управления рисками. Два ключевых инструмента, которые помогают фиксировать прибыль и ограничивать убытки — это <strong>тейк-профит</strong> (Take Profit) и <strong>стоп-лосс</strong> (Stop Loss). Без них даже опытные трейдеры рискуют потерять значительную часть депозита из-за внезапных колебаний рынка.</p>
+
+<p>В этой статье разберём, как работают эти инструменты конкретно в <em>ВТБ</em>, как их правильно настроить в мобильном приложении и веб-версии, а также какие стратегии использования актуальны в 2026 году. Особое внимание уделим нюансам, которые часто упускают новички: например, почему стоп-лосс может не сработать при гэпе или как избежать случайного срабатывания тейк-профита на шумовых движениях цены.</p>
+
+<p>Материал будет полезен как начинающим инвесторам, которые только осваивают терминалы <em>ВТБ Мои Инвестиции</em>, так и опытным трейдерам, ищущим оптимальные настройки для своих стратегий. Все скриншоты и инструкции актуальны для последней версии приложения (обновлено в мае 2026).</p>
+
+<h2 id="что-такое-тейк-профит-и-стоп-лосс-простыми-словами">Что такое тейк-профит и стоп-лосс простыми словами</h2>
+
+<p>Давайте начнём с базовых определений, чтобы избежать путаницы. Эти термины часто используют вместе, но они решают абсолютно разные задачи:</p>
+
+<ul>
+  <li>📈 <strong>Тейк-профит (Take Profit, TP)</strong> — это <em>автоматический ордер на продажу актива</em>, когда его цена достигает заданного вами уровня прибыли. Например, вы купили акцию по 100₽ и поставили TP на 120₽ — как только цена поднимется до 120₽, сделка закроется автоматически, зафиксировав вашу прибыль в 20₽.</li>
+  <li>🛑 <strong>Стоп-лосс (Stop Loss, SL)</strong> — это <em>ордер на продажу при падении цены</em> до определённого уровня, чтобы ограничить убытки. Допустим, вы купили ту же акцию за 100₽ и поставили SL на 90₽ — если цена упадёт до 90₽, позиция закроется, и вы потеряете только 10₽, а не всю сумму при дальнейшем обвале.</li>
+</ul>
+
+<p>Важно понимать, что оба этих ордера <strong>не гарантируют исполнение по точной цене</strong>, особенно на волатильных рынках. Например, если после закрытия биржи произойдёт <em>гэп</em> (резкий скачок цены), ваш стоп-лосс сработает по первой доступной цене, которая может быть значительно хуже заданной. Этот нюанс часто становится причиной недовольства новичков.</p>
+
+<p>В <em>ВТБ Инвестициях</em> оба типа ордеров доступны для:</p>
+<ul>
+  <li>📊 Акций российских и зарубежных компаний</li>
+  <li>💰 Облигаций (с некоторыми ограничениями)</li>
+  <li>🪙 ETF и биржевых фондов</li>
+  <li>🛢 Фьючерсов и опционов (только для квалифицированных инвесторов)</li>
+</ul>
+
+<div class="poll-widget" id="poll-6521121c"><div class="poll-widget-question">📊 Как часто вы используете стоп-лосс в своих сделках?</div><div class="poll-widget-option" data-poll="6521121c" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Всегда ставлю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="6521121c" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Иногда, в зависимости от актива</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="6521121c" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Раньше ставил, но бросил</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="6521121c" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Никогда не пользовался</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="как-работают-tp-и-sl-в-терминале-втб-механика-исполнения">Как работают TP и SL в терминале ВТБ: механика исполнения</h2>
+
+<p>В отличие от некоторых брокеров, где стоп-лосс и тейк-профит привязываются к открытой позиции, в <em>ВТБ</em> эти ордера оформляются как <strong>отдельные заявки</strong>. Это значит, что:</p>
+
+<ol>
+  <li>Вы открываете сделку (покупаете актив).</li>
+  <li>Параллельно выставляете <em>лимитный ордер</em> на продажу (для TP) или <em>стоп-ордер</em> (для SL).</li>
+  <li>Ордера висят в стакане до тех пор, пока не сработают или вы их не отмените.</li>
+</ol>
+
+<p>Это имеет важные последствия:</p>
+<ul>
+  <li>✅ Можно выставлять TP/SL <strong>до открытия позиции</strong> (например, если вы планируете купить акцию по определённой цене).</li>
+  <li>❌ Если вы закроете позицию вручную, ордера <strong>не отменятся автоматически</strong> — их нужно убирать отдельно.</li>
+  <li>🔄 Можно редактировать уровни TP/SL <strong>без закрытия основной позиции</strong>.</li>
+</ul>
+
+<p>В <em>ВТБ Мои Инвестиции</em> доступны два типа стоп-ордеров:</p>
+<ol>
+  <li><strong>Простой стоп-лосс (Stop Market)</strong> — срабатывает по рыночной цене, когда котировка достигает заданного уровня. Риск: при гэпе исполнение может быть хуже ожидаемого.</li>
+  <li><strong>Стоп-лимит (Stop Limit)</strong> — после срабатывания стопа выставляется лимитный ордер. Позволяет контролировать цену исполнения, но может не сработать, если рынок "проскочит" ваш лимит.</li>
+</ol>
+
+<details class="faq-item"><summary>Что такое гэп и почему он опасен для стоп-лосса?</summary><div class="faq-answer"><p>Гэп (от англ. "gap" — разрыв) — это ситуация, когда цена открытия актива значительно отличается от цены закрытия предыдущей сессии. Например, если акция закрылась вчера на 100₽, а сегодня открылась на 80₽, ваш стоп-лосс на 90₽ сработает по 80₽ (или хуже), так как промежуточных котировок просто не было. Особенно часто гэпы происходят на новостях или после выходных.</p></div></details>
+
+<h2 id="пошаговая-инструкция-как-выставить-тейк-профит-и-стоп-лосс-в-втб">Пошаговая инструкция: как выставить тейк-профит и стоп-лосс в ВТБ</h2>
+
+<p>Рассмотрим процесс на примере мобильного приложения <em>ВТБ Мои Инвестиции</em> (версия для iOS/Android, май 2026). Для веб-версии алгоритм аналогичен с незначительными различиями в интерфейсе.</p>
+
+<h3>Шаг 1. Открытие позиции</h3>
+<p>Перед тем как ставить TP/SL, нужно иметь открытую позицию или планировать её открытие. Например, вы решили купить 10 акций <code>Сбербанка (SBER)</code>:</p>
+<ol>
+  <li>Откройте карточку актива → нажмите "Купить".</li>
+  <li>Укажите количество лотов и цену (или выберите "По рынку").</li>
+  <li>Нажмите "Купить" и подтвердите сделку.</li>
+</ol>
+
+<h3>Шаг 2. Выставление тейк-профита</h3>
+<p>После покупки актива:</p>
+<ol>
+  <li>Перейдите в раздел "Портфель" → найдите вашу позицию по <code>SBER</code>.</li>
+  <li>Тапните на позицию → выберите "Выставить ордер".</li>
+  <li>В типе ордера выберите "Лимитный" (для TP).</li>
+  <li>Укажите цену продажи (например, на 10% выше покупки) и количество лотов.</li>
+  <li>Нажмите "Выставить" и подтвердите.</li>
+</ol>
+
+<h3>Шаг 3. Выставление стоп-лосса</h3>
+<p>Аналогично, но с другими параметрами:</p>
+<ol>
+  <li>В той же карточке позиции выберите "Выставить ордер" → "Стоп".</li>
+  <li>Укажите <strong>цену срабатывания</strong> (например, на 5% ниже покупки).</li>
+  <li>Выберите тип стоп-ордера: <code>Stop Market</code> (рыночный) или <code>Stop Limit</code> (с лимитом).</li>
+  <li>Для <code>Stop Limit</code> дополнительно укажите лимитную цену (может совпадать со стоп-ценой).</li>
+  <li>Подтвердите ордер.</li>
+</ol>
+
+<div class="checklist-block"><h4>☑️ Проверка перед выставлением ордеров</h4><label class="check-item"><input type="checkbox"><span>Убедиться, что позиция открыта</span></label><label class="check-item"><input type="checkbox"><span>Проверить текущую цену актива</span></label><label class="check-item"><input type="checkbox"><span>Рассчитать уровни TP/SL заранее</span></label><label class="check-item"><input type="checkbox"><span>Выбрать правильный тип стоп-ордера</span></label><label class="check-item"><input type="checkbox"><span>Проверить остаток средств на счёте</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>В веб-версии <em>ВТБ Инвестиции</em> путь немного другой:</p>
+<pre><code>Портфель → Акции → [Выбрать позицию] → Торговать → Выставить стоп/лимитный ордер</code></pre>
+
+<h3>Пример расчёта уровней</h3>
+<p>Допустим, вы купили акцию <code>Газпрома (GAZP)</code> по 150₽. Ваша стратегия:</p>
+<ul>
+  <li>🎯 Тейк-профит: +15% → 150 × 1.15 = <strong>172.5₽</strong></li>
+  <li>🛡 Стоп-лосс: -7% → 150 × 0.93 = <strong>139.5₽</strong></li>
+</ul>
+<p>В терминале ВТБ выставите:</p>
+<ul>
+  <li>Лимитный ордер на продажу по 172.5₽ (TP).</li>
+  <li>Стоп-ордер на продажу по 139.5₽ (SL).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>В ВТБ можно выставлять TP и SL одновременно при открытии позиции. Для этого в окне покупки актива нажмите "Дополнительно" → "Выставить стоп/тейк" и укажите уровни заранее. Это сэкономит время и снизит риск забыть про защиту.</p></div>
+
+<h2 id="ошибки-новичков-что-не-так-с-вашими-стоп-лоссами">Ошибки новичков: что не так с вашими стоп-лоссами</h2>
+
+<p>Даже опытные инвесторы иногда допускают ошибки при работе с TP/SL. Вот наиболее распространённые промахи, которые приводят к потерям:</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы выставляете стоп-лосс слишком близко к текущей цене (например, 1-2%), его может "выбить" обычным шумом рынка. Оптимальное расстояние — не менее <strong>5-10%</strong> от цены покупки (зависит от волатильности актива).</blockquote>
+
+<h3>1. Игнорирование волатильности</h3>
+<p>Акции разных компаний имеют разную <em>волатильность</em> (степень колебаний цены). Например:</p>
+<ul>
+  <li>📉 <code>Яндекс (YNDX)</code> может колебаться на 5-7% в день → стоп-лосс в 3% сработает слишком часто.</li>
+  <li>📈 <code>Сбербанк (SBER)</code> обычно стабильнее → стоп в 5% будет разумным.</li>
+</ul>
+<p>Решение: перед выставлением SL изучите историю колебаний актива за последние 3-6 месяцев.</p>
+
+<h3>2. Стоп-лосс "под поддерживающим уровнем"</h3>
+<p>Многие ставят SL чуть ниже круглых чисел (например, 100₽, 200₽), считая их "сильными уровнями". Однако профессиональные трейдеры часто <strong>спекулируют на таких уровнях</strong>, искусственно "выбивая" стопы новичков. Лучше ориентироваться на:</p>
+<ul>
+  <li>📊 Локальные минимумы на графике.</li>
+  <li>📉 Линии тренда или скользящие средние (например, SMA 200).</li>
+</ul>
+
+<h3>3. Тейк-профит "по жадности"</h3>
+<p>Типичная ошибка — ставить TP на нереалистично высоком уровне (например, +50% для голубых фишек). В результате:</p>
+<ul>
+  <li>🔴 Цена может никогда не дойти до вашего TP.</li>
+  <li>🔴 Вы упустите возможность зафиксировать прибыль на откате.</li>
+</ul>
+<p>Решение: используйте <strong>частичное закрытие позиции</strong>. Например, закройте 50% акций при +10%, а остальные держите с тралом (подтягивайте SL вслед за ценой).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Последствия</th>
+      <th>Как исправить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Слишком близкий SL</td>
+      <td>Частые срабатывания на шумовых движениях</td>
+      <td>Увеличить расстояние до 5-10% от цены покупки</td>
+    </tr>
+    <tr>
+      <td>TP на круглых уровнях</td>
+      <td>Цена может не дойти до ордера из-за сопротивления</td>
+      <td>Ставить TP чуть ниже круглых чисел (например, 99₽ вместо 100₽)</td>
+    </tr>
+    <tr>
+      <td>Игнорирование гэпов</td>
+      <td>SL сработает по худшей цене при разрыве</td>
+      <td>Использовать <code>Stop Limit</code> вместо <code>Stop Market</code></td>
+    </tr>
+    <tr>
+      <td>Отсутствие трала</td>
+      <td>Упущенная прибыль при сильных трендах</td>
+      <td>Подтягивать SL вслед за ценой (например, на уровне последнего локального минимума)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="стратегии-использования-tp-и-sl-в-втб">Стратегии использования TP и SL в ВТБ</h2>
+
+<p>Выбор стратегии зависит от вашего стиля торговли, временного горизонта и типа активов. Рассмотрим три популярных подхода, адаптированных для терминала <em>ВТБ</em>.</p>
+
+<h3>1. Фиксированные уровни (для начинающих)</h3>
+<p>Самый простой метод:</p>
+<ul>
+  <li>🎯 TP: +10-15% от цены покупки.</li>
+  <li>🛡 SL: -5-7% от цены покупки.</li>
+</ul>
+<p>Подходит для:</p>
+<ul>
+  <li>📈 Голубых фишек (<code>SBER</code>, <code>GAZP</code>, <code>LKOH</code>).</li>
+  <li>📊 ETF на широкие индексы (например, <code>FXRL</code>).</li>
+</ul>
+<p>Преимущество: простота и предсказуемость. Недостаток: не учитывает рыночные условия.</p>
+
+<h3>2. Тралящий стоп (для трендовых стратегий)</h3>
+<p>Идея: <strong>подтягивать стоп-лосс вслед за ценой</strong>, фиксируя прибыль. Например:</p>
+<ol>
+  <li>Купили акцию по 100₽, поставили SL на 95₽.</li>
+  <li>Цена выросла до 110₽ → передвинули SL на 105₽.</li>
+  <li>Цена выросла до 120₽ → передвинули SL на 114₽.</li>
+</ol>
+<p>В <em>ВТБ</em> это делается вручную (автоматического трала нет). Подходит для:</p>
+<ul>
+  <li>🚀 Сильных трендовых движений (например, рост акций перед дивидендной отсечкой).</li>
+  <li>📈 Активов с высокой волатильностью (<code>YNDX</code>, <code>TCSG</code>).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Тралящий стоп позволяет "закрыть" позицию с прибылью даже если цена потом развернётся. Главное правило: не двигайте SL вниз после того, как цена выросла!</p></div>
+
+<h3>3. Комбинация TP + SL с частичным закрытием</h3>
+<p>Продвинутая стратегия для опытных инвесторов:</p>
+<ol>
+  <li>Открываете позицию (например, 100 акций).</li>
+  <li>Ставите TP на 50% позиции при +10%.</li>
+  <li>Оставшиеся 50% держите с тралящим SL.</li>
+</ol>
+<p>Пример для <code>Ростелекома (RTKM)</code>:</p>
+<ul>
+  <li>Купили по 50₽.</li>
+  <li>TP на 55₽ для 50 акций (фиксируем +10%).</li>
+  <li>Для оставшихся 50 акций ставим SL на 47.5₽ и подтягиваем его вверх по мере роста.</li>
+</ul>
+
+<h3>Сравнение стратегий</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Стратегия</th>
+      <th>Сложность</th>
+      <th>Подходящие активы</th>
+      <th>Риск/доходность</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Фиксированные уровни</td>
+      <td>⭐ (низкая)</td>
+      <td>Голубые фишки, ETF</td>
+      <td>Низкий риск, умеренная доходность</td>
+    </tr>
+    <tr>
+      <td>Тралящий стоп</td>
+      <td>⭐⭐⭐ (средняя)</td>
+      <td>Трендовые акции, волатильные активы</td>
+      <td>Средний риск, высокая доходность в тренде</td>
+    </tr>
+    <tr>
+      <td>Частичное закрытие</td>
+      <td>⭐⭐⭐⭐ (высокая)</td>
+      <td>Любые активы с чётким трендом</td>
+      <td>Низкий риск, максимальная доходность</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="нюансы-втб-что-нужно-знать-перед-использованием-tpsl">Нюансы ВТБ: что нужно знать перед использованием TP/SL</h2>
+
+<p>Брокер <em>ВТБ</em> имеет несколько особенностей, которые влияют на работу стоп-лосса и тейк-профита. Их обязательно нужно учитывать, чтобы избежать неприятных сюрпризов.</p>
+
+<h3>1. Время работы ордеров</h3>
+<p>В <em>ВТБ Инвестициях</em> все ордера (включая SL/TP) действуют <strong>только в течение торговой сессии</strong>:</p>
+<ul>
+  <li>🕘 Московская биржа (MOEX): 10:00–18:40 (основная сессия), 18:40–23:50 (вечерняя сессия для некоторых инструментов).</li>
+  <li>🕙 СПБ Биржа (для иностранных акций): 10:00–18:30.</li>
+</ul>
+<p><mark>Если ваш стоп-лосс сработает после закрытия биржи (например, из-за новостей), он исполнится только на следующее открытие — возможно, по худшей цене.</mark></p>
+
+<h3>2. Минимальный шаг цены</h3>
+<p>Каждый актив имеет свой <strong>шаг цены</strong> (минимальное изменение котировки). Например:</p>
+<ul>
+  <li><code>SBER</code>: 0.01₽.</li>
+  <li><code>GAZP</code>: 0.1₽.</li>
+  <li><code>USD/RUB</code> (фьючерс): 0.0001.</li>
+</ul>
+<p>Если вы укажете цену для TP/SL, не кратную шагу, ордер не встанет. В терминале ВТБ некорректные значения подсвечиваются красным.</p>
+
+<h3>3. Комиссии и спреды</h3>
+<p>При срабатывании TP/SL вы платите комиссию брокера <strong>дважды</strong>:</p>
+<ol>
+  <li>При покупке актива.</li>
+  <li>При продаже по ордеру.</li>
+</ol>
+<p>В <em>ВТБ</em> тарифы (на май 2026):</p>
+<ul>
+  <li>📈 Акции MOEX: 0.05% от сделки (мин. 5₽).</li>
+  <li>🌍 Акции СПБ Биржи: 0.1% (мин. $1).</li>
+</ul>
+<p>Также учитывайте <strong>спред</strong> (разницу между ценой покупки и продажи). Для ликвидных акций он минимален, но для малоторгуемых бумаг может "съесть" значительную часть прибыли.</p>
+
+<h3>4. Ограничения для облигаций</h3>
+<p>Для облигаций в <em>ВТБ</em> есть нюансы:</p>
+<ul>
+  <li>✅ Можно выставлять TP/SL, но <strong>только лимитные ордера</strong> (стоп-ордера недоступны).</li>
+  <li>⚠️ Низкая ликвидность некоторых облигаций может привести к неисполнению ордера.</li>
+  <li>📅 Для ОФЗ (гособлигаций) SL часто не имеет смысла из-за стабильности цены.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В <em>ВТБ</em> нельзя выставлять TP и SL для структурных нот и некоторых производных инструментов. Перед торговлей проверьте доступные типы ордеров в спецификации актива (раздел "Информация" в карточке инструмента).</blockquote>
+
+<h2 id="альтернативы-стоп-лоссу-в-втб-когда-стандартные-ордера-не-подходят">Альтернативы стоп-лоссу в ВТБ: когда стандартные ордера не подходят</h2>
+
+<p>Иногда классические TP/SL не решают задачу. Например, если вы хотите:</p>
+<ul>
+  <li>🔄 Защититься от гэпов.</li>
+  <li>📉 Использовать динамические уровни (например, скользящие средние).</li>
+  <li>🛡 Застраховать портфель целиком, а не отдельные позиции.</li>
+</ul>
+<p>В таких случаях стоит рассмотреть альтернативные инструменты.</p>
+
+<h3>1. Условные ордера (OCO)</h3>
+<p><em>ВТБ</em> поддерживает <strong>ордера OCO (One Cancels the Other)</strong> — комбинацию из двух ордеров, где срабатывание одного автоматически отменяет другой. Пример:</p>
+<ul>
+  <li>Выставляете TP на +10% и SL на -5%.</li>
+  <li>Если срабатывает TP, SL автоматически снимается (и наоборот).</li>
+</ul>
+<p>Как настроить в ВТБ:</p>
+<ol>
+  <li>При выставлении ордера выберите тип "Условный (OCO)".</li>
+  <li>Укажите оба уровня (TP и SL).</li>
+  <li>Подтвердите создание пары.</li>
+</ol>
+
+<h3>2. Стоп-лимит вместо стоп-маркета</h3>
+<p>Если вы боитесь гэпов, замените <code>Stop Market</code> на <code>Stop Limit</code>:</p>
+<ul>
+  <li>🔹 <strong>Stop Market</strong>: продаёт по первой доступной цене (риск худшего исполнения).</li>
+  <li>🔹 <strong>Stop Limit</strong>: после срабатывания стопа выставляет лимитный ордер (контроль цены, но риск неисполнения).</li>
+</ul>
+<p>Пример для <code>НорНикеля (GMKN)</code>:</p>
+<ul>
+  <li>Цена покупки: 20 000₽.</li>
+  <li>Stop Limit: стоп на 19 000₽, лимит на 18 900₽.</li>
+</ul>
+
+<h3>3. Хеджирование опционами</h3>
+<p>Для опытных инвесторов: можно страховать позиции с помощью опционов. Например:</p>
+<ul>
+  <li>📉 Купили акции <code>Сбербанка</code> → покупаете <em>опцион PUT</em> на них (право продать по фиксированной цене).</li>
+  <li>📈 Если акции растут, вы теряете только премию за опцион.</li>
+  <li>📉 Если акции падают, прибыль от опциона компенсирует убытки.</li>
+</ul>
+<p>В <em>ВТБ</em> опционы доступны только <strong>квалифицированным инвесторам</strong>.</p>
+
+<h3>4. Роботы и алгоритмы</h3>
+<p>Если вам нужно автоматизировать стратегию (например, тралить стопы или использовать сложные условия), можно:</p>
+<ul>
+  <li>🤖 Подключить <em>ВТБ</em> к внешним сервисам через API (например, <code>Tinkoff Invest API</code> или <code>Alor OpenAPI</code>).</li>
+  <li>📱 Использовать скрипты на <em>Python</em> с библиотекой <code>vtb-invest</code> (неофициальная, требует навыков программирования).</li>
+</ul>
+
+<h2 id="faq-частые-вопросы-о-тейк-профите-и-стоп-лоссе-в-втб">FAQ: Частые вопросы о тейк-профите и стоп-лоссе в ВТБ</h2>
+
+<details>
+  <summary>Можно ли выставить TP и SL одновременно при покупке акции в ВТБ?</summary>
+  <p>Да, в мобильном приложении и веб-версии <em>ВТБ Мои Инвестиции</em> при оформлении сделки есть опция "Дополнительно", где можно указать уровни для автоматического выставления TP и SL после покупки. Это называется <strong>условными ордерами</strong>.</p>
+</details>
+
+<details>
+  <summary>Почему мой стоп-лосс не сработал, хотя цена дошла до него?</summary>
+  <p>Вероятные причины:</p>
+  <ol>
+    <li>Цена <strong>не была достигнута в течение торговой сессии</strong> (ордера в ВТБ не работают в неторговое время).</li>
+    <li>Вы использовали <code>Stop Limit</code>, и рынок "проскочил" ваш лимитный уровень.</li>
+    <li>На активе были <strong>ограничения по торговле</strong> (например, приостановка торгов).</li>
+    <li>Не хватило ликвидности (редко, но бывает для малоторгуемых бумаг).</li>
+  </ol>
+  <p>Проверьте историю ордеров в разделе "Торги" → "Мои ордера".</p>
+</details>
+
+<details>
+  <summary>Как отменить или изменить выставленный тейк-профит/стоп-лосс?</summary>
+  <p>Инструкция:</p>
+  <ol>
+    <li>Перейдите в раздел "Торги" → "Мои ордера".</li>
+    <li>Найдите нужный ордер в списке активных.</li>
+    <li>Нажмите на него → выберите "Изменить" или "Отменить".</li>
+    <li>Для изменения укажите новые параметры и подтвердите.</li>
+  </ol>
+  <p>Внимание: если вы измените цену в ордере, его позиция в очереди (приоритет исполнения) сбросится.</p>
+</details>
+
+<details>
+  <summary>Можно ли выставить стоп-лосс на весь портфель сразу?</summary>
+  <p>Нет, в <em>ВТБ Инвестициях</em> нет функции глобального стоп-лосса на портфель. Альтернативы:</p>
+  <ul>
+    <li>Выставлять SL для каждой позиции вручную.</li>
+    <li>Использовать <strong>маржинальное кредитование с лимитом по убыткам</strong> (доступно квалифицированным инвесторам).</li>
+    <li>Закрывать позиции при достижении определённого уровня убытка по портфелю (вручную или через скрипты).</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Какие комиссии берёт ВТБ за срабатывание стоп-лосса или тейк-профита?</summary>
+  <p>Комиссии такие же, как за обычную сделку:</p>
+  <ul>
+    <li>Для акций MOEX: <strong>0.05%</strong> от суммы сделки (минимум 5₽).</li>
+    <li>Для акций СПБ Биржи: <strong>0.1%</strong> (минимум $1).</li>
+    <li>Для облигаций: <strong>0.01%</strong> (минимум 1₽).</li>
+  </ul>
+  <p>Дополнительно может взиматься комиссия биржи (например, 0.01% для MOEX). Полный тариф можно посмотреть в договоре брокерского обслуживания на сайте ВТБ.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-тейк-профит-и-стоп-лосс-простыми-словами">Что такое тейк-профит и стоп-лосс простыми словами</a></li><li><a href="#как-работают-tp-и-sl-в-терминале-втб-механика-исполнения">Как работают TP и SL в терминале ВТБ: механика исполнения</a></li><li><a href="#пошаговая-инструкция-как-выставить-тейк-профит-и-стоп-лосс-в-втб">Пошаговая инструкция: как выставить тейк-профит и стоп-лосс в ВТБ</a></li><li><a href="#ошибки-новичков-что-не-так-с-вашими-стоп-лоссами">Ошибки новичков: что не так с вашими стоп-лоссами</a></li><li><a href="#стратегии-использования-tp-и-sl-в-втб">Стратегии использования TP и SL в ВТБ</a></li><li><a href="#нюансы-втб-что-нужно-знать-перед-использованием-tpsl">Нюансы ВТБ: что нужно знать перед использованием TP/SL</a></li><li><a href="#альтернативы-стоп-лоссу-в-втб-когда-стандартные-ордера-не-подходят">Альтернативы стоп-лоссу в ВТБ: когда стандартные ордера не подходят</a></li><li><a href="#faq-частые-вопросы-о-тейк-профите-и-стоп-лоссе-в-втб">FAQ: Частые вопросы о тейк-профите и стоп-лоссе в ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-uznat-kakogo-tipa-iis-otkryt-v-vtb.html" class="related-card">Как узнать тип ИИС в ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/p/po/pochemu-padayut-aktsii-sberbanka-i-vtb.html" class="related-card">Почему падают акции Сбербанка и ВТБ в 2026 году: 7 ключевых причин</a></li><li><a href="/articles/k/ka/kak-vystavit-stop-prikaz-v-vtb-investitsii.html" class="related-card">Как выставить стоп-заказ в ВТБ Инвестиции: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-torgovat-na-vtb-investitsii-video.html" class="related-card">Как торговать на ВТБ Инвестиции: видео-гид для новичков 2026</a></li><li><a href="/articles/k/ka/kak-ustanovit-torgovyj-terminal-quik-vtb.html" class="related-card">Как установить QUIK ВТБ: пошаговая инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-uznat-kakogo-tipa-iis-otkryt-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать тип ИИС в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд, как определить тип индивидуального инвестиционного счёта (ИИС) в ВТБ: тип А, Б или б</span></a><a href="/articles/p/po/pochemu-padayut-aktsii-sberbanka-i-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Почему падают акции Сбербанка и ВТБ в 2026 году: 7 ключевых причин</span><span class="related-bottom-desc">Разбор факторов, влияющих на котировки акций Сбербанка и ВТБ: санкции, макроэкономика, дивиденды и п</span></a><a href="/articles/k/ka/kak-vystavit-stop-prikaz-v-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как выставить стоп-заказ в ВТБ Инвестиции: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по настройке стоп-приказа в приложении ВТБ Инвестиции: виды стопов, пошаговые </span></a><a href="/articles/k/ka/kak-torgovat-na-vtb-investitsii-video.html" class="related-bottom-card"><span class="related-bottom-title">Как торговать на ВТБ Инвестиции: видео-гид для новичков 2026</span><span class="related-bottom-desc">Пошаговое руководство по торговле акциями, облигациями и ETF через ВТБ Инвестиции с видео-инструкция</span></a><a href="/articles/k/ka/kak-ustanovit-torgovyj-terminal-quik-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как установить QUIK ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как установить торговый терминал QUIK ВТБ на ПК. Скачивание, настройка, вход в систему и ре</span></a><a href="/articles/c/ch/chem-iis-otlichaetsya-ot-brokerskogo-scheta-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">ИИС vs брокерский счёт в ВТБ: ключевые отличия 2026 года</span><span class="related-bottom-desc">Чем индивидуальный инвестиционный счёт (ИИС) отличается от обычного брокерского счёта в ВТБ? Сравнен</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

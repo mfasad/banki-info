@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как работать в QUIK ВТБ: полная инструкция для трейдера — Банки Инфо</title>
+    <meta name="description" content="Подробное руководство по работе в QUIK ВТБ. Настройка терминала, установка, торговля акциями и валютой, полезные виджеты и советы.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-rabotat-v-programme-quik-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работать в QUIK ВТБ: полная инструкция для трейдера">
+    <meta property="og:description" content="Подробное руководство по работе в QUIK ВТБ. Настройка терминала, установка, торговля акциями и валютой, полезные виджеты и советы.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работать в QUIK ВТБ: полная инструкция для трейдера</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как работать в QUIK ВТБ: полное руководство по терминалу</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#установка-и-первичная-настройка-терминала">Установка и первичная настройка терминала</a></li><li><a href="#интерфейс-и-основные-окна-программы">Интерфейс и основные окна программы</a></li><li><a href="#настройка-рабочего-пространства-и-таблиц">Настройка рабочего пространства и таблиц</a></li><li><a href="#выставление-и-управление-заявками">Выставление и управление заявками</a></li><li><a href="#технический-анализ-и-графики-в-quik">Технический анализ и графики в QUIK</a></li><li><a href="#работа-со-стоп-заявками-и-риск-менеджмент">Работа со стоп-заявками и риск-менеджмент</a></li><li><a href="#частые-ошибки-новичков-и-безопасность">Частые ошибки новичков и безопасность</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Современный фондовый рынок требует от инвестора не только глубоких аналитических знаний, но и владения надежными техническими инструментами. Программный комплекс <strong>QUIK</strong> (Quick Information for Klients) уже много лет является стандартом де-факто для профессиональной торговли на Московской бирже, предоставляя доступ к торгам акциями, облигациями, фьючерсами и валютой. ВТБ, как один из крупнейших брокеров России, предлагает своим клиентам адаптированную версию этого терминала, интегрированную с торговыми счетами банка.</p>
+
+<p>Многие начинающие трейдеры опасаются сложного интерфейса программы, однако при правильном подходе освоение базовых функций занимает всего несколько часов. Важно понимать, что работа в <em>QUIK ВТБ</em> кардинально отличается от использования упрощенных мобильных приложений для покупки акций, так как предоставляет прямой доступ к биржевым стаканам и расширенной аналитике. В этой статье мы разберем все этапы: от скачивания дистрибутива до выставления сложных ордеров и настройки графиков.</p>
+
+<p>Для успешного старта вам не нужно быть программистом или математиком, достаточно лишь внимательно следовать алгоритмам установки и настройки рабочего пространства. <strong>Торговый терминал</strong> — это ваш главный инструмент, и его стабильная работа напрямую влияет на эффективность ваших сделок. Мы рассмотрим ключевые аспекты, которые помогут избежать типичных ошибок новичков и быстро войти в ритм биржевой торговли.</p>
+
+<h2 id="установка-и-первичная-настройка-терминала">Установка и первичная настройка терминала</h2>
+
+<p>Первым шагом на пути к профессиональной торговле является корректная установка программного обеспечения. В отличие от веб-версий, десктопный <strong>QUIK</strong> требует загрузки инсталлятора с официального сайта брокера или банка. ВТБ предоставляет актуальную версию программы, которая уже содержит необходимые сертификаты безопасности и плагины для авторизации. Процесс установки стандартен для операционной системы Windows и занимает не более 5-10 минут.</p>
+
+<p>После запуска установщика необходимо выбрать папку для размещения файлов программы. <mark>Критически важно устанавливать терминал на диск с файловой системой NTFS и достаточным количеством свободного места, так как программа создает объемные базы данных котировок и истории сделок.</mark> Не рекомендуется использовать для установки системный диск, если он переполнен, или сетевые папки, что может привести к снижению скорости работы.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сохраните установочный файл в надежном месте или на флешке — это позволит быстро переустановить терминал в случае сбоя системы без повторного скачивания.</p></div>
+
+<p>После завершения копирования файлов программа предложит запустить конфигурацию. На этом этапе вам потребуется ввести логин и пароль, которые выдаются брокером ВТБ при открытии брокерского счета. Эти данные отличаются от логинов для входа в интернет-банк, поэтому убедитесь, что используете именно <strong>реквизиты для QUIK</strong>. Также на этом этапе может потребоваться выбор сервера подключения, который обычно определяется автоматически, но при проблемах со связью его можно сменить вручную.</p>
+
+<h2 id="интерфейс-и-основные-окна-программы">Интерфейс и основные окна программы</h2>
+
+<p>При первом запуске пользователь видит множество окон, что может вызвать растерянность. Интерфейс <em>QUIK ВТБ</em> модульный, что означает возможность перемещать, закрывать и создавать заново любые элементы. Основное рабочее пространство состоит из главного меню, панели инструментов и множества плавающих или закрепленных таблиц. Понимание назначения каждого окна — ключ к эффективной работе.</p>
+
+<p>Центральное место в работе трейдера занимает таблица «Клиентский портфель». Именно здесь отображаются ваши денежные позиции, количество акций и текущая оценка активов. Для удобства навигации можно использовать следующие основные окна:</p>
+
+<ul>
+<li>📊 <strong>Таблица «Клиентский портфель»</strong> — показывает остатки по счетам и ценным бумагам.</li>
+<li>📈 <strong>Таблица «Текущая таблица» (Стакан)</strong> — отображает заявки на покупку и продажу в реальном времени.</li>
+<li>📝 <strong>Таблица «Заявки» и «Сделки»</strong> — история ваших действий и исполненных ордеров.</li>
+<li>📉 <strong>Графики</strong> — визуализация динамики цены инструмента.</li>
+</ul>
+
+<p>Важно отметить, что все окна можно комбинировать. Например, вы можете открыть график котировок и «привязать» к нему стакан, чтобы видеть реакцию рынка на изменение цены. Для вызова любого отсутствующего окна используется главное меню в верхней части экрана через пункт <code>Окна → Новые окна</code>. Это позволяет создать индивидуальную рабочую среду, заточенную под ваш стиль торговли.</p>
+
+<div class="poll-widget" id="poll-4a03dfcd"><div class="poll-widget-question">📊 Какой интерфейс вам важнее?</div><div class="poll-widget-option" data-poll="4a03dfcd" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Простой и минималистичный</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="4a03dfcd" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Насыщенный данными и графиками</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="4a03dfcd" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Мобильная версия</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="4a03dfcd" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Веб-терминал</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="настройка-рабочего-пространства-и-таблиц">Настройка рабочего пространства и таблиц</h2>
+
+<p>Эффективность трейдера напрямую зависит от того, насколько удобно организовано его рабочее место. Стандартные настройки <strong>QUIK</strong> могут не содержать всех необходимых колонок или иметь неудобный шрифт. Программа позволяет глубоко кастомизировать внешний вид таблиц. Для этого нужно нажать правой кнопкой мыши на заголовок любой таблицы и выбрать пункт «Редактировать таблицу».</p>
+
+<p>В открывшемся меню можно добавить или убрать столбцы, изменить их порядок и ширину. Например, для торговли акциями часто требуется видеть не только текущую цену, но и изменение в процентах, объем торгов и позицию в стакане. Настройка визуального представления данных помогает быстрее принимать решения в моменты высокой волатильности рынка.</p>
+
+<p>Для сохранения созданной конфигурации окон и таблиц используется система «Рабочих мест». Вы можете создать несколько профилей: один для торговли акциями, другой — для фьючерсов, третий — для облигаций. Переключение между ними происходит мгновенно через меню <code>Система → Рабочие места</code>. Это избавляет от необходимости каждый раз заново открывать нужные инструменты.</p>
+
+<div class="checklist-block"><h4>☑️ Настройка рабочего места</h4><label class="check-item"><input type="checkbox"><span>Открыть таблицу Клиентский портфель</span></label><label class="check-item"><input type="checkbox"><span>Добавить колонку "Средняя цена"</span></label><label class="check-item"><input type="checkbox"><span>Настроить цвет фона для отрицательных значений</span></label><label class="check-item"><input type="checkbox"><span>Сохранить рабочее место как "Основное"</span></label><label class="check-item"><input type="checkbox"><span>Проверить отображение стаканов</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Особое внимание стоит уделить цветовой индикации. В <em>QUIK ВТБ</strong> можно настроить цвета для различных состояний: рост цены, падение, собственные заявки. Визальное выделение своих ордеров в общем стакане помогает не потерять их среди тысяч чужих заявок. Также рекомендуется увеличить шрифт в таблицах, если вы работаете на мониторе с высоким разрешением, чтобы снизить нагрузку на глаза.</p>
+
+<h2 id="выставление-и-управление-заявками">Выставление и управление заявками</h2>
+
+<p>Основная функция терминала — совершение сделок. В <strong>QUIK</strong> существует два основных способа выставления заявок: через окно ввода поручения и непосредственно из стакана (Таблицы текущих торгов). Второй способ считается более профессиональным и быстрым, так как позволяет реагировать на изменения рынка за доли секунды.</p>
+
+<p>При работе через стакан вы видите список покупателей и продавцов. Чтобы купить актив, нужно нажать левой кнопкой мыши на цену продавца (лучшая цена продажи — Ask), а чтобы продать — на цену покупателя (лучшая цена покупки — Bid). После нажатия появляется окно подтверждения, где указывается количество лотов. Для моментальной отправки заявки используется горячая клавиша <code>F9</code> или кнопка «Выставить».</p>
+
+<p>Существует несколько типов заявок, понимание которых необходимо:</p>
+<ul>
+<li>🟢 <strong>Лимитированная заявка</strong> — исполняется только по указанной цене или лучше. Если цена рынка уйдет, заявка останется висеть в стакане.</li>
+<li>🔴 <strong>Рыночная заявка</strong> — исполняется немедленно по лучшей доступной цене на рынке. Гарантирует исполнение, но не гарантирует цену.</li>
+<li>🟡 <strong>Стоп-заявка</strong> — активируется только при достижении определенного уровня цены, после чего превращается в обычную лимитную или рыночную.</li>
+</ul>
+
+<details class="faq-item"><summary>Что такое «Проскальзывание»?</summary><div class="faq-answer"><p>Проскальзывание — это ситуация, когда рыночная заявка исполняется по цене, отличающейся от ожидаемой. Это происходит из-за резкого изменения котировок или отсутствия ликвидности в стакане в момент исполнения.</p></div></details>
+
+<p>Управление активными заявками осуществляется через таблицу «Заявки». Здесь можно увидеть статус заявки («Активна», «Исполнена», «Снята»). Для отмены неисполненной заявки достаточно выделить её строку и нажать клавишу <code>Delete</code> или кнопку «Снять» на панели инструментов. Важно постоянно мониторировать эту таблицу, чтобы не забыть о выставленных ордерах, которые могут исполниться в неожиданный момент.</p>
+
+<h2 id="технический-анализ-и-графики-в-quik">Технический анализ и графики в QUIK</h2>
+
+<p>Для принятия взвешенных торговых решений недостаточно видеть только цифры; необходим визуальный анализ динамики цен. Встроенный модуль построения графиков в <em>QUIK ВТБ</strong> обладает широким функционалом, сопоставимым с профессиональными аналитическими платформами. Графики строятся на основе тиковых данных или данных минутных свечей, что обеспечивает высокую точность.</p>
+
+<p>Чтобы добавить график, выберите инструмент в списке и нажмите <code>График</code> в контекстном меню или используйте горячую клавишу <code>Alt+G</code>. На график можно накладывать различные индикаторы: скользящие средние (MA), полосы Боллинджера, RSI и многие другие. Это позволяет проводить <strong>технический анализ</strong> непосредственно в торговом терминале, не переключаясь на сторонние ресурсы.</p>
+
+<p>Настройка внешнего вида графика также гибкая. Можно менять тип отображения (японские свечи, бары, линия), цвет фона и сетки. Для дневного трейдера важно видеть объемы торгов, которые отображаются в виде гистограммы внизу графика. Сочетание ценового действия и объемов дает более полную картину происходящего на рынке.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте несколько графиков с разными таймфреймами (например, 5 минут и 1 час) одновременно для оценки краткосрочных и среднесрочных трендов.</p></div>
+
+<h2 id="работа-со-стоп-заявками-и-риск-менеджмент">Работа со стоп-заявками и риск-менеджмент</h2>
+
+<p>Управление рисками — важнейшая часть торговли. <strong>Стоп-заявки</strong> в <em>QUIK</strong> позволяют автоматически ограничивать убытки или фиксировать прибыль. В отличие от обычных заявок, стоп-заявка не видна в биржевом стакане до момента её активации. Она хранится на вашем компьютере или сервере брокера (в зависимости от типа) и ждет наступления определенных условий.</p>
+
+<p>Для создания стоп-заявки необходимо открыть таблицу «Стоп-заявки» и нажать кнопку «Новая». В открывшемся окне указываются условия активации (цена активации) и параметры создаваемой заявки (цена и количество). Например, если вы купили акцию по 100 рублей, вы можете выставить стоп-заявку на продажу по 95 рублей, чтобы ограничить убыток.</p>
+
+<p>Существует также понятие «условной заявки», которая связывает две обычные заявки. Например, заявка на покупку и стоп-заявка на продажу. Если исполняется первая, автоматически активируется вторая. Это реализует стратегию «stop-loss» и «take-profit» в автоматическом режиме, что особенно полезно, если вы не можете постоянно следить за рынком.</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип заявки</th>
+<th>Где хранится</th>
+<th>Когда исполняется</th>
+<th>Риски</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Лимитная</td>
+<td>Биржа</td>
+<td>При появлении встречной цены</td>
+<td>Может не исполниться</td>
+</tr>
+<tr>
+<td>Рыночная</td>
+<td>Биржа</td>
+<td>Немедленно</td>
+<td>Проскальзывание цены</td>
+</tr>
+<tr>
+<td>Стоп-лимит</td>
+<td>Терминал/Сервер</td>
+<td>При достижении цены активации</td>
+<td>Терминал должен быть включен*</td>
+</tr>
+<tr>
+<td>Условная</td>
+<td>Терминал</td>
+<td>При исполнении другой заявки</td>
+<td>Зависимость от ПО</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Стоп-заявки, хранящиеся на стороне клиента (в терминале), перестают действовать при выключении компьютера или обрыве связи с сервером. Для гарантии исполнения используйте серверные стоп-заявки, если ваш тариф в ВТБ поддерживает такую возможность.</p>
+</blockquote>
+
+<h2 id="частые-ошибки-новичков-и-безопасность">Частые ошибки новичков и безопасность</h2>
+
+<p>Работа с финансовыми инструментами сопряжена с рисками, и ошибки в настройке или использовании терминала могут привести к потере средств. Одна из самых распространенных ошибок — неправильное понимание типа выставляемой заявки. Новички часто путают цену активации стоп-заявки и цену самой заявки, что приводит к немедленному исполнению или, наоборот, неисполнению ордера.</p>
+
+<p>Второй важный аспект — безопасность. <strong>QUIK</strong> хранит конфиденциальные данные о вашем счете. Никогда не передавайте файлы ключей (<code>.key</code>) и пароли третьим лицам. Регулярно обновляйте антивирусное ПО и не запускайте терминал на зараженных компьютерах. Также рекомендуется периодически менять пароль от торгового счета через личный кабинет брокера.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Не используйте публичные Wi-Fi сети для торговли через QUIK без дополнительного защищенного соединения (VPN), так как данные могут быть перехвачены злоумышленниками.</p>
+</blockquote>
+
+<p>Еще одна ошибка — игнорирование маржинальных требований. При торговле с плечом (кредитным плечом) необходимо следить за уровнем обеспечения. Если стоимость активов упадет ниже определенного порога, брокер имеет право принудительно закрыть позиции. В <em>QUIK ВТБ</em> есть индикаторы, показывающие уровень маржи, но полагаться только на них не стоит.</p>
+
+<details class="faq-item"><summary>Что такое «Маржин-колл»?</summary><div class="faq-answer"><p>Маржин-колл — это требование брокера пополнить счет или закрыть часть позиций, если стоимость активов упала и перестала покрывать взятый кредит. В QUIK это отображается изменением цвета индикатора обеспечения.</p></div></details>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Где взять логин и пароль для входа в QUIK ВТБ?</summary>
+<p>Логин и пароль для торгового терминала отличаются от данных для входа в онлайн-банк. Их можно найти в личном кабинете инвестора на сайте ВТБ в разделе «Настройки» или получить в смс-сообщении после открытия брокерского счета. Если вы забыли данные, их можно восстановить через поддержку или личный кабинет.</p>
+</details>
+
+<details>
+<summary>Почему терминал QUIK не подключается к серверу?</summary>
+<p>Наиболее частые причины: неверный пароль, проблемы с интернет-соединением, блокировка антивирусом или фаерволом, либо технические работы на стороне биржи или брокера. Проверьте настройки прокси в параметрах соединения и убедитесь, что антивирус не блокирует исполняемый файл <code>info.exe</code> или <code>quik.exe</code>.</p>
+</details>
+
+<details>
+<summary>Можно ли торговать в QUIK с телефона?</summary>
+<p>Классический терминал QUIK предназначен для ПК под управлением Windows. Для мобильных устройств (iOS и Android) ВТБ предлагает отдельное приложение «ВТБ Инвестиции» или «QUIK Mobile», которое имеет упрощенный интерфейс, но позволяет выполнять основные торговые операции.</p>
+</details>
+
+<details>
+<summary>Как обновить терминал QUIK до последней версии?</summary>
+<p>Обычно при запуске терминал автоматически проверяет наличие обновлений и предлагает их установить. Если автоматическое обновление не работает, можно скачать актуальный дистрибутив с сайта ВТБ и запустить установку поверх старой версии, сохранив все настройки и базы данных.</p>
+</details>
+
+<details>
+<summary>Берет ли ВТБ комиссию за использование QUIK?</summary>
+<p>Использование самого программного комплекса QUIK, как правило, бесплатно для клиентов брокера ВТБ. Однако за совершение сделок взимаются брокерские комиссии согласно вашему тарифному плану. Также могут взиматься платы за дополнительные сервисы, такие как котировки в реальном времени для некоторых рынков, если они не включены в тариф.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#установка-и-первичная-настройка-терминала">Установка и первичная настройка терминала</a></li><li><a href="#интерфейс-и-основные-окна-программы">Интерфейс и основные окна программы</a></li><li><a href="#настройка-рабочего-пространства-и-таблиц">Настройка рабочего пространства и таблиц</a></li><li><a href="#выставление-и-управление-заявками">Выставление и управление заявками</a></li><li><a href="#технический-анализ-и-графики-в-quik">Технический анализ и графики в QUIK</a></li><li><a href="#работа-со-стоп-заявками-и-риск-менеджмент">Работа со стоп-заявками и риск-менеджмент</a></li><li><a href="#частые-ошибки-новичков-и-безопасность">Частые ошибки новичков и безопасность</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-otkryt-vtoroj-portfel-v-vtb-investitsii.html" class="related-card">Как открыть второй портфель в ВТБ Инвестиции: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-kupit-aktsii-gazproma-v-vtb-moi-investitsii.html" class="related-card">Как купить акции Газпрома в ВТБ Мои Инвестиции: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-snyat-dengi-s-iis-vtb.html" class="related-card">Как снять деньги с ИИС ВТБ в 2026: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-ustanovit-pervyj-raz-na-vtb-quik-na-kompyuter.html" class="related-card">Как установить QUIK от ВТБ на компьютер: пошаговая инструкция 2026</a></li><li><a href="/articles/c/ch/chto-takoe-iis-v-vtb.html" class="related-card">ИИС в ВТБ: что это, как открыть и какие льготы получить в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-otkryt-vtoroj-portfel-v-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как открыть второй портфель в ВТБ Инвестиции: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд по созданию второго инвестиционного портфеля в ВТБ Инвестиции: условия, ограничения, </span></a><a href="/articles/k/ka/kak-kupit-aktsii-gazproma-v-vtb-moi-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как купить акции Газпрома в ВТБ Мои Инвестиции: пошаговая инструкция 2026</span><span class="related-bottom-desc">Разбираемся, как купить акции Газпрома через ВТБ Мои Инвестиции: от регистрации до первой сделки. По</span></a><a href="/articles/k/ka/kak-snyat-dengi-s-iis-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как снять деньги с ИИС ВТБ в 2026: пошаговая инструкция</span><span class="related-bottom-desc">Разбираем все способы вывода средств с индивидуального инвестиционного счёта ВТБ: частичное снятие, </span></a><a href="/articles/k/ka/kak-ustanovit-pervyj-raz-na-vtb-quik-na-kompyuter.html" class="related-bottom-card"><span class="related-bottom-title">Как установить QUIK от ВТБ на компьютер: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по первой установке QUIK от ВТБ: системные требования, скачивание, настройка и</span></a><a href="/articles/c/ch/chto-takoe-iis-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">ИИС в ВТБ: что это, как открыть и какие льготы получить в 2026 году</span><span class="related-bottom-desc">Разбираемся, что такое индивидуальный инвестиционный счёт (ИИС) в ВТБ: условия открытия, налоговые в</span></a><a href="/articles/k/ka/kak-vosstanovit-parol-v-vtb-moi-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Как восстановить пароль в ВТБ Мои Инвестиции — пошаговая инструкция 2026</span><span class="related-bottom-desc">Забыли пароль от личного кабинета ВТБ Мои Инвестиции? Узнайте все способы восстановления доступа: че</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

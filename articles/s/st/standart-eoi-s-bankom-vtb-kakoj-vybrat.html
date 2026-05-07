@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Стандарт ЭОИ с ВТБ в 2026: какой выбрать для физических лиц — Банки Инфо</title>
+    <meta name="description" content="Сравнение стандартов ЭОИ (электронного обмена информацией) в ВТБ: XML, EDI, API. Какой формат подходит для ИП, юрлиц и физлиц? Пошаговая инструкция по подключению и тарифы.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/s/st/standart-eoi-s-bankom-vtb-kakoj-vybrat.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Стандарт ЭОИ с ВТБ в 2026: какой выбрать для физических лиц">
+    <meta property="og:description" content="Сравнение стандартов ЭОИ (электронного обмена информацией) в ВТБ: XML, EDI, API. Какой формат подходит для ИП, юрлиц и физлиц? Пошаговая инструкция по подключению и тарифы.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/perevody/">Переводы</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Стандарт ЭОИ с ВТБ в 2026: какой выбрать для физических лиц</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Какой стандарт ЭОИ выбрать в ВТБ: сравнение форматов для клиентов в 2026 году</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-эои-и-зачем-он-нужен-клиентам-втб">Что такое ЭОИ и зачем он нужен клиентам ВТБ</a></li><li><a href="#сравнение-стандартов-эои-в-втб-xml-edi-api">Сравнение стандартов ЭОИ в ВТБ: XML, EDI, API</a></li><li><a href="#какой-стандарт-эои-выбрать-в-зависимости-от-типа-клиента">Какой стандарт ЭОИ выбрать в зависимости от типа клиента</a></li><li><a href="#пошаговая-инструкция-по-подключению-эои-в-втб">Пошаговая инструкция по подключению ЭОИ в ВТБ</a></li><li><a href="#тарифы-на-эои-в-втб-в-2024-году">Тарифы на ЭОИ в ВТБ в 2024 году</a></li><li><a href="#частые-ошибки-при-работе-с-эои-в-втб-и-как-их-избежать">Частые ошибки при работе с ЭОИ в ВТБ и как их избежать</a></li><li><a href="#faq-ответы-на-частые-вопросы-по-эои-в-втб">FAQ: ответы на частые вопросы по ЭОИ в ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Электронный обмен информацией (ЭОИ) с банком <em>ВТБ</em> стал неотъемлемой частью работы для юридических лиц, индивидуальных предпринимателей и даже физических лиц, которые активно пользуются банковскими услугами. В 2026 году банк предлагает несколько стандартов ЭОИ — от классического <strong>XML</strong> до современного <strong>API</strong>, — и выбор правильного формата может существенно повлиять на скорость обработки платежей, безопасность данных и даже на комиссии. Но как не запутаться в аббревиатурах и технических нюансах?</p>
+
+<p>В этой статье мы разберём все актуальные стандарты ЭОИ, которые поддерживает <em>ВТБ</em>, сравним их по ключевым параметрам: простота подключения, стоимость, совместимость с бухгалтерскими программами и скорость обработки. Особое внимание уделим тому, какой формат оптимален для разных категорий клиентов — от владельцев малого бизнеса до крупных корпораций. Также вы найдёте пошаговую инструкцию по подключению и ответы на частые вопросы, которые возникают при переходе на электронный документооборот.</p>
+
+<p>Если вы ещё не определились, нужен ли вам ЭОИ вообще, учтите: с 2023 года Центральный банк РФ рекомендует всем юридическим лицам переходить на электронный обмен данными с банками для сокращения бумажной волокиты и ускорения финансовых операций. <em>ВТБ</em> follows this trend, предлагая гибкие решения под разные задачи.</p>
+
+<h2 id="что-такое-эои-и-зачем-он-нужен-клиентам-втб">Что такое ЭОИ и зачем он нужен клиентам ВТБ</h2>
+
+<p>Электронный обмен информацией (ЭОИ) — это технология, позволяющая автоматизировать передачу данных между клиентом и банком без использования бумажных документов. В контексте <em>ВТБ</em> речь идёт о:</p>
+
+<ul>
+  <li>📄 <strong>Выписках по счёту</strong> — автоматическое получение в формате, совместимом с бухгалтерскими программами (<em>1С</em>, <em>МойСклад</em> и др.).</li>
+  <li>💳 <strong>Платёжных поручениях</strong> — отправка и подтверждение платежей без посещения офиса.</li>
+  <li>📊 <strong>Отчётности</strong> — передача данных в налоговые органы или контрагентам.</li>
+  <li>🔒 <strong>Безопасности</strong> — все операции подписываются электронной подписью (ЭП), что исключает подделку.</li>
+</ul>
+
+<p>Основные преимущества ЭОИ для клиентов <em>ВТБ</em>:</p>
+
+<ul>
+  <li>⚡ <strong>Скорость</strong>: платежи и выписки обрабатываются в течение минут, а не дней (как при бумажном документообороте).</li>
+  <li>💰 <strong>Экономия</strong>: отсутствует необходимость печатать, доставлять и хранить документы.</li>
+  <li>🔄 <strong>Автоматизация</strong>: интеграция с бухгалтерским ПО сокращает ручной ввод данных.</li>
+  <li>🛡️ <strong>Защита</strong>: все данные передаются по защищённым каналам с шифрованием.</li>
+</ul>
+
+<p>Однако не все стандарты ЭОИ одинаково удобны. Например, <strong>XML</strong> требует настройки со стороны клиента, а <strong>API</strong> может быть сложен для малого бизнеса без IT-специалистов. Далее разберём каждый формат подробно.</p>
+
+<div class="poll-widget" id="poll-9ea209ee"><div class="poll-widget-question">📊 Какой стандарт ЭОИ вы используете сейчас?</div><div class="poll-widget-option" data-poll="9ea209ee" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Бумажные документы</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="9ea209ee" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">XML</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="9ea209ee" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">EDI</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="9ea209ee" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">API</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="9ea209ee" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Не знаю, что это</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="сравнение-стандартов-эои-в-втб-xml-edi-api">Сравнение стандартов ЭОИ в ВТБ: XML, EDI, API</h2>
+
+<p>В 2026 году <em>ВТБ</em> поддерживает три основных стандарта электронного обмена информацией. Каждый из них имеет свои особенности, плюсы и минусы. Ниже — сравнительная таблица, которая поможет определиться с выбором.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Параметр</th>
+      <th>XML</th>
+      <th>EDI (ЭДО)</th>
+      <th>API</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Тип клиентов</strong></td>
+      <td>Юрлица, ИП, физлица с большим объёмом операций</td>
+      <td>Крупный и средний бизнес</td>
+      <td>IT-компании, стартапы, клиенты с собственными системами</td>
+    </tr>
+    <tr>
+      <td><strong>Сложность подключения</strong></td>
+      <td>Средняя (требуется настройка софта)</td>
+      <td>Высокая (нужен оператор ЭДО)</td>
+      <td>Высокая (требуются программисты)</td>
+    </tr>
+    <tr>
+      <td><strong>Стоимость</strong></td>
+      <td>От 500 ₽/мес</td>
+      <td>От 2 000 ₽/мес + плата оператору</td>
+      <td>Индивидуально (от 5 000 ₽/мес)</td>
+    </tr>
+    <tr>
+      <td><strong>Скорость обработки</strong></td>
+      <td>1–2 часа</td>
+      <td>10–30 минут</td>
+      <td>Реальный режим времени</td>
+    </tr>
+    <tr>
+      <td><strong>Интеграция с 1С</strong></td>
+      <td>Да (через модули)</td>
+      <td>Да (через оператора ЭДО)</td>
+      <td>Да (требуется доработка)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><mark>Важно: с 1 января 2026 года ВТБ прекратил поддержку устаревшего стандарта SWIFT для внутренних операций в России, заменив его на SPFS. Если ваш бизнес работал через SWIFT, необходимо перейти на один из предложенных форматов ЭОИ.</mark></p>
+
+<p>Рассмотрим каждый стандарт подробнее.</p>
+
+<h3>1. XML: универсальный, но требующий настройки</h3>
+<p><strong>XML</strong> (e<em>X</em>tensible <em>M</em>arkup <em>L</em>anguage) — самый распространённый формат обмена данными в банковской сфере. Он подходит для клиентов, которые:</p>
+<ul>
+  <li>📌 Используют бухгалтерские программы (<em>1С</em>, <em>БухСофт</em>).</li>
+  <li>📌 Нуждаются в автоматической выгрузке выписок.</li>
+  <li>📌 Не готовы платить за дорогостоящие решения вроде EDI.</li>
+</ul>
+
+<p>Подключение XML в <em>ВТБ</em> происходит через личный кабинет <code>ВТБ-Бизнес Онлайн</code>. Потребуется:</p>
+<ol>
+  <li>Заключить договор на ЭОИ (можно онлайн).</li>
+  <li>Настроить экспорт/импорт файлов в бухгалтерской программе.</li>
+  <li>Получить электронную подпись (ЭП) для подписания документов.</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При работе с XML важно следить за актуальностью схемы данных. <em>ВТБ</em> обновляет её раз в 1–2 года, и если ваше ПО не поддерживает новую версию, обмен данными может прекратиться. Проверяйте обновления в разделе <code>Настройки → ЭОИ → Схемы обмена</code>.</blockquote>
+
+<h3>2. EDI (ЭДО): для крупного бизнеса с оператором</h3>
+<p><strong>EDI</strong> (Electronic Data Interchange) — это продвинутый стандарт, который используется для обмена структурированными данными между компаниями. В <em>ВТБ</em> он реализован через операторов электронного документооборота (ЭДО), таких как <em>Такском</em>, <em>СберЭДО</em> или <em>Контур.Диадок</em>.</p>
+
+<p>Преимущества EDI:</p>
+<ul>
+  <li>🔄 Полная автоматизация обмена с контрагентами (не только с банком).</li>
+  <li>📈 Поддержка сложных документов (счета-фактуры, УПД, акты).</li>
+  <li>🛡️ Высокий уровень безопасности (используются сертифицированные операторы).</li>
+</ul>
+
+<p>Недостатки:</p>
+<ul>
+  <li>💸 Дорого: помимо платы <em>ВТБ</em>, нужно оплачивать услуги оператора (от 1 500 ₽/мес).</li>
+  <li>⚙️ Сложная настройка: требуется интеграция с бухгалтерией и обучение сотрудников.</li>
+</ul>
+
+<p>EDI оптимален для компаний с оборотом от 50 млн ₽/год, которые работают с большим количеством контрагентов.</p>
+
+<h3>3. API: для IT-компаний и кастомизированных решений</h3>
+<p><strong>API</strong> (Application Programming Interface) — это программный интерфейс, который позволяет напрямую взаимодействовать с системами <em>ВТБ</em> через код. Этот стандарт подходит для:</p>
+<ul>
+  <li>💻 Компаний с собственными IT-отделами.</li>
+  <li>🚀 Стартапов, которым нужна гибкая интеграция.</li>
+  <li>📱 Сервисов, работающих с большим объёмом транзакций (маркетплейсы, агрегаторы).</li>
+</ul>
+
+<p>Преимущества API:</p>
+<ul>
+  <li>⚡ Мгновенная обработка запросов (реальный режим времени).</li>
+  <li>🔧 Полная кастомизация: можно запрашивать только нужные данные.</li>
+  <li>🌐 Поддержка международных стандартов (JSON, REST).</li>
+</ul>
+
+<p>Недостатки:</p>
+<ul>
+  <li>👨‍💻 Требуются программисты для настройки и поддержки.</li>
+  <li>💰 Высокая стоимость: тарифы начинаются от 5 000 ₽/мес + плата за запросы.</li>
+</ul>
+
+<p>Пример запроса к API <em>ВТБ</em> для получения выписки:</p>
+<pre><code>GET https://api.vtb.ru/business/v1/statements?account=40702810900000001234&dateFrom=2026-01-01
+<p>Headers:</p>
+<p>Authorization: Bearer {your_token}</p>
+<p>Content-Type: application/json</code></pre></p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При работе с API <em>ВТБ</em> блокирует аккаунт после 5 неудачных запросов подряд. Если вы тестируете интеграцию, используйте песочницу (sandbox) банка, чтобы избежать блокировки основного доступа.</blockquote>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>API — самый гибкий, но и самый сложный стандарт. Подходит только компаниям с IT-ресурсами. Для большинства бизнесов достаточно XML или EDI.</p></div>
+
+<h2 id="какой-стандарт-эои-выбрать-в-зависимости-от-типа-клиента">Какой стандарт ЭОИ выбрать в зависимости от типа клиента</h2>
+
+<p>Выбор стандарта ЭОИ зависит от размера бизнеса, технических возможностей и бюджета. Ниже — рекомендации для разных категорий клиентов <em>ВТБ</em>.</p>
+
+<h3>1. Физические лица с активными операциями</h3>
+<p>Если вы физлицо, но часто проводите платежи (например, фрилансер или инвестор), вам подойдёт:</p>
+<ul>
+  <li>📱 <strong>Личный кабинет <em>ВТБ-Онлайн</strong></strong> — для ручного контроля операций.</li>
+  <li>📄 <strong>XML (если нужна автоматическая выгрузка выписок)</em> — например, для учёта доходов/расходов в <em>1С</em>.</li>
+</ul>
+
+<p>API и EDI для физлиц избыточны — они предназначены для юридических лиц.</p>
+
+<h3>2. Индивидуальные предприниматели (ИП)</h3>
+<p>Для ИП оптимален <strong>XML</strong>, так как:</p>
+<ul>
+  <li>💰 Дешевле EDI и API.</li>
+  <li>🔄 Легко интегрируется с <em>1С</em> или <em>МойСклад</em>.</li>
+  <li>📊 Позволяет автоматизировать выгрузку выписок для налоговой.</li>
+</ul>
+
+<p>Если у вас более 50 платежей в месяц, рассмотрите <strong>EDI</strong> через оператора (например, <em>Контур.Диадок</em>), но учитывайте дополнительные расходы.</p>
+
+<h3>3. Малый и средний бизнес (ООО)</h3>
+<p>Компаниям с оборотом до 100 млн ₽/год рекомендуем:</p>
+<ul>
+  <li>📌 <strong>XML</strong> — если нужна простая автоматизация выписок и платежей.</li>
+  <li>📌 <strong>EDI</strong> — если работаете с большим количеством контрагентов и нужна полная автоматизация документооборота.</li>
+</ul>
+
+<p>API целесообразен только если у вас есть собственные разработчики и нужна глубокая интеграция с банком.</p>
+
+<h3>4. Крупный бизнес и корпорации</h3>
+<p>Для компаний с оборотом от 100 млн ₽/год и сложной структурой документооборота:</p>
+<ul>
+  <li>🏢 <strong>EDI</strong> — через оператора ЭДО (например, <em>Такском</em>).</li>
+  <li>💻 <strong>API</strong> — если нужна интеграция с ERP-системами (<em>SAP</em>, <em>Oracle</em>).</li>
+</ul>
+
+<p>XML для крупного бизнеса может быть недостаточно гибким.</p>
+
+
+<p>Определите объём операций в месяц|Оцените бюджет на ЭОИ (от 500 ₽ до 10 000 ₽)|Проверьте совместимость с вашим бухгалтерским ПО|Уточните у контрагентов, какой формат они поддерживают|Свяжитесь с <em>ВТБ</em> для консультации по тарифам--></p>
+
+<h2 id="пошаговая-инструкция-по-подключению-эои-в-втб">Пошаговая инструкция по подключению ЭОИ в ВТБ</h2>
+
+<p>Процесс подключения зависит от выбранного стандарта, но общая схема выглядит так:</p>
+
+<ol>
+  <li><strong>Заключение договора</strong></li>
+  <p>Для подключения ЭОИ нужно заключить дополнительное соглашение к договору банковского обслуживания. Это можно сделать:</p>
+  <ul>
+    <li>📝 В офисе <em>ВТБ</em> (нужен паспорт и документы компании).</li>
+    <li>💻 Через <code>ВТБ-Бизнес Онлайн</code> (раздел <code>Договора → ЭОИ</code>).</li>
+  </ul>
+
+  <li><strong>Получение электронной подписи (ЭП)</strong></li>
+  <p>Без ЭП невозможно подписывать документы в электронном виде. <em>ВТБ</em> работает с сертифицированными удостоверяющими центрами:</p>
+  <ul>
+    <li>🔐 <em>Такском</em></li>
+    <li>🔐 <em>Контур</em></li>
+    <li>🔐 <em>СберУЦ</em></li>
+  </ul>
+  <p>Стоимость ЭП — от 1 500 ₽/год.</p>
+
+  <li><strong>Настройка программного обеспечения</strong></li>
+  <p>В зависимости от стандарта:</p>
+  <ul>
+    <li>📄 <strong>XML</strong>: настройте экспорт/импорт в <em>1С</em> (инструкции есть на сайте <em>ВТБ</em>).</li>
+    <li>🔄 <strong>EDI</strong>: подключитесь к оператору ЭДО и настройте маршруты документов.</li>
+    <li>💻 <strong>API</strong>: получите токен доступа и протестируйте запросы в песочнице.</li>
+  </ol>
+
+  <li><strong>Тестовый обмен</strong></li>
+  <p>Перед началом работы проведите тестовый обмен данными. Для этого:</p>
+  <ol>
+    <li>Отправьте тестовый файл выписки или платежку.</li>
+    <li>Проверьте корректность обработки.</li>
+    <li>Убедитесь, что документы подписываются ЭП.</li>
+  </ol>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При подключении EDI или API <em>ВТБ</em> может запросить техническое задание (ТЗ) на интеграцию. Без ТЗ банк не гарантирует корректную работу системы. Обратитесь в поддержку по телефону <code>8 800 100-24-24</code> для помощи в составлении ТЗ.</blockquote>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы подключаете XML, скачайте актуальные схемы обмена на сайте <em>ВТБ</em> в разделе <code>Бизнесу → Электронный документооборот → Техническая документация</code>. Устаревшие схемы могут привести к ошибкам при загрузке файлов.</p></div>
+
+<h2 id="тарифы-на-эои-в-втб-в-2026-году">Тарифы на ЭОИ в ВТБ в 2026 году</h2>
+
+<p>Стоимость ЭОИ зависит от выбранного стандарта и тарифного плана. Ниже — актуальные цены для клиентов <em>ВТБ</em> (по состоянию на июнь 2026 года).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Стандарт</th>
+      <th>Базовый тариф (₽/мес)</th>
+      <th>Дополнительные расходы</th>
+      <th>Примечания</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>XML</strong></td>
+      <td>500–1 500</td>
+      <td>ЭП (от 1 500 ₽/год)</td>
+      <td>Бесплатно для клиентов с пакетом "Премиум"</td>
+    </tr>
+    <tr>
+      <td><strong>EDI</strong></td>
+      <td>2 000–5 000</td>
+      <td>Оператор ЭДО (от 1 000 ₽/мес), ЭП</td>
+      <td>Тариф зависит от объёма документов</td>
+    </tr>
+    <tr>
+      <td><strong>API</strong></td>
+      <td>5 000–20 000</td>
+      <td>Плата за запросы (от 0,5 ₽/запрос), ЭП</td>
+      <td>Индивидуальные условия для корпоративных клиентов</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Важно:</p>
+<ul>
+  <li>💳 Клиенты с пакетами обслуживания <em>ВТБ</em> "Бизнес-Премиум" или "Корпоративный" могут получить скидку до 30% на ЭОИ.</li>
+  <li>📉 При оплате за год вперед некоторые тарифы снижаются на 10–15%.</li>
+  <li>🔄 Если вы подключаете несколько стандартов (например, XML + EDI), действуют комбинированные тарифы.</li>
+</ul>
+
+<p>Уточнить актуальные цены можно:</p>
+<ul>
+  <li>🌐 На сайте <em>ВТБ</em> в разделе <code>Тарифы → Электронный документооборот</code>.</li>
+  <li>📞 По телефону горячей линии: <code>8 800 100-24-24</code> (для юрлиц).</li>
+</ul>
+
+<details class="faq-item"><summary>Скрытые комиссии при ЭОИ</summary><div class="faq-answer"><p>
+<p>Некоторые операторы ЭДО (например, <em>Такском</em>) взимают плату за хранение документов (от 0,1 ₽/документ в месяц). Также может взиматься комиссия за срочную обработку платежей (до 1% от суммы). Всегда уточняйте полный прайс перед подключением.</p></div></details></p>
+
+<h2 id="частые-ошибки-при-работе-с-эои-в-втб-и-как-их-избежать">Частые ошибки при работе с ЭОИ в ВТБ и как их избежать</h2>
+
+<p>Даже после успешного подключения клиенты <em>ВТБ</em> сталкиваются с проблемами при работе с ЭОИ. Вот самые распространённые ошибки и способы их решения:</p>
+
+<h3>1. Ошибки при подписании документов ЭП</h3>
+<p>Ситуация: система выдаёт ошибку <code>"Неверная подпись"</code> или <code>"Сертификат недействителен"</code>.</p>
+<p>Причины и решения:</p>
+<ul>
+  <li>🔑 <strong>Просроченный сертификат ЭП</strong> → Обновите сертификат в удостоверяющем центре.</li>
+  <li>🖥️ <strong>Несовместимость с браузером</strong> → Используйте <em>Google Chrome</em> или <em>Яндекс.Браузер</em> последней версии.</li>
+  <li>📁 <strong>Повреждённый файл</strong> → Пересохраните документ и подпишите заново.</li>
+</ul>
+
+<h3>2. Некорректная выгрузка выписок в 1С</h3>
+<p>Ситуация: выписки загружаются в <em>1С</em> с ошибками или не полностью.</p>
+<p>Причины и решения:</p>
+<ul>
+  <li>🔄 <strong>Устаревшая схема XML</strong> → Скачайте актуальную схему на сайте <em>ВТБ</em>.</li>
+  <li>⚙️ <strong>Неверные настройки импорта</strong> → Проверьте соответствие полей в <em>1С</em> и файле выписки.</li>
+  <li>📂 <strong>Кодировка файла</strong> → Файл должен быть в кодировке <code>UTF-8</code>.</li>
+</ul>
+
+<h3>3. Задержки в обработке платежей</h3>
+<p>Ситуация: платежи через ЭОИ обрабатываются дольше, чем вручную.</p>
+<p>Причины и решения:</p>
+<ul>
+  <li>⏳ <strong>Технические работы в банке</strong> → Проверьте статус систем на сайте <em>ВТБ</em>.</li>
+  <li>📡 <strong>Проблемы с интернетом</strong> → Используйте резервный канал связи.</li>
+  <li>📄 <strong>Ошибки в платежке</strong> → Проверьте реквизиты и формат файла.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если платеж "завис" в статусе <code>"В обработке"</code> более 2 часов, свяжитесь с поддержкой <em>ВТБ</em> по телефону <code>8 800 200-77-99</code> (для юрлиц) и сообщите номер операции. Самостоятельно отменять платеж не рекомендуется — это может привести к двойному списанию.</blockquote>
+
+<h2 id="faq-ответы-на-частые-вопросы-по-эои-в-втб">FAQ: ответы на частые вопросы по ЭОИ в ВТБ</h2>
+
+<details>
+  <summary>🔹 Можно ли подключить ЭОИ дистанционно, не посещая офис?</summary>
+  <p>Да, для клиентов <em>ВТБ-Бизнес Онлайн</em> доступно дистанционное подключение XML и EDI. Для этого:</p>
+  <ol>
+    <li>Авторизуйтесь в личном кабинете.</li>
+    <li>Перейдите в раздел <code>Договора → Электронный документооборот</code>.</li>
+    <li>Заполните заявку и подпишите её ЭП.</li>
+  </ol>
+  <p>API подключается только после согласования с банком (требуется техническое задание).</p>
+</details>
+
+<details>
+  <summary>🔹 Какая электронная подпись подходит для ЭОИ в ВТБ?</summary>
+  <p><em>ВТБ</em> работает с квалифицированными электронными подписями (КЭП), выданными аккредитованными удостоверяющими центрами. Рекомендуемые УЦ:</p>
+  <ul>
+    <li><em>Такском</em></li>
+    <li><em>Контур</em></li>
+    <li><em>СберУЦ</em></li>
+  </ul>
+  <p>Неподходящие виды ЭП:</p>
+  <ul>
+    <li>Простая ЭП (СМС-коды, пароли).</li>
+    <li>Неквалифицированная ЭП.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>🔹 Сколько времени занимает подключение ЭОИ?</summary>
+  <p>Сроки зависят от стандарта:</p>
+  <ul>
+    <li><strong>XML</strong>: 1–3 рабочих дня (при дистанционном подключении).</li>
+    <li><strong>EDI</strong>: 3–7 дней (нужно время на настройку оператора ЭДО).</li>
+    <li><strong>API</strong>: 5–14 дней (требуется согласование ТЗ и тестирование).</li>
+  </ul>
+  <p>Ускорить процесс можно, если заранее подготовить:</p>
+  <ul>
+    <li>Документы компании (ИНН, ОГРН, выписка из ЕГРЮЛ).</li>
+    <li>Сертификат ЭП.</li>
+    <li>Технические требования (для API).</li>
+  </ul>
+</details>
+
+<details>
+  <summary>🔹 Можно ли отключить ЭОИ и вернуться к бумажным документам?</summary>
+  <p>Да, но с оговорками:</p>
+  <ul>
+    <li>Для отключения нужно написать заявление в офисе <em>ВТБ</em> или через <code>ВТБ-Бизнес Онлайн</code>.</li>
+    <li>Банк может взимать комиссию за возврат к бумажному документообороту (от 1 000 ₽).</li>
+    <li>Некоторые операции (например, валютный контроль) требуют обязательного ЭОИ по закону.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>🔹 Что делать, если потерян доступ к ЭП?</summary>
+  <p>Если вы потеряли сертификат ЭП или забыли пароль:</p>
+  <ol>
+    <li>Обратитесь в удостоверяющий центр, выдавший ЭП, для восстановления.</li>
+    <li>Если ЭП скомпрометирована, отзовите сертификат и выпустите новый.</li>
+    <li>Сообщите в <em>ВТБ</em> о смене ЭП через раздел <code>Настройки → Электронная подпись</code>.</li>
+  </ol>
+  <p>Важно: без действующей ЭП все операции через ЭОИ будут заблокированы.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-эои-и-зачем-он-нужен-клиентам-втб">Что такое ЭОИ и зачем он нужен клиентам ВТБ</a></li><li><a href="#сравнение-стандартов-эои-в-втб-xml-edi-api">Сравнение стандартов ЭОИ в ВТБ: XML, EDI, API</a></li><li><a href="#какой-стандарт-эои-выбрать-в-зависимости-от-типа-клиента">Какой стандарт ЭОИ выбрать в зависимости от типа клиента</a></li><li><a href="#пошаговая-инструкция-по-подключению-эои-в-втб">Пошаговая инструкция по подключению ЭОИ в ВТБ</a></li><li><a href="#тарифы-на-эои-в-втб-в-2024-году">Тарифы на ЭОИ в ВТБ в 2024 году</a></li><li><a href="#частые-ошибки-при-работе-с-эои-в-втб-и-как-их-избежать">Частые ошибки при работе с ЭОИ в ВТБ и как их избежать</a></li><li><a href="#faq-ответы-на-частые-вопросы-по-эои-в-втб">FAQ: ответы на частые вопросы по ЭОИ в ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-perevesti-dengi-s-brokerskogo-scheta-na-kartu-vtb.html" class="related-card">Как перевести деньги с брокерского счета на карту ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-perevesti-kesh-vtb-na-kartu.html" class="related-card">Как перевести кэшбэк ВТБ на карту: 5 способов и комиссии 2026</a></li><li><a href="/articles/k/ka/kak-perevesti-dengi-s-lichnogo-kabineta-vtb-na-kartu-sberbanka.html" class="related-card">Перевод с ВТБ на Сбербанк: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-perevesti-dengi-s-banka-vtb-na-kartu-sberbanka.html" class="related-card">Как перевести деньги с ВТБ на Сбербанк: 5 способов 2026</a></li><li><a href="/articles/s/sk/skolko-idut-dengi-s-vtb-na-sberbank-kartu-vremeni.html" class="related-card">Сколько идут деньги с ВТБ на карту Сбербанка в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-perevesti-dengi-s-brokerskogo-scheta-na-kartu-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги с брокерского счета на карту ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробный гайд по выводу средств с брокерского счета на карту ВТБ: способы, комиссии, сроки и нюансы</span></a><a href="/articles/k/ka/kak-perevesti-kesh-vtb-na-kartu.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести кэшбэк ВТБ на карту: 5 способов и комиссии 2026</span><span class="related-bottom-desc">Пошаговая инструкция, как вывести кэшбэк с карты ВТБ на другую карту: через приложение, онлайн-банк,</span></a><a href="/articles/k/ka/kak-perevesti-dengi-s-lichnogo-kabineta-vtb-na-kartu-sberbanka.html" class="related-bottom-card"><span class="related-bottom-title">Перевод с ВТБ на Сбербанк: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как перевести деньги с личного кабинета ВТБ на карту Сбербанка: все способы, комиссии, лимиты и срок</span></a><a href="/articles/k/ka/kak-perevesti-dengi-s-banka-vtb-na-kartu-sberbanka.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги с ВТБ на Сбербанк: 5 способов 2026</span><span class="related-bottom-desc">Пошаговые инструкции для перевода с карты/счета ВТБ на карту Сбербанка: через приложение, онлайн-бан</span></a><a href="/articles/s/sk/skolko-idut-dengi-s-vtb-na-sberbank-kartu-vremeni.html" class="related-bottom-card"><span class="related-bottom-title">Сколько идут деньги с ВТБ на карту Сбербанка в 2026 году</span><span class="related-bottom-desc">Точные сроки переводов между ВТБ и Сбербанком: от мгновенных до 3 дней. Как ускорить зачисление, ком</span></a><a href="/articles/s/sk/skolko-deneg-mozhno-perevesti-s-karty-na-kartu-vtb-za-odin-raz-bez-komissii.html" class="related-bottom-card"><span class="related-bottom-title">Лимиты без комиссии на переводы ВТБ в 2026: сколько можно перевести с карты на карту</span><span class="related-bottom-desc">Актуальные лимиты на безкомиссионные переводы между картами ВТБ в 2026 году: суммы, ограничения по в</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

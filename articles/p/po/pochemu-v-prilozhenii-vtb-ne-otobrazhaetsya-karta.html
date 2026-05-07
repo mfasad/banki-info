@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Почему в приложении ВТБ не отображается карта: причины и решения — Банки Инфо</title>
+    <meta name="description" content="Разбираем, почему пропали карты в приложении ВТБ. Решения проблем с отображением баланса, обновлением приложения и блокировкой счетов.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/p/po/pochemu-v-prilozhenii-vtb-ne-otobrazhaetsya-karta.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Почему в приложении ВТБ не отображается карта: причины и решения">
+    <meta property="og:description" content="Разбираем, почему пропали карты в приложении ВТБ. Решения проблем с отображением баланса, обновлением приложения и блокировкой счетов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Почему в приложении ВТБ не отображается карта: причины и решения</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Почему в приложении ВТБ не отображается карта: полный разбор</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#технические-сбои-и-проблемы-с-интернетом">Технические сбои и проблемы с интернетом</a></li><li><a href="#проблемы-с-версией-приложения-и-кэшем">Проблемы с версией приложения и кэшем</a></li><li><a href="#блокировка-карты-или-счета-банком">Блокировка карты или счета банком</a></li><li><a href="#истек-срок-действия-или-закончились-деньги">Истек срок действия или закончились деньги</a></li><li><a href="#ошибки-при-входе-и-авторизации">Ошибки при входе и авторизации</a></li><li><a href="#как-быстро-восстановить-доступ">Как быстро восстановить доступ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Ситуация, когда вы открываете <strong>мобильное приложение</strong> банка и не видите привычную карточку или счет, может вызвать серьезное беспокойство. Чаще всего деньги никуда не пропали, а проблема кроется в техническом сбое, обновлении интерфейса или временной блокировке со стороны системы безопасности. В большинстве случаев восстановить доступ к отображению карт можно самостоятельно, не обращаясь в службу поддержки.</p>
+
+<p>Существует множество факторов, влияющих на корректную работу <em>ВТБ Онлайн</em>. Это может быть нестабильное интернет-соединение, устаревшая версия программного обеспечения или даже сбой на стороне сервера во время проведения технических работ. Важно не паниковать, а последовательно проанализировать возможные причины исчезновения данных.</p>
+
+<p>В этой статье мы детально разберем все возможные сценарии, почему <strong>баланс</strong> или сама карта могут стать невидимыми, и предложим пошаговые инструкции по устранению неполадок. Вы научитесь отличать программные ошибки от реальных ограничений, наложенных на счет.</p>
+
+<h2 id="технические-сбои-и-проблемы-с-интернетом">Технические сбои и проблемы с интернетом</h2>
+
+<p>Самая банальная, но частая причина — плохое соединение с интернетом. Приложение может запуститься, загрузить часть кэша, но не суметь обновить <strong>список счетов</strong> в реальном времени. Если вы находитесь в зоне неуверенного приема или используете перегруженную Wi-Fi сеть, данные могут просто не дойти до вашего устройства. Проверьте индикатор связи и попробуйте переключиться между мобильным интернетом и беспроводной сетью.</p>
+
+<p>Иногда проблема кроется не в вашем телефоне, а в глобальных сбоях на стороне банка. В периоды проведения плановых технических работ или при атаках на серверы функционал <em>ВТБ Онлайн</em> может работать некорректно. В такие моменты карты могут временно исчезать из меню или отображаться с задержкой. Обычно такие работы длятся недолго и проводятся в ночное время или выходные.</p>
+
+<p>Также стоит учитывать нагрузку на сеть. В дни выплат зарплат или пенсий серверы испытывают пиковые нагрузки, что может приводить к таймаутам при загрузке списка карт. Если вы видите пустой экран вместо баланса, подождите несколько минут и попробуйте обновить страницу свайпом.</p>
+
+<div class="poll-widget" id="poll-a81f5ac8"><div class="poll-widget-question">📊 Сталкивались ли вы с исчезновением карт в приложении?</div><div class="poll-widget-option" data-poll="a81f5ac8" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, карты пропали полностью</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a81f5ac8" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, не отображался баланс</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a81f5ac8" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет, у меня все работает</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="a81f5ac8" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Затрудняюсь ответить</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Важно понимать, что отсутствие визуального отображения карты в интерфейсе не всегда означает блокировку средств. Часто это просто ошибка рендеринга интерфейса. Если интернет стабилен, но карты нет, стоит проверить системное время на устройстве — рассинхронизация часов может блокировать безопасное соединение с банком.</p>
+
+<h2 id="проблемы-с-версией-приложения-и-кэшем">Проблемы с версией приложения и кэшем</h2>
+
+<p>Устаревшая версия приложения — одна из главных причин некорректного отображения данных. Банк регулярно выпускает обновления, которые содержат исправления ошибок и новые протоколы безопасности. Если вы используете старую версию <strong>ВТБ Онлайн</strong>, сервер может просто отказаться передавать ей данные о картах, считая клиент уязвимым.</p>
+
+<p>Накопленный кэш и временные файлы также могут вызывать конфликты. Со временем приложение обрастает "мусором", который мешает правильной работе. В этом случае помогает очистка кэша через настройки операционной системы или полная переустановка приложения. Это действие безопасно для ваших денег, так как вся информация хранится на сервере.</p>
+
+<p>Если вы пользуетесь Android, убедитесь, что у приложения есть все необходимые разрешения. Отсутствие доступа к сети или хранилищу может блокировать работу отдельных модулей. На iOS проблемы часто решаются удалением и повторной установкой приложения из официального магазина App Store.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка состояния приложения</h4><label class="check-item"><input type="checkbox"><span>Проверить наличие обновлений в магазине</span></label><label class="check-item"><input type="checkbox"><span>Очистить кэш приложения</span></label><label class="check-item"><input type="checkbox"><span>Проверить системное время</span></label><label class="check-item"><input type="checkbox"><span>Перезагрузить устройство</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Обратите внимание на источник установки приложения. Если вы скачали программу не из официального магазина (Google Play, App Store, RuStore, GetApps), а через сторонний файл APK, вы можете столкнуться с ограничениями. <mark>Неофициальные сборки могут не иметь актуальных сертификатов безопасности, из-за чего банк блокирует отображение чувствительных данных.</mark></p>
+
+<h2 id="блокировка-карты-или-счета-банком">Блокировка карты или счета банком</h2>
+
+<p>Если технически все исправно, но карта все равно не отображается или помечена как заблокированная, причина может быть в действиях системы безопасности. Банк автоматически блокирует карты при подозрительных операциях. В приложении такая карта может исчезнуть из общего списка активных или переместиться в раздел заблокированных.</p>
+
+<p>Часто блокировка происходит из-за ввода неверного ПИН-кода несколько раз подряд или попыток оплаты в сомнительных интернет-магазинах. Также банк может ограничить доступ, если заподозрит, что доступ к приложению получили мошенники. В этом случае отображение карты скрывается для защиты средств владельца.</p>
+
+<blockquote>⚠️ Внимание: Если карта заблокирована банком, разблокировать её через приложение часто невозможно. Требуется звонок на горячую линию или визит в офис для подтверждения личности.</blockquote>
+
+<p>Существует также понятие "арест счета" по решению суда или приставов. В этом случае карта может отображаться, но баланс будет скрыт или равен нулю, а операции будут недоступны. Проверьте наличие уведомлений от банка в разделе "Сообщения" — там обычно содержится причина ограничений.</p>
+
+<h2 id="истек-срок-действия-или-закончились-деньги">Истек срок действия или закончились деньги</h2>
+
+<p>Банковская карта имеет ограниченный срок действия, указанный на лицевой стороне. Если этот срок истек, карта автоматически блокируется, и в приложении она может перестать отображаться как активный платежный инструмент. Банк обычно выпускает новую карту заранее, но иногда процесс перевыпуска затягивается или требует вашего подтверждения.</p>
+
+<p>Еще одна причина "исчезновения" — нулевой баланс на счетах, которые не используются. Некоторые пользователи предпочитают скрывать пустые счета в настройках, чтобы не загромождать интерфейс. Проверьте настройки отображения в меню профиля.</p>
+
+<p>Если карта виртуальная, она могла сгореть после одноразового использования или по истечении срока жизни, заданного при выпуске. Виртуальные продукты часто имеют короткий срок действия в целях безопасности.</p>
+
+<details class="faq-item"><summary>Что делать, если карта просрочена?</summary><div class="faq-answer"><p>Если срок действия карты истек, она больше не действует. Вам необходимо заказать перевыпуск. Это можно сделать в приложении (если карта еще видна в профиле) или в отделении банка. Новая карта будет иметь новый номер и CVV-код, а старый счет сохранится.</spoiler></p></div></details>
+
+<p>Для проверки статуса карты воспользуйтесь таблицей соответствия причин и решений:</p>
+
+<table>
+<thead>
+<tr>
+<th>Симптом</th>
+<th>Вероятная причина</th>
+<th>Решение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Карта серая или скрыта</td>
+<td>Истек срок действия</td>
+<td>Заказать перевыпуск в отделении</td>
+</tr>
+<tr>
+<td>Ошибка загрузки списка</td>
+<td>Нет интернета или сбой сервера</td>
+<td>Проверить сеть, подождать 10-15 минут</td>
+</tr>
+<tr>
+<td>Требование обновления</td>
+<td>Устаревшая версия ПО</td>
+<td>Обновить приложение в магазине</td>
+</tr>
+<tr>
+<td>Карта помечена "Стоп"</td>
+<td>Блокировка службой безопасности</td>
+<td>Звонить на горячую линию банка</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="ошибки-при-входе-и-авторизации">Ошибки при входе и авторизации</h2>
+
+<p>Иногда пользователи inadvertently (ненароком) меняют настройки отображения или входят в приложение под другим профилем. Если у вас несколько номеров телефонов, зарегистрированных в банке, убедитесь, что вы авторизованы именно в том профиле, где должна быть карта.</p>
+
+<p>Сбой токена авторизации — техническая ошибка, при которой сервер "забывает" ваше устройство. В этом случае помогает выход из аккаунта и повторный вход с вводом пароля и кода из СМС. Это обновляет ключи шифрования и восстанавливает связь с вашими счетами.</p>
+
+<p>Если вы недавно меняли паспортные данные или фамилию, доступ к некоторым продуктам может быть временно ограничен до момента актуализации данных в базе банка. В таких случаях приложение может показывать неполную информацию.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Совет: Перед повторным входом в приложение убедитесь, что вы помните кодовое слово или имеете доступ к номеру телефона, привязанному к счету, для получения СМС.</p></div>
+
+<p>Не стоит забывать и о человеческом факторе. Возможно, карта была случайно скрыта через меню настроек приватности. В разделе "Настройки" -> "Безопасность" или "Отображение" часто есть галочки "Скрывать баланс" или "Скрывать карту".</p>
+
+<h2 id="как-быстро-восстановить-доступ">Как быстро восстановить доступ</h2>
+
+<p>Для восстановления отображения карты действуйте по алгоритму. Сначала проверьте интернет и обновления. Затем попробуйте очистить кэш. Если не помогло — проверьте СМС от банка на предмет блокировок. Последним шагом остается звонок в поддержку.</p>
+
+<p>Используйте веб-версию банка (ВТБ Онлайн в браузере). Если там карта отображается корректно, значит проблема точно в мобильном приложении на вашем телефоне. Если и в веб-версии карты нет — проблема на стороне счета или банка.</p>
+
+<p>При обращении в поддержку подготовьте паспорт и данные последней операции. Это ускорит процесс идентификации и решения проблемы. Операторы видят статус карты в реальном времени и могут сказать точную причину её отсутствия.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Главный вывод: В 90% случаев проблема решается обновлением приложения или перезагрузкой телефона. Если карта заблокирована банком — поможет только звонок в поддержку.</p></div>
+
+<details>
+<summary>Почему в приложении ВТБ пропала карта, но деньги на месте?</summary>
+<p>Это частая ситуация при технических сбоях интерфейса. Ваши средства хранятся на банковском счете, который привязан к карте. Исчезновение "пластика" из приложения — это лишь визуальный баг. Деньги никуда не делись, они доступны через другие каналы или после устранения ошибки.</p>
+</details>
+
+<details>
+<summary>Может ли карта исчезнуть из-за долгого неиспользования?</summary>
+<p>Да, если картой не пользовались более года (условия зависят от тарифа), банк может приостановить её обслуживание. Также карта может быть закрыта автоматически, если на ней был нулевой баланс и истек срок действия, а клиент не заказал перевыпуск.</p>
+</details>
+
+<details>
+<summary>Что делать, если приложение ВТБ показывает "Нет доступных карт"?</summary>
+<p>Необходимо проверить, не истек ли срок действия карт. Если срок в порядке, попробуйте полностью удалить приложение, перезагрузить телефон и установить свежую версию из официального магазина. Также проверьте, не заблокирован ли доступ к интернету для самого приложения в настройках телефона.</p>
+</details>
+
+<details>
+<summary>Как скрыть или показать карту в приложении ВТБ?</summary>
+<p>Зайдите в настройки приложения, выберите раздел "Карты" или "Счета". Там часто есть функция "Скрыть баланс" (глазик) или управление видимостью продуктов. Если карта скрыта полностью, она может находиться в архиве или списке неактивных.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#технические-сбои-и-проблемы-с-интернетом">Технические сбои и проблемы с интернетом</a></li><li><a href="#проблемы-с-версией-приложения-и-кэшем">Проблемы с версией приложения и кэшем</a></li><li><a href="#блокировка-карты-или-счета-банком">Блокировка карты или счета банком</a></li><li><a href="#истек-срок-действия-или-закончились-деньги">Истек срок действия или закончились деньги</a></li><li><a href="#ошибки-при-входе-и-авторизации">Ошибки при входе и авторизации</a></li><li><a href="#как-быстро-восстановить-доступ">Как быстро восстановить доступ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-uznat-login-vtb-banka-cherez-telefon.html" class="related-card">Как узнать логин ВТБ Банка через телефон: все способы</a></li><li><a href="/articles/g/gd/gde-rasporyazheniya-v-prilozhenii-vtb.html" class="related-card">Где найти распоряжения в приложении ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-otklyuchit-push-uvedomleniya-v-vtb-onlajn-besplatno.html" class="related-card">Как отключить push-уведомления в ВТБ Онлайн бесплатно: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-ustanovit-bystrye-platezhi-v-vtb.html" class="related-card">Как установить быстрые платежи в ВТБ: инструкция</a></li><li><a href="/articles/k/ka/kak-nastroit-nfc-v-vtb-onlajn.html" class="related-card">Как настроить NFC в ВТБ Онлайн: инструкция по оплате</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-uznat-login-vtb-banka-cherez-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать логин ВТБ Банка через телефон: все способы</span><span class="related-bottom-desc">Подробный гид, как узнать логин ВТБ Онлайн через телефон. Восстановление доступа, сброс пароля, вход</span></a><a href="/articles/g/gd/gde-rasporyazheniya-v-prilozhenii-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Где найти распоряжения в приложении ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство, как найти и управлять распоряжениями в мобильном банке ВТБ: где искать, как о</span></a><a href="/articles/k/ka/kak-otklyuchit-push-uvedomleniya-v-vtb-onlajn-besplatno.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить push-уведомления в ВТБ Онлайн бесплатно: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по отключению push-уведомлений в мобильном приложении и веб-версии ВТБ Онлайн.</span></a><a href="/articles/k/ka/kak-ustanovit-bystrye-platezhi-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как установить быстрые платежи в ВТБ: инструкция</span><span class="related-bottom-desc">Подробная инструкция по подключению СБП в приложении ВТБ Онлайн. Настройка автоплатежей, лимиты и ре</span></a><a href="/articles/k/ka/kak-nastroit-nfc-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как настроить NFC в ВТБ Онлайн: инструкция по оплате</span><span class="related-bottom-desc">Пошаговая инструкция: как настроить NFC в приложении ВТБ Онлайн для оплаты телефоном. Способы Mir Pa</span></a><a href="/articles/k/ka/kak-posmotret-kartu-vtb-v-prilozhenii-nomer-karty.html" class="related-bottom-card"><span class="related-bottom-title">Как посмотреть карту ВТБ в приложении: номер и реквизиты</span><span class="related-bottom-desc">Узнайте, как найти номер карты ВТБ в мобильном приложении. Инструкция по поиску реквизитов, копирова</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

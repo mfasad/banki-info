@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как выглядит приложение ВТБ Мои Инвестиции: интерфейс и функции — Банки Инфо</title>
+    <meta name="description" content="Подробный обзор дизайна и возможностей приложения ВТБ Мои Инвестиции: главное меню, аналитика, торги и настройки. Скриншоты + инструкции для новичков.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-vyglyadit-prilozhenie-vtb-moi-investitsii.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как выглядит приложение ВТБ Мои Инвестиции: интерфейс и функции">
+    <meta property="og:description" content="Подробный обзор дизайна и возможностей приложения ВТБ Мои Инвестиции: главное меню, аналитика, торги и настройки. Скриншоты + инструкции для новичков.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как выглядит приложение ВТБ Мои Инвестиции: интерфейс и функции</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>ВТБ Мои Инвестиции: как выглядит приложение изнутри — разбор интерфейса с примерами</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#главный-экран-что-видно-сразу-после-входа">Главный экран: что видно сразу после входа</a></li><li><a href="#раздел-портфель-структура-и-детализация">Раздел «Портфель»: структура и детализация</a></li><li><a href="#вкладка-торги-как-выглядит-рабочее-место-трейдера">Вкладка «Торги»: как выглядит рабочее место трейдера</a></li><li><a href="#аналитика-и-новости-где-искать-идеи-для-инвестиций">Аналитика и новости: где искать идеи для инвестиций</a></li><li><a href="#настройки-и-безопасность-что-можно-настроить">Настройки и безопасность: что можно настроить</a></li><li><a href="#скрытые-фишки-что-не-всем-известно">Скрытые фишки: что не всем известно</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Приложение <em>ВТБ Мои Инвестиции</em> стало одним из ключевых инструментов для частных инвесторов в России, предлагая удобный доступ к биржевым торгам, аналитике и управлению портфелем прямо со смартфона. Однако перед первым запуском у многих возникает вопрос: как именно устроен его интерфейс, какие разделы есть в меню и как не потеряться среди графиков, котировок и кнопок? Эта статья поможет разобраться в визуальной структуре приложения, показать реальные скриншоты основных экранов и объяснить, за что отвечает каждый элемент.</p>
+
+<p>Мы детально рассмотрим <strong>главное меню</strong>, разберёмся с вкладками <strong>аналитики и торгов</strong>, а также покажем, как выглядят настройки и уведомления. Особое внимание уделим тем моментам, которые часто вызывают вопросы у новичков — например, где найти историю сделок или как настроить отображение котировок. Если вы только начинаете путь инвестора или переходите с другого брокера, этот гайд поможет быстрее адаптироваться к интерфейсу <em>ВТБ Мои Инвестиции</em>.</p>
+
+<h2 id="главный-экран-что-видно-сразу-после-входа">Главный экран: что видно сразу после входа</h2>
+
+<p>После авторизации в приложении вы попадаете на <strong>стартовый экран</strong> — своеобразную "приборную панель" инвестора. Здесь сосредоточена ключевая информация:</p>
+
+<ul>
+  <li>📊 <strong>Общая стоимость портфеля</strong> с указанием изменения за день/неделю/месяц в процентах и рублях.</li>
+  <li>💰 <strong>Свободные средства</strong> на брокерском счёте (доступные для торгов или вывода).</li>
+  <li>📈 <strong>График динамики портфеля</strong> — интерактивная кривая, которую можно масштабировать жестами.</li>
+  <li>🔍 <strong>Поисковая строка</strong> для быстрого перехода к акциям, облигациям или ETF.</li>
+</ul>
+
+<p>В нижней части экрана расположено <strong>меню навигации</strong> с пятью основными вкладками:
+<code>Портфель</code>, <code>Торги</code>, <code>Аналитика</code>, <code>Новости</code> и <code>Ещё</code>. Иконки здесь минималистичные, но интуитивно понятные: график для портфеля, значок биржи для торгов, лупа для аналитики и т.д. <mark>Важно: цвет иконок меняется в зависимости от текущей вкладки — активная подсвечивается синим, остальные серые.</mark></p>
+
+<div class="poll-widget" id="poll-373e58fc"><div class="poll-widget-question">📊 Как часто вы проверяете свой инвестиционный портфель?</div><div class="poll-widget-option" data-poll="373e58fc" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Ежедневно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="373e58fc" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в неделю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="373e58fc" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в месяц</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="373e58fc" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Реже</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="373e58fc" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Только при сильных колебаниях рынка</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Справа в верхнем углу находится иконка <code>⚙️</code> — это <strong>быстрый доступ к настройкам уведомлений</strong> (например, можно включить оповещения о дивидендах или достижении целевой цены акции). Рядом — колокольчик с количеством непрочитанных уведомлений. Если вы видите здесь красную точку, значит, есть важные сообщения от брокера (например, о корпоративных действиях по вашим бумагам).</p>
+
+<h2 id="раздел-портфель-структура-и-детализация">Раздел «Портфель»: структура и детализация</h2>
+
+<p>Вкладка <code>Портфель</code> — это центр управления вашими активами. Здесь отображаются все купленные ценные бумаги, сгруппированные по типам: <strong>акции</strong>, <strong>облигации</strong>, <strong>ETF</strong> и <strong>валюта</strong>. Каждая позиция представлена в виде карточки с ключевыми данными:</p>
+
+<ul>
+  <li>📄 <strong>Название бумаги</strong> (например, <em>Сбербанк ао</em> или <em>FXRL</em>).</li>
+  <li>💹 <strong>Текущая цена</strong> и изменение за день (зелёным/красным цветом).</li>
+  <li>📦 <strong>Количество лотов</strong> в вашем владении.</li>
+  <li>💰 <strong>Стоимость позиции</strong> в рублях и её доля в портфеле (в %).</li>
+</ul>
+
+<p>При тапе на любую бумагу открывается <strong>детальная карточка</strong> с расширенной информацией:
+<p>график цены за разные периоды (день, месяц, год), аналитика (P/E, дивидендная доходность), последние новости компании и кнопка <code>Торговать</code> для быстрого создания заявки. Здесь же можно поставить <strong>стоп-заявку</strong> или настроить уведомление о достижении определённой цены.</p></p>
+
+<details class="faq-item"><summary>Как посчитать реальную доходность позиции?</summary><div class="faq-answer"><p>В детальной карточке бумаги есть вкладка "Статистика", где показана не только текущая стоимость, но и <strong>средняя цена покупки</strong>, а также <strong>прибыль/убыток в рублях и процентах</strong> с учётом комиссий. Это помогает оценить реальную доходность сделки, а не только изменение котировки.</p></div></details>
+
+<table>
+  <thead>
+    <tr>
+      <th>Элемент интерфейса</th>
+      <th>Где находится</th>
+      <th>Назначение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Кнопка <code>Пополнить</code></td>
+      <td>Верхний правый угол экрана "Портфель"</td>
+      <td>Быстрый перевод денег с банковской карты на брокерский счёт</td>
+    </tr>
+    <tr>
+      <td>Фильтр по типам активов</td>
+      <td>Под графиком динамики портфеля</td>
+      <td>Показать только акции, облигации или ETF</td>
+    </tr>
+    <tr>
+      <td>Иконка <code>📄</code> (отчёт)</td>
+      <td>Справа от названия каждой бумаги</td>
+      <td>Скачать выписку по сделкам или налоговый отчёт</td>
+    </tr>
+    <tr>
+      <td>Переключатель <code>Руб./%</code></td>
+      <td>Вверху графика портфеля</td>
+      <td>Показать изменение стоимости в рублях или процентах</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Обратите внимание на <strong>раздел "Дивиденды"</strong> внизу экрана — здесь отображаются ближайшие выплаты по вашим акциям с указанием даты отсечки и ожидаемой суммы. Если вы инвестируете в иностранные бумаги (через <em>ВТБ Мои Инвестиции</em> это возможно для квалифицированных инвесторов), то здесь же будет информация о налогах, удержанных за рубежом.</p>
+
+<h2 id="вкладка-торги-как-выглядит-рабочее-место-трейдера">Вкладка «Торги»: как выглядит рабочее место трейдера</h2>
+
+<p>Раздел <code>Торги</code> — это виртуальный торговый терминал, где можно покупать и продавать ценные бумаги. Интерфейс здесь разделен на три ключевые зоны:</p>
+
+<ol>
+  <li><strong>Строки заявок</strong> (вверху): поля для ввода тикера, количества лотов, типа заявки (рынок/лимит) и цены.</li>
+  <li><strong>Стакан цен</strong> (по центру): текущие предложения на покупку (<em>bid</em>) и продажу (<em>ask</em>) с глубиной рынка.</li>
+  <li><strong>График котировок</strong> (внизу): интерактивная свечная или линейная диаграмма с выбором таймфрейма.</li>
+</ol>
+
+<p>Для новичков полезно знать:
+<code>Тикер</code> вводится в верхнее поле (например, <em>SBER</em> для Сбербанка или <em>GAZP</em> для Газпрома).
+<p>При выборе <strong>рыночной заявки</strong> сделка исполнится по лучшей доступной цене, а при <strong>лимитной</strong> — только по указанной вами цене или лучше. В <em>ВТБ Мои Инвестиции</em> есть защита от ошибочных сделок: если цена сильно отклоняется от рыночной, система запросит подтверждение.</p></p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Чтобы быстро найти бумагу, не помня тикер, нажмите на лупу в строке поиска — откроется список популярных акций и ETF с логотипами компаний.</p></div>
+
+<p>Справа от стакана цен расположена кнопка <code>📊</code> — она открывает <strong>расширенную аналитику</strong> по выбранной бумаге:
+<p>мультипликаторы (P/E, P/B), рекомендации аналитиков, исторические данные по дивидендам и сравнение с конкурентами. Эта информация помогает принимать взвешенные решения, особенно если вы инвестируете на долгосрок.</p></p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В мобильной версии приложения <em>ВТБ Мои Инвестиции</em> нет возможности выставлять <strong>отложенные заявки</strong> (например, стоп-лосс или тейк-профит) напрямую из раздела "Торги". Для этого нужно зайти в детальную карточку бумаги и выбрать опцию "Стоп-заявка".</blockquote>
+
+<h2 id="аналитика-и-новости-где-искать-идеи-для-инвестиций">Аналитика и новости: где искать идеи для инвестиций</h2>
+
+<p>Вкладка <code>Аналитика</code> — это кладезь информации для тех, кто хочет глубже понимать рынок. Здесь собраны:</p>
+
+<ul>
+  <li>📰 <strong>Обзоры рынка</strong> от аналитиков ВТБ (ежедневные и еженедельные).</li>
+  <li>📈 <strong>Топы роста/падения</strong> — акции, которые сильнее всего изменились за день.</li>
+  <li>💡 <strong>Идеи для инвестиций</strong> — подборки бумаг с обоснованием (например, "Дивидендные аристократы" или "Акции с низким P/E").</li>
+  <li>📊 <strong>Макроэкономические показатели</strong>: ключевая ставка ЦБ, инфляция, курс доллара.</li>
+</ul>
+
+<p>Особенно полезен раздел <strong>"Скринеры"</strong> — это инструмент для фильтрации акций по заданным критериям (капитализация, дивидендная доходность, отрасль и т.д.). Например, можно найти все акции нефтегазового сектора с P/E < 10 или облигации с доходностью выше 10% годовых. Результаты можно сохранить в "Избранное" для дальнейшего анализа.</p>
+
+<p>Вкладка <code>Новости</code> агрегирует информацию от <em>РБК</em>, <em>Интерфакса</em>, <em>Bloomberg</em> и других источников, фильтруя её по тематике:
+<p>корпоративные события (выплаты дивидендов, слияния), макроэкономика, отраслевые новости. Здесь же есть календарь экономических событий (например, заседания ФРС или публикация отчётности компаний), который помогает спланировать торговлю.</p></p>
+
+<div class="checklist-block"><h4>☑️ Как пользоваться аналитикой для выбора акций</h4><label class="check-item"><input type="checkbox"><span>Определите цель (доходность/дивиденды/рост)</span></label><label class="check-item"><input type="checkbox"><span>Используйте скринеры для первичного отбора</span></label><label class="check-item"><input type="checkbox"><span>Изучите обзоры аналитиков ВТБ</span></label><label class="check-item"><input type="checkbox"><span>Проверьте историю дивидендов и мультипликаторы</span></label><label class="check-item"><input type="checkbox"><span>Сравните с конкурентами в отрасли</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="настройки-и-безопасность-что-можно-настроить">Настройки и безопасность: что можно настроить</h2>
+
+<p>Раздел <code>Ещё → Настройки</code> позволяет персонализировать работу с приложением. Здесь можно:</p>
+
+<ul>
+  <li>🔒 <strong>Настроить двухфакторную авторизацию</strong> (SMS или push-уведомления).</li>
+  <li>📱 <strong>Включить биометрию</strong> (вход по отпечатку пальца или Face ID).</li>
+  <li>💳 <strong>Привязать банковские карты</strong> для быстрого пополнения счёта.</li>
+  <li>🔔 <strong>Управлять уведомлениями</strong>: выбрать, о каких событиях вас оповещать (сделки, дивиденды, новости по вашим бумагам).</li>
+</ul>
+
+<p>В подменю <code>Безопасность</code> есть важные опции:
+<strong>Блокировка по PIN-коду</strong> (запрашивает пин при каждом входе) и <strong>Ограничение по IP</strong> (можно разрешить доступ только с определённых адресов). Также здесь можно посмотреть <strong>историю входов</strong> в приложение — если вы заметите подозрительную активность, сразу блокируйте доступ и меняйте пароль.</p>
+
+<p>Для опытных инвесторов полезен раздел <code>Торговые настройки</code>, где можно:
+<p>установить <strong>лимиты на сделки</strong> (например, не более 100 000 ₽ за одну операцию),</p>
+<p>настроить <strong>автоматическое закрытие позиций</strong> при достижении определённого убытка,</p>
+<p>а также выбрать <strong>тип исполнения заявок</strong> (FOK или IOC).</p></p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В настройках есть опция <code>Показывать рыночную стоимость портфеля с учётом налогов</code>. Если её включить, приложение будет автоматически вычитать 13% НДФЛ из вашей прибыли при расчёте общей стоимости активов. Это поможет избежать неприятных сюрпризов при декларировании доходов.</blockquote>
+
+<h2 id="скрытые-фишки-что-не-всем-известно">Скрытые фишки: что не всем известно</h2>
+
+<p>Приложение <em>ВТБ Мои Инвестиции</em> содержит несколько полезных, но неочевидных функций:</p>
+
+<ol>
+  <li><strong>Голосовой ввод тикера:</strong> в строке поиска можно нажать на микрофон и произнести название компании (например, "Яндекс" или "Лукойл") — система сама подставит правильный тикер.</li>
+  <li><strong>Тёмная тема:</strong> включается в настройках (<code>Ещё → Настройки → Оформление</code>). Уменьшает нагрузку на глаза при длительной работе.</li>
+  <li><strong>Экспорт данных:</strong> в разделе "Портфель" можно скачать выписку по сделкам в формате <code>Excel</code> — удобно для ведения собственной аналитики.</li>
+  <li><strong>Виджет для рабочего стола:</strong> отображает текущую стоимость портфеля и изменения за день (доступно для Android).</li>
+</ol>
+
+<p>Ещё одна малоизвестная возможность — <strong>тестовый режим</strong> (demo-счёт). Он доступен в веб-версии <em>ВТБ Мои Инвестиции</em> и позволяет тренироваться в торговле виртуальными деньгами, не рискуя реальными средствами. Это отличный способ опробовать стратегии перед выходом на рынок.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>В мобильном приложении нет полноценного тестового режима, но можно использовать <strong>симулятор торгов</strong> в личном кабинете на сайте ВТБ. Там же доступны расширенные инструменты анализа, которых нет в мобильной версии.</p></div>
+
+<p>Для тех, кто торгует с нескольких устройств, полезна функция <strong>синхронизации избранного</strong>. Если вы добавили акцию в "Избранное" на телефоне, она автоматически появится и в веб-версии, и в планшетном приложении. Это экономит время при анализе портфеля на разных экранах.</p>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</h2>
+
+<details>
+  <summary>Как вернуть стандартный вид приложения, если что-то сломалось после обновления?</summary>
+  <p>Если после обновления интерфейс стал отображаться некорректно (например, пропали кнопки или графики не грузятся), попробуйте:</p>
+  <ol>
+    <li>Перезапустить приложение (полностью закрыть и открыть заново).</li>
+    <li>Очистить кэш в настройках телефона (<code>Настройки → Приложения → ВТБ Мои Инвестиции → Память → Очистить кэш</code>).</li>
+    <li>Переустановить приложение из <em>App Store</em> или <em>Google Play</em>.</li>
+    <li>Если проблема осталась — обратиться в поддержку через чат в приложении (раздел <code>Ещё → Поддержка</code>).</li>
+  </ol>
+  <p>Обычно сбои связаны с неполной загрузкой данных после обновления. Также проверьте, включён ли у вас <strong>режим экономии трафика</strong> — он может блокировать загрузку графиков.</p>
+</details>
+
+<details>
+  <summary>Можно ли в приложении посмотреть налоговую историю за прошлые годы?</summary>
+  <p>Да, эта информация доступна в разделе <code>Ещё → Документы → Налоговые отчёты</code>. Здесь можно скачать:</p>
+  <ul>
+    <li>Справки о доходах (форма 2-НДФЛ для ФНС).</li>
+    <li>Отчёты о движении средств на брокерском счёте.</li>
+    <li>Данные о удержанных налогах (если вы инвестируете в иностранные активы).</li>
+  </ul>
+  <p>Отчёты формируются за календарный год и становятся доступны в январе следующего года. Например, данные за 2023 год появятся не раньше февраля 2026.</p>
+</details>
+
+<details>
+  <summary>Почему в приложении не отображаются некоторые акции (например, иностранные)?</summary>
+  <p>Если вы не видите определённые бумаги, причины могут быть следующими:</p>
+  <ul>
+    <li>Вы не являетесь <strong>квалифицированным инвестором</strong> — для доступа к иностранным акциям (например, <em>Apple</em> или <em>Tesla</em>) требуется этот статус.</li>
+    <li>Бумага временно <strong>приостановлена к торгам</strong> (например, из-за корпоративного действия).</li>
+    <li>Вы используете <strong>упрощённую версию интерфейса</strong> (можно изменить в настройках).</li>
+  </ul>
+  <p>Чтобы получить статус квалифицированного инвестора, пройдите тестирование в разделе <code>Ещё → Профиль → Квалифицированный инвестор</code>. Это займёт около 10 минут.</p>
+</details>
+
+<details>
+  <summary>Как убрать рекламу и баннеры в приложении?</summary>
+  <p>В <em>ВТБ Мои Инвестиции</em> нет классической рекламы третьих сторон, но иногда появляются баннеры с предложениями от самого банка (например, об открытии ИИС или участии в акции). Чтобы их скрыть:</p>
+  <ol>
+    <li>Перейдите в <code>Ещё → Настройки → Персонализация</code>.</li>
+    <li>Отключите опцию <code>Показывать специальные предложения</code>.</li>
+    <li>Если баннеры остались, обновите приложение — в новых версиях их количество сокращено.</li>
+  </ol>
+  <p>Важно: некоторые уведомления (например, о дивидендах или корпоративных действиях) отключить нельзя — они носят информационный характер.</p>
+</details>
+
+<details>
+  <summary>Можно ли пользоваться приложением без интернета?</summary>
+  <p>Нет, <em>ВТБ Мои Инвестиции</em> требует постоянного подключения к сети для:</p>
+  <ul>
+    <li>Обновления котировок в реальном времени.</li>
+    <li>Выставления и отмены заявок.</li>
+    <li>Получения новостей и аналитики.</li>
+  </ul>
+  <p>Однако некоторые данные (например, история сделок или состав портфеля) сохраняются в кэше и будут доступны ограниченно. Для торгов и просмотра актуальных цен интернет обязателен.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#главный-экран-что-видно-сразу-после-входа">Главный экран: что видно сразу после входа</a></li><li><a href="#раздел-портфель-структура-и-детализация">Раздел «Портфель»: структура и детализация</a></li><li><a href="#вкладка-торги-как-выглядит-рабочее-место-трейдера">Вкладка «Торги»: как выглядит рабочее место трейдера</a></li><li><a href="#аналитика-и-новости-где-искать-идеи-для-инвестиций">Аналитика и новости: где искать идеи для инвестиций</a></li><li><a href="#настройки-и-безопасность-что-можно-настроить">Настройки и безопасность: что можно настроить</a></li><li><a href="#скрытые-фишки-что-не-всем-известно">Скрытые фишки: что не всем известно</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: ответы на частые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-perevesti-dengi-s-iis-na-kartu-vtb-24.html" class="related-card">Как перевести деньги с ИИС на карту ВТБ 24: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-perevesti-dengi-na-brokerskij-schet-vtb.html" class="related-card">Как пополнить брокерский счет ВТБ: 5 способов 2026 года</a></li><li><a href="/articles/k/ka/kak-ustanovit-kvik-vtb-na-kompyuter.html" class="related-card">Как установить Квик ВТБ на ПК: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-vernut-ndfl-s-iis-vtb.html" class="related-card">Как вернуть НДФЛ с ИИС ВТБ в 2026 году: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-zakryt-iis-v-vtb-banke.html" class="related-card">Как закрыть ИИС в ВТБ: пошаговая инструкция 2026 года</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-perevesti-dengi-s-iis-na-kartu-vtb-24.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги с ИИС на карту ВТБ 24: пошаговая инструкция 2026</span><span class="related-bottom-desc">Узнайте, как вывести средства с индивидуального инвестиционного счёта (ИИС) на карту ВТБ 24: условия</span></a><a href="/articles/k/ka/kak-perevesti-dengi-na-brokerskij-schet-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить брокерский счет ВТБ: 5 способов 2026 года</span><span class="related-bottom-desc">Пошаговая инструкция по переводу денег на брокерский счет ВТБ: через банк, карту, онлайн-банкинг и д</span></a><a href="/articles/k/ka/kak-ustanovit-kvik-vtb-na-kompyuter.html" class="related-bottom-card"><span class="related-bottom-title">Как установить Квик ВТБ на ПК: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по установке торгового терминала QUIK от ВТБ на Windows и macOS. Системные тре</span></a><a href="/articles/k/ka/kak-vernut-ndfl-s-iis-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как вернуть НДФЛ с ИИС ВТБ в 2026 году: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как получить налоговый вычет 13% с индивидуального инвестиционного счёта (ИИС) в ВТБ: услов</span></a><a href="/articles/k/ka/kak-zakryt-iis-v-vtb-banke.html" class="related-bottom-card"><span class="related-bottom-title">Как закрыть ИИС в ВТБ: пошаговая инструкция 2026 года</span><span class="related-bottom-desc">Подробный гайд по закрытию индивидуального инвестиционного счёта в ВТБ: сроки, комиссии, налоги и ша</span></a><a href="/articles/p/po/pochemu-tak-deshevo-stoyat-aktsii-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Почему акции ВТБ стоят так дешево в 2026 году: 7 ключевых причин</span><span class="related-bottom-desc">Разбираем факторы, влияющие на низкую стоимость акций ВТБ: санкции, дивидендную политику, макроэконо</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

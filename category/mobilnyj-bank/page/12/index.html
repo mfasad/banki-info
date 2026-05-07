@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Мобильный банк — страница 12 — Банки Инфо</title>
+    <meta name="description" content="Инструкции по приложению: вход, настройки, восстановление доступа и безопасность.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+        .cat-hero {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e3a5f 100%);
+            border-bottom: none;
+            padding: 48px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cat-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(37,99,235,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(139,92,246,0.1) 0%, transparent 50%);
+            animation: heroShimmer 8s ease-in-out infinite alternate;
+        }
+        @keyframes heroShimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(3deg); }
+        }
+        .cat-hero .container { position: relative; z-index: 1; }
+        .cat-hero-icon {
+            font-size: 3.5rem; display: block; margin-bottom: 16px;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+        }
+        .cat-hero h1 {
+            font-size: 2rem; font-weight: 800; color: #f1f5f9;
+            margin-bottom: 10px; letter-spacing: -0.02em;
+        }
+        .cat-hero p {
+            color: #94a3b8; font-size: 1.05rem; max-width: 600px;
+            margin: 0 auto; line-height: 1.6;
+        }
+        .cat-benefits {
+            display: flex; justify-content: center; gap: 12px;
+            margin-top: 24px; flex-wrap: wrap;
+        }
+        .cat-benefit {
+            display: flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.08); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px; padding: 8px 18px;
+            font-size: 0.88rem; color: #e2e8f0; font-weight: 500;
+            transition: all 0.25s;
+        }
+        .cat-benefit:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        .benefit-icon { font-size: 1.15em; }
+
+        .cat-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 16px; padding: 32px 0 24px;
+        }
+        .article-home-card {
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+            padding: 0; text-decoration: none; color: #1e293b;
+            transition: all 0.25s ease; display: flex; flex-direction: column;
+            overflow: hidden; position: relative;
+        }
+        .article-home-card:hover {
+            border-color: #bfdbfe;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.1);
+            transform: translateY(-4px);
+        }
+        .card-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 14px 20px 0;
+        }
+        .card-icon {
+            font-size: 1.4em;
+            background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+            width: 36px; height: 36px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 6px rgba(37,99,235,0.1);
+        }
+        .card-read-time {
+            font-size: 0.78rem; color: #94a3b8; font-weight: 500;
+        }
+        .article-home-title {
+            font-weight: 600; font-size: 0.97rem; line-height: 1.4;
+            padding: 12px 20px 0; transition: color 0.2s;
+        }
+        .article-home-card:hover .article-home-title { color: #2563eb; }
+        .article-home-desc {
+            font-size: 0.84rem; color: #64748b; line-height: 1.5;
+            padding: 6px 20px 0; flex: 1;
+        }
+        .card-footer {
+            display: flex; justify-content: flex-end; align-items: center;
+            padding: 12px 20px; margin-top: auto;
+            border-top: 1px solid #f1f5f9;
+        }
+        .card-read-more {
+            font-size: 0.82rem; font-weight: 600; color: #94a3b8;
+            transition: all 0.2s;
+        }
+        .article-home-card:hover .card-read-more {
+            color: #2563eb; letter-spacing: 0.02em;
+        }
+
+        .pagination {
+            display: flex; justify-content: center; gap: 6px;
+            padding: 8px 0 48px; flex-wrap: wrap; align-items: center;
+        }
+        .pag-link {
+            padding: 10px 16px; border-radius: 10px; border: 1px solid #e2e8f0;
+            color: #64748b; font-size: 0.9rem; text-decoration: none;
+            transition: all 0.2s; font-weight: 500;
+        }
+        .pag-link:hover { border-color: #2563eb; color: #2563eb; background: #eff6ff; }
+        .pag-active {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: #fff !important; border-color: #2563eb;
+            box-shadow: 0 3px 10px rgba(37,99,235,0.3);
+        }
+        .pag-edge { font-size: 1rem; font-weight: 700; }
+        .pag-dots { color: #94a3b8; padding: 0 4px; }
+
+        
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+
+        @media (max-width: 640px) {
+            .cat-grid { grid-template-columns: 1fr; }
+            .cat-hero h1 { font-size: 1.5rem; }
+        }
+    </style>
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link active">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container">
+            <a href="/">Главная</a>
+            <span class="breadcrumb-sep">›</span>
+            <span class="breadcrumb-current">Мобильный банк</span>
+        </div>
+    </nav>
+
+    <section class="cat-hero">
+        <div class="container">
+            <span class="cat-hero-icon">📱</span>
+            <h1>Мобильный банк</h1>
+            <p>Инструкции по приложению: вход, настройки, восстановление доступа и безопасность. · страница 12 из 181</p>
+            <div class="cat-benefits"><div class="cat-benefit"><span class="benefit-icon">📖</span><span>Понятные инструкции</span></div><div class="cat-benefit"><span class="benefit-icon">✅</span><span>Проверенные решения</span></div><div class="cat-benefit"><span class="benefit-icon">⚡</span><span>Без лишних слов</span></div></div>
+        </div>
+    </section>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="cat-grid">
+            <a href="/articles/l/lo/login-vtb-chto-eto-takoe-i-gde-ego-vzyat.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Логин ВТБ: что это, где взять и как пользоваться в 2026 году</div>
+                <div class="article-home-desc">Разбираемся, что такое логин в ВТБ, где его получить (в мобильном банке, личном кабинете или офисе), как восстановить и </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/m/mo/mobilnoe-prilozhenie-vtb-chto-eto-takoe.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 15 мин</span>
+                </div>
+                <div class="article-home-title">Мобильное приложение ВТБ: что это, как пользоваться, возможности</div>
+                <div class="article-home-desc">Подробный разбор официального приложения ВТБ: функции, безопасность, как скачать и настроить. Инструкции для новичков и </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/n/ne/ne-otkryvaetsya-vtb-onlajn-na-telefone-kak-obnovit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Не открывается ВТБ Онлайн на телефоне: как обновить приложение в 2026</div>
+                <div class="article-home-desc">Приложение ВТБ Онлайн не запускается? Узнайте, как правильно обновить мобильный банк на Android/iOS, устранить ошибки и </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/n/nf/nfs-v-telefone-kak-privyazat-kartu-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Как привязать карту ВТБ к NFC в телефоне — пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по добавлению карты ВТБ в Google Pay, Apple Pay и Samsung Pay через NFC. Сравнение способов, требо</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/pa/paket-notifikatsii-v-vtb-chto-takoe.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">Пакет нотификации в ВТБ — что это и как работает в 2026 году</div>
+                <div class="article-home-desc">Разбираемся, что такое пакет нотификации в ВТБ: как подключить, стоимость, отличия от SMS-оповещений и как отключить нен</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-ne-mogu-zajti-v-prilozhenie-vtb-onlajn.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Не могу зайти в ВТБ Онлайн: причины и решения 2026</div>
+                <div class="article-home-desc">Разбираем 12 основных причин, почему не получается войти в приложение ВТБ Онлайн, и даём пошаговые инструкции по восстан</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-ne-prikhodit-sms-opoveshchenie-ot-vtb-24.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Не приходит SMS от ВТБ 24: причины и что делать в 2026 году</div>
+                <div class="article-home-desc">Разбираемся, почему не приходят смс-оповещения от ВТБ 24: технические сбои, настройки телефона, ошибки банка. Пошаговые </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-ne-prikhodyat-push-uvedomleniya-ot-vtb-onlajn.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Почему не приходят пуш-уведомления от ВТБ Онлайн? 7 причин и решений</div>
+                <div class="article-home-desc">Разбираемся, почему перестали приходить пуш-уведомления от ВТБ Онлайн: от настроек телефона до блокировок банка. Пошагов</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-ne-rabotaet-mobilnyj-bank-vtb-segodnya.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Не работает мобильный банк ВТБ сегодня: причины и решения</div>
+                <div class="article-home-desc">Почему не открывается приложение ВТБ Онлайн в 2026 году? Технические сбои, обновления или блокировка? Разбираем все прич</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-ne-rabotaet-vtb-onlajn-cherez-telefon-ajfon.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">ВТБ Онлайн не работает на iPhone: 10 причин и решений (2026)</div>
+                <div class="article-home-desc">Разбираем, почему мобильный банк ВТБ не открывается на Айфоне: от ошибок сервера до настроек iOS. Пошаговые инструкции д</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-ne-vklyuchaetsya-vtb-onlajn.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 15 мин</span>
+                </div>
+                <div class="article-home-title">Не включается ВТБ Онлайн: 10 причин и что делать в 2026 году</div>
+                <div class="article-home-desc">Разбираемся, почему не открывается ВТБ Онлайн на телефоне или компьютере: от технических сбоев до блокировки аккаунта. П</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-ne-zakhodit-v-lichnyj-kabinet-vtb-po-nomeru-karty.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 15 мин</span>
+                </div>
+                <div class="article-home-title">Не заходит в личный кабинет ВТБ по номеру карты — 7 причин и решения</div>
+                <div class="article-home-desc">Разберем почему не получается войти в ВТБ-Онлайн через номер карты: от блокировки до технических сбоев. Пошаговые инстру</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-nelzya-skachat-prilozhenie-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Почему нельзя скачать приложение ВТБ: 7 причин и решения 2026</div>
+                <div class="article-home-desc">Разбираемся, почему приложение ВТБ недоступно для скачивания в App Store, Google Play или на сайте банка. Официальные ог</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/p/po/pochemu-sletaet-prilozhenie-vtb-onlajn.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Почему вылетает ВТБ Онлайн: 7 причин и как исправить</div>
+                <div class="article-home-desc">Приложение ВТБ Онлайн закрывается само? Разбираем основные причины сбоев на Android/iOS, ошибки сервера и способы восста</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/s/sm/sms-opoveshchenie-vtb-kak-otklyuchit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Как отключить СМС-оповещения ВТБ: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по отключению СМС-уведомлений от ВТБ через мобильный банк, личный кабинет и банкомат. Сравнение сп</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/v/vi/vidzhety-produktov-vtb-chto-eto-takoe.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 15 мин</span>
+                </div>
+                <div class="article-home-title">Виджеты продуктов ВТБ: что это и как ими пользоваться в 2026 году</div>
+                <div class="article-home-desc">Разбираемся, что такое виджеты ВТБ, как их подключить в мобильном банке и личном кабинете, какие функции они дают клиент</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/v/vt/vtb-grupp-registratsiya-akkaunta-chto-eto-takoe.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">ВТБ Групп: регистрация аккаунта — что это и как работает в 2026</div>
+                <div class="article-home-desc">Пошаговая инструкция по регистрации в ВТБ Групп: что такое личный кабинет, как создать аккаунт через приложение или сайт</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/v/vt/vtb-login-kak-poluchit.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 10 мин</span>
+                </div>
+                <div class="article-home-title">ВТБ Логин: как получить доступ к личному кабинету — пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Как получить логин для ВТБ Онлайн: регистрация через карту, мобильный банк или паспорт. Способы восстановления доступа и</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/v/vt/vtb-sim-karta-kak-uznat-nomer.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Как узнать номер SIM-карты ВТБ: 5 рабочих способов 2026</div>
+                <div class="article-home-desc">Не знаете номер своей SIM-карты ВТБ? Узнайте все способы проверки: через USSD, мобильное приложение, личный кабинет и SM</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/v/vt/vtb-skachat-kak-nazyvaetsya.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Как называется приложение ВТБ для скачивания? Официальные версии 2026</div>
+                <div class="article-home-desc">Узнайте официальные названия мобильных приложений ВТБ для Android/iOS, как отличить подделку и где безопасно скачать. Ин</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/v/vt/vtb-smart-sms-chto-eto-takoe.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 15 мин</span>
+                </div>
+                <div class="article-home-title">ВТБ Смарт СМС: что это, как подключить и отключить в 2026 году</div>
+                <div class="article-home-desc">Разбираем сервис ВТБ Смарт СМС: назначение, тарифы, как активировать/деактивировать через приложение или банкомат. Плюсы</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/c/ch/chto-sluchilos-s-vtb-prilozheniem-onlajn-segodnya.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 17 мин</span>
+                </div>
+                <div class="article-home-title">ВТБ Онлайн не работает сегодня: причины и решения (2026)</div>
+                <div class="article-home-desc">Почему не открывается приложение ВТБ Онлайн 24.07.2026? Актуальные сведения о сбоях, способах восстановления доступа и а</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/c/ch/chto-takoe-sbol-v-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 15 мин</span>
+                </div>
+                <div class="article-home-title">SBOL в ВТБ: что это такое и как пользоваться системой</div>
+                <div class="article-home-desc">Разбираемся, что такое SBOL в ВТБ: назначение, возможности, как подключить и использовать. Полное руководство для клиент</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/g/gd/gde-prilozhenie-vtb-na-android.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Где скачать приложение ВТБ на Android — официальные источники 2026</div>
+                <div class="article-home-desc">Пошаговая инструкция, где найти и как установить мобильный банк ВТБ на смартфон с Android. Официальные ссылки, требовани</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/i/in/internet-bank-vtb-gde-otklyuchit-uvedomleniya.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 11 мин</span>
+                </div>
+                <div class="article-home-title">Как отключить уведомления в интернет-банке ВТБ: пошаговая инструкция</div>
+                <div class="article-home-desc">Подробное руководство по отключению SMS и push-уведомлений в личном кабинете ВТБ Онлайн. Скриншоты, советы и ответы на ч</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-izmenit-nomer-telefona-v-vtb-banke.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 12 мин</span>
+                </div>
+                <div class="article-home-title">Как поменять номер телефона в ВТБ: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Все способы смены номера в ВТБ Онлайн, мобильном банке и отделении: через приложение, сайт, банкомат. Актуальные требова</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-na-androide-skachat-prilozhenie-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 13 мин</span>
+                </div>
+                <div class="article-home-title">Как скачать приложение ВТБ на Android: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по установке мобильного банка ВТБ на смартфон с Android: официальные и альтернативные способы, реш</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-nastroit-vkhod-v-prilozhenie-vtb-po-otpechatku-paltsa.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 9 мин</span>
+                </div>
+                <div class="article-home-title">Вход в ВТБ по отпечатку пальца: пошаговая настройка 2026</div>
+                <div class="article-home-desc">Как быстро настроить биометрический вход в приложение ВТБ Онлайн через Touch ID/Face ID. Инструкция для iOS и Android с </div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-obnovit-internet-bank-vtb.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 15 мин</span>
+                </div>
+                <div class="article-home-title">Как обновить интернет-банк ВТБ: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по обновлению приложения и веб-версии ВТБ-Онлайн. Способы, ошибки, советы по безопасности и FAQ дл</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a>
+            <a href="/articles/k/ka/kak-obnovit-mobilnoe-prilozhenie-vtb-v-smartfone.html" class="article-home-card">
+                <div class="card-top">
+                    <span class="card-icon">📱</span>
+                    <span class="card-read-time">⏱ 14 мин</span>
+                </div>
+                <div class="article-home-title">Как обновить приложение ВТБ на телефоне: пошаговая инструкция 2026</div>
+                <div class="article-home-desc">Подробное руководство по обновлению мобильного банка ВТБ на Android и iOS. Автоматический и ручной способы, решение ошиб</div>
+                <div class="card-footer">
+                    <span class="card-read-more">Читать →</span>
+                </div>
+            </a></div>
+            <nav class="pagination" aria-label="Страницы"><a href="/category/mobilnyj-bank/" class="pag-link pag-edge" title="В начало">«</a><a href="/category/mobilnyj-bank/page/11/" class="pag-link">← Назад</a><a href="/category/mobilnyj-bank/" class="pag-link">1</a><span class="pag-dots">…</span><a href="/category/mobilnyj-bank/page/9/" class="pag-link">9</a><a href="/category/mobilnyj-bank/page/10/" class="pag-link">10</a><a href="/category/mobilnyj-bank/page/11/" class="pag-link">11</a><a href="/category/mobilnyj-bank/page/12/" class="pag-link pag-active">12</a><a href="/category/mobilnyj-bank/page/13/" class="pag-link">13</a><a href="/category/mobilnyj-bank/page/14/" class="pag-link">14</a><a href="/category/mobilnyj-bank/page/15/" class="pag-link">15</a><span class="pag-dots">…</span><a href="/category/mobilnyj-bank/page/181/" class="pag-link">181</a><a href="/category/mobilnyj-bank/page/13/" class="pag-link">Далее →</a><a href="/category/mobilnyj-bank/page/181/" class="pag-link pag-edge" title="В конец">»</a></nav>
+        </div>
+    </main>
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script>
+    document.getElementById('menuBtn')?.addEventListener('click', () => {
+        document.getElementById('mainNav')?.classList.toggle('open');
+    });
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

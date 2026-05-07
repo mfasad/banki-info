@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как подключить ИИС к QUIK в ВТБ: инструкция — Банки Инфо</title>
+    <meta name="description" content="Пошаговая инструкция по настройке ИИС в QUIK ВТБ. Получение ключей, установка сертификатов и решение частых ошибок подключения брокера.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-podklyuchit-iis-k-kviku-v-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как подключить ИИС к QUIK в ВТБ: инструкция">
+    <meta property="og:description" content="Пошаговая инструкция по настройке ИИС в QUIK ВТБ. Получение ключей, установка сертификатов и решение частых ошибок подключения брокера.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/drugoe/">Другое</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как подключить ИИС к QUIK в ВТБ: инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как подключить ИИС к QUIK в ВТБ: полное руководство</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-рабочего-места-и-получение-ключей">Подготовка рабочего места и получение ключей</a></li><li><a href="#установка-торгового-терминала-quik">Установка торгового терминала QUIK</a></li><li><a href="#настройка-сертификатов-и-ключей-доступа">Настройка сертификатов и ключей доступа</a></li><li><a href="#регистрация-в-системе-и-вход-в-терминал">Регистрация в системе и вход в терминал</a></li><li><a href="#работа-с-иис-через-интерфейс-quik">Работа с ИИС через интерфейс QUIK</a></li><li><a href="#решение-ошибок-подключения">Решение ошибок подключения</a></li><li><a href="#часто-задаваемые-вопросы">Часто задаваемые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Интеграция индивидуального инвестиционного счета с профессиональным терминалом открывает перед трейдером широкие возможности для анализа рынка и проведения сделок. Многие клиенты банка стремятся настроить <strong>удаленный доступ</strong> к своим активам, чтобы управлять портфелем в режиме реального времени. Однако процесс настройки часто вызывает вопросы у новичков из-за необходимости работы с цифровыми сертификатами и ключами шифрования.</p>
+
+<p>В данной статье мы подробно разберем, как правильно связать ваш <em>ИИС</em> с программным обеспечением <em>QUIK</em>. Вы узнаете, где получить необходимые файлы, как установить их в систему и какие настройки нужно прописать для стабильной работы. Грамотная настройка позволит избежать ошибок авторизации и обеспечит безопасное соединение с серверами биржи.</p>
+
+<p>Стоит отметить, что процедура требует внимательности на каждом этапе, особенно при работе с паролями и путями к файлам. <strong>Безопасность</strong> ваших средств напрямую зависит от корректности выполненных действий. Ниже представлен детальный алгоритм действий, который актуален для текущих версий программного обеспечения.</p>
+
+<h2 id="подготовка-рабочего-места-и-получение-ключей">Подготовка рабочего места и получение ключей</h2>
+
+<p>Перед началом установки торгового терминала необходимо убедиться, что у вас есть действующий договор на брокерское обслуживание. Без активированного <strong>ИИС</strong> или обычного брокерского счета вход в систему будет невозможен. Первым шагом станет получение комплекта ключей, который необходим для авторизации клиента на сервере.</p>
+
+<p>Для этого войдите в личный кабинет на сайте банка или в мобильное приложение. В разделе брокерского обслуживания найдите пункт, отвечающий за доступ к терминалам. Система предложит сформировать новый комплект ключей или скачать уже имеющийся. Вам потребуется создать надежный <strong>пароль</strong>, который будет использоваться для шифрования файлов ключей.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Никогда не передавайте файл с ключами (.pfx) и пароль от него третьим лицам. Эти данные являются полным аналогом вашей электронной подписи и позволяют распоряжаться средствами на счете.</p>
+</blockquote>
+
+<p>После генерации ключей они будут сохранены на вашем устройстве или отправлены на электронную почту, в зависимости от выбранных настроек безопасности. Сохраните файл в надежном месте, желательно на жестком диске компьютера, где будет установлен терминал. Не рекомендуется хранить ключи на общедоступных облачных хранилищах без дополнительной защиты.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Создайте отдельную папку на рабочем столе с названием"Ключи QUIK" и скопируйте туда все полученные файлы. Это упростит поиск при настройке и предотвратит потерю важных данных при очистке системы.</p></div>
+
+<h2 id="установка-торгового-терминала-quik">Установка торгового терминала QUIK</h2>
+
+<p>Следующим этапом является инсталляция самого программного обеспечения. Для пользователей ВТБ доступна специальная версия терминала, оптимизированная для работы с инфраструктурой брокера. Скачать дистрибутив можно с официального сайта или через раздел загрузок в личном кабинете инвестора.</p>
+
+<p>Запустите скачанный установочный файл и следуйте инструкциям мастера установки. В процессе вам будет предложено выбрать путь к папке установки. Рекомендуется использовать путь по умолчанию или создать короткую директорию без кириллических символов в корне диска, например <code>C:\Quik</code>. Это поможет избежать проблем с кодировкой путей в будущем.</p>
+
+<p>После завершения копирования файлов запустите программу. При первом запуске может появиться окно с предложением настроить соединение. Если автоматическая настройка не произошла, выберите опцию создания нового соединения и укажите параметры сервера, которые можно найти в разделе помощи на сайте брокера.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение для ВТБ</th>
+<th>Описание</th>
+</tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Сервер</td>
+<td>tcp://quik.vtb.ru</td>
+<td>Адрес основного сервера</td>
+</tr>
+<tr>
+<td>Порт</td>
+<td>4701</td>
+<td>Порт для защищенного соединения</td>
+</tr>
+<tr>
+<td>Протокол</td>
+<td>TCP/IP</td>
+<td>Тип сетевого протокола</td>
+</tr>
+<tr>
+<td>Имя</td>
+<td>VTB Client</td>
+<td>Произвольное имя соединения</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="настройка-сертификатов-и-ключей-доступа">Настройка сертификатов и ключей доступа</h2>
+
+<p>Наиболее ответственный момент — установка цифровых сертификатов в операционную систему. Без этого шага терминал не сможет идентифицировать вас как владельца счета. Откройте файл ключей, который вы получили ранее, двойным кликом. Запустится мастер импорта сертификатов.</p>
+
+<p>Выберите хранилище"Текущий пользователь" и нажмите"Далее". В окне выбора хранилища отметьте пункт"Автоматически выбрать хранилище" или вручную укажите"Личные". Система запросит пароль, который вы задавали при генерации ключей. Введите его внимательно, соблюдая регистр символов.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка установки ключей</h4><label class="check-item"><input type="checkbox"><span>Файл ключей сохранен на ПК:Запущен мастер импорта:Выбрано хранилище"Личные":Пароль введен верно:Сертификат отображается в списке</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<p>После успешного импорта в реестре сертификатов появится запись с вашим именем и серийным номером. Убедитесь, что срок действия сертификата актуален. В некоторых случаях может потребоваться установка корневого сертификата удостоверяющего центра, если он не был установлен автоматически вместе с драйверами терминала.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Если при импорте возникает ошибка"Неверный пароль" или"Файл поврежден", не пытайтесь угадывать комбинацию. Лучше заново сгенерируйте ключи в личном кабинете, так как многократные ошибки могут временно заблокировать возможность работы с ключами.</p>
+</blockquote>
+
+<h2 id="регистрация-в-системе-и-вход-в-терминал">Регистрация в системе и вход в терминал</h2>
+
+<p>Теперь необходимо связать установленные сертификаты с конкретным клиентским местом в настройках самого QUIK. Запустите ярлык программы. В окне"Соединение" выберите созданное ранее подключение или создайте новое, указав параметры сервера.</p>
+
+<p>В поле"Код клиента" введите ваш номер договора или лицевого счета, который присвоен брокером. Логин и пароль для входа в терминал обычно совпадают с данными, которые вы задали или получили при активации услуги"Доступ к QUIK" в банке. Убедитесь, что в настройках соединения выбрана опция использования сертификата Windows.</p>
+
+<p>При нажатии кнопки"Вход" система проверит наличие действительного сертификата в реестре и соответствие его данным на сервере. Если все параметры верны, откроется рабочее окно терминала с котировальными таблицами. Если вход не выполнен, проверьте системное время на компьютере — рассинхронизация более чем на 5 минут может вызвать ошибку авторизации.</p>
+
+<details class="faq-item"><summary>Что делать, если система пишет"Сертификат не найден"?</summary><div class="faq-answer"><p>Убедитесь, что вы вошли в Windows под той же учетной записью, под которой устанавливали ключ. Ключи привязываются к профилю пользователя. Также проверьте, не истек ли срок действия сертификата в реестре.</p></div></details>
+
+<h2 id="работа-с-иис-через-интерфейс-quik">Работа с ИИС через интерфейс QUIK</h2>
+
+<p>После успешного входа перед вами открывается полный функционал торговой площадки. Для владельцев <strong>ИИС</strong> интерфейс практически не отличается от обычного брокерского счета, однако есть нюансы в отображении позиций и доступных инструментов. В левой части окна расположена панель"Счета", где отражаются ваши активы.</p>
+
+<p>Здесь вы можете видеть свободные средства, доступные для покупки ценных бумаг, и уже сформированные позиции. Для совершения сделки дважды кликните на нужную бумагу в таблице котировок или используйте горячие клавиши. В окне заявки убедитесь, что выбран правильный счет, если их у вас несколько.</p>
+
+<p>Важно следить за статусом заявок в таблице"Заявки". Статус"Исполнено" означает, что сделка совершена, и бумаги зачислены на счет или деньги заморожены. Статус"Активна" говорит о том, что заявка ждет появления контрагента по указанной цене.</p>
+
+<div class="poll-widget" id="poll-6f3f1743"><div class="poll-widget-question">📊 Какой тип заявок вы используете чаще?</div><div class="poll-widget-option" data-poll="6f3f1743" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Лимитированная:Рыночная:Стоп-лосс:Тейк-профил</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Для анализа эффективности своего <strong>портфеля</strong> используйте встроенные отчеты или выгрузку данных. Терминал позволяет формировать детализированные отчеты по сделкам, что особенно важно для ведения учета и расчета налоговой базы в конце года. Все данные можно экспортировать в формате Excel для дальнейшей обработки.</p>
+
+<h2 id="решение-ошибок-подключения">Решение ошибок подключения</h2>
+
+<p>В процессе эксплуатации пользователи могут столкнуться с различными техническими проблемами. Одной из самых частых является ошибка соединения с сервером. Она может быть вызвана блокировкой портов антивирусом или корпоративным фаерволом. Проверьте настройки брандмауэра и добавьте QUIK в список исключений.</p>
+
+<p>Другая распространенная проблема — рассинхронизация времени. Протоколы безопасности требуют, чтобы время на компьютере клиента совпадало с серверным. Если часы спешат или отстают, сервер отклонит соединение. Настройте автоматическую синхронизацию времени через интернет в операционной системе.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При обновлении операционной системы или антивируса настройки доступа могут быть сброшены. Если терминал перестал пускать после обновлений, проверьте целостность файлов ключей и наличие их в реестре.</p>
+</blockquote>
+
+<p>Если вы используете несколько компьютеров, помните, что ключи нужно устанавливать на каждое устройство отдельно. Копирование папки с терминалом на другой ПК без установки сертификатов не позволит войти в систему. Для каждого рабочего места требуется свой комплект ключей, сгенерированный в личном кабинете.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Стабильная работа QUIK зависит не только от скорости интернета, но и от корректности системного времени и наличия актуальных драйверов сертификатов в реестре Windows.</p></div>
+
+<h2 id="часто-задаваемые-вопросы">Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Можно ли использовать QUIK на телефоне для ИИС?</summary>
+<p>Официальной мобильной версии QUIK не существует. Для торговли со смартфона ВТБ предлагает приложение"ВТБ Мои Инвестиции", которое позволяет управлять ИИС, но функционал терминала там ограничен по сравнению с десктопной версией.</p>
+</details>
+
+<details>
+<summary>Что делать, если забыл пароль от ключей?</summary>
+<p>Восстановить забытый пароль от файла ключей (.pfx) технически невозможно из соображений безопасности. Вам потребуется заново войти в личный кабинет брокера, отозвать старые ключи и сгенерировать новый комплект с новым паролем.</p>
+</details>
+
+<details>
+<summary>Нужно ли платить за использование QUIK?</summary>
+<p>Использование торгового терминала QUIK для клиентов ВТБ бесплатно. Комиссии взимаются только за совершенные сделки согласно вашему тарифному плану. Плата за информационные потоки (стакан, ленты сделок) также не берется.</p>
+</details>
+
+<details>
+<summary>Как часто нужно менять ключи доступа?</summary>
+<p>Ключи доступа не имеют строгого срока обязательной замены, если они не скомпрометированы. Однако, если вы сменили компьютер или переустановили операционную систему, ключи придется получать заново. Рекомендуется обновлять их раз в год в целях безопасности.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-рабочего-места-и-получение-ключей">Подготовка рабочего места и получение ключей</a></li><li><a href="#установка-торгового-терминала-quik">Установка торгового терминала QUIK</a></li><li><a href="#настройка-сертификатов-и-ключей-доступа">Настройка сертификатов и ключей доступа</a></li><li><a href="#регистрация-в-системе-и-вход-в-терминал">Регистрация в системе и вход в терминал</a></li><li><a href="#работа-с-иис-через-интерфейс-quik">Работа с ИИС через интерфейс QUIK</a></li><li><a href="#решение-ошибок-подключения">Решение ошибок подключения</a></li><li><a href="#часто-задаваемые-вопросы">Часто задаваемые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ku/kuda-skachivaetsya-sertifikat-vtb.html" class="related-card">Куда скачивается сертификат ЭЦП ВТБ: пути сохранения и установка</a></li><li><a href="/articles/k/kt/kto-glavnyj-aktsioner-vtb-banka.html" class="related-card">Кто главный акционер ВТБ банка в 2026 году? Структура собственности</a></li><li><a href="/articles/k/ka/kak-pozvonit-v-vtb.html" class="related-card">Как позвонить в ВТБ: номера, меню, советы оператору</a></li><li><a href="/articles/k/kt/kto-vtb-reklamiruet.html" class="related-card">Кто рекламирует ВТБ в 2026 году: звезды, блогеры и скрытые партнеры</a></li><li><a href="/articles/k/ka/kakie-banki-vkhodyat-v-sostav-vtb.html" class="related-card">Какие банки входят в состав ВТБ: полная структура группы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ku/kuda-skachivaetsya-sertifikat-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Куда скачивается сертификат ЭЦП ВТБ: пути сохранения и установка</span><span class="related-bottom-desc">Узнайте, куда скачивается сертификат ВТБ при выпуске. Подробные пути сохранения на ПК и Android, уст</span></a><a href="/articles/k/kt/kto-glavnyj-aktsioner-vtb-banka.html" class="related-bottom-card"><span class="related-bottom-title">Кто главный акционер ВТБ банка в 2026 году? Структура собственности</span><span class="related-bottom-desc">Актуальная структура акционеров ВТБ банка: кто владеет контрольным пакетом, роль государства, частны</span></a><a href="/articles/k/ka/kak-pozvonit-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как позвонить в ВТБ: номера, меню, советы оператору</span><span class="related-bottom-desc">Полный справочник: как быстро связаться с оператором ВТБ. Прямые номера, навигация в меню IVR, время</span></a><a href="/articles/k/kt/kto-vtb-reklamiruet.html" class="related-bottom-card"><span class="related-bottom-title">Кто рекламирует ВТБ в 2026 году: звезды, блогеры и скрытые партнеры</span><span class="related-bottom-desc">Полный разбор рекламных лиц ВТБ: от официальных амбассадоров до тайных промоутеров в соцсетях. Узнай</span></a><a href="/articles/k/ka/kakie-banki-vkhodyat-v-sostav-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Какие банки входят в состав ВТБ: полная структура группы</span><span class="related-bottom-desc">Актуальный список банков, входящих в группу ВТБ. Узнайте о дочерних компаниях, брендах и финансовых </span></a><a href="/articles/k/ka/kak-sejchas-nazyvaetsya-bank-vtb-24.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ 24 в 2026 году: как сейчас называется банк и что изменилось</span><span class="related-bottom-desc">Узнайте актуальное название банка ВТБ 24 после ребрендинга 2026 года, историю изменений, как это вли</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

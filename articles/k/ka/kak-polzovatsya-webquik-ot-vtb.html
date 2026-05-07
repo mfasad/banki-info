@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как пользоваться WebQUIK: полный гид по работе с терминалом — Банки Инфо</title>
+    <meta name="description" content="Подробная инструкция по настройке и работе в WebQUIK от ВТБ. Управление счетами, выставление заявок, работа с графиком и настройка интерфейса для трейдера.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-polzovatsya-webquik-ot-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как пользоваться WebQUIK: полный гид по работе с терминалом">
+    <meta property="og:description" content="Подробная инструкция по настройке и работе в WebQUIK от ВТБ. Управление счетами, выставление заявок, работа с графиком и настройка интерфейса для трейдера.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/investitsii/">Инвестиции</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как пользоваться WebQUIK: полный гид по работе с терминалом</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>WebQUIK от ВТБ: полное руководство по торговому терминалу</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#вход-в-систему-и-первичная-настройка-интерфейса">Вход в систему и первичная настройка интерфейса</a></li><li><a href="#работа-с-торговыми-инструментами-и-стаканами">Работа с торговыми инструментами и стаканами</a></li><li><a href="#выставление-и-управление-торговыми-заявками">Выставление и управление торговыми заявками</a></li><li><a href="#технический-анализ-и-графические-инструменты">Технический анализ и графические инструменты</a></li><li><a href="#мониторинг-позиций-и-портфельное-управление">Мониторинг позиций и портфельное управление</a></li><li><a href="#безопасность-работы-и-дополнительные-возможности">Безопасность работы и дополнительные возможности</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Современный трейдинг требует не только глубокого понимания рынков, но и наличия надежного, быстрого и функционального инструмента для совершения операций. Торговый терминал <strong>WebQUIK</strong> от компании ВТБ представляет собой профессиональную веб-платформу, которая позволяет инвесторам управлять своими активами прямо в браузере, не устанавливая тяжелое программное обеспечение на компьютер. Это решение идеально подходит для тех, кто ценит мобильность и хочет иметь доступ к биржевым торгам с любого устройства, будь то офисный ноутбук или домашний ПК.</p>
+
+<p>Основное преимущество данного решения заключается в его кроссплатформенности и отсутствии необходимости в постоянной синхронизации с локальными базами данных, так как все вычисления происходят на стороне сервера. <em>WebQUIK</em> обеспечивает высокую скорость исполнения ордеров и стабильное соединение даже при нестабильном интернете, что критически важно в моменты высокой волатильности. В отличие от десктопных версий, здесь не нужно беспокоиться об обновлениях — вы всегда работаете с самой актуальной версией интерфейса.</p>
+
+<p>В этом материале мы подробно разберем, как начать пользоваться терминалом, какие возможности он открывает перед частным инвестором и как правильно настроить рабочее пространство для эффективной торговли. Вы узнаете о тонкостях выставления заявок, работе с техническими индикаторами и особенностях безопасности, которые внедрены в платформу. Понимание этих нюансов поможет вам избежать распространенных ошибок и использовать весь потенциал инструмента.</p>
+
+<h2 id="вход-в-систему-и-первичная-настройка-интерфейса">Вход в систему и первичная настройка интерфейса</h2>
+
+<p>Для начала работы вам потребуется действующий договор с брокером ВТБ и активированная услуга доступа к торговым терминалам. Процесс авторизации максимально упрощен и не требует установки дополнительных плагинов или сертификатов, если вы используете современный браузер. Достаточно перейти на официальный сайт брокера, найти раздел для входа в <strong>WebQUIK</strong> и ввести свои учетные данные, которые были выданы вам при заключении договора или сгенерированы в личном кабинете.</p>
+
+<p>После успешного входа перед вами откроется стандартное рабочее пространство, которое по умолчанию содержит несколько окон: таблицу котировок, стакан цен и график инструмента. Интерфейс полностью адаптивен, что позволяет перетаскивать окна, изменять их размер и группировать их согласно вашей стратегии. Важно сразу же обратить внимание на верхнюю панель меню, где расположены основные настройки профиля и переключатели торговых режимов.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При первом входе обязательно проверьте, что в адресной строке браузера используется защищенный протокол HTTPS и сертификат сайта принадлежит домену брокера, чтобы исключить риск фишинга.</blockquote>
+
+<p>Настройка внешнего вида терминала — это не просто вопрос эстетики, а важная часть эргономики рабочего места трейдера. Вы можете выбрать темную или светлую тему оформления, изменить шрифты и цветовую схему отображения заявок в стакане. Для пользователей, привыкших к классическому <em>QUIK</em>, доступен режим эмуляции горячих клавиш, что значительно ускоряет работу.</p>
+
+<div class="poll-widget" id="poll-01a67aeb"><div class="poll-widget-question">📊 Какой формат торговли вы предпочитаете?</div><div class="poll-widget-option" data-poll="01a67aeb" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Дневной трейдинг (дейтрейдинг)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="01a67aeb" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Среднесрок (свинг-трейдинг)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="01a67aeb" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Долгосрочные инвестиции</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="01a67aeb" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Скальпинг на минутках</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="работа-с-торговыми-инструментами-и-стаканами">Работа с торговыми инструментами и стаканами</h2>
+
+<p>Центральным элементом любой торговой платформы является стакан цен (Order Book), который отображает текущие заявки на покупку и продажу выбранного актива. В <strong>WebQUIK</strong> стакан реализован в виде динамической таблицы, где строки с лучшими ценами подсвечиваются, а объемы заявок обновляются в реальном времени. Пользователь может переключаться между различными инструментами, просто вводя их тикер в поисковую строку или выбирая из предварительно собранного списка избранных активов.</p>
+
+<p>Для удобства анализа глубины рынка предусмотрена возможность настройки шага цены и количества отображаемых строк в стакане. Опытные трейдеры часто используют функцию "расширенного стакана", где видна не только первая десятка строк, но и удаленные уровни сопротивления и поддержки. Это позволяет оценивать реальную ликвидность инструмента перед совершением крупной сделки.</p>
+
+<p>Кроме стандартного отображения, терминал позволяет создавать несколько окон стакана для разных инструментов одновременно. Это особенно полезно при торговле коррелирующими парами или при реализации арбитражных стратегий. Вы можете закрепить наиболее важные инструменты в верхней части экрана, чтобы они всегда оставались в поле зрения, даже если вы переключаетесь на другие вкладки браузера.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте функцию "Синхронизация инструментов", чтобы при переключении тикера в одном окне (например, в графике) автоматически менялся инструмент во всех остальных открытых окнах, включая стакан и таблицу позиций.</p></div>
+
+<p>Важным аспектом является работа с лотами. В отличие от некоторых других платформ, здесь вы видите не только количество лотов, но и расчетный объем в денежном выражении или в базовой валюте, если включена соответствующая опция в настройках. Это помогает быстрее оценивать масштаб сделки и не ошибиться с количеством нулей при вводе объема.</p>
+
+<h2 id="выставление-и-управление-торговыми-заявками">Выставление и управление торговыми заявками</h2>
+
+<p>Процесс совершения сделки в <strong>WebQUIK</strong> максимально оптимизирован для минимизации времени реакции на изменения рынка. Существует несколько способов выставления заявки: через контекстное меню в стакане, через панель быстрого ввода ордеров или с помощью горячих клавиш. Самый быстрый метод — это двойной клик по нужной цене в стакане, после чего открывается окно подтверждения параметров сделки.</p>
+
+<p>При формировании ордера вы можете выбрать тип заявки: рыночная (исполняется мгновенно по текущей цене) или лимитная (исполняется только при достижении указанной цены). Для сложных стратегий доступны условия действительности заявки, например, "до отмены" или "до конца дня". Также поддерживается возможность выставления стоп-заявок, которые активируются только при пробитии определенного ценового уровня.</p>
+
+<div class="checklist-block"><h4>☑️ Контрольный список перед отправкой заявки</h4><label class="check-item"><input type="checkbox"><span>Проверка тикера инструмента</span></label><label class="check-item"><input type="checkbox"><span>Проверка направления (покупка/продажа)</span></label><label class="check-item"><input type="checkbox"><span>Проверка количества лотов</span></label><label class="check-item"><input type="checkbox"><span>Проверка типа заявки (рыночная/лимитная)</span></label><label class="check-item"><input type="checkbox"><span>Проверка доступного обеспечения</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<p>Особое внимание следует уделить полю "Комментарий" и условию "FOK" (Fill or Kill) или "IOC" (Immediate or Cancel). Эти параметры позволяют контролировать частичное исполнение заявки. Например, если вы хотите купить 100 лотов, но только по указанной цене и ни по какой другой, или вообще не покупать, если такого объема нет, вы выбираете соответствующее условие.</p>
+
+<p>После выставления заявка попадает в таблицу "Активные заявки", где можно отслеживать ее статус. Если рынок ушел далеко от вашей цены, заявку можно быстро переместить, изменив цену, или снять полностью. Все действия подтверждаются всплывающим окном или звуковым сигналом, что исключает случайное совершение операций.</p>
+
+<h2 id="технический-анализ-и-графические-инструменты">Технический анализ и графические инструменты</h2>
+
+<p>Встроенный модуль технического анализа в <strong>WebQUIK</strong> предоставляет широкий набор инструментов для изучения ценовой динамики. Графики строятся в реальном времени и поддерживают различные таймфреймы — от минутных свечей до месячных. Вы можете переключаться между японскими свечами, барами, линиями и точками в зависимости от предпочтений вашего анализа.</p>
+
+<p>Для проведения детального анализа доступно более 50 технических индикаторов, включая скользящие средние (MA), полосы Боллинджера, RSI, MACD и многие другие. Индикаторы можно накладывать друг на друга, изменять их параметры (периоды, цвета, толщины линий) и сохранять в виде шаблонов для быстрого применения к другим инструментам.</p>
+
+<table>
+<thead>
+<tr>
+<th>Название индикатора</th>
+<th>Тип</th>
+<th>Основное назначение</th>
+<th>Рекомендуемый таймфрейм</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moving Average (MA)</td>
+<td>Трендовый</td>
+<td>Определение направления тренда</td>
+<td>Любой</td>
+</tr>
+<tr>
+<td>RSI (Relative Strength Index)</td>
+<td>Осциллятор</td>
+<td>Поиск перекупленности/перепроданности</td>
+<td>Часовой, Дневной</td>
+</tr>
+<tr>
+<td>Bollinger Bands</td>
+<td>Волатильность</td>
+<td>Оценка диапазона колебаний цены</td>
+<td>Минутный, Часовой</td>
+</tr>
+<tr>
+<td>Volume</td>
+<td>Объемный</td>
+<td>Подтверждение силы движения цены</td>
+<td>Любой</td>
+</tr>
+</tbody>
+</table>
+
+<p>Графический редактор позволяет наносить на chart произвольные линии тренда, уровни поддержки и сопротивления, а также геометрические фигуры (треугольники, прямоугольники). Все нанесенные разметки сохраняются на сервере, поэтому при повторном входе с другого устройства ваша аналитика останется на месте.</p>
+
+<details class="faq-item"><summary>Секрет профессионалов</summary><div class="faq-answer"><p>Используйте функцию "Сравнение графиков", чтобы наложить график одного инструмента на другой (например, индекс РТС на курс доллара). Это помогает выявлять корреляции и дивергенции, которые не видны при анализе изолированного актива.</p></div></details>
+
+<h2 id="мониторинг-позиций-и-портфельное-управление">Мониторинг позиций и портфельное управление</h2>
+
+<p>Эффективное управление капиталом невозможно без четкого контроля открытых позиций и общего состояния портфеля. Вкладка "Портфель" в <strong>WebQUIK</strong> агрегирует данные по всем вашим счетам, показывая текущую рыночную стоимость активов, полученную прибыль или убыток, а также доступный остаток денежных средств. Информация обновляется динамически по мере изменения котировок.</p>
+
+<p>Таблица позиций содержит детализацию по каждой открытой сделке: цена входа, текущая цена, объем, размер кредитного плеча (если используется маржинальная торговля) и текущий финансовый результат. Цветовая индикация помогает мгновенно оценить ситуацию: зеленый цвет обозначает прибыль, красный — убыток. Вы можете сортировать позиции по любому параметру, чтобы быстро найти наиболее проблемные или успешные активы.</p>
+
+<p>Отдельного внимания заслуживает блок "Денежные средства", где отображается разбивка по валютам (рубли, доллары, евро, юани и другие). Здесь же виден размер доступного обеспечения, которое можно использовать для открытия новых позиций или вывода средств. Система автоматически рассчитывает маржинальные требования и предупреждает о рискахMargin Call.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При использовании плеча следите за уровнем обеспечения. Если цена пойдет против вас, брокер может принудительно закрыть часть позиций, чтобы покрыть убытки, поэтому держите на счете запас свободных средств.</blockquote>
+
+<p>Для удобства ведения учета доступна функция выгрузки отчетов в форматах CSV или Excel. Вы можете сформировать отчет по совершенным сделкам за любой период, что упрощает ведение налоговой отчетности и анализ собственной торговой статистики.</p>
+
+<h2 id="безопасность-работы-и-дополнительные-возможности">Безопасность работы и дополнительные возможности</h2>
+
+<p>Безопасность средств и данных клиента является приоритетом для ВТБ, поэтому в <strong>WebQUIK</strong> реализован многоуровневый протокол защиты. Помимо стандартной пары логин-пароль, система поддерживает двухфакторную аутентификацию через SMS-коды или push-уведомления в мобильном приложении. Без подтверждения второй факторной операции вход в терминал или вывод средств невозможен.</p>
+
+<p>Сессия в браузере имеет автоматический тайм-аут: если вы длительное время не проявляете активности, система принудительно разлогинится, чтобы предотвратить доступ посторонних лиц к вашему счету в случае, если вы отошли от компьютера. Также ведется подробный лог всех действий, который доступен в личном кабинете, что позволяет отследить любые подозрительные активности.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте уникальные сложные пароли для торгового терминала и никогда не сохраняйте их в браузере на общественных компьютерах — это базовое правило цифровой гигиены инвестора.</p></div>
+
+<p>Среди дополнительных возможностей стоит отметить наличие новостной ленты, встроенной прямо в интерфейс терминала. Агрегатор новостей собирает информацию из авторитетных источников в реальном времени, позволяя реагировать на фундаментальные факторы, влияющие на рынок, не переключаясь на сторонние ресурсы. Также доступна функция оповещений: вы можете настроить звуковой сигнал или email-уведомление при достижении инструментом определенной цены.</p>
+
+<p>Терминал регулярно обновляется разработчиками, внедряя новые функции и улучшая стабильность работы. Поскольку это веб-приложение, вам не нужно скачивать патчи — все улучшения становятся доступны автоматически сразу после их релиза на сервере. Это гарантирует, что вы всегда пользуетесь самой современной версией программного обеспечения.</p>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Нужно ли устанавливать Java или другие плагины для работы WebQUIK?</summary>
+<p>Нет, современные версии терминала работают на технологиях HTML5 и JavaScript, поэтому установка дополнительных плагинов, таких как Java или Flash, не требуется. Достаточно любого актуального браузера (Chrome, Firefox, Safari, Edge).</p>
+</details>
+
+<details>
+<summary>Можно ли торговать в WebQUIK с мобильного телефона?</summary>
+<p>Технически войти в терминал с телефона можно, но интерфейс оптимизирован для десктопных экранов и управления мышью. Для торговли со смартфона ВТБ рекомендует использовать специализированное мобильное приложение "ВТБ Мои Инвестиции", которое имеет адаптированный под тачскрин интерфейс.</p>
+</details>
+
+<details>
+<summary>Что делать, если терминал "завис" или перестал обновлять котировки?</summary>
+<p>В первую очередь проверьте интернет-соединение. Если сеть стабильна, попробуйте обновить страницу браузера (F5). Поскольку все данные хранятся на сервере, перезагрузка страницы не приведет к потере ваших настроек или открытых позиций, но восстановит соединение с биржей.</p>
+</details>
+
+<details>
+<summary>Доступна ли торговля фьючерсами и опционами в веб-версии?</summary>
+<p>Да, <strong>WebQUIK</strong> предоставляет полный доступ ко всем инструментам срочного рынка (FORTS), включая фьючерсы и опционы. Механика выставления заявок и работы со стаканом для деривативов аналогична торговле акциями, но требует понимания специфики экспирации и маржинальных требований.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#вход-в-систему-и-первичная-настройка-интерфейса">Вход в систему и первичная настройка интерфейса</a></li><li><a href="#работа-с-торговыми-инструментами-и-стаканами">Работа с торговыми инструментами и стаканами</a></li><li><a href="#выставление-и-управление-торговыми-заявками">Выставление и управление торговыми заявками</a></li><li><a href="#технический-анализ-и-графические-инструменты">Технический анализ и графические инструменты</a></li><li><a href="#мониторинг-позиций-и-портфельное-управление">Мониторинг позиций и портфельное управление</a></li><li><a href="#безопасность-работы-и-дополнительные-возможности">Безопасность работы и дополнительные возможности</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-prodat-ofz-n-ranshe-sroka-vtb.html" class="related-card">Как продать ОФЗ раньше срока в ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/p/pa/pai-fonda-zoloto-vtb-chto-eto.html" class="related-card">Паи фонда золото ВТБ: что это, как купить и заработать в 2026 году</a></li><li><a href="/articles/c/ch/chto-oznachaet-iis-v-banke-vtb.html" class="related-card">ИИС в банке ВТБ: что это, условия и доходность</a></li><li><a href="/articles/k/ka/kak-projti-testirovanie-investora-vtb.html" class="related-card">Как пройти тестирование инвестора в ВТБ: инструкция</a></li><li><a href="/articles/c/ch/chto-takoe-stop-loss-i-tejk-profit-dlya-novichkov-vtb-investitsii.html" class="related-card">Стоп-лосс и тейк-профит в ВТБ Инвестиции: гайд для новичков 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-prodat-ofz-n-ranshe-sroka-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как продать ОФЗ раньше срока в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Узнайте, как досрочно продать облигации федерального займа (ОФЗ) через ВТБ: способы, комиссии, налог</span></a><a href="/articles/p/pa/pai-fonda-zoloto-vtb-chto-eto.html" class="related-bottom-card"><span class="related-bottom-title">Паи фонда золото ВТБ: что это, как купить и заработать в 2026 году</span><span class="related-bottom-desc">Разбираем, что такое паи золотого фонда ВТБ, как они работают, плюсы и минусы инвестиций в золото че</span></a><a href="/articles/c/ch/chto-oznachaet-iis-v-banke-vtb.html" class="related-bottom-card"><span class="related-bottom-title">ИИС в банке ВТБ: что это, условия и доходность</span><span class="related-bottom-desc">Подробный разбор ИИС в ВТБ: что это такое, типы счетов, налоговые вычеты, условия брокера и пошагова</span></a><a href="/articles/k/ka/kak-projti-testirovanie-investora-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как пройти тестирование инвестора в ВТБ: инструкция</span><span class="related-bottom-desc">Пошаговая инструкция, как сдать тест на знание рисков в ВТБ онлайн. Ответы на вопросы, проходной бал</span></a><a href="/articles/c/ch/chto-takoe-stop-loss-i-tejk-profit-dlya-novichkov-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">Стоп-лосс и тейк-профит в ВТБ Инвестиции: гайд для новичков 2026</span><span class="related-bottom-desc">Что такое стоп-лосс и тейк-профит? Как их правильно настроить в ВТБ Инвестиции? Пошаговая инструкция</span></a><a href="/articles/n/na/na-kakoj-schet-prikhodyat-dividendy-v-vtb-investitsii.html" class="related-bottom-card"><span class="related-bottom-title">На какой счёт приходят дивиденды в ВТБ Инвестиции в 2026 году</span><span class="related-bottom-desc">Куда зачисляются дивиденды в ВТБ Инвестиции: брокерский или расчётный счёт? Пошаговая инструкция, ср</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

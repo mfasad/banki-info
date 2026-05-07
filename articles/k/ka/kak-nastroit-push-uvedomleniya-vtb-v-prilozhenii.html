@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Push-уведомления ВТБ в приложении: настройка за 5 минут (2026) — Банки Инфо</title>
+    <meta name="description" content="Пошаговая инструкция, как включить и настроить push-уведомления в мобильном банке ВТБ на Android/iOS. Разбираем типы оповещений, решение проблем и безопасность.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-nastroit-push-uvedomleniya-vtb-v-prilozhenii.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Push-уведомления ВТБ в приложении: настройка за 5 минут (2026)">
+    <meta property="og:description" content="Пошаговая инструкция, как включить и настроить push-уведомления в мобильном банке ВТБ на Android/iOS. Разбираем типы оповещений, решение проблем и безопасность.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Push-уведомления ВТБ в приложении: настройка за 5 минут (2026)</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как настроить push-уведомления в приложении ВТБ: полное руководство 2026</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-подготовка-перед-настройкой-проверка-версии-приложения-и-прав">1. Подготовка перед настройкой: проверка версии приложения и прав</a></li><li><a href="#2-пошаговая-инструкция-как-включить-push-уведомления-в-втб">2. Пошаговая инструкция: как включить push-уведомления в ВТБ</a></li><li><a href="#3-типы-push-уведомлений-в-втб-какие-можно-настроить">3. Типы push-уведомлений в ВТБ: какие можно настроить</a></li><li><a href="#4-почему-не-приходят-push-уведомления-от-втб-распространённые-проблемы">4. Почему не приходят push-уведомления от ВТБ: распространённые проблемы</a></li><li><a href="#5-безопасность-как-отличить-настоящее-уведомление-втб-от-фишинга">5. Безопасность: как отличить настоящее уведомление ВТБ от фишинга</a></li><li><a href="#6-дополнительные-настройки-тонкая-подстройка-под-ваши-нужды">6. Дополнительные настройки: тонкая подстройка под ваши нужды</a></li><li><a href="#7-настройка-push-уведомлений-для-бизнес-клиентов-втб">7. Настройка push-уведомлений для бизнес-клиентов ВТБ</a></li><li><a href="#faq-частые-вопросы-о-push-уведомлениях-втб">FAQ: Частые вопросы о push-уведомлениях ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Push-уведомления от <em>ВТБ Онлайн</em> — это ваш личный финансовый помощник, который оперативно сообщает о поступлении средств, списаниях, акциях банка и подозрительных операциях. Без них легко пропустить важное: например, блокировку карты из-за подозрительной транзакции или начисление кэшбэка по бонусной программе. Настроить уведомления в мобильном приложении банка можно за считанные минуты, но многие пользователи сталкиваются с нюансами: от отсутствия оповещений на <em>iPhone</em> до дублирующихся сообщений на <em>Android</em>.</p>
+
+<p>В этой статье разберём <strong>все способы настройки push-уведомлений</strong> в приложении <em>ВТБ</em> — от базовых шагов до решения редких проблем. Вы узнаете, как включить оповещения для конкретных операций (например, только для крупных платежей), почему уведомления могут не приходить, и как отличать настоящие сообщения банка от фишинговых. А ещё — <strong>скрытые настройки</strong>, о которых не пишут в официальной инструкции.</p>
+
+<p>Если вы используете <em>ВТБ Онлайн</em> на нескольких устройствах (смартфон + планшет), важно синхронизировать настройки уведомлений. В противном случае рискуете получать дубли или, наоборот, пропускать критические оповещения. Например, привязанная к аккаунту <em>Apple Watch</em> может блокировать push на <em>iPhone</em>, если не настроить приоритеты правильно.
+
+<h2 id="1-подготовка-перед-настройкой-проверка-версии-приложения-и-прав">1. Подготовка перед настройкой: проверка версии приложения и прав</h2>
+
+<p>Прежде чем включать push-уведомления, убедитесь, что ваше приложение <em>ВТБ Онлайн</em> обновлено до последней версии. Устаревшие версии (например, <code>5.20.0</code> и ниже) могут не поддерживать новые типы оповещений или работать с ошибками. Проверить актуальность можно так:
+
+<ul>
+  <li>📱 <strong>На Android:</strong> откройте <code>Google Play → Профиль → Управление приложениями → ВТБ Онлайн</code>. Если есть кнопка «Обновить», нажмите её.</li>
+  <li>🍎 <strong>На iOS:</strong> перейдите в <code>App Store → Аватар → Обновления</code> и найдите <em>ВТБ Онлайн</em>.</li>
+  <li>🔍 <strong>Альтернативный способ:</strong> в самом приложении зайдите в <code>Профиль → О программе</code> — там указана текущая версия.</li>
+</ul>
+
+<p>Также проверьте, <strong>разрешили ли вы отправку уведомлений</strong> на уровне операционной системы. Часто пользователи блокируют их случайно при первом запуске приложения. Как проверить:
+
+<ul>
+  <li>🤖 <strong>Android:</strong> <code>Настройки → Приложения → ВТБ Онлайн → Уведомления</code> → включите переключатель.</li>
+  <li>🍏 <strong>iOS:</strong> <code>Настройки → Уведомления → ВТБ Онлайн</code> → активируйте «Разрешить уведомления».</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> На <em>iPhone</em> с iOS 16+ push-уведомления могут не работать, если в настройках телефона включён режим «Фокусирование» (<code>Focus Mode</code>). Добавьте <em>ВТБ Онлайн</em> в исключения или отключите режим.</blockquote>
+
+<p><mark>Если вы используете кастомные прошивки (например, MIUI, Flyme) или брендированные оболочки (Samsung One UI, Huawei EMUI), проверьте дополнительные настройки энергосбережения. Некоторые производители блокируют фоновую работу банковских приложений для экономии заряда.</mark>
+
+<div class="poll-widget" id="poll-ffb09005"><div class="poll-widget-question">📊 Какую версию ВТБ Онлайн вы используете?</div><div class="poll-widget-option" data-poll="ffb09005" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Последнюю (обновляюсь регулярно)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ffb09005" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Старая версия (не обновляюсь)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ffb09005" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Не знаю, какая версия</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="ffb09005" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Пользуюсь веб-версией</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="2-пошаговая-инструкция-как-включить-push-уведомления-в-втб">2. Пошаговая инструкция: как включить push-уведомления в ВТБ</h2>
+
+<p>Теперь перейдём к настройке непосредственно в приложении. Инструкция подходит для обеих платформ (<em>Android</em> и <em>iOS</em>), но есть небольшие различия в интерфейсе.
+
+<p><strong>Шаг 1.</strong> Откройте приложение <em>ВТБ Онлайн</em> и авторизуйтесь (при необходимости используйте биометрию или пароль).
+
+<p><strong>Шаг 2.</strong> Перейдите в раздел <code>Профиль</code> (иконка человека в правом нижнем углу).
+
+<p><strong>Шаг 3.</strong> Выберите пункт <code>Настройки уведомлений</code> (на некоторых версиях приложения может называться <code>Оповещения</code> или <code>Push-уведомления</code>).
+
+<p><strong>Шаг 4.</strong> Активируйте главный переключатель <code>Получать уведомления</code>. После этого станут доступны дополнительные настройки.
+
+<p><strong>Шаг 5.</strong> Настройте типы уведомлений по своему усмотрению. Рекомендуем включить хотя бы эти опции:
+<ul>
+  <li>💳 <code>Операции по картам</code> (поступления, списания, блокировки)</li>
+  <li>🔒 <code>Безопасность</code> (вход в личный кабинет, смена пароля)</li>
+  <li>🎁 <code>Акции и предложения</code> (кешбэк, кредитные предложения)</li>
+</ul>
+
+<p><strong>Шаг 6.</strong> Сохраните изменения. На <em>Android</em> настройки применяются сразу, на <em>iOS</em> может потребоваться перезапуск приложения.
+
+<div class="checklist-block"><h4>☑️ Чек-лист перед сохранением настроек</h4><label class="check-item"><input type="checkbox"><span>Главный переключатель уведомлений включён</span></label><label class="check-item"><input type="checkbox"><span>Выбраны нужные типы оповещений</span></label><label class="check-item"><input type="checkbox"><span>Проверены настройки ОС (Android/iOS)</span></label><label class="check-item"><input type="checkbox"><span>Приложение обновлено до последней версии</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы используете <em>ВТБ Онлайн для бизнеса</em>, настройки уведомлений могут отличаться. В корпоративной версии некоторые типы оповещений (например, по счетам юридических лиц) настраиваются через личный кабинет на сайте банка.</blockquote>
+
+<p>Для пользователей, у которых <strong>несколько карт или счетов</strong> в <em>ВТБ</em>, доступна детальная настройка. Можно включить уведомления только для конкретной карты (например, зарплатной) или отключить оповещения по кредитному счёту. Для этого:
+<ol>
+  <li>В разделе <code>Настройки уведомлений</code> выберите <code>Индивидуальные настройки</code>.</li>
+  <li>Тапните на нужную карту/счёт.</li>
+  <li>Активируйте или деактивируйте оповещения для этого продукта.</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы часто путешествуете, включите уведомления о <code>заграничных операциях</code> в настройках безопасности. Это поможет быстро реагировать на блокировки карты за рубежом.</p></div>
+
+<h2 id="3-типы-push-уведомлений-в-втб-какие-можно-настроить">3. Типы push-уведомлений в ВТБ: какие можно настроить</h2>
+
+<p>Банк предлагает более 15 видов оповещений, но не все они полезны в повседневной жизни. Разберёмся, какие уведомления стоит включить, а какие можно отключить, чтобы не забивать экран ненужной информацией.
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип уведомления</th>
+      <th>Описание</th>
+      <th>Рекомендация</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Поступление на счёт</code></td>
+      <td>Оповещение о зачислении средств (зарплата, переводы)</td>
+      <td>✅ Включить</td>
+    </tr>
+    <tr>
+      <td><code>Списание с карты</code></td>
+      <td>Сообщение о каждой трате (включая автоплатежи)</td>
+      <td>⚠️ Включить, но настроить лимит (например, только для сумм > 1 000 ₽)</td>
+    </tr>
+    <tr>
+      <td><code>Блокировка карты</code></td>
+      <td>Предупреждение о блокировке по подозрению в мошенничестве</td>
+      <td>✅ Включить обязательно</td>
+    </tr>
+    <tr>
+      <td><code>Новые акции и предложения</code></td>
+      <td>Информация о кэшбэке, кредитах, вкладах</td>
+      <td>❌ Отключить, если не интересуют маркетинговые рассылки</td>
+    </tr>
+    <tr>
+      <td><code>Вход в личный кабинет</code></td>
+      <td>Оповещение о каждом входе в приложение или веб-версию</td>
+      <td>✅ Включить для безопасности</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Особого внимания заслуживают <strong>уведомления о подозрительных операциях</strong>. <em>ВТБ</em> использует систему мониторинга транзакций, которая может блокировать карту при необычной активности (например, оплата в другом регионе или крупная покупка). Если вы включите эти оповещения, сможете быстро подтвердить легитимность операции через push и избежать блокировки.
+
+<p>Для владельцев <strong>кредитных карт</strong> полезно активировать уведомления о:
+<ul>
+  <li>📅 <code>Дате платежа</code> (за 3 дня до списания минимального платежа)</li>
+  <li>💰 <code>Превышении кредитного лимита</code></li>
+  <li>🎉 <code>Начислении бонусов</code> (если участвуете в программе лояльности)</li>
+</ul>
+
+<p><em>ВТБ</em> также отправляет push-уведомления о <strong>изменении тарифов</strong>, но они приходят редко и обычно дублируются в личном кабинете. Их можно смело отключить, если не хотите забивать экран.
+
+<details class="faq-item"><summary>Как отключить уведомления о "полезных советах" от ВТБ</summary><div class="faq-answer"><p>В настройках уведомлений найдите раздел <code>Советы и рекомендации</code> и деактивируйте его. Эти сообщения не несут критичной информации, но могут раздражать частотой.</p></div></details>
+
+<h2 id="4-почему-не-приходят-push-уведомления-от-втб-распространённые-проблемы">4. Почему не приходят push-уведомления от ВТБ: распространённые проблемы</h2>
+
+<p>Если вы настроили всё по инструкции, но уведомления так и не приходят, проблема может крыться в одном из следующих пунктов. Пройдёмся по самым частым причинам и способам их устранения.
+
+<p><strong>Проблема 1. Уведомления заблокированы на уровне ОС</strong>
+<p>Как проверить:
+<ul>
+  <li>🤖 <strong>Android:</strong> Зайдите в <code>Настройки → Приложения → ВТБ Онлайн → Уведомления</code>. Убедитесь, что все категории разрешены.</li>
+  <li>🍎 <strong>iOS:</strong> Проверьте <code>Настройки → Уведомления → ВТБ Онлайн</code>. Включите опции «Звук», «Значки», «Баннеры».</li>
+</ul>
+
+<p><strong>Проблема 2. Приложение работает в фоновом режиме с ограничениями</strong>
+<p>Некоторые смартфоны (особенно <em>Xiaomi</em>, <em>Huawei</em>, <em>Samsung</em>) агрессивно оптимизируют фоновую работу приложений. Чтобы исправить:
+<ul>
+  <li>🔋 Откройте настройки батареи и добавьте <em>ВТБ Онлайн</em> в исключения.</li>
+  <li>🚫 Отключите «Автоочистку» или «Оптимизацию» для банковского приложения.</li>
+</ul>
+
+<p><strong>Проблема 3. Неправильные настройки в личном кабинете</strong>
+<p>Иногда пользователи по ошибке отключают уведомления в веб-версии <em>ВТБ Онлайн</em>, что автоматически синхронизируется с мобильным приложением. Чтобы проверить:
+<ol>
+  <li>Зайдите на сайт <a href="https://online.vtb.ru" target="_blank" rel="nofollow noopener">online.vtb.ru</a>.</li>
+  <li>Перейдите в <code>Профиль → Настройки → Уведомления</code>.</li>
+  <li>Убедитесь, что опция «Push-уведомления» активна.</li>
+</ol>
+
+<p><strong>Проблема 4. Технические работы у банка</strong>
+<p>Редко, но бывает, что push-уведомления не приходят из-за сбоев на стороне <em>ВТБ</em>. Проверить статус сервисов можно:
+<ul>
+  <li>🌐 На странице <a href="https://vtb.ru/about/press/obsluzhivanie-klientov/" target="_blank" rel="nofollow noopener">официальных объявлений</a>.</li>
+  <li>📱 В <em>Twitter</em> или <em>Телеграм-канале</em> банка (обычно публикуют информацию о инцидентах).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы недавно меняли номер телефона, привязанный к аккаунту <em>ВТБ</em>, уведомления могут приходить на старый номер до 72 часов. Обновите контактные данные в личном кабинете.</blockquote>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>90% проблем с push-уведомлениями решаются проверкой настроек ОС и обновлением приложения. Только 10% связаны с ошибками на стороне банка.</p></div>
+
+<h2 id="5-безопасность-как-отличить-настоящее-уведомление-втб-от-фишинга">5. Безопасность: как отличить настоящее уведомление ВТБ от фишинга</h2>
+
+<p>Мошенники часто подделывают push-уведомления от банков, чтобы украсть данные карт или доступ к личному кабинету. Разберёмся, как распознать <strong>настоящее сообщение от <em>ВТБ</strong></strong> и не попасться на удочку злоумышленников.
+
+<p><strong>Признаки легитимного уведомления:</strong>
+<ul>
+  <li>🔐 Приходит <strong>только через официальное приложение</em> (не по SMS или email).</li>
+  <li>📱 В верхней части экрана отображается иконка <em>ВТБ Онлайн</em> (не неизвестный логотип).</li>
+  <li>🔗 Ссылки в уведомлении ведут на домен <code>vtb.ru</code> или <code>online.vtb.ru</code> (проверьте перед кликом!).</li>
+  <li>📝 Текст содержит <strong>персональную информацию</strong> (например, последние цифры вашей карты).</li>
+</ul>
+
+<p><strong>Признаки фишингового уведомления:</strong>
+<ul>
+  <li>⚠️ Просят <strong>ввести пароль, CVV-код или ПИН</strong> прямо в сообщении.</li>
+  <li>🚨 Содержит угрозы («Ваш счёт заблокирован! Срочно подтвердите данные!»).</li>
+  <li>🔗 Ссылка ведёт на подозрительный домен (например, <code>vtb-security.ru</code> или <code>vtb-online-verification.com</code>).</li>
+  <li>📱 Приходит <strong>вне официального приложения</strong> (например, через SMS или мессенджер).</li>
+</ul>
+
+<p>Если вы получили подозрительное уведомление:
+<ol>
+  <li>Не переходите по ссылкам и не вводите данные.</li>
+  <li>Закройте сообщение и откройте <em>ВТБ Онлайн</em> вручную через официальное приложение.</li>
+  <li>Проверьте историю операций — если всё в порядке, сообщение было фишинговым.</li>
+  <li>Сообщите о мошенничестве в поддержку банка через чат в приложении.</li>
+</ol>
+
+<p><em>ВТБ</em> <strong>никогда не запрашивает</strong> через push-уведомления:
+<ul>
+  <li>🔑 Полный номер карты или счёт.</li>
+  <li>🔢 ПИН-код или CVV/CVC.</li>
+  <li>📝 Пароль от личного кабинета или приложения.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Включите в настройках <em>ВТБ Онлайн</em> опцию <code>Подтверждение операций по SMS</code>. Это добавит дополнительный слой защиты: даже если мошенники перехватят push, им потребуется код из SMS.</p></div>
+
+<h2 id="6-дополнительные-настройки-тонкая-подстройка-под-ваши-нужды">6. Дополнительные настройки: тонкая подстройка под ваши нужды</h2>
+
+<p>Если стандартные настройки уведомлений вас не устраивают, <em>ВТБ Онлайн</em> позволяет гибко настроить оповещения под конкретные сценарии. Вот несколько полезных фишек:
+
+<p><strong>1. Установка лимитов для списаний</strong>
+<p>Можно настроить уведомления так, чтобы они приходили только при тратах свыше определённой суммы. Например, если вы не хотите получать оповещения о мелких покупках (кофе, проезд), но хотите контролировать крупные платежи:
+<ol>
+  <li>Зайдите в <code>Настройки уведомлений → Операции по картам</code>.</li>
+  <li>Выберите <code>Настроить лимиты</code>.</li>
+  <li>Укажите минимальную сумму (например, <code>3 000 ₽</code>).</li>
+</ol>
+
+<p><strong>2. Расписание уведомлений</strong>
+<p>Если вас раздражают ночные оповещения, можно установить «тихий режим». Для этого:
+<ul>
+  <li>🤖 <strong>Android:</strong> Используйте функцию «Не беспокоить» в настройках телефона, добавив <em>ВТБ Онлайн</em> в исключения.</li>
+  <li>🍎 <strong>iOS:</strong> Настройте <code>Режим сна</code> в <code>Настройки → Фокусирование</code>.</li>
+</ul>
+
+<p><strong>3. Уведомления для нескольких устройств</strong>
+<p>Если вы пользуетесь <em>ВТБ Онлайн</em> на смартфоне и планшете, можно синхронизировать настройки:
+<ol>
+  <li>На основном устройстве включите опцию <code>Синхронизация уведомлений</code> в настройках.</li>
+  <li>На втором устройстве авторизуйтесь и подтвердите синхронизацию.</li>
+</ol>
+
+<p><strong>4. Экспорт истории уведомлений</strong>
+<p>Мало кто знает, но <em>ВТБ Онлайн</em> позволяет сохранять историю push-уведомлений в файл. Это полезно для ведения бюджета или подтверждения операций. Как экспортировать:
+<ol>
+  <li>Зайдите в <code>Профиль → История уведомлений</code>.</li>
+  <li>Нажмите <code>Экспорт</code> и выберите формат (<code>PDF</code> или <code>CSV</code>).</li>
+  <li>Файл будет отправлен на вашу почту, привязанную к аккаунту.</li>
+</ol>
+
+<details class="faq-item"><summary>Как включить уведомления о курсе валют в ВТБ</summary><div class="faq-answer"><p>В настройках оповещений найдите раздел <code>Финансовая информация</code> и активируйте <code>Изменение курса валют</code>. Можно выбрать конкретные валюты (доллар, евро) и порог изменения (например, при росте/падении на 1%).</p></div></details>
+
+<h2 id="7-настройка-push-уведомлений-для-бизнес-клиентов-втб">7. Настройка push-уведомлений для бизнес-клиентов ВТБ</h2>
+
+<p>Если вы используете <em>ВТБ Онлайн для бизнеса</em>, процесс настройки уведомлений имеет свои особенности. Во-первых, часть оповещений настраивается не в мобильном приложении, а через <strong>личный кабинет на сайте</strong> банка. Во-вторых, доступны дополнительные типы уведомлений, актуальные для юридических лиц и ИП.
+
+<p><strong>Как настроить уведомления для бизнеса:</strong>
+<ol>
+  <li>Авторизуйтесь в <a href="https://business.online.vtb.ru" target="_blank" rel="nofollow noopener">личном кабинете для бизнеса</a>.</li>
+  <li>Перейдите в раздел <code>Настройки → Уведомления</code>.</li>
+  <li>Выберите счета и карты, для которых хотите получать оповещения.</li>
+  <li>Настройте типы уведомлений:
+    <ul>
+      <li>📊 <code>Операции по расчётному счёту</code></li>
+      <li>💼 <code>Поступление платежей от контрагентов</code></li>
+      <li>📅 <code>Напоминания о налогах и сборах</code></li>
+      <li>🔒 <code>Изменение прав доступа сотрудников</code></li>
+    </ol>
+  </li>
+  <li>Сохраните настройки и синхронизируйте их с мобильным приложением.</li>
+</ol>
+
+<p>Для бизнес-клиентов доступна <strong>групповая настройка уведомлений</strong> — можно назначить разные типы оповещений для бухгалтера, директора и других сотрудников. Например:
+<ul>
+  <li>👔 Директор получает уведомления о <strong>крупных платежах</strong> и <strong>изменении кредитного лимита</strong>.</li>
+  <li>👩‍💼 Бухгалтер — о <strong>поступлении средств</strong> и <strong>налоговых платежах</strong>.</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В бизнес-версии <em>ВТБ Онлайн</em> уведомления о подозрительных операциях приходят с задержкой до 15 минут. Это связано с дополнительной проверкой транзакций службой безопасности банка.</blockquote>
+
+<p>Если ваша компания использует <strong>корпоративные карты</strong>, можно настроить уведомления для каждой карты отдельно. Например, отключить оповещения по служебным картам с небольшими лимитами и оставить только для карт с крупными оборотми.
+
+<h2 id="faq-частые-вопросы-о-push-уведомлениях-втб">FAQ: Частые вопросы о push-уведомлениях ВТБ</h2>
+
+<details>
+  <summary>Можно ли включить уведомления только для одной карты, а для остальных отключить?</summary>
+  <p>Да, в настройках уведомлений есть раздел <code>Индивидуальные настройки</code>, где можно выбрать конкретные карты или счета для оповещений. Например, вы можете оставить уведомления только для зарплатной карты и отключить их для кредитной.</p>
+</details>
+
+<details>
+  <summary>Почему уведомления приходят с задержкой?</summary>
+  <p>Задержка может быть связана с:
+  <ul>
+    <li>📶 Плохим интернет-соединением (push требует стабильного доступа к сети).</li>
+    <li>🔋 Режимом энергосбережения на телефоне (ограничивает фоновую работу приложений).</li>
+    <li>🏦 Техническими работами на стороне банка (редко, но бывает).</li>
+  </ul>
+<p>Проверьте настройки синхронизации в <code>Настройки → Аккаунты → ВТБ Онлайн</code>.</p></p>
+</details>
+
+<details>
+  <summary>Как отключить звук уведомлений, но оставлять их визуальное отображение?</summary>
+  <p>На <em>Android</em>:
+  <ol>
+    <li>Зайдите в <code>Настройки → Приложения → ВТБ Онлайн → Уведомления</code>.</li>
+    <li>Отключите опцию <code>Звук</code>, но оставьте <code>Баннеры</code> и <code>Значки</code>.</li>
+  </ol>
+<p>На <em>iOS</em>:</p>
+  <ol>
+    <li>Откройте <code>Настройки → Уведомления → ВТБ Онлайн</code>.</li>
+    <li>В разделе <code>Звуки</code> выберите <code>Нет</code>.</li>
+  </ol></p>
+</details>
+
+<details>
+  <summary>Можно ли получать уведомления о операциях по карте на email?</summary>
+  <p>Да, но это настраивается отдельно от push-уведомлений. Зайдите в <code>Профиль → Настройки → Email-оповещения</code> и укажите адрес электронной почты. Обратите внимание, что email-уведомления приходят реже (обычно раз в день), в отличие от мгновенных push.</p>
+</details>
+
+<details>
+  <summary>Что делать, если уведомления дублируются на двух устройствах?</summary>
+  <p>Это происходит, если вы авторизовались в <em>ВТБ Онлайн</em> на нескольких гаджетах (например, смартфон + планшет). Чтобы устранить дубли:
+  <ol>
+    <li>На одном из устройств отключите уведомления в настройках ОС.</li>
+    <li>Или зайдите в <code>Профиль → Настройки → Синхронизация</code> и выберите основное устройство.</li>
+  </ol>
+<p>Альтернативный вариант — отключить уведомления в веб-версии личного кабинета, если она открыта в браузере.</p></p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#1-подготовка-перед-настройкой-проверка-версии-приложения-и-прав">1. Подготовка перед настройкой: проверка версии приложения и прав</a></li><li><a href="#2-пошаговая-инструкция-как-включить-push-уведомления-в-втб">2. Пошаговая инструкция: как включить push-уведомления в ВТБ</a></li><li><a href="#3-типы-push-уведомлений-в-втб-какие-можно-настроить">3. Типы push-уведомлений в ВТБ: какие можно настроить</a></li><li><a href="#4-почему-не-приходят-push-уведомления-от-втб-распространённые-проблемы">4. Почему не приходят push-уведомления от ВТБ: распространённые проблемы</a></li><li><a href="#5-безопасность-как-отличить-настоящее-уведомление-втб-от-фишинга">5. Безопасность: как отличить настоящее уведомление ВТБ от фишинга</a></li><li><a href="#6-дополнительные-настройки-тонкая-подстройка-под-ваши-нужды">6. Дополнительные настройки: тонкая подстройка под ваши нужды</a></li><li><a href="#7-настройка-push-уведомлений-для-бизнес-клиентов-втб">7. Настройка push-уведомлений для бизнес-клиентов ВТБ</a></li><li><a href="#faq-частые-вопросы-о-push-уведомлениях-втб">FAQ: Частые вопросы о push-уведомлениях ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-proverit-balans-na-sim-karte-vtb.html" class="related-card">Как проверить баланс на сим-карте ВТБ: USSD-коды и приложения</a></li><li><a href="/articles/k/ka/kak-oplatit-v-prilozhenii-vtb-po-qr-kodu.html" class="related-card">Как оплатить по QR-коду в приложении ВТБ: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-v-prilozhenii-vtb-najti-rekvizity-svoego-scheta.html" class="related-card">Как найти реквизиты счета в приложении ВТБ: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-zablokirovat-sms-ot-banka-vtb.html" class="related-card">Как отключить СМС от банка ВТБ: все способы блокировки</a></li><li><a href="/articles/k/ka/kak-polzovatsya-cherepakhoj-vtb-banka.html" class="related-card">Как пользоваться Черепахой ВТБ: инструкция для детей и родителей</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-proverit-balans-na-sim-karte-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить баланс на сим-карте ВТБ: USSD-коды и приложения</span><span class="related-bottom-desc">Узнайте, как проверить баланс сим-карты ВТБ через USSD-команды, мобильное приложение или личный каби</span></a><a href="/articles/k/ka/kak-oplatit-v-prilozhenii-vtb-po-qr-kodu.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить по QR-коду в приложении ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид по оплате покупок через QR-код в ВТБ Онлайн. Узнайте, как сканировать штрих-коды, плат</span></a><a href="/articles/k/ka/kak-v-prilozhenii-vtb-najti-rekvizity-svoego-scheta.html" class="related-bottom-card"><span class="related-bottom-title">Как найти реквизиты счета в приложении ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как в мобильном приложении ВТБ быстро узнать полные реквизиты счета, БИК и номер карты для </span></a><a href="/articles/k/ka/kak-zablokirovat-sms-ot-banka-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить СМС от банка ВТБ: все способы блокировки</span><span class="related-bottom-desc">Пошаговая инструкция: как заблокировать СМС от ВТБ. Отключение платных подписок, уведомлений о транз</span></a><a href="/articles/k/ka/kak-polzovatsya-cherepakhoj-vtb-banka.html" class="related-bottom-card"><span class="related-bottom-title">Как пользоваться Черепахой ВТБ: инструкция для детей и родителей</span><span class="related-bottom-desc">Полный гид по детскому счету Черепаха ВТБ: как открыть, настроить переводы, использовать карту и при</span></a><a href="/articles/k/ka/kak-vojti-v-bank-klient-vtb-dlya-biznesa.html" class="related-bottom-card"><span class="related-bottom-title">Как войти в ВТБ Бизнес Онлайн: вход через ключ и ЭЦП</span><span class="related-bottom-desc">Пошаговая инструкция, как войти в банк-клиент ВТБ для бизнеса. Настройка ЭЦП, работа с ключами Руток</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

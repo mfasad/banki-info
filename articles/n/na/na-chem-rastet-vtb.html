@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>На чём растёт ВТБ: платформа, технологии и инфраструктура банка в 2026 — Банки Инфо</title>
+    <meta name="description" content="Разбираем, на каких системах и технологиях работает ВТБ: от ядра до мобильного банка. Как банк обеспечивает стабильность и безопасность для 25+ млн клиентов.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/n/na/na-chem-rastet-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="На чём растёт ВТБ: платформа, технологии и инфраструктура банка в 2026">
+    <meta property="og:description" content="Разбираем, на каких системах и технологиях работает ВТБ: от ядра до мобильного банка. Как банк обеспечивает стабильность и безопасность для 25+ млн клиентов.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/drugoe/">Другое</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">На чём растёт ВТБ: платформа, технологии и инфраструктура банка в 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>На чём «растёт» ВТБ: архитектура, платформы и технологии банка в 2026 году</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#ядро-банковской-системы-что-стоит-за-операциями-втб">Ядро банковской системы: что стоит за операциями ВТБ</a></li><li><a href="#обработка-платежей-как-втб-обеспечивает-скорость-переводов">Обработка платежей: как ВТБ обеспечивает скорость переводов</a></li><li><a href="#мобильный-банк-и-онлайн-сервисы-как-устроена-цифровая-экосистема">Мобильный банк и онлайн-сервисы: как устроена цифровая экосистема</a></li><li><a href="#облачные-технологии-и-дата-центры-где-хранится-ваша-финансовая-информация">Облачные технологии и дата-центры: где хранится ваша финансовая информация</a></li><li><a href="#кибербезопасность-как-втб-защищает-данные-клиентов">Кибербезопасность: как ВТБ защищает данные клиентов</a></li><li><a href="#интеграция-с-государственными-системами-как-втб-работает-с-госуслугами-и-налоговой">Интеграция с государственными системами: как ВТБ работает с госуслугами и налоговой</a></li><li><a href="#будущее-технологий-втб-что-ждёт-банк-в-20242025-годах">Будущее технологий ВТБ: что ждёт банк в 2024–2025 годах</a></li><li><a href="#faq-частые-вопросы-о-технологиях-втб">FAQ: Частые вопросы о технологиях ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Когда речь заходит о банках, мы обычно думаем о процентах, кредитах или мобильных приложениях. Но за каждой операцией — от перевода до открытия вклада — стоит сложная IT-инфраструктура. <strong>ВТБ</strong>, как один из крупнейших банков России с активами свыше 20 трлн рублей, опирается на уникальную технологическую платформу. Эта система должна выдерживать миллионы транзакций в день, обеспечивать кибербезопасность и работать без сбоев 24/7.</p>
+
+<p>В этой статье мы разберём, <em>на чём именно «растёт» ВТБ</em> с технической точки зрения: от ядра банковской системы до облачных решений и мобильных приложений. Вы узнаете, какие технологии использует банк для обработки платежей, какстроена его IT-архитектура и почему это важно для обычных клиентов. Спойлер: здесь нет магии — только годы разработок, инвестиции в инфраструктуру и партнёрство с мировыми вендорами.</p>
+
+<p>Если вы когда-нибудь задумывались, почему переводы проходят за секунды, а мобильный банк не «падает» в пиковые нагрузки (например, в дни выплаты зарплат), ответ кроется именно в этой инфраструктуре. Далее — подробный разбор.</p>
+
+<h2 id="ядро-банковской-системы-что-стоит-за-операциями-втб">Ядро банковской системы: что стоит за операциями ВТБ</h2>
+
+<p>Центральный элемент любой банковской IT-инфраструктуры — <strong>ядро банковской системы (CBS, Core Banking System)</strong>. Это «мозг» банка, который обрабатывает все финансовые операции: от открытия счёта до начисления процентов по кредиту. ВТБ использует собственную разработку — <em>платформу «ВТБ-Кор»</em>, созданную на базе решений компании <em>Temenos</em> (швейцарский поставщик ПО для банков).</p>
+
+<p>«ВТБ-Кор» построена по <code>микросервисной архитектуре</code>, что позволяет:</p>
+<ul>
+  <li>🔄 Гибко масштабировать систему под нагрузку (например, в дни массовых выплат).</li>
+  <li>🛡️ Изолировать сбои: если «упадёт» один модуль (например, кредитование), остальные продолжат работать.</li>
+  <li>⚡ Обрабатывать до <mark>50 000 транзакций в секунду</mark> (по данным банка на 2023 год).</li>
+</ul>
+
+<p>Интересный факт: до 2018 года ВТБ использовал унаследованную систему на базе <em>AS/400</em> (IBM), но переход на «ВТБ-Кор» позволил сократить время обработки операций в 10 раз. Сегодня платформа работает на серверах <em>IBM Power Systems</em> с операционной системой <em>AIX</em>, что обеспечивает высокую надёжность.</p>
+
+<blockquote>⚠️ Внимание: Если вы сталкиваетесь с задержками при переводе средств между счетами ВТБ (более 5 минут), это может указывать на плановые технические работы. В таких случаях банк обычно уведомляет клиентов через <code>СМС</code> или push-нотификации в мобильном приложении.</blockquote>
+
+<div class="poll-widget" id="poll-55e4ad66"><div class="poll-widget-question">📊 Какую банковскую операцию вы выполняете чаще всего?</div><div class="poll-widget-option" data-poll="55e4ad66" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Переводы между своими счетами</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="55e4ad66" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Оплата услуг ЖКХ</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="55e4ad66" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Пополнение вклада</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="55e4ad66" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Погашение кредита</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="55e4ad66" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Другое</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="обработка-платежей-как-втб-обеспечивает-скорость-переводов">Обработка платежей: как ВТБ обеспечивает скорость переводов</h2>
+
+<p>Скорость переводов — один из ключевых показателей для клиентов. ВТБ подключён к <strong>Системе быстрых платежей (СБП)</strong>, которая позволяет переводить деньги между банками за секунды. Но как это работает внутри?</p>
+
+<p>Для обработки платежей банк использует:</p>
+<ol>
+  <li><em>Шлюз платежных систем</em> — промежуточное ПО, которое маршрутизирует транзакции в СБП, <em>МИР</em>, <em>Visa/Mastercard</em> (до 2022 года) или внутренние системы ВТБ.</li>
+  <li><em>Сервис антифрода</em> — анализирует каждую операцию на предмет мошенничества (например, нетипичные переводы или входы с новых устройств).</li>
+  <li><em>Кэширующие серверы</em> — временно хранят данные о часто запрашиваемых операциях (например, баланс счёта), чтобы снизить нагрузку на ядро.</li>
+</ol>
+
+<p>Важно: ВТБ использует <code>репликацию данных</code> между дата-центрами в Москве, Санкт-Петербурге и Екатеринбурге. Это значит, что даже если один центр выйдет из строя, операции продолжат обрабатываться без потерь.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип платежа</th>
+      <th>Время обработки</th>
+      <th>Технология</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Перевод между счетами ВТБ</td>
+      <td>1–3 секунды</td>
+      <td>Внутренняя маршрутизация через «ВТБ-Кор»</td>
+    </tr>
+    <tr>
+      <td>Перевод в другой банк (СБП)</td>
+      <td>5–15 секунд</td>
+      <td>Интеграция с ЦБ РФ через API</td>
+    </tr>
+    <tr>
+      <td>Оплата ЖКХ/штрафов</td>
+      <td>до 1 минуты</td>
+      <td>Прямое подключение к ГИС ЖКХ и порталу госуслуг</td>
+    </tr>
+    <tr>
+      <td>Международный перевод (SWIFT)</td>
+      <td>1–3 рабочих дня</td>
+      <td>Партнёрство с корреспондентскими банками</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если перевод завис в статусе «В обработке» дольше 30 минут, проверьте, не блокируется ли он системой антифрода. Частая причина — несовпадение ФИО получателя с данными в банке. </p></div>
+
+<h2 id="мобильный-банк-и-онлайн-сервисы-как-устроена-цифровая-экосистема">Мобильный банк и онлайн-сервисы: как устроена цифровая экосистема</h2>
+
+<p>Мобильное приложение <em>ВТБ Онлайн</em> — это «лицо» банка для 20+ млн активных пользователей. Но за его простым интерфейсом скрывается сложная бэкенд-инфраструктура:</p>
+
+<ul>
+  <li>📱 <strong>Фронтенд</strong>: написан на <em>React Native</em> (кроссплатформенный фреймворк), что позволяет поддерживать iOS и Android одной кодовой базой.</li>
+  <li>🌐 <strong>Бэкенд</strong>: микросервисы на <em>Java (Spring Boot)</em> и <em>Kotlin</em>, развёрнутые в частном облаке ВТБ.</li>
+  <li>🔐 <strong>Безопасность</strong>: двухфакторная аутентификация (СМС + биометрия), шифрование трафика по протоколу <code>TLS 1.3</code>.</li>
+  <li>📊 <strong>Аналитика</strong>: интеграция с <em>Apache Kafka</em> для обработки событий в реальном времени (например, уведомления о списаниях).</li>
+</ul>
+
+<p>Интересный технический нюанс: ВТБ использует <code>feature flags</code> — механизм, который позволяет включать или отключать новые функции приложения без обновления кода. Например, если банк тестирует новый дизайн экрана платежей, он может показать его только 10% пользователей.</p>
+
+<p>Для онлайн-банкинга (<em>ВТБ Онлайн для ПК</em>) используется веб-версия на <em>Angular</em> с адаптивным дизайном. Все сессии защищены <code>токенами JWT</code>, которые обновляются каждые 15 минут.</p>
+
+<details class="faq-item"><summary>Почему мобильный банк иногда просит повторно ввести пароль?</summary><div class="faq-answer"><p>Это может происходить по трём причинам:
+<p>1. Истёк срок действия токена безопасности (обычно через 5–10 минут без активности).</p>
+<p>2. Вы подключились к новой Wi-Fi сети или сменили IP-адрес (система расценивает это как потенциальную угрозу).</p>
+<p>3. Банк запустил обновление сертификатов безопасности (происходит раз в 2–3 месяца).</p></div></details></p>
+
+<h2 id="облачные-технологии-и-дата-центры-где-хранится-ваша-финансовая-информация">Облачные технологии и дата-центры: где хранится ваша финансовая информация</h2>
+
+<p>ВТБ — один из немногих российских банков, который активно использует <strong>гибридную облачную инфраструктуру</strong>. Это значит, что часть данных хранится в собственных дата-центрах, а часть — в облаках партнёров.</p>
+
+<p>Распределение нагрузки выглядит так:</p>
+<ul>
+  <li>🏢 <strong>Собственные ЦОДы</strong> (Москва, Санкт-Петербург, Екатеринбург): хранят критически важные данные (счета клиентов, кредитные истории) на серверах <em>IBM Power9</em> с резервным копированием.</li>
+  <li>☁️ <strong>Частное облако</strong> (на базе <em>VMware</em>): используется для менее чувствительных сервисов (например, аналитики или тестирования новых функций).</li>
+  <li>🤝 <strong>Партнёрские облака</strong>: ВТБ сотрудничает с <em>СберОблаком</em> и <em>Yandex Cloud</em> для резервных мощностей и геораспределённых бэкапов.</li>
+</ul>
+
+<p>Все дата-центры сертифицированы по стандарту <em>PCI DSS Level 1</em> (максимальный уровень безопасности для обработки платежных данных). Для защиты от DDoS-атак используется решение <em>Qrator Labs</em>, которое фильтрует до 1 Тб трафика в секунду.</p>
+
+<blockquote>⚠️ Внимание: Если вы получили письмо якобы от ВТБ с просьбой «подтвердить данные счёта» по ссылке, это 100% фишинг. Банк никогда не запрашивает логины, пароли или коды из СМС по электронной почте. Все официальные уведомления приходят только через <code>личный кабинет</code> или <code>push-нотификации</code> в мобильном приложении.</blockquote>
+
+<div class="checklist-block"><h4>☑️ Как проверить подлинность сайта ВТБ Онлайн</h4><label class="check-item"><input type="checkbox"><span>Посмотрите адрес в браузере — должен начинаться с https://online.vtb.ru</span></label><label class="check-item"><input type="checkbox"><span>Нажмите на замок рядом с адресом — сертификат должен быть выдан «VTB Bank»</span></label><label class="check-item"><input type="checkbox"><span>Не вводите данные на сайтах с ошибками в дизайне или опечатками</span></label><label class="check-item"><input type="checkbox"><span>Используйте только официальное мобильное приложение из App Store/Google Play</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="кибербезопасность-как-втб-защищает-данные-клиентов">Кибербезопасность: как ВТБ защищает данные клиентов</h2>
+
+<p>Банк обрабатывает более 1 млрд транзакций в год, поэтому кибербезопасность — приоритет. ВТБ использует <strong>многоуровневую систему защиты</strong>:</p>
+
+<ol>
+  <li><strong>Периметровая защита</strong>: межсетевые экраны <em>Cisco ASA</em> и системы обнаружения вторжений <em>Palo Alto Networks</em>.</li>
+  <li><strong>Контроль доступа</strong>: все сотрудники проходят аутентификацию через <em>Active Directory</em> с обязательной сменой пароля каждые 90 дней.</li>
+  <li><strong>Шифрование</strong>: данные клиентов хранятся в зашифрованном виде (алгоритм <code>AES-256</code>), ключи управляются системой <em>Thales Vormetric</em>.</li>
+  <li><strong>Мониторинг</strong>: центр кибербезопасности работает 24/7 с использованием <em>IBM QRadar</em> для анализа угроз.</li>
+</ol>
+
+<p>Особое внимание уделяется защите от <em>социальной инженерии</em>. Например, в 2023 году ВТБ внедрил систему <em>Behavioral Biometrics</em>, которая анализирует поведение пользователя (скорость набора текста, жесты) и блокирует подозрительные сессии.</p>
+
+<p>Для клиентов доступны дополнительные меры безопасности:</p>
+<ul>
+  <li>🔑 <strong>Биометрическая аутентификация</strong> (отпечаток пальца или Face ID).</li>
+  <li>📱 <strong>Одноразовые пароли</strong> в СМС или через push-уведомления.</li>
+  <li>🛡️ <strong>Лимиты на переводы</strong> (можно настроить в мобильном банке).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Даже если мошенники украдут ваш логин и пароль, без доступа к привязанному телефону (для СМС-кодов) или биометрическим данным они не смогут подтвердить операции.</p></div>
+
+<h2 id="интеграция-с-государственными-системами-как-втб-работает-с-госуслугами-и-налоговой">Интеграция с государственными системами: как ВТБ работает с госуслугами и налоговой</h2>
+
+<p>ВТБ тесно интегрирован с государственными платформами, что позволяет клиентам оплачивать налоги, штрафы и госпошлины прямо из мобильного банка. Для этого используются:</p>
+
+<ul>
+  <li>🏛️ <strong>ГИС ГМП</strong> (Госуслуги): для оплаты штрафов ГИБДД, налогов и пошлин.</li>
+  <li>📄 <strong>Единый портал госуслуг</strong>: синхронизация данных клиента (например, для получения выписки из ЕГРН).</li>
+  <li>💳 <strong>Система «Мир»</strong>: обработка платежей по картам национальной платёжной системы.</li>
+</ul>
+
+<p>Технически интеграция реализована через <code>API-шлюзы</code>, которые преобразуют запросы банка в формат, понятный госсистемам. Например, когда вы оплачиваете налог через ВТБ Онлайн, банк отправляет запрос в ФНС через <em>Единый портал госуслуг</em>, а затем получает квитанцию с электронной подписью.</p>
+
+<p>Важно: Все платежи в госсистемы проходят с комиссией 0% (по тарифам ВТБ на 2026 год). Однако некоторые услуги (например, выдача выписки из ЕГРН) могут иметь госпошлину, которую банк списывает отдельно.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Госуслуга</th>
+      <th>Время обработки</th>
+      <th>Комиссия ВТБ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Оплата налогов (ФНС)</td>
+      <td>1–5 минут</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td>Штрафы ГИБДД</td>
+      <td>до 1 часа</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td>Госпошлина за паспорт</td>
+      <td>1–3 рабочих дня</td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td>Оплата ЖКХ (через ГИС ЖКХ)</td>
+      <td>до 24 часов</td>
+      <td>0–0,5% (зависит от региона)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="будущее-технологий-втб-что-ждёт-банк-в-20262026-годах">Будущее технологий ВТБ: что ждёт банк в 2026–2026 годах</h2>
+
+<p>ВТБ активно инвестирует в развитие IT-инфраструктуры. Среди ключевых направлений на ближайшие годы:</p>
+
+<ul>
+  <li>🤖 <strong>Искусственный интеллект</strong>: внедрение чат-ботов на базе <em>генеративных нейросетей</em> для обслуживания клиентов (уже тестируется в пилотном режиме).</li>
+  <li>🌍 <strong>Расширение облачных мощностей</strong>: миграция части сервисов в <em>российские облака</em> (СберОблако, Yandex Cloud) для повышения отказоустойчивости.</li>
+  <li>📱 <strong>Супер-приложение</strong>: объединение всех сервисов ВТБ (банкинг, инвестиции, страхование) в одном мобильном приложении.</li>
+  <li>🔗 <strong>Open Banking</strong>: открытие API для сторонних разработчиков (например, для интеграции с бухгалтерскими программами для бизнеса).</li>
+</ul>
+
+<p>Также банк планирует увеличить количество <code>бесконтактных операций</code> (например, оплата по QR-коду или голосом через умные колонки). В 2026 году ВТБ уже запустил пилотный проект с голосовым помощником <em>Салют</em> от Сбера для оплаты коммунальных услуг.</p>
+
+<p>Для корпоративных клиентов разрабатывается <em>платформа «ВТБ Бизнес 2.0»</em> с расширенной аналитикой и автоматизацией бухгалтерии. Ожидается, что новая версия сократит время на обработку платежных поручений на 40%.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>ВТБ планирует к 2026 году полностью отказаться от унаследованных систем (legacy) и перевести все сервисы на микросервисную архитектуру. Это позволит быстрее внедрять новые функции и снизить риски сбоев.</p></div>
+
+<h2 id="faq-частые-вопросы-о-технологиях-втб">FAQ: Частые вопросы о технологиях ВТБ</h2>
+
+<details>
+  <summary>Почему иногда мобильный банк ВТБ работает медленно?</summary>
+  <p>Это может быть связано с:</p>
+  <ul>
+    <li>Пиковой нагрузкой (например, в дни выплаты зарплат или пенсий).</li>
+    <li>Техническими работами (банк обычно предупреждает заранее).</li>
+    <li>Проблемами на стороне вашего интернет-провайдера.</li>
+  </ul>
+  <p>Если задержки повторяются, попробуйте:</p>
+  <ol>
+    <li>Обновить приложение до последней версии.</li>
+    <li>Очистить кэш в настройках телефона.</li>
+    <li>Переключиться с Wi-Fi на мобильный интернет (или наоборот).</li>
+  </ol>
+</details>
+
+<details>
+  <summary>Можно ли доверять облачным технологиям ВТБ? Ведь данные хранятся «где-то в интернете»...</summary>
+  <p>ВТБ использует <strong>гибридную облачную модель</strong>, где критически важные данные (например, информация о счётах) хранятся в собственных дата-центрах с максимальным уровнем защиты. Облака партнёров (СберОблако, Yandex Cloud) используются только для резервного копирования или вспомогательных сервисов.</p>
+  <p>Все облачные провайдеры, с которыми работает ВТБ, сертифицированы по стандарту <em>PCI DSS</em> и соответствуют требованиям <em>ФЗ-152</em> (о защите персональных данных). Кроме того, банк шифрует данные при передаче и хранении, поэтому даже в случае утечки они будут бесполезны для злоумышленников.</p>
+</details>
+
+<details>
+  <summary>Как ВТБ обеспечивает работу банкоматов и терминалов? Они тоже подключены к этой системе?</summary>
+  <p>Да, все банкоматы и терминалы ВТБ подключены к центральной системе через защищённые каналы связи. Технически это работает так:</p>
+  <ol>
+    <li>Банкомат отправляет запрос на авторизацию карты в <em>процессинговый центр</em> ВТБ.</li>
+    <li>Центр проверяет данные карты и баланс счёта через ядро «ВТБ-Кор».</li>
+    <li>Если всё в порядке, банкомат получает разрешение на выдачу наличных или проведение операции.</li>
+  </ol>
+  <p>Для защиты от скимминга (кражи данных карт) банкоматы оснащены:</p>
+  <ul>
+    <li>🔒 Антискимминговыми накладками на кардридер.</li>
+    <li>📹 Видеонаблюдением с анализом поведения клиентов.</li>
+    <li>🛡️ Системой <em>EMV 3-D Secure</em> для подтверждения операций.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Что делать, если я заметил сбой в работе ВТБ Онлайн?</summary>
+  <p>Если мобильный банк или сайт работают некорректно:</p>
+  <ol>
+    <li>Проверьте статус сервисов на официальной странице ВТБ в <a href="https://twitter.com/vtb" target="_blank">Twitter</a> или <a href="https://t.me/vtb" target="_blank">Telegram</a>.</li>
+    <li>Перезагрузите устройство и обновлите приложение.</li>
+    <li>Если проблема сохраняется, свяжитесь с поддержкой через чат в приложении или по телефону <code>8 800 100-24-24</code>.</li>
+  </ol>
+  <p>Не используйте сторонние сайты для проверки статуса — они могут быть мошенническими!</p>
+</details>
+
+<details>
+  <summary>Планирует ли ВТБ внедрять блокчейн или криптовалюты?</summary>
+  <p>На данный момент ВТБ не работает с криптовалютами напрямую из-за регуляторных ограничений ЦБ РФ. Однако банк исследует возможности <strong>блокчейна</strong> для внутренних процессов:</p>
+  <ul>
+    <li>🔗 Тестирование платформы для межбанковских расчётов на базе <em>Hyperledger Fabric</em>.</li>
+    <li>📄 Эксперименты с цифровыми аккредитивами (например, для торговли металлами).</li>
+    <li>💼 Пилотные проекты по токенизации активов (недвижимость, драгметаллы).</li>
+  </ul>
+  <p>В 2023 году ВТБ участвовал в тестировании <em>цифрового рубля</em> (ЦБ РФ), но массовое внедрение ожидается не раньше 2026 года.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#ядро-банковской-системы-что-стоит-за-операциями-втб">Ядро банковской системы: что стоит за операциями ВТБ</a></li><li><a href="#обработка-платежей-как-втб-обеспечивает-скорость-переводов">Обработка платежей: как ВТБ обеспечивает скорость переводов</a></li><li><a href="#мобильный-банк-и-онлайн-сервисы-как-устроена-цифровая-экосистема">Мобильный банк и онлайн-сервисы: как устроена цифровая экосистема</a></li><li><a href="#облачные-технологии-и-дата-центры-где-хранится-ваша-финансовая-информация">Облачные технологии и дата-центры: где хранится ваша финансовая информация</a></li><li><a href="#кибербезопасность-как-втб-защищает-данные-клиентов">Кибербезопасность: как ВТБ защищает данные клиентов</a></li><li><a href="#интеграция-с-государственными-системами-как-втб-работает-с-госуслугами-и-налоговой">Интеграция с государственными системами: как ВТБ работает с госуслугами и налоговой</a></li><li><a href="#будущее-технологий-втб-что-ждёт-банк-в-20242025-годах">Будущее технологий ВТБ: что ждёт банк в 2024–2025 годах</a></li><li><a href="#faq-частые-вопросы-о-технологиях-втб">FAQ: Частые вопросы о технологиях ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-rabotat-v-vtb-banke.html" class="related-card">Работа в ВТБ: вакансии, требования и карьерный рост в 2026 году</a></li><li><a href="/articles/k/ka/kak-vospolzovatsya-velosipedom-vtb-v-murmanske.html" class="related-card">ВТБ Велосипеды в Мурманске: как взять, стоимость, условия 2026</a></li><li><a href="/articles/k/ka/kak-bezopasno-obnovit-prilozhenie-vtb-onlajn.html" class="related-card">Как безопасно обновить приложение ВТБ Онлайн: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-oplatit-po-schetu-cherez-vtb-onlajn.html" class="related-card">Как оплатить по счету через ВТБ Онлайн: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-popolnit-koshelek-steam-cherez-vtb.html" class="related-card">Как пополнить Steam через ВТБ: актуальные способы 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-rabotat-v-vtb-banke.html" class="related-bottom-card"><span class="related-bottom-title">Работа в ВТБ: вакансии, требования и карьерный рост в 2026 году</span><span class="related-bottom-desc">Как устроиться в ВТБ: актуальные вакансии, требования к соискателям, этапы отбора и возможности карь</span></a><a href="/articles/k/ka/kak-vospolzovatsya-velosipedom-vtb-v-murmanske.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Велосипеды в Мурманске: как взять, стоимость, условия 2026</span><span class="related-bottom-desc">Пошаговая инструкция, как воспользоваться велосипедами ВТБ в Мурманске: регистрация, тарифы, пункты </span></a><a href="/articles/k/ka/kak-bezopasno-obnovit-prilozhenie-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как безопасно обновить приложение ВТБ Онлайн: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид по безопасному обновлению приложения ВТБ Онлайн. Как избежать блокировки, где скачать </span></a><a href="/articles/k/ka/kak-oplatit-po-schetu-cherez-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как оплатить по счету через ВТБ Онлайн: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как быстро оплатить счет по реквизитам через приложение или сайт ВТБ Онлайн. Подробная инст</span></a><a href="/articles/k/ka/kak-popolnit-koshelek-steam-cherez-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить Steam через ВТБ: актуальные способы 2026</span><span class="related-bottom-desc">Узнайте, как пополнить Steam через ВТБ в 2026 году. Рабочие методы оплаты картой, через СБП, посредн</span></a><a href="/articles/k/ka/kak-bank-vtb-rabotaet.html" class="related-bottom-card"><span class="related-bottom-title">Как работает ВТБ в 2026: услуги, тарифы и возможности для клиентов</span><span class="related-bottom-desc">Подробный разбор работы ВТБ: от открытия счетов до кредитов и инвестиций. Актуальные тарифы, мобильн</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как добавить карту ВТБ в Samsung Pay: инструкция — Банки Инфо</title>
+    <meta name="description" content="Подробная инструкция по добавлению карты ВТБ в Samsung Pay. Настройка NFC, установка плагина и решение ошибок при привязке.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-dobavit-virtualnuyu-kartu-v-samsung-pej-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как добавить карту ВТБ в Samsung Pay: инструкция">
+    <meta property="og:description" content="Подробная инструкция по добавлению карты ВТБ в Samsung Pay. Настройка NFC, установка плагина и решение ошибок при привязке.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как добавить карту ВТБ в Samsung Pay: инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как добавить карту ВТБ в Samsung Pay: пошаговая инструкция</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#проверка-совместимости-устройства-и-подготовка">Проверка совместимости устройства и подготовка</a></li><li><a href="#установка-и-настройка-приложения-samsung-pay">Установка и настройка приложения Samsung Pay</a></li><li><a href="#регистрация-карты-втб-в-приложении-vtb-online">Регистрация карты ВТБ в приложении VTB Online</a></li><li><a href="#процесс-добавления-карты-в-samsung-pay">Процесс добавления карты в Samsung Pay</a></li><li><a href="#настройка-методов-оплаты-и-биометрии">Настройка методов оплаты и биометрии</a></li><li><a href="#решение-и-устранение-ошибок">Решение и устранение ошибок</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>В современном ритме жизни возможность оплаты покупок одним касанием смартфона становится не просто удобством, а необходимостью. Владельцы устройств <em>Samsung</em> могут воспользоваться сервисом <strong>Samsung Pay</strong>, который позволяет привязывать банковские карты и совершать покупки в терминалах, поддерживающих бесконтактную оплату. Особенно актуален вопрос интеграции карт <em>ВТБ</em>, так как банк активно развивает свои цифровые продукты и обеспечивает высокий уровень безопасности транзакций.</p>
+
+<p>Процесс добавления карты в систему может показаться сложным для тех, кто впервые сталкивается с NFC-технологиями, однако вся процедура занимает буквально пару минут. <strong>Виртуальная карта</strong> или пластик, выпущенный банком, мгновенно оцифровывается и становится доступной для использования в любых точках приема платежей. Важно лишь убедиться, что ваше устройство соответствует техническим требованиям, а программное обеспечение обновлено до последней версии.</p>
+
+<p>В этой статье мы детально разберем каждый шаг настройки, уделим внимание возможным ошибкам и нюансам работы с приложением <em>VTB Online</em>. Вы узнаете, как правильно настроить биометрическую защиту и какие действия предпринять, если терминал не считывает телефон. Следование инструкции поможет избежать распространенных проблем и наслаждаться скоростью безналичных расчетов.</p>
+
+<h2 id="проверка-совместимости-устройства-и-подготовка">Проверка совместимости устройства и подготовка</h2>
+
+<p>Перед началом настройки необходимо убедиться, что ваш смартфон технически способен поддерживать сервис <strong>Samsung Pay</strong>. Не все модели, даже от производителя <em>Samsung</em>, оснащены необходимым модулем <strong>NFC</strong> (Near Field Communication) или имеют защищенное хранилище ключей шифрования. Обычно это флагманские линейки Galaxy S, Note, Z Fold/Flip, а также некоторые модели серии A среднего ценового сегмента, выпущенные в последние годы.</p>
+
+<p>Кроме аппаратной части, критически важным является программное обеспечение. Операционная система должна быть актуальной, так как старые версии <em>Android</em> могут не поддерживать необходимые протоколы безопасности. Также требуется наличие учетной записи <em>Samsung Account</em>, которая синхронизирует данные и позволяет добавлять платежные средства.</p>
+
+<ul>
+<li>📱 Убедитесь, что модель смартфона входит в список поддерживаемых устройств на официальном сайте производителя.</li>
+<li>🔒 Проверьте наличие разблокировки экрана: для работы платежной системы обязателен установленный PIN-код, графический ключ или биометрия.</li>
+<li>🌐 Убедитесь в наличии стабильного подключения к интернету (Wi-Fi или мобильная сеть) для верификации данных карты.</li>
+</ul>
+
+<p>Если вы используете устройство, купленное не в официальном магазине или привезенное из другой страны, убедитесь, что в прошивке не были удалены системные компоненты, отвечающие за работу платежных сервисов. В некоторых случаях региональные версии ПО могут ограничивать функционал.</p>
+
+<blockquote>⚠️ Внимание: Использование модифицированных версий операционной системы (root-права, кастомные прошивки) может привести к блокировке работы Samsung Pay из соображений безопасности. Для работы сервиса требуется стандартная среда.</blockquote>
+
+<div class="poll-widget" id="poll-d0e2e7ea"><div class="poll-widget-question">📊 Какая у вас модель Samsung для оплаты?</div><div class="poll-widget-option" data-poll="d0e2e7ea" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Galaxy S серия</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="d0e2e7ea" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Galaxy A серия</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="d0e2e7ea" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Galaxy Z Fold/Flip</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="d0e2e7ea" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Другая модель</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="d0e2e7ea" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Планшет</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="установка-и-настройка-приложения-samsung-pay">Установка и настройка приложения Samsung Pay</h2>
+
+<p>Основным инструментом для управления платежными картами является приложение <strong>Samsung Pay</strong>. На большинстве современных смартфонов <em>Samsung</em> оно предустановлено по умолчанию. Если вы не нашли иконку на рабочем столе или в меню приложений, необходимо загрузить актуальную версию из магазина <em>Galaxy Store</em> или <em>Google Play</em>. Использование сторонних источников для загрузки APK-файлов не рекомендуется, так как это может привести к установке вредоносного ПО.</p>
+
+<p>После установки запустите приложение и войдите в свой <em>Samsung Account</em>. Система предложит пройти первоначальную настройку, которая включает в себя принятие пользовательского соглашения и настройку методов аутентификации. Именно биометрические данные (отпечаток пальца или сканирование радужной оболочки/лица) будут использоваться для подтверждения оплаты, поэтому этот этап нельзя пропускать.</p>
+
+<div class="checklist-block"><h4>☑️ Настройка безопасности Samsung Pay</h4><label class="check-item"><input type="checkbox"><span>Вход в Samsung Account</span></label><label class="check-item"><input type="checkbox"><span>Регистрация отпечатка пальца</span></label><label class="check-item"><input type="checkbox"><span>Установка PIN-кода для оплаты</span></label><label class="check-item"><input type="checkbox"><span>Проверка работы NFC</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Важным этапом является активация службы NFC. Даже если приложение установлено, без включенного модуля ближней связи оплата не пройдет. Обычно система сама предложит включить эту функцию, но проверить статус можно вручную через шторку уведомлений или в разделе настроек подключений.</p>
+
+<h2 id="регистрация-карты-втб-в-приложении-vtb-online">Регистрация карты ВТБ в приложении VTB Online</h2>
+
+<p>Прежде чем добавить карту непосредственно в <strong>Samsung Pay</strong>, ее необходимо активировать для использования в мобильных платежах внутри банковского приложения <em>VTB Online</em>. Это стандартная процедура безопасности, которая подтверждает, что именно вы являетесь владельцем счета. Откройте приложение банка на своем смартфоне и авторизуйтесь.</p>
+
+<p>В главном меню выберите интересующую вас карту. В разделе управления картой или в дополнительных настройках (часто обозначается тремя точками или шестеренкой) найдите пункт, связанный с мобильными платежами. Он может называться «Оплата телефоном», «Samsung Pay» или «Добавить в платежные сервисы». Нажав на соответствующую кнопку, вы запустите процесс токенизации.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Описание действия</th>
+<th>Статус требования</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Приложение</td>
+<td>VTB Online (актуальная версия)</td>
+<td>Обязательно</td>
+</tr>
+<tr>
+<td>Статус карты</td>
+<td>Активна, не заблокирована</td>
+<td>Обязательно</td>
+</tr>
+<tr>
+<td>СМС-подтверждение</td>
+<td>Доступ к номеру телефона</td>
+<td>Обязательно</td>
+</tr>
+<tr>
+<td>Интернет</td>
+<td>Стабильное соединение</td>
+<td>Обязательно</td>
+</tr>
+</tbody>
+</table>
+
+<p>Система может запросить подтверждение операции через СМС-код или пуш-уведомление. После успешной верификации карта будет помечена как готовая к добавлению в внешние платежные системы. Если кнопка добавления неактивна, проверьте, не истек ли срок действия пластика и не превышен ли лимит на подключение устройств.</p>
+
+<details class="faq-item"><summary>Что делать, если карта не отображается в VTB Online?</summary><div class="faq-answer"><p>Если вы не видите опцию добавления в Samsung Pay, убедитесь, что ваше приложение VTB Online обновлено до последней версии через официальный магазин. Также проверьте, поддерживает ли конкретный тип вашей карты (например, корпоративная или виртуальная) функцию токенизации. В редких случаях требуется перевыпуск карты с поддержкой 3D-Secure.</spoiler></p></div></details>
+
+<h2 id="процесс-добавления-карты-в-samsung-pay">Процесс добавления карты в Samsung Pay</h2>
+
+<p>После подготовки в банковском приложении переходим к финальной стадии — непосредственному добавлению карты в <strong>Samsung Pay</strong>. Откройте приложение платежной системы. На главном экране вы увидите кнопку «Добавить карту» или знак «плюс» в углу интерфейса. Нажмите на нее, чтобы начать сканирование.</p>
+
+<p>Камера смартфона автоматически перейдет в режим сканирования. Наведите объектив на лицевую сторону карты так, чтобы номер был четко виден в рамке. Система распознает цифры и заполнит поля автоматически. Если распознавание прошло успешно, проверьте правильность введенных данных. В случае ошибок введите номер, срок действия и CVC-код вручную.</p>
+
+<p>Далее система предложит выбрать банк-эмитент. Найдите в списке <em>ВТБ</em> и выберите его. Приложение перенаправит вас для подтверждения в <em>VTB Online</em> или запросит ввод кода из СМС, если связь с банком установлена напрямую. Следуйте инструкциям на экране для завершения привязки.</p>
+
+<ul>
+<li>💳 Согласитесь с условиями использования сервиса Samsung Pay, внимательно прочитав пункты о комиссиях и лимитах.</li>
+<li>🔢 Введите CVC/CVV код с оборотной стороны карты для подтверждения владения.</li>
+<li>✅ Примите условия соглашения с банком-эмитентом, если появится соответствующее окно.</li>
+</ul>
+
+<blockquote>⚠️ Внимание: При вводе данных карты вручную будьте крайне внимательны. Ошибка даже в одной цифре приведет к отказу в привязке, и процедуру придется начинать заново. Используйте хорошее освещение при сканировании.</blockquote>
+
+<h2 id="настройка-методов-оплаты-и-биометрии">Настройка методов оплаты и биометрии</h2>
+
+<p>Безопасность платежей в <strong>Samsung Pay</strong> базируется на многоуровневой системе аутентификации. После успешного добавления карты система потребует настроить или подтвердить метод разблокировки для проведения транзакций. Это может быть отпечаток пальца, сканирование лица или ввод PIN-кода.</p>
+
+<p>Использование биометрии является наиболее удобным и быстрым способом оплаты. Вам не нужно каждый раз вводить цифры, достаточно приложить палец к сканеру или взглянуть на экран в момент поднесения телефона к терминалу. Однако, рекомендуется также помнить резервный PIN-код на случай, если биометрический сенсор временно не работает (например, мокрые руки).</p>
+
+<p>В настройках приложения можно также выбрать карту, которая будет отображаться по умолчанию при запуске сервиса. Если у вас привязано несколько карт <em>ВТБ</em> или карты других банков, вы можете назначить приоритетную. Это ускорит процесс оплаты в спешке, так как нужная карта будет открываться первой.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для максимальной скорости оплаты добавьте виджет Samsung Pay на главный экран или настройте запуск свайпом снизу вверх даже с выключенным экраном (если модель поддерживает Always On Display).</p></div>
+
+<p>Не забывайте регулярно обновлять приложение платежной системы. Разработчики постоянно улучшают алгоритмы шифрования и добавляют поддержку новых типов терминалов. Отсутствие обновлений может привести к нестабильной работе сервиса в будущем.</p>
+
+<h2 id="решение-и-устранение-ошибок">Решение и устранение ошибок</h2>
+
+<p>В процессе настройки пользователи могут столкнуться с различными техническими трудностями. Одной из частых проблем является ошибка связи с сервером банка. Это может быть вызвано временными техническими работами на стороне <em>ВТБ</em> или нестабильным интернет-соединением. В таком случае стоит подождать несколько минут и повторить попытку.</p>
+
+<p>Другая распространенная ситуация — карта не проходит валидацию. Это может означать, что карта не поддерживает технологию токенизации, либо она заблокирована банком из-за подозрительной активности. Также стоит проверить, не исчерпан ли лимит на количество привязанных устройств для одного счета.</p>
+
+<p>Если приложение <strong>Samsung Pay</strong> выдает ошибку «Сертификат безопасности» или аналогичную, попробуйте очистить кэш приложения в настройках смартфона или переустановить его. Иногда помогает удаление старого Samsung Account и повторная авторизация, но это крайняя мера, требующая повторной настройки всех сервисов.</p>
+
+<ul>
+<li>🔄 Перезагрузите смартфон, чтобы обновить сетевые соединения и сбросить временные ошибки служб.</li>
+<li>📶 Переключитесь с Wi-Fi на мобильный интернет (или наоборот) для проверки прохождения запроса.</li>
+<li>📞 Свяжитесь с поддержкой банка, если ошибка сохраняется после всех попыток самостоятельного решения.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Большинство ошибок при добавлении карты носят временный характер и решаются перезагрузкой устройства или проверкой интернет-соединения. Если проблема persists, чаще всего требуется вмешательство службы поддержки банка для разблокировки функции на стороне сервера.</p></div>
+
+<details>
+<summary>Можно ли добавить карту ВТБ в Samsung Pay на телефоне без NFC?</summary>
+<p>Нет, добавление карты в Samsung Pay для оплаты в терминалах требует наличия модуля NFC. Без этого модуля телефон не сможет передавать зашифрованный сигнал платежному терминалу. Однако вы можете использовать QR-коды для оплаты через приложение банка, если терминал поддерживает СБП.</p>
+</details>
+
+<details>
+<summary>Что делать, если телефон потерян, а в Samsung Pay была карта?</summary>
+<p>Немедленно обратитесь в банк ВТБ для блокировки карты через горячую линию или приложение на другом устройстве. Также удалите устройство из списка доверенных в личном кабинете Samsung Account, чтобы дистанционно стереть платежные данные.</p>
+</details>
+
+<details>
+<summary>Нужен ли интернет для оплаты через Samsung Pay?</summary>
+<p>Для непосредственной оплаты в магазине интернет не требуется, так как токен карты хранится в защищенном чипе телефона. Однако интернет нужен для первоначального добавления карты и периодического обновления токенов безопасности.</p>
+</details>
+
+<details>
+<summary>Берет ли ВТБ комиссию за использование Samsung Pay?</summary>
+<p>Банк ВТБ не взимает дополнительную комиссию за подключение карты к Samsung Pay или за совершение платежей. Вы платите только стандартную комиссию за операции по вашей карте, если она предусмотрена тарифом.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#проверка-совместимости-устройства-и-подготовка">Проверка совместимости устройства и подготовка</a></li><li><a href="#установка-и-настройка-приложения-samsung-pay">Установка и настройка приложения Samsung Pay</a></li><li><a href="#регистрация-карты-втб-в-приложении-vtb-online">Регистрация карты ВТБ в приложении VTB Online</a></li><li><a href="#процесс-добавления-карты-в-samsung-pay">Процесс добавления карты в Samsung Pay</a></li><li><a href="#настройка-методов-оплаты-и-биометрии">Настройка методов оплаты и биометрии</a></li><li><a href="#решение-и-устранение-ошибок">Решение и устранение ошибок</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-ustanovit-prilozhenie-vtb-onlajn-na-telefon-android.html" class="related-card">Как установить ВТБ Онлайн на Android: пошаговая инструкция 2026</a></li><li><a href="/articles/c/ch/chto-takoe-login-pri-registratsii-v-vtb.html" class="related-card">Что такое логин при регистрации в ВТБ: выбор и смена</a></li><li><a href="/articles/k/ka/kak-poluchit-vremennyj-parol-vtb.html" class="related-card">Как получить временный пароль ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-platit-kartoj-vtb-mir-s-telefona.html" class="related-card">Как платить картой ВТБ Мир с телефона: настройка NFC и QR</a></li><li><a href="/articles/k/ka/kak-podklyuchit-mobilnyj-bank-k-karte-vtb.html" class="related-card">Как подключить мобильный банк ВТБ к карте: пошаговая инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-ustanovit-prilozhenie-vtb-onlajn-na-telefon-android.html" class="related-bottom-card"><span class="related-bottom-title">Как установить ВТБ Онлайн на Android: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по установке приложения ВТБ Онлайн на смартфон с Android: официальные и альтер</span></a><a href="/articles/c/ch/chto-takoe-login-pri-registratsii-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Что такое логин при регистрации в ВТБ: выбор и смена</span><span class="related-bottom-desc">Узнайте, какой логин используется в ВТБ для входа в онлайн-банк. Инструкция по регистрации, выбору и</span></a><a href="/articles/k/ka/kak-poluchit-vremennyj-parol-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как получить временный пароль ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Забыли пароль от ВТБ-Онлайн? Узнайте все способы получения временного пароля: через СМС, звонок в по</span></a><a href="/articles/k/ka/kak-platit-kartoj-vtb-mir-s-telefona.html" class="related-bottom-card"><span class="related-bottom-title">Как платить картой ВТБ Мир с телефона: настройка NFC и QR</span><span class="related-bottom-desc">Полная инструкция: как оплачивать покупки телефоном через ВТБ Мир Pay. Настройка NFC, оплата по QR-к</span></a><a href="/articles/k/ka/kak-podklyuchit-mobilnyj-bank-k-karte-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить мобильный банк ВТБ к карте: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по подключению мобильного банка ВТБ к дебетовой или кредитной карте через прил</span></a><a href="/articles/k/ka/kak-uznat-nomer-vtb-sim.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать номер карты ВТБ SIM: 5 способов за 2 минуты</span><span class="related-bottom-desc">Пошаговая инструкция: где посмотреть номер ВТБ SIM-карты в мобильном банке, личном кабинете, через U</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

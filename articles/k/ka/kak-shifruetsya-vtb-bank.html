@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как работает шифрование в ВТБ: технологии защиты данных клиентов — Банки Инфо</title>
+    <meta name="description" content="Разбираемся, какие методы шифрования использует ВТБ для защиты транзакций, личных данных и онлайн-банкинга. SSL/TLS, токенизация, биометрия — все нюансы безопасности.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-shifruetsya-vtb-bank.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как работает шифрование в ВТБ: технологии защиты данных клиентов">
+    <meta property="og:description" content="Разбираемся, какие методы шифрования использует ВТБ для защиты транзакций, личных данных и онлайн-банкинга. SSL/TLS, токенизация, биометрия — все нюансы безопасности.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как работает шифрование в ВТБ: технологии защиты данных клиентов</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Шифрование в ВТБ: как банк защищает ваши деньги и данные в 2026 году</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#как-устроено-шифрование-данных-в-втб-основные-принципы">Как устроено шифрование данных в ВТБ: основные принципы</a></li><li><a href="#ssltls-как-шифруется-соединение-с-сайтом-и-мобильным-банком-втб">SSL/TLS: как шифруется соединение с сайтом и мобильным банком ВТБ</a></li><li><a href="#токенизация-платежных-данных-почему-номер-вашей-карты-бесполезен-для-мошенников">Токенизация платежных данных: почему номер вашей карты бесполезен для мошенников</a></li><li><a href="#двухфакторная-аутентификация-2fa-в-втб-почему-sms-коды-уходят-в-прошлое">Двухфакторная аутентификация (2FA) в ВТБ: почему SMS-коды уходят в прошлое</a></li><li><a href="#шифрование-в-банкоматах-втб-как-защищены-наличные-операции">Шифрование в банкоматах ВТБ: как защищены наличные операции</a></li><li><a href="#биометрия-в-втб-как-отпечатки-пальцев-и-распознавание-лица-защищают-ваши-деньги">Биометрия в ВТБ: как отпечатки пальцев и распознавание лица защищают ваши деньги</a></li><li><a href="#faq-частые-вопросы-о-шифровании-в-втб">FAQ: Частые вопросы о шифровании в ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Безопасность финансовых операций — ключевой приоритет для любого банка, и <strong>ВТБ</strong> не исключение. В эпоху цифровизации, когда мошеннические схемы становятся все изощреннее, клиенты все чаще задаются вопросом: <em>как именно банк защищает мои данные и транзакции?</em> От онлайн-платежей до хранения персональной информации — каждый этап взаимодействия с банком проходит через многоуровневую систему шифрования.</p>
+
+<p>В этой статье мы детально разберем, какие <strong>протоколы шифрования</strong> использует ВТБ, как работает защита в мобильном банке <em>ВТБ Онлайн</em>, почему двухфакторная аутентификация (2FA) стала обязательной, и что такое <strong>токенизация платежных данных</strong>. Вы также узнаете, чем отличается шифрование в банкоматах от защиты онлайн-транзакций, и какие меры предпринимает ВТБ для предотвращения утечек данных. Если вы когда-нибудь сомневались, насколько надежно хранятся ваши сбережения — этот материал расставит все точки над «i».</p>
+
+<h2 id="как-устроено-шифрование-данных-в-втб-основные-принципы">Как устроено шифрование данных в ВТБ: основные принципы</h2>
+
+<p>Защита информации в ВТБ строится на комбинации нескольких технологий, каждая из которых отвечает за свой сегмент безопасности. Основой являются <strong>протоколы SSL/TLS</strong> (в современной версии — <em>TLS 1.2/1.3</em>), которые шифруют трафик между вашим устройством и серверами банка. Это означает, что даже если злоумышленник перехватит данные, он увидит только зашифрованный набор символов.</p>
+
+<p>Второй уровень — это <strong>асимметричное шифрование</strong>, где для обмена данными используются два ключа: публичный (открытый) и приватный (секретный). Например, когда вы вводите пароль в приложении <em>ВТБ Онлайн</em>, он шифруется публичным ключом банка, а расшифровать его может только сервер ВТБ с помощью приватного ключа. Такой подход исключает возможность подмены данных по пути.</p>
+
+<p>Кроме того, ВТБ активно применяет:</p>
+<ul>
+  <li>🔐 <strong>Токенизацию</strong> — замену реальных данных карты (номер, CVV) на уникальные токены, которые бесполезны для мошенников.</li>
+  <li>👤 <strong>Биометрическую аутентификацию</strong> — отпечатки пальцев, распознавание лица (в мобильном банке).</li>
+  <li>🔄 <strong>Двухфакторную аутентификацию (2FA)</strong> — подтверждение операций через SMS, push-уведомления или генератор кодов.</li>
+  <li>🛡️ <strong>Защиту от фишинга</strong> — блокировку подозрительных сайтов и проверку сертификатов безопасности.</li>
+</ul>
+
+<p>Важно понимать, что шифрование в ВТБ — это не статичная система. Банк регулярно обновляет протоколы, чтобы соответствовать международным стандартам (например, <em>PCI DSS</em> для платежных систем). Так, в 2023 году ВТБ полностью отказался от устаревшего <code>TLS 1.0/1.1</code> в пользу более защищенных версий.</p>
+
+<div class="poll-widget" id="poll-3c781736"><div class="poll-widget-question">📊 Какой метод аутентификации вы используете в ВТБ Онлайн чаще всего?</div><div class="poll-widget-option" data-poll="3c781736" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">SMS-коды</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3c781736" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Push-уведомления</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3c781736" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Отпечаток пальца</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3c781736" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Пароль и логин</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="3c781736" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Другой</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="ssltls-как-шифруется-соединение-с-сайтом-и-мобильным-банком-втб">SSL/TLS: как шифруется соединение с сайтом и мобильным банком ВТБ</h2>
+
+<p>Когда вы заходите на сайт <code>vtb.ru</code> или открываете приложение <em>ВТБ Онлайн</em>, ваше устройство устанавливает защищенное соединение с серверами банка. Этот процесс начинается с <strong>SSL/TLS-рукопожатия</strong> — обмена криптографическими ключами между клиентом и сервером.</p>
+
+<p>Вот как это работает пошагово:</p>
+<ol>
+  <li>Ваш браузер или приложение отправляет запрос на сервер ВТБ.</li>
+  <li>Сервер отвечает, предоставляя свой <strong>SSL-сертификат</strong> (выданный доверенным центром, например, <em>GlobalSign</em>).</li>
+  <li>Устройство проверяет подлинность сертификата и генерирует <strong>сессионный ключ</strong>.</li>
+  <li>Этот ключ шифруется публичным ключом банка и отправляется обратно.</li>
+  <li>Сервер расшифровывает ключ своим приватным ключом — теперь обе стороны могут обмениваться данными в зашифрованном виде.</li>
+</ol>
+
+<p>ВТБ использует <em>256-битное шифрование</em> (стандарт <code>AES-256</code>), что делает взлом соединения практически невозможным. Для сравнения: современным суперкомпьютерам потребуются миллионы лет, чтобы подобрать ключ методом грубой силы.</p>
+
+<p>Чтобы убедиться, что соединение защищено, обратите внимание на:</p>
+<ul>
+  <li>🔒 <strong>Зеленый замочек</strong> в адресной строке браузера.</li>
+  <li>🌐 Префикс <code>https://</code> (а не <code>http://</code>).</li>
+  <li>📜 Информацию о сертификате (можно посмотреть, кликнув на замочек).</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если при входе в ВТБ Онлайн вы видите предупреждение о недействительном сертификате — НЕ вводите данные! Это может быть признаком атаки "человек посередине" (MITM).</p></div>
+
+<h2 id="токенизация-платежных-данных-почему-номер-вашей-карты-бесполезен-для-мошенников">Токенизация платежных данных: почему номер вашей карты бесполезен для мошенников</h2>
+
+<p>Один из самых эффективных методов защиты платежей в ВТБ — <strong>токенизация</strong>. Суть технологии в том, что реальные данные вашей карты (номер, срок действия, CVV) заменяются на уникальный <strong>токен</strong> — случайный набор символов, который генерируется для каждой транзакции.</p>
+
+<p>Как это работает на практике:</p>
+<ol>
+  <li>Вы привязываете карту к сервису (например, <em>Apple Pay</em> или <em>Google Pay</em>).</li>
+  <li>ВТБ отправляет запрос в платежную систему (<em>Visa</em>, <em>Mastercard</em>, <em>Мир</em>), которая генерирует токен.</li>
+  <li>Токен сохраняется на вашем устройстве вместо реальных данных карты.</li>
+  <li>При оплате токен передается продавцу — банк автоматически заменяет его на настоящие реквизиты карты.</li>
+</ol>
+
+<p>Преимущества токенизации:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Проблема</th>
+      <th>Решение с токенизацией</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Утечка данных карты при взломе магазина</td>
+      <td>Мошенники получают бесполезный токен, а не номер карты</td>
+    </tr>
+    <tr>
+      <td>Фишинговые сайты, крадущие реквизиты</td>
+      <td>Токен привязан к конкретному устройству и сервису</td>
+    </tr>
+    <tr>
+      <td>Клонирование карты при считывании данных</td>
+      <td>Токен динамически меняется для каждой транзакции</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>ВТБ поддерживает токенизацию для всех основных платежных систем, включая бесконтактные платежи через смартфон. Более того, с 2022 года банк внедрил <strong>динамическую токенизацию</strong> для онлайн-платежей: токен генерируется заново при каждой операции, что сводит риск мошенничества к нулю.</p>
+
+<details class="faq-item"><summary>Что делать, если токен скомпрометирован?</summary><div class="faq-answer"><p>В отличие от реальных данных карты, токен нельзя использовать повторно. Если сервис, где хранился токен, был взломан, ВТБ автоматически отзывает его и выпускает новый. Вам не нужно блокировать карту — достаточно перепривязать ее к сервису (например, Apple Pay).</p></div></details>
+
+<h2 id="двухфакторная-аутентификация-2fa-в-втб-почему-sms-коды-уходят-в-прошлое">Двухфакторная аутентификация (2FA) в ВТБ: почему SMS-коды уходят в прошлое</h2>
+
+<p>До недавнего времени основным способом подтверждения операций в ВТБ были <strong>SMS-коды</strong>. Однако из-за роста числа атак с перехватом SMS (например, через подмену SIM-карты) банк активно переходит на более надежные методы <strong>двухфакторной аутентификации (2FA)</strong>.</p>
+
+<p>Сегодня в ВТБ доступны следующие варианты 2FA:</p>
+<ul>
+  <li>📱 <strong>Push-уведомления</strong> в мобильном банке — подтверждение одним тапом (самый быстрый и безопасный способ).</li>
+  <li>🔑 <strong>Аппаратные токены</strong> (например, <em>VTB Key</em>) — генераторы одноразовых паролей.</li>
+  <li>👆 <strong>Биометрия</strong> — подтверждение по отпечатку пальца или лицу (для операций до 50 000 ₽).</li>
+  <li>📧 <strong>Email-коды</strong> — альтернатива SMS для клиентов с подключенной электронной почтой.</li>
+</ul>
+
+<p>Почему SMS становятся менее безопасными?</p>
+<blockquote>⚠️ <strong>Внимание:</strong> Мошенники научились перехватывать SMS через уязвимости в протоколе <em>SS7</em> или социальную инженерию (например, звонок в салон связи с просьбой дублировать SIM). ВТБ рекомендует отключить SMS-коды в настройках безопасности и перейти на push-уведомления или аппаратные токены.</blockquote>
+
+<p>Как включить альтернативные методы 2FA:</p>
+<ol>
+  <li>Откройте <em>ВТБ Онлайн</em> → <code>Профиль → Настройки безопасности</code>.</li>
+  <li>Выберите раздел <code>Способы подтверждения</code>.</li>
+  <li>Активируйте <strong>push-уведомления</strong> или подключите <strong>аппаратный токен</strong>.</li>
+  <li>Отключите SMS-коды (опционально, но рекомендуется).</li>
+</ol>
+
+<div class="checklist-block"><h4>☑️ Как защитить аккаунт ВТБ от взлома</h4><label class="check-item"><input type="checkbox"><span>Включите push-уведомления вместо SMS</span></label><label class="check-item"><input type="checkbox"><span>Активируйте биометрию для мелких платежей</span></label><label class="check-item"><input type="checkbox"><span>Установите лимит на переводы без подтверждения</span></label><label class="check-item"><input type="checkbox"><span>Регулярно проверяйте историю входов</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="шифрование-в-банкоматах-втб-как-защищены-наличные-операции">Шифрование в банкоматах ВТБ: как защищены наличные операции</h2>
+
+<p>Многие клиенты ошибочно считают, что шифрование нужно только для онлайн-банкинга. На самом деле, даже банкоматы ВТБ используют сложные протоколы защиты. Вот как это работает:</p>
+
+<p><strong>1. Шифрование PIN-кода</strong></p>
+<p>Когда вы вводите PIN в банкомате, он <strong>не передается в открытом виде</strong>. Вместо этого используется протокол <em>ISO 9564</em>, где PIN шифруется с помощью:</p>
+<ul>
+  <li>🔢 Уникального ключа банкомата (меняется при каждой транзакции).</li>
+  <li>🔑 Главного ключа процессингового центра ВТБ.</li>
+</ul>
+
+<p><strong>2. Защита канала связи</strong></p>
+<p>Данные между банкоматом и сервером ВТБ передаются по защищенному каналу с использованием <code>3DES</code> или <code>AES</code>. Кроме того, банкоматы ВТБ оснащены:</p>
+<ul>
+  <li>🛡️ <strong>Аппаратными модулями безопасности (HSM)</strong> — специализированными устройствами для шифрования.</li>
+  <li>🚨 <strong>Системами обнаружения скиммеров</strong> — датчиками, которые блокируют банкомат при подозрительной активности.</li>
+</ul>
+
+<p><strong>3. Защита от физических атак</strong></p>
+<p>Корпус банкомата ВТБ оснащен:</p>
+<ul>
+  <li>🔴 Датчиками вскрытия (при попытке взлома срабатывает сигнализация).</li>
+  <li>💿 Самоуничтожением данных (при несанкционированном доступе информация на жестком диске стирается).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Никогда не используйте банкоматы с признаками вмешательства (посторонние накладки на клавиатуре, камеры над экраном). ВТБ гарантирует возврат средств только при доказанном факте мошенничества с стороны банка, а не клиента.</blockquote>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Банкоматы ВТБ с функцией <em>contactless</em> (бесконтактной выдачи наличных) используют ту же токенизацию, что и мобильные платежи — это исключает клонирование карты при считывании.</p></div>
+
+<h2 id="биометрия-в-втб-как-отпечатки-пальцев-и-распознавание-лица-защищают-ваши-деньги">Биометрия в ВТБ: как отпечатки пальцев и распознавание лица защищают ваши деньги</h2>
+
+<p>С 2021 года ВТБ активно внедряет <strong>биометрическую аутентификацию</strong> как альтернативу паролям и SMS-кодам. Сегодня клиенты могут подтверждать операции с помощью:</p>
+
+<p><strong>1. Отпечатков пальцев</strong></p>
+<p>Технология <em>Touch ID</em> (для iOS) и <em>Fingerprint</em> (для Android) интегрирована в мобильное приложение <em>ВТБ Онлайн</em>. Принцип работы:</p>
+<ul>
+  <li>👆 Ваш отпечаток сканируется и преобразуется в <strong>биометрический шаблон</strong> (не изображение, а математическую модель).</li>
+  <li>🔐 Шаблон хранится в <strong>Secure Enclave</strong> (защищенной области процессора смартфона), куда нет доступа даже у приложений.</li>
+  <li>🔄 При аутентификации шаблон сравнивается с эталонным — совпадение подтверждает вашу личность.</li>
+</ul>
+
+<p><strong>2. Распознавания лица</strong></p>
+<p>Для этой цели ВТБ использует технологию <em>Face ID</em> (iOS) или <em>3D-сканирование лица</em> (Android). В отличие от обычных фотографий, система анализирует:</p>
+<ul>
+  <li>👁️ Глубину и контуры лица (защита от масок или фотографий).</li>
+  <li>💡 Инфракрасное излучение (чтобы отличить живого человека от манекена).</li>
+</ul>
+
+<p>Преимущества биометрии в ВТБ:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Проблема традиционных методов</th>
+      <th>Решение с биометрией</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Утечка паролей при фишинге</td>
+      <td>Биометрию невозможно "угадать" или украсть удаленно</td>
+    </tr>
+    <tr>
+      <td>Перехват SMS-кодов</td>
+      <td>Подтверждение происходит локально на устройстве</td>
+    </tr>
+    <tr>
+      <td>Забытые пароли</td>
+      <td>Вы всегда "носите" биометрию с собой</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ограничения биометрии:</p>
+<ul>
+  <li>🚫 Не работает при повреждении датчика (например, треснувшем экране).</li>
+  <li>🔄 Требует регулярного обновления шаблонов (например, если вы поранили палец).</li>
+  <li>💰 Лимит на операции без дополнительного подтверждения — до <mark>50 000 ₽</mark> (для безопасности).</li>
+</ul>
+
+<h2 id="faq-частые-вопросы-о-шифровании-в-втб">FAQ: Частые вопросы о шифровании в ВТБ</h2>
+
+<details>
+  <summary>Может ли ВТБ увидеть мой пароль от онлайн-банка?</summary>
+  <p>Нет. Пароли в <em>ВТБ Онлайн</em> хранятся в зашифрованном виде с использованием алгоритма <code>bcrypt</code> (хэширование с "солью"). Даже сотрудники банка не имеют доступа к вашим паролям — при утере его можно только сбросить.</p>
+</details>
+
+<details>
+  <summary>Что делать, если я получил SMS с кодом, но не совершал операций?</summary>
+  <p>Это признак попытки несанкционированного доступа. Немедленно:</p>
+  <ol>
+    <li>Заблокируйте карту через <em>ВТБ Онлайн</em> или по телефону <code>8 800 100-24-24</code>.</li>
+    <li>Проверьте историю операций на наличие подозрительных транзакций.</li>
+    <li>Смените пароль от онлайн-банка.</li>
+  </ol>
+  <p>ВТБ автоматически блокирует подозрительные операции, но лучше перестраховаться.</p>
+</details>
+
+<details>
+  <summary>Как ВТБ защищает данные при переводе на карту другого банка?</summary>
+  <p>При межбанковских переводах ВТБ использует:</p>
+  <ul>
+    <li>Шифрование трафика по протоколу <code>TLS 1.3</code>.</li>
+    <li>Проверку реквизитов получателя через систему <em>СБП</em> (Система быстрых платежей).</li>
+    <li>Двухфакторную аутентификацию (даже если перевод идет на карту ВТБ).</li>
+  </ul>
+  <p>Кроме того, банк блокирует переводы на карты, попавшие в "черные списки" мошенников.</p>
+</details>
+
+<details>
+  <summary>Можно ли доверять облачному хранилищу документов в ВТБ Онлайн?</summary>
+  <p>Да. Файлы в личном кабинете шифруются по стандарту <code>AES-256</code> и хранятся на серверах ВТБ с многократным резервированием. Доступ к ним есть только у вас (после аутентификации) и у ограниченного круга сотрудников банка (по запросу правоохранительных органов).</p>
+</details>
+
+<details>
+  <summary>Чем шифрование в ВТБ отличается от Сбербанка или Тинькофф?</summary>
+  <p>Все крупные банки используют схожие протоколы (<code>TLS 1.2/1.3</code>, <code>AES-256</code>, токенизацию), но есть нюансы:</p>
+  <ul>
+    <li>ВТБ активнее внедряет <strong>аппаратные токены</strong> (например, <em>VTB Key</em>).</li>
+    <li>Сбербанк чаще использует <strong>голосовую биометрию</strong> для колл-центра.</li>
+    <li>Тинькофф делает ставку на <strong>полностью бескарточные решения</strong> с виртуальными картами.</li>
+  </ul>
+  <p>По уровню защиты все три банка соответствуют стандартам <em>PCI DSS Level 1</em>.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#как-устроено-шифрование-данных-в-втб-основные-принципы">Как устроено шифрование данных в ВТБ: основные принципы</a></li><li><a href="#ssltls-как-шифруется-соединение-с-сайтом-и-мобильным-банком-втб">SSL/TLS: как шифруется соединение с сайтом и мобильным банком ВТБ</a></li><li><a href="#токенизация-платежных-данных-почему-номер-вашей-карты-бесполезен-для-мошенников">Токенизация платежных данных: почему номер вашей карты бесполезен для мошенников</a></li><li><a href="#двухфакторная-аутентификация-2fa-в-втб-почему-sms-коды-уходят-в-прошлое">Двухфакторная аутентификация (2FA) в ВТБ: почему SMS-коды уходят в прошлое</a></li><li><a href="#шифрование-в-банкоматах-втб-как-защищены-наличные-операции">Шифрование в банкоматах ВТБ: как защищены наличные операции</a></li><li><a href="#биометрия-в-втб-как-отпечатки-пальцев-и-распознавание-лица-защищают-ваши-деньги">Биометрия в ВТБ: как отпечатки пальцев и распознавание лица защищают ваши деньги</a></li><li><a href="#faq-частые-вопросы-о-шифровании-в-втб">FAQ: Частые вопросы о шифровании в ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-prodlit-sertifikat-v-vtb-24-biznes-onlajn.html" class="related-card">Продление сертификата в ВТБ 24 Бизнес Онлайн: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-otklyuchit-opoveshcheniya-vtb.html" class="related-card">Как отключить оповещения ВТБ в 2026: пошаговая инструкция</a></li><li><a href="/articles/v/vt/vtb-lichnyj-kabinet-kak-ochistit-istoriyu.html" class="related-card">Как очистить историю в личном кабинете ВТБ: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-uznat-login-po-nomeru-karty-vtb.html" class="related-card">Можно ли узнать логин по номеру карты ВТБ: законные способы и риски</a></li><li><a href="/articles/z/zv/zvonki-ot-banka-vtb-s-kakogo-nomera.html" class="related-card">Звонки от банка ВТБ: с какого номера звонят в 2026-2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-prodlit-sertifikat-v-vtb-24-biznes-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Продление сертификата в ВТБ 24 Бизнес Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как продлить сертификат ключа ЭП в ВТБ Бизнес Онлайн: сроки, способы, ошибки и решения. Актуальная и</span></a><a href="/articles/k/ka/kak-otklyuchit-opoveshcheniya-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить оповещения ВТБ в 2026: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по отключению SMS, пуш-уведомлений и email-рассылок от ВТБ через мобильный бан</span></a><a href="/articles/v/vt/vtb-lichnyj-kabinet-kak-ochistit-istoriyu.html" class="related-bottom-card"><span class="related-bottom-title">Как очистить историю в личном кабинете ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по удалению истории операций в личном кабинете ВТБ через браузер и мобильное п</span></a><a href="/articles/k/ka/kak-uznat-login-po-nomeru-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Можно ли узнать логин по номеру карты ВТБ: законные способы и риски</span><span class="related-bottom-desc">Разбираемся, реально ли восстановить логин ВТБ-Онлайн, зная только номер карты. Официальные методы и</span></a><a href="/articles/z/zv/zvonki-ot-banka-vtb-s-kakogo-nomera.html" class="related-bottom-card"><span class="related-bottom-title">Звонки от банка ВТБ: с какого номера звонят в 2026-2026</span><span class="related-bottom-desc">Узнайте, с каких номеров звонят из банка ВТБ. Официальные короткие номера 1000, 8800, коды 7800. Как</span></a><a href="/articles/k/ka/kak-smenit-parol-na-karte-vtb-esli-ne-pomnish-staryj.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить пароль на карте ВТБ: если забыл старый</span><span class="related-bottom-desc">Пошаговая инструкция, как восстановить доступ и сменить пароль на карте ВТБ онлайн. Что делать, если</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

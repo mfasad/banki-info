@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Браузер Луна ВТБ: что это и как работает виджет — Банки Инфо</title>
+    <meta name="description" content="Узнайте, что такое браузер Луна в приложении банка ВТБ. Разбираем виджет для просмотра новостей, его функционал, настройки и способы отключения в мобильном банке.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/b/br/brauzer-luna-chto-eto-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Браузер Луна ВТБ: что это и как работает виджет">
+    <meta property="og:description" content="Узнайте, что такое браузер Луна в приложении банка ВТБ. Разбираем виджет для просмотра новостей, его функционал, настройки и способы отключения в мобильном банке.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Браузер Луна ВТБ: что это и как работает виджет</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Браузер Луна в ВТБ: назначение виджета и управление</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#суть-технологии-что-скрывается-за-названием">Суть технологии: что скрывается за названием</a></li><li><a href="#функциональные-возможности-новостной-ленты">Функциональные возможности новостной ленты</a></li><li><a href="#инструкция-как-управлять-виджетом-и-настройками">Инструкция: как управлять виджетом и настройками</a></li><li><a href="#влияние-на-производительность-и-трафик">Влияние на производительность и трафик</a></li><li><a href="#вопросы-безопасности-и-конфиденциальности">Вопросы безопасности и конфиденциальности</a></li><li><a href="#сравнение-с-аналогами-в-других-банках">Сравнение с аналогами в других банках</a></li><li><a href="#заключение-и-перспективы-развития">Заключение и перспективы развития</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Пользователи мобильного приложения банка ВТБ часто сталкиваются с непонятными элементами интерфейса, которые появляются после очередного обновления. Одним из таких объектов, вызывающих вопросы, становится так называемый «браузер Луна». На самом деле, это не отдельное приложение, которое нужно скачивать, а встроенный виджет новостной ленты, интегрированный прямо в тело банковского сервиса. Он предназначен для быстрого доступа к актуальной информации без необходимости переключаться между окнами.</p>
+
+<p><strong>Виджет Луна</strong> представляет собой информационный поток, который агрегирует новости из различных источников, включая деловую прессу, политические сводки и развлекательный контент. Внедрение такого функционала в банковское приложение стало частью тренда на создание «супераппов», где клиент может не только управлять финансами, но и потреблять контент. Однако многих пользователей смущает автоматическое появление этой ленты и расходование интернет-трафика на загрузку изображений и статей.</p>
+
+<p>В этой статье мы подробно разберем, <em>что такое Луна</em> в контексте экосистемы ВТБ, зачем она нужна и как ею управлять. Вы узнаете, можно ли полностью отключить этот элемент интерфейса, если он вам мешает, и как настроить ленту под свои интересы, чтобы видеть только полезную информацию. Понимание работы этого модуля поможет сделать использование мобильного банка более комфортным и безопасным.</p>
+
+<h2 id="суть-технологии-что-скрывается-за-названием">Суть технологии: что скрывается за названием</h2>
+
+<p>Термин «браузер» в названии функции часто вводит в заблуждение. На самом деле <strong>Луна ВТБ</strong> — это не веб-браузер в классическом понимании, вроде Chrome или Safari, через который можно переходить по произвольным ссылкам. Это специализированный агрегатор новостей, работающий по принципу RSS-ленты или умной ленты социальных сетей. Алгоритмы подбирают контент на основе популярности источников и, возможно, предпочтений пользователя внутри экосистемы.</p>
+
+<p>Основная задача этого модуля — удержание внимания клиента внутри приложения. Вместо того чтобы уходить читать новости на сторонние ресурсы, пользователь остается в интерфейсе банка. Это повышает <strong>вовлеченность</strong> и время, проводимое в приложении, что является важной метрикой для финтех-компаний. Технически это реализовано как веб-вью или нативный компонент, подгружающий контент с серверов партнера или собственной новостной платформы.</p>
+
+<p>Важно понимать, что данный виджет не имеет доступа к вашим банковским операциям. <strong>Безопасность</strong> данных при использовании новостной ленты остается на стандартном уровне, однако стоит помнить о рисках перехода по внешним ссылкам, которые могут встречаться в статьях. Хотя банк фильтрует источники, осторожность при кликах на рекламные блоки или сомнительные заголовки не помешает.</p>
+
+<div class="poll-widget" id="poll-783632ef"><div class="poll-widget-question">📊 Как вы относитесь к новостям в банковских приложениях?</div><div class="poll-widget-option" data-poll="783632ef" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Пользуюсь, это удобно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="783632ef" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Мешает, хочу отключить</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="783632ef" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Не замечаю их</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="783632ef" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Пользуюсь только для курсов валют</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="функциональные-возможности-новостной-ленты">Функциональные возможности новостной ленты</h2>
+
+<p>Несмотря на кажущуюся простоту, виджет обладает рядом настроек и функций, которые позволяют адаптировать его под себя. <strong>Персонализация</strong> контента — ключевая особенность. Пользователь может выбирать категории интересов, чтобы в ленте преобладали (финансы), технологии или спорт. Это делает чтение более релевантным и избавляет от информационного шума.</p>
+
+<p>Среди основных возможностей <em>модуля Луна</mark> стоит выделить:</p>
+<ul>
+<li>📰 <strong>Агрегация источников:</strong> доступ к сотням проверенных СМИ в одном окне без необходимости устанавливать отдельные приложения.</li>
+<li>⚙️ <strong>Гибкая настройка:</strong> возможность скрывать неинтересные темы и помечать прочитанные статьи.</li>
+<li>📉 <strong>Финансовые данные:</strong> интеграция котировок валют и акций прямо в ленту новостей, что удобно для клиентов инвестиционного направления.</li>
+</ul>
+
+<p>Отдельного внимания заслуживает скорость работы. Разработчики оптимизировали подгрузку контента, чтобы она не влияла на быстродействие основного функционала банка. <strong>Кэширование</strong> статей позволяет просматривать ранее загруженные материалы даже при нестабильном соединении, хотя для обновления ленты интернет обязателен.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте режим «Только текст» в настройках приложения, если хотите экономить мобильный трафик при чтении новостей в ленте Луна.</p></div>
+
+<h2 id="инструкция-как-управлять-виджетом-и-настройками">Инструкция: как управлять виджетом и настройками</h2>
+
+<p>Управление новостной лентой осуществляется непосредственно в интерфейсе мобильного приложения. Если вы впервые открыли вкладку с новостями, система может предложить выбрать интересующие вас темы. Не стоит игнорировать этот этап, так как от него зависит начальное наполнение вашей персональной ленты. В дальнейшем настройки можно изменить через меню профиля или непосредственно в разделе новостей.</p>
+
+<p>Для тех, кто хочет полностью убрать этот элемент с глаз долой, существует возможность скрыть виджет. Это не удалит функционал полностью из системы, но очистит главный экран от лишней информации. Процесс настройки достаточно прост и не требует глубоких технических знаний. Достаточно следовать алгоритму, описанному ниже.</p>
+
+<div class="checklist-block"><h4>☑️ Настройка новостной ленты</h4><label class="check-item"><input type="checkbox"><span>Открыть приложение ВТБ Онлайн</span></label><label class="check-item"><input type="checkbox"><span>Перейти в раздел «Новости» или «Луна»</span></label><label class="check-item"><input type="checkbox"><span>Нажать на иконку настроек (шестеренка)</span></label><label class="check-item"><input type="checkbox"><span>Отключить ненужные категории или скрыть виджет</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>В некоторых версиях приложения путь к управлению может выглядеть как <code>Профиль → Настройки → Интерфейс → Новости</code>. Здесь вы найдете переключатель, отвечающий за отображение блока. Если же вы хотите просто очистить историю просмотров, это можно сделать через меню истории браузера внутри самого виджета, нажав кнопку «Очистить кэш».</p>
+
+<h2 id="влияние-на-производительность-и-трафик">Влияние на производительность и трафик</h2>
+
+<p>Один из частых вопросов, который задают пользователи: «Сажает ли браузер батарею?». Любой активный контент, особенно содержащий графику и видео, потребляет ресурсы устройства. <strong>Виджет Луна</strong> не является исключением. При активном скроллинге и просмотре медиа-контента расход заряда аккумулятора может незначительно увеличиться, особенно на старых моделях смартфонов.</p>
+
+<p>Что касается трафика, то здесь все зависит от плотности медиа-контента в ленте. Если вы читаете преимущественно текстовые новости, расход данных будет минимальным. Однако наличие множества изображений высокого разрешения и автовоспроизведение видео могут быстро исчерпать пакет мобильного интернета. Рекомендуется использовать Wi-Fi для комфортного потребления контента.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Влияние на устройство</th>
+<th>Рекомендация</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Заряд батареи</td>
+<td>Среднее (при активном чтении)</td>
+<td>Использовать энергосберегающий режим экрана</td>
+</tr>
+<tr>
+<td>Мобильный трафик</td>
+<td>Высокое (при наличии фото/видео)</td>
+<td>Включать экономию трафика в настройках</td>
+</tr>
+<tr>
+<td>Оперативная память</td>
+<td>Низкое</td>
+<td>Закрывать приложение после использования</td>
+</tr>
+<tr>
+<td>Память устройства</td>
+<td>Растет из-за кэша</td>
+<td>Периодически чистить кэш приложения</td>
+</tr>
+</tbody>
+</table>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Оптимизация работы виджета напрямую зависит от настроек качества изображения и наличия автовоспроизведения видео в вашем тарифном плане мобильного оператора.</p></div>
+
+<h2 id="вопросы-безопасности-и-конфиденциальности">Вопросы безопасности и конфиденциальности</h2>
+
+<p>Использование сторонних или даже встроенных новостных агрегаторов всегда поднимает вопрос о приватности. <strong>Сбор данных</em> о ваших предпочтениях необходим для работы алгоритмов рекомендаций. Банк и партнеры могут анализировать, какие заголовки вы открываете, сколько времени проводите за чтением и на какие темы кликаете чаще. Это стандартная практика для цифровых сервисов, направленная на улучшение пользовательского опыта.</p>
+
+<p>Однако стоит различать данные о новостных предпочтениях и банковскую тайну. Информация о ваших счетах, переводах и балансе <em>не передается</em> в новостную ленту и не используется для таргетирования статей. Архитектура приложения ВТБ разделяет эти потоки данных. Тем не менее, при переходе по внешним ссылкам из новостей вы покидаете защищенный периметр банка.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Переходя по рекламным ссылкам внутри новостной ленты, вы попадаете на сторонние сайты. Банк не несет ответственности за содержание этих ресурсов или методы сбора данных на них.</p>
+</blockquote>
+
+<p>Для максимальной безопасности рекомендуется не вводить личные данные (пароли, коды из СМС) на сайтах, открытых через переходы из новостной ленты. Если сайт требует авторизации, всегда проверяйте адресную строку и убедитесь, что находитесь на официальном ресурсе.</p>
+
+<details class="faq-item"><summary>Что делать, если виджет работает некорректно?</summary><div class="faq-answer"><p>Если лента не обновляется или отображается белый экран, попробуйте очистить кэш приложения в настройках телефона (Приложения -> ВТБ -> Память -> Очистить кэш) или переустановить приложение.</p></div></details>
+
+<h2 id="сравнение-с-аналогами-в-других-банках">Сравнение с аналогами в других банках</h2>
+
+<p>ВТБ не одинок в своем стремлении превратить банковское приложение в медиаплощадку. Практически все крупные игроки рынка внедряют подобные решения. Например, Сбербанк имеет свою экосистему с новостями, Тинькофф (Т-Банк) давно интегрировал новостные ленты и блоги в свой супер-апп. Это позволяет сравнивать функционал и выбирать наиболее удобный интерфейс.</p>
+
+<p>Главное отличие <strong>Луны</strong> заключается в ее нативности и глубине интеграции. В отличие от простых виджетов, которые просто открывают браузер, этот модуль пытается удержать пользователя внутри, предлагая персонализированный опыт. Однако, как и у любых аналогов, у него есть свои плюсы и минусы, которые стоит учитывать при оценке удобства.</p>
+
+<ul>
+<li>🏦 <strong>Сбер:</strong> Акцент на экосистемные сервисы и новости партнеров, часто агрессивная реклама.</li>
+<li>🟡 <strong>Т-Банк:</strong> Сильный упор на финансовые блоги, инвестиционные идеи и аналитику.</li>
+<li>🔵 <strong>ВТБ (Луна):</strong> Баланс между общей новостной повесткой и финансовыми индикаторами, минималистичный дизайн.</li>
+</ul>
+
+<h2 id="заключение-и-перспективы-развития">Заключение и перспективы развития</h2>
+
+<p>Браузер Луна в приложении ВТБ — это современный инструмент, отражающий эволюцию банковского софта. Из простого средства для переводов приложения превращаются в хабы для жизни клиента, где есть место и финансам, и информации. Понимание того, как работает этот виджет, дает вам контроль над своим цифровым пространством.</p>
+
+<p>В будущем можно ожидать еще более глубокую интеграцию искусственного интеллекта для подбора новостей, а также появление интерактивных элементов, таких как опросы или возможность комментирования внутри приложения. Независимо от того, пользуетесь вы лентой или предпочитаете ее отключать, знание функционала помогает лучше ориентироваться в мире цифровых банковских услуг.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Регулярно обновляйте приложение ВТБ Онлайн. Новые версии часто содержат исправления ошибок работы виджетов и улучшения в системе безопасности.</p>
+</blockquote>
+
+<p>Используйте возможности мобильного банка с умом, настраивая интерфейс под свои привычки. Это позволит не только экономить время, но и обезопасить свои данные от случайного или нежелательного внимания алгоритмов.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Главный вывод: Браузер Луна — это удобный инструмент для информирования, но его использование должно быть осознанным, с учетом настроек приватности и потребления трафика.</p></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+
+<details>
+<summary>Можно ли полностью удалить браузер Луна из приложения ВТБ?</summary>
+<p>Полностью удалить этот программный модуль как отдельный компонент нельзя, так как он встроен в код приложения. Однако вы можете скрыть его виджет с главного экрана или отключить отображение новостной ленты в настройках интерфейса, что сделает его присутствие незаметным для пользователя.</p>
+</details>
+
+<details>
+<summary>Берет ли банк деньги за использование новостной ленты?</summary>
+<p>Использование самого виджета бесплатно. Однако загрузка контента (текстов, картинок, видео) расходует ваш мобильный интернет-трафик. Если у вас не безлимитный тариф, рекомендуется использовать Wi-Fi или следить за объемом потребляемых данных.</p>
+</details>
+
+<details>
+<summary>Безопасно ли переходить по ссылкам в новостях Луны?</summary>
+<p>Банк проверяет основные источники, но не может гарантировать безопасность всех сторонних ресурсов. Переход по ссылкам осуществляется в защищенном режиме, но вводить платежные данные на сайтах СМИ не рекомендуется. Всегда проверяйте адрес сайта перед вводом любой информации.</p>
+</details>
+
+<details>
+<summary>Почему виджет перестал загружать новости?</summary>
+<p>Чаще всего проблема кроется в нестабильном интернет-соединении или переполненном кэше приложения. Попробуйте переключиться с Wi-Fi на мобильную сеть (или наоборот), а также очистить кэш приложения в настройках вашего смартфона.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#суть-технологии-что-скрывается-за-названием">Суть технологии: что скрывается за названием</a></li><li><a href="#функциональные-возможности-новостной-ленты">Функциональные возможности новостной ленты</a></li><li><a href="#инструкция-как-управлять-виджетом-и-настройками">Инструкция: как управлять виджетом и настройками</a></li><li><a href="#влияние-на-производительность-и-трафик">Влияние на производительность и трафик</a></li><li><a href="#вопросы-безопасности-и-конфиденциальности">Вопросы безопасности и конфиденциальности</a></li><li><a href="#сравнение-с-аналогами-в-других-банках">Сравнение с аналогами в других банках</a></li><li><a href="#заключение-и-перспективы-развития">Заключение и перспективы развития</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/p/po/pochemu-prilozhenie-vtb.html" class="related-card">Почему приложение ВТБ: 7 причин установить его в 2026 году</a></li><li><a href="/articles/k/ka/kak-zaregistrirovatsya-v-vtb-onlajn-na-telefone-po-nomeru-karty-poshagovo.html" class="related-card">Как зарегистрироваться в ВТБ Онлайн по номеру карты</a></li><li><a href="/articles/k/ka/kak-na-vtb-proverit-balans-s-telefona-cherez-sms-900-po-nomeru.html" class="related-card">Как проверить баланс ВТБ через СМС: коды и команды</a></li><li><a href="/articles/p/po/pochemu-vybrasyvaet-iz-prilozheniya-vtb.html" class="related-card">Почему вылетает приложение ВТБ: 10 причин и решения в 2026 году</a></li><li><a href="/articles/k/ka/kak-posmotret-schet-karty-v-vtb-onlajn.html" class="related-card">Как посмотреть счет карты в ВТБ Онлайн: подробная инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/p/po/pochemu-prilozhenie-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Почему приложение ВТБ: 7 причин установить его в 2026 году</span><span class="related-bottom-desc">Разбираемся, зачем нужно мобильное приложение ВТБ: функции, преимущества, скрытые возможности и срав</span></a><a href="/articles/k/ka/kak-zaregistrirovatsya-v-vtb-onlajn-na-telefone-po-nomeru-karty-poshagovo.html" class="related-bottom-card"><span class="related-bottom-title">Как зарегистрироваться в ВТБ Онлайн по номеру карты</span><span class="related-bottom-desc">Пошаговая инструкция по регистрации в ВТБ Онлайн на телефоне. Узнайте, как быстро войти по номеру ка</span></a><a href="/articles/k/ka/kak-na-vtb-proverit-balans-s-telefona-cherez-sms-900-po-nomeru.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить баланс ВТБ через СМС: коды и команды</span><span class="related-bottom-desc">Полная инструкция по проверке баланса карт ВТБ через СМС, USSD-коды и мобильное приложение. Узнайте </span></a><a href="/articles/p/po/pochemu-vybrasyvaet-iz-prilozheniya-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Почему вылетает приложение ВТБ: 10 причин и решения в 2026 году</span><span class="related-bottom-desc">Приложение ВТБ закрывается сразу после открытия? Разбираем основные причины — от ошибок сервера до п</span></a><a href="/articles/k/ka/kak-posmotret-schet-karty-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как посмотреть счет карты в ВТБ Онлайн: подробная инструкция</span><span class="related-bottom-desc">Узнайте, как быстро найти номер счета карты ВТБ в приложении и интернет-банке. Пошаговая инструкция,</span></a><a href="/articles/k/ka/kak-pozvonit-operatoru-vtb-24-besplatno-napryamuyu.html" class="related-bottom-card"><span class="related-bottom-title">Как позвонить оператору ВТБ 24 бесплатно: прямые номера</span><span class="related-bottom-desc">Инструкция, как связаться с живым оператором ВТБ бесплатно. Прямые номера, обход автоответчика и аль</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

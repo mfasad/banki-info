@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как выгрузить выписку ВТБ в 1С: пошаговая инструкция — Банки Инфо</title>
+    <meta name="description" content="Подробное руководство по загрузке выписок ВТБ в 1С. Настройка DirectBank, форматы файлов, решение ошибок импорта и автоматизация обмена.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-vygruzit-iz-banka-vtb-vypiski-v-1s.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как выгрузить выписку ВТБ в 1С: пошаговая инструкция">
+    <meta property="og:description" content="Подробное руководство по загрузке выписок ВТБ в 1С. Настройка DirectBank, форматы файлов, решение ошибок импорта и автоматизация обмена.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/karty-i-scheta/">Карты и счета</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как выгрузить выписку ВТБ в 1С: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как выгрузить выписку ВТБ в 1С: полная инструкция</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-к-настройке-обмена-данными">Подготовка к настройке обмена данными</a></li><li><a href="#настройка-прямого-обмена-через-directbank">Настройка прямого обмена через DirectBank</a></li><li><a href="#классический-метод-загрузка-через-текстовые-файлы">Классический метод: загрузка через текстовые файлы</a></li><li><a href="#решение-распространенных-ошибок-импорта">Решение распространенных ошибок импорта</a></li><li><a href="#автоматизация-и-расписание-загрузки">Автоматизация и расписание загрузки</a></li><li><a href="#безопасность-при-работе-с-финансовыми-данными">Безопасность при работе с финансовыми данными</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Интеграция банковских систем с программным обеспечением для бухгалтерии является критически важным процессом для любого бизнеса. Оперативное получение данных о движении средств на счетах позволяет бухгалтерам вести учет в режиме реального времени, исключая ошибки ручного ввода. В случае с <strong>банком ВТБ</strong> и платформой <em>1С:Предприятие</em> существует несколько проверенных способов наладить этот обмен, каждый из которых имеет свои технические особенности.</p>
+
+<p>Современные методы интеграции позволяют не просто загружать статические файлы, но и осуществлять <strong>прямой обмен</strong> данными без участия пользователя. Это значительно сокращает время на обработку первичной документации и формирование платежных поручений. Выбор конкретного метода зависит от версии используемого программного обеспечения, настроек безопасности вашей организации и предпочтений по формату передаваемых файлов.</p>
+
+<p>В данной статье мы детально разберем все доступные варианты выгрузки и загрузки выписок. Мы рассмотрим как классический метод через текстовые файлы формата <code>1c_klient.txt</code>, так и более продвинутый протокол <em>DirectBank</em>, который становится стандартом де-факто для автоматизации финансовых операций.</p>
+
+<blockquote>
+<p>⚠️ Внимание: Перед началом настройки любого из методов убедитесь, что у вас установлены актуальные версии клиент-банков и обновлены конфигурации 1С, так как старые версии могут не поддерживать новые протоколы шифрования.</p>
+</blockquote>
+
+<h2 id="подготовка-к-настройке-обмена-данными">Подготовка к настройке обмена данными</h2>
+
+<p>Первым шагом к успешной интеграции является правильная подготовка рабочего места бухгалтера и серверной инфраструктуры. Вам необходимо убедиться, что на компьютере установлены все необходимые сертификаты безопасности, выданные <strong>ВТБ</strong>. Без действующих криптографических ключей ни один из способов обмена работать не будет, так как банк требует обязательного шифрования канала связи.</p>
+
+<p>Также следует проверить настройки антивирусного программного обеспечения и брандмауэра. Часто именно они блокируют соединение между клиентом банка и модулем 1С, особенно при использовании технологии <em>DirectBank</em>. Необходимо добавить исключения для исполняемых файлов программы <code>1cv8.exe</code> и компонентов клиент-банка ВТБ.</p>
+
+<div class="checklist-block"><h4>☑️ Готовность к интеграции</h4><label class="check-item"><input type="checkbox"><span>Установлены сертификаты ЭЦП</span></label><label class="check-item"><input type="checkbox"><span>Обновлен клиент-банк ВТБ</span></label><label class="check-item"><input type="checkbox"><span>Настроен брандмауэр</span></label><label class="check-item"><input type="checkbox"><span>Есть доступ к интернету</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Важным аспектом является наличие прав администратора в самой системе 1С. Для создания новых подключений к банку и настройки параметров импорта пользователю требуются расширенные права доступа. Если вы работаете в режиме тонкого клиента или через веб-интерфейс, убедитесь, что ваша учетная запись имеет соответствующие привилегии в <strong>конфигурации</strong>.</p>
+
+<h2 id="настройка-прямого-обмена-через-directbank">Настройка прямого обмена через DirectBank</h2>
+
+<p>Технология <em>DirectBank</em> представляет собой наиболее современный и удобный способ взаимодействия. Она позволяет загружать выписки и отправлять платежи непосредственно из интерфейса 1С, без необходимости заходить в личный кабинет банка или отдельное приложение клиент-банка. Данные передаются по защищенному каналу, что минимизирует риски перехвата информации.</p>
+
+<p>Для активации этого режима необходимо в справочнике «Банковские счета» найти нужный счет организации ВТБ. В карточке счета следует выбрать опцию подключения через <strong>DirectBank</strong> и следовать инструкциям мастера настройки. Система автоматически запросит необходимые параметры сервера и пути к ключам шифрования.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение для ВТБ</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Протокол</td>
+<td>HTTPS / TLS</td>
+<td>Защищенный протокол передачи данных</td>
+</tr>
+<tr>
+<td>Сервер обмена</td>
+<td>directbank.vtb.ru</td>
+<td>Адрес шлюза прямого банка</td>
+</tr>
+<tr>
+<td>Порт</td>
+<td>443</td>
+<td>Стандартный порт для безопасного соединения</td>
+</tr>
+<tr>
+<td>Сертификат</td>
+<td>Требуется</td>
+<td>Личный сертификат пользователя для авторизации</td>
+</tr>
+</tbody>
+</table>
+
+<p>После ввода всех данных система выполнит тестовое соединение. Если все параметры указаны верно, статус подключения сменится на «Подключено». С этого момента выписки будут поступать в базу <strong>1С:Предприятие</strong> автоматически по расписанию или по запросу пользователя.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Используйте выделенный статический IP-адрес для сервера 1С, если настраиваете корпоративный доступ, так как банк может ограничивать доступ с динамических адресов.</p></div>
+
+<h2 id="классический-метод-загрузка-через-текстовые-файлы">Классический метод: загрузка через текстовые файлы</h2>
+
+<p>Если прямой обмен по каким-то причинам невозможен, всегда остается проверенный временем метод импорта текстовых файлов. Для этого вам необходимо предварительно войти в систему <em>ВТБ Бизнес Онлайн</em> или клиент-банк и сформировать выписку. Формат файла должен быть выбран совместимый с 1С, обычно это <code>1c_klient.txt</code> или <code>1c_bank.txt</code>.</p>
+
+<p>Процесс выгрузки из банка выглядит следующим образом: в списке операций выбирается период, после чего нажимается кнопка экспорта. В появившемся окне необходимо указать формат «1С» или «Text». Файл сохраняется на локальный диск компьютера в папку с ограниченным доступом во избежание утечки финансовых данных.</p>
+
+<p>Далее переходим в программу 1С. В журнале «Банковские выписки» выбираем кнопку «Загрузить». Откроется стандартный диалог выбора файла, где нужно указать путь к сохраненному ранее документу. Система проанализирует структуру файла и предложит распределить суммы по соответствующим <strong>статьям движения денежных средств</strong>.</p>
+
+<blockquote>
+<p>⚠️ Внимание: При загрузке файлов вручную всегда проверяйте кодировку файла. Если выписка отображается некорректно (кракозябры), попробуйте изменить кодировку на <code>Windows-1251</code> или <code>UTF-8</code> в текстовом редакторе перед импортом.</p>
+</blockquote>
+
+<div class="poll-widget" id="poll-dae65ee5"><div class="poll-widget-question">📊 Какой метод загрузки вы используете чаще?</div><div class="poll-widget-option" data-poll="dae65ee5" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">DirectBank (автоматически)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="dae65ee5" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Файлы вручную</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="dae65ee5" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Через посредников</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="dae65ee5" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Не пользуюсь 1С</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="решение-распространенных-ошибок-импорта">Решение распространенных ошибок импорта</h2>
+
+<p>В процессе настройки и эксплуатации системы могут возникать различные технические сбои. Одной из самых частых проблем является ошибка формата файла, когда структура выписки не соответствует ожидаемой схеме парсера 1С. Это часто случается после обновлений клиент-банка ВТБ, когда меняется версия формата выгрузки.</p>
+
+<p>Еще одна распространенная ситуация — конфликт версий криптопровайдеров. Если на компьютере установлено несколько версий <em>CryptoPro</em> или <em>VIPNet</em>, система может выбирать не тот ключ для подписи запроса. В логах при этом будет отображаться ошибка авторизации или неверной цифровой подписи.</p>
+
+<p>Для диагностики проблем используйте журнал регистрации событий в 1С. Там фиксируются все этапы прохождения (пакета данных). Анализируя записи, можно понять, на каком этапе происходит обрыв связи или отказ в приеме файла.</p>
+
+<details class="faq-item"><summary>Что делать, если выписка загружается с неверной датой?</summary><div class="faq-answer"><p>Часто проблема кроется в формате даты в текстовом файле. Проверьте, совпадает ли формат даты в файле (ДД.ММ.ГГГГ или ГГГГ-ММ-ДД) с настройками региона в Windows. Иногда требуется вручную поправить файл в текстовом редакторе, приведя даты к единому стандарту, прежде чем загружать его в 1С.</p></div></details>
+
+<h2 id="автоматизация-и-расписание-загрузки">Автоматизация и расписание загрузки</h2>
+
+<p>Для повышения эффективности работы бухгалтерии крайне важно минимизировать ручное вмешательство. Настроенный <strong>DirectBank</strong> позволяет организовать фоновую загрузку выписок. В настройках подключения можно установить интервал опроса сервера банка, например, каждые 15 минут в рабочее время.</p>
+
+<p>Это особенно актуально для организаций с большим оборотом платежей, где важно видеть актуальное состояние счета в режиме реального времени. Автоматическая загрузка также позволяет триггерить другие процессы в 1С, такие как автоматическое проведение документов или отправку уведомлений контрагентам об оплате.</p>
+
+<p>Однако стоит учитывать нагрузку на сервер. Слишком частый опрос банка может привести к временной блокировке IP-адреса со стороны службы безопасности ВТБ за подозрительную активность. Оптимальным считается интервал в <code>300-600 секунд</code> между запросами.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Автоматизация через DirectBank не только экономит время бухгалтера, но и снижает риск человеческой ошибки при ручном вводе сумм и назначений платежей.</p></div>
+
+<h2 id="безопасность-при-работе-с-финансовыми-данными">Безопасность при работе с финансовыми данными</h2>
+
+<p>Работа с банковскими выписками подразумевает высокую ответственность за сохранность коммерческой тайны. Файлы выписок, даже в текстовом формате, содержат полную информацию о контрагентах и суммах transactions. Хранение этих файлов в общедоступных папках или на незащищенных рабочих местах недопустимо.</p>
+
+<p>Рекомендуется использовать выделенные рабочие места для работы с банк-клиентами, на которых установлен строго контролируемый набор программного обеспечения. Доступ к папкам обмена данными должен быть ограничен правами доступа операциной системы только для учетной записи бухгалтера и системного администратора.</p>
+
+<p>Регулярно обновляйте списки доверенных узлов и сертификатов. ВТБ периодически меняет серверные сертификаты, и использование устаревших корневых сертификатов может привести к невозможности соединения. Следите за официальными рассылками банка regarding updates to their security infrastructure.</p>
+
+<details>
+<summary>Можно ли загружать выписки ВТБ в 1С через облако?</summary>
+<p>Да, если вы используете облачную версию 1С (1С:Фреш) и у вас настроен DirectBank, обмен будет работать через интернет-канал. Однако для классического метода с файлами вам потребуется сначала скачать файл из банка на локальный компьютер, а затем загрузить его в облачную базу, либо использовать файловый обмен через защищенное хранилище.</p>
+</details>
+
+<details>
+<summary>Почему 1С не видит ключи ЭЦП при настройке ВТБ?</summary>
+<p>Чаще всего это происходит из-за отсутствия установленного плагина для работы с криптографией в браузере или самой 1С (например, CryptoPro Extension). Также проверьте, что сертификат установлен в хранилище «Личные» текущего пользователя, а не компьютера, и что он не истек.</p>
+</details>
+
+<details>
+<summary>Какой формат файла лучше использовать для ВТБ?</summary>
+<p>Наиболее стабильным и полным является формат <code>1c_klient.txt</code> (или <code>1c_bank.txt</code>), который содержит всю необходимую разметку для корректного проведения документов. Форматы CSV или Excel требуют дополнительной настройки правил импорта и могут не передавать некоторые служебные поля, такие как УИН или статус платежа.</p>
+</details>
+
+<details>
+<summary>Нужно ли платить за использование DirectBank в ВТБ?</summary>
+<p>Услуга прямого банка (DirectBank) для клиентов ВТБ, как правило, предоставляется бесплатно в рамках тарифов бизнес-пакетов. Однако рекомендуется уточнить актуальные условия в вашем договоре обслуживания, так как тарифная политика банка может меняться в зависимости от типа юридического лица и оборотов.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-к-настройке-обмена-данными">Подготовка к настройке обмена данными</a></li><li><a href="#настройка-прямого-обмена-через-directbank">Настройка прямого обмена через DirectBank</a></li><li><a href="#классический-метод-загрузка-через-текстовые-файлы">Классический метод: загрузка через текстовые файлы</a></li><li><a href="#решение-распространенных-ошибок-импорта">Решение распространенных ошибок импорта</a></li><li><a href="#автоматизация-и-расписание-загрузки">Автоматизация и расписание загрузки</a></li><li><a href="#безопасность-при-работе-с-финансовыми-данными">Безопасность при работе с финансовыми данными</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-kupit-kartu-vtb.html" class="related-card">Как купить карту ВТБ: пошаговая инструкция 2026 года</a></li><li><a href="/articles/k/ka/kak-uznat-skolko-deneg-na-schete-vtb.html" class="related-card">Как проверить баланс счета ВТБ: 7 способов за 2 минуты</a></li><li><a href="/articles/k/ka/kak-sdelat-vypisku-po-bankovskoj-karte-vtb.html" class="related-card">Как сделать выписку по карте ВТБ: 5 способов 2026</a></li><li><a href="/articles/s/sk/skolko-khranitsya-karta-v-banke-posle-perevypuska-vtb.html" class="related-card">Сколько хранится старая карта ВТБ после перевыпуска? Сроки и правила 2026</a></li><li><a href="/articles/b/ba/bank-otkrytie-i-vtb-obedinenie-kogda.html" class="related-card">Объединение банков Открытие и ВТБ: когда и что делать клиенту</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-kupit-kartu-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как купить карту ВТБ: пошаговая инструкция 2026 года</span><span class="related-bottom-desc">Все способы оформления дебетовой или кредитной карты ВТБ: онлайн, в офисе, через мобильный банк. Сра</span></a><a href="/articles/k/ka/kak-uznat-skolko-deneg-na-schete-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить баланс счета ВТБ: 7 способов за 2 минуты</span><span class="related-bottom-desc">Узнайте остаток на счете ВТБ онлайн и офлайн: через приложение, банкомат, СМС и звонок. Пошаговые ин</span></a><a href="/articles/k/ka/kak-sdelat-vypisku-po-bankovskoj-karte-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как сделать выписку по карте ВТБ: 5 способов 2026</span><span class="related-bottom-desc">Полная инструкция: как заказать выписку по карте ВТБ в приложении, банкомате или отделении. Образцы </span></a><a href="/articles/s/sk/skolko-khranitsya-karta-v-banke-posle-perevypuska-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Сколько хранится старая карта ВТБ после перевыпуска? Сроки и правила 2026</span><span class="related-bottom-desc">Узнайте, как долго банк хранит вашу старую карту ВТБ после перевыпуска: официальные сроки, что делат</span></a><a href="/articles/b/ba/bank-otkrytie-i-vtb-obedinenie-kogda.html" class="related-bottom-card"><span class="related-bottom-title">Объединение банков Открытие и ВТБ: когда и что делать клиенту</span><span class="related-bottom-desc">Полный анализ слияния банка Открытие и ВТБ. Сроки завершения интеграции, изменения в приложениях, ре</span></a><a href="/articles/k/ka/kak-ne-platit-za-sms-informirovanie-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить платное СМС-информирование в ВТБ: 5 способов 2026</span><span class="related-bottom-desc">Пошаговая инструкция, как бесплатно получать уведомления от ВТБ без абонентской платы за SMS. Тарифы</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

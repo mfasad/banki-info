@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Что такое девайс-токен ВТБ: полное руководство по безопасности — Банки Инфо</title>
+    <meta name="description" content="Узнайте, что такое девайс-токен ВТБ, как его подключить и использовать для безопасных платежей. Инструкция по настройке и устранению ошибок.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/c/ch/chto-takoe-devajs-token-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Что такое девайс-токен ВТБ: полное руководство по безопасности">
+    <meta property="og:description" content="Узнайте, что такое девайс-токен ВТБ, как его подключить и использовать для безопасных платежей. Инструкция по настройке и устранению ошибок.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Что такое девайс-токен ВТБ: полное руководство по безопасности</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Девайс-токен ВТБ: полное руководство по безопасности</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#суть-технологии-и-принцип-работы">Суть технологии и принцип работы</a></li><li><a href="#преимущества-использования-токена-втб">Преимущества использования токена ВТБ</a></li><li><a href="#инструкция-по-подключению-и-активации">Инструкция по подключению и активации</a></li><li><a href="#сравнение-методов-подтверждения-операций">Сравнение методов подтверждения операций</a></li><li><a href="#типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+<p>В современном цифровом банкинге безопасность финансовых операций стоит на первом месте, особенно когда речь идет о крупных суммах или управлении бизнесом. <strong>Девайс-токен ВТБ</strong> стал одним из ключевых инструментов, позволяющих клиентам банка надежно защищать свои счета от несанкционированного доступа. Это программно-аппаратное решение превращает ваш смартфон или планшет в персональный генератор одноразовых паролей, исключая необходимость носить с собой физические устройства.</p>
+
+<p>Многие пользователи сталкиваются с необходимостью использования этого инструмента при подключении услуг корпоративного интернет-банка или при оформлении сделок с недвижимостью. <em>VTB Token</em> обеспечивает двухфакторную аутентификацию, что значительно повышает уровень защиты по сравнению с использованием стандартных СМС-кодов. Понимание принципов работы этого механизма критически важно для каждого, кто хочет быть уверенным в сохранности своих средств.</p>
+
+<p>В этой статье мы подробно разберем, как работает технология, в чем ее преимущества перед другими методами подтверждения и как правильно настроить приложение на своем устройстве. Вы узнаете о тонкостях активации, возможных ошибках и способах их решения, а также о том, почему именно этот метод считается «золотым стандартом» в банковской безопасности.</p>
+
+<h2 id="суть-технологии-и-принцип-работы">Суть технологии и принцип работы</h2>
+<p>Девайс-токен представляет собой программное обеспечение, установленное на мобильное устройство пользователя, которое генерирует уникальные коды подтверждения. В отличие от СМС-сообщений, которые могут быть перехвачены злоумышленниками через уязвимости в сетях сотовой связи, коды <strong>девайс-токена</strong> создаются локально на устройстве. Это делает процесс авторизации независимым от качества связи и защищает от наиболее распространенных видов мошенничества.</p>
+
+<p>Принцип действия основан на алгоритмах шифрования, которые синхронизируют время и секретный ключ между сервером банка и вашим смартфоном. Когда вы запрашиваете вход в систему или подтверждаете платеж, приложение выдает код, действительный всего несколько секунд. <em>Мобильный токен</em> не требует подключения к интернету в момент генерации кода, что является огромным плюсом при нахождении в зонах с нестабильным покрытием сети.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Никогда не сообщайте коды, сгенерированные токеном, посторонним лицам, даже если звонящий представляется сотрудником банка. Сотрудники ВТБ никогда не запрашивают эти данные по телефону.</blockquote>
+
+<p>Важно отметить, что привязка токена происходит к конкретному устройству. Если вы потеряете телефон или замените его на новый, процедуру активации придется проходить заново. Это создает дополнительный уровень защиты: даже если злоумышленник узнает ваш логин и пароль от интернет-банка, без физического доступа к вашему смартфону он не сможет войти в систему.</p>
+
+<div class="poll-widget" id="poll-e1296624"><div class="poll-widget-question">📊 Как вы чаще всего подтверждаете платежи в банке?</div><div class="poll-widget-option" data-poll="e1296624" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">СМС-код</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e1296624" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Пуш-уведомление</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e1296624" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Девайс-токен</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="e1296624" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">По телефону оператору</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="преимущества-использования-токена-втб">Преимущества использования токена ВТБ</h2>
+<p>Переход на использование <strong>девайс-токена</strong> дает клиентам банка ряд неоспоримых преимуществ, которые касаются не только безопасности, но и удобства. Во-первых, это полная независимость от сотового оператора. Вам не нужно беспокоиться о том, что СМС может не прийти из-за перегрузки сети или технических сбоев у провайдера.</p>
+
+<p>Во-вторых, использование токена часто позволяет снять лимиты на суммы операций, которые при подтверждении через СМС могут быть ограничены. Для бизнес-клиентов это особенно актуально, так как позволяет проводить крупные платежи без визита в офис. <em>Приложение ВТБ Онлайн</em> интегрирует функцию токена seamlessly, делая процесс быстрым и незаметным для пользователя.</p>
+
+<ul>
+<li>🔒 <strong>Высокая степень защиты:</strong> Коды генерируются внутри защищенного контура устройства и не передаются по открытым каналам связи.</li>
+<li>📱 <strong>Работа офлайн:</strong> Для генерации кода не требуется активное интернет-соединение или наличие сим-карты в момент входа.</li>
+<li>⚡ <strong>Скорость работы:</strong> Код появляется мгновенно, не нужно ждать доставки сообщения и вводить длинные цифры вручную.</li>
+<li>💰 <strong>Отсутствие комиссий:</strong> Использование токена бесплатно, в отличие от платных СМС-тарифов некоторых операторов за границей.</li>
+</ul>
+
+<p>Кроме того, современные версии приложения поддерживают биометрическую аутентификацию. Это значит, что для подтверждения операции вам достаточно просто посмотреть в экран смартфона или приложить палец, что делает использование <strong>токена</strong> еще более удобным. Система сама запросит подтверждение через дактилоскопию или FaceID, и код будет подставлен автоматически.</p>
+
+<h2 id="инструкция-по-подключению-и-активации">Инструкция по подключению и активации</h2>
+<p>Процесс активации <strong>девайс-токена</strong> в ВТБ максимально упрощен и занимает всего несколько минут. Для начала убедитесь, что на вашем устройстве установлено официальное приложение <em>ВТБ Онлайн</em> последней версии. Если вы являетесь новым клиентом, вам потребуется сначала зарегистрироваться в системе, получив временный пароль в отделении банка или через СМС.</p>
+
+<p>После входа в приложение перейдите в раздел настроек безопасности. Здесь вы найдете пункт, отвечающий за управление токенами. Система предложит вам отсканировать QR-код или ввести активационный код, который можно получить в личном кабинете на сайте банка или в банкомате. Следуйте инструкциям на экране, чтобы завершить привязку устройства.</p>
+
+<div class="checklist-block"><h4>☑️ Чек-лист активации токена</h4><label class="check-item"><input type="checkbox"><span>Установить приложение ВТБ Онлайн:Войти в личный кабинет:Перейти в настройки безопасности:Отсканировать QR-код или ввести код активации</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 1</div></div>
+
+<p>Важно выполнять активацию на доверенном устройстве с включенным экраном блокировки. Если вы используете Android, убедитесь, что на устройстве не установлены права суперпользователя (Root), так как это может привести к блокировке работы приложения со стороны системы безопасности банка. Для iOS устройств важно, чтобы операциная система была не слишком старой версии.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> При активации токена на новом устройстве, токен на старом телефоне автоматически деактивируется. Заранее убедитесь, что у вас есть доступ к новому гаджету.</blockquote>
+
+<details class="faq-item"><summary>Что делать, если QR-код не сканируется?</summary><div class="faq-answer"><p>Если камера не считывает код, попробуйте увеличить яркость экрана, на котором отображается код, или поднести телефон ближе/дальше. Также можно выбрать ручной ввод кода активации, который обычно отображается рядом с QR-кодом в формате буквенно-цифровой строки. Убедитесь, что вы не перепутали цифры 0 и букву O, а также 1 и I.>
+
+<h2 id="сравнение-методов-подтверждения-операций">Сравнение методов подтверждения операций</h2>
+<p>Для понимания места <strong>девайс-токена</strong> в экосистеме безопасности ВТБ, полезно сравнить его с другими доступными методами. Каждый из них имеет свои особенности, но токен часто оказывается наиболее сбалансированным решением для активных пользователей.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>СМС-код</th>
+<th>Пуш-уведомление</th>
+<th>Девайс-токен</th>
+<th>Бумажный носитель</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Зависимость от связи</td>
+<td>Высокая</td>
+<td>Средняя (нужен интернет)</td>
+<td>Нет (работает офлайн)</td>
+<td>Нет</td>
+</tr>
+<tr>
+<td>Скорость получения</td>
+<td>Секунды/минуты</td>
+<td>Мгновенно</td>
+<td>Мгновенно</td>
+<td>Мгновенно (в приложении)</td>
+</tr>
+<tr>
+<td>Уровень безопасности</td>
+<td>Средний</td>
+<td>Высокий</td>
+<td>Очень высокий</td>
+<td>Высокий (риск потери)</td>
+</tr>
+<tr>
+<td>Стоимость</td>
+<td>По тарифам оператора</td>
+<td>Бесплатно (трафик)</td>
+<td>Бесплатно</td>
+<td>Бесплатно</td>
+</tr>
+</tbody>
+</table>
+
+<p>Как видно из таблицы, <em>СМС-код</em> является наименее защищенным вариантом, подверженным атакам типа SIM-swap. Пуш-уведомления удобны, но требуют постоянного подключения к интернету. <strong>Девайс-токен</strong> сочетает в себе автономность и высокий уровень криптографической защиты.</p>
+
+<p>Бумажные носители, которые ранее широко использовались корпоративными клиентами, постепенно уходят в прошлое из-за неудобства хранения и риска физического повреждения. Мобильное решение лишено этих недостатков, так как резервные копии ключей могут храниться в облаке (при включенной синхронизации), позволяя быстро восстановить доступ при утере телефона.</p>
+
+
+
+<h2 id="типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</h2>
+<p>Несмотря на надежность системы, пользователи могут сталкиваться с техническими проблемами. Одной из частых ошибок является рассинхронизация времени на устройстве. Поскольку алгоритмы генерации кодов зависят от точного времени, даже небольшая погрешность в несколько минут может привести к тому, что код будет признан недействительным.</p>
+
+<p>Для решения этой проблемы необходимо зайти в настройки даты и времени вашего смартфона и выбрать опцию «Использовать время сети» или «Автоматическая синхронизация». После корректировки времени попробуйте сгенерировать новый код. Если проблема сохраняется, возможно, потребуется переустановка приложения <em>ВТБ Онлайн</em>.</p>
+
+<ul>
+<li>📵 <strong>Нет сети:</strong> Убедитесь, что вы не находитесь в режиме полета, хотя для работы токена интернет нужен только при первичной активации и синхронизации.</li>
+<li>🔄 <strong>Ошибка активации:</strong> Проверьте, не истек ли срок действия активационного кода. Если прошло много времени, запросите новый код в банке.</li>
+<li>📱 <strong>Смена устройства:</strong> При покупке нового телефона не забудьте деактивировать токен на старом устройстве (если есть доступ) или обратиться в поддержку для сброса привязки.</li>
+</ul>
+
+<p>Также стоит упомянуть о проблеме с правами доступа. Приложение может запрашивать разрешение на использование камеры (для сканирования QR) или уведомления. Если вы случайно запретили эти доступы, функционал <strong>токена</strong> может работать некорректно. Проверьте настройки конфиденциальности в системе вашего смартфона.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы сменили номер телефона, привязанный к карте, обязательно обновите эти данные в банке, иначе вы не сможете восстановить доступ к токenu через СМС-подтверждение.</blockquote>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Главная причина ошибок работы токена в 90% случаев — неверное системное время на смартфоне пользователя. Всегда проверяйте настройки времени в первую очередь.</p></div>
+
+<h2 id="часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</h2>
+<details>
+<summary>Можно ли установить девайс-токен на два телефона одновременно?</summary>
+<p>Нет, в целях безопасности <strong>девайс-токен ВТБ</strong> может быть активен только на одном мобильном устройстве. При активации на новом телефоне, старый автоматически деактивируется. Это предотвращает возможность клонирования токена злоумышленниками.</p>
+</details>
+
+<details>
+<summary>Что делать, если я потерял телефон с активным токеном?</summary>
+<p>Необходимо как можно быстрее заблокировать доступ к интернет-банку. Это можно сделать, позвонив на горячую линию банка или через личный кабинет с другого устройства (функция «Безопасность»). После блокировки карты и доступа нужно будет заново активировать токен на новом устройстве.</p>
+</details>
+
+<details>
+<summary>Нужен ли интернет для работы токена в момент платежа?</summary>
+<p>Для генерации кода подтверждения интернет не требуется, так как алгоритм работает локально. Однако для передачи этого кода в банк (при совершении платежа) и для первоначальной синхронизации токена интернет-соединение необходимо.</p>
+</details>
+
+<details>
+<summary>Сколько действует код, сгенерированный токеном?</summary>
+<p>Обычно код действителен в течение 30-60 секунд. После истечения этого времени необходимо запросить генерацию нового кода. Старый код система безопасности уже не примет.</p>
+</details>
+
+<details>
+<summary>Можно ли использовать токен на планшете без сим-карты?</summary>
+<p>Да, <em>VTB Token</em> можно активировать на планшете. Для первичной активации потребуется интернет (Wi-Fi), но наличие сим-карты и сотовой связи не является обязательным условием для работы приложения в дальнейшем.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#суть-технологии-и-принцип-работы">Суть технологии и принцип работы</a></li><li><a href="#преимущества-использования-токена-втб">Преимущества использования токена ВТБ</a></li><li><a href="#инструкция-по-подключению-и-активации">Инструкция по подключению и активации</a></li><li><a href="#сравнение-методов-подтверждения-операций">Сравнение методов подтверждения операций</a></li><li><a href="#типичные-ошибки-и-способы-их-решения">Типичные ошибки и способы их решения</a></li><li><a href="#часто-задаваемые-вопросы-faq">Часто задаваемые вопросы (FAQ)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-zablokirovat-kartochku-vtb-cherez-prilozhenie.html" class="related-card">Как заблокировать карту ВТБ через приложение: полная инструкция</a></li><li><a href="/articles/k/ka/kak-napisat-v-vtb-bank.html" class="related-card">Как написать в ВТБ банк: 5 способов связи с поддержкой в 2026 году</a></li><li><a href="/articles/k/ka/kak-ustanovit-parol-na-karte-vtb-v-prilozhenii.html" class="related-card">Как поставить пароль на карту ВТБ в приложении: пошаговая инструкция</a></li><li><a href="/articles/v/vt/vtb-kolichestvo-popytok-vvoda-pin-ischerpan-chto-delat.html" class="related-card">ВТБ: что делать, если исчерпаны попытки ввода ПИН-кода карты</a></li><li><a href="/articles/n/na/na-che-imya-pisat-obrashchenie-v-bank-vtb.html" class="related-card">На чье имя писать обращение в ВТБ: образцы и правила 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-zablokirovat-kartochku-vtb-cherez-prilozhenie.html" class="related-bottom-card"><span class="related-bottom-title">Как заблокировать карту ВТБ через приложение: полная инструкция</span><span class="related-bottom-desc">Подробный гайд: как срочно заблокировать карту ВТБ в приложении. Пошаговая блокировка, разблокировка</span></a><a href="/articles/k/ka/kak-napisat-v-vtb-bank.html" class="related-bottom-card"><span class="related-bottom-title">Как написать в ВТБ банк: 5 способов связи с поддержкой в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция: как отправить сообщение в ВТБ через чат, email, соцсети или мобильное приложен</span></a><a href="/articles/k/ka/kak-ustanovit-parol-na-karte-vtb-v-prilozhenii.html" class="related-bottom-card"><span class="related-bottom-title">Как поставить пароль на карту ВТБ в приложении: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по установке пароля на карту ВТБ через мобильное приложение. Защитите свои сре</span></a><a href="/articles/v/vt/vtb-kolichestvo-popytok-vvoda-pin-ischerpan-chto-delat.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ: что делать, если исчерпаны попытки ввода ПИН-кода карты</span><span class="related-bottom-desc">Блокировка карты ВТБ после 3 неверных попыток ввода ПИН? Узнайте, как разблокировать карту через бан</span></a><a href="/articles/n/na/na-che-imya-pisat-obrashchenie-v-bank-vtb.html" class="related-bottom-card"><span class="related-bottom-title">На чье имя писать обращение в ВТБ: образцы и правила 2026</span><span class="related-bottom-desc">Кому адресовать письмо в ВТБ: генеральному директору, руководителю отдела или в службу поддержки? Го</span></a><a href="/articles/s/st/strakhovka-profajl-v-vtb-chto-znachit.html" class="related-bottom-card"><span class="related-bottom-title">Страховка Профайл в ВТБ: что это значит, условия и стоимость</span><span class="related-bottom-desc">Полный разбор страховки Профайл в банке ВТБ: что означает статус, какие риски покрывает, сколько сто</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

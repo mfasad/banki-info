@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Статус платежа «На выполнении» в ВТБ: что это значит — Банки Инфо</title>
+    <meta name="description" content="Разбираем, почему в ВТБ платеж завис на статусе «На выполнении». Причины задержек, сроки зачисления и действия при ошибке в приложении банка.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/s/st/status-platezha-na-vypolnenii-vtb-chto-eto-znachit.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Статус платежа «На выполнении» в ВТБ: что это значит">
+    <meta property="og:description" content="Разбираем, почему в ВТБ платеж завис на статусе «На выполнении». Причины задержек, сроки зачисления и действия при ошибке в приложении банка.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/drugoe/">Другое</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Статус платежа «На выполнении» в ВТБ: что это значит</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Почему платеж в ВТБ долго находится в статусе «На выполнении»</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#механика-банковских-транзакций-в-системе-втб">Механика банковских транзакций в системе ВТБ</a></li><li><a href="#основные-причины-задержки-статуса">Основные причины задержки статуса</a></li><li><a href="#сроки-проведения-платежей-по-типам-операций">Сроки проведения платежей по типам операций</a></li><li><a href="#что-делать-если-статус-не-меняется-долгое-время">Что делать, если статус не меняется долгое время</a></li><li><a href="#возврат-средств-и-отмена-операции">Возврат средств и отмена операции</a></li><li><a href="#частые-ошибки-и-технические-нюансы">Частые ошибки и технические нюансы</a></li><li><a href="#профилактика-проблем-с-платежами">Профилактика проблем с платежами</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Вы отправляете деньги по реквизитам или оплачиваете услуги, но вместо привычного «Проведено» или «Исполнен» видите загадочный статус <strong>«На выполнении»</strong>. В системе банка ВТБ это состояние означает, что транзакция принята к обработке, но финальное списание средств или их зачисление получателю еще не завершено. Это промежуточная стадия, которая может длиться от нескольких секунд до нескольких дней в зависимости от типа операции.</p>
+
+<p>Паниковать сразу не стоит, так как в большинстве случаев это штатная процедура проверки данных или техническая задержка межбанковских систем. <em>Онлайн-банкинг</em> ВТБ, будь то мобильное приложение или веб-версия, отображает текущее состояние запроса в реальном времени, но не всегда мгновенно обновляет информацию о результатах клиринга. Понимание механики этого процесса поможет вам избежать лишней тревоги и правильно спланировать свои финансы.</p>
+
+<p>В данной статье мы подробно разберем, что скрывается за этим статусом, какие факторы влияют на скорость проведения операций и когда стоит обращаться в поддержку. <strong>Финансовая дисциплина</strong> требует контроля за каждой копейкой, поэтому знание технических нюансов работы банковских алгоритмов будет полезным навыком для каждого клиента.</p>
+
+<h2 id="механика-банковских-транзакций-в-системе-втб">Механика банковских транзакций в системе ВТБ</h2>
+
+<p>Чтобы понять суть статуса, нужно заглянуть «под капот» банковской системы. Когда вы нажимаете кнопку «Оплатить», деньги не исчезают с вашего счета мгновенно в физическом смысле. Сначала создается <strong>платежное поручение</strong>, которое проходит ряд внутренних проверок на стороне эмитента (ВТБ). Система проверяет наличие средств, лимиты безопасности, статус карты и соответствие реквизитов форматам ЦБ РФ.</p>
+
+<p>После успешной внутренней валидации запрос отправляется в процессинговый центр. Именно в этот момент в истории операций появляется запись со статусом «На выполнении». Это означает, что банк-отправитель свою работу сделал, но ждет подтверждения от банка-получателя или клиринговой системы. <em>Межбанковские расчеты</em> — сложный механизм, где участвуют множество сторон, и каждая из них должна подтвердить корректность перевода.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Пока статус не сменился на «Исполнен», банк вправе отменить операцию или запросить дополнительные подтверждения, если система безопасности выявит подозрительную активность.</p>
+</blockquote>
+
+<p>Важно отметить, что для разных типов платежей механика отличается. Переводы по номеру телефона (СБП) обрабатываются практически мгновенно, поэтому статус «На выполнении» висит доли секунды. А вот переводы по реквизитам через систему БЭСП (Банк России) могут обрабатываться дольше, особенно если они попадают в очередь на обработку в нерабочее время.</p>
+
+<div class="poll-widget" id="poll-637eb11d"><div class="poll-widget-question">📊 Как часто вы сталкиваетесь с задержками платежей?</div><div class="poll-widget-option" data-poll="637eb11d" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Никогда, все всегда быстро</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="637eb11d" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в несколько месяцев</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="637eb11d" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Постоянно, это раздражает</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="637eb11d" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Предпочитаю наличные</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="основные-причины-задержки-статуса">Основные причины задержки статуса</h2>
+
+<p>Существует несколько ключевых факторов, из-за которых платеж может «застрять» в обработке. Чаще всего дело кроется в технических регламентах работы <strong>Национальной системы платежных карт</strong> (НСПК) или Центрального Банка. Если вы проводите операцию в выходные, праздничные дни или глубокой ночью, вероятность задержки возрастает, так как некоторые межбанковские шлюзы работают только в рабочие часы.</p>
+
+<p>Другая распространенная причина — ручная проверка службой безопасности. Если сумма перевода превышает ваш обычный лимит, или получатель находится в «зоне риска» (например, новый контрагент), алгоритмы <em>фрод-мониторинга</em> могут приостановить автоматическое исполнение для ручной верификации сотрудником банка.</p>
+
+<ul>
+<li>🕒 <strong>Время проведения:</strong> Операции, совершенные после 23:00 по МСК или в выходные дни, часто обрабатываются первым рабочим днем.</li>
+<li>🏦 <strong>Ошибки в реквизитах:</strong> Несоответствие ИНН, БИК или счета получателя требует ручной корректировки, что затягивает процесс.</li>
+<li>🛡️ <strong>Блокировка по 115-ФЗ:</strong> Подозрительные операции могут быть заморожены до предоставления документов о происхождении средств.</li>
+<li>📉 <strong>Технические работы:</strong> Плановое обслуживание серверов ВТБ или ЦБ РФ временно приостанавливает проведение транзакций.</li>
+</ul>
+
+<p>Также стоит учитывать человеческий фактор. Если вы ошиблись в одной цифре счета, платеж уйдет, но не дойдет до адресата и будет возвращен. Весь этот цикл — от отправки до возврата — платеж будет находиться в статусе исполнения или обработки. <strong>Внимательность</strong> при вводе данных — лучший способ избежать долгих ожиданий.</p>
+
+<details class="faq-item"><summary>Что такое 115-ФЗ и как он влияет на платежи?</summary><div class="faq-answer"><p>Федеральный закон № 115-ФЗ обязывает банки контролировать операции клиентов на предмет легальности. Если система посчитает перевод подозрительным (например, частые переводы физлицам или суммы, не соответствующие доходам), банк обязан приостановить операцию и запросить объяснения. Это может длиться от 2 дней до месяца.</p></div></details>
+
+<h2 id="сроки-проведения-платежей-по-типам-операций">Сроки проведения платежей по типам операций</h2>
+
+<p>Время ожидания напрямую зависит от выбранного вами способа перевода. ВТБ, как и другие крупные банки, использует разные каналы коммуникации для разных задач. Понимание этих различий поможет вам правильно оценить ситуацию и не ждать мгновенного результата там, где он технически невозможен.</p>
+
+<p>Самыми быстрыми являются переводы через Систему быстрых платежей (СБП). Они проходят по выделенным каналам и обрабатываются круглосуточно. Статус «На выполнении» здесь — дело мгновения. Если же вы используете классический банковский перевод по реквизитам, вступают в силу правила работы <strong>электронных платежей</strong> ЦБ РФ.</p>
+
+<p>Ниже приведена таблица, демонстрирующая ориентировочные сроки изменения статуса в зависимости от типа операции:</p>
+
+<table>
+<thead>
+<tr>
+<th>Тип операции</th>
+<th>Куда</th>
+<th>Режим работы</th>
+<th>Среднее время</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Перевод по СБП</td>
+<td>Любой банк РФ</td>
+<td>24/7</td>
+<td>До 1 минуты</td>
+</tr>
+<tr>
+<td>Перевод внутри ВТБ</td>
+<td>На карту/счет ВТБ</td>
+<td>24/7</td>
+<td>Мгновенно</td>
+</tr>
+<tr>
+<td>По реквизитам (руб.)</td>
+<td>Банки РФ</td>
+<td>Рабочие дни</td>
+<td>1-3 рабочих дня</td>
+</tr>
+<tr>
+<td>Оплата ЖКХ</td>
+<td>Госорганы/УК</td>
+<td>Рабочие дни</td>
+<td>До 5 рабочих дней</td>
+</tr>
+<tr>
+<td>Международный</td>
+<td>Зарубежные банки</td>
+<td>Рабочие дни</td>
+<td>3-5 рабочих дней</td>
+</tr>
+</tbody>
+</table>
+
+<p>Обратите внимание, что сроки «1-3 рабочих дня» для переводов по реквизитам — это не прихоть банка, а регламент. Платеж может пройти через корреспондентские счета, что требует времени. <em>Автоматизация</em> процессов постоянно улучшается, но полностью исключить задержки в банковской системе пока невозможно.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Сохраняйте скриншот или чек операции с уникальным идентификатором (UID). Если платеж затеряется, этот номер — единственный способ быстро найти деньги в системе банка.</p></div>
+
+<h2 id="что-делать-если-статус-не-меняется-долгое-время">Что делать, если статус не меняется долгое время</h2>
+
+<p>Если статус «На выполнении» висит дольше указанных выше нормативов, необходимо переходить к активным действиям. Первым делом проверьте интернет-банк или приложение — иногда уведомление об успехе или ошибке приходит с запозданием, а статус в истории обновляется только после повторного входа в раздел.</p>
+
+<p>Убедитесь, что с вашего счета были списаны средства. В некоторых случаях при технических сбоях создается «висящая» транзакция: в интерфейсе она есть, но фактического движения денег нет. Если деньги списаны (уменьшился баланс), но статус не меняется более 3-5 рабочих дней, это повод для обращения.</p>
+
+<ul>
+<li>📞 <strong>Звонок в колл-центр:</strong> Самый быстрый способ узнать судьбу платежа. Оператор видит внутреннюю систему и может сказать, на каком этапе застряла операция.</li>
+<li>💬 <strong>Чат в приложении:</strong> Удобно для тех, кто не любит говорить голосом. Можно прикрепить скриншот ошибки.</li>
+<li>🏢 <strong>Визит в офис:</strong> Требуется для сложных случаев, особенно если нужна отмена платежа или возврат средств по ошибочным реквизитам.</li>
+</ul>
+
+<p>При обращении в поддержку подготовьте данные: дату, сумму, назначение платежа и, желательно, скриншот. <strong>Идентификация</strong> клиента и операции займет меньше времени, если вы будете готовы предоставить эти данные сразу. Не стоит звонить каждые 10 минут — это не ускорит процесс, так как операторы видят ту же информацию, что и вы, пока система не обновится.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не сообщайте коды из СМС и CVC/CVV код карты сотрудникам банка, даже если звонящий представляется службой безопасности. Настоящие сотрудники ВТБ никогда не спрашивают эти данные.</p>
+</blockquote>
+
+<h2 id="возврат-средств-и-отмена-операции">Возврат средств и отмена операции</h2>
+
+<p>Многие пользователи спрашивают, можно ли отменить платеж, который находится в статусе «На выполнении». Ответ зависит от того, на какой именно стадии обработки он находится. Если деньги еще не ушли из банка (статус «Сформировано» или начальный этап исполнения), отмена возможна через приложение или звонок оператору.</p>
+
+<p>Однако, если платеж уже ушел в клиринг (Центробанк), отозвать егоно нельзя. В этом случае требуется подача заявления на отзыв платежа или, если деньги ушли по ошибочным реквизитам, заявление на возврат ошибочно зачисленных средств. Это уже бюрократическая процедура, которая может занять до 30 дней.</p>
+
+<p>Если получатель — физическое лицо и перевод был по номеру телефона, ситуация проще. Можно связаться с получателем и попросить вернуть деньги. В случае с юридическими лицами все решается строго через банковские заявления и переписку между банками. <em>Законодательство</em> здесь стоит на стороне получателя, пока не доказана ошибка плательщика.</p>
+
+<div class="checklist-block"><h4>☑️ Действия при зависшем платеже</h4><label class="check-item"><input type="checkbox"><span>Проверить баланс счета</span></label><label class="check-item"><input type="checkbox"><span>Подождать 1-3 рабочих дня</span></label><label class="check-item"><input type="checkbox"><span>Связаться с получателем</span></label><label class="check-item"><input type="checkbox"><span>Написать в чат банка</span></label><label class="check-item"><input type="checkbox"><span>Подать заявление на розыск</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 5</div></div>
+
+<h2 id="частые-ошибки-и-технические-нюансы">Частые ошибки и технические нюансы</h2>
+
+<p>Часто проблема кроется не в банке, а в устройстве пользователя или канале связи. Нестабильный интернет может привести к тому, что приложение ВТБ не получит актуальный статус от сервера. В результате вы видите старый статус «На выполнении», хотя по факту платеж уже проведен. Попробуйте обновить страницу или перезагрузить приложение.</p>
+
+<p>Еще одна проблема — кэш браузера или устаревшая версия мобильного приложения. <strong>Программное обеспечение</strong> требует регулярных обновлений для корректной работы с новыми протоколами безопасности. Если у вас стоит версия приложения месячной давности, она может некорректно отображать статусы современных транзакций.</p>
+
+<p>Также стоит помнить о лимитах. Если вы пытаетесь перевести сумму, превышающую дневной лимит, платеж может встать в очередь или быть частично исполнен. Проверьте настройки лимитов в разделе <code>Настройки → Лимиты и ограничения</code>. Иногда для крупных сумм требуется дополнительное подтверждение через push-уведомление, которое вы могли пропустить.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>В 90% случаев статус «На выполнении» меняется на «Исполнен» самостоятельно в течение 1-2 рабочих дней без вмешательства клиента.</p></div>
+
+<h2 id="профилактика-проблем-с-платежами">Профилактика проблем с платежами</h2>
+
+<p>Чтобы минимизировать риски застревания платежей, следуйте простым правилам цифровой гигиены. Всегда проверяйте реквизиты перед отправкой, особенно при работе с новыми контрагентами. Использование шаблонов платежей в приложении ВТБ снижает риск опечатки, так как реквизиты сохраняются после первой успешной операции.</p>
+
+<p>Следите за обновлениями приложения. Разработчики постоянно улучшают <em>алгоритмы</em> отображения статусов и ускоряют обработку запросов. Также рекомендуется привязать номер телефона и email к карте, чтобы получать мгновенные уведомления о каждом движении средств. Это позволит вам увидеть проблему в момент её возникновения.</p>
+
+<p>Планируйте важные платежи заранее. Если вам нужно обязательно оплатить налог или кредит в последний день срока, не полагайтесь на СБП или переводы по реквизитам в 23:59. Оставьте запас времени в 1-2 дня на случай технических сбоев или ручных проверок. <strong>Финансовая безопасность</strong> любит предусмотрительность.</p>
+
+<details>
+<summary>Можно ли ускорить процесс исполнения платежа?</summary>
+<p>Технически ускорить обработку платежа клиент не может. Скорость зависит от загруженности серверов банка и ЦБ. Единственное, что можно сделать — убедиться, что вы не допустили ошибок в реквизитах, так как их исправление занимает больше всего времени.</p>
+</details>
+
+<details>
+<summary>Берет ли ВТБ комиссию за ожидание?</summary>
+<p>Нет, комиссия взимается согласно тарифам за саму операцию, независимо от того, сколько времени она проводилась. За ожидание или изменение статуса деньги не списываются.</p>
+</details>
+
+<details>
+<summary>Что делать, если статус изменился на «Отклонен»?</summary>
+<p>Средства должны вернуться на счет. Проверьте баланс. Если деньги не вернулись в течение суток, обратитесь в поддержку с запросом о причине отклонения и сроках возврата.</p>
+</details>
+
+<details>
+<summary>Влияет ли статус «На выполнении» на кредитную историю?</summary>
+<p>Нет, сам по себе статус не влияет. Однако, если из-за задержки платежа вы не успели внести обязательный платеж по кредиту в срок, могут начаться начисления пени. Всегда вносите платежи по кредитам заранее.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#механика-банковских-транзакций-в-системе-втб">Механика банковских транзакций в системе ВТБ</a></li><li><a href="#основные-причины-задержки-статуса">Основные причины задержки статуса</a></li><li><a href="#сроки-проведения-платежей-по-типам-операций">Сроки проведения платежей по типам операций</a></li><li><a href="#что-делать-если-статус-не-меняется-долгое-время">Что делать, если статус не меняется долгое время</a></li><li><a href="#возврат-средств-и-отмена-операции">Возврат средств и отмена операции</a></li><li><a href="#частые-ошибки-и-технические-нюансы">Частые ошибки и технические нюансы</a></li><li><a href="#профилактика-проблем-с-платежами">Профилактика проблем с платежами</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-rasshifrovka-bank-vtb.html" class="related-card">ВТБ банк — расшифровка аббревиатуры и история бренда в 2026 году</a></li><li><a href="/articles/v/vt/vtb-kto-osnovatel.html" class="related-card">Кто основатель ВТБ: история банка и ключевые фигуры</a></li><li><a href="/articles/k/ka/kak-popolnit-balans-stim-cherez-vtb.html" class="related-card">Как пополнить баланс Steam через ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/f/fo/forma-1042-s-vtb-kak-poluchit.html" class="related-card">Форма 1042-S ВТБ: как получить, сроки и особенности</a></li><li><a href="/articles/g/gd/gde-nakhoditsya-stadion-vtb.html" class="related-card">Где находится стадион ВТБ Арена: точный адрес и карта</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-rasshifrovka-bank-vtb.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ банк — расшифровка аббревиатуры и история бренда в 2026 году</span><span class="related-bottom-desc">Что означает ВТБ: полная расшифровка названия банка, история создания, структура группы и отличие от</span></a><a href="/articles/v/vt/vtb-kto-osnovatel.html" class="related-bottom-card"><span class="related-bottom-title">Кто основатель ВТБ: история банка и ключевые фигуры</span><span class="related-bottom-desc">Узнайте, кто стоял у истоков ВТБ, как развивался банк и какие личности определили его современный об</span></a><a href="/articles/k/ka/kak-popolnit-balans-stim-cherez-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как пополнить баланс Steam через ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Все способы пополнения Steam через ВТБ: картой, переводом, через ВТБ Онлайн. Комиссии, лимиты и поша</span></a><a href="/articles/f/fo/forma-1042-s-vtb-kak-poluchit.html" class="related-bottom-card"><span class="related-bottom-title">Форма 1042-S ВТБ: как получить, сроки и особенности</span><span class="related-bottom-desc">Узнайте, как получить форму 1042-S от ВТБ для налогов США. Инструкция по заказу справки через офис, </span></a><a href="/articles/g/gd/gde-nakhoditsya-stadion-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Где находится стадион ВТБ Арена: точный адрес и карта</span><span class="related-bottom-desc">Подробная информация о расположении стадиона ВТБ Арена. Как добраться на метро, автобусе или машине.</span></a><a href="/articles/k/ka/kak-pozvonit-na-goryachuyu-liniyu-vtb-banka-operatoru.html" class="related-bottom-card"><span class="related-bottom-title">Как позвонить на горячую линию ВТБ: номера и советы 2026</span><span class="related-bottom-desc">Актуальные телефоны горячей линии ВТБ для связи с оператором: бесплатные номера, часы работы, альтер</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

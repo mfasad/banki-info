@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>SWIFT в ВТБ: что это, как работает и зачем нужен код банка — Банки Инфо</title>
+    <meta name="description" content="Разбираемся, что такое SWIFT-код ВТБ, где его найти, как используется для международных переводов и почему важен при работе с иностранными счетами.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/s/sw/swift-chto-eto-vtb-bank.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SWIFT в ВТБ: что это, как работает и зачем нужен код банка">
+    <meta property="og:description" content="Разбираемся, что такое SWIFT-код ВТБ, где его найти, как используется для международных переводов и почему важен при работе с иностранными счетами.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/perevody/">Переводы</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">SWIFT в ВТБ: что это, как работает и зачем нужен код банка</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>SWIFT в ВТБ: что это за система, как узнать код банка и зачем он нужен клиенту</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-swift-и-как-это-работает-в-втб">Что такое SWIFT и как это работает в ВТБ</a></li><li><a href="#swift-код-втб-где-найти-и-как-выглядит">SWIFT-код ВТБ: где найти и как выглядит</a></li><li><a href="#swift-vs-bic-vs-iban-в-чём-разница-и-что-указывать-при-переводе">SWIFT vs BIC vs IBAN: в чём разница и что указывать при переводе</a></li><li><a href="#сколько-стоит-swift-перевод-в-втб-и-сколько-идёт-денег">Сколько стоит SWIFT-перевод в ВТБ и сколько идёт денег</a></li><li><a href="#какие-проблемы-могут-возникнуть-при-swift-переводах-в-втб">Какие проблемы могут возникнуть при SWIFT-переводах в ВТБ</a></li><li><a href="#альтернативы-swift-в-втб-когда-стоит-выбрать-другой-способ">Альтернативы SWIFT в ВТБ: когда стоит выбрать другой способ</a></li><li><a href="#faq-частые-вопросы-о-swift-в-втб">FAQ: Частые вопросы о SWIFT в ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Когда речь заходит о международных переводах, термин <strong>SWIFT</strong> встречается едва ли не в каждом втором документе. Но что это такое на самом деле — особенно в контексте работы с <em>ВТБ</em>? Многие клиенты банка сталкиваются с необходимостью указать SWIFT-код при отправке денег за границу или получении средств из-за рубежа, но далеко не все понимают, как эта система работает и почему без неё невозможно обойтись.</p>
+
+<p>В этой статье мы разберёмся, что такое <strong>SWIFT-код ВТБ</strong>, где его найти, как он формируется и почему его часто путают с другими банковскими реквизитами (например, с <code>BIC</code> или номером счета). Также вы узнаете, какие комиссии взимает банк за SWIFT-переводы, сколько времени занимает транзакция и какие подводные камни могут возникнуть при работе с иностранными банками. Если вы планируете отправлять или получать деньги из-за границы — эта информация поможет избежать ошибок и сэкономить на комиссиях.</p>
+
+<h2 id="что-такое-swift-и-как-это-работает-в-втб">Что такое SWIFT и как это работает в ВТБ</h2>
+
+<p><strong>SWIFT</strong> (Society for Worldwide Interbank Financial Telecommunication) — это международная система обмена финансовыми сообщениями между банками. По сути, это «почта» для банков: она не перемещает сами деньги, а передаёт информацию о транзакциях, чтобы средства дошли по правильному маршруту. ВТБ, как и любой другой банк, работающий с иностранными партнёрами, подключён к этой системе и имеет уникальный <strong>SWIFT-код</strong>.</p>
+
+<p>Когда вы отправляете перевод за границу через ВТБ, банк формирует SWIFT-сообщение с реквизитами получателя и отправляет его в систему. Дальше сообщение проходит через цепочку банков-посредников (если они нужны) и в итоге попадает в банк получателя. Важно понимать, что <em>SWIFT не является платёжной системой</em> — это просто канал для передачи данных. Сами деньги перемещаются через корреспондентские счета банков.</p>
+
+<p>ВТБ использует SWIFT для:</p>
+<ul>
+  <li>💸 Международных переводов в иностранной валюте (доллары, евро, фунты и др.)</li>
+  <li>📄 Подтверждения платежей и запросов на проведении операций</li>
+  <li>🔄 Обмена информацией с иностранными банками о статусе транзакций</li>
+  <li>🏦 Работы с корреспондентскими счетами в зарубежных финансовых учреждениях</li>
+</ul>
+
+<p>Без SWIFT-кода банк просто не сможет идентифицировать, куда именно нужно отправить средства. Это как почтовый индекс, но для международных финансовых операций.</p>
+
+<div class="poll-widget" id="poll-cf171c65"><div class="poll-widget-question">📊 Вы когда-нибудь отправляли деньги за границу через SWIFT?</div><div class="poll-widget-option" data-poll="cf171c65" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, неоднократно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="cf171c65" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, но был только один раз</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="cf171c65" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет, но планирую</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="cf171c65" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет и не планирую</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="swift-код-втб-где-найти-и-как-выглядит">SWIFT-код ВТБ: где найти и как выглядит</h2>
+
+<p>SWIFT-код ВТБ (он же <strong>BIC-код</strong>) — это уникальный идентификатор банка в международной системе. Для <em>ПАО ВТБ</em> основной код выглядит так:</p>
+
+<pre><code>VTBR RU MM</code></pre>
+
+<p>Расшифруем его:</p>
+<ul>
+  <li><strong>VTBR</strong> — уникальный код банка (для ВТБ)</li>
+  <li><strong>RU</strong> — код страны (Россия)</li>
+  <li><strong>MM</strong> — код города (Москва, головной офис)</li>
+</ul>
+
+<p>Этот код используется для всех международных операций, связанных с головным офисом ВТБ. Однако у банка могут быть дополнительные SWIFT-коды для филиалов или специфических операций. Например, для <em>ВТБ24</em> (ныне часть ВТБ) ранее использовался код <code>VTBR RU MM XXX</code>, но после ребрендинга всё свелось к единому идентификатору.</p>
+
+<p>Где взять SWIFT-код ВТБ:</p>
+<ol>
+  <li>На <a href="https://www.vtb.ru">официальном сайте банка</a> в разделе «Реквизиты»</li>
+  <li>В договоре на открытие счёта или карты (если подключены международные операции)</li>
+  <li>В мобильном приложении <em>ВТБ Онлайн</em> (раздел «Информация о счёте»)</li>
+  <li>В отделении банка (можно запросить у менеджера)</li>
+</ol>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы получаете перевод из-за границы, убедитесь, что отправитель указал не только SWIFT-код, но и <strong>номер вашего счёта в формате IBAN</strong> (для стран ЕС) или полные реквизиты в рублях (для России). Без этого деньги могут «зависнуть» на корреспондентском счёте.</p></div>
+
+<h2 id="swift-vs-bic-vs-iban-в-чём-разница-и-что-указывать-при-переводе">SWIFT vs BIC vs IBAN: в чём разница и что указывать при переводе</h2>
+
+<p>Многие клиенты путают <strong>SWIFT</strong>, <code>BIC</code> и <code>IBAN</code>, хотя это разные вещи. Разберёмся, что есть что:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Термин</th>
+      <th>Что это</th>
+      <th>Пример для ВТБ</th>
+      <th>Когда нужен</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SWIFT</strong></td>
+      <td>Код банка в международной системе</td>
+      <td><code>VTBR RU MM</code></td>
+      <td>Для переводов за границу</td>
+    </tr>
+    <tr>
+      <td><code>BIC</code></td>
+      <td>Банковский идентификационный код (в России часто совпадает со SWIFT)</td>
+      <td><code>044525187</code> (для головного офиса)</td>
+      <td>Для внутренних переводов в рублях</td>
+    </tr>
+    <tr>
+      <td><code>IBAN</code></td>
+      <td>Международный номер счёта (для стран ЕС)</td>
+      <td><code>RU12 0445 2518 7123 4567 8901</code></td>
+      <td>Для переводов в евро или доллары в страны ЕС</td>
+    </tr>
+    <tr>
+      <td><strong>Корр. счёт</strong></td>
+      <td>Счёт банка-посредника (если нужен)</td>
+      <td>Уточняется у ВТБ при переводе</td>
+      <td>Для переводов в экзотические валюты или страны</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Для международных переводов через ВТБ обычно требуется:</p>
+<ol>
+  <li>SWIFT-код банка (<code>VTBR RU MM</code>)</li>
+  <li>Номер счёта получателя (в формате IBAN, если это страна ЕС)</li>
+  <li>ФИО получателя (латиницей, как в загранпаспорте)</li>
+  <li>Название и адрес банка получателя (иногда требуется)</li>
+</ol>
+
+<p>Если вы отправляете деньги в страну, где не используется IBAN (например, США или Китай), вместо него указывается стандартный номер счёта получателя. Для России IBAN не является обязательным, но некоторые иностранные банки могут его запросить — в этом случае ВТБ сформирует его автоматически на основе вашего рублёвого счёта.</p>
+
+<details class="faq-item"><summary>Что будет, если указать неправильный SWIFT-код?</summary><div class="faq-answer"><p>Если вы ошибётесь в SWIFT-коде, перевод может уйти не по адресу. В лучшем случае банк-посредник вернёт средства (за вычетом комиссии), в худшем — деньги «зависнут» на корреспондентском счёте на неопределённый срок. ВТБ не несёт ответственности за ошибки в реквизитах, поэтому всегда перепроверяйте данные перед отправкой.</p></div></details>
+
+<h2 id="сколько-стоит-swift-перевод-в-втб-и-сколько-идёт-денег">Сколько стоит SWIFT-перевод в ВТБ и сколько идёт денег</h2>
+
+<p>Стоимость и сроки SWIFT-переводов в ВТБ зависят от нескольких факторов: валюты, страны получателя, суммы и наличия корреспондентских банков-посредников. Вот актуальные тарифы на 2026 год:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип операции</th>
+      <th>Комиссия ВТБ</th>
+      <th>Сроки (рабочие дни)</th>
+      <th>Примечания</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Исходящий перевод в долларах/евро</td>
+      <td>0,5%–1,5% (мин. 15–50 USD/EUR)</td>
+      <td>1–5 дней</td>
+      <td>Зависит от страны и банка получателя</td>
+    </tr>
+    <tr>
+      <td>Входящий перевод в иностранной валюте</td>
+      <td>Бесплатно (но может взиматься комиссия банка-отправителя)</td>
+      <td>1–3 дня</td>
+      <td>Деньги зачисляются на счёт в валюте перевода</td>
+    </tr>
+    <tr>
+      <td>Перевод в рублях за границу (через SWIFT)</td>
+      <td>1% (мин. 300 ₽)</td>
+      <td>2–7 дней</td>
+      <td>Конвертация по курсу ВТБ на день списания</td>
+    </tr>
+    <tr>
+      <td>Срочный перевод (при наличии опции)</td>
+      <td>+20–50 USD/EUR к стандартной комиссии</td>
+      <td>1 день</td>
+      <td>Доступно не для всех направлений</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Важно учитывать, что помимо комиссии ВТБ, банки-посредники также могут взимать свой сбор (обычно 10–50 USD/EUR). Поэтому итоговая сумма, которая дойдёт до получателя, может быть меньше отправленной. Чтобы избежать неожиданностей, всегда уточняйте у ВТБ полную стоимость перевода <em>до</em> его отправки.</p>
+
+<p>Сроки зависят от:</p>
+<ul>
+  <li>🕒 Времени отправки (переводы в пятницу вечером могут «застрять» до понедельника)</li>
+  <li>🌍 Страны получателя (в ЕС деньги идут быстрее, чем в Азию или Африку)</li>
+  <li>🏦 Наличия корреспондентских банков (чем их больше, тем дольше)</li>
+  <li>📅 Праздников в стране отправителя/получателя</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Самый быстрый и дешёвый способ отправить деньги за границу через ВТБ — использовать <strong>прямой корреспондентский счёт</strong> банка получателя. Уточните у менеджера ВТБ, есть ли у них прямое партнёрство с банком назначения — это сэкономит и время, и деньги.</p></div>
+
+<h2 id="какие-проблемы-могут-возникнуть-при-swift-переводах-в-втб">Какие проблемы могут возникнуть при SWIFT-переводах в ВТБ</h2>
+
+<p>Несмотря на надёжность системы, SWIFT-переводы иногда сопровождаются сложностями. Вот самые распространённые проблемы и как их избежать:</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если вы отправляете деньги в страну, находящуюся под санкциями (например, Иран, КНДР, Сирия), ВТБ может заблокировать перевод даже после списания комиссии. Перед операцией уточните в банке, разрешено ли направление.</blockquote>
+
+<p><strong>1. Зависание средств на корреспондентском счёте</strong></p>
+<p>Деньги могут «застрять» у банка-посредника, если:</p>
+<ul>
+  <li>📌 Неверно указан SWIFT-код или реквизиты получателя</li>
+  <li>📌 Банк получателя требует дополнительную информацию (например, цель платежа)</li>
+  <li>📌 Перевод идёт в страну с жёстким валютным контролем (Китай, Индия)</li>
+</ul>
+<p>Решение: свяжитесь с поддержкой ВТБ и запросите <code>trace</code> (отслеживание перевода). Банк отправит запрос в SWIFT и уточнит, на каком этапе «зависла» транзакция.</p>
+
+<p><strong>2. Неожиданные комиссии</strong></p>
+<p>Помимо комиссии ВТБ, банки-посредники могут списать дополнительные 10–100 USD. Чтобы избежать сюрпризов:</p>
+<ul>
+  <li>💰 Указывайте при переводе опцию <code>SHA</code> (комиссии делятся между отправителем и получателем) или <code>OUR</code> (все комиссии списываются с вас)</li>
+  <li>💰 Заранее уточните у банка получателя, какие комиссии они взимают</li>
+</ul>
+
+<p><strong>3. Блокировка перевода по 115-ФЗ</strong></p>
+<p>Если сумма перевода превышает 600 000 ₽ (или эквивалент в валюте), ВТБ обязан запросить у вас документы, подтверждающие источник средств. Без них перевод может быть приостановлен.</p>
+
+<p><strong>4. Ошибки в реквизитах</strong></p>
+<p><mark>SWIFT-код ВТБ для международных переводов — VTBR RU MM, но некоторые иностранные банки могут требовать указания дополнительного суффикса (например, VTBR RU MM XXX). Уточните это заранее!</mark></p>
+
+
+<p>Уточнить SWIFT-код банка получателя|Проверить лимиты на переводы в валюте|Согласовать с получателем, кто оплачивает комиссии (OUR/SHA/BEN)|Убедиться, что страна получателя не находится под санкциями|Сохранить все реквизиты и подтверждение перевода--></p>
+
+<h2 id="альтернативы-swift-в-втб-когда-стоит-выбрать-другой-способ">Альтернативы SWIFT в ВТБ: когда стоит выбрать другой способ</h2>
+
+<p>SWIFT — не единственный способ отправить деньги за границу. В некоторых случаях альтернативные методы могут быть быстрее или дешевле. Рассмотрим, что предлагает ВТБ:</p>
+
+<p><strong>1. Переводы через системы денежных переводов</strong></p>
+<p>ВТБ сотрудничает с:</p>
+<ul>
+  <li>💸 <em>Western Union</em> (комиссия от 1%, зачисление за 10–30 минут)</li>
+  <li>💸 <em>MoneyGram</em> (доступно в отделениях банка)</li>
+  <li>💸 <em>Золотая Корона</em> (для переводов в страны СНГ)</li>
+</ul>
+<p>Плюсы: скорость и низкие комиссии для небольших сумм. Минусы: лимиты (обычно до 5 000–10 000 USD за операцию) и необходимость посещать отделение.</p>
+
+<p><strong>2. Переводы на карты иностранных банков</strong></p>
+<p>Если у получателя есть карта <em>Visa</em> или <em>Mastercard</em>, вы можете отправить деньги напрямую по номеру карты через <em>ВТБ Онлайн</em>. Комиссия — от 1% до 3%, зачисление — 1–3 дня. Однако некоторые банки (особенно в США) блокируют такие переводы из России.</p>
+
+<p><strong>3. Валютные переводы через партнёров ВТБ</strong></p>
+<p>Банк имеет прямые корреспондентские отношения с рядом иностранных банков (например, <em>Deutsche Bank</em>, <em>Citibank</em>). Переводы через них идут быстрее и с меньшими комиссиями. Уточните у менеджера ВТБ, есть ли такое соглашение с банком получателя.</p>
+
+<p><strong>4. Криптовалюта (неофициально)</strong></p>
+<p>ВТБ не работает с криптовалютой напрямую, но некоторые клиенты используют обменники для перевода средств в <em>USDТ</em> или <em>BTC</em>, а затем конвертируют их в фиат на стороне получателя. Риски: высокие комиссии обменников и возможные проблемы с законом (в России операции с криптовалютой не регулированы).</p>
+
+<div class="poll-widget" id="poll-130a777c"><div class="poll-widget-question">📊 Какой способ международных переводов вы предпочитаете?</div><div class="poll-widget-option" data-poll="130a777c" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">SWIFT</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="130a777c" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Системы денежных переводов (Western Union и др.)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="130a777c" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Перевод на карту</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="130a777c" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Криптовалюта</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="130a777c" data-idx="4" onclick="pbPollVote(this)"><span class="poll-widget-label">Другой способ</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="faq-частые-вопросы-о-swift-в-втб">FAQ: Частые вопросы о SWIFT в ВТБ</h2>
+
+<details>
+  <summary>Можно ли отправить SWIFT-перевод в рублях из ВТБ?</summary>
+  <p>Да, но это невыгодно. ВТБ конвертирует рубли в валюту перевода по своему курсу (обычно хуже рыночного) и списывает комиссию. Лучше сначала купить валюту на бирже или через обменник, а затем отправить её по SWIFT.</p>
+</details>
+
+<details>
+  <summary>Что делать, если SWIFT-перевод идёт уже неделю?</summary>
+  <p>Свяжитесь с поддержкой ВТБ по телефону <code>8 800 100-24-24</code> и запросите <code>trace</code> (отслеживание перевода). Укажите дату, сумму и реквизиты получателя. Банк свяжется с SWIFT и уточнит статус. Если деньги «зависли» у посредника, может потребоваться до 30 дней на возвращение средств.</p>
+</details>
+
+<details>
+  <summary>Можно ли получить SWIFT-перевод на карту ВТБ?</summary>
+  <p>Технически да, но для этого нужно открыть валютный счёт в ВТБ и сообщить отправителю его реквизиты (включая SWIFT-код). На обычную рублёвую карту иностранный перевод не зачислится.</p>
+</details>
+
+<details>
+  <summary>Сколько максимум можно отправить через SWIFT в ВТБ?</summary>
+  <p>Лимиты зависят от вашего статуса в банке:
+  <ul>
+    <li>Для физических лиц без статуса — до 5 000 USD/EUR в день</li>
+    <li>Для клиентов с пакетом «Премиум» — до 50 000 USD/EUR в месяц</li>
+    <li>Для юридических лиц — до 100 000 USD/EUR (требуется согласование)</li>
+  </ul>
+<p>При превышении лимитов банк может запросить документы о происхождении средств.</p></p>
+</details>
+
+<details>
+  <summary>Чем SWIFT отличается от SEPA?</summary>
+  <p><code>SEPA</code> (Single Euro Payments Area) — это система для переводов в <strong>евро</strong> внутри стран ЕС. Она дешевле и быстрее SWIFT (комиссия ~1–5 EUR, зачисление в течение 1 дня). Однако SEPA работает только для евро и только в пределах Евросоюза. Для переводов в доллары или другие валюты, а также за пределы ЕС, нужен SWIFT.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-swift-и-как-это-работает-в-втб">Что такое SWIFT и как это работает в ВТБ</a></li><li><a href="#swift-код-втб-где-найти-и-как-выглядит">SWIFT-код ВТБ: где найти и как выглядит</a></li><li><a href="#swift-vs-bic-vs-iban-в-чём-разница-и-что-указывать-при-переводе">SWIFT vs BIC vs IBAN: в чём разница и что указывать при переводе</a></li><li><a href="#сколько-стоит-swift-перевод-в-втб-и-сколько-идёт-денег">Сколько стоит SWIFT-перевод в ВТБ и сколько идёт денег</a></li><li><a href="#какие-проблемы-могут-возникнуть-при-swift-переводах-в-втб">Какие проблемы могут возникнуть при SWIFT-переводах в ВТБ</a></li><li><a href="#альтернативы-swift-в-втб-когда-стоит-выбрать-другой-способ">Альтернативы SWIFT в ВТБ: когда стоит выбрать другой способ</a></li><li><a href="#faq-частые-вопросы-о-swift-в-втб">FAQ: Частые вопросы о SWIFT в ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-dat-soglasie-na-perevod-po-nomeru-telefona-s-vtb-na-sberbank-instruktsiya-cherez-telefon.html" class="related-card">Как дать согласие на перевод с ВТБ на Сбербанк по телефону — пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-perekinut-dengi-s-vtb-na-vtb.html" class="related-card">Как перевести деньги с ВТБ на ВТБ: 5 способов без комиссии</a></li><li><a href="/articles/s/s-/s-vtb-perevesti-na-sberbank-skolko-protsentov.html" class="related-card">С ВТБ на Сбербанк: сколько процентов и как перевести деньги</a></li><li><a href="/articles/k/ka/kak-dolgo-idet-perevod-s-vtb-na-sberbank-po-nomeru-scheta.html" class="related-card">Сколько идет перевод с ВТБ на Сбербанк по номеру счета в 2026 году</a></li><li><a href="/articles/k/ka/kak-s-karty-sberbanka-perevesti-na-vtb.html" class="related-card">Как перевести деньги с карты Сбербанка на ВТБ: все способы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-dat-soglasie-na-perevod-po-nomeru-telefona-s-vtb-na-sberbank-instruktsiya-cherez-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как дать согласие на перевод с ВТБ на Сбербанк по телефону — пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробная инструкция, как подтвердить перевод с карты ВТБ на Сбербанк через SMS или звонок. Все спос</span></a><a href="/articles/k/ka/kak-perekinut-dengi-s-vtb-na-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги с ВТБ на ВТБ: 5 способов без комиссии</span><span class="related-bottom-desc">Пошаговые инструкции по переводу средств между картами и счетами ВТБ: через приложение, онлайн-банк,</span></a><a href="/articles/s/s-/s-vtb-perevesti-na-sberbank-skolko-protsentov.html" class="related-bottom-card"><span class="related-bottom-title">С ВТБ на Сбербанк: сколько процентов и как перевести деньги</span><span class="related-bottom-desc">Узнайте актуальные комиссии ВТБ при переводе на карту Сбербанк. Сравнение тарифов, лимитов и способо</span></a><a href="/articles/k/ka/kak-dolgo-idet-perevod-s-vtb-na-sberbank-po-nomeru-scheta.html" class="related-bottom-card"><span class="related-bottom-title">Сколько идет перевод с ВТБ на Сбербанк по номеру счета в 2026 году</span><span class="related-bottom-desc">Точные сроки перевода между ВТБ и Сбербанком по номеру счета: от мгновенных до 3 дней. Как ускорить,</span></a><a href="/articles/k/ka/kak-s-karty-sberbanka-perevesti-na-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги с карты Сбербанка на ВТБ: все способы</span><span class="related-bottom-desc">Полная инструкция: переводы с карты Сбербанка на ВТБ через приложение, СМС, сайт и банкомат. Лимиты,</span></a><a href="/articles/k/ka/kak-perekinut-dengi-na-druguyu-kartu-s-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перевести деньги с карты ВТБ на другую карту: 5 способов 2026</span><span class="related-bottom-desc">Пошаговые инструкции по переводу с карты ВТБ на любую карту: через приложение, СМС, банкомат и онлай</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

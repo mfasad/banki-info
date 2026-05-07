@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как получить API ключ ВТБ для Wildberries: пошаговая инструкция — Банки Инфо</title>
+    <meta name="description" content="Полный гайд по получению API ключа ВТБ для интеграции с маркетплейсом Wildberries. Настройка автоматических выплат, лимиты и безопасность.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-poluchit-api-klyuch-na-vb-dlya-banka-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как получить API ключ ВТБ для Wildberries: пошаговая инструкция">
+    <meta property="og:description" content="Полный гайд по получению API ключа ВТБ для интеграции с маркетплейсом Wildberries. Настройка автоматических выплат, лимиты и безопасность.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как получить API ключ ВТБ для Wildberries: пошаговая инструкция</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как получить API ключ ВТБ для Wildberries</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#что-такое-api-ключ-и-зачем-он-нужен-селлеру">Что такое API ключ и зачем он нужен селлеру</a></li><li><a href="#подготовка-к-получению-ключа-в-втб-онлайн">Подготовка к получению ключа в ВТБ Онлайн</a></li><li><a href="#пошаговая-инструкция-как-сгенерировать-api-ключ">Пошаговая инструкция: как сгенерировать API ключ</a></li><li><a href="#настройка-интеграции-с-wildberries">Настройка интеграции с Wildberries</a></li><li><a href="#проблемы-безопасности-и-хранение-данных">Проблемы безопасности и хранение данных</a></li><li><a href="#решение-ошибок-при-подключении">Решение ошибок при подключении</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>В современном ритме электронной коммерции скорость поступления денежных средств на расчетный счет является критическим фактором успеха для любого селлера. Интеграция банковских сервисов с площадками маркетплейсов позволяет автоматизировать финансовые потоки, исключая задержки и человеческий фактор при ручном управлении. Для предпринимателей, работающих с Wildberries, особенно важна возможность моментального вывода заработанных средств, и здесь на первый план выходят технологии API.</p>
+
+<p>Банк ВТБ предлагает своим корпоративным клиентам и самозанятым эффективное решение для автоматизации этих процессов. <strong>API ключ</strong> выступает в роли цифрового пропуска, который позволяет внешней системе безопасно взаимодействовать с вашим банковским счетом. Именно этот уникальный идентификатор связывает личный кабинет продавца на маркетплейсе с банковским приложением, обеспечивая бесперебойный транзит денег.</p>
+
+<p>Процесс получения ключа может показаться сложным только на первый взгляд, однако при соблюдении последовательности действий он занимает всего несколько минут. В этой статье мы подробно разберем каждый этап настройки, уделив особое внимание нюансам безопасности и возможным ошибкам, с которыми сталкиваются пользователи при первой настройке интеграции.</p>
+
+<h2 id="что-такое-api-ключ-и-зачем-он-нужен-селлеру">Что такое API ключ и зачем он нужен селлеру</h2>
+
+<p><strong>API (Application Programming Interface)</strong> — это набор правил и протоколов, позволяющий различным программным продуктам обмениваться данными. В контексте взаимодействия банка и маркетплейса, API ключ служит доказательством того, что вы, как владелец счета, дали официальное разрешение на проведение операций или передачу информации между системами. Без этого ключа автоматический вывод средств невозможен в принципе.</p>
+
+<p>Использование <em>API-интеграции</em> кардинально меняет опыт работы с финансами. Вместо того чтобы вручную формировать платежные поручения или ждать стандартных банковских дней зачисления, селлер получает возможность настроить автовыплаты. Это означает, что как только Wildberries начисляет деньги за проданные товары, система автоматически инициирует перевод на ваш счет в ВТБ.</p>
+
+<p>Кроме скорости, ключевым аспектом является прозрачность операций. При использовании API все транзакции четко логируются, и вы всегда видите статус перевода в реальном времени. Это особенно важно при больших объемах продаж, когда ручной контроль сотен платежей становится физически невозможным и экономически нецелесообразным.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> API ключ является аналогом вашей электронной подписи. Никогда не передавайте его третьим лицам, не выкладывайте в чаты поддержки и не храните в открытом виде на рабочем столе компьютера.</p>
+</blockquote>
+
+<p>Важно понимать разницу между обычным доступом в интернет-банк и API доступом. Если вход в приложение требует логина и пароля (или биометрии) от человека, то API ключ предназначен для машинного взаимодействия. <strong>Безопасность</strong> этого процесса обеспечивается сложными алгоритмами шифрования, но ответственность за сохранность самого ключа лежит исключительно на владельце счета.</p>
+
+<h2 id="подготовка-к-получению-ключа-в-втб-онлайн">Подготовка к получению ключа в ВТБ Онлайн</h2>
+
+<p>Прежде чем приступать к техническим манипуляциям, необходимо убедиться, что ваш аккаунт в банке полностью готов к работе с корпоративными или предпринимательскими сервисами. Для физических лиц, не оформивших статус самозанятого или ИП, функционал может быть ограничен, поэтому проверка типа счета — первый обязательный шаг.</p>
+
+<p>Убедитесь, что у вас установлена последняя версия мобильного приложения <em>ВТБ Онлайн</em> или вы используете актуальную версию веб-интерфейса на компьютере. Устаревшее программное обеспечение может не содержать необходимых модулей для работы с API маркетплейсов или иметь уязвимости в системе безопасности.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка готовности к интеграции</h4><label class="check-item"><input type="checkbox"><span>Активирован статус ИП или Самозанятого</span></label><label class="check-item"><input type="checkbox"><span>Установлено приложение ВТБ Онлайн</span></label><label class="check-item"><input type="checkbox"><span>Есть доступ к основному телефону</span></label><label class="check-item"><input type="checkbox"><span>Подготовлен паспорт для verification</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<p>Также стоит заранее подготовить данные вашего аккаунта на Wildberries. Вам потребуется не только сам API ключ от банка, но и возможность вставить его в соответствующее поле в личном кабинете продавца. Убедитесь, что у вас есть доступы к обоим ресурсам одновременно, чтобы не прерывать процесс настройки.</p>
+
+<p>Обратите внимание на лимиты вашего тарифного плана. Некоторые банковские пакеты услуг могут иметь ограничения на количество или сумму автоматических платежей в месяц. <strong>Лимиты</strong> — это важный параметр, который лучше проверить заранее, чтобы неожиданный стоп-платеж не остановил вашу бизнес- деятельность.</p>
+
+<h2 id="пошаговая-инструкция-как-сгенерировать-api-ключ">Пошаговая инструкция: как сгенерировать API ключ</h2>
+
+<p>Процесс генерации ключа в интерфейсе ВТБ стандартизирован, но требует внимательности при вводе данных. Чаще всего эта функция находится в разделе, посвященном внешним сервисам или интеграциям. Алгоритм действий един для большинства пользователей, однако интерфейс может незначительно отличаться в зависимости от типа устройства.</p>
+
+<p>Для начала войдите в приложение и выберите нужный расчетный счет. В меню действий (обычно это кнопка с тремя точками или шестеренка) найдите пункт «Настройки счета» или «Внешние сервисы». Именно там скрывается опция создания ключа для маркетплейсов.</p>
+
+<pre><code>Главное меню → Мои счета → Выбор счета → Настройки → API для маркетплейсов → Создать ключ</code></pre>
+
+<p>Система попросит вас подтвердить действие через Push-уведомление или SMS-код. Это стандартная процедура <strong>аутентификации</strong>, гарантирующая, что ключ создает именно владелец счета. После подтверждения на экране появится длинная строка символов — это и есть ваш API ключ.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Скопируйте API ключ сразу после его появления на экране. В целях безопасности система может не показать его повторно, и для восстановления придется проходить процедуру заново.</p></div>
+
+<p>Некоторые пользователи предпочитают использовать компьютерную версию интернет-банка для этой операции, так как на большом экране легче контролировать ввод данных и копирование длинных строк кода без ошибок. Веб-версия часто предоставляет более детализированную информацию о создаваемых токенах.</p>
+
+<h2 id="настройка-интеграции-с-wildberries">Настройка интеграции с Wildberries</h2>
+
+<p>Полученный ключ — это только половина дела. Теперь его необходимо «познакомить» с системой Wildberries. Для этого перейдите в личный кабинет продавца на сайте маркетплейса. Найдите раздел, отвечающий за финансовые настройки или интеграции с банками.</p>
+
+<p>В списке доступных банков выберите ВТБ. Система предложит ввести сгенерированный ранее ключ. Будьте предельно осторожны при копировании: ключ не должен содержать лишних пробелов в начале или конце строки. Даже один лишний символ сделает ключ невалидным, и система выдаст ошибку подключения.</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Значение для ВТБ</th>
+<th>Где взять</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Тип интеграции</td>
+<td>API / Автовыплаты</td>
+<td>Выбор в ЛК WB</td>
+</tr>
+<tr>
+<td>API Key</td>
+<td>Уникальная строка</td>
+<td>Приложение ВТБ Онлайн</td>
+</tr>
+<tr>
+<td>Назначение</td>
+<td>Пополнение оборотных средств</td>
+<td>Указывается при создании</td>
+</tr>
+<tr>
+<td>Статус</td>
+<td>Активен</td>
+<td>Проверка в ЛК WB</td>
+</tr>
+</tbody>
+</table>
+
+<p>После ввода ключа нажмите кнопку «Проверить» или «Сохранить». Если все данные введены верно, статус подключения изменится на «Активен» или «Подключено». С этого момента связка между банком и маркетплейсом считается установленной.</p>
+
+<div class="poll-widget" id="poll-4c572e88"><div class="poll-widget-question">📊 Какой способ ввода ключа вам удобнее?</div><div class="poll-widget-option" data-poll="4c572e88" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Копирование с телефона</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="4c572e88" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Ручной ввод с ПК</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="4c572e88" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Через QR-код</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="4c572e88" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Мне нужен менеджер</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Важно настроить правила автовыплат. Вы можете установить минимальную сумму, при достижении которой будет инициироваться перевод, или настроить вывод всех доступных средств по расписанию. Гибкость настроек позволяет адаптировать финансовые потоки под нужды вашего бизнеса.</p>
+
+<h2 id="проблемы-безопасности-и-хранение-данных">Проблемы безопасности и хранение данных</h2>
+
+<p>Безопасность финансовых операций в цифровой среде — приоритет номер один. API ключ дает доступ к движению средств, поэтому его компрометация может привести к неприятным последствиям, хотя современные банковские системы и имеют многоуровневую защиту от несанкactions.</p>
+
+<p>Никогда не храните API ключ в текстовых файлах с названием «password.txt» или «keys.txt» на рабочем столе. Также крайне не рекомендуется отправлять ключ себе в мессенджеры или сохранять в заметках телефона без дополнительной защиты. Лучшее место для ключа — специальный менеджер паролей с шифрованием.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Если вы подозреваете, что ключ мог попасть в руки посторонних, немедленно удалите его в настройках ВТБ Онлайн и создайте новый. Старый ключ при этом перестанет работать.</p>
+</blockquote>
+
+<p>Регулярно проверяйте историю операций в приложении банка. <strong>Мониторинг</strong> активности позволяет вовремя заметить подозрительные действия. ВТБ также предоставляет возможность устанавливать лимиты на суммы транзакций через API, что служит дополнительной страховкой.</p>
+
+<details class="faq-item"><summary>Что делать, если ключ украден?</summary><div class="faq-answer"><p>Если злоумышленник получил доступ к вашему API ключу, он может попытаться инициировать перевод средств. Однако, без доступа к вашему телефону для подтверждения операций (если стоит двухфакторная авторизация) и без знания дополнительных кодов, провести платеж сложно. Но риск существует. Немедленно свяжитесь с поддержкой банка для блокировки канала API и перевыпуска ключей. Также смените пароли от личного кабинета Wildberries и ВТБ Онлайн.</p></div></details>
+
+<p>Используйте разные ключи для разных сервисов, если такая возможность предусмотрена архитектурой системы. Это принцип минимальных привилегий: если один сервис будет скомпрометирован, остальные останутся в безопасности. В случае с ВТБ и Wildberries обычно используется один основной ключ для связки, но его ценность высока.</p>
+
+<h2 id="решение-ошибок-при-подключении">Решение ошибок при подключении</h2>
+
+<p>Даже при строгом следовании инструкции пользователи могут столкнуться с техническими сбоями. Одна из самых частых ошибок — «Неверный формат ключа». Это часто случается, когда при копировании захватывается скрытый символ или пробел. Внимательно проверяйте строку перед отправкой.</p>
+
+<p>Другая распространенная проблема — «Превышен лимит запросов». Система безопасности банка или маркетплейса может временно заблокировать попытки подключения, если их слишком много за короткое время. В этом случае нужно просто выждать 15-30 минут и попробовать снова.</p>
+
+<ul>
+<li>🚫 <strong>Ошибка авторизации:</strong> Проверьте, не истек ли срок действия ключа (некоторые ключи имеют ограниченный срок жизни, хотя для постоянных интеграций они обычно бессрочные до отзыва).</li>
+<li>🚫 <strong>Ошибка сервера 500/502:</strong> Проблема на стороне серверов банка или маркетплейса. Подождите некоторое время, технические службы обычно быстро устраняют сбои.</li>
+<li>🚫 <strong>Несоответствие реквизитов:</strong> Убедитесь, что счет в ВТБ открыт на то же юридическое или физическое лицо, которое указано в профиле продавца на Wildberries.</li>
+</ul>
+
+<p>Если проблема носит системный характер и повторяется, имеет смысл очистить кэш приложения ВТБ Онлайн или попробовать выполнить действия с другого устройства. Иногда браузерные расширения (блокировщики рекламы) могут мешать корректной работе скриптов на сайте.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>90% ошибок при подключении API связаны с человеческим фактором: лишние пробелы, опечатки или использование устаревшей версии приложения.</p></div>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Можно ли иметь несколько API ключей для разных счетов?</summary>
+<p>Да, вы можете сгенерировать отдельный API ключ для каждого своего расчетного счета в ВТБ. Это удобно, если вы ведете несколько бизнес-проектов и хотите разделять финансовые потоки. Каждый ключ будет привязан к конкретному счету, выбранному в момент его создания.</p>
+</details>
+
+<details>
+<summary>Сколько времени занимает зачисление денег через API?</summary>
+<p>При использовании технологии API и сервисов автовыплат от ВТБ, деньги обычно зачисляются мгновенно или в течение нескольких минут после инициирования перевода маркетплейсом. Это значительно быстрее стандартных межбанковских переводов, которые могут идти до 3 рабочих дней.</p>
+</details>
+
+<details>
+<summary>Нужно ли платить комиссию за использование API ключа?</summary>
+<p>Сам факт создания и использования API ключа, как правило, бесплатен. Однако, за каждый успешный перевод средств могут взиматься стандартные комиссии тарифа вашего счета или тарифы маркетплейса за услугу автовыплат. Уточняйте актуальные тарифы в приложении банка.</p>
+</details>
+
+<details>
+<summary>Что будет, если я удалю API ключ в настройках банка?</summary>
+<p>Если вы удалите или деактивируете ключ в приложении ВТБ, автоматический вывод средств на Wildberries немедленно прекратится. Деньги останутся на балансе маркетплейса до тех пор, пока вы не создадите новый ключ и не обновите данные в личном кабинете продавца.</p>
+</details>
+
+<details>
+<summary>Работает ли интеграция для самозанятых?</summary>
+<p>Да, ВТБ поддерживает работу API ключей для клиентов с статусом самозанятого. Процедура получения ключа и настройки интеграции идентична той, что доступна для индивидуальных предпринимателей и юридических лиц.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#что-такое-api-ключ-и-зачем-он-нужен-селлеру">Что такое API ключ и зачем он нужен селлеру</a></li><li><a href="#подготовка-к-получению-ключа-в-втб-онлайн">Подготовка к получению ключа в ВТБ Онлайн</a></li><li><a href="#пошаговая-инструкция-как-сгенерировать-api-ключ">Пошаговая инструкция: как сгенерировать API ключ</a></li><li><a href="#настройка-интеграции-с-wildberries">Настройка интеграции с Wildberries</a></li><li><a href="#проблемы-безопасности-и-хранение-данных">Проблемы безопасности и хранение данных</a></li><li><a href="#решение-ошибок-при-подключении">Решение ошибок при подключении</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/g/gd/gde-najti-prochee-v-vtb.html" class="related-card">Где найти вкладку «Прочее» в приложении ВТБ Онлайн</a></li><li><a href="/articles/k/ka/kak-pomenyat-nomer-k-kotoromu-privyazana-karta-vtb-cherez-prilozhenie.html" class="related-card">Как сменить номер телефона в приложении ВТБ: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-obojti-blokirovku-vtb-na-ajfone.html" class="related-card">Как обойти блокировку ВТБ на iPhone в 2026 году — рабочие способы</a></li><li><a href="/articles/c/ch/chto-sluchilos-s-onlajn-vtb.html" class="related-card">Что случилось с онлайн ВТБ в 2026 году: причины сбоев и решения</a></li><li><a href="/articles/k/ka/kak-perezagruzit-prilozhenie-vtb.html" class="related-card">Как перезагрузить приложение ВТБ: 5 способов для Android и iOS</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/g/gd/gde-najti-prochee-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Где найти вкладку «Прочее» в приложении ВТБ Онлайн</span><span class="related-bottom-desc">Подробная инструкция, где находится раздел «Прочее» в ВТБ. Узнайте, как найти скрытые меню, переводы</span></a><a href="/articles/k/ka/kak-pomenyat-nomer-k-kotoromu-privyazana-karta-vtb-cherez-prilozhenie.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить номер телефона в приложении ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробная инструкция, как поменять привязанный номер телефона в ВТБ Онлайн. Способы смены через прил</span></a><a href="/articles/k/ka/kak-obojti-blokirovku-vtb-na-ajfone.html" class="related-bottom-card"><span class="related-bottom-title">Как обойти блокировку ВТБ на iPhone в 2026 году — рабочие способы</span><span class="related-bottom-desc">Пошаговые инструкции по разблокировке приложения ВТБ Онлайн на iPhone: от сброса пароля до обхода ге</span></a><a href="/articles/c/ch/chto-sluchilos-s-onlajn-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Что случилось с онлайн ВТБ в 2026 году: причины сбоев и решения</span><span class="related-bottom-desc">Разбираемся, почему не работает онлайн-банк ВТБ: технические сбои, блокировки, альтернативные способ</span></a><a href="/articles/k/ka/kak-perezagruzit-prilozhenie-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перезагрузить приложение ВТБ: 5 способов для Android и iOS</span><span class="related-bottom-desc">Пошаговые инструкции по перезапуску мобильного банка ВТБ на смартфоне. Решение проблем с зависанием,</span></a><a href="/articles/k/ka/kak-uznat-podklyuchena-li-karta-k-nomeru-telefona-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать подключена ли карта к номеру телефона ВТБ: все способы</span><span class="related-bottom-desc">Подробная инструкция, как проверить привязку карты ВТБ к телефону. Методы через СМС, приложение, бан</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

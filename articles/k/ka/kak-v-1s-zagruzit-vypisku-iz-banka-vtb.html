@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как загрузить выписку ВТБ в 1С: пошаговая инструкция 2026 — Банки Инфо</title>
+    <meta name="description" content="Подробное руководство по импорту банковских выписок ВТБ в 1С: настройка обмена, форматы файлов, типичные ошибки и их решение. Актуально для 1С 8.3 и ВТБ Онлайн.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-v-1s-zagruzit-vypisku-iz-banka-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как загрузить выписку ВТБ в 1С: пошаговая инструкция 2026">
+    <meta property="og:description" content="Подробное руководство по импорту банковских выписок ВТБ в 1С: настройка обмена, форматы файлов, типичные ошибки и их решение. Актуально для 1С 8.3 и ВТБ Онлайн.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/karty-i-scheta/">Карты и счета</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как загрузить выписку ВТБ в 1С: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как загрузить выписку из ВТБ в 1С: полная инструкция с примерами</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-подготовка-какой-формат-выписки-из-втб-подходит-для-1с">1. Подготовка: какой формат выписки из ВТБ подходит для 1С</a></li><li><a href="#2-настройка-1с-для-импорта-выписок-втб">2. Настройка 1С для импорта выписок ВТБ</a></li><li><a href="#3-пошаговая-инструкция-как-загрузить-выписку-втб-в-1с">3. Пошаговая инструкция: как загрузить выписку ВТБ в 1С</a></li><li><a href="#4-типичные-ошибки-и-их-решение">4. Типичные ошибки и их решение</a></li><li><a href="#5-автоматизация-как-настроить-регулярный-импорт-выписок">5. Автоматизация: как настроить регулярный импорт выписок</a></li><li><a href="#6-работа-с-выписками-в-1с-что-делать-после-загрузки">6. Работа с выписками в 1С: что делать после загрузки</a></li><li><a href="#7-особенности-для-разных-версий-1с">7. Особенности для разных версий 1С</a></li><li><a href="#8-альтернативные-способы-загрузки-выписок-втб-в-1с">8. Альтернативные способы загрузки выписок ВТБ в 1С</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Загрузка банковских выписок из <em>ВТБ</em> в <strong>1С:Бухгалтерию</strong> или <strong>1С:Управление торговлей</strong> позволяет автоматизировать учёт операций, сократить ручной ввод данных и минимизировать ошибки. Однако многие пользователи сталкиваются с трудностями: программа не распознаёт файл, возникают ошибки при импорте или данные загружаются некорректно. В этой статье разберём все этапы процесса — от получения выписки в <em>ВТБ Онлайн</em> до её успешной обработки в <strong>1С 8.3</strong>, включая нюансы для разных версий конфигураций.</p>
+
+<p>Особенность работы с <em>ВТБ</em> заключается в том, что банк поддерживает несколько форматов выгрузки выписок: <code>1С (txt)</code>, <code>Excel (xlsx)</code>, <code>CSV</code> и <code>XML</code>. Не все из них подходят для автоматической загрузки — например, <code>Excel</code> чаще используется для ручного анализа, а <code>1С (txt)</code> оптимизирован именно для импорта. Мы детально рассмотрим, какой формат выбрать, как настроить обмен данными в <strong>1С</strong> и что делать, если система выдаёт ошибку <code>"Не удалось распознать формат файла"</code>.</p>
+
+<h2 id="1-подготовка-какой-формат-выписки-из-втб-подходит-для-1с">1. Подготовка: какой формат выписки из ВТБ подходит для 1С</h2>
+
+<p>Прежде чем загружать выписку, нужно правильно её экспортировать из <em>ВТБ Онлайн</em>. Банк предлагает 4 основных формата, но только два из них гарантированно совместимы с <strong>1С</strong>:</p>
+
+<ul>
+  <li>📄 <strong>Формат 1С (txt)</strong> — оптимальный вариант. Файл имеет строгую структуру, которую <strong>1С</strong> распознаёт автоматически. Поддерживает все необходимые реквизиты: дату, сумму, контрагента, назначение платежа.</li>
+  <li>📊 <strong>XML (по стандарту ЦБ РФ)</strong> — универсальный формат, но требует дополнительной настройки в <strong>1С</strong> (необходимо указать схему обмена). Подходит для сложных интеграций.</li>
+</ul>
+
+<p>Форматы <code>Excel (xlsx)</code> и <code>CSV</code> теоретически можно импортировать, но они требуют ручной доработки (например, приведения столбцов к нужному порядку) или использования внешних обработок. <mark>Для стабильной работы рекомендуется использовать именно <code>1С (txt)</code> — это единственный формат, который гарантированно поддерживается всеми типовymi конфигурациями 1С без дополнительных доработок.</mark></p>
+
+<p>Чтобы получить выписку в нужном формате:</p>
+<ol>
+  <li>Авторизуйтесь в <em>ВТБ Онлайн</em> (веб-версия или мобильное приложение).</li>
+  <li>Перейдите в раздел <code>"Счета и карты"</code> → выберите нужный счёт.</li>
+  <li>Нажмите <code>"Выписка"</code> → <code>"Экспорт"</code>.</li>
+  <li>В списке форматов выберите <code>"1С (txt)"</code>.</li>
+  <li>Укажите период (например, за месяц или конкретную дату) и подтвердите выгрузку.</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если в <em>ВТБ Онлайн</em> нет опции экспорта в <code>1С (txt)</code>, проверьте настройки своего тарифа. Некоторые корпоративные клиенты по умолчанию видят только <code>Excel</code> — в этом случае обратитесь в поддержку банка или используйте <code>XML</code> с ручной настройкой.</blockquote>
+
+<h2 id="2-настройка-1с-для-импорта-выписок-втб">2. Настройка 1С для импорта выписок ВТБ</h2>
+
+<p>Перед первой загрузкой выписки необходимо настроить параметры обмена в <strong>1С</strong>. Этот этап часто пропускают, из-за чего возникают ошибки типа <code>"Не найден банк"</code> или <code>"Неверный формат данных"</code>.</p>
+
+<p>Инструкция для <strong>1С:Бухгалтерия 8.3</strong> (актуально также для <em>1С:Управление торговлей</em> и <em>1С:ERP</em>):</p>
+
+<ol>
+  <li>Откройте раздел <code>"Банк и касса"</code> → <code>"Банковские выписки"</code>.</li>
+  <li>Нажмите <code>"Загрузить выписку"</code> → в открывшемся окне выберите <code>"Настроить обмен"</code>.</li>
+  <li>В списке банков найдите <em>ПАО "ВТБ"</em> (если его нет, добавьте вручную через <code>"Добавить"</code>).</li>
+  <li>Укажите параметры обмена:
+    <ul>
+      <li>🔹 <strong>Формат файла:</strong> <code>"Текстовый (1С)"</code> или <code>"XML (ЦБ РФ)"</code> — в зависимости от выбранного ранее.</li>
+      <li>🔹 <strong>Кодировка:</strong> <code>"Windows-1251"</code> (для <code>txt</code>) или <code>"UTF-8"</code> (для <code>XML</code>).</li>
+      <li>🔹 <strong>Разделитель:</strong> <code>"Табуляция"</code> (для <code>txt</code>).</li>
+    </ol>
+  </li>
+  <li>Сохраните настройки.</li>
+</ol>
+
+<p>Если вы используете <code>XML</code>, дополнительно потребуется указать <strong>схему обмена</strong>. Для этого:</p>
+<ol>
+  <li>В настройках обмена нажмите <code>"Загрузить схему"</code>.</li>
+  <li>Выберите файл схемы (обычно предоставляется банком или доступен на сайте <em>1С</em>).</li>
+  <li>Укажите соответствие полей (например, <code>"Сумма"</code> → <code>"Amount"</code>, <code>"Дата"</code> → <code>"Date"</code>).</li>
+</ol>
+
+
+<p>Настроен обмен с банком ВТБ|Выбран правильный формат файла|Указана корректная кодировка|Сохранены настройки обмена--></p>
+
+<h2 id="3-пошаговая-инструкция-как-загрузить-выписку-втб-в-1с">3. Пошаговая инструкция: как загрузить выписку ВТБ в 1С</h2>
+
+<p>Когда выписка экспортирована из <em>ВТБ Онлайн</em>, а настройки в <strong>1С</strong> выполнены, можно приступать к импорту. Рассмотрим процесс на примере файла <code>1С (txt)</code>:</p>
+
+<ol>
+  <li><strong>Откройте раздел загрузки:</strong>
+    <p>Перейдите в <code>"Банк и касса"</code> → <code>"Банковские выписки"</code> → <code>"Загрузить выписку"</code>.</p>
+  </li>
+  <li><strong>Выберите файл:</strong>
+    <p>Нажмите <code>"Выбрать файл"</code> и укажите путь к сохранённой выписке (например, <code>выписка_ВТБ_202605.txt</code>).</p>
+  </li>
+  <li><strong>Проверьте параметры:</strong>
+    <p>Убедитесь, что в поле <code>"Банк"</code> указан <em>ВТБ</em>, а в <code>"Счёт"</code> — правильный расчётный счёт (он должен совпадать с номером в выписке).</p>
+  </li>
+  <li><strong>Запустите загрузку:</strong>
+    <p>Нажмите <code>"Загрузить"</code>. Система проанализирует файл и предложит сопоставить колонки (если это первый импорт).</p>
+  </li>
+  <li><strong>Сопоставление полей:</strong>
+    <p>Проверьте, чтобы данные из файла корректно сопоставлялись с полями в <strong>1С</strong>:
+      <ul>
+        <li>📅 <code>"Дата документа"</code> → дата операции.</li>
+        <li>💰 <code>"Сумма"</code> → сумма платежа (с учётом знака: "+" для поступлений, "-" для списаний).</li>
+        <li>🏢 <code>"Контрагент"</code> → название организации или ФИО плательщика/получателя.</li>
+        <li>📝 <code>"Назначение платежа"</code> → комментарий к операции.</li>
+      </ol>
+    </p>
+  </li>
+  <li><strong>Подтверждение:</strong>
+    <p>Нажмите <code>"Выполнить"</code>. После успешной загрузки система покажет количество обработанных записей.</p>
+  </li>
+</ol>
+
+<p>Если всё прошло без ошибок, выписка отобразится в списке банковских документов. Каждая операция будет представлена как отдельная строка с возможностью редактирования (например, для уточнения статьи движения денежных средств).</p>
+
+
+<p>1) Расширение файла — оно должно быть <code>.txt</code>, а не <code>.txt.csv</code>.</p>
+<p>2) Кодировку — для <em>ВТБ</em> обычно используется <code>Windows-1251</code>.</p>
+<p>3) Наличие "лишних" символов в начале файла (например, BOM в UTF-8).--></p>
+
+<h2 id="4-типичные-ошибки-и-их-решение">4. Типичные ошибки и их решение</h2>
+
+<p>Даже при правильной настройке пользователи часто сталкиваются с проблемами. Рассмотрим самые распространённые ошибки и способы их устранения:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>"Не удалось распознать формат файла"</code></td>
+      <td>Неверный формат или кодировка файла.</td>
+      <td>
+        <ul>
+          <li>Проверьте расширение файла (должно быть <code>.txt</code>).</li>
+          <li>Пересохраните файл в кодировке <code>Windows-1251</code> (через <em>Блокнот</em> или <em>Notepad++</em>).</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>"Не найден банк"</code></td>
+      <td>В настройках обмена не указан <em>ВТБ</em>.</td>
+      <td>Добавьте банк в справочник <code>"Банки"</code> (раздел <code>"Справочники"</code>).</td>
+    </tr>
+    <tr>
+      <td><code>"Ошибка контроля сумм"</code></td>
+      <td>Разница между итогом в выписке и суммой операций.</td>
+      <td>
+        <ul>
+          <li>Проверьте, все ли операции загружены.</li>
+          <li>Сравните итоговую сумму в файле и в <strong>1С</strong>.</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><code>"Неверный номер счёта"</code></td>
+      <td>Номер счёта в файле не совпадает с номером в <strong>1С</strong>.</td>
+      <td>Отредактируйте номер счёта в настройках обмена или в файле выписки.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ещё одна частая проблема — <strong>дублирование операций</strong>. Это происходит, если одна и та же выписка загружается несколько раз. Чтобы избежать дублей:</p>
+<ul>
+  <li>🔍 Перед загрузкой проверяйте, не импортировались ли операции за этот период ранее.</li>
+  <li>📅 Используйте фильтр по датам в <em>ВТБ Онлайн</em>, чтобы выгружать только новые транзакции.</li>
+  <li>🗑️ В <strong>1С</strong> настройте автоматическое удаление дублей (раздел <code>"Настройки обмена"</code> → <code>"Правила обработки"</code>).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если после загрузки часть операций отобразилась как <code>"Неопознанные"</code>, проверьте:
+  <ul>
+    <li>Корректность заполнения поля <code>"Контрагент"</code> (должно совпадать с данными в справочнике <strong>1С</strong>).</li>
+    <li>Наличие статьи движения денежных средств (если не указана, система не сможет автоматически определить тип операции).</li>
+  </ul>
+</blockquote>
+
+
+<p>1С (txt)|XML (ЦБ РФ)|Excel (xlsx)|CSV|Другой--></p>
+
+<h2 id="5-автоматизация-как-настроить-регулярный-импорт-выписок">5. Автоматизация: как настроить регулярный импорт выписок</h2>
+
+<p>Ручная загрузка выписок отнимает время, особенно если операций много. В <strong>1С</strong> есть инструменты для автоматизации этого процесса:</p>
+
+<p><strong>Способ 1: Обмен по расписанию</strong></p>
+<p>Настройте автоматическую загрузку выписок по расписанию (например, ежедневно в 9:00). Для этого:</p>
+<ol>
+  <li>Перейдите в <code>"Администрирование"</code> → <code>"Обмен данными"</code> → <code>"Настройка обмена с банками"</code>.</li>
+  <li>Выберите <em>ВТБ</em> и нажмите <code>"Настроить расписание"</code>.</li>
+  <li>Укажите частоту (ежедневно, еженедельно) и время.</li>
+  <li>В поле <code>"Источник данных"</code> укажите папку, куда <em>ВТБ Онлайн</em> будет сохранять выписки (например, сетевой диск или облачное хранилище).</li>
+</ol>
+
+<p><strong>Способ 2: Интеграция через API</strong></p>
+<p>Для корпоративных клиентов <em>ВТБ</em> предоставляет доступ к <strong>API</strong>, который позволяет загружать выписки напрямую в <strong>1С</strong> без ручного экспорта. Для этого:</p>
+<ol>
+  <li>Получите доступ к API в личном кабинете <em>ВТБ Бизнес Онлайн</em> (раздел <code>"Настройки"</code> → <code>"API"</code>).</li>
+  <li>В <strong>1С</strong> настройте <strong>HTTP-соединение</strong> (раздел <code>"Администрирование"</code> → <code>"Обмен данными"</code> → <code>"HTTP-сервисы"</code>).</li>
+  <li>Укажите URL API, логин/пароль и параметры запроса (период, счёт).</li>
+  <li>Создайте <strong>регламентное задание</strong> для автоматического опроса API.</li>
+</ol>
+
+<p><strong>Способ 3: Внешние обработки</strong></p>
+<p>Если стандартные средства <strong>1С</strong> не подходят, можно использовать готовые обработки от партнёров <em>1С</em> или <em>ВТБ</em>. Например:
+  <ul>
+    <li>📥 <strong>"Загрузка выписок ВТБ"</strong> (доступна на портале <em>1С:ИТС</em>).</li>
+    <li>📥 <strong>"Банк-Клиент для 1С"</strong> (поддерживает более 50 банков, включая <em>ВТБ</em>).</li>
+  </ul>
+<p>Эти решения позволяют гибко настраивать правила импорта, обрабатывать нестандартные форматы и даже автоматически распознавать контрагентов по ИНН.</p></p>
+
+<details class="faq-item"><summary>Как проверить, что автоматическая загрузка работает?</summary><div class="faq-answer"><p>
+<p>После настройки расписания выполните тестовую загрузку вручную:</p>
+<p>1. Поместите файл выписки в указанную папку.</p>
+<p>2. Запустите регламентное задание через <code>"Все функции"</code> → <code>"Регламентные задания"</code>.</p>
+<p>3. Проверьте журнал обмена (<code>"Администрирование"</code> → <code>"Журналы"</code> → <code>"Обмен данными"</code>).</p>
+<p>Если в журнале появилась запись <code>"Выполнено успешно"</code>, автоматизация работает.</p></div></details></p>
+
+<h2 id="6-работа-с-выписками-в-1с-что-делать-после-загрузки">6. Работа с выписками в 1С: что делать после загрузки</h2>
+
+<p>Загрузка выписки — только первый этап. Далее необходимо обработать операции, чтобы они корректно отразились в учёте. Вот что нужно сделать:</p>
+
+<p><strong>1. Проверка и редактирование операций</strong></p>
+<ul>
+  <li>🔍 Откройте загруженную выписку в <strong>1С</strong> (раздел <code>"Банковские выписки"</code>).</li>
+  <li>📌 Проверьте статусы операций:
+    <ul>
+      <li><strong>Зелёный</strong> — операция распознана и готова к проведению.</li>
+      <li><strong>Жёлтый</strong> — требуется уточнение (например, не найден контрагент).</li>
+      <li><strong>Красный</strong> — ошибка (неверная сумма, дата и т. д.).</li>
+    </ul>
+  </li>
+  <li>🖊️ Для жёлтых и красных операций уточните данные:
+    <ul>
+      <li>Добавьте недостающих контрагентов в справочник (<code>"Справочники"</code> → <code>"Контрагенты"</code>).</li>
+      <li>Укажите статью движения денежных средств (<code>"Банк и касса"</code> → <code>"Статьи движения ден. средств"</code>).</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>2. Проведение документов</strong></p>
+<p>После проверки:</p>
+<ol>
+  <li>Выделите все операции (или только корректные).</li>
+  <li>Нажмите <code>"Провести"</code> → <code>"Провести выбранные"</code>.</li>
+  <li>Система сформирует бухгалтерские проводки (например, <code>Дт 51 Кт 62</code> для поступления от покупателя).</li>
+</ol>
+
+<p><strong>3. Сверка с банком</strong></p>
+<p>Чтобы избежать расхождений:</p>
+<ul>
+  <li>📊 Сформируйте <strong>отчёт "Анализ счёта"</strong> (<code>"Банк и касса"</code> → <code>"Отчёты"</code> → <code>"Анализ счёта"</code>).</li>
+  <li>🔄 Сравните остаток в <strong>1С</strong> с остатком в <em>ВТБ Онлайн</em> на ту же дату.</li>
+  <li>🔍 Если есть расхождения, проверьте:
+    <ul>
+      <li>Не пропущены ли операции при загрузке.</li>
+      <li>Нет ли дублей.</li>
+      <li>Корректно ли указаны суммы (особенно по комиссиям банка).</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Всегда проводите сверку после загрузки выписки! Даже одна неучтённая операция может привести к ошибкам в отчётности и налоговых декларациях.</p></div>
+
+<h2 id="7-особенности-для-разных-версий-1с">7. Особенности для разных версий 1С</h2>
+
+<p>Процесс загрузки выписок может отличаться в зависимости от конфигурации и версии <strong>1С</strong>. Рассмотрим ключевые нюансы:</p>
+
+<p><strong>1С:Бухгалтерия 8.3 (последняя редакция)</strong></p>
+<ul>
+  <li>📌 Поддерживает автоматическое сопоставление полей для <code>1С (txt)</code> и <code>XML</code>.</li>
+  <li>📌 Есть встроенный мастер настройки обмена с банками.</li>
+  <li>📌 Для <code>XML</code> требуется указать схему обмена (доступна на портале <em>1С:ИТС</em>).</li>
+</ul>
+
+<p><strong>1С:Управление торговлей 11</strong></p>
+<ul>
+  <li>📌 Загрузка выписок доступна в разделе <code>"Денежные средства"</code> → <code>"Банковские выписки"</code>.</li>
+  <li>📌 Поддерживает привязку операций к заказам и счетам (например, автоматическое списание по оплаченному счёту).</li>
+  <li>📌 Для корректной работы необходимо заполнить справочник <code>"Банковские счета контрагентов"</code>.</li>
+</ul>
+
+<p><strong>1С:ERP Управление предприятием 2</strong></p>
+<ul>
+  <li>📌 Имеет расширенные настройки обмена, включая поддержку <strong>API банков</strong>.</li>
+  <li>📌 Позволяет настраивать правила автоматического распознавания операций (например, по ключевым словам в назначении платежа).</li>
+  <li>📌 Требует предварительной настройки <strong>планов обмена</strong> для многопользовательской работы.</li>
+</ul>
+
+<p><strong>1С:Бухгалтерия 7.7</strong></p>
+<p>Если вы всё ещё используете устаревшую версию:</p>
+<ul>
+  <li>🔴 Загрузка выписок из <em>ВТБ</em> возможна только через <code>txt</code>-файлы.</li>
+  <li>🔴 Нет встроенного мастера настройки — придётся вручную сопоставлять поля.</li>
+  <li>🔴 Для <code>XML</code> потребуется внешняя обработка (например, <strong>"Универсальный обмен данными"</strong>).</li>
+</ul>
+
+<blockquote>⚠️ <strong>Внимание:</strong> В <strong>1С:Бухгалтерия 7.7</strong> при загрузке выписок из <em>ВТБ</em> часто возникает ошибка <code>"Не хватает памяти"</code> при обработке больших файлов. Решение: разбейте выписку на несколько файлов по месяцам или используйте <em>1С:Конвертацию данных</em> для переноса в актуальную версию.</blockquote>
+
+<h2 id="8-альтернативные-способы-загрузки-выписок-втб-в-1с">8. Альтернативные способы загрузки выписок ВТБ в 1С</h2>
+
+<p>Если стандартные методы не подходят, можно использовать альтернативные подходы:</p>
+
+<p><strong>1. Через "Банк-Клиент" (система "Директ-Банк")</strong></p>
+<p><em>ВТБ</em> предлагает корпоративным клиентам систему <strong>"ВТБ Директ-Банк"</strong>, которая интегрируется с <strong>1С</strong> через модуль <strong>"Банк-Клиент"</strong>. Преимущества:</p>
+<ul>
+  <li>🔹 Автоматическая выгрузка выписок без ручного экспорта.</li>
+  <li>🔹 Поддержка электронных платежных документов (ЭПД).</li>
+  <li>🔹 Возможность отправки платёжных поручений прямо из <strong>1С</strong>.</li>
+</ul>
+<p>Для настройки:</p>
+<ol>
+  <li>Установите модуль <strong>"Банк-Клиент"</strong> (доступен на диске ИТС или по подписке).</li>
+  <li>Настройте соединение с <em>ВТБ Директ-Банк</em> (требуются логин/пароль и сертификат ЭЦП).</li>
+  <li>Создайте <strong>регламентное задание</strong> для автоматического обмена.</li>
+</ol>
+
+<p><strong>2. Через сервис "1С:Отчётность"</strong></p>
+<p>Если вы используете <strong>1С:Отчётность</strong> для сдачи отчётности в ФНС, можно настроить загрузку выписок через этот сервис:</p>
+<ol>
+  <li>Подключите <em>ВТБ</em> как источник данных в <strong>1С:Отчётность</strong>.</li>
+  <li>Настройте автоматическую выгрузку выписок в <strong>1С:Бухгалтерию</strong>.</li>
+  <li>Используйте <strong>облачный обмен</strong> для синхронизации данных между программами.</li>
+</ol>
+
+<p><strong>3. С помощью внешних сервисов</strong></p>
+<p>Существуют сторонние сервисы, которые упрощают обмен данными между банками и <strong>1С</strong>:</p>
+<ul>
+  <li>🌐 <strong>"Клеверенс"</strong> — поддерживает более 100 банков, включая <em>ВТБ</em>. Позволяет настраивать гибкие правила импорта.</li>
+  <li>🌐 <strong>"Атол Онлайн"</strong> — облачный сервис для автоматической загрузки выписок и сверки с банком.</li>
+  <li>🌐 <strong>"БухСофт:Обмен с банками"</strong> — решение для массовой обработки выписок.</li>
+</ul>
+
+<p>Эти сервисы платные, но они экономят время, если у вас много счетов или сложные правила учёта.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы часто работаете с выписками из разных банков, рассмотрите подключение сервиса <strong>"1С:Казначейство"</strong>. Он позволяет централизованно управлять денежными потоками, автоматически распознавать платежи и даже прогнозировать cash-flow.</p></div>
+
+<h2 id="faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</h2>
+
+<details>
+  <summary>Можно ли загрузить выписку ВТБ в 1С из Excel?</summary>
+  <p>Да, но это требует дополнительных действий. Стандартный импорт <code>Excel</code> в <strong>1С</strong> не поддерживается, поэтому нужно:</p>
+  <ol>
+    <li>Преобразовать <code>Excel</code> в <code>CSV</code> (сохранить как <code>.csv</code>).</li>
+    <li>Использовать <strong>внешнюю обработку</strong> (например, <strong>"Загрузка из Excel в 1С"</strong> с портала <em>1С:ИТС</em>).</li>
+    <li>Вручную сопоставить столбцы <code>Excel</code> с полями <strong>1С</strong>.</li>
+  </ol>
+  <p>Гораздо проще выгружать выписку сразу в формате <code>1С (txt)</code>.</p>
+</details>
+
+<details>
+  <summary>Почему в 1С не отображаются все операции из выписки?</summary>
+  <p>Возможные причины:</p>
+  <ul>
+    <li>🔸 В настройках обмена указан неверный <strong>период</strong> (проверьте даты в файле и в <strong>1С</strong>).</li>
+    <li>🔸 Файл выписки повреждён (попробуйте выгрузить его заново из <em>ВТБ Онлайн</em>).</li>
+    <li>🔸 В <strong>1С</strong> установлен фильтр по сумме или типу операций (проверьте настройки импорта).</li>
+    <li>🔸 Не хватает прав у пользователя (нужны права на редактирование банковских выписок).</li>
+  </ul>
+  <p>Решение: откройте файл выписки в <em>Блокноте</em> и проверьте, все ли операции там присутствуют. Если да — проблема в настройках <strong>1С</strong>.</p>
+</details>
+
+<details>
+  <summary>Как загрузить выписку ВТБ в 1С, если банк не отображается в списке?</summary>
+  <p>Если <em>ВТБ</em> отсутствует в справочнике банков:</p>
+  <ol>
+    <li>Перейдите в <code>"Справочники"</code> → <code>"Банки"</code>.</li>
+    <li>Нажмите <code>"Создать"</code> и заполните данные:
+      <ul>
+        <li><strong>Наименование:</strong> ПАО "ВТБ"</li>
+        <li><strong>БИК:</strong> 044525187 (для головного офиса, уточните для вашего региона).</li>
+        <li><strong>Корр. счёт:</strong> 30101810145250000187 (стандартный для <em>ВТБ</em>).</li>
+      </ol>
+    </li>
+    <li>Сохраните и повторите загрузку выписки.</li>
+  </ol>
+  <p>Если банк есть в справочнике, но не отображается при выборе — проверьте, не скрыт ли он по фильтру (снимите все фильтры в списке банков).</p>
+</details>
+
+<details>
+  <summary>Что делать, если в выписке ВТБ неверно указаны суммы (например, вместо 1000 руб. отображается 10,00 руб.)?</summary>
+  <p>Эта ошибка связана с неверной интерпретацией разделителя дробной части. Решение:</p>
+  <ol>
+    <li>Откройте файл выписки в <em>Блокноте</em> и проверьте формат чисел:
+      <ul>
+        <li>Если суммы указаны как <code>1000,00</code> — в настройках обмена выберите разделитель <code>","</code>.</li>
+        <li>Если как <code>1000.00</code> — выберите разделитель <code>"."</code>.</li>
+      </ol>
+    </li>
+    <li>В настройках <strong>1С</strong> перейдите в <code>"Администрирование"</code> → <code>"Обмен данными"</code> → <code>"Настройка обмена с банками"</code>.</li>
+    <li>Ука</div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#1-подготовка-какой-формат-выписки-из-втб-подходит-для-1с">1. Подготовка: какой формат выписки из ВТБ подходит для 1С</a></li><li><a href="#2-настройка-1с-для-импорта-выписок-втб">2. Настройка 1С для импорта выписок ВТБ</a></li><li><a href="#3-пошаговая-инструкция-как-загрузить-выписку-втб-в-1с">3. Пошаговая инструкция: как загрузить выписку ВТБ в 1С</a></li><li><a href="#4-типичные-ошибки-и-их-решение">4. Типичные ошибки и их решение</a></li><li><a href="#5-автоматизация-как-настроить-регулярный-импорт-выписок">5. Автоматизация: как настроить регулярный импорт выписок</a></li><li><a href="#6-работа-с-выписками-в-1с-что-делать-после-загрузки">6. Работа с выписками в 1С: что делать после загрузки</a></li><li><a href="#7-особенности-для-разных-версий-1с">7. Особенности для разных версий 1С</a></li><li><a href="#8-альтернативные-способы-загрузки-выписок-втб-в-1с">8. Альтернативные способы загрузки выписок ВТБ в 1С</a></li><li><a href="#faq-ответы-на-частые-вопросы">FAQ: Ответы на частые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-uznat-polnye-rekvizity-karty-vtb.html" class="related-card">Как узнать полные реквизиты карты ВТБ: 5 официальных способов 2026</a></li><li><a href="/articles/k/ka/kak-najti-rekvizity-v-lichnom-kabinete-vtb-bank.html" class="related-card">Как найти реквизиты в личном кабинете ВТБ: пошаговая инструкция</a></li><li><a href="/articles/k/ko/kogda-sarovbiznesbank-perejdet-v-vtb.html" class="related-card">Саровбизнесбанк и ВТБ: когда и как пройдет интеграция</a></li><li><a href="/articles/k/ka/kak-otklyuchit-uslugi-karty-vtb.html" class="related-card">Как отключить услуги карты ВТБ: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-v-vtb-naznachit-prioritetnuyu-kartu.html" class="related-card">Как в ВТБ назначить приоритетную карту: пошаговая инструкция 2026</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-uznat-polnye-rekvizity-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать полные реквизиты карты ВТБ: 5 официальных способов 2026</span><span class="related-bottom-desc">Пошаговая инструкция, как получить реквизиты дебетовой/кредитной карты ВТБ онлайн и офлайн. Где найт</span></a><a href="/articles/k/ka/kak-najti-rekvizity-v-lichnom-kabinete-vtb-bank.html" class="related-bottom-card"><span class="related-bottom-title">Как найти реквизиты в личном кабинете ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид по поиску реквизитов счета в ВТБ Онлайн. Узнайте, где найти БИК, корр. счет и номер сч</span></a><a href="/articles/k/ko/kogda-sarovbiznesbank-perejdet-v-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Саровбизнесбанк и ВТБ: когда и как пройдет интеграция</span><span class="related-bottom-desc">Анализ ситуации с присоединением Саровбизнесбанка к ВТБ. Сроки перехода, изменения в обслуживании ка</span></a><a href="/articles/k/ka/kak-otklyuchit-uslugi-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить услуги карты ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробный гид по отказу от платных опций ВТБ. Отключаем СМС-информирование, страховки и подписки чер</span></a><a href="/articles/k/ka/kak-v-vtb-naznachit-prioritetnuyu-kartu.html" class="related-bottom-card"><span class="related-bottom-title">Как в ВТБ назначить приоритетную карту: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по выбору основной карты в ВТБ через мобильный банк, личный кабинет и банкомат</span></a><a href="/articles/k/ka/kak-vojti-v-vtb-biznes-onlajn-vkhod-v-lichnyj-kabinet.html" class="related-bottom-card"><span class="related-bottom-title">Вход в ВТБ Бизнес Онлайн: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как войти в личный кабинет ВТБ Бизнес Онлайн: регистрация, авторизация, восстановление доступа и реш</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

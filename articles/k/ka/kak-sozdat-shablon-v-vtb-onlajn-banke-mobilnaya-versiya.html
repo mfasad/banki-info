@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Шаблоны в ВТБ Онлайн: как создать в мобильном приложении (2026) — Банки Инфо</title>
+    <meta name="description" content="Пошаговая инструкция по созданию шаблонов платежей в мобильном приложении ВТБ Онлайн: от входа в систему до сохранения регулярных переводов. Актуально для iOS/Android.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-sozdat-shablon-v-vtb-onlajn-banke-mobilnaya-versiya.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Шаблоны в ВТБ Онлайн: как создать в мобильном приложении (2026)">
+    <meta property="og:description" content="Пошаговая инструкция по созданию шаблонов платежей в мобильном приложении ВТБ Онлайн: от входа в систему до сохранения регулярных переводов. Актуально для iOS/Android.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Шаблоны в ВТБ Онлайн: как создать в мобильном приложении (2026)</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как создать шаблон платежа в ВТБ Онлайн через мобильное приложение: инструкция 2026</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#подготовка-к-созданию-шаблона-что-нужно-проверить-заранее">Подготовка к созданию шаблона: что нужно проверить заранее</a></li><li><a href="#пошаговая-инструкция-как-создать-шаблон-платежа-в-мобильном-приложении">Пошаговая инструкция: как создать шаблон платежа в мобильном приложении</a></li><li><a href="#типы-шаблонов-какой-выбрать-для-ваших-задач">Типы шаблонов: какой выбрать для ваших задач</a></li><li><a href="#скрытые-функции-шаблонов-о-чём-не-рассказывает-поддержка">Скрытые функции шаблонов: о чём не рассказывает поддержка</a></li><li><a href="#ошибки-при-создании-шаблонов-и-как-их-избежать">Ошибки при создании шаблонов и как их избежать</a></li><li><a href="#безопасность-шаблонов-как-защитить-свои-деньги">Безопасность шаблонов: как защитить свои деньги</a></li><li><a href="#альтернативные-способы-создания-шаблонов">Альтернативные способы создания шаблонов</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-шаблонах-в-втб-онлайн">FAQ: ответы на частые вопросы о шаблонах в ВТБ Онлайн</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Регулярные платежи — неотъемлемая часть финансовой жизни: оплата коммунальных услуг, абонементов в спортзал, переводы родственникам или пополнение вкладов. ВТБ Онлайн позволяет автоматизировать эти операции с помощью <strong>шаблонов платежей</strong>, которые экономят время и снижают риск ошибок при ручном вводе реквизитов. Мобильное приложение банка предлагает удобный инструмент для создания таких шаблонов, но не все пользователи знают, как им воспользоваться правильно.</p>
+
+<p>В этой статье мы разберём процесс создания шаблона в мобильной версии <em>ВТБ Онлайн</em> по шагам — от авторизации в системе до тонкостей настройки периодичности. Особое внимание уделим <strong>скрытым возможностям</strong> приложения, которые упрощают работу с регулярными платежами, а также типичным ошибкам, из-за которых шаблоны могут не сохраняться. Если вы ещё не пользовались этой функцией, после прочтения сможете настроить автоматическую оплату любых услуг за 5 минут.</p>
+
+<p>Важно: инструкция актуальна для последних версий приложения <em>ВТБ Онлайн</em> на <em>Android</em> и <em>iOS</em> (обновлено в июне 2026 года). Если у вас устаревшая версия, некоторые пункты меню могут отличаться — обновите приложение через <code>App Store</code> или <code>Google Play</code> перед началом работы.
+
+<div class="poll-widget" id="poll-bef2bff3"><div class="poll-widget-question">📊 Как часто вы используете шаблоны платежей?</div><div class="poll-widget-option" data-poll="bef2bff3" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Ежемесячно</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="bef2bff3" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в квартал</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="bef2bff3" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Реже</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="bef2bff3" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Никогда</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="подготовка-к-созданию-шаблона-что-нужно-проверить-заранее">Подготовка к созданию шаблона: что нужно проверить заранее</h2>
+
+<p>Прежде чем приступать к настройке шаблона, убедитесь, что ваше мобильное приложение <em>ВТБ Онлайн</em> готово к работе. Вот ключевые моменты, которые стоит проверить:
+
+<p>1. <strong>Актуальная версия приложения</strong>. Устаревшие версии могут не поддерживать создание шаблонов или содержать ошибки. Чтобы обновить приложение:
+<ul>
+  <li>📱 На <em>Android</em>: откройте <code>Google Play</code> → найдите <em>ВТБ Онлайн</em> → нажмите «Обновить».</li>
+  <li>🍎 На <em>iOS</em>: откройте <code>App Store</code> → перейдите в раздел «Обновления» → найдите <em>ВТБ Онлайн</em>.</li>
+</ul>
+
+<p>2. <strong>Подключённая услуга «Мобильный банк»</strong>. Без неё шаблоны платежей создавать нельзя. Проверить статус можно в личном кабинете на сайте <em>ВТБ</em> или через банкомат. Если услуга не активна, подключите её через меню <code>Настройки → Услуги → Мобильный банк</code>.
+
+<p>3. <strong>Достаточный баланс на счёте</strong>. Шаблоны с автоматической оплатой требуют наличия средств на момент списания. Если баланс будет нулевым, платеж не пройдёт, а шаблон может деактивироваться.
+
+<p>4. <strong>Реквизиты получателя</strong>. Заранее подготовьте точные данные: номер счёта, БИК, ИНН (для юридических лиц) или номер телефона/карты (для переводов физлицам). Ошибка в одном символе приведёт к отказу в выполнении платежа.
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы часто оплачиваете одни и те же услуги (например, ЖКХ), сохраните реквизиты поставщика в <code>Избранное</code> — это ускорит создание шаблона.</p></div>
+
+<h2 id="пошаговая-инструкция-как-создать-шаблон-платежа-в-мобильном-приложении">Пошаговая инструкция: как создать шаблон платежа в мобильном приложении</h2>
+
+<p>Процесс настройки шаблона занимает не более 5 минут. Следуйте инструкции ниже, чтобы избежать ошибок:
+
+<p>1. <strong>Авторизуйтесь в приложении</strong>. Введите логин (номер телефона или email) и пароль. Если используете биометрию (отпечаток пальца или Face ID), подтвердите вход через неё.
+
+<p>2. <strong>Перейдите в раздел «Платежи»</strong>. На главном экране тапните по иконке <code>Платежи</code> (обычно расположена в нижнем меню). Если её нет, нажмите на три горизонтальные линии (☰) в левом верхнем углу и выберите пункт <code>Платежи и переводы</code>.
+
+<p>3. <strong>Выберите тип платежа</strong>:
+<ul>
+  <li>💳 <strong>Перевод на карту</strong> — для отправки средств на карты ВТБ или других банков.</li>
+  <li>🏠 <strong>Оплата услуг</strong> — для ЖКХ, интернета, мобильной связи и т.д.</li>
+  <li>📄 <strong>По реквизитам</strong> — для платежей юридическим лицам (налоги, штрафы, обучение).</li>
+</ul>
+
+<p>4. <strong>Заполните данные получателя</strong>. В зависимости от типа платежа введите:
+<ul>
+  <li>🔢 Для переводов на карту: номер карты (16 цифр) и ФИО получателя.</li>
+  <li>📋 Для оплаты услуг: выберите поставщика из списка (например, <em>МТС</em>, <em>Ростелеком</em>) или введите реквизиты вручную.</li>
+  <li>🏛️ Для платежей по реквизитам: БИК, номер счёта, ИНН/КПП, назначение платежа.</li>
+</ul>
+
+<p>5. <strong>Укажите сумму и периодичность</strong>. Здесь начинается настройка шаблона:
+<ul>
+  <li>В поле <code>Сумма</code> введите нужную цифру.</li>
+  <li>Нажмите на переключатель <code>Сделать шаблоном</code> (обычно расположен под полем суммы).</li>
+  <li>Выберите периодичность: <code>Ежемесячно</code>, <code>Еженедельно</code>, <code>Раз в квартал</code> или <code>Индивидуальный график</code>.</li>
+  <li>Укажите дату первого платежа и время списания (например, <code>5-е число каждого месяца в 10:00</code>).</li>
+</ul>
+
+<p>6. <strong>Сохраните шаблон</strong>. Нажмите <code>Подтвердить</code>, затем введите одноразовый пароль из SMS. После этого шаблон появится в разделе <code>Мои шаблоны</code>.
+
+<div class="checklist-block"><h4>☑️ Чек-лист перед сохранением шаблона</h4><label class="check-item"><input type="checkbox"><span>Проверьте правильность реквизитов</span></label><label class="check-item"><input type="checkbox"><span>Убедитесь, что сумма указана верно</span></label><label class="check-item"><input type="checkbox"><span>Выберите удобную дату списания</span></label><label class="check-item"><input type="checkbox"><span>Активируйте опцию "Сделать шаблоном"</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="типы-шаблонов-какой-выбрать-для-ваших-задач">Типы шаблонов: какой выбрать для ваших задач</h2>
+
+<p>ВТБ Онлайн предлагает несколько видов шаблонов, каждый из которых подходит для определённых целей. Разберём их подробнее:
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип шаблона</th>
+      <th>Для чего подходит</th>
+      <th>Особенности</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Единоразовый шаблон</strong></td>
+      <td>Для платежей, которые повторяются нерегулярно (например, переводы родственникам)</td>
+      <td>Сохраняет реквизиты, но не настраивает автоматическое списание. Нужно запускать вручную.</td>
+    </tr>
+    <tr>
+      <td><strong>Регулярный шаблон</strong></td>
+      <td>Для ежемесячных платежей (ЖКХ, кредиты, абонементы)</td>
+      <td>Автоматически списывает сумму в выбранную дату. Можно настроить уведомления за 1–3 дня до платежа.</td>
+    </tr>
+    <tr>
+      <td><strong>Шаблон с переменной суммой</strong></td>
+      <td>Для платежей, где сумма меняется (например, коммунальные услуги по счётчикам)</td>
+      <td>Приходит уведомление о необходимости подтвердить сумму перед списанием. Требует ручного контроля.</td>
+    </tr>
+    <tr>
+      <td><strong>Отложенный шаблон</strong></td>
+      <td>Для платежей, которые нужно выполнить один раз в будущем (например, оплата тура за месяц)</td>
+      <td>Настраивается дата списания, но повторяемость отсутствует.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Наиболее востребованный вариант — <strong>регулярный шаблон</strong>. Он идеально подходит для оплаты фиксированных услуг, таких как:
+<ul>
+  <li>📡 Интернет и кабельное ТВ (например, <em>Ростелеком</em> или <em>МГТС</em>).</li>
+  <li>💡 Электроэнергия (если сумма приблизительно одинаковая каждый месяц).</li>
+  <li>🏋️ Абонементы в фитнес-клубы или бассейн.</li>
+  <li>🎓 Оплата обучения (если вносится ежемесячный взнос).</li>
+</ul>
+
+<p><mark>Важно: шаблоны с переменной суммой требуют подтверждения каждый раз перед списанием. Если вы не подтвердите платеж в течение 24 часов, он будет отменён.</mark>
+
+<h2 id="скрытые-функции-шаблонов-о-чём-не-рассказывает-поддержка">Скрытые функции шаблонов: о чём не рассказывает поддержка</h2>
+
+<p>Мобильное приложение <em>ВТБ Онлайн</em> содержит несколько «спрятанных» возможностей, которые упрощают работу с шаблонами. Вот самые полезные из них:
+
+<p>1. <strong>Группировка шаблонов по категориям</strong>. Если у вас много регулярных платежей, их можно организовать по папкам. Для этого:
+<ul>
+  <li>Перейдите в <code>Мои шаблоны</code>.</li>
+  <li>Нажмите на три точки (⋮) рядом с нужным шаблоном.</li>
+  <li>Выберите <code>Добавить в категорию</code> и создайте новую (например, «Коммуналка» или «Абонементы»).</li>
+</ul>
+
+<p>2. <strong>Экспорт шаблонов в Excel</strong>. Полезно для бухгалтерии или личного контроля расходов. Чтобы экспортировать:
+<ul>
+  <li>В разделе <code>Мои шаблоны</code> нажмите на иконку шестерёнки (⚙️).</li>
+  <li>Выберите <code>Экспортировать историю</code>.</li>
+  <li>Укажите период (например, последний год) и формат файла (<code>.xlsx</code> или <code>.csv</code>).</li>
+</ul>
+<p>Файл придёт на вашу электронную почту, привязанную к аккаунту.
+
+<p>3. <strong>Настройка уведомлений о предстоящем платеже</strong>. По умолчанию приложение отправляет SMS за день до списания, но можно изменить это:
+<ul>
+  <li>Откройте нужный шаблон.</li>
+  <li>Тапните на <code>Настройки уведомлений</code>.</li>
+  <li>Выберите период: <code>За 3 дня</code>, <code>За неделю</code> или <code>В день платежа</code>.</li>
+</ul>
+
+<p>4. <strong>Приостановка шаблона без удаления</strong>. Если временно не нужно списывать средства (например, уехали в отпуск), не удаляйте шаблон — приостановите его:
+<ul>
+  <li>В разделе <code>Мои шаблоны</code> смахните шаблон влево.</li>
+  <li>Выберите <code>Приостановить</code>.</li>
+  <li>Укажите дату возобновления (или оставьте поле пустым для ручного включения).</li>
+</ul>
+
+<details class="faq-item"><summary>Как восстановить удалённый шаблон?</summary><div class="faq-answer"><p>Если вы случайно удалили шаблон, его можно восстановить в течение 30 дней через раздел <code>Архив шаблонов</code> (доступен в настройках профиля). После 30 дней данные удаляются безвозвратно.</p></div></details>
+
+<h2 id="ошибки-при-создании-шаблонов-и-как-их-избежать">Ошибки при создании шаблонов и как их избежать</h2>
+
+<p>Даже при следовании инструкции пользователи часто сталкиваются с проблемами. Вот самые распространённые ошибки и способы их решения:
+
+<p>1. <strong>Шаблон не сохраняется</strong>. Причины:
+<ul>
+  <li>🔴 Недостаточно средств на счёте. Решение: пополните баланс или выберите другой счёт для списания.</li>
+  <li>🔴 Некорректные реквизиты. Решение: проверьте БИК, номер счёта или карты на опечатки.</li>
+  <li>🔴 Технические работы в банке. Решение: попробуйте позже или создайте шаблон через веб-версию <em>ВТБ Онлайн</em>.</li>
+</ul>
+
+<p>2. <strong>Платеж не проходит в назначенную дату</strong>. Возможные причины:
+<ul>
+  <li>🔴 На счёте недостаточно средств (включая комиссию, если она есть).</li>
+  <li>🔴 Карта или счёт заблокированы. Проверьте статус в разделе <code>Мои счета</code>.</li>
+  <li>🔴 Изменились реквизиты получателя (например, у поставщика услуг сменился расчётный счёт).</li>
+</ul>
+
+<p>3. <strong>Не приходят уведомления о платеже</strong>. Что делать:
+<ul>
+  <li>🔴 Проверьте настройки уведомлений в профиле (<code>Настройки → Уведомления → Шаблоны платежей</code>).</li>
+  <li>🔴 Убедитесь, что номер телефона, привязанный к аккаунту, активен.</li>
+  <li>🔴 Обновите приложение — в старых версиях могут быть ошибки с push-сообщениями.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если шаблон не сработал, первым делом проверьте историю операций в разделе <code>Мои платежи</code>. Там отображаются все попытки списания, включая неудачные, с указанием причины отказа.</p></div>
+
+<p><blockquote>⚠️ <strong>Внимание:</strong> Если вы изменили номер телефона, привязанный к аккаунту <em>ВТБ Онлайн</em>, все шаблоны платежей будут деактивированы. Их придётся настраивать заново после подтверждения нового номера.</blockquote>
+
+<h2 id="безопасность-шаблонов-как-защитить-свои-деньги">Безопасность шаблонов: как защитить свои деньги</h2>
+
+<p>Автоматические платежи удобны, но требуют повышенного внимания к безопасности. Следуйте этим правилам, чтобы избежать мошенничества:
+
+<p>1. <strong>Используйте двухфакторную аутентификацию</strong>. Подключите подтверждение платежей не только по SMS, но и через push-уведомления в приложении. Для этого:
+<ul>
+  <li>Перейдите в <code>Настройки → Безопасность</code>.</li>
+  <li>Активируйте опцию <code>Подтверждение по push</code>.</li>
+</ul>
+
+<p>2. <strong>Настраивайте лимиты на автоматические платежи</strong>. В <em>ВТБ Онлайн</em> можно установить максимальную сумму для шаблонов:
+<ul>
+  <li>В разделе <code>Настройки → Лимиты</code> выберите <code>Лимиты на шаблоны</code>.</li>
+  <li>Укажите сумму (например, <code>5 000 ₽ в месяц</code>), свыше которой потребуется дополнительное подтверждение.</li>
+</ul>
+
+<p>3. <strong>Проверяйте историю платежей</strong>. Регулярно (раз в 1–2 недели) просматривайте раздел <code>История операций</code>, чтобы убедиться, что все шаблоны сработали корректно. Обращайте внимание на:
+<ul>
+  <li>🔍 Неизвестные получатели.</li>
+  <li>🔍 Суммы, превышающие обычные платежи.</li>
+  <li>🔍 Платежи в необычное время (например, ночью).</li>
+</ul>
+
+<p>4. <strong>Не сохраняйте шаблоны для переводов незнакомцам</strong>. Мошенники могут попросить создать шаблон на их счёт, обещая вернуть деньги позже. <strong>Никогда не соглашайтесь</strong> — после сохранения шаблона вы не сможете отменить платеж, если он уже списан.
+
+<p><blockquote>⚠️ <strong>Внимание:</strong> Если вы потеряли телефон с установленным приложением <em>ВТБ Онлайн</em>, немедленно заблокируйте доступ через веб-версию банка или позвоните в поддержку по номеру <code>8 800 100-24-24</code>. Шаблоны платежей в этом случае не удалятся, но мошенники не смогут их изменить без подтверждения по SMS.</blockquote>
+
+<h2 id="альтернативные-способы-создания-шаблонов">Альтернативные способы создания шаблонов</h2>
+
+<p>Если мобильное приложение по какой-то причине не подходит (например, нет смартфона или проблемы с авторизацией), можно создать шаблон другими способами:
+
+<p>1. <strong>Через веб-версию <em>ВТБ Онлайн</strong></strong>:
+<ul>
+  <li>🌐 Перейдите на сайт <a href="https://online.vtb.ru" target="_blank" rel="noopener">online.vtb.ru</a>.</li>
+  <li>🔑 Авторизуйтесь с помощью логина и пароля.</li>
+  <li>📝 Следуйте тем же шагам, что и в мобильном приложении (раздел <code>Платежи → Создать шаблон</code>).</li>
+</ul>
+
+<p>2. <strong>В банкомате или терминале ВТБ</strong>:
+<ul>
+  <li>🏧 Вставьте карту и введите PIN-код.</li>
+  <li>🔍 Выберите раздел <code>Платежи и переводы → Мои шаблоны</code>.</li>
+  <li>📋 Следуйте инструкциям на экране. Обратите внимание: в банкоматах можно создать только шаблоны для переводов на карты или оплаты услуг из предварительного списка.</li>
+</ul>
+
+<p>3. <strong>Через голосового помощника <em>ВТБ</strong></strong>:
+<ul>
+  <li>📞 Позвоните по номеру <code>8 800 100-24-24</code>.</li>
+  <li>🎤 Скажите: «Создать шаблон платежа».</li>
+  <li>🔢 Следуйте голосовым подсказкам (потребуется назвать реквизиты и сумму).</li>
+</ul>
+<p>Этот способ подходит для простых переводов, но не поддерживает настройку периодичности.
+
+<p>4. <strong>В офисе банка</em>. Если вы не уверены в своих силах, обратитесь к специалисту ВТБ. Возьмите с собой:
+<ul>
+  <li>🆔 Паспорт.</li>
+  <li>💳 Карту, с которой будут списываться средства.</li>
+  <li>📄 Реквизиты получателя (если это юридическое лицо).</li>
+</ul>
+
+<h2 id="faq-ответы-на-частые-вопросы-о-шаблонах-в-втб-онлайн">FAQ: ответы на частые вопросы о шаблонах в ВТБ Онлайн</h2>
+
+<details>
+  <summary>Можно ли создать шаблон для перевода на карту другого банка?</summary>
+  <p>Да, в <em>ВТБ Онлайн</em> можно настроить шаблон для переводов на карты любых банков (Сбербанк, Тинькофф, Альфа-Банк и др.). Для этого выберите тип платежа <code>Перевод на карту</code> и введите номер карты получателя (16 цифр). Комиссия за такой перевод составит <code>1,5%</code> (минимум <code>30 ₽</code>), если получатель не является клиентом ВТБ.</p>
+</details>
+
+<details>
+  <summary>Сколько шаблонов можно создать в мобильном приложении?</summary>
+  <p>Лимитов на количество шаблонов нет, но банк рекомендует не создавать более <code>50 активных шаблонов</code> одновременно — это может замедлить работу приложения. При превышении этого числа система предложит архивировать неиспользуемые шаблоны.</p>
+</details>
+
+<details>
+  <summary>Как изменить сумму или дату в уже созданном шаблоне?</summary>
+  <p>Чтобы отредактировать шаблон:
+  <ol>
+    <li>Перейдите в раздел <code>Мои шаблоны</code>.</li>
+    <li>Выберите нужный шаблон и нажмите на иконку карандаша (✏️).</li>
+    <li>Измените сумму, дату или реквизиты.</li>
+    <li>Сохраните изменения, подтвердив их SMS-кодом.</li>
+  </ol>
+  <p><strong>Важно:</strong> если шаблон приостановлен, сначала активируйте его.</p>
+</details>
+
+<details>
+  <summary>Что делать, если шаблон списал деньги дважды?</summary>
+  <p>Двойное списание может произойти из-за технического сбоя. В этом случае:
+  <ol>
+    <li>Проверьте баланс — иногда вторая транзакция отменяется автоматически в течение суток.</li>
+    <li>Если сумма не вернулась, обратитесь в поддержку ВТБ через чат в приложении или по телефону <code>8 800 100-24-24</code>.</li>
+    <li>Сохраните скриншоты истории платежей — они понадобятся для оспаривания операции.</li>
+  </ol>
+  <p>Банк обычно возвращает ошибочно списанные средства в течение <code>5–10 рабочих дней</code>.</p>
+</details>
+
+<details>
+  <summary>Можно ли настроить шаблон для оплаты кредита в другом банке?</summary>
+  <p>Да, но для этого нужно знать точные реквизиты кредитора:
+  <ul>
+    <li>🏦 Название банка-получателя.</li>
+    <li>🔢 Расчётный счёт для погашения кредита (указан в договоре).</li>
+    <li>📌 Назначение платежа (обычно указывается номер кредитного договора).</li>
+  </ul>
+  <p>Создайте шаблон типа <code>По реквизитам</code> и введите эти данные. Убедитесь, что сумма платежа покрывает ежемесячный взнос по кредиту, иначе могут начисляться пени.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#подготовка-к-созданию-шаблона-что-нужно-проверить-заранее">Подготовка к созданию шаблона: что нужно проверить заранее</a></li><li><a href="#пошаговая-инструкция-как-создать-шаблон-платежа-в-мобильном-приложении">Пошаговая инструкция: как создать шаблон платежа в мобильном приложении</a></li><li><a href="#типы-шаблонов-какой-выбрать-для-ваших-задач">Типы шаблонов: какой выбрать для ваших задач</a></li><li><a href="#скрытые-функции-шаблонов-о-чём-не-рассказывает-поддержка">Скрытые функции шаблонов: о чём не рассказывает поддержка</a></li><li><a href="#ошибки-при-создании-шаблонов-и-как-их-избежать">Ошибки при создании шаблонов и как их избежать</a></li><li><a href="#безопасность-шаблонов-как-защитить-свои-деньги">Безопасность шаблонов: как защитить свои деньги</a></li><li><a href="#альтернативные-способы-создания-шаблонов">Альтернативные способы создания шаблонов</a></li><li><a href="#faq-ответы-на-частые-вопросы-о-шаблонах-в-втб-онлайн">FAQ: ответы на частые вопросы о шаблонах в ВТБ Онлайн</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-oformit-mobilnyj-bank-vtb.html" class="related-card">Как оформить мобильный банк ВТБ: полная инструкция</a></li><li><a href="/articles/c/ch/chto-takoe-push-kod-v-vtb-onlajn.html" class="related-card">Что такое пуш-код в ВТБ Онлайн: расшифровка и примеры</a></li><li><a href="/articles/k/ka/kak-otmenit-sms-uvedomleniya-vtb.html" class="related-card">Как отключить СМС от ВТБ: все способы 2026</a></li><li><a href="/articles/k/ka/kak-vojti-v-lichnyj-kabinet-vtb-onlajn-v-pervyj-raz-po-nomeru-karty.html" class="related-card">Как войти в ВТБ Онлайн в первый раз: вход по номеру карты</a></li><li><a href="/articles/k/ka/kak-perezagruzit-prilozhenie-vtb.html" class="related-card">Как перезагрузить приложение ВТБ: 5 способов для Android и iOS</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-oformit-mobilnyj-bank-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как оформить мобильный банк ВТБ: полная инструкция</span><span class="related-bottom-desc">Подробная инструкция, как оформить мобильный банк ВТБ. Скачивание, установка, регистрация по номеру </span></a><a href="/articles/c/ch/chto-takoe-push-kod-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Что такое пуш-код в ВТБ Онлайн: расшифровка и примеры</span><span class="related-bottom-desc">Узнайте, что такое пуш-код в приложении ВТБ Онлайн. Подробная инструкция по получению, вводу и устра</span></a><a href="/articles/k/ka/kak-otmenit-sms-uvedomleniya-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить СМС от ВТБ: все способы 2026</span><span class="related-bottom-desc">Полная инструкция по отключению СМС-уведомлений ВТБ. Отключение через приложение, банкомат, личный к</span></a><a href="/articles/k/ka/kak-vojti-v-lichnyj-kabinet-vtb-onlajn-v-pervyj-raz-po-nomeru-karty.html" class="related-bottom-card"><span class="related-bottom-title">Как войти в ВТБ Онлайн в первый раз: вход по номеру карты</span><span class="related-bottom-desc">Подробная инструкция: как войти в личный кабинет ВТБ Онлайн в первый раз по номеру карты. Пошаговая </span></a><a href="/articles/k/ka/kak-perezagruzit-prilozhenie-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как перезагрузить приложение ВТБ: 5 способов для Android и iOS</span><span class="related-bottom-desc">Пошаговые инструкции по перезапуску мобильного банка ВТБ на смартфоне. Решение проблем с зависанием,</span></a><a href="/articles/i/in/internet-bank-vtb-gde-otklyuchit-uvedomleniya.html" class="related-bottom-card"><span class="related-bottom-title">Как отключить уведомления в интернет-банке ВТБ: пошаговая инструкция</span><span class="related-bottom-desc">Подробное руководство по отключению SMS и push-уведомлений в личном кабинете ВТБ Онлайн. Скриншоты, </span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как выглядит приложение ВТБ на телефоне: интерфейс и функции 2026 — Банки Инфо</title>
+    <meta name="description" content="Подробный обзор дизайна и возможностей мобильного приложения ВТБ: главное меню, навигация, скрытые функции и советы по использованию на iOS/Android.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-vyglyadit-prilozhenie-vtb-banka-na-telefon.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как выглядит приложение ВТБ на телефоне: интерфейс и функции 2026">
+    <meta property="og:description" content="Подробный обзор дизайна и возможностей мобильного приложения ВТБ: главное меню, навигация, скрытые функции и советы по использованию на iOS/Android.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как выглядит приложение ВТБ на телефоне: интерфейс и функции 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Мобильный банк ВТБ на смартфоне: как выглядит приложение и что умеет</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#главный-экран-что-видно-сразу-после-входа">Главный экран: что видно сразу после входа</a></li><li><a href="#меню-навигации-где-что-находится">Меню навигации: где что находится</a></li><li><a href="#дизайн-и-темы-оформления-как-настроить-под-себя">Дизайн и темы оформления: как настроить под себя</a></li><li><a href="#скрытые-функции-что-умеет-приложение-но-не-афиширует">Скрытые функции: что умеет приложение, но не афиширует</a></li><li><a href="#безопасность-как-защитить-приложение-от-мошенников">Безопасность: как защитить приложение от мошенников</a></li><li><a href="#отличия-версий-для-ios-и-android">Отличия версий для iOS и Android</a></li><li><a href="#частые-проблемы-и-как-их-решить">Частые проблемы и как их решить</a></li><li><a href="#faq-ответы-на-популярные-вопросы">FAQ: ответы на популярные вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Мобильное приложение <strong>ВТБ Онлайн</strong> — это не просто инструмент для проверки баланса, а полноценный финансовый центр в вашем смартфоне. С 2026 года банк кардинально обновил дизайн интерфейса, добавив адаптивные элементы, темную тему и удобную навигацию для одной руки. Но как именно выглядит приложение на экранах <em>iPhone</em> и <em>Android</em>? Какие функции скрыты за иконками, и как не потеряться в многообразии разделов?</p>
+
+<p>В этой статье мы детально разберём <mark>визуальные отличия версии 2026 года от предыдущих релизов</mark>, покажем скриншоты ключевых экранов (с описанием каждого элемента), а также раскроем малоизвестные фишки — от быстрого перевода по номеру телефона до настройки push-уведомлений под конкретные операции. Особое внимание уделим различиям в интерфейсе для <em>iOS</em> и <em>Android</em>, поскольку банк адаптирует дизайн под гайдлайны каждой платформы.</p>
+
+<h2 id="главный-экран-что-видно-сразу-после-входа">Главный экран: что видно сразу после входа</h2>
+
+<p>После авторизации (по отпечатку, Face ID или паролю) вы попадаете на <strong>дашборд</strong> — центральный экран приложения. Здесь отображается:</p>
+
+<ul>
+  <li>💳 <strong>Список активных карт</strong> с текущим балансом и последней операцией (цвет иконки зависит от типа карты: чёрная для <em>VTB-Black</em>, синяя для дебетовых).</li>
+  <li>📊 <strong>График расходов</strong> за текущий месяц с разбивкой по категориям (еда, транспорт, развлечения). При нажатии открывается детализация.</li>
+  <li>🔔 <strong>Уведомления</strong> о новых переводы, блокировках или акциях (например, кешбэк 5% в выбранных магазинах).</li>
+  <li>🔄 <strong>Кнопка «Быстрые действия»</strong> — здесь можно мгновенно оплатить ЖКХ, пополнить счёт или перевести деньги на часто используемый счёт.</li>
+</ul>
+
+<p>На <em>Android</em> дашборд имеет плавающую кнопку <code>+</code> в правом нижнем углу для создания нового платежа, а на <em>iOS</em> аналогичная функция вынесена в таб-бар снизу. Также в версиях для <em>iPhone</em> анимации плавнее за счёт оптимизации под <code>Metal API</code>.</p>
+
+<div class="poll-widget" id="poll-8cbcea69"><div class="poll-widget-question">📊 Какой дизайн приложения ВТБ вам нравится больше?</div><div class="poll-widget-option" data-poll="8cbcea69" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Светлая тема</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="8cbcea69" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Тёмная тема</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="8cbcea69" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Адаптивная (меняется автоматически)</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="8cbcea69" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Мне без разницы</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Обратите внимание на <strong>индикатор безопасности</strong> в правом верхнем углу (щиток с галочкой). Он сигнализирует о включённой двухфакторной аутентификации. Если щиток красный — значит, на вашем аккаунте обнаружены подозрительные действия (например, попытка входа с нового устройства).</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> На главном экране никогда не отображаются полные номера карт или CVV-коды. Если вы видите запрос на ввод этих данных — перед вами фишинговая страница!</blockquote>
+
+<h2 id="меню-навигации-где-что-находится">Меню навигации: где что находится</h2>
+
+<p>Нижнее таб-бар меню в приложении ВТБ состоит из 5 основных разделов (слева направо):</p>
+
+<ol>
+  <li><strong>Главная</strong> — дашборд с картами и быстрыми действиями.</li>
+  <li><strong>Платежи</strong> — оплата услуг, переводы, пополнение счёта.</li>
+  <li><strong>Кредиты</strong> — управление займами, графики платежей, досрочное погашение.</li>
+  <li><strong>Вклады</strong> — открытие депозитов, просмотр начисленных процентов.</li>
+  <li><strong>Ещё</strong> — настройки, поддержка, бонусы и дополнительные сервисы.</li>
+</ol>
+
+<p>На <em>Android</em> при долгом нажатии на иконку раздела открывается контекстное меню с быстрыми ссылками. Например, в разделе <strong>Платежи</strong> можно сразу выбрать <code>Оплата штрафов ГИБДД</code> или <code>Перевод на карту другого банка</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Раздел</th>
+      <th>Ключевые функции</th>
+      <th>Особенности на iOS</th>
+      <th>Особенности на Android</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Платежи</td>
+      <td>Оплата ЖКХ, мобильной связи, интернета, штрафов</td>
+      <td>Интеграция с Apple Pay для быстрых переводов</td>
+      <td>Поддержка Google Pay и Samsung Pay</td>
+    </tr>
+    <tr>
+      <td>Кредиты</td>
+      <td>Просмотр графика, досрочное погашение, рефинансирование</td>
+      <td>Виджет для отображения остатка долга на экране блокировки</td>
+      <td>Уведомления о снижении процентной ставки</td>
+    </tr>
+    <tr>
+      <td>Вклады</td>
+      <td>Открытие, пополнение, продление, капитализация</td>
+      <td>Поддержка Face ID для подтверждения операций</td>
+      <td>Быстрое пополнение через SberPay (если привязан)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>В разделе <strong>Ещё</strong> скрыты полезные инструменты:</p>
+<ul>
+  <li>🎁 <strong>ВТБ-Бонусы</strong> — кешбэк и промокоды от партнёров.</li>
+  <li>📄 <strong>Документы</strong> — электронные версии договоров и справок (например, 2-НДФЛ).</li>
+  <li>🔧 <strong>Настройки безопасности</strong> — управление уведомлениями, блокировка карт, смена пароля.</li>
+</ul>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы часто пользуетесь одним разделом (например, платежами), зажмите его иконку в таб-баре и перетащите на первое место. Это сэкономит время!</p></div>
+
+<h2 id="дизайн-и-темы-оформления-как-настроить-под-себя">Дизайн и темы оформления: как настроить под себя</h2>
+
+<p>С 2026 года в приложении ВТБ доступно 3 варианта оформления:</p>
+
+<ol>
+  <li><strong>Светлая тема</strong> — классический белый фон с синими акцентами (по умолчанию).</li>
+  <li><strong>Тёмная тема</strong> — чёрный фон с зелёными элементами (рекомендуется для OLED-экранов).</li>
+  <li><strong>Адаптивная тема</strong> — автоматически переключается в зависимости от системных настроек телефона.</li>
+</ol>
+
+<p>Чтобы поменять тему:</p>
+<ol>
+  <li>Перейдите в <code>Ещё → Настройки → Внешний вид</code>.</li>
+  <li>Выберите предпочтительный вариант.</li>
+  <li>Для адаптивной темы включите опцию <code>Следовать системным настройкам</code>.</li>
+</ol>
+
+<p>На <em>iOS</em> тёмная тема поддерживает <code>Dynamic Island</code> (на <em>iPhone 14/15</em>), отображая уведомления о платежах в стиле системы. На <em>Android</em> приложение адаптируется под <code>Material You</code>, подстраивая цвета под обои телефона (доступно на устройствах с <em>Android 12+</em>).</p>
+
+<details class="faq-item"><summary>Как включить скрытую анимацию при входе?</summary><div class="faq-answer"><p>В настройках внешнего вида активируйте опцию "Плавные переходы". После этого при авторизации будет показана анимация логотипа ВТБ с эффектом растворения.</p></div></details>
+
+<p>Размер шрифта в приложении можно увеличить до 150% от стандартного. Это полезно для пользователей с проблемами зрения. Опция находится в <code>Настройки → Специальные возможности</code>.</p>
+
+<h2 id="скрытые-функции-что-умеет-приложение-но-не-афиширует">Скрытые функции: что умеет приложение, но не афиширует</h2>
+
+<p>Банк не всегда рассказывает о всех возможностях своего мобильного сервиса. Вот несколько <mark>малоизвестных фишек</mark>, которые облегчат работу с финансами:</p>
+
+<ul>
+  <li>🔍 <strong>Поиск по операциям</strong>. В разделе <code>История</code> можно ввести название магазина или сумму — система найдёт все совпадения за последние 3 года.</li>
+  <li>📱 <strong>Быстрый перевод по QR</strong>. Нажмите на иконку QR в правом верхнем углу главного экрана, чтобы отсканировать код для оплаты (работает даже без интернета).</li>
+  <li>💰 <strong>Скрытые счета</strong>. В настройках можно спрятать баланс определённой карты — она будет отображаться как "****", но останется активной для платежей.</li>
+  <li>📅 <strong>Напоминания о платежах</strong>. В разделе <code>Кредиты</code> можно настроить автоматическое уведомление за 3 дня до даты платежа.</li>
+</ul>
+
+<p>Ещё одна полезная опция — <strong>виртуальные карты</strong> для безопасных покупок в интернете. Их можно создать за 1 минуту:</p>
+<ol>
+  <li>Перейдите в <code>Карты → Добавить карту → Виртуальная</code>.</li>
+  <li>Укажите лимит (от 100 ₽ до 100 000 ₽).</li>
+  <li>Сгенерированные реквизиты появятся в приложении — их можно скопировать или экспортировать в <em>Apple Wallet</em>/<em>Google Pay</em>.</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Виртуальные карты действуют только 24 часа (если не указан другой срок). После истечения срока деньги возвращаются на основную карту.</blockquote>
+
+<div class="checklist-block"><h4>☑️ Настройка удобного интерфейса</h4><label class="check-item"><input type="checkbox"><span>Включить тёмную тему</span></label><label class="check-item"><input type="checkbox"><span>Увеличить шрифт</span></label><label class="check-item"><input type="checkbox"><span>Добавить часто используемые платежи в "Избранное"</span></label><label class="check-item"><input type="checkbox"><span>Настроить push-уведомления</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="безопасность-как-защитить-приложение-от-мошенников">Безопасность: как защитить приложение от мошенников</h2>
+
+<p>ВТБ использует многоуровневую систему защиты, но пользователи часто допускают ошибки, которые сводят её на нет. Вот ключевые правила:</p>
+
+<ul>
+  <li>🔐 <strong>Двухфакторная аутентификация (2FA)</strong>. Включите её в <code>Настройки → Безопасность</code>. Теперь для входа потребуется не только пароль, но и код из SMS или подтверждение в приложении <em>ВТБ-ID</em>.</li>
+  <li>📱 <strong>Биометрия</strong>. Настройте вход по отпечатку пальца или лицу (доступно на устройствах с <em>Touch ID</em>/<em>Face ID</em> или <em>Android Biometric API</em>).</li>
+  <li>🚫 <strong>Блокировка по геолокации</strong>. Если телефон внезапно окажется в другой стране, доступ к приложению будет временно заблокирован.</li>
+</ul>
+
+<p>Чтобы проверить активные сессии (и закрыть подозрительные):</p>
+<ol>
+  <li>Перейдите в <code>Настройки → Безопасность → Активные устройства</code>.</li>
+  <li>Напротив неизвестного устройства нажмите <code>Завершить сессию</code>.</li>
+  <li>Если увидели вход из незнакомого города — немедленно заблокируйте карты через раздел <code>Карты → Управление</code>.</li>
+</ol>
+
+<p>ВТБ также предлагает <strong>одноразовые пароли</strong> для подтверждения операций. Они приходят в SMS или генерируются в приложении <em>ВТБ-ID</em>. Никогда не сообщайте эти коды по телефону или в мессенджерах — банк их не запрашивает!</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Даже если мошенник узнал ваш пароль от приложения, без подтверждения по SMS или биометрии он не сможет выполнить платежи.</p></div>
+
+<h2 id="отличия-версий-для-ios-и-android">Отличия версий для iOS и Android</h2>
+
+<p>Хотя функционал приложения одинаковый, дизайн и некоторые фишки отличаются в зависимости от платформы. Вот ключевые различия:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Функция</th>
+      <th>iOS (iPhone)</th>
+      <th>Android</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Авторизация</td>
+      <td>Face ID, Touch ID, пароль</td>
+      <td>Отпечаток, распознавание лица, графический ключ, пароль</td>
+    </tr>
+    <tr>
+      <td>Виджеты</td>
+      <td>Поддержка виджетов на главном экране (баланс, последние операции)</td>
+      <td>Виджеты только в выпадающей панели (на некоторых прошивках)</td>
+    </tr>
+    <tr>
+      <td>Голосовой помощник</td>
+      <td>Интеграция с Siri (команды типа "Покажи баланс в ВТБ")</td>
+      <td>Поддержка Google Assistant (ограниченно)</td>
+    </tr>
+    <tr>
+      <td>Оплата в магазинах</td>
+      <td>Apple Pay по умолчанию</td>
+      <td>Google Pay, Samsung Pay, Mir Pay</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>На <em>iOS</em> приложение оптимизировано для <em>iPad</em> — поддерживается многозадачность (разделенный экран) и адаптивный интерфейс для больших дисплеев. На <em>Android</em> аналогичная поддержка планшетов появилась только в 2026 году, но работает не на всех устройствах.</p>
+
+<p>Ещё одно отличие — <strong>скорость работы</strong>. На <em>iPhone</em> с чипом <em>A15/A16</em> приложение запускается на 20–30% быстрее благодаря оптимизации под <code>Swift</code>. На <em>Android</em> производительность зависит от модели смартфона: на флагманах (<em>Samsung Galaxy S23</em>, <em>Google Pixel 7</em>) задержки минимальны, а на бюджетных устройствах возможны подтормаживания при генерации PDF-выписок.</p>
+
+<h2 id="частые-проблемы-и-как-их-решить">Частые проблемы и как их решить</h2>
+
+<p>Даже у самого надёжного приложения бывают сбои. Вот типичные ошибки и способы их устранения:</p>
+
+<ul>
+  <li>🔄 <strong>Приложение не открывается после обновления</strong>. Удалите его и установите заново из <em>App Store</em>/<em>Google Play</em>. Предварительно проверьте, что на телефоне достаточно памяти (требуется минимум 500 МБ).</li>
+  <li>📵 <strong>Не приходят SMS с кодом</strong>. Проверьте баланс телефона, включите роуминг (если за границей) или запросите код через звонок на горячую линию <code>8 800 100-24-24</code>.</li>
+  <li>🔒 <strong>Забыли пароль</strong>. Воспользуйтесь функцией восстановления через <code>ВТБ-ID</code> или обратитесь в чат поддержки (кнопка <code>?</code> в правом верхнем углу).</li>
+  <li>📱 <strong>Не работает биометрия</strong>. Удалите сохранённые отпечатки/лицо в настройках телефона и добавьте их заново. На <em>Android</em> также проверьте разрешения для приложения в <code>Настройки → Приложения → ВТБ Онлайн → Разрешения</code>.</li>
+</ul>
+
+<p>Если приложение постоянно вылетает, попробуйте:</p>
+<ol>
+  <li>Очистить кэш в настройках телефона (<code>Настройки → Приложения → ВТБ Онлайн → Память → Очистить кэш</code>).</li>
+  <li>Обновить операционную систему до последней версии.</li>
+  <li>Отключить VPN — некоторые серверы блокируют доступ к банковским сервисам.</li>
+</ol>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Если после всех манипуляций приложение не работает, не пытайтесь войти через сторонние сервисы (например, <em>My.VTB</em> в браузере). Мошенники часто создают фейковые страницы, имитирующие ошибки входа.</blockquote>
+
+<h2 id="faq-ответы-на-популярные-вопросы">FAQ: ответы на популярные вопросы</h2>
+
+<details>
+  <summary>Можно ли пользоваться приложением ВТБ на двух телефонах одновременно?</summary>
+  <p>Да, но с ограничениями. Одну и ту же учётную запись можно авторизовать на нескольких устройствах, однако <strong>одновременно работать</strong> получится только с одного. При входе на втором телефоне сессия на первом автоматически завершится (через 5 минут бездействия).</p>
+  <p>Исключение — <em>ВТБ-Бизнес</em> для юридических лиц: там поддерживается многопользовательский доступ с разными ролями (бухгалтер, директор).</p>
+</details>
+
+<details>
+  <summary>Как вернуть старую версию приложения, если не нравится новый дизайн?</summary>
+  <p>К сожалению, откатиться на предыдущую версию официально нельзя — банк блокирует доступ к устаревшим релизам по соображениям безопасности. Однако можно:</p>
+  <ul>
+    <li>Написать отзыв в <em>App Store</em>/<em>Google Play</em> с просьбой вернуть старый интерфейс (если жалоб будет много, банк может добавить опцию "Классический вид").</li>
+    <li>Использовать веб-версию <em>ВТБ Онлайн</em> через браузер — там дизайн меняется реже.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Почему в приложении не отображаются некоторые операции?</summary>
+  <p>Есть несколько причин:</p>
+  <ol>
+    <li>Операция ещё не прошла обработку (например, перевод между банками может занимать до 3 дней).</li>
+    <li>Вы включили фильтр по датам или категориям (проверьте настройки в разделе <code>История</code>).</li>
+    <li>Ошибка синхронизации — попробуйте обновить данные, потянув экран вниз.</li>
+    <li>Технические работы на стороне банка (информация об этом обычно появляется в уведомлениях).</li>
+  </ol>
+  <p>Если операция критична (например, не пришёл перевод), свяжитесь с поддержкой через чат в приложении — они увидят полную историю по вашему счёту.</p>
+</details>
+
+<details>
+  <summary>Можно ли изменить порядок карт на главном экране?</summary>
+  <p>Да, это делается в два касания:</p>
+  <ol>
+    <li>Зажмите пальцем карту, которую хотите переместить.</li>
+    <li>Перетащите её на нужное место (например, на первую позицию).</li>
+  </ol>
+  <p>На <em>Android</em> также можно закрепить часто используемую карту в верхней части экрана — для этого нажмите на три точки в углу карты и выберите <code>Закрепить</code>.</p>
+</details>
+
+<details>
+  <summary>Как включить уведомления о списаниях с карты?</summary>
+  <p>Перейдите в <code>Настройки → Уведомления → Операции по картам</code> и:</p>
+  <ul>
+    <li>Выберите карты, за которыми хотите следить.</li>
+    <li>Укажите минимальную сумму списания (например, уведомлять только о платежах от 1 000 ₽).</li>
+    <li>Включите опцию <code>Push-уведомления</code> (для мгновенных оповещений) или <code>SMS</code> (если у вас нестабильный интернет).</li>
+  </ul>
+  <p>Совет: чтобы не заспамить себя, настройте уведомления только для дебетовых карт или кредиток с высоким лимитом.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#главный-экран-что-видно-сразу-после-входа">Главный экран: что видно сразу после входа</a></li><li><a href="#меню-навигации-где-что-находится">Меню навигации: где что находится</a></li><li><a href="#дизайн-и-темы-оформления-как-настроить-под-себя">Дизайн и темы оформления: как настроить под себя</a></li><li><a href="#скрытые-функции-что-умеет-приложение-но-не-афиширует">Скрытые функции: что умеет приложение, но не афиширует</a></li><li><a href="#безопасность-как-защитить-приложение-от-мошенников">Безопасность: как защитить приложение от мошенников</a></li><li><a href="#отличия-версий-для-ios-и-android">Отличия версий для iOS и Android</a></li><li><a href="#частые-проблемы-и-как-их-решить">Частые проблемы и как их решить</a></li><li><a href="#faq-ответы-на-популярные-вопросы">FAQ: ответы на популярные вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-zaregistrirovatsya-v-vtb-banke-onlajn-na-telefone-samostoyatelno.html" class="related-card">Регистрация в ВТБ Онлайн на телефоне: пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-izmenit-nomer-telefona-v-vtb-onlajn-v-lichnyj-kabinet-cherez-telefon.html" class="related-card">Как изменить номер телефона в ВТБ Онлайн через телефон — пошаговая инструкция 2026</a></li><li><a href="/articles/k/ka/kak-skachat-vse-prosto-vtb-na-ajfon.html" class="related-card">Как скачать ВТБ на Айфон: полная инструкция 2026</a></li><li><a href="/articles/k/ka/kak-zajti-v-vtb-na-ajfone.html" class="related-card">Как зайти в ВТБ на Айфоне: актуальная инструкция 2026</a></li><li><a href="/articles/k/ka/kak-v-prilozhenii-vtb-posmotret-istoriyu-operatsij-bolshe-chem-za-mesyats.html" class="related-card">Как в ВТБ Онлайн посмотреть историю операций за год и более</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-zaregistrirovatsya-v-vtb-banke-onlajn-na-telefone-samostoyatelno.html" class="related-bottom-card"><span class="related-bottom-title">Регистрация в ВТБ Онлайн на телефоне: пошаговая инструкция 2026</span><span class="related-bottom-desc">Как самостоятельно зарегистрироваться в ВТБ Онлайн через телефон: подробная инструкция с фото, требо</span></a><a href="/articles/k/ka/kak-izmenit-nomer-telefona-v-vtb-onlajn-v-lichnyj-kabinet-cherez-telefon.html" class="related-bottom-card"><span class="related-bottom-title">Как изменить номер телефона в ВТБ Онлайн через телефон — пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по смене номера телефона в личном кабинете ВТБ Онлайн с телефона: через прилож</span></a><a href="/articles/k/ka/kak-skachat-vse-prosto-vtb-na-ajfon.html" class="related-bottom-card"><span class="related-bottom-title">Как скачать ВТБ на Айфон: полная инструкция 2026</span><span class="related-bottom-desc">Узнайте, как безопасно скачать все просто ВТБ на айфон. Актуальные способы установки приложения банк</span></a><a href="/articles/k/ka/kak-zajti-v-vtb-na-ajfone.html" class="related-bottom-card"><span class="related-bottom-title">Как зайти в ВТБ на Айфоне: актуальная инструкция 2026</span><span class="related-bottom-desc">Полная инструкция, как зайти в ВТБ на Айфоне в 2026 году. Актуальные способы входа через приложение,</span></a><a href="/articles/k/ka/kak-v-prilozhenii-vtb-posmotret-istoriyu-operatsij-bolshe-chem-za-mesyats.html" class="related-bottom-card"><span class="related-bottom-title">Как в ВТБ Онлайн посмотреть историю операций за год и более</span><span class="related-bottom-desc">Пошаговая инструкция, как в мобильном приложении ВТБ получить выписку по счетам и картам за период б</span></a><a href="/articles/k/ka/kak-vyglyadit-prilozhenie-vtb-na-ajfon.html" class="related-bottom-card"><span class="related-bottom-title">Как выглядит приложение ВТБ на iPhone: интерфейс и функции</span><span class="related-bottom-desc">Подробный обзор интерфейса приложения ВТБ для iOS. Узнайте, как выглядит дизайн, где найти QR-платеж</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

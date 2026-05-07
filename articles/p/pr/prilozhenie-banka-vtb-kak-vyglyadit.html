@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Приложение банка ВТБ: как выглядит интерфейс и меню — Банки Инфо</title>
+    <meta name="description" content="Подробный обзор обновленного мобильного приложения ВТБ Онлайн. Как выглядит дизайн, структура меню, навигация и основные функции.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/p/pr/prilozhenie-banka-vtb-kak-vyglyadit.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Приложение банка ВТБ: как выглядит интерфейс и меню">
+    <meta property="og:description" content="Подробный обзор обновленного мобильного приложения ВТБ Онлайн. Как выглядит дизайн, структура меню, навигация и основные функции.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/mobilnyj-bank/">Мобильный банк</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Приложение банка ВТБ: как выглядит интерфейс и меню</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Визуальный обзор приложения ВТБ: новый интерфейс и навигация</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#главный-экран-и-структура-рабочего-пространства">Главный экран и структура рабочего пространства</a></li><li><a href="#навигационное-меню-и-нижняя-панель">Навигационное меню и нижняя панель</a></li><li><a href="#визуализация-карт-и-счетов">Визуализация карт и счетов</a></li><li><a href="#раздел-платежей-и-переводов">Раздел платежей и переводов</a></li><li><a href="#профиль-пользователя-и-настройки-безопасности">Профиль пользователя и настройки безопасности</a></li><li><a href="#темы-оформления-и-персонализация">Темы оформления и персонализация</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>Современные банковские сервисы претерпевают значительные изменения, стремясь стать максимально удобными для пользователя. <strong>Приложение банка ВТБ</strong> не стало исключением, пройдя через ряд масштабных обновлений, которые коснулись не только функционала, но и визуального стиля. Многих клиентов интересует, как именно выглядит актуальная версия программы на экране смартфона, ведь от удобства интерфейса зависит скорость выполнения повседневных операций.</p>
+
+<p>Внешний облик приложения претерпел трансформацию в сторону минимализма и функциональности. Основные элементы управления стали крупнее, цветовая гамма приобрела более спокойные, деловые оттенки, а навигация стала интуитивно понятной даже для тех, кто впервые столкнулся с <em>VTB Online</em>. Важно понимать, что интерфейс может незначительно отличаться в зависимости от операционной системы (iOS или Android) и версии обновления.</p>
+
+<p>В данной статье мы детально разберем визуальную составляющую приложения, рассмотрим структуру главного экрана, особенности меню и навигации. Вы узнаете, где располагаются ключевые функции, как выглядят карточки счетов и что изменилось в дизайне по сравнению с предыдущими версиями. Это поможет вам быстрее освоиться в цифровой среде банка.</p>
+
+<h2 id="главный-экран-и-структура-рабочего-пространства">Главный экран и структура рабочего пространства</h2>
+
+<p>Первое, что видит пользователь после успешной авторизации — это <strong>Главный экран</strong>. Он спроектирован таким образом, чтобы важная информация была доступна с первого взгляда. В верхней части традиционно располагается"шапка" с приветствием, текущей датой и кнопкой профиля или уведомлений. Центральное место занимают карточки продуктов.</p>
+
+<p>Карточки счетов и карт выглядят как прямоугольные блоки с закругленными углами. На каждой карте отображается баланс, валюта счета, последние четыре цифры номера и статус карты. Если у клиента несколько продуктов, они могут быть сгруппированы или прокручиваться горизонтально. Дизайн карточек стал более"воздушным", с использованием градиентов или фирменного синего цвета.</p>
+
+<div class="poll-widget" id="poll-798712db"><div class="poll-widget-question">📊 Какой элемент интерфейса для вас важнее всего?</div><div class="poll-widget-option" data-poll="798712db" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Крупный шрифт баланса</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="798712db" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Цветовая схема</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="798712db" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Расположение кнопок</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="798712db" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Скорость загрузки</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<p>Ниже или сбоку (в зависимости от версии ОС) располагается блок <strong>Быстрых платежей</strong> и избранных переводов. Визуально это сетка из иконок с названиями получателей или сервисов. Такой подход позволяет сократить количество кликов до минимума. Оформление элементов выполнено в едином стиле, что создает ощущение порядка и структурированности.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Для быстрого доступа к часто используемым функциям настройте виджеты на рабочем столе вашего смартфона — это позволит видеть баланс без входа в приложение.</p></div>
+
+<h2 id="навигационное-меню-и-нижняя-панель">Навигационное меню и нижняя панель</h2>
+
+<p>Основополагающим элементом навигации в приложении является нижняя панель, которая закреплена внизу экрана. Она содержит основные разделы, переключение между которыми происходит мгновенно. Обычно это вкладки:"Главная","Платежи","Сервисы" (или"Продукты"),"Чат" и"Профиль". Иконки выполнены в линейном или залитом стиле, активный раздел подсвечивается фирменным цветом.</p>
+
+<p>Меню <strong>"Платежи"</strong> выглядит как каталог услуг, разделенный на категории: ЖКХ, связь, налоги, штрафы и другие. Каждая категория имеет свою иконку и цветовое кодирование для быстрого визуального поиска. При нажатии на категорию открывается список конкретных поставщиков услуг или форма ввода данных.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> В некоторых версиях приложения меню может скрываться в"гамбургер" (три полоски) в углу экрана, хотя современный тренд смещается к нижней навигационной панели для удобства управления одной рукой.</p>
+</blockquote>
+
+<p>Раздел <strong>"Сервисы"</strong> или"Маркет" визуально представлен в виде плитки с логотипами партнеров или банковских продуктов. Здесь можно увидеть предложения по кредитам, вкладам или страховкам. Дизайн этих блоков часто более яркий и привлекающий внимание, чем основной интерфейс, чтобы выделить коммерческие предложения.</p>
+
+<div class="checklist-block"><h4>☑️ Проверка настроек интерфейса</h4><label class="check-item"><input type="checkbox"><span>Включить биометрию</span></label><label class="check-item"><input type="checkbox"><span>Настроить виджет баланса</span></label><label class="check-item"><input type="checkbox"><span>Проверить тему (светлая/темная)</span></label><label class="check-item"><input type="checkbox"><span>Обновить список контактов</span></label><div class="check-progress">Выполнено: <span class="check-count">0</span> / 4</div></div>
+
+<h2 id="визуализация-карт-и-счетов">Визуализация карт и счетов</h2>
+
+<p>Детальный просмотр карты или счета открывает перед пользователем полную историю операций. Визуально это выглядит как вертикальный список, где каждая транзакция представлена строкой с логотипом merchants (МСС), названием, датой и суммой. Расходы обычно отображаются черным или красным цветом, доходы — зеленым.</p>
+
+<p>При нажатии на конкретную операцию открывается чек, который выглядит как цифровой аналог бумажного квитка. Там подробно расписаны реквизиты, время проведения и категория траты. Дизайн чека максимально лаконичен, чтобы не перегружать пользователя лишней информацией, но при необходимости позволяет скопировать номер транз</p>
+
+<table>
+<thead>
+<tr>
+<th>Элемент интерфейса</th>
+<th>Расположение</th>
+<th>Функция</th>
+<th>Визуальный стиль</th>
+</tr>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Карточка счета</td>
+<td>Главный экран</td>
+<td>Отображение баланса</td>
+<td>Синий фон, белый текст</td>
+</tr>
+<tr>
+<td>Кнопка перевода</td>
+<td>Внутри карты</td>
+<td>Отправка денег</td>
+<td>Яркая кнопка с иконкой</td>
+</tr>
+<tr>
+<td>История операций</td>
+<td>Внутри карты</td>
+<td>Список трат</td>
+<td>Список с логотипами</td>
+</tr>
+<tr>
+<td>Меню настроек</td>
+<td>Профиль</td>
+<td>Управление приложением</td>
+<td>Список с переключателями</td>
+</tr>
+</tbody>
+</table>
+
+<p>Особое внимание стоит уделить <strong>аналитике расходов</strong>. В приложении она может быть представлена в виде круговых диаграмм или столбчатых графиков. Цвета секторов диаграммы соответствуют категориям трат, что позволяет мгновенно оценить, на что уходит большая часть бюджета. Интерактивность графиков позволяет детализировать данные по периодам.</p>
+
+<h2 id="раздел-платежей-и-переводов">Раздел платежей и переводов</h2>
+
+<p>Интерфейс совершения платежей разработан с упором на минимизацию ошибок. Поля для ввода данных (номер телефона, карты, сумма) имеют крупную клавиатуру и подсказки. При вводе номера карты часто автоматически подставляется название банка-эмитента, что визуально подтверждает правильность введенных данных.</p>
+
+<p>Экран подтверждения платежа выглядит как итоговая сводка. Крупным шрифтом выделена сумма, чуть меньше — получатель и комиссия (если есть). Кнопка подтверждения обычно расположена внизу экрана и имеет контрастный цвет. Это сделано для того, чтобы пользователь четко осознавал совершаемое действие.</p>
+
+<details class="faq-item"><summary>Как выглядит экран безопасности при переводе?</summary><div class="faq-answer"><p>При переводе крупной суммы или новому получателю приложение может запросить дополнительное подтверждение через Push-уведомление или код из СМС. Визуально это всплывающее окно поверх основного интерфейса, блокирующее другие действия до завершения проверки.</p></div></details>
+
+<p>Для регулярных платежей (автоплатежи) предусмотрен специальный интерфейс настройки периодичности. Выглядит это как календарь или список интервалов (ежемесячно, раз в неделю). Визуальные маркеры показывают даты ближайших списаний, что помогает контролировать финансовый поток.</p>
+
+<h2 id="профиль-пользователя-и-настройки-безопасности">Профиль пользователя и настройки безопасности</h2>
+
+<p>Раздел профиля, часто доступный через иконку человека или шестеренки, выглядит как список опций. Здесь находятся настройки внешнего вида (темы), управления уведомлениями и биометрии. Дизайн этого раздела строго функционален, без лишних украшательств.</p>
+
+<p>Настройки безопасности включают управление лимитами, блокировку карт и просмотр активных сеансов. Визуально активные устройства отображаются списком с указанием модели телефона и времени последнего входа. Это позволяет пользователю быстро идентифицировать свои гаджеты.</p>
+
+<blockquote>
+<p>⚠️ <strong>Внимание:</strong> Никогда не делайте скриншоты экрана с полными данными карт или кодами подтверждения, даже если интерфейс приложения выглядит безопасно. Это может стать уязвимостью при наличии вредоносного ПО на телефоне.</p>
+</blockquote>
+
+<p>Важной частью профиля является <strong>раздел помощи и поддержки</strong>. Он выглядит как интерфейс мессенджера, где можно вести диалог с чат-ботом или живым оператором. Сообщения оформлены в виде"пузырей", как в популярных соцсетях, что делает общение привычным и комфортным.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Интерфейс приложения ВТБ ориентирован на безопасность и простоту: ключевые действия подтверждаются отдельно, а дизайн исключает случайные нажатия.</p></div>
+
+<h2 id="темы-оформления-и-персонализация">Темы оформления и персонализация</h2>
+
+<p>Современные версии приложения банка ВТБ поддерживают различные темы оформления. Пользователь может выбрать между светлой и темной темой. Темная тема (<em>Dark Mode</em>) выглядит как интерфейс с черным или темно-серым фоном и светлым текстом, что снижает нагрузку на глаза в вечернее время и экономит заряд батареи на OLED-экранах.</p>
+
+<p>Персонализация также касается расположения виджетов на главном экране. Пользователь может скрывать ненужные блоки или выводить на первый план только определенные счета. Визуально это реализуется через режим редактирования, где элементы можно перетаскивать или отмечать галочками видимости.</p>
+
+<p>Шрифты в приложении подобраны с учетом читаемости на маленьких экранах. Используется гротескный шрифт без засечек, который хорошо читается при любом размере. Важные цифры (баланс, сумма перевода) часто выводятся более жирным начертанием или увеличенным кеглем.</p>
+
+<details>
+<summary>Как переключить тему оформления в приложении?</summary>
+<p>Для смены темы необходимо перейти в раздел"Профиль" или"Настройки", найти пункт"Внешний вид" или"Тема". Там можно выбрать"Светлая","Темная" или"Как в системе". Изменения применяются мгновенно.</p>
+</details>
+
+<details>
+<summary>Можно ли изменить размер шрифта в приложении?</summary>
+<p>В большинстве случаев приложение наследует настройки шрифта от операционной системы смартфона. Если в настройках Android или iOS установлен крупный шрифт, текст в банковском приложении также станет больше для удобства чтения.</p>
+</details>
+
+<details>
+<summary>Почему интерфейс может отличаться у разных пользователей?</summary>
+<p>Банк часто проводит A/B тестирование, внедряя новые элементы дизайна постепенно. Кроме того, вид интерфейса зависит от типа клиентского сегмента (например,"Привилегия" или стандартный тариф) и версии операционной системы устройства.</p>
+</details>
+
+<details>
+<summary>Безопасно ли использовать темную тему?</summary>
+<p>Да, использование темной темы полностью безопасно. Это исключительно визуальная настройка, которая не влияет на защищенность соединения или шифрование данных при передаче информации между приложением и сервером банка.</p>
+</details>
+
+<details>
+<summary>Где найти скрытые функции в новом дизайне?</summary>
+<p>Некоторые функции могут быть скрыты в дополнительных меню, обозначаемых троеточием (...) или свайпом по элементам интерфейса. Рекомендуется периодически изучать раздел"Новое" или обучающие туры при обновлении приложения.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#главный-экран-и-структура-рабочего-пространства">Главный экран и структура рабочего пространства</a></li><li><a href="#навигационное-меню-и-нижняя-панель">Навигационное меню и нижняя панель</a></li><li><a href="#визуализация-карт-и-счетов">Визуализация карт и счетов</a></li><li><a href="#раздел-платежей-и-переводов">Раздел платежей и переводов</a></li><li><a href="#профиль-пользователя-и-настройки-безопасности">Профиль пользователя и настройки безопасности</a></li><li><a href="#темы-оформления-и-персонализация">Темы оформления и персонализация</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/c/ch/cherez-kakie-kanaly-obsluzhivayutsya-klienty-vtb-mobajl.html" class="related-card">Каналы обслуживания клиентов ВТБ Мобайл в 2026 году: полный гид</a></li><li><a href="/articles/k/ka/kak-podklyuchit-sbp-v-vtb-v-lichnom-kabinete-na-telefone-instruktsiya.html" class="related-card">Как подключить СБП в ВТБ Онлайн: полная инструкция</a></li><li><a href="/articles/k/ka/kak-smenit-unk-v-vtb-onlajn.html" class="related-card">Как сменить УНК в ВТБ Онлайн: пошаговая инструкция</a></li><li><a href="/articles/k/ka/kak-pomenyat-nomer-telefona-privyazannyj-k-karte-vtb-cherez-internet-doma.html" class="related-card">Как сменить номер телефона ВТБ Онлайн: пошаговая инструкция</a></li><li><a href="/articles/v/vt/vtb-mir-kak-platit-telefonom.html" class="related-card">ВТБ Мир: как платить телефоном в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/c/ch/cherez-kakie-kanaly-obsluzhivayutsya-klienty-vtb-mobajl.html" class="related-bottom-card"><span class="related-bottom-title">Каналы обслуживания клиентов ВТБ Мобайл в 2026 году: полный гид</span><span class="related-bottom-desc">Узнайте, как связаться с поддержкой ВТБ Мобайл: чат, звонок, офисы, соцсети и мобильное приложение. </span></a><a href="/articles/k/ka/kak-podklyuchit-sbp-v-vtb-v-lichnom-kabinete-na-telefone-instruktsiya.html" class="related-bottom-card"><span class="related-bottom-title">Как подключить СБП в ВТБ Онлайн: полная инструкция</span><span class="related-bottom-desc">Подробная инструкция, как подключить СБП в приложении ВТБ Онлайн. Настройка лимитов, подтверждение о</span></a><a href="/articles/k/ka/kak-smenit-unk-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить УНК в ВТБ Онлайн: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как сменить УНК в ВТБ Онлайн, если забыли код. Пошаговая инструкция для Android и iOS, реше</span></a><a href="/articles/k/ka/kak-pomenyat-nomer-telefona-privyazannyj-k-karte-vtb-cherez-internet-doma.html" class="related-bottom-card"><span class="related-bottom-title">Как сменить номер телефона ВТБ Онлайн: пошаговая инструкция</span><span class="related-bottom-desc">Узнайте, как поменять номер телефона привязанный к карте ВТБ через интернет дома. Подробная инструкц</span></a><a href="/articles/v/vt/vtb-mir-kak-platit-telefonom.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ Мир: как платить телефоном в 2026 году</span><span class="related-bottom-desc">Полная инструкция по оплате телефоном через ВТБ Мир Pay. Как добавить карту, настроить NFC и оплачив</span></a><a href="/articles/k/ka/kak-proverit-balans-na-vtb-karte-po-nomeru.html" class="related-bottom-card"><span class="related-bottom-title">Как проверить баланс на карте ВТБ: все способы</span><span class="related-bottom-desc">Узнайте, как проверить баланс карты ВТБ по номеру телефона. Инструкция для USSD-кодов, СМС, мобильно</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

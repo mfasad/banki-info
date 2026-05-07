@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как приходят уведомления от ВТБ: SMS, пуши, email и мобильный банк — Банки Инфо</title>
+    <meta name="description" content="Разбираем все каналы оповещений от ВТБ: SMS-сообщения, push-уведомления, email и уведомления в мобильном банке. Как настроить, проверить и не пропустить важные сообщения.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-prikhodyat-soobshcheniya-ot-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как приходят уведомления от ВТБ: SMS, пуши, email и мобильный банк">
+    <meta property="og:description" content="Разбираем все каналы оповещений от ВТБ: SMS-сообщения, push-уведомления, email и уведомления в мобильном банке. Как настроить, проверить и не пропустить важные сообщения.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как приходят уведомления от ВТБ: SMS, пуши, email и мобильный банк</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как приходят сообщения от ВТБ: разбираем все каналы оповещений</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-sms-сообщения-от-втб-номера-формат-и-примеры">1. SMS-сообщения от ВТБ: номера, формат и примеры</a></li><li><a href="#2-push-уведомления-в-мобильном-банке-втб-онлайн">2. Push-уведомления в мобильном банке ВТБ Онлайн</a></li><li><a href="#3-email-письма-от-втб-когда-и-зачем-приходят">3. Email-письма от ВТБ: когда и зачем приходят</a></li><li><a href="#4-уведомления-в-личном-кабинете-и-чат-боте">4. Уведомления в личном кабинете и чат-боте</a></li><li><a href="#5-почему-сообщения-от-втб-не-приходят-или-приходят-с-задержкой">5. Почему сообщения от ВТБ не приходят или приходят с задержкой</a></li><li><a href="#6-как-отключить-ненужные-уведомления-от-втб">6. Как отключить ненужные уведомления от ВТБ</a></li><li><a href="#7-мошеннические-схемы-с-поддельными-сообщениями-от-втб">7. Мошеннические схемы с поддельными сообщениями от ВТБ</a></li><li><a href="#faq-частые-вопросы-о-сообщениях-от-втб">FAQ: Частые вопросы о сообщениях от ВТБ</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Банк <em>ВТБ</em> использует несколько каналов для отправки уведомлений клиентам: от классических SMS до push-сообщений в мобильном приложении. Понимание того, как и когда приходят эти оповещения, помогает не только оперативно реагировать на важные события (например, списания или пополнения), но и защищаться от мошенников, которые часто подделывают банковские сообщения. В этой статье мы детально разберём:</p>
+
+<p>— какие типы сообщений отправляет <strong>ВТБ</strong> и за что они отвечают;</p>
+<p>— как отличить настоящее уведомление от фейкового;</p>
+<p>— что делать, если сообщения перестали приходить или приходят с задержкой;</p>
+<p>— как настроить или отключить ненужные оповещения.</p>
+
+<p>Особое внимание уделим <mark>техническим нюансам работы SMS-шлюзов банка</mark>, которые влияют на скорость доставки сообщений, а также разберём случаи, когда уведомления могут приходить с необычных номеров или email-адресов.</p>
+
+<h2 id="1-sms-сообщения-от-втб-номера-формат-и-примеры">1. SMS-сообщения от ВТБ: номера, формат и примеры</h2>
+
+<p>Основной канал оповещений — <strong>SMS</strong>. Банк использует несколько коротких номеров для отправки сообщений, причём их список может меняться в зависимости от региона или типа услуги. Основные номера, с которых приходят уведомления:</p>
+
+<ul>
+  <li>📱 <code>900</code> — стандартный номер для большинства транзакционных SMS (списания, пополнения, переводы).</li>
+  <li>🔐 <code>909</code> — используется для отправки одноразовых паролей (например, при авторизации в <em>ВТБ Онлайн</em>).</li>
+  <li>💳 <code>9033</code> или <code>9044</code> — уведомления по кредитным картам или ипотеке (в некоторых регионах).</li>
+  <li>📧 <code>+7 9xx xxx xx xx</code> — редко, но могут приходить SMS с полноформатных номеров (обычно это маркетинговые рассылки).</li>
+</ul>
+
+<p>Формат SMS строго регламентирован. Например, сообщение о списании всегда содержит:</p>
+<ol>
+  <li>Название банка (<em>ВТБ</em> или <em>VTB</em>).</li>
+  <li>Тип операции (например, "Списание" или "Пополнение").</li>
+  <li>Сумму и валюту (например, "1 500,00 РУБ").</li>
+  <li>Последние 4 цифры карты или счёта.</li>
+  <li>Дату и время операции.</li>
+</ol>
+
+<p><strong>Пример реального SMS</strong>:</p>
+<pre><code>VTB: Списание 3 200,00 RUB. Карта *1234. 15.05.24 14:30. Баланс: 12 800,00 RUB. Инфо: 8 800 100 24 24</code></pre>
+
+<p>Если вы получили SMS с просьбой перейти по ссылке, ввести пароль или подтвердить операцию, которую не совершали — это <mark>100% мошенничество</mark>. Банк никогда не просит клиентов переходить по ссылкам в SMS.</p>
+
+<div class="poll-widget" id="poll-c7497cf1"><div class="poll-widget-question">📊 Как часто вы проверяете SMS от банка?</div><div class="poll-widget-option" data-poll="c7497cf1" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Каждый день</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="c7497cf1" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Раз в неделю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="c7497cf1" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Только когда жду перевод</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="c7497cf1" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Никогда не проверяю</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="2-push-уведомления-в-мобильном-банке-втб-онлайн">2. Push-уведомления в мобильном банке <em>ВТБ Онлайн</em></h2>
+
+<p>Push-сообщения — самый быстрый способ получить оповещение о транзакции. Они приходят мгновенно, даже если у вас нет интернета (сообщение дождётся подключения и отобразитсяlater). В отличие от SMS, push могут содержать интерактивные кнопки (например, "Подтвердить" или "Отклонить" для переводов).</p>
+
+<p>Чтобы push-уведомления работали корректно:</p>
+
+<p>Установите последнюю версию приложения (App Store/Google Play)</p>
+<p>Разрешите уведомления в настройках телефона (iOS: Настройки → Уведомления → ВТБ Онлайн; Android: Настройки → Приложения → ВТБ Онлайн → Уведомления)</p>
+<p>Включите push в самом приложении: Профиль → Настройки → Уведомления → Push-сообщения</p>
+<p>Проверьте, что у вас включён мобильный интернет или Wi-Fi--></p>
+
+<p>Если push перестали приходить, сначала проверьте:</p>
+<ul>
+  <li>🔋 Не включён ли режим "Не беспокоить" на телефоне.</li>
+  <li>📵 Не отключён ли мобильный интернет (push приходят через него, даже если вы в роуминге).</li>
+  <li>🗑️ Не очищали ли вы кеш приложения (иногда это сбрасывает настройки уведомлений).</li>
+</ul>
+
+<p><strong>Важно</strong>: Push-уведомления могут не приходить, если вы долго не заходили в приложение (банк временно приостанавливает их отправку для неактивных пользователей). Чтобы возобновить, достаточно открыть <em>ВТБ Онлайн</em> и обновить данные.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если вы часто теряете push из-за слабого интернета, включите в настройках телефона опцию "Показывать уведомления на экране блокировки". Так вы не пропустите важные сообщения даже без разблокировки.</p></div>
+
+<h2 id="3-email-письма-от-втб-когда-и-зачем-приходят">3. Email-письма от ВТБ: когда и зачем приходят</h2>
+
+<p>Банк отправляет письма на email, привязанный к вашему аккаунту, в следующих случаях:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип письма</th>
+      <th>От кого (адрес отправителя)</th>
+      <th>Пример темы</th>
+      <th>Нужно ли открывать?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Выписки и отчёты</td>
+      <td><code>no-reply@vtb.ru</code></td>
+      <td>"Ваша выписка по карте *1234 за май 2026"</td>
+      <td>Да (если вы подписаны на выписки)</td>
+    </tr>
+    <tr>
+      <td>Уведомления о изменениях тарифов</td>
+      <td><code>info@vtb.ru</code></td>
+      <td>"Важное сообщение: изменение условий обслуживания"</td>
+      <td>Да (содержит официальную информацию)</td>
+    </tr>
+    <tr>
+      <td>Маркетинговые рассылки</td>
+      <td><code>offers@vtb.ru</code> или <code>vtb.promo@mail.vtb.ru</code></td>
+      <td>"Специальное предложение по вашей карте!"</td>
+      <td>Нет (можно отписаться)</td>
+    </tr>
+    <tr>
+      <td>Безопасность (подозрительные операции)</td>
+      <td><code>security@vtb.ru</code></td>
+      <td>"Подозрительная активность по вашему счёту"</td>
+      <td>Да (требует проверки)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>⚠️ <strong>Внимание</strong>: Мошенники часто подделывают email от <em>ВТБ</em>, используя адреса вроде <code>support@vtb-security.com</code> или <code>vtb@mail.ru</code>. Официальные письма всегда приходят с домена <code>@vtb.ru</code> или <code>@mail.vtb.ru</code>.</p>
+
+<p>Если вы сомневаетесь в подлинности письма:</p>
+<ol>
+  <li>Не переходите по ссылкам в письме — лучше зайдите в <em>ВТБ Онлайн</em> напрямую.</li>
+  <li>Проверьте адрес отправителя (наведите курсор на имя, чтобы увидеть реальный email).</li>
+  <li>Свяжитесь с банком по официальному телефону <code>8 800 100 24 24</code>.</li>
+</ol>
+
+<h2 id="4-уведомления-в-личном-кабинете-и-чат-боте">4. Уведомления в личном кабинете и чат-боте</h2>
+
+<p>Помимо SMS, push и email, банк дублирует часть уведомлений прямо в <em>ВТБ Онлайн</em> (веб-версия или приложение). Их можно найти:</p>
+<ul>
+  <li>📌 В разделе <code>Уведомления</code> (значок колокольчика в верхнем меню).</li>
+  <li>💬 В чат-боте <em>ВТБ</em> (в Telegram или через сайт банка).</li>
+  <li>📄 В истории операций (если уведомление привязано к конкретной транзакции).</li>
+</ul>
+
+<p>Преимущество таких уведомлений — они хранятся дольше, чем SMS (до 1 года), и к ним можно вернуться в любой момент. Например, если вам нужно подтвердить налоговому органу факт перевода, вы можете экспортировать историю уведомлений в PDF прямо из личного кабинета.</p>
+
+<p>Чтобы включить дублирование уведомлений в личный кабинет:</p>
+<ol>
+  <li>Откройте <em>ВТБ Онлайн</em> → <code>Профиль</code> → <code>Настройки</code>.</li>
+  <li>Выберите <code>Уведомления</code> → <code>Настройки каналов</code>.</li>
+  <li>Активируйте опцию <code>Сохранять уведомления в истории</code>.</li>
+</ol>
+
+<p>⚠️ <strong>Внимание</strong>: Если вы заметили в личном кабинете уведомление о операции, которой не совершали (например, перевод на незнакомый счёт), немедленно заблокируйте карту через меню <code>Карты</code> → <code>Управление</code> → <code>Заблокировать</code> и позвоните в поддержку.</p>
+
+<h2 id="5-почему-сообщения-от-втб-не-приходят-или-приходят-с-задержкой">5. Почему сообщения от ВТБ не приходят или приходят с задержкой</h2>
+
+<p>Задержки или отсутствие уведомлений — частая проблема, которая может быть связана как с настройками клиента, так и с техническими сбоями на стороне банка. Рассмотрим основные причины:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Проблема</th>
+      <th>Возможная причина</th>
+      <th>Как исправить</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SMS не приходят вообще</td>
+      <td>Номер телефона не привязан к счёту или заблокирован оператором</td>
+      <td>Проверьте привязку в <code>Профиль → Контакты</code> в ВТБ Онлайн. Если номер заблокирован — обратитесь к оператору</td>
+    </tr>
+    <tr>
+      <td>Push не работают</td>
+      <td>Отключены уведомления в настройках телефона или приложения</td>
+      <td>Включите разрешения для <em>ВТБ Онлайн</em> (см. чек-лист выше)</td>
+    </tr>
+    <tr>
+      <td>SMS приходят с задержкой (более 5 минут)</td>
+      <td>Перегрузка SMS-шлюзов банка или оператора связи</td>
+      <td>Подождите 1–2 часа. Если проблема повторяется — напишите в поддержку банка</td>
+    </tr>
+    <tr>
+      <td>Email не приходят</td>
+      <td>Письма попадают в спам или email не подтверждён</td>
+      <td>Проверьте папку "Спам". Подтвердите email в <code>Профиль → Контакты</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Если проблема не решается:</p>
+<ol>
+  <li>Проверьте баланс телефона (иногда операторы блокируют SMS при отрицательном балансе).</li>
+  <li>Убедитесь, что на телефоне правильно установлены дата и время (неверные настройки могут сбивать доставку push).</li>
+  <li>Переустановите приложение <em>ВТБ Онлайн</em> (иногда помогает при сбоях с push).</li>
+</ol>
+
+<p><details class="faq-item"><summary>Что делать, если уведомления приходят на старый номер?</summary><div class="faq-answer"><p>Если вы сменили номер телефона, но уведомления продолжают приходить на старый, это означает, что в банке не обновлены контактные данные. Чтобы исправить:
+<p>1. Зайдите в <em>ВТБ Онлайн</em> → <code>Профиль</code> → <code>Контакты</code>.</p>
+<p>2. Нажмите "Изменить" рядом с номером телефона.</p>
+<p>3. Введите новый номер и подтвердите его через SMS (придёт на новый номер).</p>
+<p>4. Если опция недоступна — обратитесь в отделение банка с паспортом.</p></div></details></p></p>
+
+<h2 id="6-как-отключить-ненужные-уведомления-от-втб">6. Как отключить ненужные уведомления от ВТБ</h2>
+
+<p>Если вас заваливают маркетинговые рассылки или уведомления о мелких транзакциях, часть оповещений можно отключить. Для этого:</p>
+
+<p><strong>В мобильном банке <em>ВТБ Онлайн</strong>:</strong></p>
+<ol>
+  <li>Откройте меню <code>Профиль</code> → <code>Настройки</code> → <code>Уведомления</code>.</li>
+  <li>Выберите категории, которые хотите отключить (например, "Маркетинговые предложения" или "Уведомления о бонусах").</li>
+  <li>Сохраните изменения.</li>
+</ol>
+
+<p><strong>Через SMS-команды:</strong></p>
+<p>Отправьте одно из сообщений на номер <code>900</code>:</p>
+<ul>
+  <li>📵 <code>СТОП РЕКЛАМА</code> — отписаться от маркетинговых SMS.</li>
+  <li>💳 <code>СТОП КАРТА</code> — отключить уведомления о транзакциях по карте.</li>
+  <li>🔄 <code>СТОП ВСЕ</code> — отключить все SMS-уведомления (не рекомендуется).</li>
+</ul>
+
+<p>⚠️ <strong>Внимание</em>: Отключение транзакционных уведомлений (о списаниях/пополнениях) снижает безопасность вашего счёта. Мошенники могут списать деньги, а вы не узнаете об этом вовремя.</p>
+
+<p><div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Даже если вы отключили SMS или push, банк обязан присылать уведомления о критически важных событиях (например, блокировка карты по подозрению в мошенничестве) через все доступные каналы.</p></div></p>
+
+<h2 id="7-мошеннические-схемы-с-поддельными-сообщениями-от-втб">7. Мошеннические схемы с поддельными сообщениями от ВТБ</h2>
+
+<p>Злоумышленники активно используют поддельные SMS, email и звонки от имени <em>ВТБ</em>. Рассмотрим самые распространённые схемы и как их распознать:</p>
+
+<ul>
+  <li>💸 <strong>"Ваша карта заблокирована. Переведите 1 рубль для разблокировки"</strong> — классический развод. Банк никогда не просит переводов для разблокировки.</li>
+  <li>🔗 <strong>"Подтвердите операцию по ссылке [ссылка]"</strong> — настоящие SMS от <em>ВТБ</em> никогда не содержат ссылок.</li>
+  <li>📞 <strong>Звонок "из банка" с просьбой назвать код из SMS</strong> — мошенники звонят с номеров, похожих на официальные (например, <code>+7 495 777-24-24</code> вместо реального <code>8 800 100 24 24</code>).</li>
+  <li>📄 <strong>"Ваш счёт арестован. Скачайте документ по ссылке"</strong> — вложения в таких письмах содержат вирусы.</li>
+</ul>
+
+<p>Как защититься:</p>
+<ol>
+  <li>Никогда не переходите по ссылкам в SMS/email, даже если они выглядят как официальные.</li>
+  <li>Не сообщайте никому коды из SMS или push-уведомлений (даже "сотрудникам банка").</li>
+  <li>Проверяйте номера телефонов на официальном сайте <em>ВТБ</em> (<a href="https://www.vtb.ru">vtb.ru</a>).</li>
+  <li>Если сомневаетесь — позвоните в банк сами по номеру на обратной стороне карты.</li>
+</ol>
+
+<p><div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Установите в телефоне блокировку номеров: если вам часто звонят мошенники с поддельных "банковских" номеров, добавьте их в чёрный список. На iPhone: <code>Телефон → Недавние → ⓘ → Заблокировать</code>. На Android: <code>Телефон → История → Нажать на номер → Блокировать</code>.</p></div></p>
+
+<h2 id="faq-частые-вопросы-о-сообщениях-от-втб">FAQ: Частые вопросы о сообщениях от ВТБ</h2>
+
+<details>
+  <summary>Можно ли изменить номер, с которого приходят SMS от ВТБ?</summary>
+  <p>Нет, банк использует фиксированные короткие номера (<code>900</code>, <code>909</code> и др.), и изменить их нельзя. Если вам пришло SMS с другого номера, это либо маркетинговая рассылка, либо мошенничество.</p>
+</details>
+
+<details>
+  <summary>Почему приходят SMS о транзакциях, которых я не совершал?</summary>
+  <p>Это может означать:</p>
+  <ol>
+    <li>Кто-то получил доступ к вашей карте (немедленно заблокируйте её через <em>ВТБ Онлайн</em> или по телефону <code>8 800 100 24 24</code>).</li>
+    <li>Это технический сбой (например, дублирование операции). Проверьте баланс — если денег не списано, скорее всего, ошибка.</li>
+    <li>Вы подключили автоплатежи (например, за ЖКХ или подписки), о которых забыли.</li>
+  </ol>
+  <p>В любом случае свяжитесь с банком для уточнения.</p>
+</details>
+
+<details>
+  <summary>Как восстановить историю SMS от ВТБ, если я их удалил?</summary>
+  <p>К сожалению, банк не хранит копии отправленных SMS. Однако вы можете:</p>
+  <ul>
+    <li>Посмотреть историю операций в <em>ВТБ Онлайн</em> (раздел <code>Карты</code> или <code>Счета</code>).</li>
+    <li>Заказать выписку по карте/счёту за нужный период (платно или бесплатно, в зависимости от тарифа).</li>
+    <li>Если SMS нужны для суда или налоговой — запросите официальную справку в отделении банка.</li>
+  </ul>
+</details>
+
+<details>
+  <summary>Приходят ли уведомления от ВТБ в мессенджерах (WhatsApp, Telegram)?</summary>
+  <p>Официально банк отправляет уведомления только через:</p>
+  <ul>
+    <li>SMS;</li>
+    <li>Push в мобильном банке;</li>
+    <li>Email;</li>
+    <li>Чат-бот в <em>Telegram</em> (только если вы его подключили самостоятельно).</li>
+  </ul>
+  <p>Сообщения в <em>WhatsApp</em>, <em>Viber</em> или других мессенджерах — это либо мошенники, либо маркетинговые рассылки от партнёров банка (их можно отключить).</p>
+</details>
+
+<details>
+  <summary>Можно ли подключить уведомления о транзакциях на email?</summary>
+  <p>Да, но не для всех типов операций. Чтобы настроить:</p>
+  <ol>
+    <li>Зайдите в <em>ВТБ Онлайн</em> → <code>Профиль</code> → <code>Настройки</code> → <code>Уведомления</code>.</li>
+    <li>Выберите <code>Email-уведомления</code>.</li>
+    <li>Отметьте галочками типы операций, о которых хотите получать письма (например, "Списания свыше 5 000 РУБ").</li>
+  </ol>
+  <p>Учтите, что email-уведомления приходят с задержкой (до 1 часа), поэтому для контроля транзакций лучше использовать SMS или push.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#1-sms-сообщения-от-втб-номера-формат-и-примеры">1. SMS-сообщения от ВТБ: номера, формат и примеры</a></li><li><a href="#2-push-уведомления-в-мобильном-банке-втб-онлайн">2. Push-уведомления в мобильном банке ВТБ Онлайн</a></li><li><a href="#3-email-письма-от-втб-когда-и-зачем-приходят">3. Email-письма от ВТБ: когда и зачем приходят</a></li><li><a href="#4-уведомления-в-личном-кабинете-и-чат-боте">4. Уведомления в личном кабинете и чат-боте</a></li><li><a href="#5-почему-сообщения-от-втб-не-приходят-или-приходят-с-задержкой">5. Почему сообщения от ВТБ не приходят или приходят с задержкой</a></li><li><a href="#6-как-отключить-ненужные-уведомления-от-втб">6. Как отключить ненужные уведомления от ВТБ</a></li><li><a href="#7-мошеннические-схемы-с-поддельными-сообщениями-от-втб">7. Мошеннические схемы с поддельными сообщениями от ВТБ</a></li><li><a href="#faq-частые-вопросы-о-сообщениях-от-втб">FAQ: Частые вопросы о сообщениях от ВТБ</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/e/es/esli-nepravilno-vvel-pin-kod-na-kartochke-vtb-3-raza-chto-delat.html" class="related-card">Блокировка карты ВТБ после 3 неверных PIN-кодов: что делать в 2026 году</a></li><li><a href="/articles/k/ka/kak-uznat-svoj-cvv-v-vtb-onlajn.html" class="related-card">Как узнать CVV на карте ВТБ онлайн — безопасные способы 2026</a></li><li><a href="/articles/e/es/esli-zvonyat-moshenniki-iz-banka-vtb-kuda.html" class="related-card">Звонят мошенники из ВТБ: что делать и куда обращаться в 2026 году</a></li><li><a href="/articles/e/el/elektronnaya-podpis-kak-sdelat-vtb.html" class="related-card">Как сделать электронную подпись в ВТБ: пошаговая инструкция 2026</a></li><li><a href="/articles/v/vt/vtb-ne-rabotaet-chto-delat.html" class="related-card">ВТБ не работает: что делать клиенту в 2026 году — инструкция</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/e/es/esli-nepravilno-vvel-pin-kod-na-kartochke-vtb-3-raza-chto-delat.html" class="related-bottom-card"><span class="related-bottom-title">Блокировка карты ВТБ после 3 неверных PIN-кодов: что делать в 2026 году</span><span class="related-bottom-desc">Забыли PIN-код и ввели его 3 раза неправильно? Узнайте, как разблокировать карту ВТБ, восстановить д</span></a><a href="/articles/k/ka/kak-uznat-svoj-cvv-v-vtb-onlajn.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать CVV на карте ВТБ онлайн — безопасные способы 2026</span><span class="related-bottom-desc">Где посмотреть CVV-код карты ВТБ через интернет-банк, мобильное приложение или личный кабинет? Пошаг</span></a><a href="/articles/e/es/esli-zvonyat-moshenniki-iz-banka-vtb-kuda.html" class="related-bottom-card"><span class="related-bottom-title">Звонят мошенники из ВТБ: что делать и куда обращаться в 2026 году</span><span class="related-bottom-desc">Как распознать мошенничество от имени ВТБ по телефону, куда жаловаться на фишинговые звонки и как за</span></a><a href="/articles/e/el/elektronnaya-podpis-kak-sdelat-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как сделать электронную подпись в ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Подробное руководство по созданию ЭЦП в ВТБ для физических и юридических лиц: через личный кабинет, </span></a><a href="/articles/v/vt/vtb-ne-rabotaet-chto-delat.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ не работает: что делать клиенту в 2026 году — инструкция</span><span class="related-bottom-desc">Не открывается приложение ВТБ, не работают переводы или сайт банка? Разбираем причины и даём пошагов</span></a><a href="/articles/p/po/pochemu-blokiruyut-lichnyj-kabinet-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Почему блокируют личный кабинет ВТБ: причины и решения 2026</span><span class="related-bottom-desc">Узнайте все причины блокировки личного кабинета ВТБ: от подозрительных операций до технических сбоев</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

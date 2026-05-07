@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Как мошенники отправляют СМС от ВТБ: схемы и защита — Банки Инфо</title>
+    <meta name="description" content="Узнайте, как мошенники подделывают СМС от ВТБ. Разбор технических схем, признаки фейковых сообщений и инструкция по безопасности.">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-moshenniki-otpravlyayut-sms-ot-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Как мошенники отправляют СМС от ВТБ: схемы и защита">
+    <meta property="og:description" content="Узнайте, как мошенники подделывают СМС от ВТБ. Разбор технических схем, признаки фейковых сообщений и инструкция по безопасности.">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/bezopasnost/">Безопасность</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Как мошенники отправляют СМС от ВТБ: схемы и защита</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Как мошенники отправляют СМС от ВТБ: схемы и защита</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#технические-способы-подделки-номера-отправителя">Технические способы подделки номера отправителя</a></li><li><a href="#типичные-сценарии-мошеннических-атак">Типичные сценарии мошеннических атак</a></li><li><a href="#как-отличить-официальное-сообщение-от-подделки">Как отличить официальное сообщение от подделки</a></li><li><a href="#опасность-переходов-по-ссылкам-и-ввода-данных">Опасность переходов по ссылкам и ввода данных</a></li><li><a href="#алгоритм-действий-при-получении-подозрительного-смс">Алгоритм действий при получении подозрительного СМС</a></li><li><a href="#настройки-безопасности-смартфона-и-приложений">Настройки безопасности смартфона и приложений</a></li><li><a href="#правовые-аспекты-и-возврат-средств">Правовые аспекты и возврат средств</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body">
+
+<p>В последние годы финансовая безопасность становится одной из главных забот пользователей банковских услуг. Клиенты <em>ВТБ</em> регулярно сталкиваются с попытками хищения средств через поддельные сообщения. Злоумышленники используют сложные технические приемы, чтобы заставить получателя поверить в легитимность поступающей информации. Понимание механизмов работы мошенников — это первый шаг к сохранению ваших денег на счете.</p>
+
+<p>Феномен массовой рассылки фальшивых уведомлений объясняется доступностью оборудования для имитации номеров. <strong>Спуфинг</strong> (подмена номера) позволяет преступникам отображать на экране вашего телефона имя банка или короткий номер, похожий на официальный. Это создает иллюзию доверия, которой часто пользуются для кражи конфиденциальных данных. Важно знать, что технически отправить СМС, которое будет выглядеть как сообщение от банка, для хакера не составляет большого труда.</p>
+
+<p>Цель таких атак всегда одна — выманить у вас деньги или доступ к банковскому приложению. Мошенники играют на страхах людей: блокировке карты, подозрительных переводах или необходимости срочно обновить данные. <mark>Ни один сотрудник банка никогда не попросит вас назвать код из СМС или перевести деньги на «безопасный счет».</mark> Разобравшись в технических деталях процесса, вы сможете легко отличить настоящую рассылку от фишинговой атаки.</p>
+
+<h2 id="технические-способы-подделки-номера-отправителя">Технические способы подделки номера отправителя</h2>
+
+<p>Основным инструментом в руках злоумышленников является технология <strong>GSM-шлюзов</strong> и специализированного программного обеспечения. Эти устройства позволяют подключать множество сим-карт и отправлять тысячи сообщений в минуту. Программное обеспечение дает возможность изменять поле «Отправитель» (Sender ID), подставляя туда любые буквенные или цифровые комбинации. Именно так на вашем экране появляется надпись «VTB» или «VTB-Bank» вместо реального номера телефона.</p>
+
+<p>Существует несколько уровней сложности в организации таких рассылок. Простые схемы involve использование дешевых модемов, купленных в рознице, которые управляются через компьютер. Более сложные сети используют <em>серверные решения</em> и нелегальные каналы связи, пробрасывающие трафик через несколько стран. Это делает отслеживание реального местоположения отправителя крайне затруднительным для правоохранительных органов.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Официальный сервис рассылок банка защищен многоуровневыми протоколами шифрования. Мошеннические сообщения часто приходят с задержкой или в странное время суток, что является признаком использования перегруженных нелегальных шлюзов.</blockquote>
+
+<p>Важно понимать разницу между СМС и сообщениями в мессенджерах. Если СМС можно подделать относительно легко, то сообщение в официальном приложении банка или в верифицированном чат-боте подделать практически невозможно без доступа к вашим личным данным. Поэтому <strong>Viber</strong> или Telegram-каналы банка являются более надежным источником информации, чем обычные текстовые сообщения.</p>
+
+<div class="poll-widget" id="poll-7d38a1f5"><div class="poll-widget-question">📊 Сталкивались ли вы с поддельными СМС от банков?</div><div class="poll-widget-option" data-poll="7d38a1f5" data-idx="0" onclick="pbPollVote(this)"><span class="poll-widget-label">Да, приходили часто</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7d38a1f5" data-idx="1" onclick="pbPollVote(this)"><span class="poll-widget-label">Было пару раз</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7d38a1f5" data-idx="2" onclick="pbPollVote(this)"><span class="poll-widget-label">Нет, не сталкивался</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div><div class="poll-widget-option" data-poll="7d38a1f5" data-idx="3" onclick="pbPollVote(this)"><span class="poll-widget-label">Не знаю, как их отличить</span><span class="poll-widget-bar"></span><span class="poll-widget-pct"></span></div></div>
+
+<h2 id="типичные-сценарии-мошеннических-атак">Типичные сценарии мошеннических атак</h2>
+
+<p>Сценарии атак постоянно эволюционируют, но их основа остается неизменной — социальная инженерия. Мошенники создают стрессовую ситуацию, чтобы жертва перестала мыслить рационально. Чаще всего используется тема блокировки карты или подозрительной операции. Текст сообщения составлен так, чтобы вызвать мгновенную реакцию страха или паники.</p>
+
+<p>Рассмотрим наиболее распространенные схемы, с которыми сталкиваются клиенты:</p>
+
+<ul>
+<li>🚫 <strong>Блокировка счета:</strong> Сообщение гласит, что ваша карта заблокирована из-за подозрительной активности, и требует срочно позвонить по указанному номеру или перейти по ссылке.</li>
+<li>💸 <strong>Ложный перевод:</strong> Вам пишут, что на ваш счет поступил ошибочный перевод, и просят вернуть деньги, угрожая полицией.</li>
+<li>🎁 <strong>Фейковые акции:</strong> Предложение получить крупный кэшбэк или приз за прохождение опроса, для чего нужно ввести данные карты на стороннем сайте.</li>
+<li>🔒 <strong>Обновление данных:</strong> Требование подтвердить личность или обновить паспортные данные через ссылку, ведущую на фишинговый ресурс.</li>
+</ul>
+
+<p>Каждый из этих сценариев рассчитан на автоматизм действий. Человек видит знакомый логотип или имя отправителя и переходит по ссылке, не проверяя адресную строку браузера. <strong>Фишинговые сайты</strong> копируют дизайн официального сайта банка с точностью до пикселя. Введенные там логины и пароли мгновенно попадают к злоумы!
+<p>Особую опасность представляют гибридные атаки, когда СМС является лишь первым звеном цепочки. После перехода по ссылке на устройство может быть загружено вредоносное ПО, перехватывающее другие СМС, в том числе настоящие коды подтверждения от банка. Это позволяет мошенникам полностью контролировать финансовые операции жертвы удаленно.</p>
+
+
+
+<h2 id="как-отличить-официальное-сообщение-от-подделки">Как отличить официальное сообщение от подделки</h2>
+
+<p>Определить подделку можно по ряду характерных признаков, если внимательно присмотреться к деталям. Официальные сообщения от <em>ВТБ</em> всегда содержат конкретную информацию и никогда не требуют перехода по сокращенным ссылкам. Внимательность к мелочам может спасти ваши средства от кражи.</p>
+
+<p>Вот таблица, сравнивающая признаки реальных и фейковых сообщений:</p>
+
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Официальное СМС</th>
+<th>Сообщение мошенников</th>
+</tr>
+<tr>
+<td>Отправитель</td>
+<td>VTB, VTB24 или короткий номер</td>
+<td>VTB-Bank, VTB_Russia, +79...</td>
+</tr>
+<tr>
+<td>Ссылка</td>
+<td>Только домен vtb.ru</td>
+<td>Сокращенные (bit.ly) или похожие (vtb-secure.com)</td>
+</tr>
+<tr>
+<td>Тон сообщения</td>
+<td>Нейтральный, информативный</td>
+<td>Срочный, пугающий, требовательный</td>
+</tr>
+<tr>
+<td>Запрос данных</td>
+<td>Никогда не запрашивает полные данные</td>
+<td>Требует ввода карты, пин-кода, CVC</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Грамматика</td>
+<td>Без ошибок, профессиональный стиль</td>
+<td>Возможны опечатки, странные формулировки</td>
+</tr>
+</tbody>
+</table>
+
+<p>Обращайте внимание на доменное имя в ссылке. Мошенники часто используют похожие адреса, заменяя одну букву или добавляя лишние слова. Например, вместо <code>vtb.ru</code> может быть указано <code>vtb-login.ru</code> или <code>secure-vtb.com</code>. Официальный банк использует только свой основной домен для всех сервисов.</p>
+
+<p>Еще один признак — время прихода сообщения. Если вам пишут глубокой ночью о «срочной блокировке», это почти гарантированно попытка обмана. Автоматические системы банка работают круглосуточно, но массовые рассылки о проблемах с безопасностью обычно не происходят в нерабочее время без реальной причины, о которой вы бы уже знали.</p>
+
+
+
+<h2 id="опасность-переходов-по-ссылкам-и-ввода-данных">Опасность переходов по ссылкам и ввода данных</h2>
+
+<p>Самая критическая ошибка, которую может совершить пользователь — это переход по ссылке из подозрительного СМС. Даже если вы не будете вводить данные, сам факт перехода на сайт может привести к заражению устройства. Современные браузеры имеют встроенную защиту, но она не всегда справляется с новыми угрозами.</p>
+
+<p>При переходе по ссылке может произойти следующее:</p>
+<ul>
+<li>🦠 <strong>Загрузка малвари:</strong> Файл может загрузиться автоматически или под видом обновления Flash Player.</li>
+<li>🕸️ <strong>Скрипты отслеживания:</strong> Сайт может определить модель вашего телефона и версию ОС для подбора уязвимостей.</li>
+<li>📱 <strong>Перенаправление:</strong> Вас могут перекинуть на другой ресурс, замаскированный под госуслуги или сервисы доставки.</li>
+</ul>
+
+<p>Если вы все же перешли по ссылке, но ничего не вводили, риск минимален, но он есть. Необходимо сразу же очистить кэш браузера и запустить полную проверку антивирусом. Если же вы ввели данные карты, действия должны быть мгновенными: блокировка карты через приложение или звонок в банк.</p>
+
+<blockquote>⚠️ <strong>Внимание:</strong> Никогда не вводите CVC-код и код из СМС на сайтах, на которые вы перешли по ссылке из сообщения. Банк никогда не запрашивает эти данные для «подтверждения личности» или «разблокировки».</blockquote>
+
+<p>Фишинговые страницы часто используют защищенное соединение <strong>HTTPS</strong>, что создает ложное ощущение безопасности. Наличие «замочка» в адресной строке означает лишь то, что соединение шифруется, но не гарантирует честность владельца сайта. Мошенники легко получают бесплатные SSL-сертификаты для своих доменов.</p>
+
+<h2 id="алгоритм-действий-при-получении-подозрительного-смс">Алгоритм действий при получении подозрительного СМС</h2>
+
+<p>Четкий план действий поможет сохранить хладнокровие и минимизировать ущерб. Не стоит паниковать или пытаться вступить в диалог с отправителем. Главная задача — прервать контакт и обезопасить свои счета.</p>
+
+<p>Выполните следующие шаги в указанном порядке:</p>
+
+
+
+<p>Первым делом свяжитесь с банком официальным способом. Номер для связи всегда указан на обратной стороне вашей банковской карты или на официальном сайте. Не используйте номера, предложенные в suspicious-сообщении. Оператор проверит состояние вашего счета и подтвердит или опровергнет информацию.</p>
+
+<p>Если вы успели ввести данные на сайте, немедленно меняйте пароли от онлайн-банка и почты. <strong>Двухфакторная аутентификация</strong> должна быть включена везде, где это возможно. Это добавит дополнительный уровень защиты, даже если пароль будет украден.</p>
+
+
+
+<p>Сохраните скриншот сообщения и передайте его в службу безопасности банка. Это поможет специалистам обновить фильтры и защитить других клиентов. Также стоит подать заявление в полицию, особенно если деньги уже были списаны. Номер дела понадобится для общения со страховой или банком.</p>
+
+<h2 id="настройки-безопасности-смартфона-и-приложений">Настройки безопасности смартфона и приложений</h2>
+
+<p>Защита начинается с устройства, которое вы используете. Смартфон — это ключ к вашим финансам, поэтому его безопасность должна быть приоритетом. Регулярные обновления операционной системы закрывают дыры, через которые хакеры могут проникнуть в систему.</p>
+
+<p>Рекомендуется установить надежный антивирусный комплекс, который проверяет не только файлы, но и сетевой трафик. Многие современные решения умеют анализировать ссылки в СМС до того, как вы по ним перейдете. Также стоит ограничить права приложений: мессенджерам не нужен доступ к контактам, а фонарику — к микрофону.</p>
+
+<p>В настройках сообщений можно включить фильтрацию спама. На Android это встроенная функция Google Messages, на iOS — фильтрация неизвестных отправителей. Это не дает 100% гарантии, но значительно снижает количество визуального шума и вероятность случайного клика.</p>
+
+<p>Используйте сложные пароли и биометрию. Отпечаток пальца или FaceID защитить телефон от доступа посторонних эффективнее, чем простой графический ключ. Если телефон попадет в руки мошенников, биометрия не позволит разблокировать банковское приложение без вашего присутствия.</p>
+
+
+
+<h2 id="правовые-аспекты-и-возврат-средств">Правовые аспекты и возврат средств</h2>
+
+<p>Законодательство строго регулирует вопросы хищения средств с банковских счетов. Если вы стали жертвой мошенников, банк обязан провести расследование. Однако возврат денег возможен только при соблюдении определенных условий и оперативном обращении клиента.</p>
+
+<p>Ключевым моментом является доказательство того, что вы не передавали данные добровольно. Если мошенники использовали <strong>инженерные методы</strong> обмана, а вы не сообщали коды из СМС, шансы на возврат высоки. В случае же, если клиент сам назвал код оператору, вернуть средства юридически практически невозможно.</p>
+
+<p>Процесс возврата обычно занимает до 30 дней. Банк запрашивает материалы у платежных систем и полиции. Важно сохранять все чеки, скриншоты и переписку. Эти доказательства будут рассмотрены комиссией по безопасности.</p>
+
+<p>Помните, что ответственность за сохранность кодов доступа лежит на клиенте. Банковские правила и договоры четко прописывают: код из СМС — это аналог собственноручной подписи. Передавая его, вы даете полное право на распоряжение средствами. Поэтому никому и никогда не сообщайте эти цифры.</p>
+
+<h2 id="faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</h2>
+
+<details>
+<summary>Можно ли отследить реального отправителя поддельного СМС?</summary>
+<p>Самостоятельно — нет. Этим занимаются правоохранительные органы по запросу. Они могут запросить данные у сотовых операторов о том, через какой шлюз прошло сообщение, но если шлюз находится за границей или принадлежит подставной фирме, поиск затрудняется.</p>
+</details>
+
+<details>
+<summary>Что делать, если я перешел по ссылке, но ничего не вводил?</summary>
+<p>Скорее всего, с вашими деньгами все в порядке. Однако рекомендуется просканировать устройство антивирусом и сменить пароль от интернет-банка в превентивных целях. Также стоит проанализировать историю операций на предмет странных мелких списаний.</p>
+</details>
+
+<details>
+<summary>Правда ли, что СМС от ВТБ могут приходить с обычного номера?</summary>
+<p>Официальные уведомления о операциях и коды всегда приходят с короткого номера или имени отправителя (VTB). Сообщения с обычных мобильных номеров (+79...) банк не рассылает. Такие сообщения — 100% признак мошенничества.</p>
+</details>
+
+<details>
+<summary>Как защитить пожилых родственников от таких СМС?</summary>
+<p>Установите на их телефоны определители номеров с функцией блокировки спама. Объясните простое правило: «Банк ничего не просит по телефону и в СМС». Запишите номер банка в контакты как «НЕ БРАТЬ ТРУБУ» для проверки, если поступит странный звонок.</p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#технические-способы-подделки-номера-отправителя">Технические способы подделки номера отправителя</a></li><li><a href="#типичные-сценарии-мошеннических-атак">Типичные сценарии мошеннических атак</a></li><li><a href="#как-отличить-официальное-сообщение-от-подделки">Как отличить официальное сообщение от подделки</a></li><li><a href="#опасность-переходов-по-ссылкам-и-ввода-данных">Опасность переходов по ссылкам и ввода данных</a></li><li><a href="#алгоритм-действий-при-получении-подозрительного-смс">Алгоритм действий при получении подозрительного СМС</a></li><li><a href="#настройки-безопасности-смартфона-и-приложений">Настройки безопасности смартфона и приложений</a></li><li><a href="#правовые-аспекты-и-возврат-средств">Правовые аспекты и возврат средств</a></li><li><a href="#faq-часто-задаваемые-вопросы">FAQ: Часто задаваемые вопросы</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/k/ka/kak-uznat-cvv-kod-po-nomeru-karty-vtb.html" class="related-card">Как узнать CVV код карты ВТБ: инструкции и защита</a></li><li><a href="/articles/k/ku/kuda-zhalovatsya-na-bank-vtb.html" class="related-card">Куда жаловаться на банк ВТБ: инстанции, телефоны и образцы</a></li><li><a href="/articles/p/po/pochemu-blokiruyut-lichnyj-kabinet-vtb.html" class="related-card">Почему блокируют личный кабинет ВТБ: причины и решения 2026</a></li><li><a href="/articles/b/ba/bank-vtb-moshenniki-kuda.html" class="related-card">ВТБ мошенники: куда жаловаться и как вернуть деньги в 2026 году</a></li><li><a href="/articles/m/mo/moshenniki-snyali-dengi-s-bankovskoj-karty-vtb-chto-delat.html" class="related-card">Мошенники сняли деньги с карты ВТБ: что делать в 2026 году</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/k/ka/kak-uznat-cvv-kod-po-nomeru-karty-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать CVV код карты ВТБ: инструкции и защита</span><span class="related-bottom-desc">Узнайте, где находится CVV код на карте ВТБ, как его защитить от мошенников и что делать, если данны</span></a><a href="/articles/k/ku/kuda-zhalovatsya-na-bank-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Куда жаловаться на банк ВТБ: инстанции, телефоны и образцы</span><span class="related-bottom-desc">Подробная инструкция, куда и как подать жалобу на ВТБ. Образцы обращений в ЦБ, Роспотребнадзор и про</span></a><a href="/articles/p/po/pochemu-blokiruyut-lichnyj-kabinet-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Почему блокируют личный кабинет ВТБ: причины и решения 2026</span><span class="related-bottom-desc">Узнайте все причины блокировки личного кабинета ВТБ: от подозрительных операций до технических сбоев</span></a><a href="/articles/b/ba/bank-vtb-moshenniki-kuda.html" class="related-bottom-card"><span class="related-bottom-title">ВТБ мошенники: куда жаловаться и как вернуть деньги в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция: что делать, если мошенники оформили кредит или сняли деньги с карты ВТБ. Куда </span></a><a href="/articles/m/mo/moshenniki-snyali-dengi-s-bankovskoj-karty-vtb-chto-delat.html" class="related-bottom-card"><span class="related-bottom-title">Мошенники сняли деньги с карты ВТБ: что делать в 2026 году</span><span class="related-bottom-desc">Пошаговая инструкция: как вернуть деньги, если с карты ВТБ списали средства мошенники. Куда звонить,</span></a><a href="/articles/k/ka/kak-otozvat-biometricheskie-dannye-iz-banka-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как отозвать биометрию из ВТБ: пошаговая инструкция 2026</span><span class="related-bottom-desc">Узнайте, как удалить биометрические данные (голос, лицо) из банка ВТБ через мобильное приложение, оф</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>

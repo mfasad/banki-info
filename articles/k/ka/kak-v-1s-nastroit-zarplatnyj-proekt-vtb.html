@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏦</text></svg>">
+    <title>Настройка зарплатного проекта ВТБ в 1С: пошаговая инструкция 2026 — Банки Инфо</title>
+    <meta name="description" content="Как правильно настроить зарплатный проект ВТБ в 1С: Бухгалтерия 8.3 — подробная инструкция с скриншотами, типичными ошибками и советами по интеграции с банком. Актуально для версий 3.0.130+">
+    <link rel="canonical" href="https://banki-info.vercel.app/articles/k/ka/kak-v-1s-nastroit-zarplatnyj-proekt-vtb.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Настройка зарплатного проекта ВТБ в 1С: пошаговая инструкция 2026">
+    <meta property="og:description" content="Как правильно настроить зарплатный проект ВТБ в 1С: Бухгалтерия 8.3 — подробная инструкция с скриншотами, типичными ошибками и советами по интеграции с банком. Актуально для версий 3.0.130+">
+    <meta property="og:locale" content="ru_RU">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=1778192590">
+    <style>
+    .site-footer-premium {
+        margin-top: 60px; padding: 40px 0 0; background: #1e293b; color: #94a3b8;
+    }
+    .footer-grid {
+        display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+        padding-bottom: 32px; border-bottom: 1px solid #334155;
+    }
+    .footer-brand { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; margin-bottom: 12px; }
+    .footer-about { font-size: 0.9rem; line-height: 1.6; margin-bottom: 8px; }
+    .footer-updated { font-size: 0.8rem; color: #64748b; }
+    .footer-col h4 { color: #f1f5f9; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 8px; }
+    .footer-col a { color: #94a3b8; font-size: 0.9rem; transition: color 0.2s; }
+    .footer-col a:hover { color: #60a5fa; }
+    .footer-bottom { padding: 20px 0; text-align: center; font-size: 0.85rem; }
+    @media (max-width: 640px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .cookie-popup {
+        position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; color: #fff;
+        padding: 16px; transition: transform 0.5s ease; z-index: 9999; border-top: 2px solid #2563eb;
+        transform: translateY(100%);
+    }
+    .cookie-popup.visible { transform: translateY(0); }
+    .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 0.9rem; }
+    .cookie-btn { background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+    .cookie-btn:hover { background: #1d4ed8; }
+    @media (max-width: 640px) {
+        .cookie-inner { flex-direction: column; text-align: center; }
+    }
+</style>
+    
+    <!--#include virtual="/ssi/head.html" -->
+</head>
+<body>
+        <!--#include virtual="/ssi/body_top.html" -->
+    <style>
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+        background: none; border: none; cursor: pointer;
+        font: inherit; color: inherit; padding: 8px 12px;
+        border-radius: 8px; transition: background 0.2s;
+    }
+    .dropdown-toggle:hover { background: rgba(0,0,0,0.05); }
+    .dropdown-menu {
+        display: none; position: absolute; right: 0; top: 100%;
+        min-width: 240px; max-height: 70vh; overflow-y: auto;
+        background: var(--card-bg, #fff); border: 1px solid var(--border, #e5e7eb);
+        border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        padding: 8px 0; z-index: 1000;
+    }
+    .nav-dropdown::after {
+        content: ''; position: absolute; left: 0; right: 0;
+        top: 100%; height: 12px;
+    }
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu { display: block; }
+    .dropdown-item {
+        display: block; padding: 10px 20px; color: var(--text, #1f2937);
+        text-decoration: none; font-size: 0.95rem; transition: background 0.15s;
+        white-space: nowrap;
+    }
+    .dropdown-item:hover { background: rgba(37,99,235,0.06); color: var(--primary, #2563eb); }
+    @media (max-width: 768px) {
+        .main-nav > .nav-link { display: none; }
+        .dropdown-toggle { display: none; }
+        .dropdown-menu {
+            display: block !important; position: static;
+            box-shadow: none; border: none; border-radius: 0;
+            min-width: auto; max-height: none; padding: 0;
+            background: transparent;
+        }
+        .dropdown-item {
+            padding: 8px 0; font-size: 1rem;
+        }
+    }
+    </style>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">🏦</span>
+                <span>Банки Инфо</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="Меню" id="menuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="/category/karty-i-scheta/" class="nav-link">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="nav-link">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="nav-link">💸 Переводы</a>
+<a href="/category/kredity/" class="nav-link">📉 Кредиты</a>
+<div class="nav-dropdown">
+            <button class="nav-link dropdown-toggle">📂 Все разделы ▾</button>
+            <div class="dropdown-menu"><a href="/category/karty-i-scheta/" class="dropdown-item">💳 Карты и счета</a>
+<a href="/category/mobilnyj-bank/" class="dropdown-item">📱 Мобильный банк</a>
+<a href="/category/perevody/" class="dropdown-item">💸 Переводы</a>
+<a href="/category/kredity/" class="dropdown-item">📉 Кредиты</a>
+<a href="/category/ipoteka/" class="dropdown-item">🏠 Ипотека</a>
+<a href="/category/vklady/" class="dropdown-item">🐷 Вклады</a>
+<a href="/category/investitsii/" class="dropdown-item">📈 Инвестиции</a>
+<a href="/category/platezhi-zhkkh/" class="dropdown-item">🧾 Платежи ЖКХ</a>
+<a href="/category/bonusy/" class="dropdown-item">🎁 Бонусы</a>
+<a href="/category/bezopasnost/" class="dropdown-item">🔒 Безопасность</a>
+<a href="/category/ofisy-i-bankomaty/" class="dropdown-item">📍 Офисы и банкоматы</a>
+<a href="/category/drugoe/" class="dropdown-item">📁 Другое</a></div>
+        </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumbs" aria-label="Навигация">
+        <div class="container"><a href="/">Главная</a><span class="breadcrumb-sep">›</span><a href="/category/karty-i-scheta/">Карты и счета</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Настройка зарплатного проекта ВТБ в 1С: пошаговая инструкция 2026</span></div>
+    </nav>
+
+    <main class="site-main">
+        <div class="container">
+            <div class="article-layout">
+                <article class="article-main">
+                    
+                    <h1>Настройка зарплатного проекта ВТБ в 1С: полное руководство с примерами</h1>
+                    <nav class="mobile-toc"><details><summary>📋 Содержание</summary><ul><li><a href="#1-подготовка-к-настройке-что-нужно-сделать-до-работы-в-1с">1. Подготовка к настройке: что нужно сделать до работы в 1С</a></li><li><a href="#2-настройка-банковских-реквизитов-в-1с">2. Настройка банковских реквизитов в 1С</a></li><li><a href="#3-создание-зарплатного-проекта-в-1с">3. Создание зарплатного проекта в 1С</a></li><li><a href="#4-добавление-сотрудников-в-зарплатный-проект">4. Добавление сотрудников в зарплатный проект</a></li><li><a href="#5-формирование-и-выгрузка-реестра-для-втб">5. Формирование и выгрузка реестра для ВТБ</a></li><li><a href="#6-типичные-ошибки-и-их-решения">6. Типичные ошибки и их решения</a></li><li><a href="#7-проверка-выплат-и-сверка-с-банком">7. Проверка выплат и сверка с банком</a></li><li><a href="#8-автоматизация-и-полезные-доработки">8. Автоматизация и полезные доработки</a></li><li><a href="#faq-частые-вопросы-по-настройке-зарплатного-проекта-втб-в-1с">FAQ: Частые вопросы по настройке зарплатного проекта ВТБ в 1С</a></li></ul></details></nav>
+                    <!--#include virtual="/ssi/article_before.html" -->
+                    <div class="article-body"><p>Перевод зарплаты сотрудников через <em>ВТБ</em> с использованием <strong>1С:Зарплата и Управление Персоналом</strong> или <strong>1С:Бухгалтерия 8.3</strong> требует правильной настройки зарплатного проекта в программе. Без корректной интеграции вы рискуете столкнуться с задержками выплат, ошибками в реестрах или даже блокировкой переводов банком. Эта инструкция поможет избежать типичных проблем и настроить всё с первого раза.</p>
+
+<p>В статье мы разберём не только техническую сторону (создание реестров, настройку обмена данными), но и нюансы взаимодействия с <em>ВТБ</em>: какие документы потребуются банку, как проверить статус платежей и что делать, если деньги не дошли до сотрудников. Актуально для <strong>версий 1С 8.3.20+</strong> и текущих тарифов <em>ВТБ</em> на 2026 год.</p>
+
+<p>Если вы уже пытались настроить зарплатный проект, но получали ошибки вроде <code>Ошибка формирования реестра: неверный БИК</code> или <code>Отсутствует договор с банком</code> — в конце статьи есть раздел с решениями таких проблем.</p>
+
+<h2 id="1-подготовка-к-настройке-что-нужно-сделать-до-работы-в-1с">1. Подготовка к настройке: что нужно сделать до работы в 1С</h2>
+
+<p>Прежде чем открывать <strong>1С</strong>, убедитесь, что у вас на руках есть все необходимые документы от <em>ВТБ</em>. Без них настройка невозможна:</p>
+
+<ul>
+  <li>📄 <strong>Договор на зарплатный проект</strong> — должен быть подписан с двух сторон (банк + ваша организация). В нём указаны реквизиты счета, тарифы и условия списания комиссий.</li>
+  <li>🔑 <strong>Реквизиты банка</strong>: БИК, корреспондентский счёт, номер расчётного счёта вашей организации в <em>ВТБ</em>.</li>
+  <li>📋 <strong>Список сотрудников</strong> с их банковскими картами (номера счетов, ФИО). Если карты ещё не открыты, их нужно оформить заранее.</li>
+  <li>🖥️ <strong>Доступ к личному кабинету ВТБ-Бизнес</strong> — потребуется для проверки платежей и загрузки выписок.</li>
+</ul>
+
+<p>Также проверьте, что в вашей версии <strong>1С</strong> установлены последние обновления конфигурации. Для работы с <em>ВТБ</em> критически важно, чтобы версия платформы была не ниже <code>8.3.20.1583</code>. Проверить её можно в меню <code>Справка → О программе</code>.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>Если у вас старая версия 1С, обновите её через <code>Администрирование → Обновление конфигурации</code>. Без актуальной версии обмен данными с ВТБ может работать некорректно.</p></div>
+
+<p>Если вы только начинаете сотрудничество с <em>ВТБ</em>, учтите: банк может запросить дополнительные документы, например, <strong>карточку с образцами подписей</strong> или <strong>выписку из ЕГРЮЛ</strong>. Их отсутствие задержит запуск зарплатного проекта.</p>
+
+<h2 id="2-настройка-банковских-реквизитов-в-1с">2. Настройка банковских реквизитов в 1С</h2>
+
+<p>Первый шаг в самой программе — внесение реквизитов <em>ВТБ</em> и вашего расчётного счёта. Для этого:</p>
+
+<ol>
+  <li>Откройте раздел <code>Банк и касса → Банковские счёта</code>.</li>
+  <li>Нажмите <code>Создать</code> и выберите тип счёта — <strong>Расчётный</strong>.</li>
+  <li>Заполните поля:
+    <ul>
+      <li>🏦 <strong>Банк</strong> — выберите <em>ПАО ВТБ</em> из справочника (если его нет, добавьте вручную).</li>
+      <li>📌 <strong>БИК</strong> — <code>044525225</code> (для головного офиса <em>ВТБ</em> в Москве).</li>
+      <li>💳 <strong>Номер счёта</strong> — ваш расчётный счёт из договора.</li>
+      <li>📝 <strong>Наименование счёта</strong> — укажите назначение, например, «Зарплатный проект».</li>
+    </ol>
+  </li>
+  <li>Сохраните и проверьте, что счёт появился в списке.</li>
+</ol>
+
+<p>Если вы работаете с несколькими банками, убедитесь, что счёт <em>ВТБ</em> отмечен как <strong>основной для зарплатных проектов</strong>. Это можно сделать в карточке счёта, поставив галочку <code>Использовать для выплаты зарплаты</code>.</p>
+
+<details class="faq-item"><summary>Как проверить правильность БИКа?</summary><div class="faq-answer"><p>Если вы не уверены в БИКе вашего отделения ВТБ, уточните его в личном кабинете ВТБ-Бизнес или по телефону поддержки <code>8 800 100-24-24</code>. Неправильный БИК приведёт к ошибке при формировании платежных поручений.</p></div></details>
+
+<p><strong>Важно!</strong> Если у вашей организации несколько расчётных счетов в <em>ВТБ</em>, уточните в банке, какой из них привязан к зарплатному проекту. Использование неправильного счёта может привести к отказу в проведении платежей.</p>
+
+<h2 id="3-создание-зарплатного-проекта-в-1с">3. Создание зарплатного проекта в 1С</h2>
+
+<p>Теперь перейдём к созданию самого зарплатного проекта. В <strong>1С:Зарплата и Управление Персоналом 8.3</strong> это делается через раздел <code>Зарплата → Зарплатные проекты</code>. Если у вас <strong>1С:Бухгалтерия</strong>, путь будет другим: <code>Зарплата → Выплата зарплаты → Зарплатные проекты</code>.</p>
+
+<p>Алгоритм настройки:</p>
+
+<ol>
+  <li>Нажмите <code>Создать</code> и выберите тип проекта — <strong>Выплата через банк</strong>.</li>
+  <li>Укажите название проекта, например, «Зарплатный проект ВТБ — 2026».</li>
+  <li>В поле <strong>Банк</strong> выберите <em>ПАО ВТБ</em> из справочника.</li>
+  <li>В разделе <strong>Реквизиты</strong> укажите:
+    <ul>
+      <li>📌 <strong>Номер договора</strong> — из документа, подписанного с банком.</li>
+      <li>💰 <strong>Счёт списания</strong> — ваш расчётный счёт в <em>ВТБ</em>.</li>
+      <li>📅 <strong>Дата начала действия</strong> — дата подписания договора.</li>
+    </ul>
+  </li>
+  <li>Вкладка <strong>Настройки выплаты</strong>:
+    <ul>
+      <li>📂 <strong>Формат обмена</strong> — выберите <code>1С:Предприятие 8 (XML)</code>.</li>
+      <li>🔄 <strong>Способ обмена</strong> — <code>Файловый</code> (если обмен идёт через выгрузку/загрузку файлов) или <code>Прямой обмен</code> (если настроена интеграция через <em>ВТБ-Бизнес</em>).</li>
+    </ol>
+  </li>
+</ol>
+
+<p>После сохранения проекта проверьте, что в карточке появилась галочка <code>Активен</code>. Если её нет, проект не будет доступен для формирования реестров.</p>
+
+
+<p>Указан правильный БИК ВТБ|Номер договора совпадает с банковским|Счёт списания активен и не заблокирован|Формат обмена — XML для 1С|Проект отмечен как активный--></p>
+
+<p><mark>Критическая ошибка: если в настройках проекта указать неверный формат обмена (например, <code>Текстовый</code> вместо <code>XML</code>), банк не примет реестр, и выплаты зависнут. ВТБ работает только с XML-файлами стандарта 1С.</mark></p>
+
+<h2 id="4-добавление-сотрудников-в-зарплатный-проект">4. Добавление сотрудников в зарплатный проект</h2>
+
+<p>Чтобы сотрудники могли получать зарплату на карты <em>ВТБ</em>, их нужно привязать к проекту. Это делается в два этапа: сначала проверяются личные данные, затем — банковские реквизиты.</p>
+
+<p>Инструкция:</p>
+
+<ol>
+  <li>Откройте раздел <code>Кадры → Сотрудники</code>.</li>
+  <li>Выберите сотрудника и откройте его карточку.</li>
+  <li>Перейдите на вкладку <strong>Зарплатные проекты</strong>.</li>
+  <li>Нажмите <code>Добавить</code> и выберите созданный ранее проект <em>ВТБ</em>.</li>
+  <li>Заполните поля:
+    <ul>
+      <li>💳 <strong>Номер счёта</strong> — 20-значный номер карты сотрудника (уточните у него или в банке).</li>
+      <li>🏦 <strong>Банк</strong> — <em>ПАО ВТБ</em>.</li>
+      <li>📌 <strong>Тип счёта</strong> — <code>Зарплатный</code>.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Если у сотрудника ещё нет карты <em>ВТБ</em>, её можно оформить дистанционно через <strong>личный кабинет ВТБ-Бизнес</strong> (раздел «Зарплатные карты»). Банк обычно выдаёт карты бесплатно в рамках зарплатного проекта.</p>
+
+
+<p>Вручную через 1С|Импортом из Excel|Через интеграцию с ВТБ-Бизнес|Другой способ--></p>
+
+<p>Обратите внимание: если сотрудник уволился, его реквизиты нужно <strong>удалить из проекта</strong>, иначе банк может продолжать резервировать средства на его счёт. Это приводит к ошибкам при формировании реестра.</p>
+
+<h2 id="5-формирование-и-выгрузка-реестра-для-втб">5. Формирование и выгрузка реестра для ВТБ</h2>
+
+<p>Когда проект настроен и сотрудники добавлены, можно формировать реестр для выплаты зарплаты. Это самый ответственный этап — ошибки здесь приведут к задержке переводов.</p>
+
+<p>Пошаговая инструкция:</p>
+
+<ol>
+  <li>Перейдите в раздел <code>Зарплата → Выплата зарплаты → Реестры на выплату</code>.</li>
+  <li>Нажмите <code>Создать</code> и выберите тип <strong>Реестр на перечисление зарплаты через банк</strong>.</li>
+  <li>Укажите:
+    <ul>
+      <li>📅 <strong>Месяц начисления</strong> — месяц, за который выплачивается зарплата.</li>
+      <li>💰 <strong>Зарплатный проект</strong> — выберите проект <em>ВТБ</em>.</li>
+      <li>📂 <strong>Способ выплаты</strong> — <code>Банковский перевод</code>.</li>
+    </ol>
+  </li>
+  <li>Нажмите <code>Заполнить</code> — программа автоматически подтянет сотрудников и суммы к выплате.</li>
+  <li>Проверьте реестр на ошибки (красные строки означают проблемы с реквизитами).</li>
+  <li>Нажмите <code>Провести и закрыть</code>, затем <code>Выгрузить</code> для создания XML-файла.</li>
+</ol>
+
+<p>Файл реестра будет сохранён в формате <code>Зарплата_ДДММГГ.xml</code>. Его нужно загрузить в <strong>личный кабинет ВТБ-Бизнес</strong> в разделе <code>Зарплатные проекты → Загрузка реестров</code>.</p>
+
+<div class="attention-box attention-tip"><span class="attention-icon">💡</span><p>ВТБ принимает реестры только до 14:00 по московскому времени в день выплаты. Если выгрузить позже, переводы будут зачислены только на следующий рабочий день.</p></div>
+
+<p>После загрузки реестра банк проверит его в течение 1–2 часов. Статус можно отслеживать в личном кабинете. Если появится ошибка, 1С покажет её в журнале документов (например, <code>Недостаточно средств на счёте</code> или <code>Неверный номер карты</code>).</p>
+
+<h2 id="6-типичные-ошибки-и-их-решения">6. Типичные ошибки и их решения</h2>
+
+<p>Даже при правильной настройке могут возникать проблемы. Вот самые частые ошибки и способы их исправления:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ошибка</th>
+      <th>Причина</th>
+      <th>Решение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Ошибка формирования реестра: неверный БИК</code></td>
+      <td>В настройках проекта указан неверный БИК <em>ВТБ</em>.</td>
+      <td>Проверьте БИК в договоре с банком и исправьте в карточке счёта в 1С.</td>
+    </tr>
+    <tr>
+      <td><code>Отсутствует договор с банком</code></td>
+      <td>В карточке зарплатного проекта не указан номер договора.</td>
+      <td>Откройте проект в 1С и заполните поле «Номер договора».</td>
+    </tr>
+    <tr>
+      <td><code>Недостаточно средств на счёте</code></td>
+      <td>На расчётном счёте недостаточно денег для выплаты.</td>
+      <td>Пополните счёт или перенесите дату выплаты.</td>
+    </tr>
+    <tr>
+      <td><code>Неверный номер счёта получателя</code></td>
+      <td>Ошибка в номере карты сотрудника.</td>
+      <td>Проверьте реквизиты в карточке сотрудника и исправьте.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Если вы видите ошибку <code>Ошибка обмена данными с банком</code>, проверьте:</p>
+<ul>
+  <li>🔌 Подключение к интернету (если используется прямой обмен).</li>
+  <li>🔒 Настройки прокси-сервера в 1С (раздел <code>Администрирование → Настройки программы → Сетевые настройки</code>).</li>
+  <li>📡 Доступность сервисов <em>ВТБ</em> (иногда банк проводит технические работы).</li>
+</ul>
+
+<p><strong>Внимание!</strong> ⚠️ Если после выгрузки реестра деньги списались со счёта, но не дошли до сотрудников, свяжитесь с поддержкой <em>ВТБ</em> по телефону <code>8 800 100-24-24</code> и назовите номер реестра. Банк обязан вернуть средства на счёт в течение 1 рабочего дня.</p>
+
+<h2 id="7-проверка-выплат-и-сверка-с-банком">7. Проверка выплат и сверка с банком</h2>
+
+<p>После отправки реестра в <em>ВТБ</em> остаётся самое важное — убедиться, что деньги дошли до сотрудников. Для этого:</p>
+
+<ol>
+  <li>Войдите в <strong>личный кабинет ВТБ-Бизнес</strong>.</li>
+  <li>Перейдите в раздел <code>Зарплатные проекты → История выплат</code>.</li>
+  <li>Найдите ваш реестр по дате и номеру.</li>
+  <li>Проверьте статус:
+    <ul>
+      <li>✅ <strong>Исполнен</strong> — деньги зачислены.</li>
+      <li>⏳ <strong>В обработке</strong> — ожидайте зачисления в течение дня.</li>
+      <li>❌ <strong>Отклонён</strong> — требуется исправление ошибок.</li>
+    </ol>
+  </li>
+</ol>
+
+<p>Если статус «Исполнен», но сотрудник не получил деньги, проверьте:</p>
+<ul>
+  <li>📱 Правильность номера карты (возможно, сотрудник указал старую карту).</li>
+  <li>🔒 Настройки SMS-оповещений в <em>ВТБ</em> (иногда переводы проходят без уведомления).</li>
+  <li>📅 Дату зачисления (некоторые банки зачисляют средства только в будние дни).</li>
+</ul>
+
+<p>Для сверки с банком скачайте <strong>выписку по счёту</strong> в формате <code>Excel</code> и сравните суммы с реестром в 1С. Расхождения более чем на 1% могут говорить об ошибках в начислениях.</p>
+
+<h2 id="8-автоматизация-и-полезные-доработки">8. Автоматизация и полезные доработки</h2>
+
+<p>Чтобы упростить работу с зарплатными проектами, можно настроить в 1С:</p>
+
+<ul>
+  <li>🤖 <strong>Автоматическое формирование реестров</strong> по расписанию (через <code>Администрирование → Регламентные задания</code>).</li>
+  <li>📊 <strong>Отчёты по выплатам</strong> с разбивкой по отделам (настраивается в <code>Отчёты → Зарплатные ведомости</code>).</li>
+  <li>🔄 <strong>Интеграцию с ВТБ-Бизнес</strong> для прямого обмена данными (требует дополнительной настройки в банке).</li>
+  <li>📌 <strong>Шаблоны платежных поручений</strong> для ускорения создания реестров.</li>
+</ul>
+
+<p>Если у вас более 50 сотрудников, рекомендуем использовать <strong>пакетную обработку</strong> для добавления реквизитов. Для этого:</p>
+<ol>
+  <li>Экспортируйте список сотрудников в <code>Excel</code> через <code>Файл → Выгрузить</code>.</li>
+  <li>Заполните столбцы с номерами карт и банковскими реквизитами.</li>
+  <li>Импортируйте обратно через <code>Файл → Загрузить</code>.</li>
+</ol>
+
+<p><strong>Внимание!</strong> ⚠️ При автоматической выгрузке реестров проверяйте суммы вручную перед отправкой в банк. Ошибки в начислениях (например, двойная выплата) исправить сложнее, чем предотвратить.</p>
+
+<h2 id="faq-частые-вопросы-по-настройке-зарплатного-проекта-втб-в-1с">FAQ: Частые вопросы по настройке зарплатного проекта ВТБ в 1С</h2>
+
+<details>
+  <summary>Можно ли настроить зарплатный проект ВТБ в 1С:Бухгалтерия 8.3, если у нас только базовая версия?</summary>
+  <p>Да, но с ограничениями. В базовой версии нет полноценного модуля «Зарплатные проекты», поэтому придётся формировать платежные поручения вручную через <code>Банк → Платежные поручения</code>. Для автоматизации нужен <strong>ПРОФ-версия</strong> или <em>1С:Зарплата и Управление Персоналом</em>.</p>
+</details>
+
+<details>
+  <summary>Сколько времени занимает зачисление зарплаты на карты ВТБ после отправки реестра?</summary>
+  <p>При отправке реестра до 14:00 по московскому времени деньги зачисляются в тот же день. Если позже — на следующий рабочий день. В выходные и праздники переводы не проводятся.</p>
+</details>
+
+<details>
+  <summary>Что делать, если сотрудник не получил зарплату, а в личном кабинете ВТБ статус «Исполнен»?</summary>
+  <p>Возможные причины:
+  <ul>
+    <li>Ошибка в номере карты (проверьте в 1С).</li>
+    <li>Карта заблокирована (сотрудник должен обратиться в банк).</li>
+    <li>Ошибка банка (нужно написать в поддержку <em>ВТБ</em> с номером реестра).</li>
+  </ul>
+<p>Попросите сотрудника проверить баланс через банкомат или мобильное приложение <em>ВТБ Онлайн</em>.</p></p>
+</details>
+
+<details>
+  <summary>Можно ли выплачивать зарплату на карты других банков через зарплатный проект ВТБ?</summary>
+  <p>Нет, зарплатный проект <em>ВТБ</em> предполагает переводы только на карты этого банка. Для выплат на карты <em>Сбербанка</em>, <em>Тинькофф</em> или других банков нужно настраивать отдельные проекты или использовать универсальные сервисы вроде <strong>СБП (Система быстрых платежей)</strong>.</p>
+</details>
+
+<details>
+  <summary>Как отменить ошибочный реестр, если он ещё не исполнен?</summary>
+  <p>Если реестр имеет статус «В обработке», его можно отменить в личном кабинете <em>ВТБ-Бизнес</em>:
+  <ol>
+    <li>Откройте раздел <code>Зарплатные проекты</code>.</li>
+    <li>Найдите нужный реестр и нажмите <code>Отменить</code>.</li>
+    <li>Деньги вернутся на счёт в течение 1–2 часов.</li>
+  </ol>
+<p>Если статус «Исполнен», отмена невозможна — придётся делать возврат через бухгалтерию.</p></p>
+</details></div>
+                    <!--#include virtual="/ssi/article_after.html" -->
+
+                </article>
+                <aside class="article-sidebar"><!--#include virtual="/ssi/sidebar_top.html" --><nav class="sidebar-search"><div class="sidebar-search-box"><input type="text" id="globalSearchInput" placeholder="🔍 Поиск статей..." autocomplete="off"><div class="search-dropdown" id="globalSearchDropdown"></div></div></nav><!--#include virtual="/ssi/sidebar_before_toc.html" --><nav class="sidebar-toc" id="sidebarToc"><h3>Содержание</h3><ul><li><a href="#1-подготовка-к-настройке-что-нужно-сделать-до-работы-в-1с">1. Подготовка к настройке: что нужно сделать до работы в 1С</a></li><li><a href="#2-настройка-банковских-реквизитов-в-1с">2. Настройка банковских реквизитов в 1С</a></li><li><a href="#3-создание-зарплатного-проекта-в-1с">3. Создание зарплатного проекта в 1С</a></li><li><a href="#4-добавление-сотрудников-в-зарплатный-проект">4. Добавление сотрудников в зарплатный проект</a></li><li><a href="#5-формирование-и-выгрузка-реестра-для-втб">5. Формирование и выгрузка реестра для ВТБ</a></li><li><a href="#6-типичные-ошибки-и-их-решения">6. Типичные ошибки и их решения</a></li><li><a href="#7-проверка-выплат-и-сверка-с-банком">7. Проверка выплат и сверка с банком</a></li><li><a href="#8-автоматизация-и-полезные-доработки">8. Автоматизация и полезные доработки</a></li><li><a href="#faq-частые-вопросы-по-настройке-зарплатного-проекта-втб-в-1с">FAQ: Частые вопросы по настройке зарплатного проекта ВТБ в 1С</a></li></ul></nav><!--#include virtual="/ssi/sidebar_before_related.html" --><nav class="sidebar-related"><h3>Похожие статьи</h3><ul><li><a href="/articles/v/vt/vtb-24-kak-zakryt-debetovuyu-kartu.html" class="related-card">Как закрыть дебетовую карту ВТБ 24: полная инструкция</a></li><li><a href="/articles/k/ka/kak-uznat-gotova-li-debetovaya-karta-vtb-banka.html" class="related-card">Как узнать готова ли дебетовая карта ВТБ: все способы проверки</a></li><li><a href="/articles/p/po/pochemu-wallet-ne-dobavlyaet-kartu-mir-vtb.html" class="related-card">Почему Wallet не добавляет карту «Мир» ВТБ: причины и решения</a></li><li><a href="/articles/k/ka/kakuyu-summu-mozhno-snyat-s-karty-vtb-bez-komissii.html" class="related-card">Лимиты и комиссии ВТБ: сколько можно снять без процентов</a></li><li><a href="/articles/a/ap/apple-pay-karta-mir-vtb-kak-podklyuchit.html" class="related-card">Apple Pay + карта «Мир» ВТБ: как подключить за 5 минут (2026)</a></li></ul></nav><!--#include virtual="/ssi/sidebar_after_related.html" --></aside>
+            </div>
+        </div>
+    </main>
+
+    <!--#include virtual="/ssi/before_related_bottom.html" -->
+    <section class="related-bottom">
+        <div class="container">
+            <h2 class="related-bottom-heading">📖 Читайте также</h2>
+            <div class="related-bottom-grid"><a href="/articles/v/vt/vtb-24-kak-zakryt-debetovuyu-kartu.html" class="related-bottom-card"><span class="related-bottom-title">Как закрыть дебетовую карту ВТБ 24: полная инструкция</span><span class="related-bottom-desc">Подробная инструкция, как закрыть дебетовую карту ВТБ 24 через приложение, в отделении или онлайн. С</span></a><a href="/articles/k/ka/kak-uznat-gotova-li-debetovaya-karta-vtb-banka.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать готова ли дебетовая карта ВТБ: все способы проверки</span><span class="related-bottom-desc">Подробный гид: как проверить статус дебетовой карты ВТБ. Сроки изготовления, уведомления, проверка в</span></a><a href="/articles/p/po/pochemu-wallet-ne-dobavlyaet-kartu-mir-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Почему Wallet не добавляет карту «Мир» ВТБ: причины и решения</span><span class="related-bottom-desc">Разбираемся, почему Apple Pay, Google Pay и Samsung Pay отказываются добавлять карту «Мир» от ВТБ. Т</span></a><a href="/articles/k/ka/kakuyu-summu-mozhno-snyat-s-karty-vtb-bez-komissii.html" class="related-bottom-card"><span class="related-bottom-title">Лимиты и комиссии ВТБ: сколько можно снять без процентов</span><span class="related-bottom-desc">Узнайте, какую сумму можно снять с карты ВТБ без комиссии в банкомате банка и сторонних терминалах. </span></a><a href="/articles/a/ap/apple-pay-karta-mir-vtb-kak-podklyuchit.html" class="related-bottom-card"><span class="related-bottom-title">Apple Pay + карта «Мир» ВТБ: как подключить за 5 минут (2026)</span><span class="related-bottom-desc">Пошаговая инструкция по привязке карты «Мир» от ВТБ к Apple Pay: требования, ограничения, решение ош</span></a><a href="/articles/k/ka/kak-uznat-mesto-otkrytiya-scheta-vtb.html" class="related-bottom-card"><span class="related-bottom-title">Как узнать место открытия счета ВТБ: 5 проверенных способов</span><span class="related-bottom-desc">Пошаговые инструкции, как определить отделение ВТБ, где был открыт ваш счет: через интернет-банк, мо</span></a></div>
+        </div>
+    </section>
+    <!--#include virtual="/ssi/after_related_bottom.html" -->
+
+    <footer class="site-footer-premium">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">🏦 Банки Инфо</div>
+                    <p class="footer-about">Справочник по банковским продуктам, переводам, кредитам и инвестициям.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul><li><a href="/category/karty-i-scheta/">💳 Карты и счета</a></li>
+<li><a href="/category/mobilnyj-bank/">📱 Мобильный банк</a></li>
+<li><a href="/category/perevody/">💸 Переводы</a></li>
+<li><a href="/category/kredity/">📉 Кредиты</a></li>
+<li><a href="/category/ipoteka/">🏠 Ипотека</a></li>
+<li><a href="/category/vklady/">🐷 Вклады</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about.html">О проекте</a></li>
+                        <li><a href="/categories.html">Все разделы</a></li>
+                        <li><a href="/contact.html">Контакты</a></li>
+                        <li><a href="/privacy.html">Конфиденциальность</a></li>
+                        <li><a href="/sitemap.xml">Карта сайта</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Банки Инфо. Все права защищены.</p>
+                <!--LiveInternet counter--><div style="margin-top:10px;"><a href="https://www.liveinternet.ru/click"
+                target="_blank"><img id="licnt06C4" width="88" height="15" style="border:0" 
+                title="LiveInternet: показано число посетителей за сегодня"
+                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7"
+                alt=""/></a><script>(function(d,s){d.getElementById("licnt06C4").src=
+                "https://counter.yadro.ru/hit?t26.5;r"+escape(d.referrer)+
+                ((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+
+                (s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+
+                ";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script></div><!--/LiveInternet-->
+            </div>
+        </div>
+    </footer>
+    <div id="cookie-consent" class="cookie-popup">
+        <div class="cookie-inner">
+            <span>🍪 Мы используем файлы cookie для улучшения работы сайта.</span>
+            <button id="cookie-accept" class="cookie-btn">Принять</button>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+    <script>
+    (function() {
+        const popup = document.getElementById('cookie-consent');
+        const btn = document.getElementById('cookie-accept');
+        if (popup && btn && !localStorage.getItem('cookie-accepted')) {
+            popup.classList.add('visible');
+            btn.onclick = () => {
+                localStorage.setItem('cookie-accepted', 'true');
+                popup.classList.remove('visible');
+            };
+        }
+    })();
+    </script>
+    <script>
+    function pbPollVote(el) {
+        var poll = el.closest('.poll-widget');
+        if (poll.classList.contains('voted')) return;
+        poll.classList.add('voted');
+        el.classList.add('selected');
+        var opts = poll.querySelectorAll('.poll-widget-option');
+        var n = opts.length;
+        var raw = [];
+        var sum = 0;
+        for (var i = 0; i < n; i++) {
+            var v = Math.random() * 50 + 5;
+            if (opts[i] === el) v += 30;
+            raw.push(v);
+            sum += v;
+        }
+        var pcts = raw.map(function(v) { return Math.round(v / sum * 100); });
+        var diff = 100 - pcts.reduce(function(a,b){ return a+b; }, 0);
+        pcts[Array.from(opts).indexOf(el)] += diff;
+        setTimeout(function() {
+            opts.forEach(function(opt, i) {
+                opt.querySelector('.poll-widget-bar').style.width = pcts[i] + '%';
+                opt.querySelector('.poll-widget-pct').textContent = pcts[i] + '%';
+            });
+        }, 50);
+    }
+    </script>
+    <!--#include virtual="/ssi/body_bottom.html" -->
+    <script src="/static/js/inject.js" defer></script>
+</body>
+</html>
